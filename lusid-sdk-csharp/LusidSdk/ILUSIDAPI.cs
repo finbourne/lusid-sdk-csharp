@@ -2077,7 +2077,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> TryAddClientSecurityWithHttpMessagesAsync(IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> BatchAddClientSecuritiesWithHttpMessagesAsync(IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Attempt to delete one or more client securities. Failed securities
@@ -2091,7 +2091,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> TryDeleteClientSecurityWithHttpMessagesAsync(IList<string> uids = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> BatchDeleteClientSecuritiesWithHttpMessagesAsync(IList<string> uids = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get an individual security by the unique security uid.  Optionally,

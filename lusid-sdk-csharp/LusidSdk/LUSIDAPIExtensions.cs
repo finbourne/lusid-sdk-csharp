@@ -4074,9 +4074,9 @@ namespace Finbourne
             /// </param>
             /// <param name='definitions'>
             /// </param>
-            public static object TryAddClientSecurity(this ILUSIDAPI operations, IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>))
+            public static object BatchAddClientSecurities(this ILUSIDAPI operations, IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>))
             {
-                return operations.TryAddClientSecurityAsync(definitions).GetAwaiter().GetResult();
+                return operations.BatchAddClientSecuritiesAsync(definitions).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -4091,9 +4091,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> TryAddClientSecurityAsync(this ILUSIDAPI operations, IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> BatchAddClientSecuritiesAsync(this ILUSIDAPI operations, IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.TryAddClientSecurityWithHttpMessagesAsync(definitions, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BatchAddClientSecuritiesWithHttpMessagesAsync(definitions, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4108,9 +4108,9 @@ namespace Finbourne
             /// </param>
             /// <param name='uids'>
             /// </param>
-            public static object TryDeleteClientSecurity(this ILUSIDAPI operations, IList<string> uids = default(IList<string>))
+            public static object BatchDeleteClientSecurities(this ILUSIDAPI operations, IList<string> uids = default(IList<string>))
             {
-                return operations.TryDeleteClientSecurityAsync(uids).GetAwaiter().GetResult();
+                return operations.BatchDeleteClientSecuritiesAsync(uids).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -4125,9 +4125,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> TryDeleteClientSecurityAsync(this ILUSIDAPI operations, IList<string> uids = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> BatchDeleteClientSecuritiesAsync(this ILUSIDAPI operations, IList<string> uids = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.TryDeleteClientSecurityWithHttpMessagesAsync(uids, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BatchDeleteClientSecuritiesWithHttpMessagesAsync(uids, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
