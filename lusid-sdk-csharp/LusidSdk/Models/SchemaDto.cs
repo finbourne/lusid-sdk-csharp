@@ -59,7 +59,8 @@ namespace Finbourne.Models
         /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
         /// 'UpsertConstituent', 'CreateResults', 'Results',
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'</param>
+        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
+        /// 'CreateCorporateAction'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
         {
             Entity = entity;
@@ -93,7 +94,8 @@ namespace Finbourne.Models
         /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
         /// 'UpsertConstituent', 'CreateResults', 'Results',
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'
+        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
+        /// 'CreateCorporateAction'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }

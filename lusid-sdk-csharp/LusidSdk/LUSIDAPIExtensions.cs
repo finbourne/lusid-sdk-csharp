@@ -34,6 +34,104 @@ namespace Finbourne
     public static partial class LUSIDAPIExtensions
     {
             /// <summary>
+            /// Gets a corporate action based on dates
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// Scope
+            /// </param>
+            /// <param name='sourceId'>
+            /// Corporate action source id
+            /// </param>
+            /// <param name='effectiveDate'>
+            /// Effective Date
+            /// </param>
+            /// <param name='asAt'>
+            /// AsAt Date filter
+            /// </param>
+            public static object ListCorporateActions(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            {
+                return operations.ListCorporateActionsAsync(scope, sourceId, effectiveDate, asAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a corporate action based on dates
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// Scope
+            /// </param>
+            /// <param name='sourceId'>
+            /// Corporate action source id
+            /// </param>
+            /// <param name='effectiveDate'>
+            /// Effective Date
+            /// </param>
+            /// <param name='asAt'>
+            /// AsAt Date filter
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, sourceId, effectiveDate, asAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Creates/updates a corporate action
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The intended scope of the corporate action
+            /// </param>
+            /// <param name='sourceId'>
+            /// Source of the corporate action
+            /// </param>
+            /// <param name='createRequest'>
+            /// The corporate action creation request object
+            /// </param>
+            public static object UpsertCorporateAction(this ILUSIDAPI operations, string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest))
+            {
+                return operations.UpsertCorporateActionAsync(scope, sourceId, createRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates/updates a corporate action
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The intended scope of the corporate action
+            /// </param>
+            /// <param name='sourceId'>
+            /// Source of the corporate action
+            /// </param>
+            /// <param name='createRequest'>
+            /// The corporate action creation request object
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpsertCorporateActionAsync(this ILUSIDAPI operations, string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertCorporateActionWithHttpMessagesAsync(scope, sourceId, createRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Aggregate data in a group hierarchy
             /// </summary>
             /// <param name='operations'>
@@ -3945,7 +4043,7 @@ namespace Finbourne
             /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-            /// 'ExpandedGroup'
+            /// 'ExpandedGroup', 'CreateCorporateAction'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -3976,7 +4074,7 @@ namespace Finbourne
             /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-            /// 'ExpandedGroup'
+            /// 'ExpandedGroup', 'CreateCorporateAction'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

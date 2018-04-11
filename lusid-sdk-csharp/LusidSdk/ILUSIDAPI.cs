@@ -40,8 +40,10 @@ namespace Finbourne
     /// SDKs to interact with the LUSID API are available in the following
     /// languages :
     ///
-    /// * [Python](https://github.com/finbourne/lusid-sdk-python)
+    /// * [C#](https://github.com/finbourne/lusid-sdk-csharp)
     /// * [Java](https://github.com/finbourne/lusid-sdk-java)
+    /// * [JavaScript](https://github.com/finbourne/lusid-sdk-js)
+    /// * [Python](https://github.com/finbourne/lusid-sdk-python)
     ///
     /// # Immutable Events
     ///
@@ -288,6 +290,49 @@ namespace Finbourne
         /// </summary>
         ServiceClientCredentials Credentials { get; }
 
+
+        /// <summary>
+        /// Gets a corporate action based on dates
+        /// </summary>
+        /// <param name='scope'>
+        /// Scope
+        /// </param>
+        /// <param name='sourceId'>
+        /// Corporate action source id
+        /// </param>
+        /// <param name='effectiveDate'>
+        /// Effective Date
+        /// </param>
+        /// <param name='asAt'>
+        /// AsAt Date filter
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Creates/updates a corporate action
+        /// </summary>
+        /// <param name='scope'>
+        /// The intended scope of the corporate action
+        /// </param>
+        /// <param name='sourceId'>
+        /// Source of the corporate action
+        /// </param>
+        /// <param name='createRequest'>
+        /// The corporate action creation request object
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> UpsertCorporateActionWithHttpMessagesAsync(string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Aggregate data in a group hierarchy
@@ -2023,7 +2068,8 @@ namespace Finbourne
         /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
         /// 'UpsertConstituent', 'CreateResults', 'Results',
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup'
+        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
+        /// 'CreateCorporateAction'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
