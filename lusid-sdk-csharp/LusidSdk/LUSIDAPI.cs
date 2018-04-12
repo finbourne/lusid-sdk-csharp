@@ -18382,7 +18382,8 @@ namespace Finbourne
         /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
         /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
         /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-        /// 'ExpandedGroup', 'CreateCorporateAction'
+        /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+        /// 'CorporateActionTransition'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

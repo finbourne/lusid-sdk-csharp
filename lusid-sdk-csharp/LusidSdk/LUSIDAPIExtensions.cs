@@ -4043,7 +4043,8 @@ namespace Finbourne
             /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-            /// 'ExpandedGroup', 'CreateCorporateAction'
+            /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+            /// 'CorporateActionTransition'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4074,7 +4075,8 @@ namespace Finbourne
             /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-            /// 'ExpandedGroup', 'CreateCorporateAction'
+            /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
+            /// 'CorporateActionTransition'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

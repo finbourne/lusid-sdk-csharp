@@ -44,15 +44,6 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CorporateActionEventDto class.
         /// </summary>
-        /// <param name="sourceId">Unique identifier for the corporate action
-        /// source</param>
-        /// <param name="corporateActionId">Unique identifier for the corporate
-        /// action</param>
-        /// <param name="announcementDate">The announcement date of the
-        /// corporate action</param>
-        /// <param name="exDate">The ex date of the corporate action</param>
-        /// <param name="recordDate">The record date of the corporate
-        /// action</param>
         public CorporateActionEventDto(ResourceId sourceId, string corporateActionId, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), IList<CorporateActionTransitionDto> transitions = default(IList<CorporateActionTransitionDto>))
         {
             SourceId = sourceId;
@@ -70,31 +61,26 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique identifier for the corporate action source
         /// </summary>
         [JsonProperty(PropertyName = "sourceId")]
         public ResourceId SourceId { get; set; }
 
         /// <summary>
-        /// Gets or sets unique identifier for the corporate action
         /// </summary>
         [JsonProperty(PropertyName = "corporateActionId")]
         public string CorporateActionId { get; set; }
 
         /// <summary>
-        /// Gets or sets the announcement date of the corporate action
         /// </summary>
         [JsonProperty(PropertyName = "announcementDate")]
         public System.DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the ex date of the corporate action
         /// </summary>
         [JsonProperty(PropertyName = "exDate")]
         public System.DateTimeOffset? ExDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the record date of the corporate action
         /// </summary>
         [JsonProperty(PropertyName = "recordDate")]
         public System.DateTimeOffset? RecordDate { get; set; }

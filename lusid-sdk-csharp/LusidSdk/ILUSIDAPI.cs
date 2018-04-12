@@ -2069,7 +2069,8 @@ namespace Finbourne
         /// 'UpsertConstituent', 'CreateResults', 'Results',
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
-        /// 'CreateCorporateAction'
+        /// 'CreateCorporateAction', 'CorporateAction',
+        /// 'CorporateActionTransition'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
