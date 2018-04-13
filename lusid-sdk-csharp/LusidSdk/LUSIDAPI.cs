@@ -108,8 +108,8 @@ namespace Finbourne
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | Id|SecurityUid|Unique security identifier |
-    /// | Value|Decimal|Value of the analytic, eg price |
+    /// | Id|string|Unique security identifier |
+    /// | Value|decimal|Value of the analytic, eg price |
     ///
     ///
     /// ## Security Data
@@ -119,17 +119,17 @@ namespace Finbourne
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | Uid|SecurityUid|Unique security identifier |
-    /// | EffectiveFrom|DateTimeOffset|Date from which this classification is
+    /// | Uid|string|Unique security identifier |
+    /// | EffectiveFrom|datetime|Date from which this classification is
     /// effective |
     ///
     ///
-    /// ## Portfolio
+    /// ## Portfolios
     ///
     /// A portfolio is a container for trades and/or holdings.  Meta data and
     /// classifications of portfolios can be attached via properties.
     ///
-    /// ## Derived Portfolio
+    /// ## Derived Portfolios
     ///
     /// LUSID also allows for a portfolio to be composed of another portfolio
     /// via derived portfolios.  A derived portfolio can contain its own trades
@@ -143,48 +143,76 @@ namespace Finbourne
     /// portfolio.  Analysis can then be undertaken on the derived portfolio
     /// without affecting the live portfolio.
     ///
-    /// ## Transaction
+    /// ## Transactions
     ///
     /// A transaction represents an economic activity against a Portfolio.
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | TradeId|String|Unique trade identifier |
-    /// | Type|String|LUSID transaction type code - Buy, Sell, StockIn,
+    /// | TradeId|string|Unique trade identifier |
+    /// | Type|string|LUSID transaction type code - Buy, Sell, StockIn,
     /// StockOut, etc |
-    /// | SecurityUid|SecurityUid|Unique security identifier |
-    /// | TradeDate|DateTimeOffset|Trade date |
-    /// | SettlementDate|DateTimeOffset|Settlement date |
-    /// | Units|Decimal|Quantity of trade in units of the security |
-    /// | TradePrice|Decimal|Execution price for the trade |
-    /// | TotalConsideration|Decimal|Total value of the trade |
-    /// | ExchangeRate|Nullable`1|Rate between trade and settle currency |
-    /// | SettlementCurrency|String|Settlement currency |
-    /// | TradeCurrency|String|Trade currency |
-    /// | CounterpartyId|String|Counterparty identifier |
-    /// | Source|TradeSource|Where this trade came from, either Client or
-    /// System |
-    /// | DividendState|DividendState|  |
-    /// | TradePriceType|TradePriceType|  |
-    /// | UnitType|UnitType|  |
-    /// | NettingSet|String|  |
+    /// | SecurityUid|string|Unique security identifier |
+    /// | TradeDate|datetime|Trade date |
+    /// | SettlementDate|datetime|Settlement date |
+    /// | Units|decimal|Quantity of trade in units of the security |
+    /// | TradePrice|decimal|Execution price for the trade |
+    /// | TotalConsideration|decimal|Total value of the trade |
+    /// | ExchangeRate|decimal|Rate between trade and settle currency |
+    /// | SettlementCurrency|string|Settlement currency |
+    /// | TradeCurrency|string|Trade currency |
+    /// | CounterpartyId|string|Counterparty identifier |
+    /// | Source|string|Where this trade came from, either Client or System |
+    /// | DividendState|string|  |
+    /// | TradePriceType|string|  |
+    /// | UnitType|string|  |
+    /// | NettingSet|string|  |
     ///
     ///
-    /// ## Holding
+    /// ## Holdings
     ///
     /// A holding represents a position in a security or cash on a given date.
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | SecurityUid|SecurityUid|Unique security identifier |
-    /// | HoldingType|String|Type of holding, eg Position, Balance,
+    /// | SecurityUid|string|Unique security identifier |
+    /// | HoldingType|string|Type of holding, eg Position, Balance,
     /// CashCommitment, Receivable, ForwardFX |
-    /// | Units|Decimal|Quantity of holding |
-    /// | SettledUnits|Decimal|Settled quantity of holding |
-    /// | Cost|Decimal|Book cost of holding in trade currency |
-    /// | CostPortfolioCcy|Decimal|Book cost of holding in portfolio currency |
+    /// | Units|decimal|Quantity of holding |
+    /// | SettledUnits|decimal|Settled quantity of holding |
+    /// | Cost|decimal|Book cost of holding in trade currency |
+    /// | CostPortfolioCcy|decimal|Book cost of holding in portfolio currency |
     /// | Transaction|TradeDto|If this is commitment-type holding, the
     /// transaction behind it |
+    ///
+    ///
+    /// ## Corporate Actions
+    ///
+    /// Corporate actions are represented within LUSID in terms of a set of
+    /// security-specific 'transitions'.  These transitions are used to specify
+    /// the participants of the corporate action, and the effect that the
+    /// corporate action will have on holdings in those participants.
+    ///
+    /// *Corporate action*
+    ///
+    /// | Field|Type|Description |
+    /// | ---|---|--- |
+    /// | SourceId|id|  |
+    /// | CorporateActionId|code|  |
+    /// | AnnouncementDate|datetime|  |
+    /// | ExDate|datetime|  |
+    /// | RecordDate|datetime|  |
+    ///
+    ///
+    ///
+    /// *Transition*
+    ///
+    /// | Field|Type|Description |
+    /// | ---|---|--- |
+    /// | Direction|string|  |
+    /// | SecurityUid|string|  |
+    /// | UnitsFactor|decimal|  |
+    /// | CostFactor|decimal|  |
     ///
     ///
     /// ## Property
@@ -8714,6 +8742,9 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Update portfolio
+        /// </summary>
         /// <param name='scope'>
         /// The scope of the portfolio to be updated
         /// </param>
@@ -9163,8 +9194,11 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Gets all commands that modified the portfolio(s) with the specified id.
+        /// Get modifications
         /// </summary>
+        /// <remarks>
+        /// Gets all commands that modified the portfolio
+        /// </remarks>
         /// <param name='scope'>
         /// The scope of the portfolio
         /// </param>
@@ -10868,7 +10902,7 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Create properties
+        /// Update properties
         /// </summary>
         /// <remarks>
         /// Create one or more properties on a portfolio
@@ -11846,7 +11880,7 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Add/updates trades in a portfolio
+        /// Add/update trades
         /// </summary>
         /// <param name='scope'>
         /// The scope of the portfolio

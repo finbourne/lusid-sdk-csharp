@@ -1801,6 +1801,9 @@ namespace Finbourne
                 }
             }
 
+            /// <summary>
+            /// Update portfolio
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1821,6 +1824,9 @@ namespace Finbourne
                 return operations.UpdatePortfolioAsync(scope, code, request, effectiveAt).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Update portfolio
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1900,8 +1906,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Gets all commands that modified the portfolio(s) with the specified id.
+            /// Get modifications
             /// </summary>
+            /// <remarks>
+            /// Gets all commands that modified the portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1928,8 +1937,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Gets all commands that modified the portfolio(s) with the specified id.
+            /// Get modifications
             /// </summary>
+            /// <remarks>
+            /// Gets all commands that modified the portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2362,7 +2374,7 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Create properties
+            /// Update properties
             /// </summary>
             /// <remarks>
             /// Create one or more properties on a portfolio
@@ -2387,7 +2399,7 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Create properties
+            /// Update properties
             /// </summary>
             /// <remarks>
             /// Create one or more properties on a portfolio
@@ -2612,7 +2624,7 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add/updates trades in a portfolio
+            /// Add/update trades
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2632,7 +2644,7 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add/updates trades in a portfolio
+            /// Add/update trades
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
