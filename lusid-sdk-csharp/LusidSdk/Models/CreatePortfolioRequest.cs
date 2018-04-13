@@ -39,12 +39,13 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreatePortfolioRequest class.
         /// </summary>
-        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId))
         {
             Name = name;
             Code = code;
             Created = created;
             BaseCurrency = baseCurrency;
+            CorporateActionSourceId = corporateActionSourceId;
             CustomInit();
         }
 
@@ -72,6 +73,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "baseCurrency")]
         public string BaseCurrency { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "corporateActionSourceId")]
+        public ResourceId CorporateActionSourceId { get; set; }
 
         /// <summary>
         /// Validate the object.
