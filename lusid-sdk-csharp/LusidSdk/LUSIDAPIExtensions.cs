@@ -661,6 +661,102 @@ namespace Finbourne
                 }
             }
 
+            /// <summary>
+            /// Adds a new transaction code movement to the list of existing codes
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='code'>
+            /// transaction code to add
+            /// </param>
+            public static object AddTransactionCode(this ILUSIDAPI operations, TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto))
+            {
+                return operations.AddTransactionCodeAsync(code).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Adds a new transaction code movement to the list of existing codes
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='code'>
+            /// transaction code to add
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> AddTransactionCodeAsync(this ILUSIDAPI operations, TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddTransactionCodeWithHttpMessagesAsync(code, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the list of persisted transaction codes
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static object GetTransactionCodes(this ILUSIDAPI operations)
+            {
+                return operations.GetTransactionCodesAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the list of persisted transaction codes
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> GetTransactionCodesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTransactionCodesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Uploads a list of transation codes to be used by the movements engine
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='codes'>
+            /// Codes to be uploaded
+            /// </param>
+            public static object UploadTransactionCodes(this ILUSIDAPI operations, IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>))
+            {
+                return operations.UploadTransactionCodesAsync(codes).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Uploads a list of transation codes to be used by the movements engine
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='codes'>
+            /// Codes to be uploaded
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UploadTransactionCodesAsync(this ILUSIDAPI operations, IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UploadTransactionCodesWithHttpMessagesAsync(codes, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4056,7 +4152,7 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition'
+            /// 'CorporateActionTransition', 'TransactionCodeMovements'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4088,7 +4184,7 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition'
+            /// 'CorporateActionTransition', 'TransactionCodeMovements'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

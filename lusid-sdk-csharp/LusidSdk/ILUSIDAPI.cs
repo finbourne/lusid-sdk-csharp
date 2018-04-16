@@ -591,6 +591,46 @@ namespace Finbourne
         /// </param>
         Task<HttpOperationResponse<object>> UpsertClassificationWithHttpMessagesAsync(IList<SecurityClassificationDto> classifications = default(IList<SecurityClassificationDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <summary>
+        /// Adds a new transaction code movement to the list of existing codes
+        /// </summary>
+        /// <param name='code'>
+        /// transaction code to add
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets the list of persisted transaction codes
+        /// </summary>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> GetTransactionCodesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Uploads a list of transation codes to be used by the movements
+        /// engine
+        /// </summary>
+        /// <param name='codes'>
+        /// Codes to be uploaded
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
         /// <param name='version'>
         /// </param>
         /// <param name='customHeaders'>
@@ -2103,7 +2143,7 @@ namespace Finbourne
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition'
+        /// 'CorporateActionTransition', 'TransactionCodeMovements'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
