@@ -2664,14 +2664,15 @@ namespace Finbourne
             /// <param name='limit'>
             /// How many items to return from the set
             /// </param>
-            /// <param name='propertyFilter'>
+            /// <param name='securityPropertyKeys'>
+            /// Keys for the security properties to be decorated onto the trades
             /// </param>
             /// <param name='filter'>
             /// Trade filter
             /// </param>
-            public static object GetTrades(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), string filter = default(string))
+            public static object GetTrades(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string))
             {
-                return operations.GetTradesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, propertyFilter, filter).GetAwaiter().GetResult();
+                return operations.GetTradesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, securityPropertyKeys, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2703,7 +2704,8 @@ namespace Finbourne
             /// <param name='limit'>
             /// How many items to return from the set
             /// </param>
-            /// <param name='propertyFilter'>
+            /// <param name='securityPropertyKeys'>
+            /// Keys for the security properties to be decorated onto the trades
             /// </param>
             /// <param name='filter'>
             /// Trade filter
@@ -2711,9 +2713,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetTradesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetTradesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTradesWithHttpMessagesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, propertyFilter, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetTradesWithHttpMessagesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, securityPropertyKeys, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

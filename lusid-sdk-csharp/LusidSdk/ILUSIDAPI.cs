@@ -1485,7 +1485,8 @@ namespace Finbourne
         /// <param name='limit'>
         /// How many items to return from the set
         /// </param>
-        /// <param name='propertyFilter'>
+        /// <param name='securityPropertyKeys'>
+        /// Keys for the security properties to be decorated onto the trades
         /// </param>
         /// <param name='filter'>
         /// Trade filter
@@ -1496,7 +1497,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add/update trades

@@ -12134,7 +12134,8 @@ namespace Finbourne
         /// <param name='limit'>
         /// How many items to return from the set
         /// </param>
-        /// <param name='propertyFilter'>
+        /// <param name='securityPropertyKeys'>
+        /// Keys for the security properties to be decorated onto the trades
         /// </param>
         /// <param name='filter'>
         /// Trade filter
@@ -12160,7 +12161,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12185,7 +12186,7 @@ namespace Finbourne
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
-                tracingParameters.Add("propertyFilter", propertyFilter);
+                tracingParameters.Add("securityPropertyKeys", securityPropertyKeys);
                 tracingParameters.Add("filter", filter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetTrades", tracingParameters);
@@ -12230,17 +12231,17 @@ namespace Finbourne
             {
                 _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
             }
-            if (propertyFilter != null)
+            if (securityPropertyKeys != null)
             {
-                if (propertyFilter.Count == 0)
+                if (securityPropertyKeys.Count == 0)
                 {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
+                    _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
                 }
                 else
                 {
-                    foreach (var _item in propertyFilter)
+                    foreach (var _item in securityPropertyKeys)
                     {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
+                        _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
                     }
                 }
             }
