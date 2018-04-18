@@ -72,7 +72,7 @@ namespace LusidSdk.Tests
                     Assert.Fail(error.DetailedMessage);
                     break;
                 case T value:
-                    return (T) value;
+                    return value;
                 default:
                     Assert.Fail($"unknown response: {response.GetType()}");
                     break;
@@ -140,7 +140,7 @@ namespace LusidSdk.Tests
             var property = new PropertyDto(propertyKey, propertyValue);
 
             //    add the portfolio property
-            var upsertResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<PropertyDto> {property}, portfolio.Created);
+            var upsertResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<PropertyDto> {property}, portfolio?.Created);
             var propertiesResult = AssertResponseIsNotError<PortfolioPropertiesDto>(upsertResult);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
