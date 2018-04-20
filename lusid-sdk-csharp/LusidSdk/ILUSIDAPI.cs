@@ -603,7 +603,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TxnMetaDataDto code = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the list of persisted transaction codes
@@ -629,7 +629,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='version'>
         /// </param>
@@ -1739,7 +1739,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding'
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -1763,7 +1763,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding'
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -1786,7 +1786,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding'
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -1811,7 +1811,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding'
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -1832,7 +1832,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding'
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -1853,7 +1853,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding'
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -2144,7 +2144,7 @@ namespace Finbourne
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition', 'TransactionCodeMovements'
+        /// 'CorporateActionTransition'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

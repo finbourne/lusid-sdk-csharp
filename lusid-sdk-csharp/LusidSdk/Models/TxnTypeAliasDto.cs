@@ -24,34 +24,27 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class TransactionCodeMovementsDto
+    public partial class TxnTypeAliasDto
     {
         /// <summary>
-        /// Initializes a new instance of the TransactionCodeMovementsDto
-        /// class.
+        /// Initializes a new instance of the TxnTypeAliasDto class.
         /// </summary>
-        public TransactionCodeMovementsDto()
+        public TxnTypeAliasDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the TransactionCodeMovementsDto
-        /// class.
+        /// Initializes a new instance of the TxnTypeAliasDto class.
         /// </summary>
-        /// <param name="code">The transaction code</param>
-        /// <param name="description">The transaction code description</param>
-        /// <param name="movements">Movement data for the transaction
-        /// code</param>
-        public TransactionCodeMovementsDto(string code, string description, IList<MovementDataDto> movements)
+        /// <param name="type">Transaction Code</param>
+        /// <param name="description">Transaction Code description</param>
+        public TxnTypeAliasDto(string type, string description)
         {
-            Code = code;
+            Type = type;
             Description = description;
-            Movements = movements;
             CustomInit();
         }
 
@@ -61,22 +54,16 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the transaction code
+        /// Gets or sets transaction Code
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the transaction code description
+        /// Gets or sets transaction Code description
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets movement data for the transaction code
-        /// </summary>
-        [JsonProperty(PropertyName = "movements")]
-        public IList<MovementDataDto> Movements { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -86,27 +73,13 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Code == null)
+            if (Type == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Type");
             }
             if (Description == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Description");
-            }
-            if (Movements == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Movements");
-            }
-            if (Movements != null)
-            {
-                foreach (var element in Movements)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
             }
         }
     }

@@ -3355,7 +3355,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TxnMetaDataDto code = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (code != null)
             {
@@ -3455,7 +3455,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TransactionCodeMovementsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<TxnMetaDataDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3617,7 +3617,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TransactionCodeMovementsDto>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TxnMetaDataDto>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3693,7 +3693,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (codes != null)
             {
@@ -3799,7 +3799,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TransactionCodeMovementsDto>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TxnMetaDataDto>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14842,7 +14842,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding'
+        /// 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -15081,7 +15081,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding'
+        /// 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -15320,7 +15320,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding'
+        /// 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -15567,7 +15567,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding'
+        /// 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -15791,7 +15791,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding'
+        /// 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -16012,7 +16012,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding'
+        /// 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
         /// </param>
@@ -18938,7 +18938,7 @@ namespace Finbourne
         /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
         /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
         /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition', 'TransactionCodeMovements'
+        /// 'CorporateActionTransition'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

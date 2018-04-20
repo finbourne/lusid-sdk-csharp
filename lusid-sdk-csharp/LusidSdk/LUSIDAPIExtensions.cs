@@ -670,7 +670,7 @@ namespace Finbourne
             /// <param name='code'>
             /// transaction code to add
             /// </param>
-            public static object AddTransactionCode(this ILUSIDAPI operations, TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto))
+            public static object AddTransactionCode(this ILUSIDAPI operations, TxnMetaDataDto code = default(TxnMetaDataDto))
             {
                 return operations.AddTransactionCodeAsync(code).GetAwaiter().GetResult();
             }
@@ -687,7 +687,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddTransactionCodeAsync(this ILUSIDAPI operations, TransactionCodeMovementsDto code = default(TransactionCodeMovementsDto), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddTransactionCodeAsync(this ILUSIDAPI operations, TxnMetaDataDto code = default(TxnMetaDataDto), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddTransactionCodeWithHttpMessagesAsync(code, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -732,7 +732,7 @@ namespace Finbourne
             /// <param name='codes'>
             /// Codes to be uploaded
             /// </param>
-            public static object UploadTransactionCodes(this ILUSIDAPI operations, IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>))
+            public static object UploadTransactionCodes(this ILUSIDAPI operations, IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>))
             {
                 return operations.UploadTransactionCodesAsync(codes).GetAwaiter().GetResult();
             }
@@ -749,7 +749,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> UploadTransactionCodesAsync(this ILUSIDAPI operations, IList<TransactionCodeMovementsDto> codes = default(IList<TransactionCodeMovementsDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> UploadTransactionCodesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UploadTransactionCodesWithHttpMessagesAsync(codes, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3265,7 +3265,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -3288,7 +3288,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -3317,7 +3317,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -3340,7 +3340,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -3369,7 +3369,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3394,7 +3394,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3425,7 +3425,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3446,7 +3446,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3473,7 +3473,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3494,7 +3494,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3521,7 +3521,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -3540,7 +3540,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding'
+            /// 'ReferenceHolding', 'TxnType'
             /// </param>
             /// <param name='scope'>
             /// </param>
@@ -4154,7 +4154,7 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition', 'TransactionCodeMovements'
+            /// 'CorporateActionTransition'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4186,7 +4186,7 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition', 'TransactionCodeMovements'
+            /// 'CorporateActionTransition'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

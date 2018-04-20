@@ -23,33 +23,35 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class MovementDataDto
+    public partial class TxnMovementMetaDataDto
     {
         /// <summary>
-        /// Initializes a new instance of the MovementDataDto class.
+        /// Initializes a new instance of the TxnMovementMetaDataDto class.
         /// </summary>
-        public MovementDataDto()
+        public TxnMovementMetaDataDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the MovementDataDto class.
+        /// Initializes a new instance of the TxnMovementMetaDataDto class.
         /// </summary>
         /// <param name="movementTypes">The movement types. Possible values
         /// include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment',
         /// 'Receivable', 'CashSettlement', 'Accrual'</param>
         /// <param name="side">The Side. Possible values include: 'Side1',
         /// 'Side2', 'BondInt'</param>
-        /// <param name="flags">The Flags</param>
-        public MovementDataDto(string movementTypes, string side, int direction, string flags)
+        public TxnMovementMetaDataDto(string movementTypes, string side, int direction, IList<PropertyDto> properties = default(IList<PropertyDto>), IList<TxnPropertyMappingDto> mappings = default(IList<TxnPropertyMappingDto>))
         {
             MovementTypes = movementTypes;
             Side = side;
             Direction = direction;
-            Flags = flags;
+            Properties = properties;
+            Mappings = mappings;
             CustomInit();
         }
 
@@ -78,10 +80,14 @@ namespace Finbourne.Models
         public int Direction { get; private set; }
 
         /// <summary>
-        /// Gets the Flags
         /// </summary>
-        [JsonProperty(PropertyName = "flags")]
-        public string Flags { get; private set; }
+        [JsonProperty(PropertyName = "properties")]
+        public IList<PropertyDto> Properties { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "mappings")]
+        public IList<TxnPropertyMappingDto> Mappings { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -91,6 +97,26 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (Properties != null)
+            {
+                foreach (var element in Properties)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (Mappings != null)
+            {
+                foreach (var element1 in Mappings)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
         }
     }
 }
