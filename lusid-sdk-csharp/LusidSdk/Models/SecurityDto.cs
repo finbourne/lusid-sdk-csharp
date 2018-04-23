@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the SecurityDto class.
         /// </summary>
-        public SecurityDto(string href = default(string), string uid = default(string), VersionDto version = default(VersionDto), string commonName = default(string), SecurityDtoAliases aliases = default(SecurityDtoAliases), IDictionary<string, Property> properties = default(IDictionary<string, Property>), IList<Link> _links = default(IList<Link>))
+        public SecurityDto(string href = default(string), string uid = default(string), VersionDto version = default(VersionDto), string commonName = default(string), SecurityDtoAliases aliases = default(SecurityDtoAliases), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
             Uid = uid;
@@ -85,7 +85,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, Property> Properties { get; set; }
+        public IList<PropertyDto> Properties { get; set; }
 
         /// <summary>
         /// </summary>
