@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -55,32 +56,35 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets the Side
+        /// Gets or sets the Side
         /// </summary>
         [JsonProperty(PropertyName = "propertyKey")]
-        public string PropertyKey { get; private set; }
+        public string PropertyKey { get; set; }
 
         /// <summary>
-        /// Gets the Side
+        /// Gets or sets the Side
         /// </summary>
         [JsonProperty(PropertyName = "mapFrom")]
-        public string MapFrom { get; private set; }
+        public string MapFrom { get; set; }
 
         /// <summary>
-        /// Gets the Side
+        /// Gets or sets the Side
         /// </summary>
         [JsonProperty(PropertyName = "setTo")]
-        public object SetTo { get; private set; }
+        public object SetTo { get; set; }
 
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// <exception cref="ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
+            if (PropertyKey == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "PropertyKey");
+            }
         }
     }
 }

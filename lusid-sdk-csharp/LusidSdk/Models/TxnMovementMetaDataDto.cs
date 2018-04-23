@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -61,42 +62,51 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets the movement types. Possible values include: 'Settlement',
-        /// 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
+        /// Gets or sets the movement types. Possible values include:
+        /// 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
         /// 'CashSettlement', 'Accrual'
         /// </summary>
         [JsonProperty(PropertyName = "movementTypes")]
-        public string MovementTypes { get; private set; }
+        public string MovementTypes { get; set; }
 
         /// <summary>
-        /// Gets the Side. Possible values include: 'Side1', 'Side2', 'BondInt'
+        /// Gets or sets the Side. Possible values include: 'Side1', 'Side2',
+        /// 'BondInt'
         /// </summary>
         [JsonProperty(PropertyName = "side")]
-        public string Side { get; private set; }
+        public string Side { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "direction")]
-        public int Direction { get; private set; }
+        public int Direction { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<PropertyDto> Properties { get; private set; }
+        public IList<PropertyDto> Properties { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "mappings")]
-        public IList<TxnPropertyMappingDto> Mappings { get; private set; }
+        public IList<TxnPropertyMappingDto> Mappings { get; set; }
 
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// <exception cref="ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
+            if (MovementTypes == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "MovementTypes");
+            }
+            if (Side == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Side");
+            }
             if (Properties != null)
             {
                 foreach (var element in Properties)
