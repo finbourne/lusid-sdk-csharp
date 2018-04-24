@@ -592,10 +592,9 @@ namespace Finbourne
         Task<HttpOperationResponse<object>> UpsertClassificationWithHttpMessagesAsync(IList<SecurityClassificationDto> classifications = default(IList<SecurityClassificationDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Adds a new transaction code movement to the list of existing codes
+        /// Adds a new transaction type movement to the list of existing types
         /// </summary>
-        /// <param name='code'>
-        /// transaction code to add
+        /// <param name='type'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -603,10 +602,10 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TxnMetaDataDto code = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddTransactionTypeWithHttpMessagesAsync(TxnMetaDataDto type = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Gets the list of persisted transaction codes
+        /// Gets the list of persisted transaction types
         /// </summary>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -614,14 +613,13 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetTransactionCodesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Uploads a list of transation codes to be used by the movements
+        /// Uploads a list of transaction types to be used by the movements
         /// engine
         /// </summary>
-        /// <param name='codes'>
-        /// Codes to be uploaded
+        /// <param name='types'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -629,7 +627,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> UploadTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='version'>
         /// </param>
@@ -1374,16 +1372,13 @@ namespace Finbourne
         /// </param>
         /// <param name='limit'>
         /// </param>
-        /// <param name='propertyFilter'>
-        /// Property to filter the results by
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update properties

@@ -662,52 +662,50 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Adds a new transaction code movement to the list of existing codes
+            /// Adds a new transaction type movement to the list of existing types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='code'>
-            /// transaction code to add
+            /// <param name='type'>
             /// </param>
-            public static object AddTransactionCode(this ILUSIDAPI operations, TxnMetaDataDto code = default(TxnMetaDataDto))
+            public static object AddTransactionType(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto))
             {
-                return operations.AddTransactionCodeAsync(code).GetAwaiter().GetResult();
+                return operations.AddTransactionTypeAsync(type).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Adds a new transaction code movement to the list of existing codes
+            /// Adds a new transaction type movement to the list of existing types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='code'>
-            /// transaction code to add
+            /// <param name='type'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddTransactionCodeAsync(this ILUSIDAPI operations, TxnMetaDataDto code = default(TxnMetaDataDto), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddTransactionTypeAsync(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AddTransactionCodeWithHttpMessagesAsync(code, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddTransactionTypeWithHttpMessagesAsync(type, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Gets the list of persisted transaction codes
+            /// Gets the list of persisted transaction types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static object GetTransactionCodes(this ILUSIDAPI operations)
+            public static object GetTransactionTypes(this ILUSIDAPI operations)
             {
-                return operations.GetTransactionCodesAsync().GetAwaiter().GetResult();
+                return operations.GetTransactionTypesAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets the list of persisted transaction codes
+            /// Gets the list of persisted transaction types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -715,43 +713,41 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetTransactionCodesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTransactionCodesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Uploads a list of transation codes to be used by the movements engine
+            /// Uploads a list of transaction types to be used by the movements engine
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codes'>
-            /// Codes to be uploaded
+            /// <param name='types'>
             /// </param>
-            public static object UploadTransactionCodes(this ILUSIDAPI operations, IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>))
+            public static object UploadTransactionTypes(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>))
             {
-                return operations.UploadTransactionCodesAsync(codes).GetAwaiter().GetResult();
+                return operations.UploadTransactionTypesAsync(types).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Uploads a list of transation codes to be used by the movements engine
+            /// Uploads a list of transaction types to be used by the movements engine
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codes'>
-            /// Codes to be uploaded
+            /// <param name='types'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> UploadTransactionCodesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> UploadTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UploadTransactionCodesWithHttpMessagesAsync(codes, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UploadTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2417,12 +2413,9 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            /// <param name='propertyFilter'>
-            /// Property to filter the results by
-            /// </param>
-            public static object GetProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>))
+            public static object GetProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
-                return operations.GetPropertiesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, propertyFilter).GetAwaiter().GetResult();
+                return operations.GetPropertiesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2455,15 +2448,12 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            /// <param name='propertyFilter'>
-            /// Property to filter the results by
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetPropertiesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetPropertiesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPropertiesWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, propertyFilter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPropertiesWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

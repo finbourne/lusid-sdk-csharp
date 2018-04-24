@@ -701,7 +701,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<CorporateActionEventDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<CorporateActionEventDto>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -869,7 +869,7 @@ namespace Finbourne
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 201 && (int)_statusCode != 400 && (int)_statusCode != 500)
+            if ((int)_statusCode != 200 && (int)_statusCode != 400 && (int)_statusCode != 500)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 if (_httpResponse.Content != null) {
@@ -896,7 +896,7 @@ namespace Finbourne
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
-            if ((int)_statusCode == 201)
+            if ((int)_statusCode == 200)
             {
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
@@ -3335,10 +3335,9 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Adds a new transaction code movement to the list of existing codes
+        /// Adds a new transaction type movement to the list of existing types
         /// </summary>
-        /// <param name='code'>
-        /// transaction code to add
+        /// <param name='type'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3355,11 +3354,11 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> AddTransactionCodeWithHttpMessagesAsync(TxnMetaDataDto code = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> AddTransactionTypeWithHttpMessagesAsync(TxnMetaDataDto type = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (code != null)
+            if (type != null)
             {
-                code.Validate();
+                type.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3368,9 +3367,9 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("code", code);
+                tracingParameters.Add("type", type);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "AddTransactionCode", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "AddTransactionType", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -3397,9 +3396,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(code != null)
+            if(type != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(code, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(type, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -3511,7 +3510,7 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Gets the list of persisted transaction codes
+        /// Gets the list of persisted transaction types
         /// </summary>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3528,7 +3527,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetTransactionCodesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3538,7 +3537,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetTransactionCodes", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "GetTransactionTypes", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -3673,10 +3672,9 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Uploads a list of transation codes to be used by the movements engine
+        /// Uploads a list of transaction types to be used by the movements engine
         /// </summary>
-        /// <param name='codes'>
-        /// Codes to be uploaded
+        /// <param name='types'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3693,11 +3691,11 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> UploadTransactionCodesWithHttpMessagesAsync(IList<TxnMetaDataDto> codes = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> UploadTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (codes != null)
+            if (types != null)
             {
-                foreach (var element in codes)
+                foreach (var element in types)
                 {
                     if (element != null)
                     {
@@ -3712,9 +3710,9 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("codes", codes);
+                tracingParameters.Add("types", types);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "UploadTransactionCodes", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "UploadTransactionTypes", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -3741,9 +3739,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(codes != null)
+            if(types != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(codes, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(types, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -11168,9 +11166,6 @@ namespace Finbourne
         /// </param>
         /// <param name='limit'>
         /// </param>
-        /// <param name='propertyFilter'>
-        /// Property to filter the results by
-        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -11192,7 +11187,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> propertyFilter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -11216,7 +11211,6 @@ namespace Finbourne
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
-                tracingParameters.Add("propertyFilter", propertyFilter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetProperties", tracingParameters);
             }
@@ -11255,20 +11249,6 @@ namespace Finbourne
             if (limit != null)
             {
                 _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
-            }
-            if (propertyFilter != null)
-            {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
             }
             if (_queryParameters.Count > 0)
             {
