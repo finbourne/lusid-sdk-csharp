@@ -73,7 +73,8 @@ namespace Finbourne.Models
         /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
         /// 'DuplicateIdFailure', 'CommandRetrievalFailure',
-        /// 'DataFilterApplicationFailure', 'SearchFailed', 'Unknown'</param>
+        /// 'DataFilterApplicationFailure', 'SearchFailed',
+        /// 'MovementsEngineConfigurationKeyFailure', 'Unknown'</param>
         /// <param name="message">The non-technical-user friendly message
         /// describing the error and how it might be remedied.</param>
         /// <param name="detailedMessage">A technical error message that
@@ -137,7 +138,8 @@ namespace Finbourne.Models
         /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
         /// 'DuplicateIdFailure', 'CommandRetrievalFailure',
-        /// 'DataFilterApplicationFailure', 'SearchFailed', 'Unknown'
+        /// 'DataFilterApplicationFailure', 'SearchFailed',
+        /// 'MovementsEngineConfigurationKeyFailure', 'Unknown'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

@@ -233,8 +233,8 @@ namespace Finbourne
     /// check the pattern your provided. |
     /// | &lt;a name="101"&gt;101&lt;/a&gt;|NonRecursivePersonalisation|  |
     /// | &lt;a name="102"&gt;102&lt;/a&gt;|VersionNotFound|  |
-    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityByCodeNotFound|  |
-    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityByCodeNotFound|  |
+    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityNotFound|  |
+    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityNotFound|  |
     /// | &lt;a name="105"&gt;105&lt;/a&gt;|PropertyNotFound|  |
     /// | &lt;a name="106"&gt;106&lt;/a&gt;|PortfolioRecursionDepth|  |
     /// | &lt;a name="108"&gt;108&lt;/a&gt;|GroupNotFound|  |
@@ -295,6 +295,8 @@ namespace Finbourne
     /// | &lt;a name="180"&gt;180&lt;/a&gt;|CommandRetrievalFailure|  |
     /// | &lt;a name="181"&gt;181&lt;/a&gt;|DataFilterApplicationFailure|  |
     /// | &lt;a name="182"&gt;182&lt;/a&gt;|SearchFailed|  |
+    /// | &lt;a
+    /// name="183"&gt;183&lt;/a&gt;|MovementsEngineConfigurationKeyFailure|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
     /// </summary>
@@ -3373,7 +3375,7 @@ namespace Finbourne
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/configuration/addtransactioncode").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/configuration/transactiontype").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3541,7 +3543,7 @@ namespace Finbourne
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/configuration/gettransactioncodes").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/configuration/transactiontypes").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3716,7 +3718,7 @@ namespace Finbourne
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/configuration/uploadtransactioncodes").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/configuration/transactiontypes").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
