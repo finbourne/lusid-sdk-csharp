@@ -61,7 +61,8 @@ namespace Finbourne.Models
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition'</param>
+        /// 'CorporateActionTransition', 'ReconciliationRequest',
+        /// 'ReconciliationBreak'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
         {
             Entity = entity;
@@ -97,7 +98,8 @@ namespace Finbourne.Models
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition'
+        /// 'CorporateActionTransition', 'ReconciliationRequest',
+        /// 'ReconciliationBreak'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }

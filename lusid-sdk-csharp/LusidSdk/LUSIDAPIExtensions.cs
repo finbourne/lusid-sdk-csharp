@@ -3722,6 +3722,38 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Perform a reconciliation between two portfolios
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            public static object PerformReconciliation(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest))
+            {
+                return operations.PerformReconciliationAsync(request).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Perform a reconciliation between two portfolios
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> PerformReconciliationAsync(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PerformReconciliationWithHttpMessagesAsync(request, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get all reference portfolios in a scope
             /// </summary>
             /// <param name='operations'>
@@ -4144,7 +4176,7 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition'
+            /// 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4176,7 +4208,7 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition'
+            /// 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

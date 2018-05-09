@@ -1941,6 +1941,19 @@ namespace Finbourne
         Task<HttpOperationResponse<object>> UpdatePropertyDataFormatWithHttpMessagesAsync(string scope, string name, UpdatePropertyDataFormatRequest request = default(UpdatePropertyDataFormatRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Perform a reconciliation between two portfolios
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> PerformReconciliationWithHttpMessagesAsync(ReconciliationRequest request = default(ReconciliationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get all reference portfolios in a scope
         /// </summary>
         /// <param name='scope'>
@@ -2141,7 +2154,8 @@ namespace Finbourne
         /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition'
+        /// 'CorporateActionTransition', 'ReconciliationRequest',
+        /// 'ReconciliationBreak'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
