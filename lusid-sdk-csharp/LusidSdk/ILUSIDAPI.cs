@@ -1528,9 +1528,6 @@ namespace Finbourne
         /// <param name='code'>
         /// Code for the portfolio
         /// </param>
-        /// <param name='cancelDate'>
-        /// Date on which trades are deleted
-        /// </param>
         /// <param name='id'>
         /// Ids of trades to delete
         /// </param>
@@ -1540,7 +1537,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> DeleteTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset cancelDate, IList<string> id = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteTradesWithHttpMessagesAsync(string scope, string code, IList<string> id = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add/update trade properties

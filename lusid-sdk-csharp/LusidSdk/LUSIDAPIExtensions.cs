@@ -2772,15 +2772,12 @@ namespace Finbourne
             /// <param name='code'>
             /// Code for the portfolio
             /// </param>
-            /// <param name='cancelDate'>
-            /// Date on which trades are deleted
-            /// </param>
             /// <param name='id'>
             /// Ids of trades to delete
             /// </param>
-            public static object DeleteTrades(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset cancelDate, IList<string> id = default(IList<string>))
+            public static object DeleteTrades(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>))
             {
-                return operations.DeleteTradesAsync(scope, code, cancelDate, id).GetAwaiter().GetResult();
+                return operations.DeleteTradesAsync(scope, code, id).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2798,18 +2795,15 @@ namespace Finbourne
             /// <param name='code'>
             /// Code for the portfolio
             /// </param>
-            /// <param name='cancelDate'>
-            /// Date on which trades are deleted
-            /// </param>
             /// <param name='id'>
             /// Ids of trades to delete
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> DeleteTradesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset cancelDate, IList<string> id = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> DeleteTradesAsync(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteTradesWithHttpMessagesAsync(scope, code, cancelDate, id, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteTradesWithHttpMessagesAsync(scope, code, id, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

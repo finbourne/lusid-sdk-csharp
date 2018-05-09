@@ -12618,9 +12618,6 @@ namespace Finbourne
         /// <param name='code'>
         /// Code for the portfolio
         /// </param>
-        /// <param name='cancelDate'>
-        /// Date on which trades are deleted
-        /// </param>
         /// <param name='id'>
         /// Ids of trades to delete
         /// </param>
@@ -12645,7 +12642,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> DeleteTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset cancelDate, IList<string> id = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> DeleteTradesWithHttpMessagesAsync(string scope, string code, IList<string> id = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12664,7 +12661,6 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
-                tracingParameters.Add("cancelDate", cancelDate);
                 tracingParameters.Add("id", id);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteTrades", tracingParameters);
@@ -12675,7 +12671,6 @@ namespace Finbourne
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("cancelDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(cancelDate, SerializationSettings).Trim('"'))));
             if (id != null)
             {
                 if (id.Count == 0)
