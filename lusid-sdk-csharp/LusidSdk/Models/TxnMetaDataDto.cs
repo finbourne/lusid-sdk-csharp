@@ -41,9 +41,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the TxnMetaDataDto class.
         /// </summary>
-        /// <param name="aliases">Representative movements for transaction
-        /// code</param>
-        /// <param name="movements">Representative movements for transaction
+        /// <param name="aliases">List of transaction codes that map to this
+        /// specific transaction model</param>
+        /// <param name="movements">Movement data for the transaction
         /// code</param>
         public TxnMetaDataDto(IList<TxnTypeAliasDto> aliases, IList<TxnMovementMetaDataDto> movements, IList<PropertyDto> properties = default(IList<PropertyDto>))
         {
@@ -59,13 +59,14 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets representative movements for transaction code
+        /// Gets or sets list of transaction codes that map to this specific
+        /// transaction model
         /// </summary>
         [JsonProperty(PropertyName = "aliases")]
         public IList<TxnTypeAliasDto> Aliases { get; set; }
 
         /// <summary>
-        /// Gets or sets representative movements for transaction code
+        /// Gets or sets movement data for the transaction code
         /// </summary>
         [JsonProperty(PropertyName = "movements")]
         public IList<TxnMovementMetaDataDto> Movements { get; set; }

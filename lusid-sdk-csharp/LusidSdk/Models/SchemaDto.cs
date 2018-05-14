@@ -62,7 +62,9 @@ namespace Finbourne.Models
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
         /// 'CorporateActionTransition', 'ReconciliationRequest',
-        /// 'ReconciliationBreak'</param>
+        /// 'ReconciliationBreak', 'TransactionConfigurationData',
+        /// 'TransactionConfigurationMovementData',
+        /// 'TransactionConfigurationTypeAlias'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
         {
             Entity = entity;
@@ -99,7 +101,9 @@ namespace Finbourne.Models
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
         /// 'CorporateActionTransition', 'ReconciliationRequest',
-        /// 'ReconciliationBreak'
+        /// 'ReconciliationBreak', 'TransactionConfigurationData',
+        /// 'TransactionConfigurationMovementData',
+        /// 'TransactionConfigurationTypeAlias'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }

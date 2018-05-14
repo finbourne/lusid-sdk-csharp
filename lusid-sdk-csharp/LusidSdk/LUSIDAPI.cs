@@ -3356,7 +3356,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> AddTransactionTypeWithHttpMessagesAsync(TxnMetaDataDto type = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> AddConfigurationTransactionTypeWithHttpMessagesAsync(TxnMetaDataDto type = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (type != null)
             {
@@ -3371,7 +3371,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("type", type);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "AddTransactionType", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "AddConfigurationTransactionType", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -3529,7 +3529,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetConfigurationTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3539,7 +3539,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetTransactionTypes", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "GetConfigurationTransactionTypes", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -3618,7 +3618,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TxnMetaDataDto>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListTxnMetaDataDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3693,7 +3693,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> UploadTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> UploadConfigurationTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (types != null)
             {
@@ -3714,7 +3714,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("types", types);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "UploadTransactionTypes", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "UploadConfigurationTransactionTypes", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -3799,7 +3799,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<TxnMetaDataDto>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListTxnMetaDataDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -19104,7 +19104,9 @@ namespace Finbourne
         /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
         /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
         /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+        /// 'CorporateActionTransition', 'ReconciliationRequest',
+        /// 'ReconciliationBreak', 'TransactionConfigurationData',
+        /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

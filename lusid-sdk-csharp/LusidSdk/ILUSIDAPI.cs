@@ -604,7 +604,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> AddTransactionTypeWithHttpMessagesAsync(TxnMetaDataDto type = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddConfigurationTransactionTypeWithHttpMessagesAsync(TxnMetaDataDto type = default(TxnMetaDataDto), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the list of persisted transaction types
@@ -615,7 +615,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetConfigurationTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Uploads a list of transaction types to be used by the movements
@@ -629,7 +629,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> UploadTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> UploadConfigurationTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='version'>
         /// </param>
@@ -2152,7 +2152,9 @@ namespace Finbourne
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
         /// 'CreateCorporateAction', 'CorporateAction',
         /// 'CorporateActionTransition', 'ReconciliationRequest',
-        /// 'ReconciliationBreak'
+        /// 'ReconciliationBreak', 'TransactionConfigurationData',
+        /// 'TransactionConfigurationMovementData',
+        /// 'TransactionConfigurationTypeAlias'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

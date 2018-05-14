@@ -41,11 +41,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the TxnMovementMetaDataDto class.
         /// </summary>
-        /// <param name="movementTypes">The movement types. Possible values
+        /// <param name="movementTypes">The Movement Types. Possible values
         /// include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment',
         /// 'Receivable', 'CashSettlement', 'Accrual'</param>
-        /// <param name="side">The Side. Possible values include: 'Side1',
-        /// 'Side2', 'BondInt'</param>
+        /// <param name="side">The Movement Side. Possible values include:
+        /// 'Side1', 'Side2', 'BondInt'</param>
+        /// <param name="direction">The Movement direction</param>
         public TxnMovementMetaDataDto(string movementTypes, string side, int direction, IList<PropertyDto> properties = default(IList<PropertyDto>), IList<TxnPropertyMappingDto> mappings = default(IList<TxnPropertyMappingDto>))
         {
             MovementTypes = movementTypes;
@@ -62,7 +63,7 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the movement types. Possible values include:
+        /// Gets or sets the Movement Types. Possible values include:
         /// 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
         /// 'CashSettlement', 'Accrual'
         /// </summary>
@@ -70,13 +71,14 @@ namespace Finbourne.Models
         public string MovementTypes { get; set; }
 
         /// <summary>
-        /// Gets or sets the Side. Possible values include: 'Side1', 'Side2',
-        /// 'BondInt'
+        /// Gets or sets the Movement Side. Possible values include: 'Side1',
+        /// 'Side2', 'BondInt'
         /// </summary>
         [JsonProperty(PropertyName = "side")]
         public string Side { get; set; }
 
         /// <summary>
+        /// Gets or sets the Movement direction
         /// </summary>
         [JsonProperty(PropertyName = "direction")]
         public int Direction { get; set; }

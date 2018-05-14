@@ -669,9 +669,9 @@ namespace Finbourne
             /// </param>
             /// <param name='type'>
             /// </param>
-            public static object AddTransactionType(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto))
+            public static object AddConfigurationTransactionType(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto))
             {
-                return operations.AddTransactionTypeAsync(type).GetAwaiter().GetResult();
+                return operations.AddConfigurationTransactionTypeAsync(type).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -685,9 +685,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddTransactionTypeAsync(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddConfigurationTransactionTypeAsync(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AddTransactionTypeWithHttpMessagesAsync(type, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddConfigurationTransactionTypeWithHttpMessagesAsync(type, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -699,9 +699,9 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static object GetTransactionTypes(this ILUSIDAPI operations)
+            public static object GetConfigurationTransactionTypes(this ILUSIDAPI operations)
             {
-                return operations.GetTransactionTypesAsync().GetAwaiter().GetResult();
+                return operations.GetConfigurationTransactionTypesAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -713,9 +713,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetConfigurationTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -729,9 +729,9 @@ namespace Finbourne
             /// </param>
             /// <param name='types'>
             /// </param>
-            public static object UploadTransactionTypes(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>))
+            public static object UploadConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>))
             {
-                return operations.UploadTransactionTypesAsync(types).GetAwaiter().GetResult();
+                return operations.UploadConfigurationTransactionTypesAsync(types).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -745,9 +745,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> UploadTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> UploadConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UploadTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UploadConfigurationTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4170,7 +4170,9 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+            /// 'CorporateActionTransition', 'ReconciliationRequest',
+            /// 'ReconciliationBreak', 'TransactionConfigurationData',
+            /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4202,7 +4204,9 @@ namespace Finbourne
             /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
             /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
             /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition', 'ReconciliationRequest', 'ReconciliationBreak'
+            /// 'CorporateActionTransition', 'ReconciliationRequest',
+            /// 'ReconciliationBreak', 'TransactionConfigurationData',
+            /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

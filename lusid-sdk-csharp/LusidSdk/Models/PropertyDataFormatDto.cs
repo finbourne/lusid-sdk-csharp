@@ -45,7 +45,7 @@ namespace Finbourne.Models
         /// <param name="valueType">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
         /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds'</param>
+        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
         public PropertyDataFormatDto(string href = default(string), string formatType = default(string), ResourceId id = default(ResourceId), int? order = default(int?), string displayName = default(string), string valueType = default(string), IList<object> acceptableValues = default(IList<object>))
         {
             Href = href;
@@ -93,7 +93,8 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
-        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }

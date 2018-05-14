@@ -48,7 +48,7 @@ namespace Finbourne.Models
         /// <param name="valueType">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
         /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds'</param>
+        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
         public CreatePropertyDataFormatRequest(string scope, string code, string formatType, int order, string displayName, string valueType, IList<object> acceptableValues = default(IList<object>))
         {
             Scope = scope;
@@ -96,7 +96,8 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
-        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }

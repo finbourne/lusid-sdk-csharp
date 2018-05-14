@@ -22,30 +22,35 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class TxnTypeAliasDto
+    public partial class ResourceListTxnMetaDataDto
     {
         /// <summary>
-        /// Initializes a new instance of the TxnTypeAliasDto class.
+        /// Initializes a new instance of the ResourceListTxnMetaDataDto class.
         /// </summary>
-        public TxnTypeAliasDto()
+        public ResourceListTxnMetaDataDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the TxnTypeAliasDto class.
+        /// Initializes a new instance of the ResourceListTxnMetaDataDto class.
         /// </summary>
-        /// <param name="type">The transaction type</param>
-        /// <param name="description">Brief description of the
-        /// transaction</param>
-        public TxnTypeAliasDto(string type, string description)
+        /// <param name="href">The Uri that returns the same result as the
+        /// original request,
+        /// but may include resolved as at time(s).</param>
+        /// <param name="count">The total number of records returned in the
+        /// set</param>
+        public ResourceListTxnMetaDataDto(IList<TxnMetaDataDto> values = default(IList<TxnMetaDataDto>), string href = default(string), int? count = default(int?), IList<Link> _links = default(IList<Link>))
         {
-            Type = type;
-            Description = description;
+            Values = values;
+            Href = href;
+            Count = count;
+            this._links = _links;
             CustomInit();
         }
 
@@ -55,33 +60,28 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the transaction type
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
+        [JsonProperty(PropertyName = "values")]
+        public IList<TxnMetaDataDto> Values { get; set; }
 
         /// <summary>
-        /// Gets or sets brief description of the transaction
+        /// Gets or sets the Uri that returns the same result as the original
+        /// request,
+        /// but may include resolved as at time(s).
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
 
         /// <summary>
-        /// Validate the object.
+        /// Gets or sets the total number of records returned in the set
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Type == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Type");
-            }
-            if (Description == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Description");
-            }
-        }
+        [JsonProperty(PropertyName = "count")]
+        public int? Count { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "_links")]
+        public IList<Link> _links { get; set; }
+
     }
 }

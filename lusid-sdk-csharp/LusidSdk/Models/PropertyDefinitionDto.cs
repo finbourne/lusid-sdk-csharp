@@ -43,7 +43,7 @@ namespace Finbourne.Models
         /// <param name="valueType">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
         /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds'</param>
+        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
         public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), IList<Link> _links = default(IList<Link>))
@@ -78,7 +78,8 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
-        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds'
+        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
