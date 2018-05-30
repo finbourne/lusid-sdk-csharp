@@ -43,7 +43,8 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="movementTypes">The Movement Types. Possible values
         /// include: 'Settlement', 'Traded', 'ForwardFx', 'Commitment',
-        /// 'Receivable', 'CashSettlement', 'Accrual'</param>
+        /// 'Receivable', 'CashSettlement', 'Accrual',
+        /// 'UnsettledCashTypes'</param>
         /// <param name="side">The Movement Side. Possible values include:
         /// 'Side1', 'Side2', 'BondInt'</param>
         /// <param name="direction">The Movement direction</param>
@@ -65,7 +66,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets the Movement Types. Possible values include:
         /// 'Settlement', 'Traded', 'ForwardFx', 'Commitment', 'Receivable',
-        /// 'CashSettlement', 'Accrual'
+        /// 'CashSettlement', 'Accrual', 'UnsettledCashTypes'
         /// </summary>
         [JsonProperty(PropertyName = "movementTypes")]
         public string MovementTypes { get; set; }

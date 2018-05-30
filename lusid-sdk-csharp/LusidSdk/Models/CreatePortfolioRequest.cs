@@ -39,13 +39,17 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreatePortfolioRequest class.
         /// </summary>
-        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId))
+        /// <param name="accountingMethod">Possible values include: 'Default',
+        /// 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+        /// 'HighestCostFirst', 'LowestCostFirst'</param>
+        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string))
         {
             Name = name;
             Code = code;
             Created = created;
             BaseCurrency = baseCurrency;
             CorporateActionSourceId = corporateActionSourceId;
+            AccountingMethod = accountingMethod;
             CustomInit();
         }
 
@@ -78,6 +82,14 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "corporateActionSourceId")]
         public ResourceId CorporateActionSourceId { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Default', 'AverageCost',
+        /// 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
+        /// 'LowestCostFirst'
+        /// </summary>
+        [JsonProperty(PropertyName = "accountingMethod")]
+        public string AccountingMethod { get; set; }
 
         /// <summary>
         /// Validate the object.
