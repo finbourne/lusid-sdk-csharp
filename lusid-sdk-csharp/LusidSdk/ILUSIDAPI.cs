@@ -322,6 +322,18 @@ namespace Finbourne
 
 
         /// <summary>
+        /// Clears the entity caches on the instance that serves this request
+        /// only.
+        /// </summary>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> ClearEntityCachesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Gets a corporate action based on dates
         /// </summary>
         /// <param name='scope'>

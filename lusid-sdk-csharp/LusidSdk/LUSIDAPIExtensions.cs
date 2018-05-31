@@ -34,6 +34,34 @@ namespace Finbourne
     public static partial class LUSIDAPIExtensions
     {
             /// <summary>
+            /// Clears the entity caches on the instance that serves this request only.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static object ClearEntityCaches(this ILUSIDAPI operations)
+            {
+                return operations.ClearEntityCachesAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Clears the entity caches on the instance that serves this request only.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ClearEntityCachesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ClearEntityCachesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Gets a corporate action based on dates
             /// </summary>
             /// <param name='operations'>
