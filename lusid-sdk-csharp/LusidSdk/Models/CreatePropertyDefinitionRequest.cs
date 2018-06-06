@@ -44,7 +44,9 @@ namespace Finbourne.Models
         /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
-        public CreatePropertyDefinitionRequest(string domain = default(string), string scope = default(string), string name = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string))
+        /// <param name="type">Possible values include: 'Label',
+        /// 'Metric'</param>
+        public CreatePropertyDefinitionRequest(string domain = default(string), string scope = default(string), string name = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string))
         {
             Domain = domain;
             Scope = scope;
@@ -54,6 +56,7 @@ namespace Finbourne.Models
             DataFormatId = dataFormatId;
             Sort = sort;
             LifeTime = lifeTime;
+            Type = type;
             CustomInit();
         }
 
@@ -104,6 +107,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "lifeTime")]
         public string LifeTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Label', 'Metric'
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
 
     }
 }

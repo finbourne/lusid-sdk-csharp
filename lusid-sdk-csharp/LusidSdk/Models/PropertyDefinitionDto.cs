@@ -46,7 +46,9 @@ namespace Finbourne.Models
         /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
-        public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), IList<Link> _links = default(IList<Link>))
+        /// <param name="type">Possible values include: 'Label',
+        /// 'Metric'</param>
+        public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
             Key = key;
@@ -56,6 +58,7 @@ namespace Finbourne.Models
             DataFormatId = dataFormatId;
             Sort = sort;
             LifeTime = lifeTime;
+            Type = type;
             this._links = _links;
             CustomInit();
         }
@@ -109,6 +112,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "lifeTime")]
         public string LifeTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Label', 'Metric'
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
 
         /// <summary>
         /// </summary>
