@@ -1724,6 +1724,8 @@ namespace Finbourne
         /// </summary>
         /// <param name='keys'>
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -1738,7 +1740,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets all available property definitions.
@@ -1747,6 +1749,8 @@ namespace Finbourne
         /// Possible values include: 'Trade', 'Portfolio', 'Security',
         /// 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -1761,7 +1765,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetAllPropertyKeysInDomainWithHttpMessagesAsync(string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetAllPropertyKeysInDomainWithHttpMessagesAsync(string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the available property-definition scopes for the specified
@@ -1796,6 +1800,8 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -1810,7 +1816,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetAllPropertyKeysInScopeWithHttpMessagesAsync(string domain, string scope, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetAllPropertyKeysInScopeWithHttpMessagesAsync(string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a property definition.
@@ -2183,13 +2189,15 @@ namespace Finbourne
         /// A comma delimited list of property keys in string format. e.g.
         /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetPropertySchemaWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetPropertySchemaWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the available value types that could be returned in a schema

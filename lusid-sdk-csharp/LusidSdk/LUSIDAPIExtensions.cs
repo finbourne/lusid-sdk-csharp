@@ -3229,6 +3229,8 @@ namespace Finbourne
             /// </param>
             /// <param name='keys'>
             /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='sortBy'>
             /// </param>
             /// <param name='start'>
@@ -3237,9 +3239,9 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static object GetMultiplePropertyDefinitions(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static object GetMultiplePropertyDefinitions(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.GetMultiplePropertyDefinitionsAsync(keys, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.GetMultiplePropertyDefinitionsAsync(keys, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -3249,6 +3251,8 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='keys'>
+            /// </param>
+            /// <param name='asAt'>
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -3261,9 +3265,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetMultiplePropertyDefinitionsAsync(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetMultiplePropertyDefinitionsAsync(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetMultiplePropertyDefinitionsWithHttpMessagesAsync(keys, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetMultiplePropertyDefinitionsWithHttpMessagesAsync(keys, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3279,6 +3283,8 @@ namespace Finbourne
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
             /// 'ReferenceHolding', 'TxnType'
             /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='sortBy'>
             /// </param>
             /// <param name='start'>
@@ -3287,9 +3293,9 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static object GetAllPropertyKeysInDomain(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static object GetAllPropertyKeysInDomain(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.GetAllPropertyKeysInDomainAsync(domain, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.GetAllPropertyKeysInDomainAsync(domain, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -3302,6 +3308,8 @@ namespace Finbourne
             /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
             /// 'ReferenceHolding', 'TxnType'
             /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='sortBy'>
             /// </param>
             /// <param name='start'>
@@ -3313,9 +3321,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetAllPropertyKeysInDomainAsync(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetAllPropertyKeysInDomainAsync(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAllPropertyKeysInDomainWithHttpMessagesAsync(domain, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAllPropertyKeysInDomainWithHttpMessagesAsync(domain, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3385,6 +3393,8 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='sortBy'>
             /// </param>
             /// <param name='start'>
@@ -3393,9 +3403,9 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static object GetAllPropertyKeysInScope(this ILUSIDAPI operations, string domain, string scope, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static object GetAllPropertyKeysInScope(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.GetAllPropertyKeysInScopeAsync(domain, scope, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.GetAllPropertyKeysInScopeAsync(domain, scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -3410,6 +3420,8 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='sortBy'>
             /// </param>
             /// <param name='start'>
@@ -3421,9 +3433,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetAllPropertyKeysInScopeAsync(this ILUSIDAPI operations, string domain, string scope, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetAllPropertyKeysInScopeAsync(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAllPropertyKeysInScopeWithHttpMessagesAsync(domain, scope, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAllPropertyKeysInScopeWithHttpMessagesAsync(domain, scope, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4257,9 +4269,11 @@ namespace Finbourne
             /// A comma delimited list of property keys in string format. e.g.
             /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
             /// </param>
-            public static object GetPropertySchema(this ILUSIDAPI operations, IList<string> propertyKeys = default(IList<string>))
+            /// <param name='asAt'>
+            /// </param>
+            public static object GetPropertySchema(this ILUSIDAPI operations, IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
-                return operations.GetPropertySchemaAsync(propertyKeys).GetAwaiter().GetResult();
+                return operations.GetPropertySchemaAsync(propertyKeys, asAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -4272,12 +4286,14 @@ namespace Finbourne
             /// A comma delimited list of property keys in string format. e.g.
             /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
             /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetPropertySchemaAsync(this ILUSIDAPI operations, IList<string> propertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetPropertySchemaAsync(this ILUSIDAPI operations, IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPropertySchemaWithHttpMessagesAsync(propertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPropertySchemaWithHttpMessagesAsync(propertyKeys, asAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

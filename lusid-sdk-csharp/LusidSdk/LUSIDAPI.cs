@@ -14741,6 +14741,8 @@ namespace Finbourne
         /// </summary>
         /// <param name='keys'>
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -14764,7 +14766,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -14774,6 +14776,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("keys", keys);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
@@ -14798,6 +14801,10 @@ namespace Finbourne
                         _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString("" + _item)));
                     }
                 }
+            }
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
             }
             if (sortBy != null)
             {
@@ -14983,6 +14990,8 @@ namespace Finbourne
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
         /// 'ReferenceHolding', 'TxnType'
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -15012,7 +15021,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetAllPropertyKeysInDomainWithHttpMessagesAsync(string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetAllPropertyKeysInDomainWithHttpMessagesAsync(string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -15026,6 +15035,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("domain", domain);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
@@ -15038,6 +15048,10 @@ namespace Finbourne
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}").ToString();
             _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
             List<string> _queryParameters = new List<string>();
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
+            }
             if (sortBy != null)
             {
                 if (sortBy.Count == 0)
@@ -15463,6 +15477,8 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -15492,7 +15508,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetAllPropertyKeysInScopeWithHttpMessagesAsync(string domain, string scope, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetAllPropertyKeysInScopeWithHttpMessagesAsync(string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -15511,6 +15527,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("domain", domain);
                 tracingParameters.Add("scope", scope);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
@@ -15524,6 +15541,10 @@ namespace Finbourne
             _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             List<string> _queryParameters = new List<string>();
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
+            }
             if (sortBy != null)
             {
                 if (sortBy.Count == 0)
@@ -19466,6 +19487,8 @@ namespace Finbourne
         /// A comma delimited list of property keys in string format. e.g.
         /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
         /// </param>
+        /// <param name='asAt'>
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -19481,7 +19504,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetPropertySchemaWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetPropertySchemaWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -19491,6 +19514,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("propertyKeys", propertyKeys);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetPropertySchema", tracingParameters);
             }
@@ -19511,6 +19535,10 @@ namespace Finbourne
                         _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
                     }
                 }
+            }
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
