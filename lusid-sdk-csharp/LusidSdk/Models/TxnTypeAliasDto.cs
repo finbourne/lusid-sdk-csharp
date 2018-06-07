@@ -42,10 +42,21 @@ namespace Finbourne.Models
         /// <param name="type">The transaction type</param>
         /// <param name="description">Brief description of the
         /// transaction</param>
-        public TxnTypeAliasDto(string type, string description)
+        /// <param name="txnClass">Relates types of a similar class. E.g.
+        /// Buy/Sell, StockIn/StockOut</param>
+        /// <param name="txnGroup">Group is a set of codes related to a source,
+        /// or sync</param>
+        /// <param name="txnRoles">Transactions role within a class. E.g.
+        /// Increase a long position. Possible values include: 'None',
+        /// 'LongLonger', 'LongShorter', 'ShortShorter', 'Shorter',
+        /// 'ShortLonger', 'Longer', 'AllRoles'</param>
+        public TxnTypeAliasDto(string type, string description, string txnClass, string txnGroup, string txnRoles)
         {
             Type = type;
             Description = description;
+            TxnClass = txnClass;
+            TxnGroup = txnGroup;
+            TxnRoles = txnRoles;
             CustomInit();
         }
 
@@ -67,6 +78,28 @@ namespace Finbourne.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or sets relates types of a similar class. E.g. Buy/Sell,
+        /// StockIn/StockOut
+        /// </summary>
+        [JsonProperty(PropertyName = "txnClass")]
+        public string TxnClass { get; set; }
+
+        /// <summary>
+        /// Gets or sets group is a set of codes related to a source, or sync
+        /// </summary>
+        [JsonProperty(PropertyName = "txnGroup")]
+        public string TxnGroup { get; set; }
+
+        /// <summary>
+        /// Gets or sets transactions role within a class. E.g. Increase a long
+        /// position. Possible values include: 'None', 'LongLonger',
+        /// 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
+        /// 'AllRoles'
+        /// </summary>
+        [JsonProperty(PropertyName = "txnRoles")]
+        public string TxnRoles { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -81,6 +114,18 @@ namespace Finbourne.Models
             if (Description == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Description");
+            }
+            if (TxnClass == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "TxnClass");
+            }
+            if (TxnGroup == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "TxnGroup");
+            }
+            if (TxnRoles == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "TxnRoles");
             }
         }
     }
