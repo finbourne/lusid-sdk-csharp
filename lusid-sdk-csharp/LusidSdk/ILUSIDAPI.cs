@@ -107,6 +107,8 @@ namespace Finbourne
     /// | ---|---|--- |
     /// | Id|string|Unique security identifier |
     /// | Value|decimal|Value of the analytic, eg price |
+    /// | Denomination|string|Underlying unit of the analytic, eg currency, EPS
+    /// etc. |
     ///
     ///
     /// ## Security Data
@@ -294,6 +296,8 @@ namespace Finbourne
     /// | &lt;a name="182"&gt;182&lt;/a&gt;|SearchFailed|  |
     /// | &lt;a
     /// name="183"&gt;183&lt;/a&gt;|MovementsEngineConfigurationKeyFailure|  |
+    /// | &lt;a name="184"&gt;184&lt;/a&gt;|FxRateSourceNotFound|  |
+    /// | &lt;a name="185"&gt;185&lt;/a&gt;|AccrualSourceNotFound|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
     /// </summary>
@@ -965,19 +969,19 @@ namespace Finbourne
         /// <summary>
         /// Get a personalisation, recursing to get any referenced if required.
         /// </summary>
-        /// <param name='recursive'>
-        /// Whether to recurse into dereference recursive settings
-        /// </param>
-        /// <param name='wildcards'>
-        /// Whether to apply wildcards to the provided pattern and pull back
-        /// any matching
-        /// </param>
         /// <param name='pattern'>
         /// The search pattern or specific key
         /// </param>
         /// <param name='scope'>
         /// The scope level to request for. Possible values include: 'User',
         /// 'Group', 'Default', 'All'
+        /// </param>
+        /// <param name='recursive'>
+        /// Whether to recurse into dereference recursive settings
+        /// </param>
+        /// <param name='wildcards'>
+        /// Whether to apply wildcards to the provided pattern and pull back
+        /// any matching
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -991,7 +995,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetPersonalisationsWithHttpMessagesAsync(bool recursive, bool wildcards, string pattern = default(string), string scope = default(string), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert one or more personalisations
@@ -1010,12 +1014,12 @@ namespace Finbourne
         /// Delete a personalisation at a specific scope (or use scope ALL to
         /// purge the setting entirely)
         /// </summary>
+        /// <param name='key'>
+        /// The key of the setting to be deleted
+        /// </param>
         /// <param name='scope'>
         /// The scope to delete at (use ALL to purge the setting entirely).
         /// Possible values include: 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='key'>
-        /// The key of the setting to be deleted
         /// </param>
         /// <param name='group'>
         /// If deleting a setting at group level, specify the group here
@@ -1026,7 +1030,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> DeletePersonalisationWithHttpMessagesAsync(string scope, string key = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeletePersonalisationWithHttpMessagesAsync(string key = default(string), string scope = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List scopes that contain portfolios
@@ -1604,29 +1608,6 @@ namespace Finbourne
         Task<HttpOperationResponse<object>> DeletePropertyFromTradeWithHttpMessagesAsync(string scope, string code, string tradeId, string property = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Add properties to all trades
-        /// </summary>
-        /// <remarks>
-        /// Add one or more properties to all trades in a portfolio
-        /// </remarks>
-        /// <param name='scope'>
-        /// The scope of the portfolio
-        /// </param>
-        /// <param name='code'>
-        /// Code for the portfolio
-        /// </param>
-        /// <param name='properties'>
-        /// Properties to add to all trades
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<object>> AddTradePropertyToAllWithHttpMessagesAsync(string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Create derived portfolio
         /// </summary>
         /// <remarks>
@@ -1991,7 +1972,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> ListReferencePortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> ListReferencePortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create a new reference portfolio
@@ -2027,7 +2008,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetReferencePortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetReferencePortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete a specific portfolio
@@ -2144,9 +2125,6 @@ namespace Finbourne
         /// </param>
         Task<HttpOperationResponse<object>> UpsertResultsWithHttpMessagesAsync(string scope, string key, System.DateTimeOffset date, CreateResultsRequest request = default(CreateResultsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <summary>
-        /// Gets the schema for a given entity.
-        /// </summary>
         /// <param name='entity'>
         /// Possible values include: 'PropertyKey', 'FieldSchema',
         /// 'Personalisation', 'Security', 'Property', 'Login',

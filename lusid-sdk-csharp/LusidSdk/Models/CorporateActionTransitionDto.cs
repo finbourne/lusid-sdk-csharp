@@ -22,7 +22,6 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -47,7 +46,7 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="direction">Possible values include: 'In',
         /// 'Out'</param>
-        public CorporateActionTransitionDto(string direction, string securityUid, double unitsFactor, double costFactor)
+        public CorporateActionTransitionDto(string direction = default(string), string securityUid = default(string), double? unitsFactor = default(double?), double? costFactor = default(double?))
         {
             Direction = direction;
             SecurityUid = securityUid;
@@ -75,29 +74,12 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "unitsFactor")]
-        public double UnitsFactor { get; set; }
+        public double? UnitsFactor { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "costFactor")]
-        public double CostFactor { get; set; }
+        public double? CostFactor { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Direction == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Direction");
-            }
-            if (SecurityUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
-            }
-        }
     }
 }

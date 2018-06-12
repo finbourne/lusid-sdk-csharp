@@ -48,9 +48,9 @@ namespace Finbourne.Models
         /// or sync</param>
         /// <param name="txnRoles">Transactions role within a class. E.g.
         /// Increase a long position. Possible values include: 'None',
-        /// 'LongLonger', 'LongShorter', 'ShortShorter', 'Shorter',
-        /// 'ShortLonger', 'Longer', 'AllRoles'</param>
-        public TxnTypeAliasDto(string type, string description, string txnClass, string txnGroup, string txnRoles)
+        /// 'LongLonger', 'LongShorter', 'ShortShorter', 'ShortLonger',
+        /// 'Longer', 'Shorter', 'AllRoles'</param>
+        public TxnTypeAliasDto(string type, string description, string txnClass, string txnGroup, string txnRoles = default(string))
         {
             Type = type;
             Description = description;
@@ -93,7 +93,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets transactions role within a class. E.g. Increase a long
         /// position. Possible values include: 'None', 'LongLonger',
-        /// 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
+        /// 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
         /// 'AllRoles'
         /// </summary>
         [JsonProperty(PropertyName = "txnRoles")]
@@ -122,10 +122,6 @@ namespace Finbourne.Models
             if (TxnGroup == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TxnGroup");
-            }
-            if (TxnRoles == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "TxnRoles");
             }
         }
     }

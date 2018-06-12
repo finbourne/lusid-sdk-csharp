@@ -41,7 +41,7 @@ namespace Finbourne.Models
         /// <param name="numberOfItemsCleared">The total number of items
         /// cleared from all instances of the caches on this machine
         /// instance</param>
-        public ClearEntityCachesDto(long numberOfItemsCleared)
+        public ClearEntityCachesDto(long? numberOfItemsCleared = default(long?))
         {
             NumberOfItemsCleared = numberOfItemsCleared;
             CustomInit();
@@ -57,17 +57,7 @@ namespace Finbourne.Models
         /// of the caches on this machine instance
         /// </summary>
         [JsonProperty(PropertyName = "numberOfItemsCleared")]
-        public long NumberOfItemsCleared { get; set; }
+        public long? NumberOfItemsCleared { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            //Nothing to validate
-        }
     }
 }

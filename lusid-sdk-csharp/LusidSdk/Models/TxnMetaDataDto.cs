@@ -102,23 +102,13 @@ namespace Finbourne.Models
                     }
                 }
             }
-            if (Movements != null)
+            if (Properties != null)
             {
-                foreach (var element1 in Movements)
+                foreach (var element1 in Properties)
                 {
                     if (element1 != null)
                     {
                         element1.Validate();
-                    }
-                }
-            }
-            if (Properties != null)
-            {
-                foreach (var element2 in Properties)
-                {
-                    if (element2 != null)
-                    {
-                        element2.Validate();
                     }
                 }
             }

@@ -110,6 +110,8 @@ namespace Finbourne
     /// | ---|---|--- |
     /// | Id|string|Unique security identifier |
     /// | Value|decimal|Value of the analytic, eg price |
+    /// | Denomination|string|Underlying unit of the analytic, eg currency, EPS
+    /// etc. |
     ///
     ///
     /// ## Security Data
@@ -297,6 +299,8 @@ namespace Finbourne
     /// | &lt;a name="182"&gt;182&lt;/a&gt;|SearchFailed|  |
     /// | &lt;a
     /// name="183"&gt;183&lt;/a&gt;|MovementsEngineConfigurationKeyFailure|  |
+    /// | &lt;a name="184"&gt;184&lt;/a&gt;|FxRateSourceNotFound|  |
+    /// | &lt;a name="185"&gt;185&lt;/a&gt;|AccrualSourceNotFound|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
     /// </summary>
@@ -7851,19 +7855,19 @@ namespace Finbourne
         /// <summary>
         /// Get a personalisation, recursing to get any referenced if required.
         /// </summary>
-        /// <param name='recursive'>
-        /// Whether to recurse into dereference recursive settings
-        /// </param>
-        /// <param name='wildcards'>
-        /// Whether to apply wildcards to the provided pattern and pull back any
-        /// matching
-        /// </param>
         /// <param name='pattern'>
         /// The search pattern or specific key
         /// </param>
         /// <param name='scope'>
         /// The scope level to request for. Possible values include: 'User', 'Group',
         /// 'Default', 'All'
+        /// </param>
+        /// <param name='recursive'>
+        /// Whether to recurse into dereference recursive settings
+        /// </param>
+        /// <param name='wildcards'>
+        /// Whether to apply wildcards to the provided pattern and pull back any
+        /// matching
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -7886,7 +7890,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetPersonalisationsWithHttpMessagesAsync(bool recursive, bool wildcards, string pattern = default(string), string scope = default(string), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -7917,8 +7921,14 @@ namespace Finbourne
             {
                 _queryParameters.Add(string.Format("scope={0}", System.Uri.EscapeDataString(scope)));
             }
-            _queryParameters.Add(string.Format("recursive={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(recursive, SerializationSettings).Trim('"'))));
-            _queryParameters.Add(string.Format("wildcards={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(wildcards, SerializationSettings).Trim('"'))));
+            if (recursive != null)
+            {
+                _queryParameters.Add(string.Format("recursive={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(recursive, SerializationSettings).Trim('"'))));
+            }
+            if (wildcards != null)
+            {
+                _queryParameters.Add(string.Format("wildcards={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(wildcards, SerializationSettings).Trim('"'))));
+            }
             if (sortBy != null)
             {
                 if (sortBy.Count == 0)
@@ -8285,12 +8295,12 @@ namespace Finbourne
         /// Delete a personalisation at a specific scope (or use scope ALL to purge the
         /// setting entirely)
         /// </summary>
+        /// <param name='key'>
+        /// The key of the setting to be deleted
+        /// </param>
         /// <param name='scope'>
         /// The scope to delete at (use ALL to purge the setting entirely). Possible
         /// values include: 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='key'>
-        /// The key of the setting to be deleted
         /// </param>
         /// <param name='group'>
         /// If deleting a setting at group level, specify the group here
@@ -8307,21 +8317,11 @@ namespace Finbourne
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> DeletePersonalisationWithHttpMessagesAsync(string scope, string key = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> DeletePersonalisationWithHttpMessagesAsync(string key = default(string), string scope = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (scope == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -13464,233 +13464,6 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Add properties to all trades
-        /// </summary>
-        /// <remarks>
-        /// Add one or more properties to all trades in a portfolio
-        /// </remarks>
-        /// <param name='scope'>
-        /// The scope of the portfolio
-        /// </param>
-        /// <param name='code'>
-        /// Code for the portfolio
-        /// </param>
-        /// <param name='properties'>
-        /// Properties to add to all trades
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<object>> AddTradePropertyToAllWithHttpMessagesAsync(string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (scope == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
-            }
-            if (code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "code");
-            }
-            if (properties != null)
-            {
-                foreach (var element in properties)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("scope", scope);
-                tracingParameters.Add("code", code);
-                tracingParameters.Add("properties", properties);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "AddTradePropertyToAll", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/portfolios/{scope}/{code}/trades/properties").ToString();
-            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            if(properties != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(properties, SerializationSettings);
-                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 201 && (int)_statusCode != 400 && (int)_statusCode != 404 && (int)_statusCode != 500)
-            {
-                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                }
-                else {
-                    _responseContent = string.Empty;
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<object>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 201)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AddTradePropertyDto>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 400)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 404)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 500)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <summary>
         /// Create derived portfolio
         /// </summary>
         /// <remarks>
@@ -17472,7 +17245,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> ListReferencePortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> ListReferencePortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -17500,7 +17273,10 @@ namespace Finbourne
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/reference/{scope}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+            if (effectiveAt != null)
+            {
+                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+            }
             if (asAt != null)
             {
                 _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
@@ -17923,7 +17699,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetReferencePortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetReferencePortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -17953,7 +17729,10 @@ namespace Finbourne
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
-            _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+            if (effectiveAt != null)
+            {
+                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+            }
             if (asAt != null)
             {
                 _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
@@ -19265,9 +19044,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets the schema for a given entity.
-        /// </summary>
         /// <param name='entity'>
         /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
         /// 'Security', 'Property', 'Login', 'PropertyDefinition',

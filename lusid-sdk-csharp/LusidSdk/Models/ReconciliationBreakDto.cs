@@ -22,7 +22,6 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -47,7 +46,7 @@ namespace Finbourne.Models
         /// <param name="securityUid">Unique security identifier</param>
         /// <param name="unitsDifference">Difference in units</param>
         /// <param name="costDifference">Difference in cost</param>
-        public ReconciliationBreakDto(string securityUid, IList<PropertyDto> properties = default(IList<PropertyDto>), double? unitsDifference = default(double?), double? costDifference = default(double?))
+        public ReconciliationBreakDto(string securityUid = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? unitsDifference = default(double?), double? costDifference = default(double?))
         {
             SecurityUid = securityUid;
             Properties = properties;
@@ -84,28 +83,5 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "costDifference")]
         public double? CostDifference { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (SecurityUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
-            }
-            if (Properties != null)
-            {
-                foreach (var element in Properties)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }

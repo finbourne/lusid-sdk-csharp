@@ -22,7 +22,6 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -48,7 +47,7 @@ namespace Finbourne.Models
         /// <param name="side">The Movement Side. Possible values include:
         /// 'Side1', 'Side2', 'BondInt'</param>
         /// <param name="direction">The Movement direction</param>
-        public TxnMovementMetaDataDto(string movementTypes, string side, int direction, IList<PropertyDto> properties = default(IList<PropertyDto>), IList<TxnPropertyMappingDto> mappings = default(IList<TxnPropertyMappingDto>))
+        public TxnMovementMetaDataDto(string movementTypes = default(string), string side = default(string), int? direction = default(int?), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<TxnPropertyMappingDto> mappings = default(IList<TxnPropertyMappingDto>))
         {
             MovementTypes = movementTypes;
             Side = side;
@@ -82,7 +81,7 @@ namespace Finbourne.Models
         /// Gets or sets the Movement direction
         /// </summary>
         [JsonProperty(PropertyName = "direction")]
-        public int Direction { get; set; }
+        public int? Direction { get; set; }
 
         /// <summary>
         /// </summary>
@@ -94,42 +93,5 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "mappings")]
         public IList<TxnPropertyMappingDto> Mappings { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (MovementTypes == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "MovementTypes");
-            }
-            if (Side == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Side");
-            }
-            if (Properties != null)
-            {
-                foreach (var element in Properties)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-            if (Mappings != null)
-            {
-                foreach (var element1 in Mappings)
-                {
-                    if (element1 != null)
-                    {
-                        element1.Validate();
-                    }
-                }
-            }
-        }
     }
 }

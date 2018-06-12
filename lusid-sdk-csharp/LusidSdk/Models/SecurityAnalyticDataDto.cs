@@ -40,10 +40,13 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="id">Unique security identifier</param>
         /// <param name="value">Value of the analytic, eg price</param>
-        public SecurityAnalyticDataDto(string id = default(string), double? value = default(double?))
+        /// <param name="denomination">Underlying unit of the analytic, eg
+        /// currency, EPS etc.</param>
+        public SecurityAnalyticDataDto(string id = default(string), double? value = default(double?), string denomination = default(string))
         {
             Id = id;
             Value = value;
+            Denomination = denomination;
             CustomInit();
         }
 
@@ -63,6 +66,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public double? Value { get; set; }
+
+        /// <summary>
+        /// Gets or sets underlying unit of the analytic, eg currency, EPS etc.
+        /// </summary>
+        [JsonProperty(PropertyName = "denomination")]
+        public string Denomination { get; set; }
 
     }
 }
