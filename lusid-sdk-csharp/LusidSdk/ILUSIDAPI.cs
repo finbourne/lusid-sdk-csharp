@@ -1604,29 +1604,6 @@ namespace Finbourne
         Task<HttpOperationResponse<object>> DeletePropertyFromTradeWithHttpMessagesAsync(string scope, string code, string tradeId, string property = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Add properties to all trades
-        /// </summary>
-        /// <remarks>
-        /// Add one or more properties to all trades in a portfolio
-        /// </remarks>
-        /// <param name='scope'>
-        /// The scope of the portfolio
-        /// </param>
-        /// <param name='code'>
-        /// Code for the portfolio
-        /// </param>
-        /// <param name='properties'>
-        /// Properties to add to all trades
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<object>> AddTradePropertyToAllWithHttpMessagesAsync(string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Create derived portfolio
         /// </summary>
         /// <remarks>

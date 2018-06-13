@@ -2954,58 +2954,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add properties to all trades
-            /// </summary>
-            /// <remarks>
-            /// Add one or more properties to all trades in a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='properties'>
-            /// Properties to add to all trades
-            /// </param>
-            public static object AddTradePropertyToAll(this ILUSIDAPI operations, string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>))
-            {
-                return operations.AddTradePropertyToAllAsync(scope, code, properties).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add properties to all trades
-            /// </summary>
-            /// <remarks>
-            /// Add one or more properties to all trades in a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='properties'>
-            /// Properties to add to all trades
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> AddTradePropertyToAllAsync(this ILUSIDAPI operations, string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddTradePropertyToAllWithHttpMessagesAsync(scope, code, properties, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Create derived portfolio
             /// </summary>
             /// <remarks>

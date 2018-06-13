@@ -44,10 +44,10 @@ namespace Finbourne.Models
         /// client</param>
         /// <param name="code">The Finbourne specific error-code that
         /// encapsulates the specific issue encountered. Possible values
-        /// include: 'PersonalisationNotFound', 'NonRecursivePersonalisation',
-        /// 'VersionNotFound', 'SecurityNotFound', 'SecurityByCodeNotFound',
-        /// 'PropertyNotFound', 'PortfolioRecursionDepth', 'GroupNotFound',
-        /// 'PortfolioNotFound', 'PropertySchemaNotFound',
+        /// include: 'Unknown', 'PersonalisationNotFound',
+        /// 'NonRecursivePersonalisation', 'VersionNotFound',
+        /// 'SecurityNotFound', 'PropertyNotFound', 'PortfolioRecursionDepth',
+        /// 'GroupNotFound', 'PortfolioNotFound', 'PropertySchemaNotFound',
         /// 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio',
         /// 'MissingBaseClaims', 'PropertyNotDefined',
         /// 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
@@ -72,9 +72,9 @@ namespace Finbourne.Models
         /// 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
         /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
-        /// 'DuplicateIdFailure', 'CommandRetrievalFailure',
-        /// 'DataFilterApplicationFailure', 'SearchFailed',
-        /// 'MovementsEngineConfigurationKeyFailure', 'Unknown'</param>
+        /// 'DuplicateIdFailure', 'SecurityByCodeNotFound',
+        /// 'CommandRetrievalFailure', 'DataFilterApplicationFailure',
+        /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure'</param>
         /// <param name="message">The non-technical-user friendly message
         /// describing the error and how it might be remedied.</param>
         /// <param name="detailedMessage">A technical error message that
@@ -108,13 +108,12 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets the Finbourne specific error-code that encapsulates the
-        /// specific issue encountered. Possible values include:
+        /// specific issue encountered. Possible values include: 'Unknown',
         /// 'PersonalisationNotFound', 'NonRecursivePersonalisation',
-        /// 'VersionNotFound', 'SecurityNotFound', 'SecurityByCodeNotFound',
-        /// 'PropertyNotFound', 'PortfolioRecursionDepth', 'GroupNotFound',
-        /// 'PortfolioNotFound', 'PropertySchemaNotFound',
-        /// 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio',
-        /// 'MissingBaseClaims', 'PropertyNotDefined',
+        /// 'VersionNotFound', 'SecurityNotFound', 'PropertyNotFound',
+        /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+        /// 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
+        /// 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
         /// 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
         /// 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
         /// 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
@@ -137,9 +136,9 @@ namespace Finbourne.Models
         /// 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
         /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
-        /// 'DuplicateIdFailure', 'CommandRetrievalFailure',
-        /// 'DataFilterApplicationFailure', 'SearchFailed',
-        /// 'MovementsEngineConfigurationKeyFailure', 'Unknown'
+        /// 'DuplicateIdFailure', 'SecurityByCodeNotFound',
+        /// 'CommandRetrievalFailure', 'DataFilterApplicationFailure',
+        /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

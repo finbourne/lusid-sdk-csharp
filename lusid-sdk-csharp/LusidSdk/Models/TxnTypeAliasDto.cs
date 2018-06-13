@@ -48,8 +48,8 @@ namespace Finbourne.Models
         /// or sync</param>
         /// <param name="txnRoles">Transactions role within a class. E.g.
         /// Increase a long position. Possible values include: 'None',
-        /// 'LongLonger', 'LongShorter', 'ShortShorter', 'Shorter',
-        /// 'ShortLonger', 'Longer', 'AllRoles'</param>
+        /// 'LongLonger', 'LongShorter', 'ShortShorter', 'ShortLonger',
+        /// 'Longer', 'Shorter', 'AllRoles'</param>
         public TxnTypeAliasDto(string type, string description, string txnClass, string txnGroup, string txnRoles)
         {
             Type = type;
@@ -93,7 +93,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets transactions role within a class. E.g. Increase a long
         /// position. Possible values include: 'None', 'LongLonger',
-        /// 'LongShorter', 'ShortShorter', 'Shorter', 'ShortLonger', 'Longer',
+        /// 'LongShorter', 'ShortShorter', 'ShortLonger', 'Longer', 'Shorter',
         /// 'AllRoles'
         /// </summary>
         [JsonProperty(PropertyName = "txnRoles")]
