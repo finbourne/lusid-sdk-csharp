@@ -137,10 +137,10 @@ namespace LusidSdk.Tests
             Assert.That(portfolioId, Is.Not.Null, "portfolioId null");
 
             const string propertyValue = "Active";
-            var property = new PropertyDto(propertyKey, propertyValue);
+            var property = new CreatePropertyRequest(propertyValue, scope, propertyName);
 
             //    add the portfolio property
-            var upsertResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<PropertyDto> {property}, portfolio?.Created);
+            var upsertResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<CreatePropertyRequest> {property}, portfolio?.Created);
             var propertiesResult = AssertResponseIsNotError<PortfolioPropertiesDto>(upsertResult);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
@@ -192,7 +192,7 @@ namespace LusidSdk.Tests
             const string propertyValue = "A Trader";
             
             //    create the trade
-            var trade = new TradeDto()
+            var trade = new UpsertPortfolioTradeRequest()
             {
                 TradeId = Guid.NewGuid().ToString(),
                 Type = "Buy",
@@ -204,14 +204,14 @@ namespace LusidSdk.Tests
                 TradePrice = 12.3,
                 TotalConsideration = 1230,
                 Source = "Client",
-                Properties = new List<PropertyDto>
+                Properties = new List<CreatePropertyRequest>
                 {
-                    new PropertyDto(propertyKey, propertyValue)
+                    new CreatePropertyRequest(propertyValue, scope, propertyName)
                 }
             };
 
             //    add the trade
-            var upsertResult = client.UpsertTrades(scope, portfolioId, new List<TradeDto> {trade});
+            var upsertResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest> {trade});
             AssertResponseIsNotError<UpsertPortfolioTradesDto>(upsertResult);                
 
             //    get the trades
@@ -262,7 +262,7 @@ namespace LusidSdk.Tests
             Thread.Sleep(500);
 
             //    add another trade for 2018-1-8
-            var laterTradeResult = client.UpsertTrades(scope, portfolioId, new List<TradeDto>
+            var laterTradeResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
             {
                 BuildTrade("FIGI_BBG001S61MW8", 104, new DateTime(2018, 1, 8))
             });
@@ -272,7 +272,7 @@ namespace LusidSdk.Tests
             Thread.Sleep(500);
 
             //    add back-dated trade
-            var backDatedTradeResult = client.UpsertTrades(scope, portfolioId, new List<TradeDto>
+            var backDatedTradeResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
             {
                 BuildTrade("FIGI_BBG001S6M3Z4", 105, new DateTime(2018, 1, 5))
             });
@@ -400,9 +400,9 @@ namespace LusidSdk.Tests
             AssertResponseIsNotError<NestedAggregationResponse>(aggregationResult);
         }
         
-        private TradeDto BuildTrade(string id, double price, DateTimeOffset tradeDate)
+        private UpsertPortfolioTradeRequest BuildTrade(string id, double price, DateTimeOffset tradeDate)
         {
-            return new TradeDto
+            return new UpsertPortfolioTradeRequest
             {
                 TradeId = Guid.NewGuid().ToString(),
                 Type = "StockIn",

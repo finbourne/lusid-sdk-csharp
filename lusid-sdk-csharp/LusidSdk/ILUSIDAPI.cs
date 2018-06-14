@@ -1417,7 +1417,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete property
@@ -1526,7 +1526,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> UpsertTradesWithHttpMessagesAsync(string scope, string code, IList<TradeDto> trades = default(IList<TradeDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> UpsertTradesWithHttpMessagesAsync(string scope, string code, IList<UpsertPortfolioTradeRequest> trades = default(IList<UpsertPortfolioTradeRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete trades
@@ -1575,7 +1575,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> AddTradePropertyWithHttpMessagesAsync(string scope, string code, string tradeId, IList<PropertyDto> properties = default(IList<PropertyDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddTradePropertyWithHttpMessagesAsync(string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete trade property
@@ -2126,15 +2126,16 @@ namespace Finbourne
         /// </summary>
         /// <param name='entity'>
         /// Possible values include: 'PropertyKey', 'FieldSchema',
-        /// 'Personalisation', 'Security', 'Property', 'Login',
-        /// 'PropertyDefinition', 'PropertyDataFormat',
+        /// 'Personalisation', 'Security', 'Property', 'PropertyRequest',
+        /// 'Login', 'PropertyDefinition', 'PropertyDataFormat',
         /// 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
         /// 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
         /// 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
         /// 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
-        /// 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-        /// 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
-        /// 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
+        /// 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
+        /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse',
+        /// 'InstrumentDefinition', 'ProcessedCommand', 'CreatePortfolio',
+        /// 'CreateAnalyticStore', 'CreateClientSecurity',
         /// 'CreateDerivedPortfolio', 'CreateGroup',
         /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition',
         /// 'UpdatePortfolio', 'UpdateGroup', 'UpdatePropertyDataFormat',

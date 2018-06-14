@@ -26,10 +26,6 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    /// <summary>
-    /// This is intended to be the external facing property specification data
-    /// type.
-    /// </summary>
     public partial class PropertyDto
     {
         /// <summary>

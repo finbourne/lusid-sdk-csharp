@@ -2507,7 +2507,7 @@ namespace Finbourne
             /// <param name='effectiveAt'>
             /// The effective date for the change
             /// </param>
-            public static object UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            public static object UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.UpsertPortfolioPropertiesAsync(scope, code, properties, effectiveAt).GetAwaiter().GetResult();
             }
@@ -2535,7 +2535,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> UpsertPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, IList<PropertyDto> properties = default(IList<PropertyDto>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> UpsertPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertPortfolioPropertiesWithHttpMessagesAsync(scope, code, properties, effectiveAt, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -2754,7 +2754,7 @@ namespace Finbourne
             /// <param name='trades'>
             /// The trades to be updated
             /// </param>
-            public static object UpsertTrades(this ILUSIDAPI operations, string scope, string code, IList<TradeDto> trades = default(IList<TradeDto>))
+            public static object UpsertTrades(this ILUSIDAPI operations, string scope, string code, IList<UpsertPortfolioTradeRequest> trades = default(IList<UpsertPortfolioTradeRequest>))
             {
                 return operations.UpsertTradesAsync(scope, code, trades).GetAwaiter().GetResult();
             }
@@ -2777,7 +2777,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> UpsertTradesAsync(this ILUSIDAPI operations, string scope, string code, IList<TradeDto> trades = default(IList<TradeDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> UpsertTradesAsync(this ILUSIDAPI operations, string scope, string code, IList<UpsertPortfolioTradeRequest> trades = default(IList<UpsertPortfolioTradeRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertTradesWithHttpMessagesAsync(scope, code, trades, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -2858,7 +2858,7 @@ namespace Finbourne
             /// <param name='properties'>
             /// Trade properties to add
             /// </param>
-            public static object AddTradeProperty(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<PropertyDto> properties = default(IList<PropertyDto>))
+            public static object AddTradeProperty(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>))
             {
                 return operations.AddTradePropertyAsync(scope, code, tradeId, properties).GetAwaiter().GetResult();
             }
@@ -2887,7 +2887,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddTradePropertyAsync(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<PropertyDto> properties = default(IList<PropertyDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddTradePropertyAsync(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddTradePropertyWithHttpMessagesAsync(scope, code, tradeId, properties, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4141,24 +4141,24 @@ namespace Finbourne
             /// </param>
             /// <param name='entity'>
             /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-            /// 'Security', 'Property', 'Login', 'PropertyDefinition',
+            /// 'Security', 'Property', 'PropertyRequest', 'Login', 'PropertyDefinition',
             /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
             /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
             /// 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
             /// 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-            /// 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-            /// 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
-            /// 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
-            /// 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
-            /// 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
-            /// 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition', 'SecurityAnalytic',
-            /// 'AggregationRequest', 'Aggregation', 'NestedAggregation',
-            /// 'ResultDataSchema', 'Classification', 'SecurityClassification',
-            /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
-            /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
-            /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-            /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition', 'ReconciliationRequest',
+            /// 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
+            /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
+            /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
+            /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
+            /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition', 'UpdatePortfolio',
+            /// 'UpdateGroup', 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition',
+            /// 'SecurityAnalytic', 'AggregationRequest', 'Aggregation',
+            /// 'NestedAggregation', 'ResultDataSchema', 'Classification',
+            /// 'SecurityClassification', 'WebLogMessage', 'UpsertPersonalisation',
+            /// 'CreatePortfolioDetails', 'UpsertConstituent', 'CreateResults', 'Results',
+            /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
+            /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
+            /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
             /// </param>
@@ -4175,24 +4175,24 @@ namespace Finbourne
             /// </param>
             /// <param name='entity'>
             /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-            /// 'Security', 'Property', 'Login', 'PropertyDefinition',
+            /// 'Security', 'Property', 'PropertyRequest', 'Login', 'PropertyDefinition',
             /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
             /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
             /// 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
             /// 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-            /// 'Trade', 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-            /// 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
-            /// 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
-            /// 'CreateDerivedPortfolio', 'CreateGroup', 'CreatePropertyDataFormat',
-            /// 'CreatePropertyDefinition', 'UpdatePortfolio', 'UpdateGroup',
-            /// 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition', 'SecurityAnalytic',
-            /// 'AggregationRequest', 'Aggregation', 'NestedAggregation',
-            /// 'ResultDataSchema', 'Classification', 'SecurityClassification',
-            /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
-            /// 'UpsertConstituent', 'CreateResults', 'Results', 'TryAddClientSecurities',
-            /// 'TryDeleteClientSecurities', 'TryLookupSecuritiesFromCodes',
-            /// 'ExpandedGroup', 'CreateCorporateAction', 'CorporateAction',
-            /// 'CorporateActionTransition', 'ReconciliationRequest',
+            /// 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
+            /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
+            /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
+            /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
+            /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition', 'UpdatePortfolio',
+            /// 'UpdateGroup', 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition',
+            /// 'SecurityAnalytic', 'AggregationRequest', 'Aggregation',
+            /// 'NestedAggregation', 'ResultDataSchema', 'Classification',
+            /// 'SecurityClassification', 'WebLogMessage', 'UpsertPersonalisation',
+            /// 'CreatePortfolioDetails', 'UpsertConstituent', 'CreateResults', 'Results',
+            /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
+            /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
+            /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
             /// </param>
