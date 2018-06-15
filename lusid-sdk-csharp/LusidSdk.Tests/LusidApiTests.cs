@@ -52,8 +52,8 @@ namespace LusidSdk.Tests
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // gets the response
-                var tokenRequest = new HttpRequestMessage(HttpMethod.Post, tokenUrl);
-                tokenRequest.Content = new StringContent(tokenRequestBody);
+                var tokenRequest =
+                    new HttpRequestMessage(HttpMethod.Post, tokenUrl) {Content = new StringContent(tokenRequestBody)};
                 tokenRequest.Content.Headers.ContentType =
                     new MediaTypeHeaderValue("application/x-www-form-urlencoded");
 
@@ -105,7 +105,6 @@ namespace LusidSdk.Tests
             var uuid = Guid.NewGuid().ToString();
             const string scope = "finbourne";
             var propertyName = $"fund-style-{uuid}";
-            var propertyKey = $"Portfolio/{scope}/{propertyName}";
 
             var propertyDefinition = new CreatePropertyDefinitionRequest
             {
@@ -157,7 +156,6 @@ namespace LusidSdk.Tests
             var uuid = Guid.NewGuid().ToString();
             const string scope = "finbourne";
             var propertyName = $"traderId-{uuid}";
-            var propertyKey = $"Trade/{scope}/{propertyName}";
 
             var propertyDefinition = new CreatePropertyDefinitionRequest
             {
@@ -435,6 +433,125 @@ namespace LusidSdk.Tests
             
             Assert.That(fbnIds.Values.Count, Is.GreaterThan(0));
         }
+
+        private UpsertPortfolioTradeRequest BuildTradeWithQuantity(string id, double price, double quantity,  DateTimeOffset tradeDate)
+        {
+            return new UpsertPortfolioTradeRequest
+            {
+                TradeId = Guid.NewGuid().ToString(),
+                Type = "StockIn",
+                SecurityUid = id,
+                SettlementCurrency = "GBP",
+                TradeDate = tradeDate,
+                SettlementDate = tradeDate,
+                Units = quantity,
+                TradePrice = price,
+                TotalConsideration = 100 * price,
+                Source = "Client"
+            };
+        }
+
+        [Test]
+        public void Reconcile_Portfolio()
+        {
+            var credentials = new TokenCredentials(_apiToken);
+            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
+
+            const string scope = "finbourne";
+            var uuid = Guid.NewGuid().ToString();
+
+            //Create a portfolio for testing against
+            var portfolioName = $"Portfolio-{uuid}";
+            var portfolioCode = $"Id-{uuid}";
+            var today = new DateTimeOffset(DateTimeOffset.UtcNow.Date).ToUniversalTime();
+            var yesterday = today.AddDays(-1);
+
+            //Request creation for yesterday
+            var requestPortfolio = new CreatePortfolioRequest(portfolioName, portfolioCode, "GBP", yesterday);
+            var resultPortfolio = client.CreatePortfolio(scope, requestPortfolio);
+            var portfolio = AssertResponseIsNotError<PortfolioDto>(resultPortfolio);
+
+           
+            //Book some trades for yesterday
+            var tradesYesterday = new[]
+            {
+                (Id: "FIGI_BBG001S7Z574", Price: 100, Quantity: 1000, TradeDate: yesterday.AddHours(8)),
+                (Id: "FIGI_BBG001S7Z574", Price: 101, Quantity: 2300, TradeDate: yesterday.AddHours(12)),
+                (Id: "FIGI_BBG001SRKHW2", Price: 102,  Quantity: -1000, TradeDate: yesterday.AddHours(9)),
+                (Id: "FIGI_BBG000005547", Price: 103, Quantity: 1200,  TradeDate: yesterday.AddHours(16)),
+                (Id: "FIGI_BBG0034YQ817", Price: 103, Quantity: 2000,  TradeDate: yesterday.AddHours(9))
+            };
+            
+            var trades = tradesYesterday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
+
+            //    add trades
+            var addedTradesResult = client.UpsertTrades(scope, portfolioCode, trades.ToList());
+            AssertResponseIsNotError<UpsertPortfolioTradesDto>(addedTradesResult);
+
+            //Book more trades for today
+            var tradesToday = new[]
+            {
+                (Id: "FIGI_BBG001S7Z574", Price: 101.78, Quantity: -3000, TradeDate: today.AddHours(8)), //net long 300
+                (Id: "FIGI_BBG001S7Z574", Price: 101.78, Quantity: 1500, TradeDate: today.AddHours(12)), //net long 1800
+                (Id: "FIGI_BBG001SRKHW2", Price: 102,  Quantity: 1000, TradeDate: today.AddHours(12)),  // flat
+                (Id: "FIGI_BBG000005547", Price: 103, Quantity: 1200,  TradeDate: today.AddHours(16)),  // long 2400
+                (Id: "FIGI_BBG0034YQ817", Price: 103, Quantity: 1000,  TradeDate: today.AddHours(9)),   // long 3000 
+                (Id: "FIGI_BBG0034YQ817", Price: 103, Quantity: 2000,  TradeDate: today.AddHours(20))   // long 5000 but outside recon window
+            };
+
+            trades = tradesToday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
+
+            //    add trades
+            addedTradesResult = client.UpsertTrades(scope, portfolioCode, trades.ToList());
+            var finalResult = AssertResponseIsNotError<UpsertPortfolioTradesDto>(addedTradesResult);
+
+            //Using the last result find out its AsAtDate (based on the servers clock at the time of the test)
+            var finalAsAtTime = finalResult.Version.AsAtDate;
+
+            //So now we have the portfolio with 2 days worth of trades, going to reconcile from T-1 20:00 to now,
+            //this should reflect breaks for each security equal to the trades from yesterday till 20 today. 
+
+            var reconcileRequest = new ReconciliationRequest(scope, portfolio.Id.Code, yesterday.AddHours(20),
+                finalAsAtTime,
+                scope, portfolio.Id.Code, today.AddHours(16), finalAsAtTime);
+
+            var resultRecon = client.PerformReconciliation(reconcileRequest);
+
+            var listOfBreaks = AssertResponseIsNotError<ResourceListReconciliationBreakDto>(resultRecon);
+            
+            Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
+            PrintBreaks(listOfBreaks.Values);
+
+            /*
+                Expecting 
+                    FIGI_BBG001S7Z574	-1500	-8094.73
+                    FIGI_BBG0034YQ817	1000	10300
+                    FIGI_BBG000005547	1200	10300
+                    FIGI_BBG001SRKHW2	1000	-10200
+
+            */
+
+            Assert.AreEqual(listOfBreaks.Values.Count, 4);
+
+            var map = listOfBreaks.Values.ToDictionary(abreak => abreak.SecurityUid);
+            Assert.AreEqual(map["FIGI_BBG001S7Z574"].UnitsDifference, -1500);
+            Assert.AreEqual(map["FIGI_BBG0034YQ817"].UnitsDifference, 1000);
+            Assert.AreEqual(map["FIGI_BBG000005547"].UnitsDifference, 1200);
+            Assert.AreEqual(map["FIGI_BBG001SRKHW2"].UnitsDifference, 1000);
+            
+            void PrintBreaks(IEnumerable<ReconciliationBreakDto> breaks)
+            {
+                foreach (var abreak in breaks)
+                {
+                    Console.WriteLine(
+                        $"{abreak.SecurityUid}\t{abreak.UnitsDifference}\t{abreak.CostDifference}");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
     }
     
 }
+ 
