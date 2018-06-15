@@ -110,6 +110,8 @@ namespace Finbourne
     /// | ---|---|--- |
     /// | Id|string|Unique security identifier |
     /// | Value|decimal|Value of the analytic, eg price |
+    /// | Denomination|string|Underlying unit of the analytic, eg currency, EPS
+    /// etc. |
     ///
     ///
     /// ## Security Data
@@ -297,6 +299,8 @@ namespace Finbourne
     /// | &lt;a name="182"&gt;182&lt;/a&gt;|SearchFailed|  |
     /// | &lt;a
     /// name="183"&gt;183&lt;/a&gt;|MovementsEngineConfigurationKeyFailure|  |
+    /// | &lt;a name="184"&gt;184&lt;/a&gt;|FxRateSourceNotFound|  |
+    /// | &lt;a name="185"&gt;185&lt;/a&gt;|AccrualSourceNotFound|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
     /// </summary>

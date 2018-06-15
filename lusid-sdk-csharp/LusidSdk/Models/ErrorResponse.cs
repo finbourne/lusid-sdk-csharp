@@ -74,7 +74,8 @@ namespace Finbourne.Models
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
         /// 'DuplicateIdFailure', 'SecurityByCodeNotFound',
         /// 'CommandRetrievalFailure', 'DataFilterApplicationFailure',
-        /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure'</param>
+        /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure',
+        /// 'FxRateSourceNotFound', 'AccrualSourceNotFound'</param>
         /// <param name="message">The non-technical-user friendly message
         /// describing the error and how it might be remedied.</param>
         /// <param name="detailedMessage">A technical error message that
@@ -138,7 +139,8 @@ namespace Finbourne.Models
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
         /// 'DuplicateIdFailure', 'SecurityByCodeNotFound',
         /// 'CommandRetrievalFailure', 'DataFilterApplicationFailure',
-        /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure'
+        /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure',
+        /// 'FxRateSourceNotFound', 'AccrualSourceNotFound'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }
