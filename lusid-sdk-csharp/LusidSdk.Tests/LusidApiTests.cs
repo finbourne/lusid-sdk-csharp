@@ -446,7 +446,7 @@ namespace LusidSdk.Tests
                 SettlementDate = tradeDate,
                 Units = quantity,
                 TradePrice = price,
-                TotalConsideration = 100 * price,
+                TotalConsideration = quantity * price,
                 Source = "Client"
             };
         }
