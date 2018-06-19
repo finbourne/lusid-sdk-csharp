@@ -202,9 +202,9 @@ namespace LusidSdk.Tests
                 TradePrice = 12.3,
                 TotalConsideration = 1230,
                 Source = "Client",
-                Properties = new List<CreatePropertyRequest>
+                Properties = new List<CreatePerpetualPropertyRequest>
                 {
-                    new CreatePropertyRequest(propertyValue, scope, propertyName)
+                    new CreatePerpetualPropertyRequest(propertyValue, scope, propertyName)
                 }
             };
 
