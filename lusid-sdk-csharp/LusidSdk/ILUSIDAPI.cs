@@ -298,6 +298,9 @@ namespace Finbourne
     /// name="183"&gt;183&lt;/a&gt;|MovementsEngineConfigurationKeyFailure|  |
     /// | &lt;a name="184"&gt;184&lt;/a&gt;|FxRateSourceNotFound|  |
     /// | &lt;a name="185"&gt;185&lt;/a&gt;|AccrualSourceNotFound|  |
+    /// | &lt;a name="186"&gt;186&lt;/a&gt;|EntitlementsFailure|  |
+    /// | &lt;a name="187"&gt;187&lt;/a&gt;|InvalidIdentityToken|  |
+    /// | &lt;a name="188"&gt;188&lt;/a&gt;|InvalidRequestHeaders|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
     /// </summary>
@@ -336,49 +339,6 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> ClearEntityCachesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Gets a corporate action based on dates
-        /// </summary>
-        /// <param name='scope'>
-        /// Scope
-        /// </param>
-        /// <param name='sourceId'>
-        /// Corporate action source id
-        /// </param>
-        /// <param name='effectiveDate'>
-        /// Effective Date
-        /// </param>
-        /// <param name='asAt'>
-        /// AsAt Date filter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Creates/updates a corporate action
-        /// </summary>
-        /// <param name='scope'>
-        /// The intended scope of the corporate action
-        /// </param>
-        /// <param name='sourceId'>
-        /// Source of the corporate action
-        /// </param>
-        /// <param name='createRequest'>
-        /// The corporate action creation request object
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<object>> UpsertCorporateActionWithHttpMessagesAsync(string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Aggregate data in a group hierarchy
@@ -646,6 +606,50 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> UploadConfigurationTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets a corporate action based on dates
+        /// </summary>
+        /// <param name='scope'>
+        /// Scope
+        /// </param>
+        /// <param name='sourceId'>
+        /// Corporate action source id
+        /// </param>
+        /// <param name='effectiveDate'>
+        /// Effective Date
+        /// </param>
+        /// <param name='asAt'>
+        /// AsAt Date filter
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Attempt to create/update one or more corporate action. Failed
+        /// actions will be identified in the body of the response.
+        /// </summary>
+        /// <param name='scope'>
+        /// The intended scope of the corporate action
+        /// </param>
+        /// <param name='sourceId'>
+        /// Source of the corporate action
+        /// </param>
+        /// <param name='actions'>
+        /// The corporate action creation request objects
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='version'>
         /// </param>
@@ -1579,7 +1583,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> AddTradePropertyWithHttpMessagesAsync(string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddTradePropertyWithHttpMessagesAsync(string scope, string code, string tradeId, IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete trade property
@@ -2130,8 +2134,9 @@ namespace Finbourne
         /// </summary>
         /// <param name='entity'>
         /// Possible values include: 'PropertyKey', 'FieldSchema',
-        /// 'Personalisation', 'Security', 'Property', 'PropertyRequest',
-        /// 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+        /// 'Personalisation', 'Security', 'Property', 'CreatePropertyRequest',
+        /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
+        /// 'PropertyDefinition', 'PropertyDataFormat',
         /// 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
         /// 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
         /// 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -2154,7 +2159,7 @@ namespace Finbourne
         /// 'CorporateActionTransition', 'ReconciliationRequest',
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
-        /// 'TransactionConfigurationTypeAlias'
+        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

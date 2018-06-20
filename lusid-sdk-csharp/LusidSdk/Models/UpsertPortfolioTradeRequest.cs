@@ -66,7 +66,7 @@ namespace Finbourne.Models
         /// 'Yield', 'Spread'</param>
         /// <param name="unitType">Possible values include: 'Nominal',
         /// 'Shares', 'FaceValue', 'Contracts'</param>
-        public UpsertPortfolioTradeRequest(string tradeId, string type, string securityUid, System.DateTimeOffset tradeDate, System.DateTimeOffset settlementDate, double units, double tradePrice, double totalConsideration, string settlementCurrency, string source, double? exchangeRate = default(double?), string tradeCurrency = default(string), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), string counterpartyId = default(string), string dividendState = default(string), string tradePriceType = default(string), string unitType = default(string), string nettingSet = default(string))
+        public UpsertPortfolioTradeRequest(string tradeId, string type, string securityUid, System.DateTimeOffset tradeDate, System.DateTimeOffset settlementDate, double units, double tradePrice, double totalConsideration, string settlementCurrency, string source, double? exchangeRate = default(double?), string tradeCurrency = default(string), IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>), string counterpartyId = default(string), string dividendState = default(string), string tradePriceType = default(string), string unitType = default(string), string nettingSet = default(string))
         {
             TradeId = tradeId;
             Type = type;
@@ -164,7 +164,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<CreatePropertyRequest> Properties { get; set; }
+        public IList<CreatePerpetualPropertyRequest> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets counterparty identifier

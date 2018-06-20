@@ -301,6 +301,9 @@ namespace Finbourne
     /// name="183"&gt;183&lt;/a&gt;|MovementsEngineConfigurationKeyFailure|  |
     /// | &lt;a name="184"&gt;184&lt;/a&gt;|FxRateSourceNotFound|  |
     /// | &lt;a name="185"&gt;185&lt;/a&gt;|AccrualSourceNotFound|  |
+    /// | &lt;a name="186"&gt;186&lt;/a&gt;|EntitlementsFailure|  |
+    /// | &lt;a name="187"&gt;187&lt;/a&gt;|InvalidIdentityToken|  |
+    /// | &lt;a name="188"&gt;188&lt;/a&gt;|InvalidRequestHeaders|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
     /// </summary>
@@ -663,413 +666,6 @@ namespace Finbourne
                 try
                 {
                     _result.Body = SafeJsonConvert.DeserializeObject<ClearEntityCachesDto>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 400)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 500)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <summary>
-        /// Gets a corporate action based on dates
-        /// </summary>
-        /// <param name='scope'>
-        /// Scope
-        /// </param>
-        /// <param name='sourceId'>
-        /// Corporate action source id
-        /// </param>
-        /// <param name='effectiveDate'>
-        /// Effective Date
-        /// </param>
-        /// <param name='asAt'>
-        /// AsAt Date filter
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (scope == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
-            }
-            if (sourceId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "sourceId");
-            }
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("scope", scope);
-                tracingParameters.Add("sourceId", sourceId);
-                tracingParameters.Add("effectiveDate", effectiveDate);
-                tracingParameters.Add("asAt", asAt);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "ListCorporateActions", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/actions/{scope}/{sourceId}").ToString();
-            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{sourceId}", System.Uri.EscapeDataString(sourceId));
-            List<string> _queryParameters = new List<string>();
-            if (effectiveDate != null)
-            {
-                _queryParameters.Add(string.Format("effectiveDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveDate, SerializationSettings).Trim('"'))));
-            }
-            if (asAt != null)
-            {
-                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
-            }
-            if (_queryParameters.Count > 0)
-            {
-                _url += "?" + string.Join("&", _queryParameters);
-            }
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("GET");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 200 && (int)_statusCode != 404 && (int)_statusCode != 500)
-            {
-                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                }
-                else {
-                    _responseContent = string.Empty;
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<object>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<CorporateActionEventDto>>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 404)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 500)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <summary>
-        /// Creates/updates a corporate action
-        /// </summary>
-        /// <param name='scope'>
-        /// The intended scope of the corporate action
-        /// </param>
-        /// <param name='sourceId'>
-        /// Source of the corporate action
-        /// </param>
-        /// <param name='createRequest'>
-        /// The corporate action creation request object
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<object>> UpsertCorporateActionWithHttpMessagesAsync(string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (scope == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
-            }
-            if (sourceId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "sourceId");
-            }
-            if (createRequest != null)
-            {
-                createRequest.Validate();
-            }
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("scope", scope);
-                tracingParameters.Add("sourceId", sourceId);
-                tracingParameters.Add("createRequest", createRequest);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "UpsertCorporateAction", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/actions/{scope}/{sourceId}").ToString();
-            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{sourceId}", System.Uri.EscapeDataString(sourceId));
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            if(createRequest != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(createRequest, SerializationSettings);
-                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 200 && (int)_statusCode != 400 && (int)_statusCode != 500)
-            {
-                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                }
-                else {
-                    _responseContent = string.Empty;
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<object>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<CorporateActionEventDto>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3966,6 +3562,420 @@ namespace Finbourne
                 try
                 {
                     _result.Body = SafeJsonConvert.DeserializeObject<ResourceListTxnMetaDataDto>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 400)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 500)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Gets a corporate action based on dates
+        /// </summary>
+        /// <param name='scope'>
+        /// Scope
+        /// </param>
+        /// <param name='sourceId'>
+        /// Corporate action source id
+        /// </param>
+        /// <param name='effectiveDate'>
+        /// Effective Date
+        /// </param>
+        /// <param name='asAt'>
+        /// AsAt Date filter
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (scope == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
+            }
+            if (sourceId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "sourceId");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("scope", scope);
+                tracingParameters.Add("sourceId", sourceId);
+                tracingParameters.Add("effectiveDate", effectiveDate);
+                tracingParameters.Add("asAt", asAt);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "ListCorporateActions", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/corporateactions/{scope}/{sourceId}").ToString();
+            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
+            _url = _url.Replace("{sourceId}", System.Uri.EscapeDataString(sourceId));
+            List<string> _queryParameters = new List<string>();
+            if (effectiveDate != null)
+            {
+                _queryParameters.Add(string.Format("effectiveDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveDate, SerializationSettings).Trim('"'))));
+            }
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200 && (int)_statusCode != 404 && (int)_statusCode != 500)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<object>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<CorporateActionEventDto>>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 404)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 500)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Attempt to create/update one or more corporate action. Failed actions will
+        /// be identified in the body of the response.
+        /// </summary>
+        /// <param name='scope'>
+        /// The intended scope of the corporate action
+        /// </param>
+        /// <param name='sourceId'>
+        /// Source of the corporate action
+        /// </param>
+        /// <param name='actions'>
+        /// The corporate action creation request objects
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<object>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (scope == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
+            }
+            if (sourceId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "sourceId");
+            }
+            if (actions != null)
+            {
+                foreach (var element in actions)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("scope", scope);
+                tracingParameters.Add("sourceId", sourceId);
+                tracingParameters.Add("actions", actions);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "BatchUpsertCorporateActions", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/corporateactions/{scope}/{sourceId}").ToString();
+            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
+            _url = _url.Replace("{sourceId}", System.Uri.EscapeDataString(sourceId));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(actions != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(actions, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 201 && (int)_statusCode != 400 && (int)_statusCode != 500)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<object>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 201)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<TryUpsertCorporateActionsDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13041,7 +13051,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> AddTradePropertyWithHttpMessagesAsync(string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> AddTradePropertyWithHttpMessagesAsync(string scope, string code, string tradeId, IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -19047,12 +19057,13 @@ namespace Finbourne
         /// </summary>
         /// <param name='entity'>
         /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-        /// 'Security', 'Property', 'PropertyRequest', 'Login', 'PropertyDefinition',
-        /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
-        /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-        /// 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-        /// 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-        /// 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
+        /// 'Security', 'Property', 'CreatePropertyRequest',
+        /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
+        /// 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
+        /// 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+        /// 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+        /// 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+        /// 'Constituent', 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
         /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
         /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
         /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
@@ -19066,7 +19077,8 @@ namespace Finbourne
         /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
         /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
-        /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
+        /// 'TransactionConfigurationMovementData',
+        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

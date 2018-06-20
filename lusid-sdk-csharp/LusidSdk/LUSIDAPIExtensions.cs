@@ -62,104 +62,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Gets a corporate action based on dates
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// Scope
-            /// </param>
-            /// <param name='sourceId'>
-            /// Corporate action source id
-            /// </param>
-            /// <param name='effectiveDate'>
-            /// Effective Date
-            /// </param>
-            /// <param name='asAt'>
-            /// AsAt Date filter
-            /// </param>
-            public static object ListCorporateActions(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
-            {
-                return operations.ListCorporateActionsAsync(scope, sourceId, effectiveDate, asAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets a corporate action based on dates
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// Scope
-            /// </param>
-            /// <param name='sourceId'>
-            /// Corporate action source id
-            /// </param>
-            /// <param name='effectiveDate'>
-            /// Effective Date
-            /// </param>
-            /// <param name='asAt'>
-            /// AsAt Date filter
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, sourceId, effectiveDate, asAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Creates/updates a corporate action
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The intended scope of the corporate action
-            /// </param>
-            /// <param name='sourceId'>
-            /// Source of the corporate action
-            /// </param>
-            /// <param name='createRequest'>
-            /// The corporate action creation request object
-            /// </param>
-            public static object UpsertCorporateAction(this ILUSIDAPI operations, string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest))
-            {
-                return operations.UpsertCorporateActionAsync(scope, sourceId, createRequest).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Creates/updates a corporate action
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The intended scope of the corporate action
-            /// </param>
-            /// <param name='sourceId'>
-            /// Source of the corporate action
-            /// </param>
-            /// <param name='createRequest'>
-            /// The corporate action creation request object
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> UpsertCorporateActionAsync(this ILUSIDAPI operations, string scope, string sourceId, UpsertCorporateActionRequest createRequest = default(UpsertCorporateActionRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertCorporateActionWithHttpMessagesAsync(scope, sourceId, createRequest, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Aggregate data in a group hierarchy
             /// </summary>
             /// <param name='operations'>
@@ -776,6 +678,106 @@ namespace Finbourne
             public static async Task<object> UploadConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UploadConfigurationTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets a corporate action based on dates
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// Scope
+            /// </param>
+            /// <param name='sourceId'>
+            /// Corporate action source id
+            /// </param>
+            /// <param name='effectiveDate'>
+            /// Effective Date
+            /// </param>
+            /// <param name='asAt'>
+            /// AsAt Date filter
+            /// </param>
+            public static object ListCorporateActions(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            {
+                return operations.ListCorporateActionsAsync(scope, sourceId, effectiveDate, asAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a corporate action based on dates
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// Scope
+            /// </param>
+            /// <param name='sourceId'>
+            /// Corporate action source id
+            /// </param>
+            /// <param name='effectiveDate'>
+            /// Effective Date
+            /// </param>
+            /// <param name='asAt'>
+            /// AsAt Date filter
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, sourceId, effectiveDate, asAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Attempt to create/update one or more corporate action. Failed actions will
+            /// be identified in the body of the response.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The intended scope of the corporate action
+            /// </param>
+            /// <param name='sourceId'>
+            /// Source of the corporate action
+            /// </param>
+            /// <param name='actions'>
+            /// The corporate action creation request objects
+            /// </param>
+            public static object BatchUpsertCorporateActions(this ILUSIDAPI operations, string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>))
+            {
+                return operations.BatchUpsertCorporateActionsAsync(scope, sourceId, actions).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Attempt to create/update one or more corporate action. Failed actions will
+            /// be identified in the body of the response.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The intended scope of the corporate action
+            /// </param>
+            /// <param name='sourceId'>
+            /// Source of the corporate action
+            /// </param>
+            /// <param name='actions'>
+            /// The corporate action creation request objects
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> BatchUpsertCorporateActionsAsync(this ILUSIDAPI operations, string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BatchUpsertCorporateActionsWithHttpMessagesAsync(scope, sourceId, actions, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2858,7 +2860,7 @@ namespace Finbourne
             /// <param name='properties'>
             /// Trade properties to add
             /// </param>
-            public static object AddTradeProperty(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>))
+            public static object AddTradeProperty(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>))
             {
                 return operations.AddTradePropertyAsync(scope, code, tradeId, properties).GetAwaiter().GetResult();
             }
@@ -2887,7 +2889,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddTradePropertyAsync(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddTradePropertyAsync(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddTradePropertyWithHttpMessagesAsync(scope, code, tradeId, properties, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4141,12 +4143,13 @@ namespace Finbourne
             /// </param>
             /// <param name='entity'>
             /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-            /// 'Security', 'Property', 'PropertyRequest', 'Login', 'PropertyDefinition',
-            /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
-            /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-            /// 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-            /// 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-            /// 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
+            /// 'Security', 'Property', 'CreatePropertyRequest',
+            /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
+            /// 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
+            /// 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+            /// 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+            /// 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+            /// 'Constituent', 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
             /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
             /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
             /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
@@ -4160,7 +4163,8 @@ namespace Finbourne
             /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
             /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
-            /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
+            /// 'TransactionConfigurationMovementData',
+            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
             /// </param>
             public static object GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4175,12 +4179,13 @@ namespace Finbourne
             /// </param>
             /// <param name='entity'>
             /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-            /// 'Security', 'Property', 'PropertyRequest', 'Login', 'PropertyDefinition',
-            /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
-            /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-            /// 'PortfolioProperties', 'Version', 'AddTradeProperty', 'AnalyticStore',
-            /// 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group', 'Constituent',
-            /// 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
+            /// 'Security', 'Property', 'CreatePropertyRequest',
+            /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
+            /// 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
+            /// 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
+            /// 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
+            /// 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
+            /// 'Constituent', 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
             /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
             /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
             /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
@@ -4194,7 +4199,8 @@ namespace Finbourne
             /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
             /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
-            /// 'TransactionConfigurationMovementData', 'TransactionConfigurationTypeAlias'
+            /// 'TransactionConfigurationMovementData',
+            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

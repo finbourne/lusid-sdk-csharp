@@ -64,7 +64,7 @@ namespace Finbourne.Models
         /// 'Yield', 'Spread'</param>
         /// <param name="unitType">Possible values include: 'Nominal',
         /// 'Shares', 'FaceValue', 'Contracts'</param>
-        public TradeDto(string tradeId, string type, string securityUid, System.DateTimeOffset tradeDate, System.DateTimeOffset settlementDate, double units, double tradePrice, double totalConsideration, string settlementCurrency, string source, double? exchangeRate = default(double?), string tradeCurrency = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), string counterpartyId = default(string), string dividendState = default(string), string tradePriceType = default(string), string unitType = default(string), string nettingSet = default(string))
+        public TradeDto(string tradeId, string type, string securityUid, System.DateTimeOffset tradeDate, System.DateTimeOffset settlementDate, double units, double tradePrice, double totalConsideration, string settlementCurrency, string source, double? exchangeRate = default(double?), string tradeCurrency = default(string), IList<PerpetualPropertyDto> properties = default(IList<PerpetualPropertyDto>), string counterpartyId = default(string), string dividendState = default(string), string tradePriceType = default(string), string unitType = default(string), string nettingSet = default(string))
         {
             TradeId = tradeId;
             Type = type;
@@ -162,7 +162,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<PropertyDto> Properties { get; set; }
+        public IList<PerpetualPropertyDto> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets counterparty identifier

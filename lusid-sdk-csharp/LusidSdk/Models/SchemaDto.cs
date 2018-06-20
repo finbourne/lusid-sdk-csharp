@@ -42,7 +42,8 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="entity">Possible values include: 'PropertyKey',
         /// 'FieldSchema', 'Personalisation', 'Security', 'Property',
-        /// 'PropertyRequest', 'Login', 'PropertyDefinition',
+        /// 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
+        /// 'PerpetualProperty', 'Login', 'PropertyDefinition',
         /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
         /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
         /// 'PortfolioProperties', 'Version', 'AddTradeProperty',
@@ -65,7 +66,8 @@ namespace Finbourne.Models
         /// 'CorporateActionTransition', 'ReconciliationRequest',
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
-        /// 'TransactionConfigurationTypeAlias'</param>
+        /// 'TransactionConfigurationTypeAlias',
+        /// 'TryUpsertCorporateActions'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
         {
             Entity = entity;
@@ -81,8 +83,9 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets or sets possible values include: 'PropertyKey', 'FieldSchema',
-        /// 'Personalisation', 'Security', 'Property', 'PropertyRequest',
-        /// 'Login', 'PropertyDefinition', 'PropertyDataFormat',
+        /// 'Personalisation', 'Security', 'Property', 'CreatePropertyRequest',
+        /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
+        /// 'PropertyDefinition', 'PropertyDataFormat',
         /// 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
         /// 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
         /// 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
@@ -105,7 +108,7 @@ namespace Finbourne.Models
         /// 'CorporateActionTransition', 'ReconciliationRequest',
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
-        /// 'TransactionConfigurationTypeAlias'
+        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }

@@ -24,6 +24,8 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class CreatePortfolioRequest
@@ -42,7 +44,9 @@ namespace Finbourne.Models
         /// <param name="accountingMethod">Possible values include: 'Default',
         /// 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
         /// 'HighestCostFirst', 'LowestCostFirst'</param>
-        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string))
+        /// <param name="properties">Portfolio properties to add to the
+        /// portfolio</param>
+        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>))
         {
             Name = name;
             Code = code;
@@ -50,6 +54,7 @@ namespace Finbourne.Models
             BaseCurrency = baseCurrency;
             CorporateActionSourceId = corporateActionSourceId;
             AccountingMethod = accountingMethod;
+            Properties = properties;
             CustomInit();
         }
 
@@ -92,6 +97,12 @@ namespace Finbourne.Models
         public string AccountingMethod { get; set; }
 
         /// <summary>
+        /// Gets or sets portfolio properties to add to the portfolio
+        /// </summary>
+        [JsonProperty(PropertyName = "properties")]
+        public IList<CreatePropertyRequest> Properties { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -110,6 +121,16 @@ namespace Finbourne.Models
             if (BaseCurrency == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "BaseCurrency");
+            }
+            if (Properties != null)
+            {
+                foreach (var element in Properties)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }
