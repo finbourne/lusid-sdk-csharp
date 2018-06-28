@@ -119,8 +119,6 @@ namespace Finbourne
     /// | Field|Type|Description |
     /// | ---|---|--- |
     /// | Uid|string|Unique security identifier |
-    /// | EffectiveFrom|datetime|Date from which this classification is
-    /// effective |
     ///
     ///
     /// ## Portfolios

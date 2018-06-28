@@ -41,12 +41,9 @@ namespace Finbourne.Models
         /// Initializes a new instance of the SecurityClassificationDto class.
         /// </summary>
         /// <param name="uid">Unique security identifier</param>
-        /// <param name="effectiveFrom">Date from which this classification is
-        /// effective</param>
-        public SecurityClassificationDto(string uid = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), IList<PropertyDto> properties = default(IList<PropertyDto>))
+        public SecurityClassificationDto(string uid = default(string), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>))
         {
             Uid = uid;
-            EffectiveFrom = effectiveFrom;
             Properties = properties;
             CustomInit();
         }
@@ -63,15 +60,9 @@ namespace Finbourne.Models
         public string Uid { get; set; }
 
         /// <summary>
-        /// Gets or sets date from which this classification is effective
-        /// </summary>
-        [JsonProperty(PropertyName = "effectiveFrom")]
-        public System.DateTimeOffset? EffectiveFrom { get; set; }
-
-        /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<PropertyDto> Properties { get; set; }
+        public IList<CreatePropertyRequest> Properties { get; set; }
 
     }
 }

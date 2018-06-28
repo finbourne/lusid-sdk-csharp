@@ -122,8 +122,6 @@ namespace Finbourne
     /// | Field|Type|Description |
     /// | ---|---|--- |
     /// | Uid|string|Unique security identifier |
-    /// | EffectiveFrom|datetime|Date from which this classification is
-    /// effective |
     ///
     ///
     /// ## Portfolios
@@ -7929,7 +7927,7 @@ namespace Finbourne
             }
             if (scope != null)
             {
-                _queryParameters.Add(string.Format("scope={0}", System.Uri.EscapeDataString(scope)));
+                _queryParameters.Add(string.Format("scope={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(scope, SerializationSettings).Trim('"'))));
             }
             _queryParameters.Add(string.Format("recursive={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(recursive, SerializationSettings).Trim('"'))));
             _queryParameters.Add(string.Format("wildcards={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(wildcards, SerializationSettings).Trim('"'))));
@@ -8359,7 +8357,7 @@ namespace Finbourne
             }
             if (scope != null)
             {
-                _queryParameters.Add(string.Format("scope={0}", System.Uri.EscapeDataString(scope)));
+                _queryParameters.Add(string.Format("scope={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(scope, SerializationSettings).Trim('"'))));
             }
             if (group != null)
             {
@@ -14833,7 +14831,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}").ToString();
-            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
+            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (asAt != null)
             {
@@ -15076,7 +15074,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}/_scopes").ToString();
-            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
+            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
@@ -15325,7 +15323,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}/{scope}").ToString();
-            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
+            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             List<string> _queryParameters = new List<string>();
             if (asAt != null)
@@ -15574,7 +15572,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}/{scope}/{name}").ToString();
-            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
+            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
             List<string> _queryParameters = new List<string>();
@@ -15798,7 +15796,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}/{scope}/{name}").ToString();
-            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
+            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
             // Create HTTP transport objects
@@ -16016,7 +16014,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/propertydefinitions/{domain}/{scope}/{name}").ToString();
-            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(domain));
+            _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
             // Create HTTP transport objects
@@ -19121,7 +19119,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/schema/entities/{entity}").ToString();
-            _url = _url.Replace("{entity}", System.Uri.EscapeDataString(entity));
+            _url = _url.Replace("{entity}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(entity, SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -20316,7 +20314,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/securities/lookup/{codeType}").ToString();
-            _url = _url.Replace("{codeType}", System.Uri.EscapeDataString(codeType));
+            _url = _url.Replace("{codeType}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(codeType, SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (codes != null)
             {
@@ -20546,7 +20544,7 @@ namespace Finbourne
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/securities/lookup/{codeType}").ToString();
-            _url = _url.Replace("{codeType}", System.Uri.EscapeDataString(codeType));
+            _url = _url.Replace("{codeType}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(codeType, SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (asAt != null)
             {
