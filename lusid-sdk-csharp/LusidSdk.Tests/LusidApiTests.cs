@@ -81,6 +81,21 @@ namespace LusidSdk.Tests
         }
 
         [Test]
+        public void Get_Schema()
+        {
+            var credentials = new TokenCredentials(_apiToken);
+            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
+
+            var testEntity = "Portfolio";
+
+            var schema = AssertResponseIsNotError<SchemaDto>(client.GetEntitySchema("Portfolio"));
+
+            Assert.That(schema, Is.Not.Null);
+            Assert.That(schema.Entity, Is.EqualTo(testEntity));
+            Assert.That(schema.Values, Is.Not.Empty);
+        }
+
+        [Test]
         public void Create_Portfolio()
         {
             var credentials = new TokenCredentials(_apiToken);
