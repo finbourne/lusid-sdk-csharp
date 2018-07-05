@@ -1551,8 +1551,6 @@ namespace Finbourne
         /// </param>
         /// <param name='resultsKey'>
         /// </param>
-        /// <param name='resultsDate'>
-        /// </param>
         /// <param name='request'>
         /// </param>
         /// <param name='customHeaders'>
@@ -1576,7 +1574,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, string resultsDate, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1585,10 +1583,6 @@ namespace Finbourne
             if (resultsKey == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resultsKey");
-            }
-            if (resultsDate == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "resultsDate");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1600,16 +1594,14 @@ namespace Finbourne
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("resultsKey", resultsKey);
                 tracingParameters.Add("request", request);
-                tracingParameters.Add("resultsDate", resultsDate);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetAggregationByResultSet", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/aggregation/results/{scope}/{resultsKey}/{resultsDate}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/aggregation/results/{scope}/{resultsKey}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{resultsKey}", System.Uri.EscapeDataString(resultsKey));
-            _url = _url.Replace("{resultsDate}", System.Uri.EscapeDataString(resultsDate));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1752,8 +1744,6 @@ namespace Finbourne
         /// </param>
         /// <param name='resultsKey'>
         /// </param>
-        /// <param name='resultsDate'>
-        /// </param>
         /// <param name='request'>
         /// </param>
         /// <param name='customHeaders'>
@@ -1777,7 +1767,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetNestedAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, System.DateTimeOffset resultsDate, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> GetNestedAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1796,17 +1786,15 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("resultsKey", resultsKey);
-                tracingParameters.Add("resultsDate", resultsDate);
                 tracingParameters.Add("request", request);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetNestedAggregationByResultSet", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/aggregation/results/nested/{scope}/{resultsKey}/{resultsDate}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/aggregation/results/nested/{scope}/{resultsKey}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{resultsKey}", System.Uri.EscapeDataString(resultsKey));
-            _url = _url.Replace("{resultsDate}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(resultsDate, SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3674,7 +3662,7 @@ namespace Finbourne
         /// <param name='scope'>
         /// Scope
         /// </param>
-        /// <param name='sourceId'>
+        /// <param name='corporateActionSourceCode'>
         /// Corporate action source id
         /// </param>
         /// <param name='effectiveDate'>
@@ -3704,15 +3692,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (sourceId == null)
+            if (corporateActionSourceCode == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "sourceId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "corporateActionSourceCode");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3722,7 +3710,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("sourceId", sourceId);
+                tracingParameters.Add("corporateActionSourceCode", corporateActionSourceCode);
                 tracingParameters.Add("effectiveDate", effectiveDate);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("cancellationToken", cancellationToken);
@@ -3730,9 +3718,9 @@ namespace Finbourne
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/corporateactions/{scope}/{sourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/corporateactions/{scope}/{corporateActionSourceCode}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{sourceId}", System.Uri.EscapeDataString(sourceId));
+            _url = _url.Replace("{corporateActionSourceCode}", System.Uri.EscapeDataString(corporateActionSourceCode));
             List<string> _queryParameters = new List<string>();
             if (effectiveDate != null)
             {
@@ -3882,11 +3870,11 @@ namespace Finbourne
         /// <param name='scope'>
         /// The intended scope of the corporate action
         /// </param>
-        /// <param name='sourceId'>
+        /// <param name='corporateActionSourceCode'>
         /// Source of the corporate action
         /// </param>
         /// <param name='actions'>
-        /// The corporate action creation request objects
+        /// The corporate actions to create
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3909,15 +3897,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (sourceId == null)
+            if (corporateActionSourceCode == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "sourceId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "corporateActionSourceCode");
             }
             if (actions != null)
             {
@@ -3937,16 +3925,16 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("sourceId", sourceId);
+                tracingParameters.Add("corporateActionSourceCode", corporateActionSourceCode);
                 tracingParameters.Add("actions", actions);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "BatchUpsertCorporateActions", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/corporateactions/{scope}/{sourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/corporateactions/{scope}/{corporateActionSourceCode}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{sourceId}", System.Uri.EscapeDataString(sourceId));
+            _url = _url.Replace("{corporateActionSourceCode}", System.Uri.EscapeDataString(corporateActionSourceCode));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

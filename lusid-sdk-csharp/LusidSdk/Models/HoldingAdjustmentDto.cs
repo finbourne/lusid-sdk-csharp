@@ -44,7 +44,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the HoldingAdjustmentDto class.
         /// </summary>
-        public HoldingAdjustmentDto(string href = default(string), string securityUid = default(string), double? units = default(double?), double? cost = default(double?), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<Link> _links = default(IList<Link>))
+        public HoldingAdjustmentDto(string href = default(string), string securityUid = default(string), double? units = default(double?), double? cost = default(double?), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
             SecurityUid = securityUid;
@@ -83,7 +83,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<PropertyDto> Properties { get; set; }
+        public IList<CreatePropertyRequest> Properties { get; set; }
 
         /// <summary>
         /// </summary>

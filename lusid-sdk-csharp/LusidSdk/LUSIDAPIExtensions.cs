@@ -231,13 +231,11 @@ namespace Finbourne
             /// </param>
             /// <param name='resultsKey'>
             /// </param>
-            /// <param name='resultsDate'>
-            /// </param>
             /// <param name='request'>
             /// </param>
-            public static object GetAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, string resultsDate, AggregationRequest request = default(AggregationRequest))
+            public static object GetAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest))
             {
-                return operations.GetAggregationByResultSetAsync(scope, resultsKey, resultsDate, request).GetAwaiter().GetResult();
+                return operations.GetAggregationByResultSetAsync(scope, resultsKey, request).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -250,16 +248,14 @@ namespace Finbourne
             /// </param>
             /// <param name='resultsKey'>
             /// </param>
-            /// <param name='resultsDate'>
-            /// </param>
             /// <param name='request'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, string resultsDate, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, resultsDate, request, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -275,13 +271,11 @@ namespace Finbourne
             /// </param>
             /// <param name='resultsKey'>
             /// </param>
-            /// <param name='resultsDate'>
-            /// </param>
             /// <param name='request'>
             /// </param>
-            public static object GetNestedAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, System.DateTimeOffset resultsDate, AggregationRequest request = default(AggregationRequest))
+            public static object GetNestedAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest))
             {
-                return operations.GetNestedAggregationByResultSetAsync(scope, resultsKey, resultsDate, request).GetAwaiter().GetResult();
+                return operations.GetNestedAggregationByResultSetAsync(scope, resultsKey, request).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -294,16 +288,14 @@ namespace Finbourne
             /// </param>
             /// <param name='resultsKey'>
             /// </param>
-            /// <param name='resultsDate'>
-            /// </param>
             /// <param name='request'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetNestedAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, System.DateTimeOffset resultsDate, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetNestedAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetNestedAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, resultsDate, request, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetNestedAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -692,7 +684,7 @@ namespace Finbourne
             /// <param name='scope'>
             /// Scope
             /// </param>
-            /// <param name='sourceId'>
+            /// <param name='corporateActionSourceCode'>
             /// Corporate action source id
             /// </param>
             /// <param name='effectiveDate'>
@@ -701,9 +693,9 @@ namespace Finbourne
             /// <param name='asAt'>
             /// AsAt Date filter
             /// </param>
-            public static object ListCorporateActions(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            public static object ListCorporateActions(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
-                return operations.ListCorporateActionsAsync(scope, sourceId, effectiveDate, asAt).GetAwaiter().GetResult();
+                return operations.ListCorporateActionsAsync(scope, corporateActionSourceCode, effectiveDate, asAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -715,7 +707,7 @@ namespace Finbourne
             /// <param name='scope'>
             /// Scope
             /// </param>
-            /// <param name='sourceId'>
+            /// <param name='corporateActionSourceCode'>
             /// Corporate action source id
             /// </param>
             /// <param name='effectiveDate'>
@@ -727,9 +719,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, sourceId, effectiveDate, asAt, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, corporateActionSourceCode, effectiveDate, asAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -745,15 +737,15 @@ namespace Finbourne
             /// <param name='scope'>
             /// The intended scope of the corporate action
             /// </param>
-            /// <param name='sourceId'>
+            /// <param name='corporateActionSourceCode'>
             /// Source of the corporate action
             /// </param>
             /// <param name='actions'>
-            /// The corporate action creation request objects
+            /// The corporate actions to create
             /// </param>
-            public static object BatchUpsertCorporateActions(this ILUSIDAPI operations, string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>))
+            public static object BatchUpsertCorporateActions(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>))
             {
-                return operations.BatchUpsertCorporateActionsAsync(scope, sourceId, actions).GetAwaiter().GetResult();
+                return operations.BatchUpsertCorporateActionsAsync(scope, corporateActionSourceCode, actions).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -766,18 +758,18 @@ namespace Finbourne
             /// <param name='scope'>
             /// The intended scope of the corporate action
             /// </param>
-            /// <param name='sourceId'>
+            /// <param name='corporateActionSourceCode'>
             /// Source of the corporate action
             /// </param>
             /// <param name='actions'>
-            /// The corporate action creation request objects
+            /// The corporate actions to create
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> BatchUpsertCorporateActionsAsync(this ILUSIDAPI operations, string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> BatchUpsertCorporateActionsAsync(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchUpsertCorporateActionsWithHttpMessagesAsync(scope, sourceId, actions, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BatchUpsertCorporateActionsWithHttpMessagesAsync(scope, corporateActionSourceCode, actions, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

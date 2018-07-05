@@ -467,8 +467,6 @@ namespace Finbourne
         /// </param>
         /// <param name='resultsKey'>
         /// </param>
-        /// <param name='resultsDate'>
-        /// </param>
         /// <param name='request'>
         /// </param>
         /// <param name='customHeaders'>
@@ -477,7 +475,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, string resultsDate, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Aggregate data from a result set into a nested structure
@@ -486,8 +484,6 @@ namespace Finbourne
         /// </param>
         /// <param name='resultsKey'>
         /// </param>
-        /// <param name='resultsDate'>
-        /// </param>
         /// <param name='request'>
         /// </param>
         /// <param name='customHeaders'>
@@ -496,7 +492,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetNestedAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, System.DateTimeOffset resultsDate, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetNestedAggregationByResultSetWithHttpMessagesAsync(string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List all analytic stores in client
@@ -665,7 +661,7 @@ namespace Finbourne
         /// <param name='scope'>
         /// Scope
         /// </param>
-        /// <param name='sourceId'>
+        /// <param name='corporateActionSourceCode'>
         /// Corporate action source id
         /// </param>
         /// <param name='effectiveDate'>
@@ -680,7 +676,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> ListCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Attempt to create/update one or more corporate action. Failed
@@ -689,11 +685,11 @@ namespace Finbourne
         /// <param name='scope'>
         /// The intended scope of the corporate action
         /// </param>
-        /// <param name='sourceId'>
+        /// <param name='corporateActionSourceCode'>
         /// Source of the corporate action
         /// </param>
         /// <param name='actions'>
-        /// The corporate action creation request objects
+        /// The corporate actions to create
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -701,7 +697,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string sourceId, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='version'>
         /// </param>
