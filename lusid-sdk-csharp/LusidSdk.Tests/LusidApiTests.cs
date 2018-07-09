@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using Finbourne;
@@ -64,35 +66,41 @@ namespace LusidSdk.Tests
             }
         }
 
-        private static T AssertResponseIsNotError<T>(object response) where T : class 
-        {
-            switch (response)
-            {                
-                case ErrorResponse error:
-                    Assert.Fail(error.DetailedMessage);
-                    break;
-                case T value:
-                    return value;
-                default:
-                    Assert.Fail($"unknown response: {response.GetType()}");
-                    break;
-            }
-            return null;
-        }
-
         [Test]
-        public void Get_Schema()
+        public void Get_Schema_For_Response()
         {
+            // GIVEN an instance of the LUSID client, and a portfolio created in LUSID
             var credentials = new TokenCredentials(_apiToken);
             var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
 
-            var testEntity = "Portfolio";
+            const string scope = "finbourne";
+            var code = $"id-{Guid.NewGuid()}";
 
-            var schema = AssertResponseIsNotError<SchemaDto>(client.GetEntitySchema("Portfolio"));
+            var request = new CreatePortfolioRequest($"Portfolio-{code}", code, "GBP");
+
+            client.CreatePortfolio(scope, request);
+
+            // WHEN the portfolio is queried
+            var portfolioResponse = client.GetPortfolioWithHttpMessagesAsync(scope, code).Result;
+
+            // THEN the resulty should include a schema Url
+            var schemaHeaderItem = portfolioResponse.Response.Headers.First(h => h.Key == "lusid-schema-url");
+
+            // AND which we we can use to query for the schema of the entity
+            // TODO: Too difficult to convert the returned Url into parameters for the call to GetSchema
+            Regex regex = new Regex(".+/(\\w+)");
+            var entityType = regex.Match(schemaHeaderItem.Value.First());
+
+            var schema = client.GetEntitySchema(entityType.Groups[1].Value);
 
             Assert.That(schema, Is.Not.Null);
-            Assert.That(schema.Entity, Is.EqualTo(testEntity));
             Assert.That(schema.Values, Is.Not.Empty);
+
+            var fields = typeof(PortfolioDto).GetProperties().Select(p => p.Name).ToImmutableHashSet();
+            foreach (var fieldSchema in schema.Values)
+            {
+                Assert.That(fields, Does.Contain(fieldSchema.Value.DisplayName));
+            }
         }
 
         [Test]
@@ -105,8 +113,7 @@ namespace LusidSdk.Tests
             var uuid = Guid.NewGuid().ToString();
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP");
 
-            var result = client.CreatePortfolio(scope, request);
-            var portfolio = AssertResponseIsNotError<PortfolioDto>(result);
+            var portfolio = client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio.Name, Is.EqualTo(request.Name));
         }
@@ -134,14 +141,11 @@ namespace LusidSdk.Tests
             };
 
             //    create property definition
-            var propertyDefinitionResult = client.CreatePropertyDefinition(propertyDefinition);
-            AssertResponseIsNotError<PropertyDefinitionDto>(propertyDefinitionResult);
+            client.CreatePropertyDefinition(propertyDefinition);
             
-            var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP");
-
             //    create portfolio
-            var result = client.CreatePortfolio(scope, request);
-            var portfolio = AssertResponseIsNotError<PortfolioDto>(result);
+            var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP");
+            var portfolio = client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.Name, Is.EqualTo(request.Name));
 
@@ -154,8 +158,7 @@ namespace LusidSdk.Tests
             var property = new CreatePropertyRequest(propertyValue, scope, propertyName);
 
             //    add the portfolio property
-            var upsertResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<CreatePropertyRequest> {property}, portfolio?.Created);
-            var propertiesResult = AssertResponseIsNotError<PortfolioPropertiesDto>(upsertResult);
+            var propertiesResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<CreatePropertyRequest> {property}, portfolio?.Created);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
             Assert.That(propertiesResult.Properties[0].Value, Is.EqualTo(propertyValue));
@@ -185,15 +188,13 @@ namespace LusidSdk.Tests
             };
 
             //    create property definition
-            var propertyDefinitionResult = client.CreatePropertyDefinition(propertyDefinition);
-            AssertResponseIsNotError<PropertyDefinitionDto>(propertyDefinitionResult);
+            client.CreatePropertyDefinition(propertyDefinition);
 
             var effectiveDate = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
             //    create portfolio
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP", effectiveDate);
-            var result = client.CreatePortfolio(scope, request);
-            var portfolio = AssertResponseIsNotError<PortfolioDto>(result);
+            var portfolio = client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.Name, Is.EqualTo(request.Name));
 
@@ -224,12 +225,10 @@ namespace LusidSdk.Tests
             };
 
             //    add the trade
-            var upsertResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest> {trade});
-            AssertResponseIsNotError<UpsertPortfolioTradesDto>(upsertResult);                
+            client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest> {trade});
 
             //    get the trades
-            var getTradesResult = client.GetTrades(scope, portfolioId);                
-            var trades = AssertResponseIsNotError<VersionedResourceListTradeDto>(getTradesResult);
+            var trades = client.GetTrades(scope, portfolioId);                
             
             Assert.That(trades.Values.Count, Is.EqualTo(1));
             Assert.That(trades.Values[0].TradeId, Is.EqualTo(trade.TradeId));
@@ -249,8 +248,7 @@ namespace LusidSdk.Tests
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP", new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero));            
 
             //    create portfolio
-            var portfolioResult = client.CreatePortfolio(scope, request);
-            var portfolio = AssertResponseIsNotError<PortfolioDto>(portfolioResult);
+            var portfolio = client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio.Name, Is.EqualTo(request.Name));
 
@@ -268,56 +266,49 @@ namespace LusidSdk.Tests
             var newTrades = tradeSpecs.Select(id => BuildTrade(id.Id, id.Price, id.TradeDate));
 
             //    add initial batch of trades
-            var addTradesResult = client.UpsertTrades(scope, portfolioId, newTrades.ToList());
-            var initialResult = AssertResponseIsNotError<UpsertPortfolioTradesDto>(addTradesResult);            
+            var initialResult = client.UpsertTrades(scope, portfolioId, newTrades.ToList());
 
             var asAtBatch1 = initialResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    add another trade for 2018-1-8
-            var laterTradeResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
+            var laterResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
             {
                 BuildTrade("FIGI_BBG001S61MW8", 104, new DateTime(2018, 1, 8))
             });
-            var laterResult = AssertResponseIsNotError<UpsertPortfolioTradesDto>(laterTradeResult);
 
             var asAtBatch2 = laterResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    add back-dated trade
-            var backDatedTradeResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
+            var backDatedResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
             {
                 BuildTrade("FIGI_BBG001S6M3Z4", 105, new DateTime(2018, 1, 5))
             });
-            var backDatedResult = AssertResponseIsNotError<UpsertPortfolioTradesDto>(backDatedTradeResult);
 
             var asAtBatch3 = backDatedResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    list trades
-            var allTrades = client.GetTrades(scope, portfolioId, asAt: asAtBatch1);
-            var trades = AssertResponseIsNotError<VersionedResourceListTradeDto>(allTrades);
+            var trades = client.GetTrades(scope, portfolioId, asAt: asAtBatch1);
             
             Assert.That(trades.Values.Count, Is.EqualTo(3), $"AsAt: {asAtBatch1:o}");
             Console.WriteLine($"trades at {asAtBatch1}");
             PrintTrades(trades.Values);
 
-            allTrades = client.GetTrades(scope, portfolioId, asAt: asAtBatch2);
-            trades = AssertResponseIsNotError<VersionedResourceListTradeDto>(allTrades);
+            trades = client.GetTrades(scope, portfolioId, asAt: asAtBatch2);
             
             Assert.That(trades.Values.Count, Is.EqualTo(4), $"AsAt: {asAtBatch2:o}");
             Console.WriteLine($"trades at {asAtBatch2}");
             PrintTrades(trades.Values);
 
-            allTrades = client.GetTrades(scope, portfolioId, asAt: asAtBatch3);
-            trades = AssertResponseIsNotError<VersionedResourceListTradeDto>(allTrades);
+            trades = client.GetTrades(scope, portfolioId, asAt: asAtBatch3);
             
             Assert.That(trades.Values.Count, Is.EqualTo(5), $"AsAt: {asAtBatch3:o}");
             Console.WriteLine($"trades at {asAtBatch3}");
             PrintTrades(trades.Values);
 
-            allTrades = client.GetTrades(scope, portfolioId);
-            trades = AssertResponseIsNotError<VersionedResourceListTradeDto>(allTrades);
+            trades = client.GetTrades(scope, portfolioId);
             
             Console.WriteLine($"trades at {DateTimeOffset.Now}");
             PrintTrades(trades.Values);
@@ -352,8 +343,7 @@ namespace LusidSdk.Tests
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP", effectiveDate);            
 
             //    create portfolio
-            var portfolioResult = client.CreatePortfolio(scope, request);
-            var portfolio = AssertResponseIsNotError<PortfolioDto>(portfolioResult);
+            var portfolio = client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio.Name, Is.EqualTo(request.Name));
 
@@ -371,17 +361,23 @@ namespace LusidSdk.Tests
             var newTrades = tradeSpecs.Select(id => BuildTrade(id.Id, id.Price, id.TradeDate));
 
             //    add trades
-            var addedTradesResult = client.UpsertTrades(scope, portfolioId, newTrades.ToList());
-            AssertResponseIsNotError<UpsertPortfolioTradesDto>(addedTradesResult);
-                        
-            var checkExistsResult = client.GetAnalyticStore(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day) as ErrorResponse;
+            client.UpsertTrades(scope, portfolioId, newTrades.ToList());
 
-            if (checkExistsResult != null && checkExistsResult.Code == "AnalyticStoreNotFound")
+            bool mustCreateAnalyticsStore = false;
+            try
+            {
+                client.GetAnalyticStore(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day);
+            }
+            catch (ErrorResponseException ex)
+            {
+                mustCreateAnalyticsStore = ex.Body.Code == "AnalyticStoreNotFound";
+            }
+
+            if(mustCreateAnalyticsStore)
             {
                 //    create the analytic store
                 var analyticStoreRequest = new CreateAnalyticStoreRequest(scope, effectiveDate);
-                var analyticStoreResult = client.CreateAnalyticStore(analyticStoreRequest);
-                AssertResponseIsNotError<AnalyticStoreDto>(analyticStoreResult);
+                client.CreateAnalyticStore(analyticStoreRequest);
             }
                         
             var prices = new[]
@@ -392,8 +388,7 @@ namespace LusidSdk.Tests
             };
             
             //    add prices
-            var analyticsResult = client.InsertAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
-            AssertResponseIsNotError<AnalyticStoreDto>(analyticsResult);
+            client.InsertAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
                        
             var aggregationRequest = new AggregationRequest
             {
@@ -409,8 +404,7 @@ namespace LusidSdk.Tests
             };
 
             //    do the aggregation
-            var aggregationResult = client.GetNestedAggregationByPortfolio(scope, portfolioId, aggregationRequest);
-            AssertResponseIsNotError<NestedAggregationResponse>(aggregationResult);
+            client.GetNestedAggregationByPortfolio(scope, portfolioId, aggregationRequest);
         }
         
         private UpsertPortfolioTradeRequest BuildTrade(string id, double price, DateTimeOffset tradeDate)
@@ -443,8 +437,7 @@ namespace LusidSdk.Tests
             };
             
             //    look up ids
-            var lookupResult = client.LookupSecuritiesFromCodes("Isin", isins);
-            var fbnIds = AssertResponseIsNotError<TryLookupSecuritiesFromCodesDto>(lookupResult);
+            var fbnIds = client.LookupSecuritiesFromCodes("Isin", isins);
             
             Assert.That(fbnIds.Values.Count, Is.GreaterThan(0));
         }
@@ -483,9 +476,7 @@ namespace LusidSdk.Tests
 
             //Request creation for yesterday
             var requestPortfolio = new CreatePortfolioRequest(portfolioName, portfolioCode, "GBP", yesterday);
-            var resultPortfolio = client.CreatePortfolio(scope, requestPortfolio);
-            var portfolio = AssertResponseIsNotError<PortfolioDto>(resultPortfolio);
-
+            var portfolio = client.CreatePortfolio(scope, requestPortfolio);
            
             //Book some trades for yesterday
             var tradesYesterday = new[]
@@ -500,8 +491,7 @@ namespace LusidSdk.Tests
             var trades = tradesYesterday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add trades
-            var addedTradesResult = client.UpsertTrades(scope, portfolioCode, trades.ToList());
-            AssertResponseIsNotError<UpsertPortfolioTradesDto>(addedTradesResult);
+            client.UpsertTrades(scope, portfolioCode, trades.ToList());
 
             //Book more trades for today
             var tradesToday = new[]
@@ -517,8 +507,7 @@ namespace LusidSdk.Tests
             trades = tradesToday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add trades
-            addedTradesResult = client.UpsertTrades(scope, portfolioCode, trades.ToList());
-            var finalResult = AssertResponseIsNotError<UpsertPortfolioTradesDto>(addedTradesResult);
+            var finalResult = client.UpsertTrades(scope, portfolioCode, trades.ToList());
 
             //Using the last result find out its AsAtDate (based on the servers clock at the time of the test)
             var finalAsAtTime = finalResult.Version.AsAtDate;
@@ -530,10 +519,8 @@ namespace LusidSdk.Tests
                 finalAsAtTime,
                 scope, portfolio.Id.Code, today.AddHours(16), finalAsAtTime);
 
-            var resultRecon = client.PerformReconciliation(reconcileRequest);
+            var listOfBreaks = client.PerformReconciliation(reconcileRequest);
 
-            var listOfBreaks = AssertResponseIsNotError<ResourceListReconciliationBreakDto>(resultRecon);
-            
             Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
             PrintBreaks(listOfBreaks.Values);
 
