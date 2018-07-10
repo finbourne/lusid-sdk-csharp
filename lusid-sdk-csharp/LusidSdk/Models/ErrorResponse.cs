@@ -60,15 +60,14 @@ namespace Finbourne.Models
         /// 'DuplicateInParameterSet', 'ResultsNotFound',
         /// 'OrderFieldNotInResultSet', 'OperationFailed',
         /// 'ElasticSearchError', 'InvalidParameterValue',
-        /// 'ServerConfigurationError', 'CommandProcessingFailure',
-        /// 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
-        /// 'EventPublishFailure', 'InvalidRequestFailure',
-        /// 'EventPublishUnknown', 'EventQueryFailure',
-        /// 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
-        /// 'SubSystemConfigurationFailure', 'FailedToDelete',
-        /// 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
-        /// 'IllegalBitemporalQuery', 'InvalidAlternateId',
-        /// 'CannotAddSourcePortfolioPropertyExplicitly',
+        /// 'CommandProcessingFailure', 'EntityStateConstructionFailure',
+        /// 'EntityTimelineDoesNotExist', 'EventPublishFailure',
+        /// 'InvalidRequestFailure', 'EventPublishUnknown',
+        /// 'EventQueryFailure', 'BlobDidNotExistFailure',
+        /// 'SubSystemRequestFailure', 'SubSystemConfigurationFailure',
+        /// 'FailedToDelete', 'UpsertClientSecurityFailure',
+        /// 'IllegalAsAtInterval', 'IllegalBitemporalQuery',
+        /// 'InvalidAlternateId', 'CannotAddSourcePortfolioPropertyExplicitly',
         /// 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
         /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
@@ -77,7 +76,8 @@ namespace Finbourne.Models
         /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure',
         /// 'FxRateSourceNotFound', 'AccrualSourceNotFound',
         /// 'EntitlementsFailure', 'InvalidIdentityToken',
-        /// 'InvalidRequestHeaders', 'PriceNotFound'</param>
+        /// 'InvalidRequestHeaders', 'PriceNotFound',
+        /// 'ServerConfigurationError'</param>
         /// <param name="message">The non-technical-user friendly message
         /// describing the error and how it might be remedied.</param>
         /// <param name="detailedMessage">A technical error message that
@@ -127,15 +127,14 @@ namespace Finbourne.Models
         /// 'DuplicateInParameterSet', 'ResultsNotFound',
         /// 'OrderFieldNotInResultSet', 'OperationFailed',
         /// 'ElasticSearchError', 'InvalidParameterValue',
-        /// 'ServerConfigurationError', 'CommandProcessingFailure',
-        /// 'EntityStateConstructionFailure', 'EntityTimelineDoesNotExist',
-        /// 'EventPublishFailure', 'InvalidRequestFailure',
-        /// 'EventPublishUnknown', 'EventQueryFailure',
-        /// 'BlobDidNotExistFailure', 'SubSystemRequestFailure',
-        /// 'SubSystemConfigurationFailure', 'FailedToDelete',
-        /// 'UpsertClientSecurityFailure', 'IllegalAsAtInterval',
-        /// 'IllegalBitemporalQuery', 'InvalidAlternateId',
-        /// 'CannotAddSourcePortfolioPropertyExplicitly',
+        /// 'CommandProcessingFailure', 'EntityStateConstructionFailure',
+        /// 'EntityTimelineDoesNotExist', 'EventPublishFailure',
+        /// 'InvalidRequestFailure', 'EventPublishUnknown',
+        /// 'EventQueryFailure', 'BlobDidNotExistFailure',
+        /// 'SubSystemRequestFailure', 'SubSystemConfigurationFailure',
+        /// 'FailedToDelete', 'UpsertClientSecurityFailure',
+        /// 'IllegalAsAtInterval', 'IllegalBitemporalQuery',
+        /// 'InvalidAlternateId', 'CannotAddSourcePortfolioPropertyExplicitly',
         /// 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
         /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
         /// 'InvalidTrades', 'ReferencePortfolioNotFound',
@@ -144,7 +143,8 @@ namespace Finbourne.Models
         /// 'SearchFailed', 'MovementsEngineConfigurationKeyFailure',
         /// 'FxRateSourceNotFound', 'AccrualSourceNotFound',
         /// 'EntitlementsFailure', 'InvalidIdentityToken',
-        /// 'InvalidRequestHeaders', 'PriceNotFound'
+        /// 'InvalidRequestHeaders', 'PriceNotFound',
+        /// 'ServerConfigurationError'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }
