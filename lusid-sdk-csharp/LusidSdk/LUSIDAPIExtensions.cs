@@ -687,15 +687,15 @@ namespace Finbourne
             /// <param name='corporateActionSourceCode'>
             /// Corporate action source id
             /// </param>
-            /// <param name='effectiveDate'>
+            /// <param name='effectiveAt'>
             /// Effective Date
             /// </param>
             /// <param name='asAt'>
             /// AsAt Date filter
             /// </param>
-            public static IList<CorporateActionEventDto> ListCorporateActions(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            public static IList<CorporateActionEventDto> ListCorporateActions(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
-                return operations.ListCorporateActionsAsync(scope, corporateActionSourceCode, effectiveDate, asAt).GetAwaiter().GetResult();
+                return operations.ListCorporateActionsAsync(scope, corporateActionSourceCode, effectiveAt, asAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -710,7 +710,7 @@ namespace Finbourne
             /// <param name='corporateActionSourceCode'>
             /// Corporate action source id
             /// </param>
-            /// <param name='effectiveDate'>
+            /// <param name='effectiveAt'>
             /// Effective Date
             /// </param>
             /// <param name='asAt'>
@@ -719,9 +719,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<CorporateActionEventDto>> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<CorporateActionEventDto>> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, corporateActionSourceCode, effectiveDate, asAt, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, corporateActionSourceCode, effectiveAt, asAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

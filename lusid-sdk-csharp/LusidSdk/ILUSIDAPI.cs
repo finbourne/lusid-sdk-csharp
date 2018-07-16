@@ -677,7 +677,7 @@ namespace Finbourne
         /// <param name='corporateActionSourceCode'>
         /// Corporate action source id
         /// </param>
-        /// <param name='effectiveDate'>
+        /// <param name='effectiveAt'>
         /// Effective Date
         /// </param>
         /// <param name='asAt'>
@@ -689,7 +689,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<CorporateActionEventDto>>> ListCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<CorporateActionEventDto>>> ListCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Attempt to create/update one or more corporate action. Failed

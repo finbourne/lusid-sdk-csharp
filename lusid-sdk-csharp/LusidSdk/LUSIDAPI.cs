@@ -3160,7 +3160,7 @@ namespace Finbourne
         /// <param name='corporateActionSourceCode'>
         /// Corporate action source id
         /// </param>
-        /// <param name='effectiveDate'>
+        /// <param name='effectiveAt'>
         /// Effective Date
         /// </param>
         /// <param name='asAt'>
@@ -3187,7 +3187,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<CorporateActionEventDto>>> ListCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<CorporateActionEventDto>>> ListCorporateActionsWithHttpMessagesAsync(string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -3206,7 +3206,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("corporateActionSourceCode", corporateActionSourceCode);
-                tracingParameters.Add("effectiveDate", effectiveDate);
+                tracingParameters.Add("effectiveAt", effectiveAt);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ListCorporateActions", tracingParameters);
@@ -3217,9 +3217,9 @@ namespace Finbourne
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{corporateActionSourceCode}", System.Uri.EscapeDataString(corporateActionSourceCode));
             List<string> _queryParameters = new List<string>();
-            if (effectiveDate != null)
+            if (effectiveAt != null)
             {
-                _queryParameters.Add(string.Format("effectiveDate={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveDate, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
             }
             if (asAt != null)
             {
