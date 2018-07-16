@@ -552,6 +552,46 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Upsert Analytics
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// Scope of the analytic
+            /// </param>
+            /// <param name='request'>
+            /// A valid and fully populated analytic store creation request
+            /// </param>
+            public static object UpsertAnalytics(this ILUSIDAPI operations, string scope, AnalyticsStorageRequest request = default(AnalyticsStorageRequest))
+            {
+                return operations.UpsertAnalyticsAsync(scope, request).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Upsert Analytics
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// Scope of the analytic
+            /// </param>
+            /// <param name='request'>
+            /// A valid and fully populated analytic store creation request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpsertAnalyticsAsync(this ILUSIDAPI operations, string scope, AnalyticsStorageRequest request = default(AnalyticsStorageRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertAnalyticsWithHttpMessagesAsync(scope, request, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Update classification data
             /// </summary>
             /// <param name='operations'>

@@ -164,6 +164,12 @@ namespace Finbourne
     /// Additionally, portfolios can be securitised and held by other
     /// portfolios, allowing LUSID to perform "drill-through" into underlying
     /// fund holdings
+    ///
+    /// ### Reference Portfolios
+    /// Reference portfolios are portfolios that contain only holdings or
+    /// weights, as opposed to transactions, and are designed to represent
+    /// entities such as indices.
+    ///
     /// ### Derived Portfolios
     ///
     /// LUSID also allows for a portfolio to be composed of another portfolio
@@ -177,6 +183,26 @@ namespace Finbourne
     /// could be created a new namespace linked to the underlying live (parent)
     /// portfolio.  Analysis can then be undertaken on the derived portfolio
     /// without affecting the live portfolio.
+    ///
+    /// ### Portfolio Groups
+    /// Portfolio groups allow the construction of a hierarchy from portfolios
+    /// and groups.  Portfolio operations on the group are executed on an
+    /// aggregated set of portfolios in the hierarchy.
+    ///
+    /// For example:
+    ///
+    /// * Global Portfolios _(group)_
+    /// * APAC _(group)_
+    /// * Hong Kong _(portfolio)_
+    /// * Japan _(portfolio)_
+    /// * Europe _(group)_
+    /// * France _(portfolio)_
+    /// * Germany _(portfolio)_
+    /// * UK _(portfolio)_
+    ///
+    /// In this example **Global Portfolios** is a group that consists of an
+    /// aggregate of **Hong Kong**, **Japan**, **France**, **Germany** and
+    /// **UK** portfolios.
     ///
     /// ### Movements Engine
     /// The Movements engine sits on top of the immutable event store and is
@@ -616,6 +642,23 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<AnalyticStoreDto>> InsertAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<SecurityAnalyticDataDto> data = default(IList<SecurityAnalyticDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Upsert Analytics
+        /// </summary>
+        /// <param name='scope'>
+        /// Scope of the analytic
+        /// </param>
+        /// <param name='request'>
+        /// A valid and fully populated analytic store creation request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> UpsertAnalyticsWithHttpMessagesAsync(string scope, AnalyticsStorageRequest request = default(AnalyticsStorageRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update classification data
