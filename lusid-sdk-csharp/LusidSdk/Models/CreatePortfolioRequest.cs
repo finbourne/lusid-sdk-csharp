@@ -46,7 +46,7 @@ namespace Finbourne.Models
         /// 'HighestCostFirst', 'LowestCostFirst'</param>
         /// <param name="properties">Portfolio properties to add to the
         /// portfolio</param>
-        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>))
+        public CreatePortfolioRequest(string name, string code, string baseCurrency, System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<string> subHoldingKeys = default(IList<string>), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>))
         {
             Name = name;
             Code = code;
@@ -54,6 +54,7 @@ namespace Finbourne.Models
             BaseCurrency = baseCurrency;
             CorporateActionSourceId = corporateActionSourceId;
             AccountingMethod = accountingMethod;
+            SubHoldingKeys = subHoldingKeys;
             Properties = properties;
             CustomInit();
         }
@@ -95,6 +96,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "accountingMethod")]
         public string AccountingMethod { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "subHoldingKeys")]
+        public IList<string> SubHoldingKeys { get; set; }
 
         /// <summary>
         /// Gets or sets portfolio properties to add to the portfolio

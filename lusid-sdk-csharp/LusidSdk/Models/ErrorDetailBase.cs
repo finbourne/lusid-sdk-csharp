@@ -23,32 +23,26 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class SecurityDto
+    public partial class ErrorDetailBase
     {
         /// <summary>
-        /// Initializes a new instance of the SecurityDto class.
+        /// Initializes a new instance of the ErrorDetailBase class.
         /// </summary>
-        public SecurityDto()
+        public ErrorDetailBase()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the SecurityDto class.
+        /// Initializes a new instance of the ErrorDetailBase class.
         /// </summary>
-        public SecurityDto(string href = default(string), string uid = default(string), VersionDto version = default(VersionDto), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<Link> _links = default(IList<Link>))
+        public ErrorDetailBase(string id = default(string), string type = default(string), string detail = default(string))
         {
-            Href = href;
-            Uid = uid;
-            Version = version;
-            CommonName = commonName;
-            Aliases = aliases;
-            Properties = properties;
-            this._links = _links;
+            Id = id;
+            Type = type;
+            Detail = detail;
             CustomInit();
         }
 
@@ -59,38 +53,18 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "uid")]
-        public string Uid { get; set; }
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "version")]
-        public VersionDto Version { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "commonName")]
-        public string CommonName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "aliases")]
-        public IDictionary<string, string> Aliases { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IList<PropertyDto> Properties { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "detail")]
+        public string Detail { get; set; }
 
     }
 }

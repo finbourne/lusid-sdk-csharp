@@ -41,7 +41,7 @@ namespace Finbourne.Models
         /// Initializes a new instance of the PropertyDefinitionDto class.
         /// </summary>
         /// <param name="valueType">Possible values include: 'String', 'Int',
-        /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'PropertyArray',
+        /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
         /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
         /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
@@ -80,9 +80,9 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
-        /// 'DateTime', 'Boolean', 'Map', 'PropertyArray', 'Percentage',
-        /// 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+        /// 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
+        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
+        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }

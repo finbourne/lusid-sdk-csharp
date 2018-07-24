@@ -40,16 +40,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ErrorResponse class.
         /// </summary>
-        /// <param name="status">The status code that will be returned to the
-        /// client</param>
-        /// <param name="code">The Finbourne specific error-code that
-        /// encapsulates the specific issue encountered. Possible values
-        /// include: 'Unknown', 'PersonalisationNotFound',
-        /// 'NonRecursivePersonalisation', 'VersionNotFound',
-        /// 'SecurityNotFound', 'PropertyNotFound', 'PortfolioRecursionDepth',
-        /// 'GroupNotFound', 'PortfolioNotFound', 'PropertySchemaNotFound',
-        /// 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio',
-        /// 'MissingBaseClaims', 'PropertyNotDefined',
+        /// <param name="code">Possible values include: 'Unknown',
+        /// 'PersonalisationNotFound', 'NonRecursivePersonalisation',
+        /// 'VersionNotFound', 'SecurityNotFound', 'PropertyNotFound',
+        /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+        /// 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
+        /// 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
         /// 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
         /// 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
         /// 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
@@ -78,16 +74,7 @@ namespace Finbourne.Models
         /// 'EntitlementsFailure', 'InvalidIdentityToken',
         /// 'InvalidRequestHeaders', 'PriceNotFound',
         /// 'ServerConfigurationError'</param>
-        /// <param name="message">The non-technical-user friendly message
-        /// describing the error and how it might be remedied.</param>
-        /// <param name="detailedMessage">A technical error message that
-        /// contains the details of the issue and how it might be
-        /// fixed.</param>
-        /// <param name="items">Any action specific item specific sub errors
-        /// (e.g. per-trade validation errors)</param>
-        /// <param name="moreInfo">A link to the endpoint that can provide the
-        /// dev with more information about that class of error.</param>
-        public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetail> items = default(IList<ErrorDetail>), string moreInfo = default(string))
+        public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
             Code = code;
@@ -104,19 +91,17 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets the status code that will be returned to the client
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public int? Status { get; private set; }
 
         /// <summary>
-        /// Gets the Finbourne specific error-code that encapsulates the
-        /// specific issue encountered. Possible values include: 'Unknown',
-        /// 'PersonalisationNotFound', 'NonRecursivePersonalisation',
-        /// 'VersionNotFound', 'SecurityNotFound', 'PropertyNotFound',
-        /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
-        /// 'PropertySchemaNotFound', 'PortfolioWithIdAlreadyExists',
-        /// 'OrphanedPortfolio', 'MissingBaseClaims', 'PropertyNotDefined',
+        /// Gets possible values include: 'Unknown', 'PersonalisationNotFound',
+        /// 'NonRecursivePersonalisation', 'VersionNotFound',
+        /// 'SecurityNotFound', 'PropertyNotFound', 'PortfolioRecursionDepth',
+        /// 'GroupNotFound', 'PortfolioNotFound', 'PropertySchemaNotFound',
+        /// 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio',
+        /// 'MissingBaseClaims', 'PropertyNotDefined',
         /// 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
         /// 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
         /// 'CannotModifyDefaultPropertyFormat', 'GroupAlreadyExists',
@@ -150,29 +135,21 @@ namespace Finbourne.Models
         public string Code { get; private set; }
 
         /// <summary>
-        /// Gets the non-technical-user friendly message describing the error
-        /// and how it might be remedied.
         /// </summary>
         [JsonProperty(PropertyName = "message")]
         public string Message { get; private set; }
 
         /// <summary>
-        /// Gets a technical error message that contains the details of the
-        /// issue and how it might be fixed.
         /// </summary>
         [JsonProperty(PropertyName = "detailedMessage")]
         public string DetailedMessage { get; private set; }
 
         /// <summary>
-        /// Gets or sets any action specific item specific sub errors (e.g.
-        /// per-trade validation errors)
         /// </summary>
         [JsonProperty(PropertyName = "items")]
-        public IList<ErrorDetail> Items { get; set; }
+        public IList<ErrorDetailBase> Items { get; set; }
 
         /// <summary>
-        /// Gets a link to the endpoint that can provide the dev with more
-        /// information about that class of error.
         /// </summary>
         [JsonProperty(PropertyName = "moreInfo")]
         public string MoreInfo { get; private set; }
