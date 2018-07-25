@@ -41,10 +41,11 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="effectiveFrom">Date for which the property is
         /// effective from</param>
-        public PropertyDto(string key, object value, System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?))
+        public PropertyDto(string key, object value, string unit = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?))
         {
             Key = key;
             Value = value;
+            Unit = unit;
             EffectiveFrom = effectiveFrom;
             CustomInit();
         }
@@ -63,6 +64,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public object Value { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "unit")]
+        public string Unit { get; set; }
 
         /// <summary>
         /// Gets or sets date for which the property is effective from

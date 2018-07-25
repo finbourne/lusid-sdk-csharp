@@ -42,13 +42,16 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="valueType">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
+        /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
+        /// 'StringArray', 'UnitCreation'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
         /// <param name="type">Possible values include: 'Label',
         /// 'Metric'</param>
-        public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string), IList<Link> _links = default(IList<Link>))
+        /// <param name="unitSchema">Possible values include: 'NoUnits',
+        /// 'Basic', 'Iso4217Currency', 'TimeSpan'</param>
+        public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
             Key = key;
@@ -59,6 +62,7 @@ namespace Finbourne.Models
             Sort = sort;
             LifeTime = lifeTime;
             Type = type;
+            UnitSchema = unitSchema;
             this._links = _links;
             CustomInit();
         }
@@ -81,8 +85,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+        /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
+        /// 'StringArray', 'UnitCreation'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
@@ -118,6 +123,13 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'NoUnits', 'Basic',
+        /// 'Iso4217Currency', 'TimeSpan'
+        /// </summary>
+        [JsonProperty(PropertyName = "unitSchema")]
+        public string UnitSchema { get; set; }
 
         /// <summary>
         /// </summary>

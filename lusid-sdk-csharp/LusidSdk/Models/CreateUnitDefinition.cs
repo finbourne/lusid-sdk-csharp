@@ -24,30 +24,29 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreatePropertyRequest
+    public partial class CreateUnitDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the CreatePropertyRequest class.
+        /// Initializes a new instance of the CreateUnitDefinition class.
         /// </summary>
-        public CreatePropertyRequest()
+        public CreateUnitDefinition()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreatePropertyRequest class.
+        /// Initializes a new instance of the CreateUnitDefinition class.
         /// </summary>
-        /// <param name="effectiveFrom">Date for which the property is
-        /// effective from</param>
-        public CreatePropertyRequest(object value, string scope = default(string), string name = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), string unit = default(string))
+        public CreateUnitDefinition(string code, string displayName, string description, IDictionary<string, string> details = default(IDictionary<string, string>))
         {
-            Scope = scope;
-            Name = name;
-            Value = value;
-            EffectiveFrom = effectiveFrom;
-            Unit = unit;
+            Code = code;
+            DisplayName = displayName;
+            Description = description;
+            Details = details;
             CustomInit();
         }
 
@@ -58,29 +57,23 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "scope")]
-        public string Scope { get; set; }
+        [JsonProperty(PropertyName = "code")]
+        public string Code { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public object Value { get; set; }
-
-        /// <summary>
-        /// Gets or sets date for which the property is effective from
-        /// </summary>
-        [JsonProperty(PropertyName = "effectiveFrom")]
-        public System.DateTimeOffset? EffectiveFrom { get; set; }
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "unit")]
-        public string Unit { get; private set; }
+        [JsonProperty(PropertyName = "details")]
+        public IDictionary<string, string> Details { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -90,9 +83,17 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Value == null)
+            if (Code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Value");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+            }
+            if (DisplayName == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
+            }
+            if (Description == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Description");
             }
         }
     }

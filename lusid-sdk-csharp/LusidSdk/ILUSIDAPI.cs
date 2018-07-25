@@ -322,8 +322,8 @@ namespace Finbourne
     /// check the pattern your provided. |
     /// | &lt;a name="101"&gt;101&lt;/a&gt;|NonRecursivePersonalisation|  |
     /// | &lt;a name="102"&gt;102&lt;/a&gt;|VersionNotFound|  |
-    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityNotFound|  |
-    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityNotFound|  |
+    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityByCodeNotFound|  |
+    /// | &lt;a name="104"&gt;104&lt;/a&gt;|SecurityByCodeNotFound|  |
     /// | &lt;a name="105"&gt;105&lt;/a&gt;|PropertyNotFound|  |
     /// | &lt;a name="106"&gt;106&lt;/a&gt;|PortfolioRecursionDepth|  |
     /// | &lt;a name="108"&gt;108&lt;/a&gt;|GroupNotFound|  |
@@ -391,6 +391,18 @@ namespace Finbourne
     /// | &lt;a name="187"&gt;187&lt;/a&gt;|InvalidIdentityToken|  |
     /// | &lt;a name="188"&gt;188&lt;/a&gt;|InvalidRequestHeaders|  |
     /// | &lt;a name="189"&gt;189&lt;/a&gt;|PriceNotFound|  |
+    /// | &lt;a name="200"&gt;200&lt;/a&gt;|InvalidUnitForDataType|  |
+    /// | &lt;a name="201"&gt;201&lt;/a&gt;|InvalidTypeForDataType|  |
+    /// | &lt;a name="202"&gt;202&lt;/a&gt;|InvalidValueForDataType|  |
+    /// | &lt;a name="203"&gt;203&lt;/a&gt;|UnitNotDefinedForDataType|  |
+    /// | &lt;a name="204"&gt;204&lt;/a&gt;|UnitsNotSupportedOnDataType|  |
+    /// | &lt;a name="205"&gt;205&lt;/a&gt;|CannotSpecifyUnitsOnDataType|  |
+    /// | &lt;a name="206"&gt;206&lt;/a&gt;|UnitSchemaInconsistentWithDataType|
+    /// |
+    /// | &lt;a name="207"&gt;207&lt;/a&gt;|UnitDefinitionNotSpecified|  |
+    /// | &lt;a name="208"&gt;208&lt;/a&gt;|DuplicateUnitDefinitionsSpecified|
+    /// |
+    /// | &lt;a name="209"&gt;209&lt;/a&gt;|InvalidUnitsDefinition|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -1437,13 +1449,16 @@ namespace Finbourne
         /// <param name='filter'>
         /// A filter on the results
         /// </param>
+        /// <param name='securityPropertyKeys'>
+        /// Keys for the security properties to be decorated onto the holdings
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<VersionedResourceListHoldingDto>> GetAggregateHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<VersionedResourceListHoldingDto>> GetAggregateHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adjust holdings
@@ -2045,6 +2060,23 @@ namespace Finbourne
         Task<HttpOperationResponse<PropertyDataFormatDto>> UpdatePropertyDataFormatWithHttpMessagesAsync(string scope, string name, UpdatePropertyDataFormatRequest request = default(UpdatePropertyDataFormatRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Return the definitions for the specified list of units
+        /// </summary>
+        /// <param name='scope'>
+        /// </param>
+        /// <param name='name'>
+        /// </param>
+        /// <param name='units'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IUnitDefinitionDto>> GetUnitsFromPropertyDataFormatWithHttpMessagesAsync(string scope, string name, IList<string> units, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Perform a reconciliation between two portfolios
         /// </summary>
         /// <param name='request'>
@@ -2263,7 +2295,8 @@ namespace Finbourne
         /// 'CorporateActionTransition', 'ReconciliationRequest',
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
-        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+        /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

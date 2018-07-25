@@ -2339,9 +2339,12 @@ namespace Finbourne
             /// <param name='filter'>
             /// A filter on the results
             /// </param>
-            public static VersionedResourceListHoldingDto GetAggregateHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            /// <param name='securityPropertyKeys'>
+            /// Keys for the security properties to be decorated onto the holdings
+            /// </param>
+            public static VersionedResourceListHoldingDto GetAggregateHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>))
             {
-                return operations.GetAggregateHoldingsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.GetAggregateHoldingsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, securityPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2378,12 +2381,15 @@ namespace Finbourne
             /// <param name='filter'>
             /// A filter on the results
             /// </param>
+            /// <param name='securityPropertyKeys'>
+            /// Keys for the security properties to be decorated onto the holdings
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionedResourceListHoldingDto> GetAggregateHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionedResourceListHoldingDto> GetAggregateHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAggregateHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAggregateHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, securityPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3738,6 +3744,46 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Return the definitions for the specified list of units
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='name'>
+            /// </param>
+            /// <param name='units'>
+            /// </param>
+            public static IUnitDefinitionDto GetUnitsFromPropertyDataFormat(this ILUSIDAPI operations, string scope, string name, IList<string> units)
+            {
+                return operations.GetUnitsFromPropertyDataFormatAsync(scope, name, units).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Return the definitions for the specified list of units
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='name'>
+            /// </param>
+            /// <param name='units'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IUnitDefinitionDto> GetUnitsFromPropertyDataFormatAsync(this ILUSIDAPI operations, string scope, string name, IList<string> units, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUnitsFromPropertyDataFormatWithHttpMessagesAsync(scope, name, units, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Perform a reconciliation between two portfolios
             /// </summary>
             /// <param name='operations'>
@@ -4196,7 +4242,8 @@ namespace Finbourne
             /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData',
-            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+            /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
             /// </param>
             public static SchemaDto GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4232,7 +4279,8 @@ namespace Finbourne
             /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData',
-            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions'
+            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
+            /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

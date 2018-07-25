@@ -43,10 +43,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the PerpetualPropertyDto class.
         /// </summary>
-        public PerpetualPropertyDto(string key, object value)
+        public PerpetualPropertyDto(string key, object value, string unit = default(string))
         {
             Key = key;
             Value = value;
+            Unit = unit;
             CustomInit();
         }
 
@@ -64,6 +65,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public object Value { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "unit")]
+        public string Unit { get; private set; }
 
         /// <summary>
         /// Validate the object.

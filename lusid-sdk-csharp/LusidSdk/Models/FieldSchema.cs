@@ -42,8 +42,9 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="type">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
+        /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
+        /// 'StringArray', 'UnitCreation'</param>
         public FieldSchema(string scope = default(string), string name = default(string), string displayName = default(string), string type = default(string), bool? isMetric = default(bool?), int? displayOrder = default(int?), IDictionary<string, FieldSchema> propertySchema = default(IDictionary<string, FieldSchema>))
         {
             Scope = scope;
@@ -79,8 +80,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+        /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
+        /// 'StringArray', 'UnitCreation'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }

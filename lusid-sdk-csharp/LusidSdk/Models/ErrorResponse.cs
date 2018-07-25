@@ -73,7 +73,13 @@ namespace Finbourne.Models
         /// 'FxRateSourceNotFound', 'AccrualSourceNotFound',
         /// 'EntitlementsFailure', 'InvalidIdentityToken',
         /// 'InvalidRequestHeaders', 'PriceNotFound',
-        /// 'ServerConfigurationError'</param>
+        /// 'ServerConfigurationError', 'InvalidUnitForDataType',
+        /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
+        /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
+        /// 'CannotSpecifyUnitsOnDataType',
+        /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
+        /// 'DuplicateUnitDefinitionsSpecified',
+        /// 'InvalidUnitsDefinition'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -129,7 +135,12 @@ namespace Finbourne.Models
         /// 'FxRateSourceNotFound', 'AccrualSourceNotFound',
         /// 'EntitlementsFailure', 'InvalidIdentityToken',
         /// 'InvalidRequestHeaders', 'PriceNotFound',
-        /// 'ServerConfigurationError'
+        /// 'ServerConfigurationError', 'InvalidUnitForDataType',
+        /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
+        /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
+        /// 'CannotSpecifyUnitsOnDataType',
+        /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
+        /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

@@ -43,19 +43,25 @@ namespace Finbourne.Models
         /// Initializes a new instance of the UpdatePropertyDataFormatRequest
         /// class.
         /// </summary>
-        /// <param name="formatType">Possible values include: 'Basic',
-        /// 'Limited', 'Currency'</param>
+        /// <param name="formatType">Possible values include: 'Open',
+        /// 'Closed'</param>
         /// <param name="valueType">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'</param>
-        public UpdatePropertyDataFormatRequest(string formatType, int order, string displayName, string valueType, IList<object> acceptableValues = default(IList<object>))
+        /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
+        /// 'StringArray', 'UnitCreation'</param>
+        /// <param name="unitSchema">Possible values include: 'NoUnits',
+        /// 'Basic', 'Iso4217Currency', 'TimeSpan'</param>
+        public UpdatePropertyDataFormatRequest(string formatType, int order, string displayName, string description, string valueType, IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<CreateUnitDefinition> acceptableUnits = default(IList<CreateUnitDefinition>))
         {
             FormatType = formatType;
             Order = order;
             DisplayName = displayName;
+            Description = description;
             ValueType = valueType;
             AcceptableValues = acceptableValues;
+            UnitSchema = unitSchema;
+            AcceptableUnits = acceptableUnits;
             CustomInit();
         }
 
@@ -65,8 +71,7 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets possible values include: 'Basic', 'Limited',
-        /// 'Currency'
+        /// Gets or sets possible values include: 'Open', 'Closed'
         /// </summary>
         [JsonProperty(PropertyName = "formatType")]
         public string FormatType { get; set; }
@@ -82,10 +87,16 @@ namespace Finbourne.Models
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
-        /// 'Percentage', 'Currency', 'BenchmarkType', 'Code', 'Id', 'Uri',
-        /// 'ArrayOfIds', 'ArrayOfTxnAliases', 'ArrayofTxnMovements'
+        /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
+        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
+        /// 'StringArray', 'UnitCreation'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
@@ -94,6 +105,18 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "acceptableValues")]
         public IList<object> AcceptableValues { get; set; }
+
+        /// <summary>
+        /// Gets possible values include: 'NoUnits', 'Basic',
+        /// 'Iso4217Currency', 'TimeSpan'
+        /// </summary>
+        [JsonProperty(PropertyName = "unitSchema")]
+        public string UnitSchema { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "acceptableUnits")]
+        public IList<CreateUnitDefinition> AcceptableUnits { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -111,9 +134,23 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
             }
+            if (Description == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Description");
+            }
             if (ValueType == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "ValueType");
+            }
+            if (AcceptableUnits != null)
+            {
+                foreach (var element in AcceptableUnits)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }
