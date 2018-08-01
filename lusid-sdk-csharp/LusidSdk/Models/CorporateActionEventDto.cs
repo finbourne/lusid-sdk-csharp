@@ -44,13 +44,14 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CorporateActionEventDto class.
         /// </summary>
-        public CorporateActionEventDto(ResourceId sourceId, string corporateActionId, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), IList<CorporateActionTransitionDto> transitions = default(IList<CorporateActionTransitionDto>))
+        public CorporateActionEventDto(ResourceId sourceId, string corporateActionId, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?), IList<CorporateActionTransitionDto> transitions = default(IList<CorporateActionTransitionDto>))
         {
             SourceId = sourceId;
             CorporateActionId = corporateActionId;
             AnnouncementDate = announcementDate;
             ExDate = exDate;
             RecordDate = recordDate;
+            PaymentDate = paymentDate;
             Transitions = transitions;
             CustomInit();
         }
@@ -84,6 +85,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "recordDate")]
         public System.DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "paymentDate")]
+        public System.DateTimeOffset? PaymentDate { get; set; }
 
         /// <summary>
         /// </summary>

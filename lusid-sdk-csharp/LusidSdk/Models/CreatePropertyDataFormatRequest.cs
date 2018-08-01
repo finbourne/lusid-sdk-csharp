@@ -51,7 +51,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
         /// 'StringArray', 'UnitCreation'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
-        /// 'Basic', 'Iso4217Currency', 'TimeSpan'</param>
+        /// 'Basic', 'Iso4217Currency'</param>
         public CreatePropertyDataFormatRequest(string scope, string code, string formatType, int order, string displayName, string description, string valueType, IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<CreateUnitDefinition> acceptableUnits = default(IList<CreateUnitDefinition>))
         {
             Scope = scope;
@@ -119,8 +119,7 @@ namespace Finbourne.Models
         public IList<object> AcceptableValues { get; set; }
 
         /// <summary>
-        /// Gets possible values include: 'NoUnits', 'Basic',
-        /// 'Iso4217Currency', 'TimeSpan'
+        /// Gets possible values include: 'NoUnits', 'Basic', 'Iso4217Currency'
         /// </summary>
         [JsonProperty(PropertyName = "unitSchema")]
         public string UnitSchema { get; private set; }

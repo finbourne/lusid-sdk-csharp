@@ -78,8 +78,8 @@ namespace Finbourne.Models
         /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
         /// 'CannotSpecifyUnitsOnDataType',
         /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
-        /// 'DuplicateUnitDefinitionsSpecified',
-        /// 'InvalidUnitsDefinition'</param>
+        /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
+        /// 'InvalidSecurityIdentifierUnit'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -140,7 +140,8 @@ namespace Finbourne.Models
         /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
         /// 'CannotSpecifyUnitsOnDataType',
         /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
-        /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition'
+        /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
+        /// 'InvalidSecurityIdentifierUnit'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

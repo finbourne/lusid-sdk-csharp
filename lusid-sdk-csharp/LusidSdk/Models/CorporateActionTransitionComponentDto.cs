@@ -22,29 +22,30 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class KeyValuePairCodeTypeString
+    public partial class CorporateActionTransitionComponentDto
     {
         /// <summary>
-        /// Initializes a new instance of the KeyValuePairCodeTypeString class.
+        /// Initializes a new instance of the
+        /// CorporateActionTransitionComponentDto class.
         /// </summary>
-        public KeyValuePairCodeTypeString()
+        public CorporateActionTransitionComponentDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KeyValuePairCodeTypeString class.
+        /// Initializes a new instance of the
+        /// CorporateActionTransitionComponentDto class.
         /// </summary>
-        /// <param name="key">Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-        /// 'ClientInternal', 'Figi', 'Wertpapier'</param>
-        public KeyValuePairCodeTypeString(string key = default(string), string value = default(string))
+        public CorporateActionTransitionComponentDto(string securityUid, double unitsFactor, double costFactor)
         {
-            Key = key;
-            Value = value;
+            SecurityUid = securityUid;
+            UnitsFactor = unitsFactor;
+            CostFactor = costFactor;
             CustomInit();
         }
 
@@ -54,17 +55,32 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets possible values include: 'Undefined', 'ReutersAssetId',
-        /// 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal', 'Figi',
-        /// 'Wertpapier'
         /// </summary>
-        [JsonProperty(PropertyName = "key")]
-        public string Key { get; private set; }
+        [JsonProperty(PropertyName = "securityUid")]
+        public string SecurityUid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public string Value { get; private set; }
+        [JsonProperty(PropertyName = "unitsFactor")]
+        public double UnitsFactor { get; set; }
 
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "costFactor")]
+        public double CostFactor { get; set; }
+
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (SecurityUid == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
+            }
+        }
     }
 }

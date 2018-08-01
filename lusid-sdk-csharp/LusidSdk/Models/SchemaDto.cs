@@ -67,7 +67,8 @@ namespace Finbourne.Models
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-        /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'</param>
+        /// 'Iso4217CurrencyUnit', 'BasicUnit',
+        /// 'CorporateActionTransitionComponent'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
         {
             Entity = entity;
@@ -109,7 +110,8 @@ namespace Finbourne.Models
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-        /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+        /// 'Iso4217CurrencyUnit', 'BasicUnit',
+        /// 'CorporateActionTransitionComponent'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }

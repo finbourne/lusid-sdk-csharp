@@ -43,12 +43,13 @@ namespace Finbourne.Models
         /// Initializes a new instance of the UpsertCorporateActionRequest
         /// class.
         /// </summary>
-        public UpsertCorporateActionRequest(string corporateActionId, System.DateTimeOffset announcementDate, System.DateTimeOffset exDate, System.DateTimeOffset recordDate, IList<CorporateActionTransitionDto> transitions)
+        public UpsertCorporateActionRequest(string corporateActionId, System.DateTimeOffset announcementDate, System.DateTimeOffset exDate, System.DateTimeOffset recordDate, System.DateTimeOffset paymentDate, IList<CorporateActionTransitionDto> transitions)
         {
             CorporateActionId = corporateActionId;
             AnnouncementDate = announcementDate;
             ExDate = exDate;
             RecordDate = recordDate;
+            PaymentDate = paymentDate;
             Transitions = transitions;
             CustomInit();
         }
@@ -77,6 +78,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "recordDate")]
         public System.DateTimeOffset RecordDate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "paymentDate")]
+        public System.DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
         /// </summary>

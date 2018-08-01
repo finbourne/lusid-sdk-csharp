@@ -50,7 +50,7 @@ namespace Finbourne.Models
         /// <param name="type">Possible values include: 'Label',
         /// 'Metric'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
-        /// 'Basic', 'Iso4217Currency', 'TimeSpan'</param>
+        /// 'Basic', 'Iso4217Currency'</param>
         public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
@@ -126,7 +126,7 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets or sets possible values include: 'NoUnits', 'Basic',
-        /// 'Iso4217Currency', 'TimeSpan'
+        /// 'Iso4217Currency'
         /// </summary>
         [JsonProperty(PropertyName = "unitSchema")]
         public string UnitSchema { get; set; }

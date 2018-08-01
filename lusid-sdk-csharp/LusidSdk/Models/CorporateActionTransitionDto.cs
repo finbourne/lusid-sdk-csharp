@@ -22,13 +22,14 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// A 'transition' within a corporate action, representing a single
-    /// incoming or outgoing component
+    /// A 'transition' within a corporate action, representing a set of output
+    /// movements paired to a single input position
     /// </summary>
     public partial class CorporateActionTransitionDto
     {
@@ -45,14 +46,10 @@ namespace Finbourne.Models
         /// Initializes a new instance of the CorporateActionTransitionDto
         /// class.
         /// </summary>
-        /// <param name="direction">Possible values include: 'In',
-        /// 'Out'</param>
-        public CorporateActionTransitionDto(string direction, string securityUid, double unitsFactor, double costFactor)
+        public CorporateActionTransitionDto(CorporateActionTransitionComponentDto inputTransition = default(CorporateActionTransitionComponentDto), IList<CorporateActionTransitionComponentDto> outputTransitions = default(IList<CorporateActionTransitionComponentDto>))
         {
-            Direction = direction;
-            SecurityUid = securityUid;
-            UnitsFactor = unitsFactor;
-            CostFactor = costFactor;
+            InputTransition = inputTransition;
+            OutputTransitions = outputTransitions;
             CustomInit();
         }
 
@@ -62,41 +59,36 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets possible values include: 'In', 'Out'
         /// </summary>
-        [JsonProperty(PropertyName = "direction")]
-        public string Direction { get; set; }
+        [JsonProperty(PropertyName = "inputTransition")]
+        public CorporateActionTransitionComponentDto InputTransition { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "unitsFactor")]
-        public double UnitsFactor { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "costFactor")]
-        public double CostFactor { get; set; }
+        [JsonProperty(PropertyName = "outputTransitions")]
+        public IList<CorporateActionTransitionComponentDto> OutputTransitions { get; set; }
 
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
+        /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
-            if (Direction == null)
+            if (InputTransition != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Direction");
+                InputTransition.Validate();
             }
-            if (SecurityUid == null)
+            if (OutputTransitions != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
+                foreach (var element in OutputTransitions)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }

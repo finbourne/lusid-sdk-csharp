@@ -278,6 +278,7 @@ namespace Finbourne
     /// | AnnouncementDate|datetime|  |
     /// | ExDate|datetime|  |
     /// | RecordDate|datetime|  |
+    /// | PaymentDate|datetime|  |
     ///
     ///
     ///
@@ -285,10 +286,6 @@ namespace Finbourne
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | Direction|string|  |
-    /// | SecurityUid|string|  |
-    /// | UnitsFactor|decimal|  |
-    /// | CostFactor|decimal|  |
     ///
     ///
     /// ## Property
@@ -403,6 +400,7 @@ namespace Finbourne
     /// | &lt;a name="208"&gt;208&lt;/a&gt;|DuplicateUnitDefinitionsSpecified|
     /// |
     /// | &lt;a name="209"&gt;209&lt;/a&gt;|InvalidUnitsDefinition|  |
+    /// | &lt;a name="210"&gt;210&lt;/a&gt;|InvalidSecurityIdentifierUnit|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -1039,6 +1037,21 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<LoginResponse>> GetLoginInfoWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get the unique identifier for the SAML Identity Provider to be used
+        /// by domain.
+        /// </summary>
+        /// <param name='domain'>
+        /// The domain that the user will be logging in to.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<string>> GetSamlIdentityProviderIdWithHttpMessagesAsync(string domain, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Store a log message
@@ -2296,7 +2309,8 @@ namespace Finbourne
         /// 'ReconciliationBreak', 'TransactionConfigurationData',
         /// 'TransactionConfigurationMovementData',
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-        /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+        /// 'Iso4217CurrencyUnit', 'BasicUnit',
+        /// 'CorporateActionTransitionComponent'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

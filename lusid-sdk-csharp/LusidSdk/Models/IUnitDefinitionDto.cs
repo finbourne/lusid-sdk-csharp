@@ -39,7 +39,7 @@ namespace Finbourne.Models
         /// Initializes a new instance of the IUnitDefinitionDto class.
         /// </summary>
         /// <param name="schema">Possible values include: 'NoUnits', 'Basic',
-        /// 'Iso4217Currency', 'TimeSpan'</param>
+        /// 'Iso4217Currency'</param>
         public IUnitDefinitionDto(string schema = default(string), string code = default(string), string displayName = default(string), string description = default(string))
         {
             Schema = schema;
@@ -55,8 +55,7 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets possible values include: 'NoUnits', 'Basic',
-        /// 'Iso4217Currency', 'TimeSpan'
+        /// Gets possible values include: 'NoUnits', 'Basic', 'Iso4217Currency'
         /// </summary>
         [JsonProperty(PropertyName = "schema")]
         public string Schema { get; private set; }

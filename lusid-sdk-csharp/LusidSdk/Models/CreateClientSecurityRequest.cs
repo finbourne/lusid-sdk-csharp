@@ -46,12 +46,11 @@ namespace Finbourne.Models
         /// <param name="instrument">There could be multiple underlying
         /// instrument definitions (same
         /// instrument but different format), but for now store one.</param>
-        public CreateClientSecurityRequest(string clientSecurityId, string name, IList<PropertyDto> properties, IList<KeyValuePairCodeTypeString> aliases = default(IList<KeyValuePairCodeTypeString>), ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentDefinitionDto instrument = default(InstrumentDefinitionDto))
+        public CreateClientSecurityRequest(string clientSecurityId, string name, IList<PropertyDto> properties, ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentDefinitionDto instrument = default(InstrumentDefinitionDto))
         {
             ClientSecurityId = clientSecurityId;
             Name = name;
             Properties = properties;
-            Aliases = aliases;
             LookThroughPortfolioId = lookThroughPortfolioId;
             Instrument = instrument;
             CustomInit();
@@ -76,11 +75,6 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
         public IList<PropertyDto> Properties { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "aliases")]
-        public IList<KeyValuePairCodeTypeString> Aliases { get; set; }
 
         /// <summary>
         /// </summary>

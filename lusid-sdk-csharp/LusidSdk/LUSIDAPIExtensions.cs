@@ -1454,6 +1454,42 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Get the unique identifier for the SAML Identity Provider to be used by
+            /// domain.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='domain'>
+            /// The domain that the user will be logging in to.
+            /// </param>
+            public static string GetSamlIdentityProviderId(this ILUSIDAPI operations, string domain)
+            {
+                return operations.GetSamlIdentityProviderIdAsync(domain).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get the unique identifier for the SAML Identity Provider to be used by
+            /// domain.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='domain'>
+            /// The domain that the user will be logging in to.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<string> GetSamlIdentityProviderIdAsync(this ILUSIDAPI operations, string domain, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetSamlIdentityProviderIdWithHttpMessagesAsync(domain, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Store a log message
             /// </summary>
             /// <param name='operations'>
@@ -4243,7 +4279,7 @@ namespace Finbourne
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData',
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-            /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
             /// </param>
             public static SchemaDto GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4280,7 +4316,7 @@ namespace Finbourne
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData',
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-            /// 'Iso4217CurrencyUnit', 'TimeSpanUnit', 'BasicUnit'
+            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
