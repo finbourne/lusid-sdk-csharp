@@ -93,7 +93,7 @@ namespace LusidSdk.Tests
             // WHEN the portfolio is queried
             var portfolioResponse = client.GetPortfolioWithHttpMessagesAsync(scope, code).Result;
 
-            // THEN the resulty should include a schema Url
+            // THEN the result should include a schema Url
             var schemaHeaderItem = portfolioResponse.Response.Headers.First(h => h.Key == "lusid-schema-url");
 
             // AND which we we can use to query for the schema of the entity
