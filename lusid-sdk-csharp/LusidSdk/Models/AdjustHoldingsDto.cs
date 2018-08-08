@@ -28,29 +28,25 @@ namespace Finbourne.Models
     using System.Linq;
 
     /// <summary>
-    /// Used to specify the 'target' holding when calling the AdjustHoldings
-    /// Api
+    /// The response given from the AdjustHoldings Api call
     /// </summary>
-    public partial class HoldingAdjustmentDto
+    public partial class AdjustHoldingsDto
     {
         /// <summary>
-        /// Initializes a new instance of the HoldingAdjustmentDto class.
+        /// Initializes a new instance of the AdjustHoldingsDto class.
         /// </summary>
-        public HoldingAdjustmentDto()
+        public AdjustHoldingsDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the HoldingAdjustmentDto class.
+        /// Initializes a new instance of the AdjustHoldingsDto class.
         /// </summary>
-        public HoldingAdjustmentDto(string href = default(string), string securityUid = default(string), double? units = default(double?), double? cost = default(double?), IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), IList<Link> _links = default(IList<Link>))
+        public AdjustHoldingsDto(string href = default(string), VersionDto version = default(VersionDto), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
-            SecurityUid = securityUid;
-            Units = units;
-            Cost = cost;
-            Properties = properties;
+            Version = version;
             this._links = _links;
             CustomInit();
         }
@@ -67,23 +63,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "units")]
-        public double? Units { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "cost")]
-        public double? Cost { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IList<CreatePropertyRequest> Properties { get; set; }
+        [JsonProperty(PropertyName = "version")]
+        public VersionDto Version { get; set; }
 
         /// <summary>
         /// </summary>

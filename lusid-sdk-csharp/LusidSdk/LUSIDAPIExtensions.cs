@@ -2449,11 +2449,11 @@ namespace Finbourne
             /// <param name='effectiveAt'>
             /// Effective date
             /// </param>
-            /// <param name='holdings'>
+            /// <param name='holdingAdjustments'>
             /// </param>
-            public static UpsertPortfolioTradesDto AdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<HoldingAdjustmentDto> holdings = default(IList<HoldingAdjustmentDto>))
+            public static AdjustHoldingsDto AdjustAllHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>))
             {
-                return operations.AdjustHoldingsAsync(scope, code, effectiveAt, holdings).GetAwaiter().GetResult();
+                return operations.AdjustAllHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2474,14 +2474,70 @@ namespace Finbourne
             /// <param name='effectiveAt'>
             /// Effective date
             /// </param>
-            /// <param name='holdings'>
+            /// <param name='holdingAdjustments'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertPortfolioTradesDto> AdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<HoldingAdjustmentDto> holdings = default(IList<HoldingAdjustmentDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdjustHoldingsDto> AdjustAllHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdings, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AdjustAllHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Adjust holdings
+            /// </summary>
+            /// <remarks>
+            /// Create trades in a specific portfolio to bring it to the specified holdings
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='holdingAdjustments'>
+            /// </param>
+            public static AdjustHoldingsDto AdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>))
+            {
+                return operations.AdjustHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Adjust holdings
+            /// </summary>
+            /// <remarks>
+            /// Create trades in a specific portfolio to bring it to the specified holdings
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='holdingAdjustments'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<AdjustHoldingsDto> AdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4279,7 +4335,8 @@ namespace Finbourne
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData',
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+            /// 'TargetTaxlot', 'AdjustHoldingRequest'
             /// </param>
             public static SchemaDto GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4316,7 +4373,8 @@ namespace Finbourne
             /// 'ReconciliationBreak', 'TransactionConfigurationData',
             /// 'TransactionConfigurationMovementData',
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent'
+            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
+            /// 'TargetTaxlot', 'AdjustHoldingRequest'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

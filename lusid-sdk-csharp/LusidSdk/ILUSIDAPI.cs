@@ -388,6 +388,8 @@ namespace Finbourne
     /// | &lt;a name="187"&gt;187&lt;/a&gt;|InvalidIdentityToken|  |
     /// | &lt;a name="188"&gt;188&lt;/a&gt;|InvalidRequestHeaders|  |
     /// | &lt;a name="189"&gt;189&lt;/a&gt;|PriceNotFound|  |
+    /// | &lt;a name="190"&gt;190&lt;/a&gt;|InvalidSubHoldingKeysProvided|  |
+    /// | &lt;a name="191"&gt;191&lt;/a&gt;|DuplicateSubHoldingKeysProvided|  |
     /// | &lt;a name="200"&gt;200&lt;/a&gt;|InvalidUnitForDataType|  |
     /// | &lt;a name="201"&gt;201&lt;/a&gt;|InvalidTypeForDataType|  |
     /// | &lt;a name="202"&gt;202&lt;/a&gt;|InvalidValueForDataType|  |
@@ -1489,7 +1491,7 @@ namespace Finbourne
         /// <param name='effectiveAt'>
         /// Effective date
         /// </param>
-        /// <param name='holdings'>
+        /// <param name='holdingAdjustments'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1497,7 +1499,33 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertPortfolioTradesDto>> AdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<HoldingAdjustmentDto> holdings = default(IList<HoldingAdjustmentDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdjustHoldingsDto>> AdjustAllHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Adjust holdings
+        /// </summary>
+        /// <remarks>
+        /// Create trades in a specific portfolio to bring it to the specified
+        /// holdings
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Effective date
+        /// </param>
+        /// <param name='holdingAdjustments'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<AdjustHoldingsDto>> AdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get properties
@@ -2310,7 +2338,8 @@ namespace Finbourne
         /// 'TransactionConfigurationMovementData',
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
-        /// 'CorporateActionTransitionComponent'
+        /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
+        /// 'AdjustHoldingRequest'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

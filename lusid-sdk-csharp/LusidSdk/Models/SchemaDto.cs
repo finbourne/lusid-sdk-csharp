@@ -68,7 +68,8 @@ namespace Finbourne.Models
         /// 'TransactionConfigurationMovementData',
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
-        /// 'CorporateActionTransitionComponent'</param>
+        /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
+        /// 'AdjustHoldingRequest'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
         {
             Entity = entity;
@@ -111,7 +112,8 @@ namespace Finbourne.Models
         /// 'TransactionConfigurationMovementData',
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
-        /// 'CorporateActionTransitionComponent'
+        /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
+        /// 'AdjustHoldingRequest'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }
