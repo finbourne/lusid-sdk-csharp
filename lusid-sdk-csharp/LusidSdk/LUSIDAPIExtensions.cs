@@ -4593,7 +4593,7 @@ namespace Finbourne
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
             /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'Wertpapier'
+            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
@@ -4619,7 +4619,7 @@ namespace Finbourne
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
             /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'Wertpapier'
+            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
@@ -4652,7 +4652,7 @@ namespace Finbourne
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
             /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'Wertpapier'
+            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
@@ -4679,7 +4679,7 @@ namespace Finbourne
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
             /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'Wertpapier'
+            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
