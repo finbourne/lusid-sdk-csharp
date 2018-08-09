@@ -24,6 +24,8 @@ namespace LusidSdk.Tests
         private readonly ApiConfiguration _apiConfiguration = new ApiConfiguration();
         private string _apiToken;
         private string _apiUrl;
+        private LUSIDAPI _client;
+        private List<string> _securityIds = new List<string>();
 
         [OneTimeSetUp]
         public void SetUp()
@@ -64,6 +66,15 @@ namespace LusidSdk.Tests
                 response.EnsureSuccessStatusCode();
                 _apiToken = JsonConvert.DeserializeObject<Dictionary<string, string>>(body)["access_token"];
             }
+            
+            var credentials = new TokenCredentials(_apiToken);
+            _client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
+
+            var figis = new List<string> {"BBG000C6K6G9","BBG000C04D57","BBG000FV67Q4","BBG000BF0KW3","BBG000BF4KL1"};
+            var ids = _client.LookupSecuritiesFromCodesBulk("Figi", figis);
+
+            this._securityIds = ids.Values.SelectMany(r => r.Values.Select(s => s.Uid)).ToList();
+
         }
 
         [Test]
@@ -106,14 +117,12 @@ namespace LusidSdk.Tests
         [Test]
         public void Create_Portfolio()
         {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
-
+            
             const string scope = "finbourne";
             var uuid = Guid.NewGuid().ToString();
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP");
 
-            var portfolio = client.CreatePortfolio(scope, request);
+            var portfolio = _client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio.Name, Is.EqualTo(request.Name));
         }
@@ -121,9 +130,6 @@ namespace LusidSdk.Tests
         [Test]
         public void Create_Portfolio_With_Properties()
         {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
-
             var uuid = Guid.NewGuid().ToString();
             const string scope = "finbourne";
             var propertyName = $"fund-style-{uuid}";
@@ -141,11 +147,11 @@ namespace LusidSdk.Tests
             };
 
             //    create property definition
-            client.CreatePropertyDefinition(propertyDefinition);
+            _client.CreatePropertyDefinition(propertyDefinition);
             
             //    create portfolio
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP");
-            var portfolio = client.CreatePortfolio(scope, request);
+            var portfolio = _client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.Name, Is.EqualTo(request.Name));
 
@@ -158,7 +164,7 @@ namespace LusidSdk.Tests
             var property = new CreatePropertyRequest(propertyValue, scope, propertyName);
 
             //    add the portfolio property
-            var propertiesResult = client.UpsertPortfolioProperties(scope, portfolioId,new List<CreatePropertyRequest> {property}, portfolio?.Created);
+            var propertiesResult = _client.UpsertPortfolioProperties(scope, portfolioId,new List<CreatePropertyRequest> {property}, portfolio?.Created);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
             Assert.That(propertiesResult.Properties[0].Value, Is.EqualTo(propertyValue));
@@ -168,8 +174,6 @@ namespace LusidSdk.Tests
         [Test]
         public void Create_Trade_With_Property()
         {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
            
             var uuid = Guid.NewGuid().ToString();
             const string scope = "finbourne";
@@ -188,13 +192,13 @@ namespace LusidSdk.Tests
             };
 
             //    create property definition
-            client.CreatePropertyDefinition(propertyDefinition);
+            _client.CreatePropertyDefinition(propertyDefinition);
 
             var effectiveDate = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
             //    create portfolio
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP", effectiveDate);
-            var portfolio = client.CreatePortfolio(scope, request);
+            var portfolio = _client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.Name, Is.EqualTo(request.Name));
 
@@ -210,7 +214,7 @@ namespace LusidSdk.Tests
             {
                 TradeId = Guid.NewGuid().ToString(),
                 Type = "Buy",
-                SecurityUid = "FIGI_BBG001SMDKD5",
+                SecurityUid = _securityIds[0],
                 SettlementCurrency = "GBP",
                 TradeDate = effectiveDate,
                 SettlementDate = effectiveDate,
@@ -225,10 +229,10 @@ namespace LusidSdk.Tests
             };
 
             //    add the trade
-            client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest> {trade});
+            _client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest> {trade});
 
             //    get the trades
-            var trades = client.GetTrades(scope, portfolioId);                
+            var trades = _client.GetTrades(scope, portfolioId);                
             
             Assert.That(trades.Values.Count, Is.EqualTo(1));
             Assert.That(trades.Values[0].TradeId, Is.EqualTo(trade.TradeId));
@@ -238,8 +242,6 @@ namespace LusidSdk.Tests
         [Test]
         public void Apply_Bitemporal_Portfolio_Change()
         {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
             
             const string scope = "finbourne";
             var uuid = Guid.NewGuid().ToString();            
@@ -248,7 +250,7 @@ namespace LusidSdk.Tests
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP", new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero));            
 
             //    create portfolio
-            var portfolio = client.CreatePortfolio(scope, request);
+            var portfolio = _client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio.Name, Is.EqualTo(request.Name));
 
@@ -257,58 +259,58 @@ namespace LusidSdk.Tests
 
             var tradeSpecs = new[]
                 {
-                    (Id: "FIGI_BBG001S7Z574", Price: 101, TradeDate: new DateTime(2018, 1, 1)),
-                    (Id: "FIGI_BBG001SRKHW2", Price: 102, TradeDate: new DateTime(2018, 1, 2)),
-                    (Id: "FIGI_BBG000005547", Price: 103, TradeDate: new DateTime(2018, 1, 3))
+                    (Id: _securityIds[0], Price: 101, TradeDate: new DateTime(2018, 1, 1)),
+                    (Id: _securityIds[1], Price: 102, TradeDate: new DateTime(2018, 1, 2)),
+                    (Id: _securityIds[2], Price: 103, TradeDate: new DateTime(2018, 1, 3))
                 }
                 .OrderBy(i => i.Id);
 
             var newTrades = tradeSpecs.Select(id => BuildTrade(id.Id, id.Price, id.TradeDate));
 
             //    add initial batch of trades
-            var initialResult = client.UpsertTrades(scope, portfolioId, newTrades.ToList());
+            var initialResult = _client.UpsertTrades(scope, portfolioId, newTrades.ToList());
 
             var asAtBatch1 = initialResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    add another trade for 2018-1-8
-            var laterResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
+            var laterResult = _client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
             {
-                BuildTrade("FIGI_BBG001S61MW8", 104, new DateTime(2018, 1, 8))
+                BuildTrade(_securityIds[3], 104, new DateTime(2018, 1, 8))
             });
 
             var asAtBatch2 = laterResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    add back-dated trade
-            var backDatedResult = client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
+            var backDatedResult = _client.UpsertTrades(scope, portfolioId, new List<UpsertPortfolioTradeRequest>
             {
-                BuildTrade("FIGI_BBG001S6M3Z4", 105, new DateTime(2018, 1, 5))
+                BuildTrade(_securityIds[4], 105, new DateTime(2018, 1, 5))
             });
 
             var asAtBatch3 = backDatedResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    list trades
-            var trades = client.GetTrades(scope, portfolioId, asAt: asAtBatch1);
+            var trades = _client.GetTrades(scope, portfolioId, asAt: asAtBatch1);
             
             Assert.That(trades.Values.Count, Is.EqualTo(3), $"AsAt: {asAtBatch1:o}");
             Console.WriteLine($"trades at {asAtBatch1}");
             PrintTrades(trades.Values);
 
-            trades = client.GetTrades(scope, portfolioId, asAt: asAtBatch2);
+            trades = _client.GetTrades(scope, portfolioId, asAt: asAtBatch2);
             
             Assert.That(trades.Values.Count, Is.EqualTo(4), $"AsAt: {asAtBatch2:o}");
             Console.WriteLine($"trades at {asAtBatch2}");
             PrintTrades(trades.Values);
 
-            trades = client.GetTrades(scope, portfolioId, asAt: asAtBatch3);
+            trades = _client.GetTrades(scope, portfolioId, asAt: asAtBatch3);
             
             Assert.That(trades.Values.Count, Is.EqualTo(5), $"AsAt: {asAtBatch3:o}");
             Console.WriteLine($"trades at {asAtBatch3}");
             PrintTrades(trades.Values);
 
-            trades = client.GetTrades(scope, portfolioId);
+            trades = _client.GetTrades(scope, portfolioId);
             
             Console.WriteLine($"trades at {DateTimeOffset.Now}");
             PrintTrades(trades.Values);
@@ -332,9 +334,6 @@ namespace LusidSdk.Tests
         [Test]
         public void Portfolio_Aggregation()
         {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
-            
             const string scope = "finbourne";
             var uuid = Guid.NewGuid().ToString();            
 
@@ -343,7 +342,7 @@ namespace LusidSdk.Tests
             var request = new CreatePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", "GBP", effectiveDate);            
 
             //    create portfolio
-            var portfolio = client.CreatePortfolio(scope, request);
+            var portfolio = _client.CreatePortfolio(scope, request);
 
             Assert.That(portfolio.Name, Is.EqualTo(request.Name));
 
@@ -352,21 +351,21 @@ namespace LusidSdk.Tests
 
             var tradeSpecs = new[]
                 {
-                    (Id: "FIGI_BBG001S7Z574", Price: 101, TradeDate: effectiveDate),
-                    (Id: "FIGI_BBG001SRKHW2", Price: 102, TradeDate: effectiveDate),
-                    (Id: "FIGI_BBG000005547", Price: 103, TradeDate: effectiveDate)
+                    (Id: _securityIds[0], Price: 101, TradeDate: effectiveDate),
+                    (Id: _securityIds[1], Price: 102, TradeDate: effectiveDate),
+                    (Id: _securityIds[2], Price: 103, TradeDate: effectiveDate)
                 }
                 .OrderBy(i => i.Id);
 
             var newTrades = tradeSpecs.Select(id => BuildTrade(id.Id, id.Price, id.TradeDate));
 
             //    add trades
-            client.UpsertTrades(scope, portfolioId, newTrades.ToList());
+            _client.UpsertTrades(scope, portfolioId, newTrades.ToList());
 
             bool mustCreateAnalyticsStore = false;
             try
             {
-                client.GetAnalyticStore(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day);
+                _client.GetAnalyticStore(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day);
             }
             catch (ErrorResponseException ex)
             {
@@ -377,18 +376,18 @@ namespace LusidSdk.Tests
             {
                 //    create the analytic store
                 var analyticStoreRequest = new CreateAnalyticStoreRequest(scope, effectiveDate);
-                client.CreateAnalyticStore(analyticStoreRequest);
+                _client.CreateAnalyticStore(analyticStoreRequest);
             }
                         
             var prices = new[]
             {
-                new SecurityAnalyticDataDto("FIGI_BBG001S7Z574", 100),
-                new SecurityAnalyticDataDto("FIGI_BBG001SRKHW2", 200),
-                new SecurityAnalyticDataDto("FIGI_BBG000005547", 300),
+                new SecurityAnalyticDataDto(_securityIds[0], 100),
+                new SecurityAnalyticDataDto(_securityIds[1], 200),
+                new SecurityAnalyticDataDto(_securityIds[2], 300),
             };
             
             //    add prices
-            client.InsertAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
+            _client.InsertAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
                        
             var aggregationRequest = new AggregationRequest
             {
@@ -404,7 +403,7 @@ namespace LusidSdk.Tests
             };
 
             //    do the aggregation
-            client.GetNestedAggregationByPortfolio(scope, portfolioId, aggregationRequest);
+            _client.GetNestedAggregationByPortfolio(scope, portfolioId, aggregationRequest);
         }
         
         private UpsertPortfolioTradeRequest BuildTrade(string id, double price, DateTimeOffset tradeDate)
@@ -426,10 +425,7 @@ namespace LusidSdk.Tests
 
         [Test]
         public void Lookup_Securities()
-        {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
-            
+        {            
             var isins = new List<string> 
             {
                 "IT0004966401",
@@ -437,7 +433,7 @@ namespace LusidSdk.Tests
             };
             
             //    look up ids
-            var fbnIds = client.LookupSecuritiesFromCodes("Isin", isins);
+            var fbnIds = _client.LookupSecuritiesFromCodes("Isin", isins);
             
             Assert.That(fbnIds.Values.Count, Is.GreaterThan(0));
         }
@@ -462,9 +458,6 @@ namespace LusidSdk.Tests
         [Test]
         public void Reconcile_Portfolio()
         {
-            var credentials = new TokenCredentials(_apiToken);
-            var client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
-
             const string scope = "finbourne";
             var uuid = Guid.NewGuid().ToString();
 
@@ -476,38 +469,38 @@ namespace LusidSdk.Tests
 
             //Request creation for yesterday
             var requestPortfolio = new CreatePortfolioRequest(portfolioName, portfolioCode, "GBP", yesterday);
-            var portfolio = client.CreatePortfolio(scope, requestPortfolio);
+            var portfolio = _client.CreatePortfolio(scope, requestPortfolio);
            
             //Book some trades for yesterday
             var tradesYesterday = new[]
             {
-                (Id: "FIGI_BBG001S7Z574", Price: 100, Quantity: 1000, TradeDate: yesterday.AddHours(8)),
-                (Id: "FIGI_BBG001S7Z574", Price: 101, Quantity: 2300, TradeDate: yesterday.AddHours(12)),
-                (Id: "FIGI_BBG001SRKHW2", Price: 102,  Quantity: -1000, TradeDate: yesterday.AddHours(9)),
-                (Id: "FIGI_BBG000005547", Price: 103, Quantity: 1200,  TradeDate: yesterday.AddHours(16)),
-                (Id: "FIGI_BBG0034YQ817", Price: 103, Quantity: 2000,  TradeDate: yesterday.AddHours(9))
+                (Id: _securityIds[0], Price: 100, Quantity: 1000, TradeDate: yesterday.AddHours(8)),
+                (Id: _securityIds[0], Price: 101, Quantity: 2300, TradeDate: yesterday.AddHours(12)),
+                (Id: _securityIds[1], Price: 102,  Quantity: -1000, TradeDate: yesterday.AddHours(9)),
+                (Id: _securityIds[2], Price: 103, Quantity: 1200,  TradeDate: yesterday.AddHours(16)),
+                (Id: _securityIds[3], Price: 103, Quantity: 2000,  TradeDate: yesterday.AddHours(9))
             };
             
             var trades = tradesYesterday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add trades
-            client.UpsertTrades(scope, portfolioCode, trades.ToList());
+            _client.UpsertTrades(scope, portfolioCode, trades.ToList());
 
             //Book more trades for today
             var tradesToday = new[]
             {
-                (Id: "FIGI_BBG001S7Z574", Price: 101.78, Quantity: -3000, TradeDate: today.AddHours(8)), //net long 300
-                (Id: "FIGI_BBG001S7Z574", Price: 101.78, Quantity: 1500, TradeDate: today.AddHours(12)), //net long 1800
-                (Id: "FIGI_BBG001SRKHW2", Price: 102,  Quantity: 1000, TradeDate: today.AddHours(12)),  // flat
-                (Id: "FIGI_BBG000005547", Price: 103, Quantity: 1200,  TradeDate: today.AddHours(16)),  // long 2400
-                (Id: "FIGI_BBG0034YQ817", Price: 103, Quantity: 1000,  TradeDate: today.AddHours(9)),   // long 3000 
-                (Id: "FIGI_BBG0034YQ817", Price: 103, Quantity: 2000,  TradeDate: today.AddHours(20))   // long 5000 but outside recon window
+                (Id: _securityIds[0], Price: 101.78, Quantity: -3000, TradeDate: today.AddHours(8)), //net long 300
+                (Id: _securityIds[0], Price: 101.78, Quantity: 1500, TradeDate: today.AddHours(12)), //net long 1800
+                (Id: _securityIds[1], Price: 102,  Quantity: 1000, TradeDate: today.AddHours(12)),  // flat
+                (Id: _securityIds[2], Price: 103, Quantity: 1200,  TradeDate: today.AddHours(16)),  // long 2400
+                (Id: _securityIds[3], Price: 103, Quantity: 1000,  TradeDate: today.AddHours(9)),   // long 3000 
+                (Id: _securityIds[3], Price: 103, Quantity: 2000,  TradeDate: today.AddHours(20))   // long 5000 but outside recon window
             };
 
             trades = tradesToday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add trades
-            var finalResult = client.UpsertTrades(scope, portfolioCode, trades.ToList());
+            var finalResult = _client.UpsertTrades(scope, portfolioCode, trades.ToList());
 
             //Using the last result find out its AsAtDate (based on the servers clock at the time of the test)
             var finalAsAtTime = finalResult.Version.AsAtDate;
@@ -519,27 +512,26 @@ namespace LusidSdk.Tests
                 finalAsAtTime,
                 scope, portfolio.Id.Code, today.AddHours(16), finalAsAtTime);
 
-            var listOfBreaks = client.PerformReconciliation(reconcileRequest);
+            var listOfBreaks = _client.PerformReconciliation(reconcileRequest);
 
             Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
             PrintBreaks(listOfBreaks.Values);
 
             /*
                 Expecting 
-                    FIGI_BBG001S7Z574	-1500	-8094.73
-                    FIGI_BBG0034YQ817	1000	10300
-                    FIGI_BBG000005547	1200	10300
-                    FIGI_BBG001SRKHW2	1000	-10200
-
+                    _securityIds[0]    	-1500	-8094.73
+                    _securityIds[3]    	1000	10300
+                    _securityIds[2]    	1200	10300
+                    _securityIds[1]    	1000	-10200
             */
 
             Assert.AreEqual(listOfBreaks.Values.Count, 4);
 
             var map = listOfBreaks.Values.ToDictionary(abreak => abreak.SecurityUid);
-            Assert.AreEqual(map["FIGI_BBG001S7Z574"].UnitsDifference, -1500);
-            Assert.AreEqual(map["FIGI_BBG0034YQ817"].UnitsDifference, 1000);
-            Assert.AreEqual(map["FIGI_BBG000005547"].UnitsDifference, 1200);
-            Assert.AreEqual(map["FIGI_BBG001SRKHW2"].UnitsDifference, 1000);
+            Assert.AreEqual(map[_securityIds[0]].UnitsDifference, -1500);
+            Assert.AreEqual(map[_securityIds[3]].UnitsDifference, 1000);
+            Assert.AreEqual(map[_securityIds[2]].UnitsDifference, 1200);
+            Assert.AreEqual(map[_securityIds[1]].UnitsDifference, 1000);
             
             void PrintBreaks(IEnumerable<ReconciliationBreakDto> breaks)
             {
