@@ -435,7 +435,7 @@ namespace LusidSdk.Tests
             //    look up ids
             var fbnIds = _client.LookupSecuritiesFromCodes("Isin", isins);
             
-            Assert.That(fbnIds.Values.Count, Is.GreaterThan(0));
+            Assert.That(fbnIds.Values.Count, Is.EqualTo(2));
         }
 
         private UpsertPortfolioTradeRequest BuildTradeWithQuantity(string id, double price, double quantity,  DateTimeOffset tradeDate)
