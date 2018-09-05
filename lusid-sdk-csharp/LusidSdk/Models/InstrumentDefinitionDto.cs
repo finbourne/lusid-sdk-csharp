@@ -56,7 +56,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "content")]
-        public string Content { get; private set; }
+        public string Content { get; set; }
 
     }
 }

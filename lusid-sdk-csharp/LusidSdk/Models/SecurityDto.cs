@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the SecurityDto class.
         /// </summary>
-        public SecurityDto(string href = default(string), string uid = default(string), VersionDto version = default(VersionDto), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<Link> _links = default(IList<Link>))
+        public SecurityDto(string href = default(string), string uid = default(string), VersionDto version = default(VersionDto), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<PropertyDto> properties = default(IList<PropertyDto>), string marketIdentifierCode = default(string), IList<Link> _links = default(IList<Link>))
         {
             Href = href;
             Uid = uid;
@@ -48,6 +48,7 @@ namespace Finbourne.Models
             CommonName = commonName;
             Aliases = aliases;
             Properties = properties;
+            MarketIdentifierCode = marketIdentifierCode;
             this._links = _links;
             CustomInit();
         }
@@ -86,6 +87,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
         public IList<PropertyDto> Properties { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "marketIdentifierCode")]
+        public string MarketIdentifierCode { get; set; }
 
         /// <summary>
         /// </summary>

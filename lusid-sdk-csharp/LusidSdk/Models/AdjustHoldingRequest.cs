@@ -50,10 +50,13 @@ namespace Finbourne.Models
         /// <param name="taxLots">1 or more quantity amounts</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
         /// holdings of a security</param>
-        public AdjustHoldingRequest(string securityUid, IList<TargetTaxLotDto> taxLots, IList<CreatePerpetualPropertyRequest> subHoldingKeys = default(IList<CreatePerpetualPropertyRequest>))
+        /// <param name="properties">Arbitrary properties to store with the
+        /// holding</param>
+        public AdjustHoldingRequest(string securityUid, IList<TargetTaxLotDto> taxLots, IList<CreatePerpetualPropertyRequest> subHoldingKeys = default(IList<CreatePerpetualPropertyRequest>), IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>))
         {
             SecurityUid = securityUid;
             SubHoldingKeys = subHoldingKeys;
+            Properties = properties;
             TaxLots = taxLots;
             CustomInit();
         }
@@ -75,6 +78,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "subHoldingKeys")]
         public IList<CreatePerpetualPropertyRequest> SubHoldingKeys { get; set; }
+
+        /// <summary>
+        /// Gets or sets arbitrary properties to store with the holding
+        /// </summary>
+        [JsonProperty(PropertyName = "properties")]
+        public IList<CreatePerpetualPropertyRequest> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets 1 or more quantity amounts
@@ -108,13 +117,23 @@ namespace Finbourne.Models
                     }
                 }
             }
-            if (TaxLots != null)
+            if (Properties != null)
             {
-                foreach (var element1 in TaxLots)
+                foreach (var element1 in Properties)
                 {
                     if (element1 != null)
                     {
                         element1.Validate();
+                    }
+                }
+            }
+            if (TaxLots != null)
+            {
+                foreach (var element2 in TaxLots)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

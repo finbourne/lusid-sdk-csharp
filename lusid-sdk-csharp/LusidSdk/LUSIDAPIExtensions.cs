@@ -2488,6 +2488,58 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Cancel adjust-holdings
+            /// </summary>
+            /// <remarks>
+            /// Cancels a previous adjust holdings request
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            public static DeletedEntityResponse CancelAdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt)
+            {
+                return operations.CancelAdjustHoldingsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Cancel adjust-holdings
+            /// </summary>
+            /// <remarks>
+            /// Cancels a previous adjust holdings request
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> CancelAdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CancelAdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Adjust holdings
             /// </summary>
             /// <remarks>
@@ -2798,10 +2850,12 @@ namespace Finbourne
             /// Code for the portfolio
             /// </param>
             /// <param name='fromTradeDate'>
-            /// Include trades with a trade date equal or later than this date
+            /// Exclude trades with a trade-date less than this date. If not supplied, no
+            /// lower filter is applied
             /// </param>
             /// <param name='toTradeDate'>
-            /// Include trades with a trade date equal or before this date
+            /// Exclude trades with a trade-date greater than this date. If not supplied,
+            /// no upper filter is applied
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -2838,10 +2892,12 @@ namespace Finbourne
             /// Code for the portfolio
             /// </param>
             /// <param name='fromTradeDate'>
-            /// Include trades with a trade date equal or later than this date
+            /// Exclude trades with a trade-date less than this date. If not supplied, no
+            /// lower filter is applied
             /// </param>
             /// <param name='toTradeDate'>
-            /// Include trades with a trade date equal or before this date
+            /// Exclude trades with a trade-date greater than this date. If not supplied,
+            /// no upper filter is applied
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -4592,8 +4648,8 @@ namespace Finbourne
             /// </param>
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
@@ -4618,8 +4674,8 @@ namespace Finbourne
             /// </param>
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
@@ -4651,8 +4707,8 @@ namespace Finbourne
             /// </param>
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes
@@ -4678,8 +4734,8 @@ namespace Finbourne
             /// </param>
             /// <param name='codeType'>
             /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-            /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
             /// An array of codes

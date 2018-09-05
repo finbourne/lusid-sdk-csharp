@@ -1502,6 +1502,29 @@ namespace Finbourne
         Task<HttpOperationResponse<AdjustHoldingsDto>> AdjustAllHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Cancel adjust-holdings
+        /// </summary>
+        /// <remarks>
+        /// Cancels a previous adjust holdings request
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Effective date
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DeletedEntityResponse>> CancelAdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Adjust holdings
         /// </summary>
         /// <remarks>
@@ -1646,10 +1669,12 @@ namespace Finbourne
         /// Code for the portfolio
         /// </param>
         /// <param name='fromTradeDate'>
-        /// Include trades with a trade date equal or later than this date
+        /// Exclude trades with a trade-date less than this date. If not
+        /// supplied, no lower filter is applied
         /// </param>
         /// <param name='toTradeDate'>
-        /// Include trades with a trade date equal or before this date
+        /// Exclude trades with a trade-date greater than this date. If not
+        /// supplied, no upper filter is applied
         /// </param>
         /// <param name='asAt'>
         /// </param>
@@ -2439,7 +2464,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='codeType'>
         /// The type of identifier. Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
         /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
         /// 'Wertpapier'
         /// </param>
@@ -2467,7 +2492,7 @@ namespace Finbourne
         /// </summary>
         /// <param name='codeType'>
         /// The type of identifier. Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
         /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
         /// 'Wertpapier'
         /// </param>

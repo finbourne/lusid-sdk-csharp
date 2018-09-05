@@ -1833,17 +1833,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -4045,17 +4035,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -4919,17 +4899,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -5924,17 +5894,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -7087,17 +7047,7 @@ namespace Finbourne
             _queryParameters.Add(string.Format("wildcards={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(wildcards, SerializationSettings).Trim('"'))));
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -7787,17 +7737,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -8163,17 +8103,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -8911,17 +8841,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -9811,6 +9731,171 @@ namespace Finbourne
         }
 
         /// <summary>
+        /// Cancel adjust-holdings
+        /// </summary>
+        /// <remarks>
+        /// Cancels a previous adjust holdings request
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Effective date
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<DeletedEntityResponse>> CancelAdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (scope == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
+            }
+            if (code == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("scope", scope);
+                tracingParameters.Add("code", code);
+                tracingParameters.Add("effectiveAt", effectiveAt);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "CancelAdjustHoldings", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1/api/portfolios/{scope}/{code}/holdings/{effectiveAt}").ToString();
+            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
+            _url = _url.Replace("{effectiveAt}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("DELETE");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                try
+                {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                    if (_errorBody != null)
+                    {
+                        ex.Body = _errorBody;
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Ignore the exception
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<DeletedEntityResponse>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<DeletedEntityResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
         /// Adjust holdings
         /// </summary>
         /// <remarks>
@@ -10075,17 +10160,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -10755,10 +10830,12 @@ namespace Finbourne
         /// Code for the portfolio
         /// </param>
         /// <param name='fromTradeDate'>
-        /// Include trades with a trade date equal or later than this date
+        /// Exclude trades with a trade-date less than this date. If not supplied, no
+        /// lower filter is applied
         /// </param>
         /// <param name='toTradeDate'>
-        /// Include trades with a trade date equal or before this date
+        /// Exclude trades with a trade-date greater than this date. If not supplied,
+        /// no upper filter is applied
         /// </param>
         /// <param name='asAt'>
         /// </param>
@@ -10848,17 +10925,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -10870,17 +10937,7 @@ namespace Finbourne
             }
             if (securityPropertyKeys != null)
             {
-                if (securityPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in securityPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", securityPropertyKeys))));
             }
             if (filter != null)
             {
@@ -11938,17 +11995,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12123,17 +12170,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12302,17 +12339,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12622,17 +12649,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (keys != null)
             {
-                if (keys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in keys)
-                    {
-                        _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Join(",", keys))));
             }
             if (asAt != null)
             {
@@ -12640,17 +12657,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12839,17 +12846,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -13031,17 +13028,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -13238,17 +13225,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -14106,17 +14083,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -14956,17 +14923,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -15669,17 +15626,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -16042,17 +15989,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -16554,17 +16491,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (asAt != null)
             {
@@ -16719,17 +16646,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -17036,17 +16953,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (uids != null)
             {
-                if (uids.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in uids)
-                    {
-                        _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Join(",", uids))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -17216,17 +17123,7 @@ namespace Finbourne
             }
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -17338,8 +17235,8 @@ namespace Finbourne
         /// </summary>
         /// <param name='codeType'>
         /// The type of identifier. Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-        /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+        /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
         /// </param>
         /// <param name='codes'>
         /// An array of codes
@@ -17398,17 +17295,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (codes != null)
             {
-                if (codes.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("codes={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in codes)
-                    {
-                        _queryParameters.Add(string.Format("codes={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("codes={0}", System.Uri.EscapeDataString(string.Join(",", codes))));
             }
             if (asAt != null)
             {
@@ -17416,17 +17303,7 @@ namespace Finbourne
             }
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -17539,8 +17416,8 @@ namespace Finbourne
         /// </summary>
         /// <param name='codeType'>
         /// The type of identifier. Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'ClientInternal',
-        /// 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+        /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
         /// </param>
         /// <param name='codes'>
         /// An array of codes
@@ -17603,17 +17480,7 @@ namespace Finbourne
             }
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
