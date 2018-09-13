@@ -69,8 +69,9 @@ namespace Finbourne.Models
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
         /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
-        /// 'AdjustHoldingRequest'</param>
-        public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairStringFieldSchema> values = default(IList<KeyValuePairStringFieldSchema>))
+        /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
+        /// 'HoldingsAdjustmentHeader'</param>
+        public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairOfStringToFieldSchema> values = default(IList<KeyValuePairOfStringToFieldSchema>))
         {
             Entity = entity;
             Href = href;
@@ -113,7 +114,8 @@ namespace Finbourne.Models
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
         /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
-        /// 'AdjustHoldingRequest'
+        /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
+        /// 'HoldingsAdjustmentHeader'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }
@@ -126,7 +128,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public IList<KeyValuePairStringFieldSchema> Values { get; set; }
+        public IList<KeyValuePairOfStringToFieldSchema> Values { get; set; }
 
     }
 }

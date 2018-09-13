@@ -42,7 +42,7 @@ namespace Finbourne.Models
         /// Initializes a new instance of the TryLookupSecuritiesFromCodesDto
         /// class.
         /// </summary>
-        public TryLookupSecuritiesFromCodesDto(string href = default(string), IList<ResourceListSecurityDto> values = default(IList<ResourceListSecurityDto>), IList<ErrorDetail> failed = default(IList<ErrorDetail>))
+        public TryLookupSecuritiesFromCodesDto(string href = default(string), IList<ResourceListOfSecurityDto> values = default(IList<ResourceListOfSecurityDto>), IList<ErrorDetail> failed = default(IList<ErrorDetail>))
         {
             Href = href;
             Values = values;
@@ -63,7 +63,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public IList<ResourceListSecurityDto> Values { get; set; }
+        public IList<ResourceListOfSecurityDto> Values { get; set; }
 
         /// <summary>
         /// </summary>

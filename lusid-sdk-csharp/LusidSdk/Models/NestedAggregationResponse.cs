@@ -38,7 +38,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the NestedAggregationResponse class.
         /// </summary>
-        public NestedAggregationResponse(string href = default(string), AggregationResponseNodeDictionaryStringObject data = default(AggregationResponseNodeDictionaryStringObject), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema))
+        public NestedAggregationResponse(string href = default(string), AggregationResponseNodeOfDictionaryOfStringToObject data = default(AggregationResponseNodeOfDictionaryOfStringToObject), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema))
         {
             Href = href;
             Data = data;
@@ -60,7 +60,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "data")]
-        public AggregationResponseNodeDictionaryStringObject Data { get; set; }
+        public AggregationResponseNodeOfDictionaryOfStringToObject Data { get; set; }
 
         /// <summary>
         /// </summary>

@@ -41,7 +41,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AnalyticsItemDto class.
         /// </summary>
-        public AnalyticsItemDto(string label, string securityUid, System.DateTimeOffset analyticDate, string recipeKey, IDictionary<string, object> metricKey, IDictionary<string, object> value, string recipeScope = default(string))
+        public AnalyticsItemDto(string label, string recipeKey, IDictionary<string, object> metricKey, IDictionary<string, object> value, string securityUid = default(string), System.DateTimeOffset? analyticDate = default(System.DateTimeOffset?), string recipeScope = default(string))
         {
             Label = label;
             SecurityUid = securityUid;
@@ -71,7 +71,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "analyticDate")]
-        public System.DateTimeOffset AnalyticDate { get; set; }
+        public System.DateTimeOffset? AnalyticDate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -104,10 +104,6 @@ namespace Finbourne.Models
             if (Label == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Label");
-            }
-            if (SecurityUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
             }
             if (RecipeKey == null)
             {

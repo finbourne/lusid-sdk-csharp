@@ -317,7 +317,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListAnalyticStoreKeyDto ListAnalyticStores(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfAnalyticStoreKeyDto ListAnalyticStores(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListAnalyticStoresAsync(asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -341,7 +341,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListAnalyticStoreKeyDto> ListAnalyticStoresAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfAnalyticStoreKeyDto> ListAnalyticStoresAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListAnalyticStoresWithHttpMessagesAsync(asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -661,7 +661,7 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ResourceListTxnMetaDataDto GetConfigurationTransactionTypes(this ILUSIDAPI operations)
+            public static ResourceListOfTxnMetaDataDto GetConfigurationTransactionTypes(this ILUSIDAPI operations)
             {
                 return operations.GetConfigurationTransactionTypesAsync().GetAwaiter().GetResult();
             }
@@ -675,7 +675,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListTxnMetaDataDto> GetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTxnMetaDataDto> GetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetConfigurationTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -691,7 +691,7 @@ namespace Finbourne
             /// </param>
             /// <param name='types'>
             /// </param>
-            public static ResourceListTxnMetaDataDto UploadConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>))
+            public static ResourceListOfTxnMetaDataDto UploadConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>))
             {
                 return operations.UploadConfigurationTransactionTypesAsync(types).GetAwaiter().GetResult();
             }
@@ -707,7 +707,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListTxnMetaDataDto> UploadConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTxnMetaDataDto> UploadConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UploadConfigurationTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -882,7 +882,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// A filter expression to apply to the result set
             /// </param>
-            public static ResourceListGroupDto ListPortfolioGroups(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfGroupDto ListPortfolioGroups(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListPortfolioGroupsAsync(scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -909,7 +909,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListGroupDto> ListPortfolioGroupsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfGroupDto> ListPortfolioGroupsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListPortfolioGroupsWithHttpMessagesAsync(scope, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1053,7 +1053,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// A filter expression to apply to the result set
             /// </param>
-            public static ResourceListProcessedCommandDto GetPortfolioGroupCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
+            public static ResourceListOfProcessedCommandDto GetPortfolioGroupCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
             {
                 return operations.GetPortfolioGroupCommandsAsync(scope, code, fromAsAt, toAsAt, filter).GetAwaiter().GetResult();
             }
@@ -1085,7 +1085,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListProcessedCommandDto> GetPortfolioGroupCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfProcessedCommandDto> GetPortfolioGroupCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPortfolioGroupCommandsWithHttpMessagesAsync(scope, code, fromAsAt, toAsAt, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1365,7 +1365,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListGroupDto PortfolioGroupsSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfGroupDto PortfolioGroupsSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.PortfolioGroupsSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -1389,7 +1389,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListGroupDto> PortfolioGroupsSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfGroupDto> PortfolioGroupsSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PortfolioGroupsSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1611,13 +1611,6 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='recursive'>
-            /// Whether to recurse into dereference recursive settings
-            /// </param>
-            /// <param name='wildcards'>
-            /// Whether to apply wildcards to the provided pattern and pull back any
-            /// matching
-            /// </param>
             /// <param name='pattern'>
             /// The search pattern or specific key
             /// </param>
@@ -1625,15 +1618,22 @@ namespace Finbourne
             /// The scope level to request for. Possible values include: 'User', 'Group',
             /// 'Default', 'All'
             /// </param>
+            /// <param name='recursive'>
+            /// Whether to recurse into dereference recursive settings
+            /// </param>
+            /// <param name='wildcards'>
+            /// Whether to apply wildcards to the provided pattern and pull back any
+            /// matching
+            /// </param>
             /// <param name='sortBy'>
             /// </param>
             /// <param name='start'>
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListPersonalisationDto GetPersonalisations(this ILUSIDAPI operations, bool recursive, bool wildcards, string pattern = default(string), string scope = default(string), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfPersonalisationDto GetPersonalisations(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
-                return operations.GetPersonalisationsAsync(recursive, wildcards, pattern, scope, sortBy, start, limit).GetAwaiter().GetResult();
+                return operations.GetPersonalisationsAsync(pattern, scope, recursive, wildcards, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1642,19 +1642,19 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='recursive'>
-            /// Whether to recurse into dereference recursive settings
-            /// </param>
-            /// <param name='wildcards'>
-            /// Whether to apply wildcards to the provided pattern and pull back any
-            /// matching
-            /// </param>
             /// <param name='pattern'>
             /// The search pattern or specific key
             /// </param>
             /// <param name='scope'>
             /// The scope level to request for. Possible values include: 'User', 'Group',
             /// 'Default', 'All'
+            /// </param>
+            /// <param name='recursive'>
+            /// Whether to recurse into dereference recursive settings
+            /// </param>
+            /// <param name='wildcards'>
+            /// Whether to apply wildcards to the provided pattern and pull back any
+            /// matching
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -1665,9 +1665,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPersonalisationDto> GetPersonalisationsAsync(this ILUSIDAPI operations, bool recursive, bool wildcards, string pattern = default(string), string scope = default(string), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPersonalisationDto> GetPersonalisationsAsync(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPersonalisationsWithHttpMessagesAsync(recursive, wildcards, pattern, scope, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPersonalisationsWithHttpMessagesAsync(pattern, scope, recursive, wildcards, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1712,19 +1712,19 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='key'>
+            /// The key of the setting to be deleted
+            /// </param>
             /// <param name='scope'>
             /// The scope to delete at (use ALL to purge the setting entirely). Possible
             /// values include: 'User', 'Group', 'Default', 'All'
             /// </param>
-            /// <param name='key'>
-            /// The key of the setting to be deleted
-            /// </param>
             /// <param name='group'>
             /// If deleting a setting at group level, specify the group here
             /// </param>
-            public static DeletedEntityResponse DeletePersonalisation(this ILUSIDAPI operations, string scope, string key = default(string), string group = default(string))
+            public static DeletedEntityResponse DeletePersonalisation(this ILUSIDAPI operations, string key = default(string), string scope = default(string), string group = default(string))
             {
-                return operations.DeletePersonalisationAsync(scope, key, group).GetAwaiter().GetResult();
+                return operations.DeletePersonalisationAsync(key, scope, group).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1734,12 +1734,12 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='key'>
+            /// The key of the setting to be deleted
+            /// </param>
             /// <param name='scope'>
             /// The scope to delete at (use ALL to purge the setting entirely). Possible
             /// values include: 'User', 'Group', 'Default', 'All'
-            /// </param>
-            /// <param name='key'>
-            /// The key of the setting to be deleted
             /// </param>
             /// <param name='group'>
             /// If deleting a setting at group level, specify the group here
@@ -1747,9 +1747,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DeletedEntityResponse> DeletePersonalisationAsync(this ILUSIDAPI operations, string scope, string key = default(string), string group = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeletedEntityResponse> DeletePersonalisationAsync(this ILUSIDAPI operations, string key = default(string), string scope = default(string), string group = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeletePersonalisationWithHttpMessagesAsync(scope, key, group, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeletePersonalisationWithHttpMessagesAsync(key, scope, group, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1773,7 +1773,7 @@ namespace Finbourne
             /// <param name='limit'>
             /// The final index for the returned scopes
             /// </param>
-            public static ResourceListScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.ListPortfolioScopesAsync(sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -1799,7 +1799,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListScope> ListPortfolioScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfScope> ListPortfolioScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListPortfolioScopesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1836,7 +1836,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPortfolioDto ListPortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPortfolioDto ListPortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListPortfoliosAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -1873,7 +1873,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPortfolioDto> ListPortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolioDto> ListPortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListPortfoliosWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -2121,7 +2121,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// Command filter
             /// </param>
-            public static ResourceListProcessedCommandDto GetCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
+            public static ResourceListOfProcessedCommandDto GetCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
             {
                 return operations.GetCommandsAsync(scope, code, fromAsAt, toAsAt, filter).GetAwaiter().GetResult();
             }
@@ -2155,7 +2155,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListProcessedCommandDto> GetCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfProcessedCommandDto> GetCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCommandsWithHttpMessagesAsync(scope, code, fromAsAt, toAsAt, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -2378,7 +2378,7 @@ namespace Finbourne
             /// <param name='securityPropertyKeys'>
             /// Keys for the security properties to be decorated onto the holdings
             /// </param>
-            public static VersionedResourceListHoldingDto GetAggregateHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>))
+            public static VersionedResourceListOfHoldingDto GetAggregateHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>))
             {
                 return operations.GetAggregateHoldingsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, securityPropertyKeys).GetAwaiter().GetResult();
             }
@@ -2423,7 +2423,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionedResourceListHoldingDto> GetAggregateHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionedResourceListOfHoldingDto> GetAggregateHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAggregateHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, securityPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -2590,6 +2590,120 @@ namespace Finbourne
             public static async Task<AdjustHoldingsDto> AdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets holdings adjustments in an interval of effective time.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            public static HoldingsAdjustmentHeaderDto ListHoldingsAdjustments(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
+            {
+                return operations.ListHoldingsAdjustmentsAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets holdings adjustments in an interval of effective time.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<HoldingsAdjustmentHeaderDto> ListHoldingsAdjustmentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListHoldingsAdjustmentsWithHttpMessagesAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a holdings adjustment for a single portfolio at a specific effective
+            /// time.
+            /// If no adjustment exists at this effective time, not found is returned.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// The effective time of the holdings adjustment.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            public static HoldingsAdjustmentDto GetHoldingsAdjustment(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
+            {
+                return operations.GetHoldingsAdjustmentAsync(scope, code, effectiveAt, asAtTime).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a holdings adjustment for a single portfolio at a specific effective
+            /// time.
+            /// If no adjustment exists at this effective time, not found is returned.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// The effective time of the holdings adjustment.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<HoldingsAdjustmentDto> GetHoldingsAdjustmentAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetHoldingsAdjustmentWithHttpMessagesAsync(scope, code, effectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2874,7 +2988,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// Trade filter
             /// </param>
-            public static VersionedResourceListTradeDto GetTrades(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string))
+            public static VersionedResourceListOfTradeDto GetTrades(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string))
             {
                 return operations.GetTradesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, securityPropertyKeys, filter).GetAwaiter().GetResult();
             }
@@ -2919,7 +3033,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionedResourceListTradeDto> GetTradesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionedResourceListOfTradeDto> GetTradesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTradesWithHttpMessagesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, securityPropertyKeys, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3205,7 +3319,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPortfolioSearchResult PortfoliosSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPortfolioSearchResult PortfoliosSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.PortfoliosSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3229,7 +3343,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPortfolioSearchResult> PortfoliosSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PortfoliosSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3253,7 +3367,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPropertyDefinitionDto PropertiesSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPropertyDefinitionDto PropertiesSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.PropertiesSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3277,7 +3391,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPropertyDefinitionDto> PropertiesSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPropertyDefinitionDto> PropertiesSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PropertiesSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3297,7 +3411,7 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListPropertyDomain GetPropertyDefinitionDomains(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfPropertyDomain GetPropertyDefinitionDomains(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetPropertyDefinitionDomainsAsync(sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -3317,7 +3431,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPropertyDomain> GetPropertyDefinitionDomainsAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPropertyDomain> GetPropertyDefinitionDomainsAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPropertyDefinitionDomainsWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3375,7 +3489,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPropertyDefinitionDto GetMultiplePropertyDefinitions(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPropertyDefinitionDto GetMultiplePropertyDefinitions(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetMultiplePropertyDefinitionsAsync(keys, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3401,7 +3515,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPropertyDefinitionDto> GetMultiplePropertyDefinitionsAsync(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPropertyDefinitionDto> GetMultiplePropertyDefinitionsAsync(this ILUSIDAPI operations, IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetMultiplePropertyDefinitionsWithHttpMessagesAsync(keys, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3429,7 +3543,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPropertyKey GetAllPropertyKeysInDomain(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPropertyKey GetAllPropertyKeysInDomain(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetAllPropertyKeysInDomainAsync(domain, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3457,7 +3571,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPropertyKey> GetAllPropertyKeysInDomainAsync(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPropertyKey> GetAllPropertyKeysInDomainAsync(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAllPropertyKeysInDomainWithHttpMessagesAsync(domain, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3483,7 +3597,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListScope GetPropertyDefinitionScopesInDomain(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfScope GetPropertyDefinitionScopesInDomain(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetPropertyDefinitionScopesInDomainAsync(domain, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3509,7 +3623,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListScope> GetPropertyDefinitionScopesInDomainAsync(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfScope> GetPropertyDefinitionScopesInDomainAsync(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPropertyDefinitionScopesInDomainWithHttpMessagesAsync(domain, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3539,7 +3653,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPropertyKey GetAllPropertyKeysInScope(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPropertyKey GetAllPropertyKeysInScope(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetAllPropertyKeysInScopeAsync(domain, scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3569,7 +3683,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPropertyKey> GetAllPropertyKeysInScopeAsync(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPropertyKey> GetAllPropertyKeysInScopeAsync(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAllPropertyKeysInScopeWithHttpMessagesAsync(domain, scope, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3773,7 +3887,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPropertyDataFormatDto ListPropertyDataFormats(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPropertyDataFormatDto ListPropertyDataFormats(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListPropertyDataFormatsAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -3801,7 +3915,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPropertyDataFormatDto> ListPropertyDataFormatsAsync(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPropertyDataFormatDto> ListPropertyDataFormatsAsync(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListPropertyDataFormatsWithHttpMessagesAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3939,7 +4053,7 @@ namespace Finbourne
             /// </param>
             /// <param name='request'>
             /// </param>
-            public static ResourceListReconciliationBreakDto PerformReconciliation(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest))
+            public static ResourceListOfReconciliationBreakDto PerformReconciliation(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest))
             {
                 return operations.PerformReconciliationAsync(request).GetAwaiter().GetResult();
             }
@@ -3955,7 +4069,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListReconciliationBreakDto> PerformReconciliationAsync(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfReconciliationBreakDto> PerformReconciliationAsync(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PerformReconciliationWithHttpMessagesAsync(request, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3983,7 +4097,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListPortfolioDto ListReferencePortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPortfolioDto ListReferencePortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListReferencePortfoliosAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -4011,7 +4125,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListPortfolioDto> ListReferencePortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolioDto> ListReferencePortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListReferencePortfoliosWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4073,7 +4187,7 @@ namespace Finbourne
             /// </param>
             /// <param name='asAt'>
             /// </param>
-            public static ResourceListReferencePortfolioConstituentDto GetReferencePortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            public static ResourceListOfReferencePortfolioConstituentDto GetReferencePortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
                 return operations.GetReferencePortfolioAsync(scope, code, effectiveAt, asAt).GetAwaiter().GetResult();
             }
@@ -4095,7 +4209,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListReferencePortfolioConstituentDto> GetReferencePortfolioAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfReferencePortfolioConstituentDto> GetReferencePortfolioAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetReferencePortfolioWithHttpMessagesAsync(scope, code, effectiveAt, asAt, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4165,7 +4279,7 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListReferencePortfolioConstituentDto GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfReferencePortfolioConstituentDto GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetReferencePortfolioConstituentsAsync(scope, effectiveAt, code, referencePortfolioId, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -4195,7 +4309,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListReferencePortfolioConstituentDto> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfReferencePortfolioConstituentDto> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetReferencePortfolioConstituentsWithHttpMessagesAsync(scope, effectiveAt, code, referencePortfolioId, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4361,9 +4475,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets the schema for a given entity.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4392,16 +4503,14 @@ namespace Finbourne
             /// 'TransactionConfigurationMovementData',
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
             /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-            /// 'TargetTaxlot', 'AdjustHoldingRequest'
+            /// 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+            /// 'HoldingsAdjustmentHeader'
             /// </param>
             public static SchemaDto GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
                 return operations.GetEntitySchemaAsync(entity).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets the schema for a given entity.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4430,7 +4539,8 @@ namespace Finbourne
             /// 'TransactionConfigurationMovementData',
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
             /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-            /// 'TargetTaxlot', 'AdjustHoldingRequest'
+            /// 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
+            /// 'HoldingsAdjustmentHeader'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4495,7 +4605,7 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListUiDataType GetValueTypes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfUiDataType GetValueTypes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetValueTypesAsync(sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -4515,7 +4625,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListUiDataType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfUiDataType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetValueTypesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {

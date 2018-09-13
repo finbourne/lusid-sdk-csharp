@@ -46,13 +46,13 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AdjustHoldingRequest class.
         /// </summary>
-        /// <param name="securityUid">Unique security identifier</param>
         /// <param name="taxLots">1 or more quantity amounts</param>
+        /// <param name="securityUid">Unique security identifier</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
         /// holdings of a security</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public AdjustHoldingRequest(string securityUid, IList<TargetTaxLotDto> taxLots, IList<CreatePerpetualPropertyRequest> subHoldingKeys = default(IList<CreatePerpetualPropertyRequest>), IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>))
+        public AdjustHoldingRequest(IList<TargetTaxLotDto> taxLots, string securityUid = default(string), IList<CreatePerpetualPropertyRequest> subHoldingKeys = default(IList<CreatePerpetualPropertyRequest>), IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>))
         {
             SecurityUid = securityUid;
             SubHoldingKeys = subHoldingKeys;
@@ -99,10 +99,6 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (SecurityUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
-            }
             if (TaxLots == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TaxLots");
@@ -124,16 +120,6 @@ namespace Finbourne.Models
                     if (element1 != null)
                     {
                         element1.Validate();
-                    }
-                }
-            }
-            if (TaxLots != null)
-            {
-                foreach (var element2 in TaxLots)
-                {
-                    if (element2 != null)
-                    {
-                        element2.Validate();
                     }
                 }
             }

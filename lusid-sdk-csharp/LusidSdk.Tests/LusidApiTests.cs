@@ -323,8 +323,7 @@ namespace LusidSdk.Tests
             {
                 foreach (var trade in tradeList)
                 {
-                    Console.WriteLine(
-                        $"{trade.SecurityUid}\t{trade.TradeDate.Date.ToShortDateString()}\t{trade.Units}\t{trade.TradePrice}\t{trade.TotalConsideration}");
+                    Console.WriteLine($"{trade.SecurityUid}\t{trade.TradeDate}\t{trade.Units}\t{trade.TradePrice}\t{trade.TotalConsideration}");
                 }
 
                 Console.WriteLine();

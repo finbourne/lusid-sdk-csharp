@@ -44,6 +44,7 @@ namespace Finbourne.Models
         /// <param name="tradeId">Unique trade identifier</param>
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
+        /// <param name="settlementCurrency">Settlement currency</param>
         /// <param name="securityUid">Unique security identifier</param>
         /// <param name="tradeDate">Trade date</param>
         /// <param name="settlementDate">Settlement date</param>
@@ -51,20 +52,19 @@ namespace Finbourne.Models
         /// security</param>
         /// <param name="tradePrice">Execution price for the trade</param>
         /// <param name="totalConsideration">Total value of the trade</param>
-        /// <param name="settlementCurrency">Settlement currency</param>
-        /// <param name="source">Where this trade came from, either Client or
-        /// System. Possible values include: 'System', 'Client'</param>
         /// <param name="exchangeRate">Rate between trade and settle
         /// currency</param>
         /// <param name="tradeCurrency">Trade currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
+        /// <param name="source">Where this trade came from, either Client or
+        /// System. Possible values include: 'System', 'Client'</param>
         /// <param name="dividendState">Possible values include: 'Default',
         /// 'ExDividend', 'CumDividend'</param>
         /// <param name="tradePriceType">Possible values include: 'Price',
         /// 'Yield', 'Spread'</param>
         /// <param name="unitType">Possible values include: 'Nominal',
         /// 'Shares', 'FaceValue', 'Contracts'</param>
-        public TradeDto(string tradeId, string type, string securityUid, System.DateTimeOffset tradeDate, System.DateTimeOffset settlementDate, double units, double tradePrice, double totalConsideration, string settlementCurrency, string source, double? exchangeRate = default(double?), string tradeCurrency = default(string), IList<PerpetualPropertyDto> properties = default(IList<PerpetualPropertyDto>), string counterpartyId = default(string), string dividendState = default(string), string tradePriceType = default(string), string unitType = default(string), string nettingSet = default(string))
+        public TradeDto(string tradeId, string type, string settlementCurrency, string securityUid = default(string), System.DateTimeOffset? tradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), double? tradePrice = default(double?), double? totalConsideration = default(double?), double? exchangeRate = default(double?), string tradeCurrency = default(string), IList<PerpetualPropertyDto> properties = default(IList<PerpetualPropertyDto>), string counterpartyId = default(string), string source = default(string), string dividendState = default(string), string tradePriceType = default(string), string unitType = default(string), string nettingSet = default(string))
         {
             TradeId = tradeId;
             Type = type;
@@ -115,31 +115,31 @@ namespace Finbourne.Models
         /// Gets or sets trade date
         /// </summary>
         [JsonProperty(PropertyName = "tradeDate")]
-        public System.DateTimeOffset TradeDate { get; set; }
+        public System.DateTimeOffset? TradeDate { get; set; }
 
         /// <summary>
         /// Gets or sets settlement date
         /// </summary>
         [JsonProperty(PropertyName = "settlementDate")]
-        public System.DateTimeOffset SettlementDate { get; set; }
+        public System.DateTimeOffset? SettlementDate { get; set; }
 
         /// <summary>
         /// Gets or sets quantity of trade in units of the security
         /// </summary>
         [JsonProperty(PropertyName = "units")]
-        public double Units { get; set; }
+        public double? Units { get; set; }
 
         /// <summary>
         /// Gets or sets execution price for the trade
         /// </summary>
         [JsonProperty(PropertyName = "tradePrice")]
-        public double TradePrice { get; set; }
+        public double? TradePrice { get; set; }
 
         /// <summary>
         /// Gets or sets total value of the trade
         /// </summary>
         [JsonProperty(PropertyName = "totalConsideration")]
-        public double TotalConsideration { get; set; }
+        public double? TotalConsideration { get; set; }
 
         /// <summary>
         /// Gets or sets rate between trade and settle currency
@@ -218,17 +218,9 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Type");
             }
-            if (SecurityUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SecurityUid");
-            }
             if (SettlementCurrency == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SettlementCurrency");
-            }
-            if (Source == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Source");
             }
             if (Properties != null)
             {

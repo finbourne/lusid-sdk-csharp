@@ -403,6 +403,7 @@ namespace Finbourne
     /// |
     /// | &lt;a name="209"&gt;209&lt;/a&gt;|InvalidUnitsDefinition|  |
     /// | &lt;a name="210"&gt;210&lt;/a&gt;|InvalidSecurityIdentifierUnit|  |
+    /// | &lt;a name="211"&gt;211&lt;/a&gt;|HoldingsAdjustmentDoesNotExist|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -564,7 +565,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListAnalyticStoreKeyDto>> ListAnalyticStoresWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfAnalyticStoreKeyDto>> ListAnalyticStoresWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create a new analytic store for the given scope for the given date
@@ -707,7 +708,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListTxnMetaDataDto>> GetConfigurationTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfTxnMetaDataDto>> GetConfigurationTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Uploads a list of transaction types to be used by the movements
@@ -721,7 +722,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListTxnMetaDataDto>> UploadConfigurationTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfTxnMetaDataDto>> UploadConfigurationTransactionTypesWithHttpMessagesAsync(IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a corporate action based on dates
@@ -807,7 +808,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListGroupDto>> ListPortfolioGroupsWithHttpMessagesAsync(string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfGroupDto>> ListPortfolioGroupsWithHttpMessagesAsync(string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create a new group
@@ -883,7 +884,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListProcessedCommandDto>> GetPortfolioGroupCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfProcessedCommandDto>> GetPortfolioGroupCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get a full expansion of an existing group
@@ -1016,7 +1017,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListGroupDto>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfGroupDto>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Simple heartbeat method for the api
@@ -1104,19 +1105,19 @@ namespace Finbourne
         /// <summary>
         /// Get a personalisation, recursing to get any referenced if required.
         /// </summary>
-        /// <param name='recursive'>
-        /// Whether to recurse into dereference recursive settings
-        /// </param>
-        /// <param name='wildcards'>
-        /// Whether to apply wildcards to the provided pattern and pull back
-        /// any matching
-        /// </param>
         /// <param name='pattern'>
         /// The search pattern or specific key
         /// </param>
         /// <param name='scope'>
         /// The scope level to request for. Possible values include: 'User',
         /// 'Group', 'Default', 'All'
+        /// </param>
+        /// <param name='recursive'>
+        /// Whether to recurse into dereference recursive settings
+        /// </param>
+        /// <param name='wildcards'>
+        /// Whether to apply wildcards to the provided pattern and pull back
+        /// any matching
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -1130,7 +1131,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPersonalisationDto>> GetPersonalisationsWithHttpMessagesAsync(bool recursive, bool wildcards, string pattern = default(string), string scope = default(string), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPersonalisationDto>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert one or more personalisations
@@ -1149,12 +1150,12 @@ namespace Finbourne
         /// Delete a personalisation at a specific scope (or use scope ALL to
         /// purge the setting entirely)
         /// </summary>
+        /// <param name='key'>
+        /// The key of the setting to be deleted
+        /// </param>
         /// <param name='scope'>
         /// The scope to delete at (use ALL to purge the setting entirely).
         /// Possible values include: 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='key'>
-        /// The key of the setting to be deleted
         /// </param>
         /// <param name='group'>
         /// If deleting a setting at group level, specify the group here
@@ -1165,7 +1166,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<DeletedEntityResponse>> DeletePersonalisationWithHttpMessagesAsync(string scope, string key = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DeletedEntityResponse>> DeletePersonalisationWithHttpMessagesAsync(string key = default(string), string scope = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List scopes that contain portfolios
@@ -1188,7 +1189,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListScope>> ListPortfolioScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfScope>> ListPortfolioScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all portfolios
@@ -1222,7 +1223,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPortfolioDto>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolioDto>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create portfolio
@@ -1348,7 +1349,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListProcessedCommandDto>> GetCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfProcessedCommandDto>> GetCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get portfolio details
@@ -1473,7 +1474,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<VersionedResourceListHoldingDto>> GetAggregateHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<VersionedResourceListOfHoldingDto>> GetAggregateHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adjust holdings
@@ -1549,6 +1550,60 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<AdjustHoldingsDto>> AdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets holdings adjustments in an interval of effective time.
+        /// </summary>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='fromEffectiveAt'>
+        /// Events between this time (inclusive) and the toEffectiveAt are
+        /// returned.
+        /// </param>
+        /// <param name='toEffectiveAt'>
+        /// Events between this time (inclusive) and the fromEffectiveAt are
+        /// returned.
+        /// </param>
+        /// <param name='asAtTime'>
+        /// The as-at time for which the result is valid.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<HoldingsAdjustmentHeaderDto>> ListHoldingsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a holdings adjustment for a single portfolio at a specific
+        /// effective time.
+        /// If no adjustment exists at this effective time, not found is
+        /// returned.
+        /// </summary>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// The effective time of the holdings adjustment.
+        /// </param>
+        /// <param name='asAtTime'>
+        /// The as-at time for which the result is valid.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<HoldingsAdjustmentDto>> GetHoldingsAdjustmentWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get properties
@@ -1699,7 +1754,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<VersionedResourceListTradeDto>> GetTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<VersionedResourceListOfTradeDto>> GetTradesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add/update trades
@@ -1836,7 +1891,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPortfolioSearchResult>> PortfoliosSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Search properties
@@ -1857,7 +1912,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPropertyDefinitionDto>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPropertyDefinitionDto>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the available property-definition domains.
@@ -1874,7 +1929,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPropertyDomain>> GetPropertyDefinitionDomainsWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPropertyDomain>> GetPropertyDefinitionDomainsWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Creates a new property definition.
@@ -1910,7 +1965,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPropertyDefinitionDto>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPropertyDefinitionDto>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets all available property definitions.
@@ -1935,7 +1990,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPropertyKey>> GetAllPropertyKeysInDomainWithHttpMessagesAsync(string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPropertyKey>> GetAllPropertyKeysInDomainWithHttpMessagesAsync(string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the available property-definition scopes for the specified
@@ -1959,7 +2014,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListScope>> GetPropertyDefinitionScopesInDomainWithHttpMessagesAsync(string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfScope>> GetPropertyDefinitionScopesInDomainWithHttpMessagesAsync(string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets all properties in a scope.
@@ -1986,7 +2041,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPropertyKey>> GetAllPropertyKeysInScopeWithHttpMessagesAsync(string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPropertyKey>> GetAllPropertyKeysInScopeWithHttpMessagesAsync(string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a property definition.
@@ -2087,7 +2142,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPropertyDataFormatDto>> ListPropertyDataFormatsWithHttpMessagesAsync(string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPropertyDataFormatDto>> ListPropertyDataFormatsWithHttpMessagesAsync(string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a property data format.
@@ -2153,7 +2208,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListReconciliationBreakDto>> PerformReconciliationWithHttpMessagesAsync(ReconciliationRequest request = default(ReconciliationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfReconciliationBreakDto>> PerformReconciliationWithHttpMessagesAsync(ReconciliationRequest request = default(ReconciliationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all reference portfolios in a scope
@@ -2178,7 +2233,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListPortfolioDto>> ListReferencePortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolioDto>> ListReferencePortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create a new reference portfolio
@@ -2214,7 +2269,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListReferencePortfolioConstituentDto>> GetReferencePortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>> GetReferencePortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete a specific portfolio
@@ -2258,7 +2313,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListReferencePortfolioConstituentDto>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add constituents to a specific reference portfolio
@@ -2331,9 +2386,6 @@ namespace Finbourne
         /// </param>
         Task<HttpOperationResponse<ResultsDto>> UpsertResultsWithHttpMessagesAsync(string scope, string key, System.DateTimeOffset date, CreateResultsRequest request = default(CreateResultsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <summary>
-        /// Gets the schema for a given entity.
-        /// </summary>
         /// <param name='entity'>
         /// Possible values include: 'PropertyKey', 'FieldSchema',
         /// 'Personalisation', 'Security', 'Property', 'CreatePropertyRequest',
@@ -2364,7 +2416,8 @@ namespace Finbourne
         /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
         /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
-        /// 'AdjustHoldingRequest'
+        /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
+        /// 'HoldingsAdjustmentHeader'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -2406,7 +2459,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListUiDataType>> GetValueTypesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfUiDataType>> GetValueTypesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Attempt to create one or more client securities. Failed securities

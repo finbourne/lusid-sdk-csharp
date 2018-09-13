@@ -112,16 +112,6 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "CorporateActionId");
             }
-            if (Transitions != null)
-            {
-                foreach (var element in Transitions)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
         }
     }
 }

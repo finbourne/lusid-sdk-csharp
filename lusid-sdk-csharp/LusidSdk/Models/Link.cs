@@ -40,7 +40,8 @@ namespace Finbourne.Models
         /// Initializes a new instance of the Link class.
         /// </summary>
         /// <param name="relation">Possible values include: 'Root',
-        /// 'Properties', 'Trades', 'Details', 'Constituents'</param>
+        /// 'Properties', 'Trades', 'Details', 'Constituents',
+        /// 'HoldingsAdjustment'</param>
         /// <param name="method">Possible values include: 'POST', 'GET',
         /// 'PATCH', 'DELETE'</param>
         public Link(string relation, string href, string method, string description = default(string))
@@ -59,7 +60,7 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets or sets possible values include: 'Root', 'Properties',
-        /// 'Trades', 'Details', 'Constituents'
+        /// 'Trades', 'Details', 'Constituents', 'HoldingsAdjustment'
         /// </summary>
         [JsonProperty(PropertyName = "relation")]
         public string Relation { get; set; }
