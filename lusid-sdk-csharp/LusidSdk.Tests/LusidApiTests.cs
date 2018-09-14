@@ -423,19 +423,19 @@ namespace LusidSdk.Tests
         }
 
         [Test]
-        public void Lookup_Securities()
-        {            
-            var isins = new List<string> 
-            {
-                "IT0004966401",
-                "FR0010192997"                
-            };
-            
-            //    look up ids
-            var fbnIds = _client.LookupSecuritiesFromCodes("Isin", isins);
-            
-            Assert.That(fbnIds.Values.Count, Is.EqualTo(2));
-        }
+         public void Lookup_Securities()
+         {            
+             var isins = new List<string> 
+             {
+                 "IT0004966401",
+                 "FR0010192997"                
+             };
+             
+             //    look up ids
+             var fbnIds = _client.LookupSecuritiesFromCodesBulk("Isin", isins);
+             
+             Assert.That(fbnIds.Values.Count, Is.EqualTo(2));
+         }
 
         private UpsertPortfolioTradeRequest BuildTradeWithQuantity(string id, double price, double quantity,  DateTimeOffset tradeDate)
         {
