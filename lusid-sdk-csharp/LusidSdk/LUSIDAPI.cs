@@ -1834,17 +1834,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -4046,17 +4036,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -4920,17 +4900,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -5925,17 +5895,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -7094,17 +7054,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -7784,17 +7734,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -8160,17 +8100,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -8908,17 +8838,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -10600,17 +10520,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -11375,17 +11285,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -11397,17 +11297,7 @@ namespace Finbourne
             }
             if (securityPropertyKeys != null)
             {
-                if (securityPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in securityPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("securityPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", securityPropertyKeys))));
             }
             if (filter != null)
             {
@@ -12465,17 +12355,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12650,17 +12530,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12829,17 +12699,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -13149,17 +13009,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (keys != null)
             {
-                if (keys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in keys)
-                    {
-                        _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Join(",", keys))));
             }
             if (asAt != null)
             {
@@ -13167,17 +13017,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -13366,17 +13206,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -13558,17 +13388,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -13765,17 +13585,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -14633,17 +14443,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -15486,17 +15286,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -16202,17 +15992,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -16575,17 +16355,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -17085,17 +16855,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (asAt != null)
             {
@@ -17250,17 +17010,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -17567,17 +17317,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (uids != null)
             {
-                if (uids.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in uids)
-                    {
-                        _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Join(",", uids))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -17747,17 +17487,7 @@ namespace Finbourne
             }
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -17929,17 +17659,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (codes != null)
             {
-                if (codes.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("codes={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in codes)
-                    {
-                        _queryParameters.Add(string.Format("codes={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("codes={0}", System.Uri.EscapeDataString(string.Join(",", codes))));
             }
             if (asAt != null)
             {
@@ -17947,17 +17667,7 @@ namespace Finbourne
             }
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -18134,17 +17844,7 @@ namespace Finbourne
             }
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
