@@ -23,6 +23,8 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -41,12 +43,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the VersionDto class.
         /// </summary>
-        public VersionDto(System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?), string updatedBy = default(string), string href = default(string))
+        public VersionDto(System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?), string href = default(string), IList<Link> _links = default(IList<Link>))
         {
             EffectiveFrom = effectiveFrom;
             AsAtDate = asAtDate;
-            UpdatedBy = updatedBy;
             Href = href;
+            this._links = _links;
             CustomInit();
         }
 
@@ -67,13 +69,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "updatedBy")]
-        public string UpdatedBy { get; set; }
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        [JsonProperty(PropertyName = "_links")]
+        public IList<Link> _links { get; set; }
 
     }
 }
