@@ -390,7 +390,7 @@ namespace LusidSdk.Tests
                        
             var aggregationRequest = new AggregationRequest
             {
-                RecipeKey = scope,
+                RecipeKey = "default",
                 RecipeScope = scope,
                 Metrics = new List<AggregateSpec>
                 {
