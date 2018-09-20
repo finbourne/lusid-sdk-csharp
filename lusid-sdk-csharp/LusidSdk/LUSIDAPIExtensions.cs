@@ -3256,6 +3256,86 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Get transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='securityPropertyKeys'>
+            /// Keys for the security properties to be decorated onto the trades
+            /// </param>
+            /// <param name='filter'>
+            /// Trade filter
+            /// </param>
+            /// <param name='parameters'>
+            /// Core query parameters
+            /// </param>
+            public static VersionedResourceListOfOutputTransactionDto BuildTransactions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters))
+            {
+                return operations.BuildTransactionsAsync(scope, code, asAt, sortBy, start, limit, securityPropertyKeys, filter, parameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='securityPropertyKeys'>
+            /// Keys for the security properties to be decorated onto the trades
+            /// </param>
+            /// <param name='filter'>
+            /// Trade filter
+            /// </param>
+            /// <param name='parameters'>
+            /// Core query parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<VersionedResourceListOfOutputTransactionDto> BuildTransactionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BuildTransactionsWithHttpMessagesAsync(scope, code, asAt, sortBy, start, limit, securityPropertyKeys, filter, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Create derived portfolio
             /// </summary>
             /// <remarks>
@@ -4504,7 +4584,7 @@ namespace Finbourne
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
             /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
             /// 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-            /// 'HoldingsAdjustmentHeader'
+            /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
             /// </param>
             public static SchemaDto GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
@@ -4540,7 +4620,7 @@ namespace Finbourne
             /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
             /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
             /// 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-            /// 'HoldingsAdjustmentHeader'
+            /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

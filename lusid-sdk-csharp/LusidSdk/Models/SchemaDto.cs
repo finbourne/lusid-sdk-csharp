@@ -70,7 +70,8 @@ namespace Finbourne.Models
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
         /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
         /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
-        /// 'HoldingsAdjustmentHeader'</param>
+        /// 'HoldingsAdjustmentHeader', 'OutputTransaction',
+        /// 'RealisedGainLoss'</param>
         public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairOfStringToFieldSchema> values = default(IList<KeyValuePairOfStringToFieldSchema>))
         {
             Entity = entity;
@@ -115,7 +116,7 @@ namespace Finbourne.Models
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
         /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
         /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
-        /// 'HoldingsAdjustmentHeader'
+        /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }

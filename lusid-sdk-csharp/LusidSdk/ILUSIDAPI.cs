@@ -1853,6 +1853,43 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyFromTradeWithHttpMessagesAsync(string scope, string code, string tradeId, string property = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Get transactions
+        /// </summary>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='asAt'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// The columns to sort the returned data by
+        /// </param>
+        /// <param name='start'>
+        /// How many items to skip from the returned set
+        /// </param>
+        /// <param name='limit'>
+        /// How many items to return from the set
+        /// </param>
+        /// <param name='securityPropertyKeys'>
+        /// Keys for the security properties to be decorated onto the trades
+        /// </param>
+        /// <param name='filter'>
+        /// Trade filter
+        /// </param>
+        /// <param name='parameters'>
+        /// Core query parameters
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<VersionedResourceListOfOutputTransactionDto>> BuildTransactionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Create derived portfolio
         /// </summary>
         /// <remarks>
@@ -2418,7 +2455,7 @@ namespace Finbourne
         /// 'Iso4217CurrencyUnit', 'BasicUnit',
         /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
         /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
-        /// 'HoldingsAdjustmentHeader'
+        /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

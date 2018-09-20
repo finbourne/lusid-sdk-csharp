@@ -46,7 +46,7 @@ namespace Finbourne.Models
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
-        /// 'StringArray', 'UnitCreation'</param>
+        /// 'StringArray', 'CurrencyAndAmount', 'TradePrice'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         public PropertyDataFormatDto(string href = default(string), string formatType = default(string), ResourceId id = default(ResourceId), int? order = default(int?), string displayName = default(string), string description = default(string), string valueType = default(string), IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<IUnitDefinitionDto> acceptableUnits = default(IList<IUnitDefinitionDto>))
@@ -105,7 +105,7 @@ namespace Finbourne.Models
         /// 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
-        /// 'StringArray', 'UnitCreation'
+        /// 'StringArray', 'CurrencyAndAmount', 'TradePrice'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
