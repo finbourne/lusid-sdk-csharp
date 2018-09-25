@@ -23,6 +23,8 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class DeletedEntityResponse
@@ -38,10 +40,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the DeletedEntityResponse class.
         /// </summary>
-        public DeletedEntityResponse(string href = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+        public DeletedEntityResponse(string href = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<Link> links = default(IList<Link>))
         {
             Href = href;
+            EffectiveFrom = effectiveFrom;
             AsAt = asAt;
+            Links = links;
             CustomInit();
         }
 
@@ -57,8 +61,18 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "effectiveFrom")]
+        public System.DateTimeOffset? EffectiveFrom { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "asAt")]
         public System.DateTimeOffset? AsAt { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

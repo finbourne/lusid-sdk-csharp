@@ -40,10 +40,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the PropertySchemaDto class.
         /// </summary>
-        public PropertySchemaDto(string href = default(string), IList<KeyValuePairOfPropertyKeyToFieldSchema> values = default(IList<KeyValuePairOfPropertyKeyToFieldSchema>))
+        public PropertySchemaDto(string href = default(string), IList<KeyValuePairOfPropertyKeyToFieldSchema> values = default(IList<KeyValuePairOfPropertyKeyToFieldSchema>), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Values = values;
+            Links = links;
             CustomInit();
         }
 
@@ -61,6 +62,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "values")]
         public IList<KeyValuePairOfPropertyKeyToFieldSchema> Values { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

@@ -39,9 +39,10 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the UpdatePortfolioRequest class.
         /// </summary>
-        public UpdatePortfolioRequest(string name, System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public UpdatePortfolioRequest(string displayName, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
         {
-            Name = name;
+            DisplayName = displayName;
+            Description = description;
             Created = created;
             CustomInit();
         }
@@ -53,8 +54,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
 
         /// <summary>
         /// </summary>
@@ -69,9 +75,9 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Name == null)
+            if (DisplayName == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
             }
         }
     }

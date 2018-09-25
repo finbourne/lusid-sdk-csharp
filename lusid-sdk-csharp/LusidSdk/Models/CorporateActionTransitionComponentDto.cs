@@ -40,9 +40,9 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// CorporateActionTransitionComponentDto class.
         /// </summary>
-        public CorporateActionTransitionComponentDto(string securityUid = default(string), double? unitsFactor = default(double?), double? costFactor = default(double?))
+        public CorporateActionTransitionComponentDto(string instrumentUid = default(string), double? unitsFactor = default(double?), double? costFactor = default(double?))
         {
-            SecurityUid = securityUid;
+            InstrumentUid = instrumentUid;
             UnitsFactor = unitsFactor;
             CostFactor = costFactor;
             CustomInit();
@@ -55,8 +55,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// </summary>

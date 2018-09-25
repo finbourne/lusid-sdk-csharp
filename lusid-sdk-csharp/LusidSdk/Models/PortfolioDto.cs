@@ -42,20 +42,27 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="href">Link to retrieve the current entity</param>
         /// <param name="id">Identifier for the portfolio</param>
-        /// <param name="name">Name of the portfolio</param>
+        /// <param name="type">The type of portfolio this is (e.g. Transaction
+        /// Portfolio, Reference  Portfolio). Possible values include:
+        /// 'Transaction', 'Reference', 'DerivedTransaction'</param>
+        /// <param name="displayName">Display name of the portfolio</param>
+        /// <param name="description">Description of the portfolio</param>
         /// <param name="created">Portfolio creation time in UTC</param>
         /// <param name="parentPortfolioId">If this is a derived portfolio, the
         /// identifier of the portfolio from which it is derived</param>
         /// <param name="version">The version of the portfolio</param>
-        public PortfolioDto(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), VersionDto version = default(VersionDto), IList<Link> _links = default(IList<Link>))
+        public PortfolioDto(string href = default(string), ResourceId id = default(ResourceId), string type = default(string), string displayName = default(string), string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), VersionDto version = default(VersionDto), bool? isDerived = default(bool?), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Id = id;
-            Name = name;
+            Type = type;
+            DisplayName = displayName;
+            Description = description;
             Created = created;
             ParentPortfolioId = parentPortfolioId;
             Version = version;
-            this._links = _links;
+            IsDerived = isDerived;
+            Links = links;
             CustomInit();
         }
 
@@ -65,46 +72,65 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets link to retrieve the current entity
+        /// Gets link to retrieve the current entity
         /// </summary>
         [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        public string Href { get; private set; }
 
         /// <summary>
-        /// Gets or sets identifier for the portfolio
+        /// Gets identifier for the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public ResourceId Id { get; set; }
+        public ResourceId Id { get; private set; }
 
         /// <summary>
-        /// Gets or sets name of the portfolio
+        /// Gets the type of portfolio this is (e.g. Transaction Portfolio,
+        /// Reference  Portfolio). Possible values include: 'Transaction',
+        /// 'Reference', 'DerivedTransaction'
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; private set; }
 
         /// <summary>
-        /// Gets or sets portfolio creation time in UTC
+        /// Gets display name of the portfolio
+        /// </summary>
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; private set; }
+
+        /// <summary>
+        /// Gets description of the portfolio
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; private set; }
+
+        /// <summary>
+        /// Gets portfolio creation time in UTC
         /// </summary>
         [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        public System.DateTimeOffset? Created { get; private set; }
 
         /// <summary>
-        /// Gets or sets if this is a derived portfolio, the identifier of the
+        /// Gets if this is a derived portfolio, the identifier of the
         /// portfolio from which it is derived
         /// </summary>
         [JsonProperty(PropertyName = "parentPortfolioId")]
-        public ResourceId ParentPortfolioId { get; set; }
+        public ResourceId ParentPortfolioId { get; private set; }
 
         /// <summary>
-        /// Gets or sets the version of the portfolio
+        /// Gets the version of the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "version")]
-        public VersionDto Version { get; set; }
+        public VersionDto Version { get; private set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "isDerived")]
+        public bool? IsDerived { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

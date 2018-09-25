@@ -40,43 +40,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the SchemaDto class.
         /// </summary>
-        /// <param name="entity">Possible values include: 'PropertyKey',
-        /// 'FieldSchema', 'Personalisation', 'Security', 'Property',
-        /// 'CreatePropertyRequest', 'CreatePerpetualPropertyRequest',
-        /// 'PerpetualProperty', 'Login', 'PropertyDefinition',
-        /// 'PropertyDataFormat', 'AggregationResponseNode', 'Portfolio',
-        /// 'CompletePortfolio', 'PortfolioSearchResult', 'PortfolioDetails',
-        /// 'PortfolioProperties', 'Version', 'AddTradeProperty',
-        /// 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades',
-        /// 'Group', 'Constituent', 'Trade', 'UpsertPortfolioTradesRequest',
-        /// 'PortfolioHolding', 'AdjustHolding', 'ErrorDetail',
-        /// 'ErrorResponse', 'InstrumentDefinition', 'ProcessedCommand',
-        /// 'CreatePortfolio', 'CreateAnalyticStore', 'CreateClientSecurity',
-        /// 'CreateDerivedPortfolio', 'CreateGroup',
-        /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition',
-        /// 'UpdatePortfolio', 'UpdateGroup', 'UpdatePropertyDataFormat',
-        /// 'UpdatePropertyDefinition', 'SecurityAnalytic',
-        /// 'AggregationRequest', 'Aggregation', 'NestedAggregation',
-        /// 'ResultDataSchema', 'Classification', 'SecurityClassification',
-        /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
-        /// 'UpsertConstituent', 'CreateResults', 'Results',
-        /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
-        /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition', 'ReconciliationRequest',
-        /// 'ReconciliationBreak', 'TransactionConfigurationData',
-        /// 'TransactionConfigurationMovementData',
-        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-        /// 'Iso4217CurrencyUnit', 'BasicUnit',
-        /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
-        /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
-        /// 'HoldingsAdjustmentHeader', 'OutputTransaction',
-        /// 'RealisedGainLoss'</param>
-        public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairOfStringToFieldSchema> values = default(IList<KeyValuePairOfStringToFieldSchema>))
+        public SchemaDto(string entity = default(string), string href = default(string), IList<KeyValuePairOfStringToFieldSchema> values = default(IList<KeyValuePairOfStringToFieldSchema>), IList<Link> links = default(IList<Link>))
         {
             Entity = entity;
             Href = href;
             Values = values;
+            Links = links;
             CustomInit();
         }
 
@@ -86,37 +55,6 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets possible values include: 'PropertyKey', 'FieldSchema',
-        /// 'Personalisation', 'Security', 'Property', 'CreatePropertyRequest',
-        /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
-        /// 'PropertyDefinition', 'PropertyDataFormat',
-        /// 'AggregationResponseNode', 'Portfolio', 'CompletePortfolio',
-        /// 'PortfolioSearchResult', 'PortfolioDetails', 'PortfolioProperties',
-        /// 'Version', 'AddTradeProperty', 'AnalyticStore', 'AnalyticStoreKey',
-        /// 'UpsertPortfolioTrades', 'Group', 'Constituent', 'Trade',
-        /// 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
-        /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse',
-        /// 'InstrumentDefinition', 'ProcessedCommand', 'CreatePortfolio',
-        /// 'CreateAnalyticStore', 'CreateClientSecurity',
-        /// 'CreateDerivedPortfolio', 'CreateGroup',
-        /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition',
-        /// 'UpdatePortfolio', 'UpdateGroup', 'UpdatePropertyDataFormat',
-        /// 'UpdatePropertyDefinition', 'SecurityAnalytic',
-        /// 'AggregationRequest', 'Aggregation', 'NestedAggregation',
-        /// 'ResultDataSchema', 'Classification', 'SecurityClassification',
-        /// 'WebLogMessage', 'UpsertPersonalisation', 'CreatePortfolioDetails',
-        /// 'UpsertConstituent', 'CreateResults', 'Results',
-        /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-        /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup',
-        /// 'CreateCorporateAction', 'CorporateAction',
-        /// 'CorporateActionTransition', 'ReconciliationRequest',
-        /// 'ReconciliationBreak', 'TransactionConfigurationData',
-        /// 'TransactionConfigurationMovementData',
-        /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-        /// 'Iso4217CurrencyUnit', 'BasicUnit',
-        /// 'CorporateActionTransitionComponent', 'TargetTaxlot',
-        /// 'AdjustHoldingRequest', 'HoldingsAdjustment',
-        /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
         /// </summary>
         [JsonProperty(PropertyName = "entity")]
         public string Entity { get; set; }
@@ -130,6 +68,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "values")]
         public IList<KeyValuePairOfStringToFieldSchema> Values { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

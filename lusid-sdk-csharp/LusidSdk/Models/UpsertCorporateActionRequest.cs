@@ -43,9 +43,9 @@ namespace Finbourne.Models
         /// Initializes a new instance of the UpsertCorporateActionRequest
         /// class.
         /// </summary>
-        public UpsertCorporateActionRequest(string corporateActionId, IList<CorporateActionTransitionDto> transitions, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?))
+        public UpsertCorporateActionRequest(string corporateActionCode, IList<CorporateActionTransitionDto> transitions, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?))
         {
-            CorporateActionId = corporateActionId;
+            CorporateActionCode = corporateActionCode;
             AnnouncementDate = announcementDate;
             ExDate = exDate;
             RecordDate = recordDate;
@@ -61,8 +61,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "corporateActionId")]
-        public string CorporateActionId { get; set; }
+        [JsonProperty(PropertyName = "corporateActionCode")]
+        public string CorporateActionCode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -97,9 +97,9 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (CorporateActionId == null)
+            if (CorporateActionCode == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "CorporateActionId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "CorporateActionCode");
             }
             if (Transitions == null)
             {

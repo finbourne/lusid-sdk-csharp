@@ -41,10 +41,8 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="effectiveFrom">Date for which the property is
         /// effective from</param>
-        public CreatePropertyRequest(object value, string scope = default(string), string name = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), string unit = default(string))
+        public CreatePropertyRequest(object value, System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), string unit = default(string))
         {
-            Scope = scope;
-            Name = name;
             Value = value;
             EffectiveFrom = effectiveFrom;
             Unit = unit;
@@ -55,16 +53,6 @@ namespace Finbourne.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "scope")]
-        public string Scope { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
@@ -80,7 +68,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "unit")]
-        public string Unit { get; private set; }
+        public string Unit { get; set; }
 
         /// <summary>
         /// Validate the object.

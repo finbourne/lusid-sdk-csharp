@@ -42,11 +42,12 @@ namespace Finbourne.Models
         /// Initializes a new instance of the TryUpsertCorporateActionsDto
         /// class.
         /// </summary>
-        public TryUpsertCorporateActionsDto(string href = default(string), IList<CorporateActionEventDto> values = default(IList<CorporateActionEventDto>), IList<ErrorDetail> failed = default(IList<ErrorDetail>))
+        public TryUpsertCorporateActionsDto(string href = default(string), IDictionary<string, CorporateActionEventDto> values = default(IDictionary<string, CorporateActionEventDto>), IDictionary<string, ErrorDetail> failed = default(IDictionary<string, ErrorDetail>), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Values = values;
             Failed = failed;
+            Links = links;
             CustomInit();
         }
 
@@ -63,12 +64,17 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public IList<CorporateActionEventDto> Values { get; set; }
+        public IDictionary<string, CorporateActionEventDto> Values { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "failed")]
-        public IList<ErrorDetail> Failed { get; set; }
+        public IDictionary<string, ErrorDetail> Failed { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

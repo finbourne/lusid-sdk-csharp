@@ -43,11 +43,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AdjustHoldingsDto class.
         /// </summary>
-        public AdjustHoldingsDto(string href = default(string), VersionDto version = default(VersionDto), IList<Link> _links = default(IList<Link>))
+        public AdjustHoldingsDto(string href = default(string), VersionDto version = default(VersionDto), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Version = version;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -68,8 +68,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

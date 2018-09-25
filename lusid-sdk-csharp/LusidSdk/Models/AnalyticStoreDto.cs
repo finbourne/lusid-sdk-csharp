@@ -23,6 +23,8 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class AnalyticStoreDto
@@ -38,10 +40,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AnalyticStoreDto class.
         /// </summary>
-        public AnalyticStoreDto(AnalyticStoreKeyDto key = default(AnalyticStoreKeyDto), string href = default(string))
+        public AnalyticStoreDto(AnalyticStoreKeyDto key = default(AnalyticStoreKeyDto), string href = default(string), IList<Link> links = default(IList<Link>))
         {
             Key = key;
             Href = href;
+            Links = links;
             CustomInit();
         }
 
@@ -59,6 +62,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

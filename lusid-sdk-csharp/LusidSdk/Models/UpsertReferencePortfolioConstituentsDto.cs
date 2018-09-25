@@ -23,6 +23,8 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class UpsertReferencePortfolioConstituentsDto
@@ -40,9 +42,11 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// UpsertReferencePortfolioConstituentsDto class.
         /// </summary>
-        public UpsertReferencePortfolioConstituentsDto(string href = default(string))
+        public UpsertReferencePortfolioConstituentsDto(string href = default(string), VersionDto version = default(VersionDto), IList<Link> links = default(IList<Link>))
         {
             Href = href;
+            Version = version;
+            Links = links;
             CustomInit();
         }
 
@@ -55,6 +59,16 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "version")]
+        public VersionDto Version { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

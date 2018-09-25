@@ -41,13 +41,13 @@ namespace Finbourne.Models
         /// Initializes a new instance of the PortfolioPropertiesDto class.
         /// </summary>
         /// <param name="version">The version of the portfolio</param>
-        public PortfolioPropertiesDto(string href = default(string), ResourceId originPortfolioId = default(ResourceId), IList<PropertyDto> properties = default(IList<PropertyDto>), VersionDto version = default(VersionDto), IList<Link> _links = default(IList<Link>))
+        public PortfolioPropertiesDto(string href = default(string), ResourceId originPortfolioId = default(ResourceId), IList<PropertyDto> properties = default(IList<PropertyDto>), VersionDto version = default(VersionDto), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             OriginPortfolioId = originPortfolioId;
             Properties = properties;
             Version = version;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -79,8 +79,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

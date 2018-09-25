@@ -38,14 +38,14 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the RealisedGainLossDto class.
         /// </summary>
-        /// <param name="securityUid">Unique security identifier</param>
-        /// <param name="units">Quantity against which gain has ben made in
-        /// units of the security</param>
+        /// <param name="instrumentUid">Unique instrument identifier</param>
+        /// <param name="units">Quantity against which gain has been made in
+        /// units of the instrument</param>
         /// <param name="purchaseTradeDate">Date the position was originally
         /// purchased</param>
         /// <param name="purchaseSettlementDate">Date the position originally
         /// settled</param>
-        /// <param name="purchasePrice">Price the security was purchased
+        /// <param name="purchasePrice">Price the instrument was purchased
         /// at</param>
         /// <param name="costTradeCcy">Purchase cost in the trade
         /// currency</param>
@@ -59,9 +59,9 @@ namespace Finbourne.Models
         /// portfolio currency</param>
         /// <param name="realisedCurrency">Currency gains or losses in the
         /// portfolio currency</param>
-        public RealisedGainLossDto(string securityUid = default(string), double? units = default(double?), System.DateTimeOffset? purchaseTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? purchaseSettlementDate = default(System.DateTimeOffset?), double? purchasePrice = default(double?), CurrencyAndAmount costTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTotal = default(CurrencyAndAmount), CurrencyAndAmount realisedMarket = default(CurrencyAndAmount), CurrencyAndAmount realisedCurrency = default(CurrencyAndAmount))
+        public RealisedGainLossDto(string instrumentUid = default(string), double? units = default(double?), System.DateTimeOffset? purchaseTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? purchaseSettlementDate = default(System.DateTimeOffset?), double? purchasePrice = default(double?), CurrencyAndAmount costTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTradeCcy = default(CurrencyAndAmount), CurrencyAndAmount realisedTotal = default(CurrencyAndAmount), CurrencyAndAmount realisedMarket = default(CurrencyAndAmount), CurrencyAndAmount realisedCurrency = default(CurrencyAndAmount))
         {
-            SecurityUid = securityUid;
+            InstrumentUid = instrumentUid;
             Units = units;
             PurchaseTradeDate = purchaseTradeDate;
             PurchaseSettlementDate = purchaseSettlementDate;
@@ -81,14 +81,14 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets unique security identifier
+        /// Gets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; private set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; private set; }
 
         /// <summary>
-        /// Gets quantity against which gain has ben made in units of the
-        /// security
+        /// Gets quantity against which gain has been made in units of the
+        /// instrument
         /// </summary>
         [JsonProperty(PropertyName = "units")]
         public double? Units { get; private set; }
@@ -106,7 +106,7 @@ namespace Finbourne.Models
         public System.DateTimeOffset? PurchaseSettlementDate { get; private set; }
 
         /// <summary>
-        /// Gets price the security was purchased at
+        /// Gets price the instrument was purchased at
         /// </summary>
         [JsonProperty(PropertyName = "purchasePrice")]
         public double? PurchasePrice { get; private set; }

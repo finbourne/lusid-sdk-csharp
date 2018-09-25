@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -40,7 +41,7 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="op">Possible values include: 'Sum',
         /// 'Proportion'</param>
-        public AggregateSpec(string key = default(string), string op = default(string))
+        public AggregateSpec(string key, string op = default(string))
         {
             Key = key;
             Op = op;
@@ -63,5 +64,18 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "op")]
         public string Op { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Key == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Key");
+            }
+        }
     }
 }

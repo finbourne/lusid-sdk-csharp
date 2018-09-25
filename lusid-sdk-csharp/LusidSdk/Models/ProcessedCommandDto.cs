@@ -42,7 +42,7 @@ namespace Finbourne.Models
         /// <param name="processedTime">The as at time of the events published
         /// by the processing of
         /// this command.</param>
-        public ProcessedCommandDto(string description = default(string), string path = default(string), string userId = default(string), object processedTime = default(object))
+        public ProcessedCommandDto(string description = default(string), string path = default(string), UserIdDto userId = default(UserIdDto), object processedTime = default(object))
         {
             Description = description;
             Path = path;
@@ -70,7 +70,7 @@ namespace Finbourne.Models
         /// Gets or sets the user that issued the command.
         /// </summary>
         [JsonProperty(PropertyName = "userId")]
-        public string UserId { get; set; }
+        public UserIdDto UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the as at time of the events published by the

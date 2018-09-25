@@ -40,12 +40,13 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ListAggregationResponse class.
         /// </summary>
-        public ListAggregationResponse(string href = default(string), IList<IDictionary<string, object>> data = default(IList<IDictionary<string, object>>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema))
+        public ListAggregationResponse(string href = default(string), IList<IDictionary<string, object>> data = default(IList<IDictionary<string, object>>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Data = data;
             AggregationCurrency = aggregationCurrency;
             DataSchema = dataSchema;
+            Links = links;
             CustomInit();
         }
 
@@ -73,6 +74,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "dataSchema")]
         public ResultDataSchema DataSchema { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

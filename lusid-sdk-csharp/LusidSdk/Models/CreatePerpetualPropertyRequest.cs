@@ -41,10 +41,8 @@ namespace Finbourne.Models
         /// Initializes a new instance of the CreatePerpetualPropertyRequest
         /// class.
         /// </summary>
-        public CreatePerpetualPropertyRequest(object value, string scope = default(string), string name = default(string), string unit = default(string))
+        public CreatePerpetualPropertyRequest(object value, string unit = default(string))
         {
-            Scope = scope;
-            Name = name;
             Value = value;
             Unit = unit;
             CustomInit();
@@ -57,23 +55,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "scope")]
-        public string Scope { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "value")]
         public object Value { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "unit")]
-        public string Unit { get; private set; }
+        public string Unit { get; set; }
 
         /// <summary>
         /// Validate the object.

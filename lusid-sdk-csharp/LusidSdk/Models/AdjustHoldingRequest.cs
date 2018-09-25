@@ -47,14 +47,14 @@ namespace Finbourne.Models
         /// Initializes a new instance of the AdjustHoldingRequest class.
         /// </summary>
         /// <param name="taxLots">1 or more quantity amounts</param>
-        /// <param name="securityUid">Unique security identifier</param>
+        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
-        /// holdings of a security</param>
+        /// holdings of a instrument</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public AdjustHoldingRequest(IList<TargetTaxLotDto> taxLots, string securityUid = default(string), IList<CreatePerpetualPropertyRequest> subHoldingKeys = default(IList<CreatePerpetualPropertyRequest>), IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>))
+        public AdjustHoldingRequest(IList<TargetTaxLotRequest> taxLots, string instrumentUid = default(string), IDictionary<string, CreatePerpetualPropertyRequest> subHoldingKeys = default(IDictionary<string, CreatePerpetualPropertyRequest>), IDictionary<string, CreatePerpetualPropertyRequest> properties = default(IDictionary<string, CreatePerpetualPropertyRequest>))
         {
-            SecurityUid = securityUid;
+            InstrumentUid = instrumentUid;
             SubHoldingKeys = subHoldingKeys;
             Properties = properties;
             TaxLots = taxLots;
@@ -67,29 +67,29 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique security identifier
+        /// Gets or sets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// Gets or sets key fields to uniquely index the sub holdings of a
-        /// security
+        /// instrument
         /// </summary>
         [JsonProperty(PropertyName = "subHoldingKeys")]
-        public IList<CreatePerpetualPropertyRequest> SubHoldingKeys { get; set; }
+        public IDictionary<string, CreatePerpetualPropertyRequest> SubHoldingKeys { get; set; }
 
         /// <summary>
         /// Gets or sets arbitrary properties to store with the holding
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<CreatePerpetualPropertyRequest> Properties { get; set; }
+        public IDictionary<string, CreatePerpetualPropertyRequest> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets 1 or more quantity amounts
         /// </summary>
         [JsonProperty(PropertyName = "taxLots")]
-        public IList<TargetTaxLotDto> TaxLots { get; set; }
+        public IList<TargetTaxLotRequest> TaxLots { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -105,21 +105,21 @@ namespace Finbourne.Models
             }
             if (SubHoldingKeys != null)
             {
-                foreach (var element in SubHoldingKeys)
+                foreach (var valueElement in SubHoldingKeys.Values)
                 {
-                    if (element != null)
+                    if (valueElement != null)
                     {
-                        element.Validate();
+                        valueElement.Validate();
                     }
                 }
             }
             if (Properties != null)
             {
-                foreach (var element1 in Properties)
+                foreach (var valueElement1 in Properties.Values)
                 {
-                    if (element1 != null)
+                    if (valueElement1 != null)
                     {
-                        element1.Validate();
+                        valueElement1.Validate();
                     }
                 }
             }

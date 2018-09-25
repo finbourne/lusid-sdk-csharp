@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ExpandedGroupDto class.
         /// </summary>
-        public ExpandedGroupDto(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), IList<CompletePortfolioDto> values = default(IList<CompletePortfolioDto>), IList<ExpandedGroupDto> subGroups = default(IList<ExpandedGroupDto>), VersionDto version = default(VersionDto), IList<Link> _links = default(IList<Link>))
+        public ExpandedGroupDto(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), IList<CompletePortfolioDto> values = default(IList<CompletePortfolioDto>), IList<ExpandedGroupDto> subGroups = default(IList<ExpandedGroupDto>), VersionDto version = default(VersionDto), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Id = id;
@@ -49,7 +49,7 @@ namespace Finbourne.Models
             Values = values;
             SubGroups = subGroups;
             Version = version;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -95,8 +95,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

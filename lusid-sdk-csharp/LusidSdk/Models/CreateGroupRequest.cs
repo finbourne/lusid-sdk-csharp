@@ -41,12 +41,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreateGroupRequest class.
         /// </summary>
-        public CreateGroupRequest(string id, string name, IList<ResourceId> values = default(IList<ResourceId>), IList<ResourceId> subGroups = default(IList<ResourceId>), string description = default(string))
+        public CreateGroupRequest(string id, string displayName, IList<ResourceId> values = default(IList<ResourceId>), IList<ResourceId> subGroups = default(IList<ResourceId>), string description = default(string))
         {
             Id = id;
             Values = values;
             SubGroups = subGroups;
-            Name = name;
+            DisplayName = displayName;
             Description = description;
             CustomInit();
         }
@@ -73,8 +73,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// </summary>
@@ -93,9 +93,9 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Id");
             }
-            if (Name == null)
+            if (DisplayName == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
             }
         }
     }

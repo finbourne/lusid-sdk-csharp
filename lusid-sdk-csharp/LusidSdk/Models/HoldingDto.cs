@@ -43,17 +43,18 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="holdingType">Type of holding, eg Position, Balance,
         /// CashCommitment, Receivable, ForwardFX</param>
-        /// <param name="securityUid">Unique security identifier</param>
+        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="units">Quantity of holding</param>
         /// <param name="settledUnits">Settled quantity of holding</param>
-        /// <param name="cost">Book cost of holding in trade currency</param>
+        /// <param name="cost">Book cost of holding in transaction
+        /// currency</param>
         /// <param name="costPortfolioCcy">Book cost of holding in portfolio
         /// currency</param>
         /// <param name="transaction">If this is commitment-type holding, the
         /// transaction behind it</param>
-        public HoldingDto(string holdingType, string securityUid = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? units = default(double?), double? settledUnits = default(double?), double? cost = default(double?), double? costPortfolioCcy = default(double?), TradeDto transaction = default(TradeDto))
+        public HoldingDto(string holdingType, string instrumentUid = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? units = default(double?), double? settledUnits = default(double?), double? cost = default(double?), double? costPortfolioCcy = default(double?), TransactionDto transaction = default(TransactionDto))
         {
-            SecurityUid = securityUid;
+            InstrumentUid = instrumentUid;
             Properties = properties;
             HoldingType = holdingType;
             Units = units;
@@ -70,10 +71,10 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique security identifier
+        /// Gets or sets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -100,7 +101,7 @@ namespace Finbourne.Models
         public double? SettledUnits { get; set; }
 
         /// <summary>
-        /// Gets or sets book cost of holding in trade currency
+        /// Gets or sets book cost of holding in transaction currency
         /// </summary>
         [JsonProperty(PropertyName = "cost")]
         public double? Cost { get; set; }
@@ -116,7 +117,7 @@ namespace Finbourne.Models
         /// behind it
         /// </summary>
         [JsonProperty(PropertyName = "transaction")]
-        public TradeDto Transaction { get; set; }
+        public TransactionDto Transaction { get; set; }
 
         /// <summary>
         /// Validate the object.

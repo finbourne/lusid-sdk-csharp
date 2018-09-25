@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -44,10 +45,9 @@ namespace Finbourne.Models
         /// Initializes a new instance of the AggregationRequest class.
         /// </summary>
         /// <param name="asAt">The asAt date to use</param>
-        public AggregationRequest(string recipeScope = default(string), string recipeKey = default(string), bool? loadReferencePortfolio = default(bool?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<AggregateSpec> metrics = default(IList<AggregateSpec>), IList<string> groupBy = default(IList<string>), IList<PropertyFilter> filters = default(IList<PropertyFilter>), int? limit = default(int?), string sort = default(string))
+        public AggregationRequest(ResourceId recipeId, IList<AggregateSpec> metrics, bool? loadReferencePortfolio = default(bool?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> groupBy = default(IList<string>), IList<PropertyFilter> filters = default(IList<PropertyFilter>), int? limit = default(int?), string sort = default(string))
         {
-            RecipeScope = recipeScope;
-            RecipeKey = recipeKey;
+            RecipeId = recipeId;
             LoadReferencePortfolio = loadReferencePortfolio;
             AsAt = asAt;
             EffectiveAt = effectiveAt;
@@ -66,13 +66,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "recipeScope")]
-        public string RecipeScope { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "recipeKey")]
-        public string RecipeKey { get; set; }
+        [JsonProperty(PropertyName = "recipeId")]
+        public ResourceId RecipeId { get; set; }
 
         /// <summary>
         /// </summary>
@@ -115,5 +110,32 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "sort")]
         public string Sort { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (RecipeId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "RecipeId");
+            }
+            if (Metrics == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Metrics");
+            }
+            if (Metrics != null)
+            {
+                foreach (var element in Metrics)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

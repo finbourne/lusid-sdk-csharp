@@ -44,10 +44,10 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CorporateActionEventDto class.
         /// </summary>
-        public CorporateActionEventDto(ResourceId sourceId, string corporateActionId, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?), IList<CorporateActionTransitionDto> transitions = default(IList<CorporateActionTransitionDto>))
+        public CorporateActionEventDto(ResourceId sourceId, string corporateActionCode, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?), IList<CorporateActionTransitionDto> transitions = default(IList<CorporateActionTransitionDto>))
         {
             SourceId = sourceId;
-            CorporateActionId = corporateActionId;
+            CorporateActionCode = corporateActionCode;
             AnnouncementDate = announcementDate;
             ExDate = exDate;
             RecordDate = recordDate;
@@ -68,8 +68,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "corporateActionId")]
-        public string CorporateActionId { get; set; }
+        [JsonProperty(PropertyName = "corporateActionCode")]
+        public string CorporateActionCode { get; set; }
 
         /// <summary>
         /// </summary>
@@ -108,9 +108,9 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "SourceId");
             }
-            if (CorporateActionId == null)
+            if (CorporateActionCode == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "CorporateActionId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "CorporateActionCode");
             }
         }
     }

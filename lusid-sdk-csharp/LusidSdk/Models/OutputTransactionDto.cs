@@ -44,11 +44,11 @@ namespace Finbourne.Models
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
         /// <param name="description">LUSID transaction description</param>
-        /// <param name="securityUid">Unique security identifier</param>
+        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="tradeDate">Trade date</param>
         /// <param name="settlementDate">Settlement date</param>
         /// <param name="units">Quantity of trade in units of the
-        /// security</param>
+        /// instrument</param>
         /// <param name="tradePrice">Execution price for the trade</param>
         /// <param name="totalConsideration">Total value of the trade</param>
         /// <param name="exchangeRate">Rate between trade and settlement
@@ -57,8 +57,9 @@ namespace Finbourne.Models
         /// currency</param>
         /// <param name="tradeCurrency">Trade currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
-        /// <param name="source">Where this trade came from, either Client or
-        /// System. Possible values include: 'System', 'Client'</param>
+        /// <param name="source">Where this transaction came from, either
+        /// Client or System. Possible values include: 'System',
+        /// 'Client'</param>
         /// <param name="transactionStatus">Transaction status (active, amended
         /// or cancelled). Possible values include: 'Active', 'Amended',
         /// 'Cancelled'</param>
@@ -68,12 +69,12 @@ namespace Finbourne.Models
         /// into LUSID</param>
         /// <param name="realisedGainLoss">Collection of gains or
         /// losses</param>
-        public OutputTransactionDto(string tradeId, string type, string description, string securityUid = default(string), System.DateTimeOffset? tradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), TradePrice tradePrice = default(TradePrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), double? tradeToPortfolioRate = default(double?), string tradeCurrency = default(string), IList<PerpetualPropertyDto> properties = default(IList<PerpetualPropertyDto>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLossDto> realisedGainLoss = default(IList<RealisedGainLossDto>))
+        public OutputTransactionDto(string tradeId, string type, string description, string instrumentUid = default(string), System.DateTimeOffset? tradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), TransactionPrice tradePrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), double? tradeToPortfolioRate = default(double?), string tradeCurrency = default(string), IList<PerpetualPropertyDto> properties = default(IList<PerpetualPropertyDto>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLossDto> realisedGainLoss = default(IList<RealisedGainLossDto>))
         {
             TradeId = tradeId;
             Type = type;
             Description = description;
-            SecurityUid = securityUid;
+            InstrumentUid = instrumentUid;
             TradeDate = tradeDate;
             SettlementDate = settlementDate;
             Units = units;
@@ -118,10 +119,10 @@ namespace Finbourne.Models
         public string Description { get; private set; }
 
         /// <summary>
-        /// Gets unique security identifier
+        /// Gets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; private set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; private set; }
 
         /// <summary>
         /// Gets trade date
@@ -136,7 +137,7 @@ namespace Finbourne.Models
         public System.DateTimeOffset? SettlementDate { get; private set; }
 
         /// <summary>
-        /// Gets quantity of trade in units of the security
+        /// Gets quantity of trade in units of the instrument
         /// </summary>
         [JsonProperty(PropertyName = "units")]
         public double? Units { get; private set; }
@@ -145,7 +146,7 @@ namespace Finbourne.Models
         /// Gets execution price for the trade
         /// </summary>
         [JsonProperty(PropertyName = "tradePrice")]
-        public TradePrice TradePrice { get; private set; }
+        public TransactionPrice TradePrice { get; private set; }
 
         /// <summary>
         /// Gets total value of the trade
@@ -183,8 +184,8 @@ namespace Finbourne.Models
         public string CounterpartyId { get; private set; }
 
         /// <summary>
-        /// Gets where this trade came from, either Client or System. Possible
-        /// values include: 'System', 'Client'
+        /// Gets where this transaction came from, either Client or System.
+        /// Possible values include: 'System', 'Client'
         /// </summary>
         [JsonProperty(PropertyName = "source")]
         public string Source { get; private set; }

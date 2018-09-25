@@ -73,7 +73,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "details")]
-        public IDictionary<string, string> Details { get; private set; }
+        public IDictionary<string, string> Details { get; set; }
 
         /// <summary>
         /// Validate the object.

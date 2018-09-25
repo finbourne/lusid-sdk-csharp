@@ -40,17 +40,20 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the PortfolioSearchResult class.
         /// </summary>
-        public PortfolioSearchResult(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string name = default(string), bool? isDerived = default(bool?), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<Link> _links = default(IList<Link>))
+        /// <param name="type">Possible values include: 'Transaction',
+        /// 'Reference', 'DerivedTransaction'</param>
+        public PortfolioSearchResult(ResourceId id = default(ResourceId), string type = default(string), string href = default(string), string description = default(string), string displayName = default(string), bool? isDerived = default(bool?), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), IList<PropertyDto> properties = default(IList<PropertyDto>), IList<Link> links = default(IList<Link>))
         {
             Id = id;
+            Type = type;
             Href = href;
             Description = description;
-            Name = name;
+            DisplayName = displayName;
             IsDerived = isDerived;
             Created = created;
             ParentPortfolioId = parentPortfolioId;
             Properties = properties;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -62,47 +65,54 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public ResourceId Id { get; set; }
+        public ResourceId Id { get; private set; }
+
+        /// <summary>
+        /// Gets possible values include: 'Transaction', 'Reference',
+        /// 'DerivedTransaction'
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        public string Href { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        public string Description { get; private set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "isDerived")]
-        public bool? IsDerived { get; set; }
+        public bool? IsDerived { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        public System.DateTimeOffset? Created { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "parentPortfolioId")]
-        public ResourceId ParentPortfolioId { get; set; }
+        public ResourceId ParentPortfolioId { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<PropertyDto> Properties { get; set; }
+        public IList<PropertyDto> Properties { get; private set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

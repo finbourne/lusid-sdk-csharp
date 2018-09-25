@@ -43,12 +43,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ReconciliationBreakDto class.
         /// </summary>
-        /// <param name="securityUid">Unique security identifier</param>
+        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="unitsDifference">Difference in units</param>
         /// <param name="costDifference">Difference in cost</param>
-        public ReconciliationBreakDto(string securityUid = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? unitsDifference = default(double?), double? costDifference = default(double?))
+        public ReconciliationBreakDto(string instrumentUid = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? unitsDifference = default(double?), double? costDifference = default(double?))
         {
-            SecurityUid = securityUid;
+            InstrumentUid = instrumentUid;
             Properties = properties;
             UnitsDifference = unitsDifference;
             CostDifference = costDifference;
@@ -61,10 +61,10 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique security identifier
+        /// Gets or sets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "securityUid")]
-        public string SecurityUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// </summary>

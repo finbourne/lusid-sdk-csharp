@@ -23,6 +23,8 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class ResultsDto
@@ -38,11 +40,12 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ResultsDto class.
         /// </summary>
-        public ResultsDto(VersionDto version = default(VersionDto), string href = default(string), object values = default(object))
+        public ResultsDto(VersionDto version = default(VersionDto), string href = default(string), object values = default(object), IList<Link> links = default(IList<Link>))
         {
             Version = version;
             Href = href;
             Values = values;
+            Links = links;
             CustomInit();
         }
 
@@ -65,6 +68,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "values")]
         public object Values { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

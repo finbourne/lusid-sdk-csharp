@@ -44,11 +44,11 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="type">Possible values include: 'Shares', 'Weight',
         /// 'Nominal'</param>
-        public ReferencePortfolioConstituentDto(string id = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? quantity = default(double?), string type = default(string))
+        public ReferencePortfolioConstituentDto(string instrumentUid = default(string), IList<PropertyDto> properties = default(IList<PropertyDto>), double? weight = default(double?), string type = default(string))
         {
-            Id = id;
+            InstrumentUid = instrumentUid;
             Properties = properties;
-            Quantity = quantity;
+            Weight = weight;
             Type = type;
             CustomInit();
         }
@@ -60,8 +60,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// </summary>
@@ -70,8 +70,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "quantity")]
-        public double? Quantity { get; set; }
+        [JsonProperty(PropertyName = "weight")]
+        public double? Weight { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'Shares', 'Weight', 'Nominal'

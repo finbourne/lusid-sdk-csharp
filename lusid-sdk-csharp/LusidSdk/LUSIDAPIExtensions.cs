@@ -34,274 +34,6 @@ namespace Finbourne
     public static partial class LUSIDAPIExtensions
     {
             /// <summary>
-            /// Clears the entity caches on the instance that serves this request only.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            public static ClearEntityCachesDto ClearEntityCaches(this ILUSIDAPI operations)
-            {
-                return operations.ClearEntityCachesAsync().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Clears the entity caches on the instance that serves this request only.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ClearEntityCachesDto> ClearEntityCachesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ClearEntityCachesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Aggregate data in a group hierarchy
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='groupCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static ListAggregationResponse GetAggregationByGroup(this ILUSIDAPI operations, string scope, string groupCode, AggregationRequest request = default(AggregationRequest))
-            {
-                return operations.GetAggregationByGroupAsync(scope, groupCode, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Aggregate data in a group hierarchy
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='groupCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ListAggregationResponse> GetAggregationByGroupAsync(this ILUSIDAPI operations, string scope, string groupCode, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetAggregationByGroupWithHttpMessagesAsync(scope, groupCode, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Aggregation request data in a group hierarchy into a data tree
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='groupCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static NestedAggregationResponse GetNestedAggregationByGroup(this ILUSIDAPI operations, string scope, string groupCode, AggregationRequest request = default(AggregationRequest))
-            {
-                return operations.GetNestedAggregationByGroupAsync(scope, groupCode, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Aggregation request data in a group hierarchy into a data tree
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='groupCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<NestedAggregationResponse> GetNestedAggregationByGroupAsync(this ILUSIDAPI operations, string scope, string groupCode, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetNestedAggregationByGroupWithHttpMessagesAsync(scope, groupCode, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Aggregate data in a portfolio
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='portfolioCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static ListAggregationResponse GetAggregationByPortfolio(this ILUSIDAPI operations, string scope, string portfolioCode, AggregationRequest request = default(AggregationRequest))
-            {
-                return operations.GetAggregationByPortfolioAsync(scope, portfolioCode, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Aggregate data in a portfolio
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='portfolioCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ListAggregationResponse> GetAggregationByPortfolioAsync(this ILUSIDAPI operations, string scope, string portfolioCode, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetAggregationByPortfolioWithHttpMessagesAsync(scope, portfolioCode, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Aggregation request data in a portfolio into a data tree
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='portfolioCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static NestedAggregationResponse GetNestedAggregationByPortfolio(this ILUSIDAPI operations, string scope, string portfolioCode, AggregationRequest request = default(AggregationRequest))
-            {
-                return operations.GetNestedAggregationByPortfolioAsync(scope, portfolioCode, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Aggregation request data in a portfolio into a data tree
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='portfolioCode'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<NestedAggregationResponse> GetNestedAggregationByPortfolioAsync(this ILUSIDAPI operations, string scope, string portfolioCode, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetNestedAggregationByPortfolioWithHttpMessagesAsync(scope, portfolioCode, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Aggregate data from a result set
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='resultsKey'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static ListAggregationResponse GetAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest))
-            {
-                return operations.GetAggregationByResultSetAsync(scope, resultsKey, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Aggregate data from a result set
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='resultsKey'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ListAggregationResponse> GetAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Aggregate data from a result set into a nested structure
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='resultsKey'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static NestedAggregationResponse GetNestedAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest))
-            {
-                return operations.GetNestedAggregationByResultSetAsync(scope, resultsKey, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Aggregate data from a result set into a nested structure
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='resultsKey'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<NestedAggregationResponse> GetNestedAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetNestedAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// List all analytic stores in client
             /// </summary>
             /// <param name='operations'>
@@ -514,7 +246,7 @@ namespace Finbourne
             /// </param>
             /// <param name='data'>
             /// </param>
-            public static AnalyticStoreDto InsertAnalytics(this ILUSIDAPI operations, string scope, int year, int month, int day, IList<SecurityAnalyticDataDto> data = default(IList<SecurityAnalyticDataDto>))
+            public static AnalyticStoreDto InsertAnalytics(this ILUSIDAPI operations, string scope, int year, int month, int day, IList<InstrumentAnalyticDataDto> data = default(IList<InstrumentAnalyticDataDto>))
             {
                 return operations.InsertAnalyticsAsync(scope, year, month, day, data).GetAwaiter().GetResult();
             }
@@ -543,7 +275,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<AnalyticStoreDto> InsertAnalyticsAsync(this ILUSIDAPI operations, string scope, int year, int month, int day, IList<SecurityAnalyticDataDto> data = default(IList<SecurityAnalyticDataDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AnalyticStoreDto> InsertAnalyticsAsync(this ILUSIDAPI operations, string scope, int year, int month, int day, IList<InstrumentAnalyticDataDto> data = default(IList<InstrumentAnalyticDataDto>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.InsertAnalyticsWithHttpMessagesAsync(scope, year, month, day, data, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -552,167 +284,34 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Upsert Analytics
+            /// Gets a corporate action based on dates
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// Scope of the analytic
+            /// Scope
             /// </param>
-            /// <param name='request'>
-            /// A valid and fully populated analytic store creation request
+            /// <param name='code'>
+            /// Corporate action source id
             /// </param>
-            public static object UpsertAnalytics(this ILUSIDAPI operations, string scope, AnalyticsStorageRequest request = default(AnalyticsStorageRequest))
+            /// <param name='effectiveAt'>
+            /// Effective Date
+            /// </param>
+            /// <param name='asAt'>
+            /// AsAt Date filter
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            public static IList<CorporateActionEventDto> GetCorporateActions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.UpsertAnalyticsAsync(scope, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Upsert Analytics
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// Scope of the analytic
-            /// </param>
-            /// <param name='request'>
-            /// A valid and fully populated analytic store creation request
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> UpsertAnalyticsAsync(this ILUSIDAPI operations, string scope, AnalyticsStorageRequest request = default(AnalyticsStorageRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertAnalyticsWithHttpMessagesAsync(scope, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Update classification data
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='classifications'>
-            /// </param>
-            public static ClassificationsDto UpsertClassification(this ILUSIDAPI operations, IList<SecurityClassificationDto> classifications = default(IList<SecurityClassificationDto>))
-            {
-                return operations.UpsertClassificationAsync(classifications).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Update classification data
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='classifications'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ClassificationsDto> UpsertClassificationAsync(this ILUSIDAPI operations, IList<SecurityClassificationDto> classifications = default(IList<SecurityClassificationDto>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertClassificationWithHttpMessagesAsync(classifications, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Adds a new transaction type movement to the list of existing types
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='type'>
-            /// </param>
-            public static TxnMetaDataDto AddConfigurationTransactionType(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto))
-            {
-                return operations.AddConfigurationTransactionTypeAsync(type).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Adds a new transaction type movement to the list of existing types
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='type'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<TxnMetaDataDto> AddConfigurationTransactionTypeAsync(this ILUSIDAPI operations, TxnMetaDataDto type = default(TxnMetaDataDto), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddConfigurationTransactionTypeWithHttpMessagesAsync(type, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets the list of persisted transaction types
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            public static ResourceListOfTxnMetaDataDto GetConfigurationTransactionTypes(this ILUSIDAPI operations)
-            {
-                return operations.GetConfigurationTransactionTypesAsync().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets the list of persisted transaction types
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfTxnMetaDataDto> GetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetConfigurationTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Uploads a list of transaction types to be used by the movements engine
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='types'>
-            /// </param>
-            public static ResourceListOfTxnMetaDataDto UploadConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>))
-            {
-                return operations.UploadConfigurationTransactionTypesAsync(types).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Uploads a list of transaction types to be used by the movements engine
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='types'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfTxnMetaDataDto> UploadConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TxnMetaDataDto> types = default(IList<TxnMetaDataDto>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UploadConfigurationTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                return operations.GetCorporateActionsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -724,7 +323,7 @@ namespace Finbourne
             /// <param name='scope'>
             /// Scope
             /// </param>
-            /// <param name='corporateActionSourceCode'>
+            /// <param name='code'>
             /// Corporate action source id
             /// </param>
             /// <param name='effectiveAt'>
@@ -733,35 +332,20 @@ namespace Finbourne
             /// <param name='asAt'>
             /// AsAt Date filter
             /// </param>
-            public static IList<CorporateActionEventDto> ListCorporateActions(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
-            {
-                return operations.ListCorporateActionsAsync(scope, corporateActionSourceCode, effectiveAt, asAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets a corporate action based on dates
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
+            /// <param name='sortBy'>
             /// </param>
-            /// <param name='scope'>
-            /// Scope
+            /// <param name='start'>
             /// </param>
-            /// <param name='corporateActionSourceCode'>
-            /// Corporate action source id
+            /// <param name='limit'>
             /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective Date
-            /// </param>
-            /// <param name='asAt'>
-            /// AsAt Date filter
+            /// <param name='filter'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<CorporateActionEventDto>> ListCorporateActionsAsync(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<CorporateActionEventDto>> GetCorporateActionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListCorporateActionsWithHttpMessagesAsync(scope, corporateActionSourceCode, effectiveAt, asAt, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetCorporateActionsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -777,15 +361,15 @@ namespace Finbourne
             /// <param name='scope'>
             /// The intended scope of the corporate action
             /// </param>
-            /// <param name='corporateActionSourceCode'>
+            /// <param name='code'>
             /// Source of the corporate action
             /// </param>
             /// <param name='actions'>
             /// The corporate actions to create
             /// </param>
-            public static TryUpsertCorporateActionsDto BatchUpsertCorporateActions(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>))
+            public static TryUpsertCorporateActionsDto BatchUpsertCorporateActions(this ILUSIDAPI operations, string scope, string code, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>))
             {
-                return operations.BatchUpsertCorporateActionsAsync(scope, corporateActionSourceCode, actions).GetAwaiter().GetResult();
+                return operations.BatchUpsertCorporateActionsAsync(scope, code, actions).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -798,7 +382,7 @@ namespace Finbourne
             /// <param name='scope'>
             /// The intended scope of the corporate action
             /// </param>
-            /// <param name='corporateActionSourceCode'>
+            /// <param name='code'>
             /// Source of the corporate action
             /// </param>
             /// <param name='actions'>
@@ -807,71 +391,61 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryUpsertCorporateActionsDto> BatchUpsertCorporateActionsAsync(this ILUSIDAPI operations, string scope, string corporateActionSourceCode, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<TryUpsertCorporateActionsDto> BatchUpsertCorporateActionsAsync(this ILUSIDAPI operations, string scope, string code, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchUpsertCorporateActionsWithHttpMessagesAsync(scope, corporateActionSourceCode, actions, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='version'>
-            /// </param>
-            public static string GetDownloadUrl(this ILUSIDAPI operations, string version = default(string))
-            {
-                return operations.GetDownloadUrlAsync(version).GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='version'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<string> GetDownloadUrlAsync(this ILUSIDAPI operations, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetDownloadUrlWithHttpMessagesAsync(version, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            public static string GetLatestVersion(this ILUSIDAPI operations)
-            {
-                return operations.GetLatestVersionAsync().GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<string> GetLatestVersionAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetLatestVersionWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BatchUpsertCorporateActionsWithHttpMessagesAsync(scope, code, actions, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// List all groups in a specified scope
+            /// Create a new PropertyDataFormat. Note: Only non-default formats can be
+            /// created.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// The definition of the new format
+            /// </param>
+            public static DataTypeDto CreateDataType(this ILUSIDAPI operations, CreateDataTypeRequest request = default(CreateDataTypeRequest))
+            {
+                return operations.CreateDataTypeAsync(request).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create a new PropertyDataFormat. Note: Only non-default formats can be
+            /// created.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// The definition of the new format
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DataTypeDto> CreateDataTypeAsync(this ILUSIDAPI operations, CreateDataTypeRequest request = default(CreateDataTypeRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateDataTypeWithHttpMessagesAsync(request, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Lists all property data formats in the specified scope.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='asAt'>
+            /// <param name='includeDefault'>
+            /// </param>
+            /// <param name='includeSystem'>
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -880,22 +454,23 @@ namespace Finbourne
             /// <param name='limit'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
-            public static ResourceListOfGroupDto ListPortfolioGroups(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfDataTypeDto ListDataTypes(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.ListPortfolioGroupsAsync(scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.ListDataTypesAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// List all groups in a specified scope
+            /// Lists all property data formats in the specified scope.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='asAt'>
+            /// <param name='includeDefault'>
+            /// </param>
+            /// <param name='includeSystem'>
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -904,446 +479,239 @@ namespace Finbourne
             /// <param name='limit'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfGroupDto> ListPortfolioGroupsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfDataTypeDto> ListDataTypesAsync(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListPortfolioGroupsWithHttpMessagesAsync(scope, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListDataTypesWithHttpMessagesAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Create a new group
+            /// Gets a property data format.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// </param>
+            /// <param name='name'>
+            /// </param>
+            public static DataTypeDto GetDataType(this ILUSIDAPI operations, string scope, string name)
+            {
+                return operations.GetDataTypeAsync(scope, name).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a property data format.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='name'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DataTypeDto> GetDataTypeAsync(this ILUSIDAPI operations, string scope, string name, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDataTypeWithHttpMessagesAsync(scope, name, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the format being updated
+            /// </param>
+            /// <param name='name'>
+            /// The name of the format to update
             /// </param>
             /// <param name='request'>
+            /// The new definition of the format
             /// </param>
-            public static GroupDto CreatePortfolioGroup(this ILUSIDAPI operations, string scope, CreateGroupRequest request = default(CreateGroupRequest))
+            public static DataTypeDto UpdateDataType(this ILUSIDAPI operations, string scope, string name, UpdateDataTypeRequest request = default(UpdateDataTypeRequest))
             {
-                return operations.CreatePortfolioGroupAsync(scope, request).GetAwaiter().GetResult();
+                return operations.UpdateDataTypeAsync(scope, name, request).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Create a new group
+            /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope of the format being updated
+            /// </param>
+            /// <param name='name'>
+            /// The name of the format to update
             /// </param>
             /// <param name='request'>
+            /// The new definition of the format
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GroupDto> CreatePortfolioGroupAsync(this ILUSIDAPI operations, string scope, CreateGroupRequest request = default(CreateGroupRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DataTypeDto> UpdateDataTypeAsync(this ILUSIDAPI operations, string scope, string name, UpdateDataTypeRequest request = default(UpdateDataTypeRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreatePortfolioGroupWithHttpMessagesAsync(scope, request, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpdateDataTypeWithHttpMessagesAsync(scope, name, request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Get an existing group
+            /// Return the definitions for the specified list of units
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='code'>
+            /// <param name='name'>
             /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            public static GroupDto GetPortfolioGroup(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
-            {
-                return operations.GetPortfolioGroupAsync(scope, code, asAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<GroupDto> GetPortfolioGroupAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetPortfolioGroupWithHttpMessagesAsync(scope, code, asAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete a group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            public static DeletedEntityResponse DeletePortfolioGroup(this ILUSIDAPI operations, string scope, string code)
-            {
-                return operations.DeletePortfolioGroupAsync(scope, code).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete a group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeletePortfolioGroupAsync(this ILUSIDAPI operations, string scope, string code, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeletePortfolioGroupWithHttpMessagesAsync(scope, code, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets all commands that modified the portfolio groups(s) with the specified
-            /// id.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio group
-            /// </param>
-            /// <param name='code'>
-            /// The portfolio group id
-            /// </param>
-            /// <param name='fromAsAt'>
-            /// Filters commands by those that were processed at or after this time. Null
-            /// means there is no lower limit.
-            /// </param>
-            /// <param name='toAsAt'>
-            /// Filters commands by those that were processed at or before this time. Null
-            /// means there is no upper limit (latest).
+            /// <param name='units'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
-            public static ResourceListOfProcessedCommandDto GetPortfolioGroupCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
+            public static IUnitDefinitionDto GetUnitsFromDataType(this ILUSIDAPI operations, string scope, string name, IList<string> units = default(IList<string>), string filter = default(string))
             {
-                return operations.GetPortfolioGroupCommandsAsync(scope, code, fromAsAt, toAsAt, filter).GetAwaiter().GetResult();
+                return operations.GetUnitsFromDataTypeAsync(scope, name, units, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets all commands that modified the portfolio groups(s) with the specified
-            /// id.
+            /// Return the definitions for the specified list of units
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio group
             /// </param>
-            /// <param name='code'>
-            /// The portfolio group id
+            /// <param name='name'>
             /// </param>
-            /// <param name='fromAsAt'>
-            /// Filters commands by those that were processed at or after this time. Null
-            /// means there is no lower limit.
-            /// </param>
-            /// <param name='toAsAt'>
-            /// Filters commands by those that were processed at or before this time. Null
-            /// means there is no upper limit (latest).
+            /// <param name='units'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfProcessedCommandDto> GetPortfolioGroupCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IUnitDefinitionDto> GetUnitsFromDataTypeAsync(this ILUSIDAPI operations, string scope, string name, IList<string> units = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPortfolioGroupCommandsWithHttpMessagesAsync(scope, code, fromAsAt, toAsAt, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUnitsFromDataTypeWithHttpMessagesAsync(scope, name, units, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Get a full expansion of an existing group
+            /// Create derived portfolio
             /// </summary>
+            /// <remarks>
+            /// Creates a portfolio that derives from an existing portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope into which to create the new derived portfolio
+            /// </param>
+            /// <param name='portfolio'>
+            /// The root object of the new derived portfolio, containing a populated
+            /// reference portfolio id and reference scope
+            /// </param>
+            public static PortfolioDto CreateDerivedPortfolio(this ILUSIDAPI operations, string scope, CreateDerivedTransactionPortfolioRequest portfolio = default(CreateDerivedTransactionPortfolioRequest))
+            {
+                return operations.CreateDerivedPortfolioAsync(scope, portfolio).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create derived portfolio
+            /// </summary>
+            /// <remarks>
+            /// Creates a portfolio that derives from an existing portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope into which to create the new derived portfolio
+            /// </param>
+            /// <param name='portfolio'>
+            /// The root object of the new derived portfolio, containing a populated
+            /// reference portfolio id and reference scope
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioDto> CreateDerivedPortfolioAsync(this ILUSIDAPI operations, string scope, CreateDerivedTransactionPortfolioRequest portfolio = default(CreateDerivedTransactionPortfolioRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateDerivedPortfolioWithHttpMessagesAsync(scope, portfolio, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete portfolio details
+            /// </summary>
+            /// <remarks>
+            /// Deletes the portfolio details for the given code
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
+            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
+            /// The effective date of the change
             /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='propertyFilter'>
-            /// </param>
-            public static ExpandedGroupDto GetPortfolioGroupExpansion(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>))
+            public static DeletedEntityResponse DeleteDerivedPortfolioDetails(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
-                return operations.GetPortfolioGroupExpansionAsync(scope, code, effectiveAt, asAt, propertyFilter).GetAwaiter().GetResult();
+                return operations.DeleteDerivedPortfolioDetailsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Get a full expansion of an existing group
+            /// Delete portfolio details
             /// </summary>
+            /// <remarks>
+            /// Deletes the portfolio details for the given code
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
+            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='propertyFilter'>
+            /// The effective date of the change
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ExpandedGroupDto> GetPortfolioGroupExpansionAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPortfolioGroupExpansionWithHttpMessagesAsync(scope, code, effectiveAt, asAt, propertyFilter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add a portfolio to an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='identifier'>
-            /// </param>
-            public static GroupDto AddPortfolioToGroup(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId))
-            {
-                return operations.AddPortfolioToGroupAsync(scope, code, identifier).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add a portfolio to an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='identifier'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<GroupDto> AddPortfolioToGroupAsync(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddPortfolioToGroupWithHttpMessagesAsync(scope, code, identifier, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Remove a portfolio that is currently present within an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='portfolioScope'>
-            /// </param>
-            /// <param name='portfolioCode'>
-            /// </param>
-            public static GroupDto DeletePortfolioFromGroup(this ILUSIDAPI operations, string scope, string code, string portfolioScope, string portfolioCode)
-            {
-                return operations.DeletePortfolioFromGroupAsync(scope, code, portfolioScope, portfolioCode).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Remove a portfolio that is currently present within an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='portfolioScope'>
-            /// </param>
-            /// <param name='portfolioCode'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<GroupDto> DeletePortfolioFromGroupAsync(this ILUSIDAPI operations, string scope, string code, string portfolioScope, string portfolioCode, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeletePortfolioFromGroupWithHttpMessagesAsync(scope, code, portfolioScope, portfolioCode, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add a sub group to an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='identifier'>
-            /// </param>
-            public static GroupDto AddSubGroupToGroup(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId))
-            {
-                return operations.AddSubGroupToGroupAsync(scope, code, identifier).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add a sub group to an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='identifier'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<GroupDto> AddSubGroupToGroupAsync(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddSubGroupToGroupWithHttpMessagesAsync(scope, code, identifier, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Remove a subgroup that is currently present within an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='subgroupScope'>
-            /// </param>
-            /// <param name='subgroupCode'>
-            /// </param>
-            public static GroupDto DeleteSubGroupFromGroup(this ILUSIDAPI operations, string scope, string code, string subgroupScope, string subgroupCode)
-            {
-                return operations.DeleteSubGroupFromGroupAsync(scope, code, subgroupScope, subgroupCode).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Remove a subgroup that is currently present within an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='subgroupScope'>
-            /// </param>
-            /// <param name='subgroupCode'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<GroupDto> DeleteSubGroupFromGroupAsync(this ILUSIDAPI operations, string scope, string code, string subgroupScope, string subgroupCode, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeleteSubGroupFromGroupWithHttpMessagesAsync(scope, code, subgroupScope, subgroupCode, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Update an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static GroupDto UpdatePortfolioGroup(this ILUSIDAPI operations, string scope, string code, UpdateGroupRequest request = default(UpdateGroupRequest))
-            {
-                return operations.UpdatePortfolioGroupAsync(scope, code, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Update an existing group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<GroupDto> UpdatePortfolioGroupAsync(this ILUSIDAPI operations, string scope, string code, UpdateGroupRequest request = default(UpdateGroupRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpdatePortfolioGroupWithHttpMessagesAsync(scope, code, request, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteDerivedPortfolioDetailsWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1365,7 +733,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static ResourceListOfGroupDto PortfolioGroupsSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPortfolioGroupDto PortfolioGroupsSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.PortfolioGroupsSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -1389,7 +757,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfGroupDto> PortfolioGroupsSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolioGroupDto> PortfolioGroupsSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PortfolioGroupsSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1398,56 +766,208 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Simple heartbeat method for the api
+            /// Attempt to create one or more client instruments. Failed instruments will
+            /// be identified in the body of the response.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static string GetHealth(this ILUSIDAPI operations)
+            /// <param name='definitions'>
+            /// </param>
+            public static TryAddClientInstrumentsDto BatchAddClientInstruments(this ILUSIDAPI operations, IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>))
             {
-                return operations.GetHealthAsync().GetAwaiter().GetResult();
+                return operations.BatchAddClientInstrumentsAsync(definitions).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Simple heartbeat method for the api
+            /// Attempt to create one or more client instruments. Failed instruments will
+            /// be identified in the body of the response.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='definitions'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> GetHealthAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<TryAddClientInstrumentsDto> BatchAddClientInstrumentsAsync(this ILUSIDAPI operations, IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetHealthWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BatchAddClientInstrumentsWithHttpMessagesAsync(definitions, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Gets the login information.
+            /// Attempt to delete one or more client instruments. Failed instruments will
+            /// be identified in the body of the response.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static LoginResponse GetLoginInfo(this ILUSIDAPI operations)
+            /// <param name='uids'>
+            /// </param>
+            public static TryDeleteClientInstrumentsDto BatchDeleteClientInstruments(this ILUSIDAPI operations, IList<string> uids = default(IList<string>))
             {
-                return operations.GetLoginInfoAsync().GetAwaiter().GetResult();
+                return operations.BatchDeleteClientInstrumentsAsync(uids).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets the login information.
+            /// Attempt to delete one or more client instruments. Failed instruments will
+            /// be identified in the body of the response.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='uids'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<LoginResponse> GetLoginInfoAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<TryDeleteClientInstrumentsDto> BatchDeleteClientInstrumentsAsync(this ILUSIDAPI operations, IList<string> uids = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetLoginInfoWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BatchDeleteClientInstrumentsWithHttpMessagesAsync(uids, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get an individual instrument by the unique instrument uid.  Optionally,
+            /// decorate each instrument with specific properties.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='uid'>
+            /// The uid of the requested instrument
+            /// </param>
+            /// <param name='asAt'>
+            /// As at date
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys of the properties to be retrieved
+            /// </param>
+            public static InstrumentDto GetInstrument(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            {
+                return operations.GetInstrumentAsync(uid, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get an individual instrument by the unique instrument uid.  Optionally,
+            /// decorate each instrument with specific properties.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='uid'>
+            /// The uid of the requested instrument
+            /// </param>
+            /// <param name='asAt'>
+            /// As at date
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys of the properties to be retrieved
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<InstrumentDto> GetInstrumentAsync(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetInstrumentWithHttpMessagesAsync(uid, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Lookup a large number of instruments by supplying a collection of
+            /// non-Finbourne codes.  Optionally, decorate each instrument with specific
+            /// properties.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='codeType'>
+            /// The type of identifier. Possible values include: 'Undefined',
+            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='codes'>
+            /// An array of codes
+            /// </param>
+            /// <param name='asAt'>
+            /// As at date
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys of the properties to be retrieved
+            /// </param>
+            public static TryLookupInstrumentsFromCodesDto LookupInstrumentsFromCodes(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            {
+                return operations.LookupInstrumentsFromCodesAsync(codeType, codes, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Lookup a large number of instruments by supplying a collection of
+            /// non-Finbourne codes.  Optionally, decorate each instrument with specific
+            /// properties.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='codeType'>
+            /// The type of identifier. Possible values include: 'Undefined',
+            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='codes'>
+            /// An array of codes
+            /// </param>
+            /// <param name='asAt'>
+            /// As at date
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys of the properties to be retrieved
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<TryLookupInstrumentsFromCodesDto> LookupInstrumentsFromCodesAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.LookupInstrumentsFromCodesWithHttpMessagesAsync(codeType, codes, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Upsert instrument properties
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='classifications'>
+            /// </param>
+            public static UpsertInstrumentPropertiesDto BatchUpsertClassifications(this ILUSIDAPI operations, IList<InstrumentPropertyDto> classifications = default(IList<InstrumentPropertyDto>))
+            {
+                return operations.BatchUpsertClassificationsAsync(classifications).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Upsert instrument properties
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='classifications'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UpsertInstrumentPropertiesDto> BatchUpsertClassificationsAsync(this ILUSIDAPI operations, IList<InstrumentPropertyDto> classifications = default(IList<InstrumentPropertyDto>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BatchUpsertClassificationsWithHttpMessagesAsync(classifications, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1490,50 +1010,50 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Store a log message
+            /// Request an authorised url for an Excel client version
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='message'>
+            /// <param name='version'>
             /// </param>
-            public static string StoreWebLogs(this ILUSIDAPI operations, WebLogMessage message = default(WebLogMessage))
+            public static string GetExcelDownloadUrl(this ILUSIDAPI operations, string version = default(string))
             {
-                return operations.StoreWebLogsAsync(message).GetAwaiter().GetResult();
+                return operations.GetExcelDownloadUrlAsync(version).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Store a log message
+            /// Request an authorised url for an Excel client version
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='message'>
+            /// <param name='version'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> StoreWebLogsAsync(this ILUSIDAPI operations, WebLogMessage message = default(WebLogMessage), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> GetExcelDownloadUrlAsync(this ILUSIDAPI operations, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.StoreWebLogsWithHttpMessagesAsync(message, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetExcelDownloadUrlWithHttpMessagesAsync(version, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Returns the current assembly version
+            /// Returns the current major application version
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static string GetBuildVersion(this ILUSIDAPI operations)
+            public static VersionSummaryDto GetLusidVersions(this ILUSIDAPI operations)
             {
-                return operations.GetBuildVersionAsync().GetAwaiter().GetResult();
+                return operations.GetLusidVersionsAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Returns the current assembly version
+            /// Returns the current major application version
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1541,65 +1061,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> GetBuildVersionAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionSummaryDto> GetLusidVersionsAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetBuildVersionWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Returns the current assembly version
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            public static string VerifyConnectivity(this ILUSIDAPI operations)
-            {
-                return operations.VerifyConnectivityAsync().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Returns the current assembly version
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<string> VerifyConnectivityAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.VerifyConnectivityWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Returns the current assembly version
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            public static string GetVersion(this ILUSIDAPI operations)
-            {
-                return operations.GetVersionAsync().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Returns the current assembly version
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<string> GetVersionAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetVersionWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetLusidVersionsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1756,26 +1220,553 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// List scopes that contain portfolios
+            /// List all groups in a specified scope
             /// </summary>
-            /// <remarks>
-            /// Lists all scopes that have previously been used
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
             /// <param name='sortBy'>
-            /// How to order the returned scopes
             /// </param>
             /// <param name='start'>
-            /// The starting index for the returned scopes
             /// </param>
             /// <param name='limit'>
-            /// The final index for the returned scopes
             /// </param>
-            public static ResourceListOfScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            /// <param name='filter'>
+            /// A filter expression to apply to the result set
+            /// </param>
+            public static ResourceListOfPortfolioGroupDto ListPortfolioGroups(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.ListPortfolioScopesAsync(sortBy, start, limit).GetAwaiter().GetResult();
+                return operations.ListPortfolioGroupsAsync(scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// List all groups in a specified scope
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// A filter expression to apply to the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfPortfolioGroupDto> ListPortfolioGroupsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListPortfolioGroupsWithHttpMessagesAsync(scope, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Create a new group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            public static PortfolioGroupDto CreatePortfolioGroup(this ILUSIDAPI operations, string scope, CreateGroupRequest request = default(CreateGroupRequest))
+            {
+                return operations.CreatePortfolioGroupAsync(scope, request).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create a new group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> CreatePortfolioGroupAsync(this ILUSIDAPI operations, string scope, CreateGroupRequest request = default(CreateGroupRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreatePortfolioGroupWithHttpMessagesAsync(scope, request, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            public static PortfolioGroupDto GetPortfolioGroup(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            {
+                return operations.GetPortfolioGroupAsync(scope, code, asAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> GetPortfolioGroupAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPortfolioGroupWithHttpMessagesAsync(scope, code, asAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Update an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            public static PortfolioGroupDto UpdatePortfolioGroup(this ILUSIDAPI operations, string scope, string code, UpdateGroupRequest request = default(UpdateGroupRequest))
+            {
+                return operations.UpdatePortfolioGroupAsync(scope, code, request).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Update an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> UpdatePortfolioGroupAsync(this ILUSIDAPI operations, string scope, string code, UpdateGroupRequest request = default(UpdateGroupRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdatePortfolioGroupWithHttpMessagesAsync(scope, code, request, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            public static DeletedEntityResponse DeletePortfolioGroup(this ILUSIDAPI operations, string scope, string code)
+            {
+                return operations.DeletePortfolioGroupAsync(scope, code).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> DeletePortfolioGroupAsync(this ILUSIDAPI operations, string scope, string code, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeletePortfolioGroupWithHttpMessagesAsync(scope, code, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Aggregate data in a group hierarchy
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            public static ListAggregationResponse GetAggregationByGroup(this ILUSIDAPI operations, string scope, string code, AggregationRequest request = default(AggregationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            {
+                return operations.GetAggregationByGroupAsync(scope, code, request, sortBy, start, limit).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Aggregate data in a group hierarchy
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ListAggregationResponse> GetAggregationByGroupAsync(this ILUSIDAPI operations, string scope, string code, AggregationRequest request = default(AggregationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetAggregationByGroupWithHttpMessagesAsync(scope, code, request, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets all commands that modified the portfolio groups(s) with the specified
+            /// id.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio group
+            /// </param>
+            /// <param name='code'>
+            /// The portfolio group id
+            /// </param>
+            /// <param name='fromAsAt'>
+            /// Filters commands by those that were processed at or after this time. Null
+            /// means there is no lower limit.
+            /// </param>
+            /// <param name='toAsAt'>
+            /// Filters commands by those that were processed at or before this time. Null
+            /// means there is no upper limit (latest).
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// A filter expression to apply to the result set
+            /// </param>
+            public static ResourceListOfProcessedCommandDto GetPortfolioGroupCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.GetPortfolioGroupCommandsAsync(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets all commands that modified the portfolio groups(s) with the specified
+            /// id.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio group
+            /// </param>
+            /// <param name='code'>
+            /// The portfolio group id
+            /// </param>
+            /// <param name='fromAsAt'>
+            /// Filters commands by those that were processed at or after this time. Null
+            /// means there is no lower limit.
+            /// </param>
+            /// <param name='toAsAt'>
+            /// Filters commands by those that were processed at or before this time. Null
+            /// means there is no upper limit (latest).
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// A filter expression to apply to the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfProcessedCommandDto> GetPortfolioGroupCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPortfolioGroupCommandsWithHttpMessagesAsync(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a full expansion of an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='propertyFilter'>
+            /// </param>
+            public static ExpandedGroupDto GetPortfolioGroupExpansion(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>))
+            {
+                return operations.GetPortfolioGroupExpansionAsync(scope, code, effectiveAt, asAt, propertyFilter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a full expansion of an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='propertyFilter'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ExpandedGroupDto> GetPortfolioGroupExpansionAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPortfolioGroupExpansionWithHttpMessagesAsync(scope, code, effectiveAt, asAt, propertyFilter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add a portfolio to an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='identifier'>
+            /// </param>
+            public static PortfolioGroupDto AddPortfolioToGroup(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId))
+            {
+                return operations.AddPortfolioToGroupAsync(scope, code, identifier).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add a portfolio to an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='identifier'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> AddPortfolioToGroupAsync(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddPortfolioToGroupWithHttpMessagesAsync(scope, code, identifier, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Remove a portfolio that is currently present within an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='portfolioScope'>
+            /// </param>
+            /// <param name='portfolioCode'>
+            /// </param>
+            public static PortfolioGroupDto DeletePortfolioFromGroup(this ILUSIDAPI operations, string scope, string code, string portfolioScope, string portfolioCode)
+            {
+                return operations.DeletePortfolioFromGroupAsync(scope, code, portfolioScope, portfolioCode).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Remove a portfolio that is currently present within an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='portfolioScope'>
+            /// </param>
+            /// <param name='portfolioCode'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> DeletePortfolioFromGroupAsync(this ILUSIDAPI operations, string scope, string code, string portfolioScope, string portfolioCode, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeletePortfolioFromGroupWithHttpMessagesAsync(scope, code, portfolioScope, portfolioCode, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add a sub group to an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='identifier'>
+            /// </param>
+            public static PortfolioGroupDto AddSubGroupToGroup(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId))
+            {
+                return operations.AddSubGroupToGroupAsync(scope, code, identifier).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add a sub group to an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='identifier'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> AddSubGroupToGroupAsync(this ILUSIDAPI operations, string scope, string code, ResourceId identifier = default(ResourceId), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddSubGroupToGroupWithHttpMessagesAsync(scope, code, identifier, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Remove a subgroup that is currently present within an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='subgroupScope'>
+            /// </param>
+            /// <param name='subgroupCode'>
+            /// </param>
+            public static PortfolioGroupDto DeleteSubGroupFromGroup(this ILUSIDAPI operations, string scope, string code, string subgroupScope, string subgroupCode)
+            {
+                return operations.DeleteSubGroupFromGroupAsync(scope, code, subgroupScope, subgroupCode).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Remove a subgroup that is currently present within an existing group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='subgroupScope'>
+            /// </param>
+            /// <param name='subgroupCode'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioGroupDto> DeleteSubGroupFromGroupAsync(this ILUSIDAPI operations, string scope, string code, string subgroupScope, string subgroupCode, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteSubGroupFromGroupWithHttpMessagesAsync(scope, code, subgroupScope, subgroupCode, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -1796,12 +1787,41 @@ namespace Finbourne
             /// <param name='limit'>
             /// The final index for the returned scopes
             /// </param>
+            /// <param name='filter'>
+            /// Filter to be applied to the list of scopes
+            /// </param>
+            public static ResourceListOfScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.ListPortfolioScopesAsync(sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// List scopes that contain portfolios
+            /// </summary>
+            /// <remarks>
+            /// Lists all scopes that have previously been used
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='sortBy'>
+            /// How to order the returned scopes
+            /// </param>
+            /// <param name='start'>
+            /// The starting index for the returned scopes
+            /// </param>
+            /// <param name='limit'>
+            /// The final index for the returned scopes
+            /// </param>
+            /// <param name='filter'>
+            /// Filter to be applied to the list of scopes
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfScope> ListPortfolioScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfScope> ListPortfolioScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListPortfolioScopesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListPortfolioScopesWithHttpMessagesAsync(sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1882,49 +1902,29 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Create portfolio
+            /// Get portfolio
             /// </summary>
             /// <remarks>
-            /// Creates a new portfolio
+            /// Gets a single portfolio by code
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the portfolio
+            /// The scope of the portfolio
             /// </param>
-            /// <param name='createRequest'>
-            /// The portfolio creation request object
+            /// <param name='code'>
+            /// Code for the portfolio
             /// </param>
-            public static PortfolioDto CreatePortfolio(this ILUSIDAPI operations, string scope, CreatePortfolioRequest createRequest = default(CreatePortfolioRequest))
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='asAt'>
+            /// The asAt date to use
+            /// </param>
+            public static PortfolioDto GetPortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
-                return operations.CreatePortfolioAsync(scope, createRequest).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Create portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a new portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The intended scope of the portfolio
-            /// </param>
-            /// <param name='createRequest'>
-            /// The portfolio creation request object
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PortfolioDto> CreatePortfolioAsync(this ILUSIDAPI operations, string scope, CreatePortfolioRequest createRequest = default(CreatePortfolioRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CreatePortfolioWithHttpMessagesAsync(scope, createRequest, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                return operations.GetPortfolioAsync(scope, code, effectiveAt, asAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1948,44 +1948,12 @@ namespace Finbourne
             /// <param name='asAt'>
             /// The asAt date to use
             /// </param>
-            /// <param name='propertyFilter'>
-            /// Optional property filter
-            /// </param>
-            public static PortfolioDto GetPortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>))
-            {
-                return operations.GetPortfolioAsync(scope, code, effectiveAt, asAt, propertyFilter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get portfolio
-            /// </summary>
-            /// <remarks>
-            /// Gets a single portfolio by code
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='asAt'>
-            /// The asAt date to use
-            /// </param>
-            /// <param name='propertyFilter'>
-            /// Optional property filter
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PortfolioDto> GetPortfolioAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioDto> GetPortfolioAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPortfolioWithHttpMessagesAsync(scope, code, effectiveAt, asAt, propertyFilter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPortfolioWithHttpMessagesAsync(scope, code, effectiveAt, asAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2096,6 +2064,58 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Aggregate data in a portfolio
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            public static ListAggregationResponse GetAggregationByPortfolio(this ILUSIDAPI operations, string scope, string code, AggregationRequest request = default(AggregationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            {
+                return operations.GetAggregationByPortfolioAsync(scope, code, request, sortBy, start, limit).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Aggregate data in a portfolio
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='code'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ListAggregationResponse> GetAggregationByPortfolioAsync(this ILUSIDAPI operations, string scope, string code, AggregationRequest request = default(AggregationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetAggregationByPortfolioWithHttpMessagesAsync(scope, code, request, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get modifications
             /// </summary>
             /// <remarks>
@@ -2121,9 +2141,9 @@ namespace Finbourne
             /// <param name='filter'>
             /// Command filter
             /// </param>
-            public static ResourceListOfProcessedCommandDto GetCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
+            public static ResourceListOfProcessedCommandDto GetPortfolioCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
             {
-                return operations.GetCommandsAsync(scope, code, fromAsAt, toAsAt, filter).GetAwaiter().GetResult();
+                return operations.GetPortfolioCommandsAsync(scope, code, fromAsAt, toAsAt, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2155,555 +2175,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfProcessedCommandDto> GetCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfProcessedCommandDto> GetPortfolioCommandsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetCommandsWithHttpMessagesAsync(scope, code, fromAsAt, toAsAt, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Gets the details for a portfolio.  For a derived portfolio this can be
-            /// the details of another reference portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='asAt'>
-            /// The asAt date to use
-            /// </param>
-            /// <param name='propertyFilter'>
-            /// Optional property filter
-            /// </param>
-            public static PortfolioDetailsDto GetDetails(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>))
-            {
-                return operations.GetDetailsAsync(scope, code, effectiveAt, asAt, propertyFilter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Gets the details for a portfolio.  For a derived portfolio this can be
-            /// the details of another reference portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='asAt'>
-            /// The asAt date to use
-            /// </param>
-            /// <param name='propertyFilter'>
-            /// Optional property filter
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PortfolioDetailsDto> GetDetailsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetDetailsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, propertyFilter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add/update portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Update the portfolio details for the given code or add if it doesn't
-            /// already exist. Updates with
-            /// null values will remove any existing values
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='details'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date of the change
-            /// </param>
-            public static PortfolioDetailsDto UpsertPortfolioDetails(this ILUSIDAPI operations, string scope, string code, PortfolioDetailsRequest details = default(PortfolioDetailsRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
-            {
-                return operations.UpsertPortfolioDetailsAsync(scope, code, details, effectiveAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add/update portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Update the portfolio details for the given code or add if it doesn't
-            /// already exist. Updates with
-            /// null values will remove any existing values
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='details'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date of the change
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PortfolioDetailsDto> UpsertPortfolioDetailsAsync(this ILUSIDAPI operations, string scope, string code, PortfolioDetailsRequest details = default(PortfolioDetailsRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertPortfolioDetailsWithHttpMessagesAsync(scope, code, details, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Deletes the portfolio details for the given code
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date of the change
-            /// </param>
-            public static DeletedEntityResponse DeletePortfolioDetails(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
-            {
-                return operations.DeletePortfolioDetailsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Deletes the portfolio details for the given code
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date of the change
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeletePortfolioDetailsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeletePortfolioDetailsWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get holdings
-            /// </summary>
-            /// <remarks>
-            /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-            /// are supplied then values will be defaulted to the latest system time.
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='sortBy'>
-            /// The columns to sort the returned data by
-            /// </param>
-            /// <param name='start'>
-            /// How many items to skip from the returned set
-            /// </param>
-            /// <param name='limit'>
-            /// How many items to return from the set
-            /// </param>
-            /// <param name='filter'>
-            /// A filter on the results
-            /// </param>
-            /// <param name='securityPropertyKeys'>
-            /// Keys for the security properties to be decorated onto the holdings
-            /// </param>
-            public static VersionedResourceListOfHoldingDto GetAggregateHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>))
-            {
-                return operations.GetAggregateHoldingsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, securityPropertyKeys).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get holdings
-            /// </summary>
-            /// <remarks>
-            /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-            /// are supplied then values will be defaulted to the latest system time.
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='sortBy'>
-            /// The columns to sort the returned data by
-            /// </param>
-            /// <param name='start'>
-            /// How many items to skip from the returned set
-            /// </param>
-            /// <param name='limit'>
-            /// How many items to return from the set
-            /// </param>
-            /// <param name='filter'>
-            /// A filter on the results
-            /// </param>
-            /// <param name='securityPropertyKeys'>
-            /// Keys for the security properties to be decorated onto the holdings
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<VersionedResourceListOfHoldingDto> GetAggregateHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> securityPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetAggregateHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, securityPropertyKeys, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Adjust holdings
-            /// </summary>
-            /// <remarks>
-            /// Create trades in a specific portfolio to bring it to the specified holdings
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='holdingAdjustments'>
-            /// </param>
-            public static AdjustHoldingsDto AdjustAllHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>))
-            {
-                return operations.AdjustAllHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Adjust holdings
-            /// </summary>
-            /// <remarks>
-            /// Create trades in a specific portfolio to bring it to the specified holdings
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='holdingAdjustments'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<AdjustHoldingsDto> AdjustAllHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AdjustAllHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Cancel adjust-holdings
-            /// </summary>
-            /// <remarks>
-            /// Cancels a previous adjust holdings request
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            public static DeletedEntityResponse CancelAdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt)
-            {
-                return operations.CancelAdjustHoldingsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Cancel adjust-holdings
-            /// </summary>
-            /// <remarks>
-            /// Cancels a previous adjust holdings request
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> CancelAdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CancelAdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Adjust holdings
-            /// </summary>
-            /// <remarks>
-            /// Create trades in a specific portfolio to bring it to the specified holdings
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='holdingAdjustments'>
-            /// </param>
-            public static AdjustHoldingsDto AdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>))
-            {
-                return operations.AdjustHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Adjust holdings
-            /// </summary>
-            /// <remarks>
-            /// Create trades in a specific portfolio to bring it to the specified holdings
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Effective date
-            /// </param>
-            /// <param name='holdingAdjustments'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<AdjustHoldingsDto> AdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets holdings adjustments in an interval of effective time.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='fromEffectiveAt'>
-            /// Events between this time (inclusive) and the toEffectiveAt are returned.
-            /// </param>
-            /// <param name='toEffectiveAt'>
-            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
-            /// </param>
-            /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
-            /// </param>
-            public static ResourceListOfHoldingsAdjustmentHeaderDto ListHoldingsAdjustments(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
-            {
-                return operations.ListHoldingsAdjustmentsAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets holdings adjustments in an interval of effective time.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='fromEffectiveAt'>
-            /// Events between this time (inclusive) and the toEffectiveAt are returned.
-            /// </param>
-            /// <param name='toEffectiveAt'>
-            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
-            /// </param>
-            /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfHoldingsAdjustmentHeaderDto> ListHoldingsAdjustmentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ListHoldingsAdjustmentsWithHttpMessagesAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get a holdings adjustment for a single portfolio at a specific effective
-            /// time.
-            /// If no adjustment exists at this effective time, not found is returned.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective time of the holdings adjustment.
-            /// </param>
-            /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
-            /// </param>
-            public static HoldingsAdjustmentDto GetHoldingsAdjustment(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
-            {
-                return operations.GetHoldingsAdjustmentAsync(scope, code, effectiveAt, asAtTime).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get a holdings adjustment for a single portfolio at a specific effective
-            /// time.
-            /// If no adjustment exists at this effective time, not found is returned.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective time of the holdings adjustment.
-            /// </param>
-            /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<HoldingsAdjustmentDto> GetHoldingsAdjustmentAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetHoldingsAdjustmentWithHttpMessagesAsync(scope, code, effectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPortfolioCommandsWithHttpMessagesAsync(scope, code, fromAsAt, toAsAt, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2739,9 +2213,9 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static PortfolioPropertiesDto GetProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static PortfolioPropertiesDto GetPortfolioProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
-                return operations.GetPropertiesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
+                return operations.GetPortfolioPropertiesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2777,9 +2251,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PortfolioPropertiesDto> GetPropertiesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioPropertiesDto> GetPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPropertiesWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPortfolioPropertiesWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2800,14 +2274,14 @@ namespace Finbourne
             /// <param name='code'>
             /// Code for the portfolio
             /// </param>
-            /// <param name='properties'>
+            /// <param name='portfolioProperties'>
             /// </param>
             /// <param name='effectiveAt'>
             /// The effective date for the change
             /// </param>
-            public static PortfolioPropertiesDto UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            public static PortfolioPropertiesDto UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
-                return operations.UpsertPortfolioPropertiesAsync(scope, code, properties, effectiveAt).GetAwaiter().GetResult();
+                return operations.UpsertPortfolioPropertiesAsync(scope, code, portfolioProperties, effectiveAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2825,7 +2299,7 @@ namespace Finbourne
             /// <param name='code'>
             /// Code for the portfolio
             /// </param>
-            /// <param name='properties'>
+            /// <param name='portfolioProperties'>
             /// </param>
             /// <param name='effectiveAt'>
             /// The effective date for the change
@@ -2833,19 +2307,20 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PortfolioPropertiesDto> UpsertPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, IList<CreatePropertyRequest> properties = default(IList<CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioPropertiesDto> UpsertPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpsertPortfolioPropertiesWithHttpMessagesAsync(scope, code, properties, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpsertPortfolioPropertiesWithHttpMessagesAsync(scope, code, portfolioProperties, effectiveAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Delete property
+            /// Delete one, many or all properties from a portfolio for a specified
+            /// effective date
             /// </summary>
             /// <remarks>
-            /// Delete a property from a portfolio
+            /// Specifying no properties will delete all properties
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2855,23 +2330,25 @@ namespace Finbourne
             /// </param>
             /// <param name='code'>
             /// Code for the portfolio
-            /// </param>
-            /// <param name='property'>
-            /// The key of the property to be deleted
             /// </param>
             /// <param name='effectiveAt'>
             /// Effective date
             /// </param>
-            public static DeletedEntityResponse DeletePortfolioProperty(this ILUSIDAPI operations, string scope, string code, string property = default(string), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            /// <param name='portfolioPropertyKeys'>
+            /// The keys of the property to be deleted. None specified indicates the intent
+            /// to delete all properties
+            /// </param>
+            public static DeletedEntityResponse DeletePortfolioProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> portfolioPropertyKeys = default(IList<string>))
             {
-                return operations.DeletePortfolioPropertyAsync(scope, code, property, effectiveAt).GetAwaiter().GetResult();
+                return operations.DeletePortfolioPropertiesAsync(scope, code, effectiveAt, portfolioPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Delete property
+            /// Delete one, many or all properties from a portfolio for a specified
+            /// effective date
             /// </summary>
             /// <remarks>
-            /// Delete a property from a portfolio
+            /// Specifying no properties will delete all properties
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2881,503 +2358,20 @@ namespace Finbourne
             /// </param>
             /// <param name='code'>
             /// Code for the portfolio
-            /// </param>
-            /// <param name='property'>
-            /// The key of the property to be deleted
             /// </param>
             /// <param name='effectiveAt'>
             /// Effective date
             /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeletePortfolioPropertyAsync(this ILUSIDAPI operations, string scope, string code, string property = default(string), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeletePortfolioPropertyWithHttpMessagesAsync(scope, code, property, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete properties
-            /// </summary>
-            /// <remarks>
-            /// Delete all properties from a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date for the change
-            /// </param>
-            public static DeletedEntityResponse DeletePortfolioProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
-            {
-                return operations.DeletePortfolioPropertiesAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete properties
-            /// </summary>
-            /// <remarks>
-            /// Delete all properties from a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date for the change
+            /// <param name='portfolioPropertyKeys'>
+            /// The keys of the property to be deleted. None specified indicates the intent
+            /// to delete all properties
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DeletedEntityResponse> DeletePortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeletedEntityResponse> DeletePortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> portfolioPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeletePortfolioPropertiesWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get trades
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='fromTradeDate'>
-            /// Exclude trades with a trade-date less than this date. If not supplied, no
-            /// lower filter is applied
-            /// </param>
-            /// <param name='toTradeDate'>
-            /// Exclude trades with a trade-date greater than this date. If not supplied,
-            /// no upper filter is applied
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// The columns to sort the returned data by
-            /// </param>
-            /// <param name='start'>
-            /// How many items to skip from the returned set
-            /// </param>
-            /// <param name='limit'>
-            /// How many items to return from the set
-            /// </param>
-            /// <param name='securityPropertyKeys'>
-            /// Keys for the security properties to be decorated onto the trades
-            /// </param>
-            /// <param name='filter'>
-            /// Trade filter
-            /// </param>
-            public static VersionedResourceListOfTradeDto GetTrades(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string))
-            {
-                return operations.GetTradesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, securityPropertyKeys, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get trades
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='fromTradeDate'>
-            /// Exclude trades with a trade-date less than this date. If not supplied, no
-            /// lower filter is applied
-            /// </param>
-            /// <param name='toTradeDate'>
-            /// Exclude trades with a trade-date greater than this date. If not supplied,
-            /// no upper filter is applied
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// The columns to sort the returned data by
-            /// </param>
-            /// <param name='start'>
-            /// How many items to skip from the returned set
-            /// </param>
-            /// <param name='limit'>
-            /// How many items to return from the set
-            /// </param>
-            /// <param name='securityPropertyKeys'>
-            /// Keys for the security properties to be decorated onto the trades
-            /// </param>
-            /// <param name='filter'>
-            /// Trade filter
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<VersionedResourceListOfTradeDto> GetTradesAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetTradesWithHttpMessagesAsync(scope, code, fromTradeDate, toTradeDate, asAt, sortBy, start, limit, securityPropertyKeys, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add/update trades
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='trades'>
-            /// The trades to be updated
-            /// </param>
-            public static UpsertPortfolioTradesDto UpsertTrades(this ILUSIDAPI operations, string scope, string code, IList<UpsertPortfolioTradeRequest> trades = default(IList<UpsertPortfolioTradeRequest>))
-            {
-                return operations.UpsertTradesAsync(scope, code, trades).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add/update trades
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='trades'>
-            /// The trades to be updated
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<UpsertPortfolioTradesDto> UpsertTradesAsync(this ILUSIDAPI operations, string scope, string code, IList<UpsertPortfolioTradeRequest> trades = default(IList<UpsertPortfolioTradeRequest>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertTradesWithHttpMessagesAsync(scope, code, trades, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete trades
-            /// </summary>
-            /// <remarks>
-            /// Delete one or more trades from a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='id'>
-            /// Ids of trades to delete
-            /// </param>
-            public static DeletedEntityResponse DeleteTrades(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>))
-            {
-                return operations.DeleteTradesAsync(scope, code, id).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete trades
-            /// </summary>
-            /// <remarks>
-            /// Delete one or more trades from a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='id'>
-            /// Ids of trades to delete
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeleteTradesAsync(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeleteTradesWithHttpMessagesAsync(scope, code, id, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add/update trade properties
-            /// </summary>
-            /// <remarks>
-            /// Add one or more properties to a specific trade in a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='tradeId'>
-            /// Id of trade to add properties to
-            /// </param>
-            /// <param name='properties'>
-            /// Trade properties to add
-            /// </param>
-            public static AddTradePropertyDto AddTradeProperty(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>))
-            {
-                return operations.AddTradePropertyAsync(scope, code, tradeId, properties).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add/update trade properties
-            /// </summary>
-            /// <remarks>
-            /// Add one or more properties to a specific trade in a portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='tradeId'>
-            /// Id of trade to add properties to
-            /// </param>
-            /// <param name='properties'>
-            /// Trade properties to add
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<AddTradePropertyDto> AddTradePropertyAsync(this ILUSIDAPI operations, string scope, string code, string tradeId, IList<CreatePerpetualPropertyRequest> properties = default(IList<CreatePerpetualPropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddTradePropertyWithHttpMessagesAsync(scope, code, tradeId, properties, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete trade property
-            /// </summary>
-            /// <remarks>
-            /// Delete a property from a specific trade
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='tradeId'>
-            /// Id of the trade to delete the property from
-            /// </param>
-            /// <param name='property'>
-            /// The key of the property to be deleted
-            /// </param>
-            public static DeletedEntityResponse DeletePropertyFromTrade(this ILUSIDAPI operations, string scope, string code, string tradeId, string property = default(string))
-            {
-                return operations.DeletePropertyFromTradeAsync(scope, code, tradeId, property).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete trade property
-            /// </summary>
-            /// <remarks>
-            /// Delete a property from a specific trade
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='tradeId'>
-            /// Id of the trade to delete the property from
-            /// </param>
-            /// <param name='property'>
-            /// The key of the property to be deleted
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeletePropertyFromTradeAsync(this ILUSIDAPI operations, string scope, string code, string tradeId, string property = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeletePropertyFromTradeWithHttpMessagesAsync(scope, code, tradeId, property, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get transactions
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// The columns to sort the returned data by
-            /// </param>
-            /// <param name='start'>
-            /// How many items to skip from the returned set
-            /// </param>
-            /// <param name='limit'>
-            /// How many items to return from the set
-            /// </param>
-            /// <param name='securityPropertyKeys'>
-            /// Keys for the security properties to be decorated onto the trades
-            /// </param>
-            /// <param name='filter'>
-            /// Trade filter
-            /// </param>
-            /// <param name='parameters'>
-            /// Core query parameters
-            /// </param>
-            public static VersionedResourceListOfOutputTransactionDto BuildTransactions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters))
-            {
-                return operations.BuildTransactionsAsync(scope, code, asAt, sortBy, start, limit, securityPropertyKeys, filter, parameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get transactions
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the portfolio
-            /// </param>
-            /// <param name='code'>
-            /// Code for the portfolio
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// The columns to sort the returned data by
-            /// </param>
-            /// <param name='start'>
-            /// How many items to skip from the returned set
-            /// </param>
-            /// <param name='limit'>
-            /// How many items to return from the set
-            /// </param>
-            /// <param name='securityPropertyKeys'>
-            /// Keys for the security properties to be decorated onto the trades
-            /// </param>
-            /// <param name='filter'>
-            /// Trade filter
-            /// </param>
-            /// <param name='parameters'>
-            /// Core query parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<VersionedResourceListOfOutputTransactionDto> BuildTransactionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> securityPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.BuildTransactionsWithHttpMessagesAsync(scope, code, asAt, sortBy, start, limit, securityPropertyKeys, filter, parameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Create derived portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a portfolio that derives from an existing portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope into which to create the new derived portfolio
-            /// </param>
-            /// <param name='portfolio'>
-            /// The root object of the new derived portfolio, containing a populated
-            /// reference portfolio id and reference scope
-            /// </param>
-            public static PortfolioDto CreateDerivedPortfolio(this ILUSIDAPI operations, string scope, CreateDerivedPortfolioRequest portfolio = default(CreateDerivedPortfolioRequest))
-            {
-                return operations.CreateDerivedPortfolioAsync(scope, portfolio).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Create derived portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a portfolio that derives from an existing portfolio
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope into which to create the new derived portfolio
-            /// </param>
-            /// <param name='portfolio'>
-            /// The root object of the new derived portfolio, containing a populated
-            /// reference portfolio id and reference scope
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PortfolioDto> CreateDerivedPortfolioAsync(this ILUSIDAPI operations, string scope, CreateDerivedPortfolioRequest portfolio = default(CreateDerivedPortfolioRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CreateDerivedPortfolioWithHttpMessagesAsync(scope, portfolio, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeletePortfolioPropertiesWithHttpMessagesAsync(scope, code, effectiveAt, portfolioPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3480,78 +2474,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Gets the available property-definition domains.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            public static ResourceListOfPropertyDomain GetPropertyDefinitionDomains(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
-            {
-                return operations.GetPropertyDefinitionDomainsAsync(sortBy, start, limit).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets the available property-definition domains.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPropertyDomain> GetPropertyDefinitionDomainsAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetPropertyDefinitionDomainsWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Creates a new property definition.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='definition'>
-            /// </param>
-            public static PropertyDefinitionDto CreatePropertyDefinition(this ILUSIDAPI operations, CreatePropertyDefinitionRequest definition = default(CreatePropertyDefinitionRequest))
-            {
-                return operations.CreatePropertyDefinitionAsync(definition).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Creates a new property definition.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='definition'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PropertyDefinitionDto> CreatePropertyDefinitionAsync(this ILUSIDAPI operations, CreatePropertyDefinitionRequest definition = default(CreatePropertyDefinitionRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CreatePropertyDefinitionWithHttpMessagesAsync(definition, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Gets multiple property definitions.
             /// </summary>
             /// <param name='operations'>
@@ -3604,168 +2526,32 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Gets all available property definitions.
+            /// Creates a new property definition.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='domain'>
-            /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding', 'TxnType'
+            /// <param name='definition'>
             /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPropertyKey GetAllPropertyKeysInDomain(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static PropertyDefinitionDto CreatePropertyDefinition(this ILUSIDAPI operations, CreatePropertyDefinitionRequest definition = default(CreatePropertyDefinitionRequest))
             {
-                return operations.GetAllPropertyKeysInDomainAsync(domain, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.CreatePropertyDefinitionAsync(definition).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Gets all available property definitions.
+            /// Creates a new property definition.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='domain'>
-            /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding', 'TxnType'
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
+            /// <param name='definition'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfPropertyKey> GetAllPropertyKeysInDomainAsync(this ILUSIDAPI operations, string domain, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PropertyDefinitionDto> CreatePropertyDefinitionAsync(this ILUSIDAPI operations, CreatePropertyDefinitionRequest definition = default(CreatePropertyDefinitionRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAllPropertyKeysInDomainWithHttpMessagesAsync(domain, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets the available property-definition scopes for the specified domain.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='domain'>
-            /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding', 'TxnType'
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfScope GetPropertyDefinitionScopesInDomain(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.GetPropertyDefinitionScopesInDomainAsync(domain, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets the available property-definition scopes for the specified domain.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='domain'>
-            /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding', 'TxnType'
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfScope> GetPropertyDefinitionScopesInDomainAsync(this ILUSIDAPI operations, string domain, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetPropertyDefinitionScopesInDomainWithHttpMessagesAsync(domain, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets all properties in a scope.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='domain'>
-            /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding', 'TxnType'
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPropertyKey GetAllPropertyKeysInScope(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.GetAllPropertyKeysInScopeAsync(domain, scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets all properties in a scope.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='domain'>
-            /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-            /// 'ReferenceHolding', 'TxnType'
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPropertyKey> GetAllPropertyKeysInScopeAsync(this ILUSIDAPI operations, string domain, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetAllPropertyKeysInScopeWithHttpMessagesAsync(domain, scope, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreatePropertyDefinitionWithHttpMessagesAsync(definition, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3912,220 +2698,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Create a new PropertyDataFormat. Note: Only non-default formats can be
-            /// created.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// The definition of the new format
-            /// </param>
-            public static PropertyDataFormatDto CreatePropertyDataFormat(this ILUSIDAPI operations, CreatePropertyDataFormatRequest request = default(CreatePropertyDataFormatRequest))
-            {
-                return operations.CreatePropertyDataFormatAsync(request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Create a new PropertyDataFormat. Note: Only non-default formats can be
-            /// created.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// The definition of the new format
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PropertyDataFormatDto> CreatePropertyDataFormatAsync(this ILUSIDAPI operations, CreatePropertyDataFormatRequest request = default(CreatePropertyDataFormatRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CreatePropertyDataFormatWithHttpMessagesAsync(request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Lists all property data formats in the specified scope.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='includeDefault'>
-            /// </param>
-            /// <param name='includeSystem'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPropertyDataFormatDto ListPropertyDataFormats(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.ListPropertyDataFormatsAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Lists all property data formats in the specified scope.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='includeDefault'>
-            /// </param>
-            /// <param name='includeSystem'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPropertyDataFormatDto> ListPropertyDataFormatsAsync(this ILUSIDAPI operations, string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ListPropertyDataFormatsWithHttpMessagesAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets a property data format.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='name'>
-            /// </param>
-            public static PropertyDataFormatDto GetPropertyDataFormat(this ILUSIDAPI operations, string scope, string name)
-            {
-                return operations.GetPropertyDataFormatAsync(scope, name).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets a property data format.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='name'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PropertyDataFormatDto> GetPropertyDataFormatAsync(this ILUSIDAPI operations, string scope, string name, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetPropertyDataFormatWithHttpMessagesAsync(scope, name, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the format being updated
-            /// </param>
-            /// <param name='name'>
-            /// The name of the format to update
-            /// </param>
-            /// <param name='request'>
-            /// The new definition of the format
-            /// </param>
-            public static PropertyDataFormatDto UpdatePropertyDataFormat(this ILUSIDAPI operations, string scope, string name, UpdatePropertyDataFormatRequest request = default(UpdatePropertyDataFormatRequest))
-            {
-                return operations.UpdatePropertyDataFormatAsync(scope, name, request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the format being updated
-            /// </param>
-            /// <param name='name'>
-            /// The name of the format to update
-            /// </param>
-            /// <param name='request'>
-            /// The new definition of the format
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<PropertyDataFormatDto> UpdatePropertyDataFormatAsync(this ILUSIDAPI operations, string scope, string name, UpdatePropertyDataFormatRequest request = default(UpdatePropertyDataFormatRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpdatePropertyDataFormatWithHttpMessagesAsync(scope, name, request, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Return the definitions for the specified list of units
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='name'>
-            /// </param>
-            /// <param name='units'>
-            /// </param>
-            public static IUnitDefinitionDto GetUnitsFromPropertyDataFormat(this ILUSIDAPI operations, string scope, string name, IList<string> units)
-            {
-                return operations.GetUnitsFromPropertyDataFormatAsync(scope, name, units).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Return the definitions for the specified list of units
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='name'>
-            /// </param>
-            /// <param name='units'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<IUnitDefinitionDto> GetUnitsFromPropertyDataFormatAsync(this ILUSIDAPI operations, string scope, string name, IList<string> units, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetUnitsFromPropertyDataFormatWithHttpMessagesAsync(scope, name, units, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Perform a reconciliation between two portfolios
             /// </summary>
             /// <param name='operations'>
@@ -4158,62 +2730,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Get all reference portfolios in a scope
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPortfolioDto ListReferencePortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.ListReferencePortfoliosAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get all reference portfolios in a scope
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPortfolioDto> ListReferencePortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ListReferencePortfoliosWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Create a new reference portfolio
             /// </summary>
             /// <param name='operations'>
@@ -4225,7 +2741,7 @@ namespace Finbourne
             /// <param name='referencePortfolio'>
             /// The portfolio creation request object
             /// </param>
-            public static PortfolioDto CreateReferencePortfolio(this ILUSIDAPI operations, string scope, CreatePortfolioRequest referencePortfolio = default(CreatePortfolioRequest))
+            public static PortfolioDto CreateReferencePortfolio(this ILUSIDAPI operations, string scope, CreateReferencePortfolioRequest referencePortfolio = default(CreateReferencePortfolioRequest))
             {
                 return operations.CreateReferencePortfolioAsync(scope, referencePortfolio).GetAwaiter().GetResult();
             }
@@ -4245,7 +2761,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PortfolioDto> CreateReferencePortfolioAsync(this ILUSIDAPI operations, string scope, CreatePortfolioRequest referencePortfolio = default(CreatePortfolioRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioDto> CreateReferencePortfolioAsync(this ILUSIDAPI operations, string scope, CreateReferencePortfolioRequest referencePortfolio = default(CreateReferencePortfolioRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateReferencePortfolioWithHttpMessagesAsync(scope, referencePortfolio, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4254,90 +2770,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Get a reference portfolio by name (as opposed to id)
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            public static ResourceListOfReferencePortfolioConstituentDto GetReferencePortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
-            {
-                return operations.GetReferencePortfolioAsync(scope, code, effectiveAt, asAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get a reference portfolio by name (as opposed to id)
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
-            /// <param name='asAt'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfReferencePortfolioConstituentDto> GetReferencePortfolioAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetReferencePortfolioWithHttpMessagesAsync(scope, code, effectiveAt, asAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete a specific portfolio
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
-            public static DeletedEntityResponse DeleteReferencePortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
-            {
-                return operations.DeleteReferencePortfolioAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete a specific portfolio
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// </param>
-            /// <param name='code'>
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeleteReferencePortfolioAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeleteReferencePortfolioWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Get all the constituents in a reference portfolio
             /// </summary>
             /// <param name='operations'>
@@ -4345,11 +2777,9 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
             /// <param name='code'>
             /// </param>
-            /// <param name='referencePortfolioId'>
+            /// <param name='effectiveAt'>
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -4359,9 +2789,9 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListOfReferencePortfolioConstituentDto GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfReferencePortfolioConstituentDto GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
-                return operations.GetReferencePortfolioConstituentsAsync(scope, effectiveAt, code, referencePortfolioId, asAt, sortBy, start, limit).GetAwaiter().GetResult();
+                return operations.GetReferencePortfolioConstituentsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -4372,11 +2802,9 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='effectiveAt'>
-            /// </param>
             /// <param name='code'>
             /// </param>
-            /// <param name='referencePortfolioId'>
+            /// <param name='effectiveAt'>
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -4389,9 +2817,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfReferencePortfolioConstituentDto> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset effectiveAt, string code, string referencePortfolioId = default(string), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfReferencePortfolioConstituentDto> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetReferencePortfolioConstituentsWithHttpMessagesAsync(scope, effectiveAt, code, referencePortfolioId, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4411,7 +2839,7 @@ namespace Finbourne
             /// </param>
             /// <param name='constituents'>
             /// </param>
-            public static UpsertReferencePortfolioConstituentsDto UpsertReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentDto> constituents = default(IList<ReferencePortfolioConstituentDto>))
+            public static UpsertReferencePortfolioConstituentsDto UpsertReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>))
             {
                 return operations.UpsertReferencePortfolioConstituentsAsync(scope, code, effectiveAt, constituents).GetAwaiter().GetResult();
             }
@@ -4433,7 +2861,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertReferencePortfolioConstituentsDto> UpsertReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentDto> constituents = default(IList<ReferencePortfolioConstituentDto>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertReferencePortfolioConstituentsDto> UpsertReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, effectiveAt, constituents, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4555,72 +2983,106 @@ namespace Finbourne
                 }
             }
 
+            /// <summary>
+            /// Aggregate data from a result set
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='resultsKey'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            public static ListAggregationResponse GetAggregationByResultSet(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            {
+                return operations.GetAggregationByResultSetAsync(scope, resultsKey, request, sortBy, start, limit).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Aggregate data from a result set
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// </param>
+            /// <param name='resultsKey'>
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ListAggregationResponse> GetAggregationByResultSetAsync(this ILUSIDAPI operations, string scope, string resultsKey, AggregationRequest request = default(AggregationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetAggregationByResultSetWithHttpMessagesAsync(scope, resultsKey, request, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// List all available entities
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static ResourceListOfString ListEntities(this ILUSIDAPI operations)
+            {
+                return operations.ListEntitiesAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// List all available entities
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfString> ListEntitiesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListEntitiesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the schema for a given entity.
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='entity'>
-            /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-            /// 'Security', 'Property', 'CreatePropertyRequest',
-            /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
-            /// 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-            /// 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
-            /// 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
-            /// 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
-            /// 'Constituent', 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
-            /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
-            /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
-            /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
-            /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition', 'UpdatePortfolio',
-            /// 'UpdateGroup', 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition',
-            /// 'SecurityAnalytic', 'AggregationRequest', 'Aggregation',
-            /// 'NestedAggregation', 'ResultDataSchema', 'Classification',
-            /// 'SecurityClassification', 'WebLogMessage', 'UpsertPersonalisation',
-            /// 'CreatePortfolioDetails', 'UpsertConstituent', 'CreateResults', 'Results',
-            /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-            /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
-            /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
-            /// 'ReconciliationBreak', 'TransactionConfigurationData',
-            /// 'TransactionConfigurationMovementData',
-            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-            /// 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-            /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
             /// </param>
             public static SchemaDto GetEntitySchema(this ILUSIDAPI operations, string entity)
             {
                 return operations.GetEntitySchemaAsync(entity).GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Gets the schema for a given entity.
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='entity'>
-            /// Possible values include: 'PropertyKey', 'FieldSchema', 'Personalisation',
-            /// 'Security', 'Property', 'CreatePropertyRequest',
-            /// 'CreatePerpetualPropertyRequest', 'PerpetualProperty', 'Login',
-            /// 'PropertyDefinition', 'PropertyDataFormat', 'AggregationResponseNode',
-            /// 'Portfolio', 'CompletePortfolio', 'PortfolioSearchResult',
-            /// 'PortfolioDetails', 'PortfolioProperties', 'Version', 'AddTradeProperty',
-            /// 'AnalyticStore', 'AnalyticStoreKey', 'UpsertPortfolioTrades', 'Group',
-            /// 'Constituent', 'Trade', 'UpsertPortfolioTradesRequest', 'PortfolioHolding',
-            /// 'AdjustHolding', 'ErrorDetail', 'ErrorResponse', 'InstrumentDefinition',
-            /// 'ProcessedCommand', 'CreatePortfolio', 'CreateAnalyticStore',
-            /// 'CreateClientSecurity', 'CreateDerivedPortfolio', 'CreateGroup',
-            /// 'CreatePropertyDataFormat', 'CreatePropertyDefinition', 'UpdatePortfolio',
-            /// 'UpdateGroup', 'UpdatePropertyDataFormat', 'UpdatePropertyDefinition',
-            /// 'SecurityAnalytic', 'AggregationRequest', 'Aggregation',
-            /// 'NestedAggregation', 'ResultDataSchema', 'Classification',
-            /// 'SecurityClassification', 'WebLogMessage', 'UpsertPersonalisation',
-            /// 'CreatePortfolioDetails', 'UpsertConstituent', 'CreateResults', 'Results',
-            /// 'TryAddClientSecurities', 'TryDeleteClientSecurities',
-            /// 'TryLookupSecuritiesFromCodes', 'ExpandedGroup', 'CreateCorporateAction',
-            /// 'CorporateAction', 'CorporateActionTransition', 'ReconciliationRequest',
-            /// 'ReconciliationBreak', 'TransactionConfigurationData',
-            /// 'TransactionConfigurationMovementData',
-            /// 'TransactionConfigurationTypeAlias', 'TryUpsertCorporateActions',
-            /// 'Iso4217CurrencyUnit', 'BasicUnit', 'CorporateActionTransitionComponent',
-            /// 'TargetTaxlot', 'AdjustHoldingRequest', 'HoldingsAdjustment',
-            /// 'HoldingsAdjustmentHeader', 'OutputTransaction', 'RealisedGainLoss'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4685,7 +3147,7 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListOfUiDataType GetValueTypes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfValueType GetValueTypes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetValueTypesAsync(sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -4705,7 +3167,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfUiDataType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfValueType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetValueTypesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4714,234 +3176,1014 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Attempt to create one or more client securities. Failed securities will be
-            /// identified in the body of the response.
+            /// Gets the list of persisted transaction types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='definitions'>
-            /// </param>
-            public static TryAddClientSecuritiesDto BatchAddClientSecurities(this ILUSIDAPI operations, IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>))
+            public static ResourceListOfTransactionMetaDataDto ListConfigurationTransactionTypes(this ILUSIDAPI operations)
             {
-                return operations.BatchAddClientSecuritiesAsync(definitions).GetAwaiter().GetResult();
+                return operations.ListConfigurationTransactionTypesAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Attempt to create one or more client securities. Failed securities will be
-            /// identified in the body of the response.
+            /// Gets the list of persisted transaction types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='definitions'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryAddClientSecuritiesDto> BatchAddClientSecuritiesAsync(this ILUSIDAPI operations, IList<CreateClientSecurityRequest> definitions = default(IList<CreateClientSecurityRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTransactionMetaDataDto> ListConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchAddClientSecuritiesWithHttpMessagesAsync(definitions, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListConfigurationTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Attempt to delete one or more client securities. Failed securities will be
-            /// identified in the body of the response.
+            /// Uploads a list of transaction types to be used by the movements engine
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uids'>
+            /// <param name='types'>
             /// </param>
-            public static TryDeleteClientSecuritiesDto BatchDeleteClientSecurities(this ILUSIDAPI operations, IList<string> uids = default(IList<string>))
+            public static ResourceListOfTransactionMetaDataDto SetConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TransactionMetaDataRequest> types = default(IList<TransactionMetaDataRequest>))
             {
-                return operations.BatchDeleteClientSecuritiesAsync(uids).GetAwaiter().GetResult();
+                return operations.SetConfigurationTransactionTypesAsync(types).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Attempt to delete one or more client securities. Failed securities will be
-            /// identified in the body of the response.
+            /// Uploads a list of transaction types to be used by the movements engine
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uids'>
+            /// <param name='types'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryDeleteClientSecuritiesDto> BatchDeleteClientSecuritiesAsync(this ILUSIDAPI operations, IList<string> uids = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTransactionMetaDataDto> SetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TransactionMetaDataRequest> types = default(IList<TransactionMetaDataRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchDeleteClientSecuritiesWithHttpMessagesAsync(uids, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.SetConfigurationTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Get an individual security by the unique security uid.  Optionally,
-            /// decorate each security with specific properties.
+            /// Adds a new transaction type movement to the list of existing types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uid'>
-            /// The uid of the requested security
+            /// <param name='type'>
             /// </param>
-            /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='propertyKeys'>
-            /// Keys of the properties to be retrieved
-            /// </param>
-            public static SecurityDto GetSecurity(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyKeys = default(IList<string>))
+            public static TransactionMetaDataDto CreateConfigurationTransactionType(this ILUSIDAPI operations, TransactionMetaDataRequest type = default(TransactionMetaDataRequest))
             {
-                return operations.GetSecurityAsync(uid, asAt, propertyKeys).GetAwaiter().GetResult();
+                return operations.CreateConfigurationTransactionTypeAsync(type).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Get an individual security by the unique security uid.  Optionally,
-            /// decorate each security with specific properties.
+            /// Adds a new transaction type movement to the list of existing types
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uid'>
-            /// The uid of the requested security
-            /// </param>
-            /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='propertyKeys'>
-            /// Keys of the properties to be retrieved
+            /// <param name='type'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SecurityDto> GetSecurityAsync(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<TransactionMetaDataDto> CreateConfigurationTransactionTypeAsync(this ILUSIDAPI operations, TransactionMetaDataRequest type = default(TransactionMetaDataRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetSecurityWithHttpMessagesAsync(uid, asAt, propertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateConfigurationTransactionTypeWithHttpMessagesAsync(type, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Lookup more than one security by supplying a collection of non-Finbourne
-            /// codes.  Optionally, decorate each security with specific properties.
+            /// Create portfolio
             /// </summary>
+            /// <remarks>
+            /// Creates a new portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// <param name='scope'>
+            /// The intended scope of the portfolio
             /// </param>
-            /// <param name='codes'>
-            /// An array of codes
+            /// <param name='createRequest'>
+            /// The portfolio creation request object
             /// </param>
-            /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='propertyKeys'>
-            /// Keys of the properties to be retrieved
-            /// </param>
-            public static TryLookupSecuritiesFromCodesDto LookupSecuritiesFromCodes(this ILUSIDAPI operations, string codeType, IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyKeys = default(IList<string>))
+            public static PortfolioDto CreatePortfolio(this ILUSIDAPI operations, string scope, CreateTransactionPortfolioRequest createRequest = default(CreateTransactionPortfolioRequest))
             {
-                return operations.LookupSecuritiesFromCodesAsync(codeType, codes, asAt, propertyKeys).GetAwaiter().GetResult();
+                return operations.CreatePortfolioAsync(scope, createRequest).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Lookup more than one security by supplying a collection of non-Finbourne
-            /// codes.  Optionally, decorate each security with specific properties.
+            /// Create portfolio
             /// </summary>
+            /// <remarks>
+            /// Creates a new portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// <param name='scope'>
+            /// The intended scope of the portfolio
             /// </param>
-            /// <param name='codes'>
-            /// An array of codes
-            /// </param>
-            /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='propertyKeys'>
-            /// Keys of the properties to be retrieved
+            /// <param name='createRequest'>
+            /// The portfolio creation request object
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryLookupSecuritiesFromCodesDto> LookupSecuritiesFromCodesAsync(this ILUSIDAPI operations, string codeType, IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioDto> CreatePortfolioAsync(this ILUSIDAPI operations, string scope, CreateTransactionPortfolioRequest createRequest = default(CreateTransactionPortfolioRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.LookupSecuritiesFromCodesWithHttpMessagesAsync(codeType, codes, asAt, propertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreatePortfolioWithHttpMessagesAsync(scope, createRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Lookup a large number of securities by supplying a collection of
-            /// non-Finbourne codes.  Optionally, decorate each security with specific
-            /// properties.
+            /// Get portfolio details
             /// </summary>
+            /// <remarks>
+            /// Gets the details for a portfolio.  For a derived portfolio this can be
+            /// the details of another reference portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
-            /// <param name='codes'>
-            /// An array of codes
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// As at date
+            /// The asAt date to use
             /// </param>
-            /// <param name='propertyKeys'>
-            /// Keys of the properties to be retrieved
-            /// </param>
-            public static TryLookupSecuritiesFromCodesDto LookupSecuritiesFromCodesBulk(this ILUSIDAPI operations, string codeType, IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyKeys = default(IList<string>))
+            public static PortfolioDetailsDto GetDetails(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
-                return operations.LookupSecuritiesFromCodesBulkAsync(codeType, codes, asAt, propertyKeys).GetAwaiter().GetResult();
+                return operations.GetDetailsAsync(scope, code, effectiveAt, asAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Lookup a large number of securities by supplying a collection of
-            /// non-Finbourne codes.  Optionally, decorate each security with specific
-            /// properties.
+            /// Get portfolio details
             /// </summary>
+            /// <remarks>
+            /// Gets the details for a portfolio.  For a derived portfolio this can be
+            /// the details of another reference portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
-            /// <param name='codes'>
-            /// An array of codes
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// As at date
-            /// </param>
-            /// <param name='propertyKeys'>
-            /// Keys of the properties to be retrieved
+            /// The asAt date to use
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryLookupSecuritiesFromCodesDto> LookupSecuritiesFromCodesBulkAsync(this ILUSIDAPI operations, string codeType, IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioDetailsDto> GetDetailsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.LookupSecuritiesFromCodesBulkWithHttpMessagesAsync(codeType, codes, asAt, propertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDetailsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add/update portfolio details
+            /// </summary>
+            /// <remarks>
+            /// Update the portfolio details for the given code or add if it doesn't
+            /// already exist. Updates with
+            /// null values will remove any existing values
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='details'>
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// The effective date of the change
+            /// </param>
+            public static PortfolioDetailsDto UpsertPortfolioDetails(this ILUSIDAPI operations, string scope, string code, PortfolioDetailsRequest details = default(PortfolioDetailsRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            {
+                return operations.UpsertPortfolioDetailsAsync(scope, code, details, effectiveAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add/update portfolio details
+            /// </summary>
+            /// <remarks>
+            /// Update the portfolio details for the given code or add if it doesn't
+            /// already exist. Updates with
+            /// null values will remove any existing values
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='details'>
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// The effective date of the change
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PortfolioDetailsDto> UpsertPortfolioDetailsAsync(this ILUSIDAPI operations, string scope, string code, PortfolioDetailsRequest details = default(PortfolioDetailsRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertPortfolioDetailsWithHttpMessagesAsync(scope, code, details, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get holdings
+            /// </summary>
+            /// <remarks>
+            /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
+            /// are supplied then values will be defaulted to the latest system time.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='asAt'>
+            /// As at date
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='filter'>
+            /// A filter on the results
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys for the instrument properties to be decorated onto the holdings
+            /// </param>
+            public static VersionedResourceListOfHoldingDto GetHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>))
+            {
+                return operations.GetHoldingsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get holdings
+            /// </summary>
+            /// <remarks>
+            /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
+            /// are supplied then values will be defaulted to the latest system time.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='asAt'>
+            /// As at date
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='filter'>
+            /// A filter on the results
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys for the instrument properties to be decorated onto the holdings
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<VersionedResourceListOfHoldingDto> GetHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Adjust holdings
+            /// </summary>
+            /// <remarks>
+            /// Create transactions in a specific portfolio to bring it to the specified
+            /// holdings
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='holdingAdjustments'>
+            /// </param>
+            public static AdjustHoldingsDto SetHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>))
+            {
+                return operations.SetHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Adjust holdings
+            /// </summary>
+            /// <remarks>
+            /// Create transactions in a specific portfolio to bring it to the specified
+            /// holdings
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='holdingAdjustments'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<AdjustHoldingsDto> SetHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.SetHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Adjust holdings
+            /// </summary>
+            /// <remarks>
+            /// Create transactions in a specific portfolio to bring it to the specified
+            /// holdings
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='holdingAdjustments'>
+            /// </param>
+            public static AdjustHoldingsDto AdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>))
+            {
+                return operations.AdjustHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Adjust holdings
+            /// </summary>
+            /// <remarks>
+            /// Create transactions in a specific portfolio to bring it to the specified
+            /// holdings
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='holdingAdjustments'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<AdjustHoldingsDto> AdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, holdingAdjustments, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Cancel adjust-holdings
+            /// </summary>
+            /// <remarks>
+            /// Cancels a previous adjust holdings request
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            public static DeletedEntityResponse CancelAdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt)
+            {
+                return operations.CancelAdjustHoldingsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Cancel adjust-holdings
+            /// </summary>
+            /// <remarks>
+            /// Cancels a previous adjust holdings request
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Effective date
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> CancelAdjustHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CancelAdjustHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets holdings adjustments in an interval of effective time.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            public static HoldingsAdjustmentHeaderDto ListHoldingsAdjustments(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
+            {
+                return operations.ListHoldingsAdjustmentsAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets holdings adjustments in an interval of effective time.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<HoldingsAdjustmentHeaderDto> ListHoldingsAdjustmentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListHoldingsAdjustmentsWithHttpMessagesAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a holdings adjustment for a single portfolio at a specific effective
+            /// time.
+            /// If no adjustment exists at this effective time, not found is returned.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// The effective time of the holdings adjustment.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            public static HoldingsAdjustmentDto GetHoldingsAdjustment(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
+            {
+                return operations.GetHoldingsAdjustmentAsync(scope, code, effectiveAt, asAtTime).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a holdings adjustment for a single portfolio at a specific effective
+            /// time.
+            /// If no adjustment exists at this effective time, not found is returned.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// The effective time of the holdings adjustment.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<HoldingsAdjustmentDto> GetHoldingsAdjustmentAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetHoldingsAdjustmentWithHttpMessagesAsync(scope, code, effectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromTransactionDate'>
+            /// Include transactions with a transaction date equal or later than this date.
+            /// If not supplied, no lower filter is applied
+            /// </param>
+            /// <param name='toTransactionDate'>
+            /// Include transactions with a transaction date equal or before this date. If
+            /// not supplied, no upper filter is applied
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys for the instrument properties to be decorated onto the transactions
+            /// </param>
+            /// <param name='filter'>
+            /// Transaction filter
+            /// </param>
+            public static VersionedResourceListOfTransactionDto GetTransactions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string))
+            {
+                return operations.GetTransactionsAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, sortBy, start, limit, instrumentPropertyKeys, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromTransactionDate'>
+            /// Include transactions with a transaction date equal or later than this date.
+            /// If not supplied, no lower filter is applied
+            /// </param>
+            /// <param name='toTransactionDate'>
+            /// Include transactions with a transaction date equal or before this date. If
+            /// not supplied, no upper filter is applied
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys for the instrument properties to be decorated onto the transactions
+            /// </param>
+            /// <param name='filter'>
+            /// Transaction filter
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<VersionedResourceListOfTransactionDto> GetTransactionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTransactionsWithHttpMessagesAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, sortBy, start, limit, instrumentPropertyKeys, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Upsert transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='transactions'>
+            /// The transactions to be updated
+            /// </param>
+            public static UpsertPortfolioTransactionsDto UpsertTransactions(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>))
+            {
+                return operations.UpsertTransactionsAsync(scope, code, transactions).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Upsert transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='transactions'>
+            /// The transactions to be updated
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UpsertPortfolioTransactionsDto> UpsertTransactionsAsync(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertTransactionsWithHttpMessagesAsync(scope, code, transactions, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete transactions
+            /// </summary>
+            /// <remarks>
+            /// Delete one or more transactions from a portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='id'>
+            /// Ids of transactions to delete
+            /// </param>
+            public static DeletedEntityResponse DeleteTransactions(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>))
+            {
+                return operations.DeleteTransactionsAsync(scope, code, id).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete transactions
+            /// </summary>
+            /// <remarks>
+            /// Delete one or more transactions from a portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='id'>
+            /// Ids of transactions to delete
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> DeleteTransactionsAsync(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteTransactionsWithHttpMessagesAsync(scope, code, id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add/update transaction properties
+            /// </summary>
+            /// <remarks>
+            /// Add one or more properties to a specific transaction in a portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='transactionId'>
+            /// Id of transaction to add properties to
+            /// </param>
+            /// <param name='transactionProperties'>
+            /// Transaction properties to add
+            /// </param>
+            public static AddTransactionPropertyDto AddTransactionProperty(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>))
+            {
+                return operations.AddTransactionPropertyAsync(scope, code, transactionId, transactionProperties).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add/update transaction properties
+            /// </summary>
+            /// <remarks>
+            /// Add one or more properties to a specific transaction in a portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='transactionId'>
+            /// Id of transaction to add properties to
+            /// </param>
+            /// <param name='transactionProperties'>
+            /// Transaction properties to add
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<AddTransactionPropertyDto> AddTransactionPropertyAsync(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddTransactionPropertyWithHttpMessagesAsync(scope, code, transactionId, transactionProperties, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete transaction property
+            /// </summary>
+            /// <remarks>
+            /// Delete a property from a specific transaction
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='transactionId'>
+            /// Id of the transaction to delete the property from
+            /// </param>
+            /// <param name='transactionPropertyKey'>
+            /// The key of the property to be deleted
+            /// </param>
+            public static DeletedEntityResponse DeletePropertyFromTransaction(this ILUSIDAPI operations, string scope, string code, string transactionId, string transactionPropertyKey = default(string))
+            {
+                return operations.DeletePropertyFromTransactionAsync(scope, code, transactionId, transactionPropertyKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete transaction property
+            /// </summary>
+            /// <remarks>
+            /// Delete a property from a specific transaction
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='transactionId'>
+            /// Id of the transaction to delete the property from
+            /// </param>
+            /// <param name='transactionPropertyKey'>
+            /// The key of the property to be deleted
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> DeletePropertyFromTransactionAsync(this ILUSIDAPI operations, string scope, string code, string transactionId, string transactionPropertyKey = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeletePropertyFromTransactionWithHttpMessagesAsync(scope, code, transactionId, transactionPropertyKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys for the instrument properties to be decorated onto the trades
+            /// </param>
+            /// <param name='filter'>
+            /// Trade filter
+            /// </param>
+            /// <param name='parameters'>
+            /// Core query parameters
+            /// </param>
+            public static VersionedResourceListOfOutputTransactionDto BuildTransactions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters))
+            {
+                return operations.BuildTransactionsAsync(scope, code, asAt, sortBy, start, limit, instrumentPropertyKeys, filter, parameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get transactions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='asAt'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// The columns to sort the returned data by
+            /// </param>
+            /// <param name='start'>
+            /// How many items to skip from the returned set
+            /// </param>
+            /// <param name='limit'>
+            /// How many items to return from the set
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Keys for the instrument properties to be decorated onto the trades
+            /// </param>
+            /// <param name='filter'>
+            /// Trade filter
+            /// </param>
+            /// <param name='parameters'>
+            /// Core query parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<VersionedResourceListOfOutputTransactionDto> BuildTransactionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BuildTransactionsWithHttpMessagesAsync(scope, code, asAt, sortBy, start, limit, instrumentPropertyKeys, filter, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

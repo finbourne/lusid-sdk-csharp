@@ -45,12 +45,12 @@ namespace Finbourne.Models
         /// but may include resolved as at time(s).</param>
         /// <param name="count">The total number of records returned in the
         /// set</param>
-        public ResourceListOfScope(IList<string> values = default(IList<string>), string href = default(string), int? count = default(int?), IList<Link> _links = default(IList<Link>))
+        public ResourceListOfScope(IList<string> values = default(IList<string>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
             Values = values;
             Href = href;
             Count = count;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -80,8 +80,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

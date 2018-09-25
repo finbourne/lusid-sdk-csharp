@@ -43,27 +43,27 @@ namespace Finbourne.Models
         /// <param name="valueType">Possible values include: 'String', 'Int',
         /// 'Decimal', 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
-        /// 'StringArray', 'CurrencyAndAmount', 'TradePrice'</param>
+        /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
+        /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
+        /// 'UnitCreation', 'Currency', 'UserId'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
         /// <param name="type">Possible values include: 'Label',
         /// 'Metric'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
-        public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), IList<Link> _links = default(IList<Link>))
+        public PropertyDefinitionDto(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Key = key;
             ValueType = valueType;
             ValueRequired = valueRequired;
             DisplayName = displayName;
-            DataFormatId = dataFormatId;
-            Sort = sort;
+            DataTypeId = dataTypeId;
             LifeTime = lifeTime;
             Type = type;
             UnitSchema = unitSchema;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -86,8 +86,9 @@ namespace Finbourne.Models
         /// Gets or sets possible values include: 'String', 'Int', 'Decimal',
         /// 'DateTime', 'Boolean', 'Map', 'List', 'PropertyArray',
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
-        /// 'ArrayOfTxnAliases', 'ArrayofTxnMovements', 'ArrayofUnits',
-        /// 'StringArray', 'CurrencyAndAmount', 'TradePrice'
+        /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
+        /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
+        /// 'UnitCreation', 'Currency', 'UserId'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
@@ -104,13 +105,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "dataFormatId")]
-        public ResourceId DataFormatId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "sort")]
-        public string Sort { get; set; }
+        [JsonProperty(PropertyName = "dataTypeId")]
+        public ResourceId DataTypeId { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'Perpetual', 'TimeVariant'
@@ -133,8 +129,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

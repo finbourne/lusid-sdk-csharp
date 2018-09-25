@@ -44,12 +44,11 @@ namespace Finbourne.Models
         /// 'TimeVariant'</param>
         /// <param name="type">Possible values include: 'Label',
         /// 'Metric'</param>
-        public UpdatePropertyDefinitionRequest(bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataFormatId = default(ResourceId), string sort = default(string), string lifeTime = default(string), string type = default(string))
+        public UpdatePropertyDefinitionRequest(bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string))
         {
             ValueRequired = valueRequired;
             DisplayName = displayName;
-            DataFormatId = dataFormatId;
-            Sort = sort;
+            DataTypeId = dataTypeId;
             LifeTime = lifeTime;
             Type = type;
             CustomInit();
@@ -72,13 +71,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "dataFormatId")]
-        public ResourceId DataFormatId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "sort")]
-        public string Sort { get; set; }
+        [JsonProperty(PropertyName = "dataTypeId")]
+        public ResourceId DataTypeId { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'Perpetual', 'TimeVariant'

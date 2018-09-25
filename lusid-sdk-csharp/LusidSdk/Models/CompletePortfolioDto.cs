@@ -40,18 +40,22 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CompletePortfolioDto class.
         /// </summary>
-        public CompletePortfolioDto(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string name = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), VersionDto version = default(VersionDto), IList<PropertyDto> properties = default(IList<PropertyDto>), string baseCurrency = default(string), IList<Link> _links = default(IList<Link>))
+        /// <param name="type">Possible values include: 'Transaction',
+        /// 'Reference', 'DerivedTransaction'</param>
+        public CompletePortfolioDto(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), bool? isDerived = default(bool?), string type = default(string), VersionDto version = default(VersionDto), IList<PropertyDto> properties = default(IList<PropertyDto>), string baseCurrency = default(string), IList<Link> links = default(IList<Link>))
         {
             Id = id;
             Href = href;
             Description = description;
-            Name = name;
+            DisplayName = displayName;
             Created = created;
             ParentPortfolioId = parentPortfolioId;
+            IsDerived = isDerived;
+            Type = type;
             Version = version;
             Properties = properties;
             BaseCurrency = baseCurrency;
-            this._links = _links;
+            Links = links;
             CustomInit();
         }
 
@@ -63,32 +67,44 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public ResourceId Id { get; set; }
+        public ResourceId Id { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        public string Href { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        public string Description { get; private set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        public System.DateTimeOffset? Created { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "parentPortfolioId")]
-        public ResourceId ParentPortfolioId { get; set; }
+        public ResourceId ParentPortfolioId { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "isDerived")]
+        public bool? IsDerived { get; private set; }
+
+        /// <summary>
+        /// Gets possible values include: 'Transaction', 'Reference',
+        /// 'DerivedTransaction'
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; private set; }
 
         /// <summary>
         /// </summary>
@@ -107,8 +123,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "_links")]
-        public IList<Link> _links { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

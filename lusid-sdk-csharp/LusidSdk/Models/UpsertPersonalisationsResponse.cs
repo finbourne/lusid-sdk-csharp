@@ -23,6 +23,8 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class UpsertPersonalisationsResponse
@@ -40,9 +42,10 @@ namespace Finbourne.Models
         /// Initializes a new instance of the UpsertPersonalisationsResponse
         /// class.
         /// </summary>
-        public UpsertPersonalisationsResponse(string href = default(string))
+        public UpsertPersonalisationsResponse(string href = default(string), IList<Link> links = default(IList<Link>))
         {
             Href = href;
+            Links = links;
             CustomInit();
         }
 
@@ -55,6 +58,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }
