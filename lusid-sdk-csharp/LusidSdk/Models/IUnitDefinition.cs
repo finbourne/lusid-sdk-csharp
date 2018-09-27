@@ -22,31 +22,30 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class IUnitDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the IUnitDefinition class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public IUnitDefinition()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the IUnitDefinition class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="schema">Possible values include: 'NoUnits', 'Basic',
+        /// 'Iso4217Currency'</param>
+        public IUnitDefinition(string schema = default(string), string code = default(string), string displayName = default(string), string description = default(string))
         {
+            Schema = schema;
+            Code = code;
             DisplayName = displayName;
             Description = description;
-            Code = code;
-            Created = created;
             CustomInit();
         }
 
@@ -56,41 +55,25 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets possible values include: 'NoUnits', 'Basic', 'Iso4217Currency'
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "schema")]
+        public string Schema { get; private set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        public string Code { get; private set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; private set; }
 
         /// <summary>
-        /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; private set; }
+
     }
 }

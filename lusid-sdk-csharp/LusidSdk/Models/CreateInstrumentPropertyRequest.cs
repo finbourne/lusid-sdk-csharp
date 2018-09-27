@@ -22,31 +22,28 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class CreateInstrumentPropertyRequest
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the CreateInstrumentPropertyRequest
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public CreateInstrumentPropertyRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the CreateInstrumentPropertyRequest
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public CreateInstrumentPropertyRequest(string instrumentPropertyKey = default(string), CreatePropertyRequest property = default(CreatePropertyRequest))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            InstrumentPropertyKey = instrumentPropertyKey;
+            Property = property;
             CustomInit();
         }
 
@@ -57,39 +54,25 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "instrumentPropertyKey")]
+        public string InstrumentPropertyKey { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "property")]
+        public CreatePropertyRequest Property { get; set; }
 
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
+        /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
-            if (DisplayName == null)
+            if (Property != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+                Property.Validate();
             }
         }
     }

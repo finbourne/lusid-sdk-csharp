@@ -26,27 +26,25 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class UpdatePortfolioGroupRequest
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the UpdatePortfolioGroupRequest
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public UpdatePortfolioGroupRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the UpdatePortfolioGroupRequest
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public UpdatePortfolioGroupRequest(string displayName, string description = default(string))
         {
             DisplayName = displayName;
             Description = description;
-            Code = code;
-            Created = created;
             CustomInit();
         }
 
@@ -66,16 +64,6 @@ namespace Finbourne.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -86,10 +74,6 @@ namespace Finbourne.Models
             if (DisplayName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
             }
         }
     }

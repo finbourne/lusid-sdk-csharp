@@ -22,31 +22,31 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class InstrumentAnalytic
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the InstrumentAnalytic class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public InstrumentAnalytic()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the InstrumentAnalytic class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="instrumentUid">Unique instrument identifier</param>
+        /// <param name="value">Value of the analytic, eg price</param>
+        /// <param name="denomination">Underlying unit of the analytic, eg
+        /// currency, EPS etc.</param>
+        public InstrumentAnalytic(string instrumentUid = default(string), double? value = default(double?), string denomination = default(string))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            InstrumentUid = instrumentUid;
+            Value = value;
+            Denomination = denomination;
             CustomInit();
         }
 
@@ -56,41 +56,22 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
+        /// Gets or sets value of the analytic, eg price
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "value")]
+        public double? Value { get; set; }
 
         /// <summary>
+        /// Gets or sets underlying unit of the analytic, eg currency, EPS etc.
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "denomination")]
+        public string Denomination { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
-
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
     }
 }

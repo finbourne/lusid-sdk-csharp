@@ -106,7 +106,7 @@ namespace LusidSdk.Tests
             Assert.That(schema, Is.Not.Null);
             Assert.That(schema.Values, Is.Not.Empty);
 
-            var fields = typeof(PortfolioDto).GetProperties().Select(p => p.Name).ToImmutableHashSet();
+            var fields = typeof(Portfolio).GetProperties().Select(p => p.Name).ToImmutableHashSet();
             foreach (var fieldSchema in schema.Values)
             {
                 Assert.That(fields, Does.Contain(fieldSchema.Value.DisplayName));
@@ -326,7 +326,7 @@ namespace LusidSdk.Tests
             //
             //    local functions
 
-            void PrintTransactions(IEnumerable<TransactionDto> tradeList)
+            void PrintTransactions(IEnumerable<Transaction> tradeList)
             {
                 foreach (var transaction in tradeList)
                 {
@@ -392,9 +392,9 @@ namespace LusidSdk.Tests
                         
             var prices = new[]
             {
-                new InstrumentAnalyticDataDto(_instrumentIds[0], 100), 
-                new InstrumentAnalyticDataDto(_instrumentIds[1], 200),
-                new InstrumentAnalyticDataDto(_instrumentIds[2], 300),
+                new InstrumentAnalytic(_instrumentIds[0], 100), 
+                new InstrumentAnalytic(_instrumentIds[1], 200),
+                new InstrumentAnalytic(_instrumentIds[2], 300),
             };
             
             //    add prices
@@ -548,7 +548,7 @@ namespace LusidSdk.Tests
             Assert.AreEqual(map[_instrumentIds[2]].UnitsDifference, 1200);
             Assert.AreEqual(map[_instrumentIds[1]].UnitsDifference, 1000);
             
-            void PrintBreaks(IEnumerable<ReconciliationBreakDto> breaks)
+            void PrintBreaks(IEnumerable<ReconciliationBreak> breaks)
             {
                 foreach (var abreak in breaks)
                 {

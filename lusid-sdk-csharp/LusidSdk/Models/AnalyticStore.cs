@@ -22,31 +22,29 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class AnalyticStore
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the AnalyticStore class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public AnalyticStore()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the AnalyticStore class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public AnalyticStore(AnalyticStoreKey key = default(AnalyticStoreKey), string href = default(string), IList<Link> links = default(IList<Link>))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            Key = key;
+            Href = href;
+            Links = links;
             CustomInit();
         }
 
@@ -57,40 +55,18 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "key")]
+        public AnalyticStoreKey Key { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
-
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
     }
 }

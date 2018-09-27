@@ -22,31 +22,31 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class NestedAggregationResponse
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the NestedAggregationResponse class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public NestedAggregationResponse()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the NestedAggregationResponse class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public NestedAggregationResponse(string href = default(string), AggregationResponseNode data = default(AggregationResponseNode), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), IList<Link> links = default(IList<Link>))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            Href = href;
+            Data = data;
+            AggregationCurrency = aggregationCurrency;
+            DataSchema = dataSchema;
+            Links = links;
             CustomInit();
         }
 
@@ -57,40 +57,28 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "data")]
+        public AggregationResponseNode Data { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "aggregationCurrency")]
+        public string AggregationCurrency { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "dataSchema")]
+        public ResultDataSchema DataSchema { get; set; }
 
         /// <summary>
-        /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
+
     }
 }

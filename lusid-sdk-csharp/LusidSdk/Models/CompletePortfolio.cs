@@ -27,32 +27,34 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class PortfolioSearchResult
+    public partial class CompletePortfolio
     {
         /// <summary>
-        /// Initializes a new instance of the PortfolioSearchResult class.
+        /// Initializes a new instance of the CompletePortfolio class.
         /// </summary>
-        public PortfolioSearchResult()
+        public CompletePortfolio()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PortfolioSearchResult class.
+        /// Initializes a new instance of the CompletePortfolio class.
         /// </summary>
         /// <param name="type">Possible values include: 'Transaction',
         /// 'Reference', 'DerivedTransaction'</param>
-        public PortfolioSearchResult(ResourceId id = default(ResourceId), string type = default(string), string href = default(string), string description = default(string), string displayName = default(string), bool? isDerived = default(bool?), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), IList<Property> properties = default(IList<Property>), IList<Link> links = default(IList<Link>))
+        public CompletePortfolio(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), bool? isDerived = default(bool?), string type = default(string), Version version = default(Version), IList<Property> properties = default(IList<Property>), string baseCurrency = default(string), IList<Link> links = default(IList<Link>))
         {
             Id = id;
-            Type = type;
             Href = href;
             Description = description;
             DisplayName = displayName;
-            IsDerived = isDerived;
             Created = created;
             ParentPortfolioId = parentPortfolioId;
+            IsDerived = isDerived;
+            Type = type;
+            Version = version;
             Properties = properties;
+            BaseCurrency = baseCurrency;
             Links = links;
             CustomInit();
         }
@@ -66,13 +68,6 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public ResourceId Id { get; private set; }
-
-        /// <summary>
-        /// Gets possible values include: 'Transaction', 'Reference',
-        /// 'DerivedTransaction'
-        /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; private set; }
 
         /// <summary>
         /// </summary>
@@ -91,11 +86,6 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isDerived")]
-        public bool? IsDerived { get; private set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "created")]
         public System.DateTimeOffset? Created { get; private set; }
 
@@ -106,8 +96,30 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "isDerived")]
+        public bool? IsDerived { get; private set; }
+
+        /// <summary>
+        /// Gets possible values include: 'Transaction', 'Reference',
+        /// 'DerivedTransaction'
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<Property> Properties { get; private set; }
+        public IList<Property> Properties { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "baseCurrency")]
+        public string BaseCurrency { get; set; }
 
         /// <summary>
         /// </summary>

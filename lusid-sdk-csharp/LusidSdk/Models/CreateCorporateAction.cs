@@ -24,29 +24,31 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class CreateCorporateAction
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the CreateCorporateAction class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public CreateCorporateAction()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the CreateCorporateAction class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public CreateCorporateAction(string corporateActionCode, IList<CorporateActionTransition> transitions, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            CorporateActionCode = corporateActionCode;
+            AnnouncementDate = announcementDate;
+            ExDate = exDate;
+            RecordDate = recordDate;
+            PaymentDate = paymentDate;
+            Transitions = transitions;
             CustomInit();
         }
 
@@ -57,23 +59,33 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "corporateActionCode")]
+        public string CorporateActionCode { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "announcementDate")]
+        public System.DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "exDate")]
+        public System.DateTimeOffset? ExDate { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "recordDate")]
+        public System.DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "paymentDate")]
+        public System.DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "transitions")]
+        public IList<CorporateActionTransition> Transitions { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -83,13 +95,13 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (DisplayName == null)
+            if (CorporateActionCode == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "CorporateActionCode");
             }
-            if (Code == null)
+            if (Transitions == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Transitions");
             }
         }
     }

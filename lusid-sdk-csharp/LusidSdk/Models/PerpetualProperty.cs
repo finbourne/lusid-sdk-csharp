@@ -26,27 +26,28 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    /// <summary>
+    /// This is intended to be the external facing unitemporal property
+    /// specification data type.
+    /// </summary>
+    public partial class PerpetualProperty
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the PerpetualProperty class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public PerpetualProperty()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the PerpetualProperty class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public PerpetualProperty(string key, object value, string unit = default(string))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            Key = key;
+            Value = value;
+            Unit = unit;
             CustomInit();
         }
 
@@ -57,23 +58,18 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "key")]
+        public string Key { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "value")]
+        public object Value { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "unit")]
+        public string Unit { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -83,13 +79,13 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (DisplayName == null)
+            if (Key == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Key");
             }
-            if (Code == null)
+            if (Value == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Value");
             }
         }
     }

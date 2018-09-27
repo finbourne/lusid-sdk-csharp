@@ -27,32 +27,28 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class PortfolioSearchResult
+    public partial class Instrument
     {
         /// <summary>
-        /// Initializes a new instance of the PortfolioSearchResult class.
+        /// Initializes a new instance of the Instrument class.
         /// </summary>
-        public PortfolioSearchResult()
+        public Instrument()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PortfolioSearchResult class.
+        /// Initializes a new instance of the Instrument class.
         /// </summary>
-        /// <param name="type">Possible values include: 'Transaction',
-        /// 'Reference', 'DerivedTransaction'</param>
-        public PortfolioSearchResult(ResourceId id = default(ResourceId), string type = default(string), string href = default(string), string description = default(string), string displayName = default(string), bool? isDerived = default(bool?), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), IList<Property> properties = default(IList<Property>), IList<Link> links = default(IList<Link>))
+        public Instrument(string href = default(string), string uid = default(string), Version version = default(Version), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), string marketIdentifierCode = default(string), IList<Link> links = default(IList<Link>))
         {
-            Id = id;
-            Type = type;
             Href = href;
-            Description = description;
-            DisplayName = displayName;
-            IsDerived = isDerived;
-            Created = created;
-            ParentPortfolioId = parentPortfolioId;
+            Uid = uid;
+            Version = version;
+            CommonName = commonName;
+            Aliases = aliases;
             Properties = properties;
+            MarketIdentifierCode = marketIdentifierCode;
             Links = links;
             CustomInit();
         }
@@ -64,50 +60,38 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public ResourceId Id { get; private set; }
-
-        /// <summary>
-        /// Gets possible values include: 'Transaction', 'Reference',
-        /// 'DerivedTransaction'
-        /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; private set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "href")]
-        public string Href { get; private set; }
+        public string Href { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; private set; }
+        [JsonProperty(PropertyName = "uid")]
+        public string Uid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; private set; }
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "isDerived")]
-        public bool? IsDerived { get; private set; }
+        [JsonProperty(PropertyName = "commonName")]
+        public string CommonName { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; private set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "parentPortfolioId")]
-        public ResourceId ParentPortfolioId { get; private set; }
+        [JsonProperty(PropertyName = "aliases")]
+        public IDictionary<string, string> Aliases { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<Property> Properties { get; private set; }
+        public IList<Property> Properties { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "marketIdentifierCode")]
+        public string MarketIdentifierCode { get; set; }
 
         /// <summary>
         /// </summary>

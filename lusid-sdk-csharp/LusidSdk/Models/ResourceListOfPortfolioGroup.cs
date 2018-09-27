@@ -22,31 +22,37 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class ResourceListOfPortfolioGroup
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the ResourceListOfPortfolioGroup
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public ResourceListOfPortfolioGroup()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the ResourceListOfPortfolioGroup
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="href">The Uri that returns the same result as the
+        /// original request,
+        /// but may include resolved as at time(s).</param>
+        /// <param name="count">The total number of records returned in the
+        /// set</param>
+        public ResourceListOfPortfolioGroup(IList<PortfolioGroup> values = default(IList<PortfolioGroup>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            Values = values;
+            Href = href;
+            Count = count;
+            Links = links;
             CustomInit();
         }
 
@@ -57,40 +63,27 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "values")]
+        public IList<PortfolioGroup> Values { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Uri that returns the same result as the original
+        /// request,
+        /// but may include resolved as at time(s).
+        /// </summary>
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total number of records returned in the set
+        /// </summary>
+        [JsonProperty(PropertyName = "count")]
+        public int? Count { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
-
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
     }
 }

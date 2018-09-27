@@ -22,31 +22,34 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class ReferencePortfolioConstituent
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the ReferencePortfolioConstituent
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public ReferencePortfolioConstituent()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
+        /// Initializes a new instance of the ReferencePortfolioConstituent
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="type">Possible values include: 'Shares', 'Weight',
+        /// 'Nominal'</param>
+        public ReferencePortfolioConstituent(string instrumentUid = default(string), IList<Property> properties = default(IList<Property>), double? weight = default(double?), string type = default(string))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            InstrumentUid = instrumentUid;
+            Properties = properties;
+            Weight = weight;
+            Type = type;
             CustomInit();
         }
 
@@ -57,40 +60,24 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "properties")]
+        public IList<Property> Properties { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "weight")]
+        public double? Weight { get; set; }
 
         /// <summary>
+        /// Gets or sets possible values include: 'Shares', 'Weight', 'Nominal'
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
     }
 }

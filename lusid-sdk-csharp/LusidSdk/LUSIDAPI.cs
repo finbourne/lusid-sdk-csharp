@@ -696,7 +696,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfAnalyticStoreKeyDto>> ListAnalyticStoresWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfAnalyticStoreKey>> ListAnalyticStoresWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -723,17 +723,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -823,7 +813,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfAnalyticStoreKeyDto>();
+            var _result = new HttpOperationResponse<ResourceListOfAnalyticStoreKey>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -832,7 +822,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfAnalyticStoreKeyDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfAnalyticStoreKey>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -872,7 +862,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AnalyticStoreDto>> CreateAnalyticStoreWithHttpMessagesAsync(CreateAnalyticStoreRequest request = default(CreateAnalyticStoreRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AnalyticStore>> CreateAnalyticStoreWithHttpMessagesAsync(CreateAnalyticStoreRequest request = default(CreateAnalyticStoreRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -966,7 +956,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<AnalyticStoreDto>();
+            var _result = new HttpOperationResponse<AnalyticStore>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -975,7 +965,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AnalyticStoreDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<AnalyticStore>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1033,7 +1023,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AnalyticStoreDto>> GetAnalyticStoreWithHttpMessagesAsync(string scope, int year, int month, int day, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AnalyticStore>> GetAnalyticStoreWithHttpMessagesAsync(string scope, int year, int month, int day, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1142,7 +1132,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<AnalyticStoreDto>();
+            var _result = new HttpOperationResponse<AnalyticStore>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1151,7 +1141,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AnalyticStoreDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<AnalyticStore>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1372,7 +1362,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AnalyticStoreDto>> InsertAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<InstrumentAnalyticDataDto> data = default(IList<InstrumentAnalyticDataDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AnalyticStore>> InsertAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<InstrumentAnalytic> data = default(IList<InstrumentAnalytic>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1478,7 +1468,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<AnalyticStoreDto>();
+            var _result = new HttpOperationResponse<AnalyticStore>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1487,7 +1477,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AnalyticStoreDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<AnalyticStore>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1550,7 +1540,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<CorporateActionEventDto>>> GetCorporateActionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<CorporateAction>>> GetCorporateActionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1594,17 +1584,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -1694,7 +1674,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IList<CorporateActionEventDto>>();
+            var _result = new HttpOperationResponse<IList<CorporateAction>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1703,7 +1683,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IList<CorporateActionEventDto>>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IList<CorporateAction>>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1756,7 +1736,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TryUpsertCorporateActionsDto>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string code, IList<UpsertCorporateActionRequest> actions = default(IList<UpsertCorporateActionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsWithHttpMessagesAsync(string scope, string code, IList<CreateCorporateAction> actions = default(IList<CreateCorporateAction>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1872,7 +1852,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TryUpsertCorporateActionsDto>();
+            var _result = new HttpOperationResponse<UpsertCorporateActionsResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1881,7 +1861,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TryUpsertCorporateActionsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertCorporateActionsResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1922,7 +1902,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DataTypeDto>> CreateDataTypeWithHttpMessagesAsync(CreateDataTypeRequest request = default(CreateDataTypeRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DataType>> CreateDataTypeWithHttpMessagesAsync(CreateDataTypeRequest request = default(CreateDataTypeRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (request != null)
             {
@@ -2020,7 +2000,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<DataTypeDto>();
+            var _result = new HttpOperationResponse<DataType>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2029,7 +2009,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<DataTypeDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<DataType>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -2086,7 +2066,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfDataTypeDto>> ListDataTypesWithHttpMessagesAsync(string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfDataType>> ListDataTypesWithHttpMessagesAsync(string scope, bool? includeDefault = default(bool?), bool? includeSystem = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2124,17 +2104,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -2224,7 +2194,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfDataTypeDto>();
+            var _result = new HttpOperationResponse<ResourceListOfDataType>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2233,7 +2203,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfDataTypeDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfDataType>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -2280,7 +2250,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DataTypeDto>> GetDataTypeWithHttpMessagesAsync(string scope, string name, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DataType>> GetDataTypeWithHttpMessagesAsync(string scope, string name, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2379,7 +2349,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<DataTypeDto>();
+            var _result = new HttpOperationResponse<DataType>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2388,7 +2358,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<DataTypeDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<DataType>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -2440,7 +2410,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DataTypeDto>> UpdateDataTypeWithHttpMessagesAsync(string scope, string name, UpdateDataTypeRequest request = default(UpdateDataTypeRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DataType>> UpdateDataTypeWithHttpMessagesAsync(string scope, string name, UpdateDataTypeRequest request = default(UpdateDataTypeRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2550,7 +2520,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<DataTypeDto>();
+            var _result = new HttpOperationResponse<DataType>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2559,7 +2529,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<DataTypeDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<DataType>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -2610,7 +2580,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string name, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IUnitDefinition>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string name, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2642,17 +2612,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (units != null)
             {
-                if (units.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("units={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in units)
-                    {
-                        _queryParameters.Add(string.Format("units={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("units={0}", System.Uri.EscapeDataString(string.Join(",", units))));
             }
             if (filter != null)
             {
@@ -2734,7 +2694,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IUnitDefinitionDto>();
+            var _result = new HttpOperationResponse<IUnitDefinition>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2743,7 +2703,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IUnitDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IUnitDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -2796,7 +2756,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDto>> CreateDerivedPortfolioWithHttpMessagesAsync(string scope, CreateDerivedTransactionPortfolioRequest portfolio = default(CreateDerivedTransactionPortfolioRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Portfolio>> CreateDerivedPortfolioWithHttpMessagesAsync(string scope, CreateDerivedTransactionPortfolioRequest portfolio = default(CreateDerivedTransactionPortfolioRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2900,7 +2860,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDto>();
+            var _result = new HttpOperationResponse<Portfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2909,7 +2869,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Portfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3129,7 +3089,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPortfolioGroupDto>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3152,17 +3112,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -3258,7 +3208,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPortfolioGroupDto>();
+            var _result = new HttpOperationResponse<ResourceListOfPortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -3267,7 +3217,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3307,7 +3257,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TryAddClientInstrumentsDto>> BatchAddClientInstrumentsWithHttpMessagesAsync(IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<TryAddClientInstruments>> BatchAddClientInstrumentsWithHttpMessagesAsync(IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (definitions != null)
             {
@@ -3411,7 +3361,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TryAddClientInstrumentsDto>();
+            var _result = new HttpOperationResponse<TryAddClientInstruments>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -3420,7 +3370,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TryAddClientInstrumentsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<TryAddClientInstruments>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3460,7 +3410,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TryDeleteClientInstrumentsDto>> BatchDeleteClientInstrumentsWithHttpMessagesAsync(IList<string> uids = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DeleteClientInstrumentsResponse>> BatchDeleteClientInstrumentsWithHttpMessagesAsync(IList<string> uids = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3479,17 +3429,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (uids != null)
             {
-                if (uids.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in uids)
-                    {
-                        _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Join(",", uids))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -3567,7 +3507,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TryDeleteClientInstrumentsDto>();
+            var _result = new HttpOperationResponse<DeleteClientInstrumentsResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -3576,7 +3516,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TryDeleteClientInstrumentsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<DeleteClientInstrumentsResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3629,7 +3569,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<InstrumentDto>> GetInstrumentWithHttpMessagesAsync(string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (uid == null)
             {
@@ -3659,17 +3599,7 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                if (instrumentPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in instrumentPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -3747,7 +3677,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<InstrumentDto>();
+            var _result = new HttpOperationResponse<Instrument>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -3756,7 +3686,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<InstrumentDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Instrument>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3809,7 +3739,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TryLookupInstrumentsFromCodesDto>> LookupInstrumentsFromCodesWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<LookupInstrumentsFromCodesResponse>> LookupInstrumentsFromCodesWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3839,17 +3769,7 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                if (instrumentPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in instrumentPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -3933,7 +3853,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TryLookupInstrumentsFromCodesDto>();
+            var _result = new HttpOperationResponse<LookupInstrumentsFromCodesResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -3942,7 +3862,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TryLookupInstrumentsFromCodesDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<LookupInstrumentsFromCodesResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -3981,7 +3901,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertInstrumentPropertiesDto>> BatchUpsertClassificationsWithHttpMessagesAsync(IList<InstrumentPropertyDto> classifications = default(IList<InstrumentPropertyDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> classifications = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3992,7 +3912,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("classifications", classifications);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "BatchUpsertClassifications", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "BatchUpsertInstrumentProperties", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -4075,7 +3995,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<UpsertInstrumentPropertiesDto>();
+            var _result = new HttpOperationResponse<UpsertInstrumentPropertiesResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4084,7 +4004,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertInstrumentPropertiesDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertInstrumentPropertiesResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4415,7 +4335,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionSummaryDto>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionSummary>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4502,7 +4422,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<VersionSummaryDto>();
+            var _result = new HttpOperationResponse<VersionSummary>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4511,7 +4431,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<VersionSummaryDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<VersionSummary>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4568,7 +4488,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPersonalisationDto>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPersonalisation>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4609,17 +4529,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -4705,7 +4615,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPersonalisationDto>();
+            var _result = new HttpOperationResponse<ResourceListOfPersonalisation>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4714,7 +4624,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPersonalisationDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPersonalisation>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4753,7 +4663,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertPersonalisationsResponse>> UpsertPersonalisationsWithHttpMessagesAsync(IList<PersonalisationDto> personalisations = default(IList<PersonalisationDto>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertPersonalisationResponse>> UpsertPersonalisationsWithHttpMessagesAsync(IList<Personalisation> personalisations = default(IList<Personalisation>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4847,7 +4757,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<UpsertPersonalisationsResponse>();
+            var _result = new HttpOperationResponse<UpsertPersonalisationResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4856,7 +4766,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertPersonalisationsResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertPersonalisationResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -5076,7 +4986,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPortfolioGroupDto>> ListPortfolioGroupsWithHttpMessagesAsync(string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPortfolioGroup>> ListPortfolioGroupsWithHttpMessagesAsync(string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -5109,17 +5019,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -5209,7 +5109,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPortfolioGroupDto>();
+            var _result = new HttpOperationResponse<ResourceListOfPortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -5218,7 +5118,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -5265,7 +5165,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> CreatePortfolioGroupWithHttpMessagesAsync(string scope, CreateGroupRequest request = default(CreateGroupRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> CreatePortfolioGroupWithHttpMessagesAsync(string scope, CreatePortfolioGroupRequest request = default(CreatePortfolioGroupRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -5369,7 +5269,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -5378,7 +5278,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -5427,7 +5327,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> GetPortfolioGroupWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> GetPortfolioGroupWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -5536,7 +5436,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -5545,7 +5445,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -5594,7 +5494,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> UpdatePortfolioGroupWithHttpMessagesAsync(string scope, string code, UpdateGroupRequest request = default(UpdateGroupRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> UpdatePortfolioGroupWithHttpMessagesAsync(string scope, string code, UpdatePortfolioGroupRequest request = default(UpdatePortfolioGroupRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -5704,7 +5604,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -5713,7 +5613,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -5961,17 +5861,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -6092,6 +5982,174 @@ namespace Finbourne
         }
 
         /// <summary>
+        /// Obsolete - Aggregation request data in a group hierarchy into a data tree
+        /// </summary>
+        /// <param name='scope'>
+        /// </param>
+        /// <param name='code'>
+        /// </param>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<NestedAggregationResponse>> GetNestedAggregationByGroupWithHttpMessagesAsync(string scope, string code, AggregationRequest request = default(AggregationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (scope == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "scope");
+            }
+            if (code == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
+            }
+            if (request != null)
+            {
+                request.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("scope", scope);
+                tracingParameters.Add("code", code);
+                tracingParameters.Add("request", request);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetNestedAggregationByGroup", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/portfoliogroups/{scope}/{code}/$aggregatenested").ToString();
+            _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(request != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                try
+                {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                    if (_errorBody != null)
+                    {
+                        ex.Body = _errorBody;
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Ignore the exception
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<NestedAggregationResponse>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<NestedAggregationResponse>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
         /// Gets all commands that modified the portfolio groups(s) with the specified
         /// id.
         /// </summary>
@@ -6139,7 +6197,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfProcessedCommandDto>> GetPortfolioGroupCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfProcessedCommand>> GetPortfolioGroupCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6283,7 +6341,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfProcessedCommandDto>();
+            var _result = new HttpOperationResponse<ResourceListOfProcessedCommand>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6292,7 +6350,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfProcessedCommandDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfProcessedCommand>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -6345,7 +6403,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ExpandedGroupDto>> GetPortfolioGroupExpansionWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ExpandedGroup>> GetPortfolioGroupExpansionWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> propertyFilter = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6386,17 +6444,7 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                if (propertyFilter.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyFilter)
-                    {
-                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -6474,7 +6522,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ExpandedGroupDto>();
+            var _result = new HttpOperationResponse<ExpandedGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6483,7 +6531,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ExpandedGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ExpandedGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -6532,7 +6580,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> AddPortfolioToGroupWithHttpMessagesAsync(string scope, string code, ResourceId identifier = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> AddPortfolioToGroupWithHttpMessagesAsync(string scope, string code, ResourceId identifier = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6638,7 +6686,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6647,7 +6695,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -6698,7 +6746,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> DeletePortfolioFromGroupWithHttpMessagesAsync(string scope, string code, string portfolioScope, string portfolioCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> DeletePortfolioFromGroupWithHttpMessagesAsync(string scope, string code, string portfolioScope, string portfolioCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6809,7 +6857,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6818,7 +6866,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -6867,7 +6915,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> AddSubGroupToGroupWithHttpMessagesAsync(string scope, string code, ResourceId identifier = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> AddSubGroupToGroupWithHttpMessagesAsync(string scope, string code, ResourceId identifier = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6973,7 +7021,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6982,7 +7030,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -7033,7 +7081,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroupDto>> DeleteSubGroupFromGroupWithHttpMessagesAsync(string scope, string code, string subgroupScope, string subgroupCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> DeleteSubGroupFromGroupWithHttpMessagesAsync(string scope, string code, string subgroupScope, string subgroupCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -7144,7 +7192,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioGroupDto>();
+            var _result = new HttpOperationResponse<PortfolioGroup>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -7153,7 +7201,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroupDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioGroup>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -7402,7 +7450,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPortfolioDto>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -7440,17 +7488,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -7540,7 +7578,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPortfolioDto>();
+            var _result = new HttpOperationResponse<ResourceListOfPortfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -7549,7 +7587,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -7607,7 +7645,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDto>> GetPortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Portfolio>> GetPortfolioWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -7721,7 +7759,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDto>();
+            var _result = new HttpOperationResponse<Portfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -7730,7 +7768,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Portfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -7785,7 +7823,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDto>> UpdatePortfolioWithHttpMessagesAsync(string scope, string code, UpdatePortfolioRequest request = default(UpdatePortfolioRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Portfolio>> UpdatePortfolioWithHttpMessagesAsync(string scope, string code, UpdatePortfolioRequest request = default(UpdatePortfolioRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -7905,7 +7943,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDto>();
+            var _result = new HttpOperationResponse<Portfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -7914,7 +7952,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Portfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -8180,17 +8218,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -8354,7 +8382,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfProcessedCommandDto>> GetPortfolioCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfProcessedCommand>> GetPortfolioCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -8473,7 +8501,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfProcessedCommandDto>();
+            var _result = new HttpOperationResponse<ResourceListOfProcessedCommand>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -8482,7 +8510,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfProcessedCommandDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfProcessedCommand>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -8549,7 +8577,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioPropertiesDto>> GetPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioProperties>> GetPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -8592,17 +8620,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -8688,7 +8706,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioPropertiesDto>();
+            var _result = new HttpOperationResponse<PortfolioProperties>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -8697,7 +8715,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioPropertiesDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioProperties>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -8754,7 +8772,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioPropertiesDto>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -8880,7 +8898,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioPropertiesDto>();
+            var _result = new HttpOperationResponse<PortfolioProperties>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -8889,7 +8907,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioPropertiesDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioProperties>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -8985,17 +9003,7 @@ namespace Finbourne
             }
             if (portfolioPropertyKeys != null)
             {
-                if (portfolioPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("portfolioPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in portfolioPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("portfolioPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("portfolioPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", portfolioPropertyKeys))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -9152,17 +9160,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -9314,7 +9312,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinitionDto>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9337,17 +9335,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -9443,7 +9431,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPropertyDefinitionDto>();
+            var _result = new HttpOperationResponse<ResourceListOfPropertyDefinition>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -9452,7 +9440,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPropertyDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPropertyDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -9501,7 +9489,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinitionDto>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9525,17 +9513,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (keys != null)
             {
-                if (keys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in keys)
-                    {
-                        _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Join(",", keys))));
             }
             if (asAt != null)
             {
@@ -9543,17 +9521,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -9643,7 +9611,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPropertyDefinitionDto>();
+            var _result = new HttpOperationResponse<ResourceListOfPropertyDefinition>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -9652,7 +9620,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPropertyDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPropertyDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -9691,7 +9659,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PropertyDefinitionDto>> CreatePropertyDefinitionWithHttpMessagesAsync(CreatePropertyDefinitionRequest definition = default(CreatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PropertyDefinition>> CreatePropertyDefinitionWithHttpMessagesAsync(CreatePropertyDefinitionRequest definition = default(CreatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9785,7 +9753,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PropertyDefinitionDto>();
+            var _result = new HttpOperationResponse<PropertyDefinition>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -9794,7 +9762,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PropertyDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PropertyDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -9847,7 +9815,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PropertyDefinitionDto>> GetPropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -9962,7 +9930,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PropertyDefinitionDto>();
+            var _result = new HttpOperationResponse<PropertyDefinition>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -9971,7 +9939,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PropertyDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PropertyDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -10024,7 +9992,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PropertyDefinitionDto>> UpdatePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -10136,7 +10104,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PropertyDefinitionDto>();
+            var _result = new HttpOperationResponse<PropertyDefinition>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -10145,7 +10113,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PropertyDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PropertyDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -10349,7 +10317,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfReconciliationBreakDto>> PerformReconciliationWithHttpMessagesAsync(ReconciliationRequest request = default(ReconciliationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfReconciliationBreak>> PerformReconciliationWithHttpMessagesAsync(ReconciliationRequest request = default(ReconciliationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -10443,7 +10411,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfReconciliationBreakDto>();
+            var _result = new HttpOperationResponse<ResourceListOfReconciliationBreak>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -10452,7 +10420,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfReconciliationBreakDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfReconciliationBreak>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -10501,7 +10469,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDto>> CreateReferencePortfolioWithHttpMessagesAsync(string scope, CreateReferencePortfolioRequest referencePortfolio = default(CreateReferencePortfolioRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Portfolio>> CreateReferencePortfolioWithHttpMessagesAsync(string scope, CreateReferencePortfolioRequest referencePortfolio = default(CreateReferencePortfolioRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -10605,7 +10573,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDto>();
+            var _result = new HttpOperationResponse<Portfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -10614,7 +10582,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Portfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -10671,7 +10639,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -10711,17 +10679,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -10807,7 +10765,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfReferencePortfolioConstituentDto>();
+            var _result = new HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -10816,7 +10774,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfReferencePortfolioConstituentDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfReferencePortfolioConstituent>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -10867,7 +10825,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsDto>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -10975,7 +10933,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<UpsertReferencePortfolioConstituentsDto>();
+            var _result = new HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -10984,7 +10942,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertReferencePortfolioConstituentsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertReferencePortfolioConstituentsResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -11044,7 +11002,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResultsDto>> GetResultsWithHttpMessagesAsync(string scope, string key, System.DateTimeOffset date, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Results>> GetResultsWithHttpMessagesAsync(string scope, string key, System.DateTimeOffset date, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -11084,17 +11042,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -11180,7 +11128,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResultsDto>();
+            var _result = new HttpOperationResponse<Results>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -11189,7 +11137,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResultsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Results>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -11244,7 +11192,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResultsDto>> UpsertResultsWithHttpMessagesAsync(string scope, string key, System.DateTimeOffset date, CreateResultsRequest request = default(CreateResultsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Results>> UpsertResultsWithHttpMessagesAsync(string scope, string key, System.DateTimeOffset date, CreateResults request = default(CreateResults), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -11352,7 +11300,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResultsDto>();
+            var _result = new HttpOperationResponse<Results>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -11361,7 +11309,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResultsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Results>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -11454,17 +11402,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -11743,7 +11681,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SchemaDto>> GetEntitySchemaWithHttpMessagesAsync(string entity, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Schema>> GetEntitySchemaWithHttpMessagesAsync(string entity, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (entity == null)
             {
@@ -11836,7 +11774,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<SchemaDto>();
+            var _result = new HttpOperationResponse<Schema>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -11845,7 +11783,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<SchemaDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Schema>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -11888,7 +11826,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PropertySchemaDto>> GetPropertySchemaWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PropertySchema>> GetPropertySchemaWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -11908,17 +11846,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (propertyKeys != null)
             {
-                if (propertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in propertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
             }
             if (asAt != null)
             {
@@ -12000,7 +11928,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PropertySchemaDto>();
+            var _result = new HttpOperationResponse<PropertySchema>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12009,7 +11937,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PropertySchemaDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PropertySchema>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -12073,17 +12001,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -12215,7 +12133,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfTransactionMetaDataDto>> ListConfigurationTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfTransactionMetaData>> ListConfigurationTransactionTypesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -12302,7 +12220,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfTransactionMetaDataDto>();
+            var _result = new HttpOperationResponse<ResourceListOfTransactionMetaData>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12311,7 +12229,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfTransactionMetaDataDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfTransactionMetaData>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -12350,7 +12268,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfTransactionMetaDataDto>> SetConfigurationTransactionTypesWithHttpMessagesAsync(IList<TransactionMetaDataRequest> types = default(IList<TransactionMetaDataRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfTransactionMetaData>> SetConfigurationTransactionTypesWithHttpMessagesAsync(IList<TransactionConfigurationDataRequest> types = default(IList<TransactionConfigurationDataRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (types != null)
             {
@@ -12454,7 +12372,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfTransactionMetaDataDto>();
+            var _result = new HttpOperationResponse<ResourceListOfTransactionMetaData>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12463,7 +12381,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfTransactionMetaDataDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfTransactionMetaData>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -12502,7 +12420,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TransactionMetaDataDto>> CreateConfigurationTransactionTypeWithHttpMessagesAsync(TransactionMetaDataRequest type = default(TransactionMetaDataRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<TransactionConfigurationData>> CreateConfigurationTransactionTypeWithHttpMessagesAsync(TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (type != null)
             {
@@ -12600,7 +12518,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TransactionMetaDataDto>();
+            var _result = new HttpOperationResponse<TransactionConfigurationData>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12609,7 +12527,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TransactionMetaDataDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<TransactionConfigurationData>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -12661,7 +12579,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDto>> CreatePortfolioWithHttpMessagesAsync(string scope, CreateTransactionPortfolioRequest createRequest = default(CreateTransactionPortfolioRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Portfolio>> CreatePortfolioWithHttpMessagesAsync(string scope, CreateTransactionPortfolioRequest createRequest = default(CreateTransactionPortfolioRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12765,7 +12683,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDto>();
+            var _result = new HttpOperationResponse<Portfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12774,7 +12692,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Portfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -12833,7 +12751,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDetailsDto>> GetDetailsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioDetails>> GetDetailsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12947,7 +12865,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDetailsDto>();
+            var _result = new HttpOperationResponse<PortfolioDetails>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12956,7 +12874,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDetailsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDetails>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13015,7 +12933,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioDetailsDto>> UpsertPortfolioDetailsWithHttpMessagesAsync(string scope, string code, PortfolioDetailsRequest details = default(PortfolioDetailsRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioDetails>> UpsertPortfolioDetailsWithHttpMessagesAsync(string scope, string code, CreatePortfolioDetails details = default(CreatePortfolioDetails), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -13131,7 +13049,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<PortfolioDetailsDto>();
+            var _result = new HttpOperationResponse<PortfolioDetails>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -13140,7 +13058,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDetailsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<PortfolioDetails>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13214,7 +13132,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionedResourceListOfHoldingDto>> GetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionedResourceListOfHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -13373,7 +13291,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<VersionedResourceListOfHoldingDto>();
+            var _result = new HttpOperationResponse<VersionedResourceListOfHolding>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -13382,7 +13300,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfHoldingDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfHolding>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13440,7 +13358,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AdjustHoldingsDto>> SetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AdjustHolding>> SetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -13558,7 +13476,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<AdjustHoldingsDto>();
+            var _result = new HttpOperationResponse<AdjustHolding>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -13567,7 +13485,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AdjustHoldingsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<AdjustHolding>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13625,7 +13543,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AdjustHoldingsDto>> AdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AdjustHolding>> AdjustHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -13743,7 +13661,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<AdjustHoldingsDto>();
+            var _result = new HttpOperationResponse<AdjustHolding>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -13752,7 +13670,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AdjustHoldingsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<AdjustHolding>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13975,7 +13893,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<HoldingsAdjustmentHeaderDto>> ListHoldingsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14094,7 +14012,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<HoldingsAdjustmentHeaderDto>();
+            var _result = new HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeader>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -14103,7 +14021,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<HoldingsAdjustmentHeaderDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfHoldingsAdjustmentHeader>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14160,7 +14078,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<HoldingsAdjustmentDto>> GetHoldingsAdjustmentWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<HoldingsAdjustment>> GetHoldingsAdjustmentWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14271,7 +14189,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<HoldingsAdjustmentDto>();
+            var _result = new HttpOperationResponse<HoldingsAdjustment>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -14280,7 +14198,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<HoldingsAdjustmentDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<HoldingsAdjustment>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14354,7 +14272,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionedResourceListOfTransactionDto>> GetTransactionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionedResourceListOfTransaction>> GetTransactionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14404,17 +14322,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -14426,17 +14334,7 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                if (instrumentPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in instrumentPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
             }
             if (filter != null)
             {
@@ -14518,7 +14416,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<VersionedResourceListOfTransactionDto>();
+            var _result = new HttpOperationResponse<VersionedResourceListOfTransaction>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -14527,7 +14425,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfTransactionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfTransaction>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14579,7 +14477,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertPortfolioTransactionsDto>> UpsertTransactionsWithHttpMessagesAsync(string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertPortfolioTransactions>> UpsertTransactionsWithHttpMessagesAsync(string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14695,7 +14593,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<UpsertPortfolioTransactionsDto>();
+            var _result = new HttpOperationResponse<UpsertPortfolioTransactions>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -14704,7 +14602,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertPortfolioTransactionsDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertPortfolioTransactions>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14790,17 +14688,7 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (id != null)
             {
-                if (id.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in id)
-                    {
-                        _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString(string.Join(",", id))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -14945,7 +14833,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AddTransactionPropertyDto>> AddTransactionPropertyWithHttpMessagesAsync(string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AddTransactionPropertyResponse>> AddTransactionPropertyWithHttpMessagesAsync(string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -15067,7 +14955,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<AddTransactionPropertyDto>();
+            var _result = new HttpOperationResponse<AddTransactionPropertyResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -15076,7 +14964,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<AddTransactionPropertyDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<AddTransactionPropertyResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -15327,7 +15215,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionedResourceListOfOutputTransactionDto>> BuildTransactionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionedResourceListOfOutputTransaction>> BuildTransactionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -15368,17 +15256,7 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                if (sortBy.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in sortBy)
-                    {
-                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
             }
             if (start != null)
             {
@@ -15390,17 +15268,7 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                if (instrumentPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in instrumentPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
             }
             if (filter != null)
             {
@@ -15488,7 +15356,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<VersionedResourceListOfOutputTransactionDto>();
+            var _result = new HttpOperationResponse<VersionedResourceListOfOutputTransaction>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -15497,7 +15365,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfOutputTransactionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfOutputTransaction>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

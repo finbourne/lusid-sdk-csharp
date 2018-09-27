@@ -28,31 +28,30 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateClientInstrumentRequest
+    public partial class TransactionConfigurationDataRequest
     {
         /// <summary>
-        /// Initializes a new instance of the CreateClientInstrumentRequest
-        /// class.
+        /// Initializes a new instance of the
+        /// TransactionConfigurationDataRequest class.
         /// </summary>
-        public CreateClientInstrumentRequest()
+        public TransactionConfigurationDataRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateClientInstrumentRequest
-        /// class.
+        /// Initializes a new instance of the
+        /// TransactionConfigurationDataRequest class.
         /// </summary>
-        /// <param name="instrument">There could be multiple underlying
-        /// instrument definitions (same
-        /// instrument but different format), but for now store one.</param>
-        public CreateClientInstrumentRequest(string clientInstrumentId, string name, IDictionary<string, CreatePropertyRequest> instrumentProperties, ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentDefinition instrument = default(InstrumentDefinition))
+        /// <param name="aliases">List of transaction codes that map to this
+        /// specific transaction model</param>
+        /// <param name="movements">Movement data for the transaction
+        /// code</param>
+        public TransactionConfigurationDataRequest(IList<TransactionConfigurationTypeAlias> aliases, IList<TransactionConfigurationMovementDataRequest> movements, IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>))
         {
-            ClientInstrumentId = clientInstrumentId;
-            Name = name;
-            InstrumentProperties = instrumentProperties;
-            LookThroughPortfolioId = lookThroughPortfolioId;
-            Instrument = instrument;
+            Aliases = aliases;
+            Movements = movements;
+            Properties = properties;
             CustomInit();
         }
 
@@ -62,32 +61,22 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets list of transaction codes that map to this specific
+        /// transaction model
         /// </summary>
-        [JsonProperty(PropertyName = "clientInstrumentId")]
-        public string ClientInstrumentId { get; set; }
+        [JsonProperty(PropertyName = "aliases")]
+        public IList<TransactionConfigurationTypeAlias> Aliases { get; set; }
+
+        /// <summary>
+        /// Gets or sets movement data for the transaction code
+        /// </summary>
+        [JsonProperty(PropertyName = "movements")]
+        public IList<TransactionConfigurationMovementDataRequest> Movements { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "instrumentProperties")]
-        public IDictionary<string, CreatePropertyRequest> InstrumentProperties { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "lookThroughPortfolioId")]
-        public ResourceId LookThroughPortfolioId { get; set; }
-
-        /// <summary>
-        /// Gets or sets there could be multiple underlying instrument
-        /// definitions (same
-        /// instrument but different format), but for now store one.
-        /// </summary>
-        [JsonProperty(PropertyName = "instrument")]
-        public InstrumentDefinition Instrument { get; set; }
+        [JsonProperty(PropertyName = "properties")]
+        public IDictionary<string, CreatePropertyRequest> Properties { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -97,21 +86,27 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (ClientInstrumentId == null)
+            if (Aliases == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "ClientInstrumentId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Aliases");
             }
-            if (Name == null)
+            if (Movements == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Movements");
             }
-            if (InstrumentProperties == null)
+            if (Aliases != null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentProperties");
+                foreach (var element in Aliases)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
-            if (InstrumentProperties != null)
+            if (Properties != null)
             {
-                foreach (var valueElement in InstrumentProperties.Values)
+                foreach (var valueElement in Properties.Values)
                 {
                     if (valueElement != null)
                     {

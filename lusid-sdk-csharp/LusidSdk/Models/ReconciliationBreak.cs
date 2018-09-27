@@ -22,31 +22,36 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    /// <summary>
+    /// A reconciliation break
+    /// </summary>
+    public partial class ReconciliationBreak
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the ReconciliationBreak class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public ReconciliationBreak()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the ReconciliationBreak class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="instrumentUid">Unique instrument identifier</param>
+        /// <param name="unitsDifference">Difference in units</param>
+        /// <param name="costDifference">Difference in cost</param>
+        public ReconciliationBreak(string instrumentUid = default(string), IList<Property> properties = default(IList<Property>), double? unitsDifference = default(double?), double? costDifference = default(double?))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            InstrumentUid = instrumentUid;
+            Properties = properties;
+            UnitsDifference = unitsDifference;
+            CostDifference = costDifference;
             CustomInit();
         }
 
@@ -56,41 +61,27 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "instrumentUid")]
+        public string InstrumentUid { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "properties")]
+        public IList<Property> Properties { get; set; }
 
         /// <summary>
+        /// Gets or sets difference in units
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "unitsDifference")]
+        public double? UnitsDifference { get; set; }
 
         /// <summary>
+        /// Gets or sets difference in cost
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "costDifference")]
+        public double? CostDifference { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
     }
 }

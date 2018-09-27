@@ -26,27 +26,27 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class TransactionPropertyMapping
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the TransactionPropertyMapping class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public TransactionPropertyMapping()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the TransactionPropertyMapping class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="propertyKey">The Side</param>
+        /// <param name="mapFrom">The Side</param>
+        /// <param name="setTo">The Side</param>
+        public TransactionPropertyMapping(string propertyKey, string mapFrom = default(string), object setTo = default(object))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            PropertyKey = propertyKey;
+            MapFrom = mapFrom;
+            SetTo = setTo;
             CustomInit();
         }
 
@@ -56,24 +56,22 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the Side
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "propertyKey")]
+        public string PropertyKey { get; set; }
 
         /// <summary>
+        /// Gets or sets the Side
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "mapFrom")]
+        public string MapFrom { get; set; }
 
         /// <summary>
+        /// Gets or sets the Side
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "setTo")]
+        public object SetTo { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -83,13 +81,9 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (DisplayName == null)
+            if (PropertyKey == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+                throw new ValidationException(ValidationRules.CannotBeNull, "PropertyKey");
             }
         }
     }

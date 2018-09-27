@@ -22,31 +22,32 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class ProcessedCommand
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the ProcessedCommand class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public ProcessedCommand()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the ProcessedCommand class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="userId">The user that issued the command.</param>
+        /// <param name="processedTime">The as at time of the events published
+        /// by the processing of
+        /// this command.</param>
+        public ProcessedCommand(string description = default(string), string path = default(string), UserId userId = default(UserId), object processedTime = default(object))
         {
-            DisplayName = displayName;
             Description = description;
-            Code = code;
-            Created = created;
+            Path = path;
+            UserId = userId;
+            ProcessedTime = processedTime;
             CustomInit();
         }
 
@@ -57,40 +58,27 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "path")]
+        public string Path { get; set; }
 
         /// <summary>
+        /// Gets or sets the user that issued the command.
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "userId")]
+        public UserId UserId { get; set; }
 
         /// <summary>
-        /// Validate the object.
+        /// Gets or sets the as at time of the events published by the
+        /// processing of
+        /// this command.
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
+        [JsonProperty(PropertyName = "processedTime")]
+        public object ProcessedTime { get; set; }
+
     }
 }

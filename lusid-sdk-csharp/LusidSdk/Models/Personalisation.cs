@@ -22,31 +22,32 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class Personalisation
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the Personalisation class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public Personalisation()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the Personalisation class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="scope">Possible values include: 'User', 'Group',
+        /// 'Default', 'All'</param>
+        public Personalisation(string scope = default(string), string scopeValue = default(string), string settingKey = default(string), string settingValue = default(string), string dataType = default(string), string href = default(string))
         {
-            DisplayName = displayName;
-            Description = description;
-            Code = code;
-            Created = created;
+            Scope = scope;
+            ScopeValue = scopeValue;
+            SettingKey = settingKey;
+            SettingValue = settingValue;
+            DataType = dataType;
+            Href = href;
             CustomInit();
         }
 
@@ -56,41 +57,36 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets possible values include: 'User', 'Group', 'Default',
+        /// 'All'
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        [JsonProperty(PropertyName = "scope")]
+        public string Scope { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "scopeValue")]
+        public string ScopeValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "settingKey")]
+        public string SettingKey { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "settingValue")]
+        public string SettingValue { get; set; }
 
         /// <summary>
-        /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
+        [JsonProperty(PropertyName = "dataType")]
+        public string DataType { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
+
     }
 }

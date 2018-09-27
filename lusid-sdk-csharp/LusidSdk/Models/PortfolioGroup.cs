@@ -22,31 +22,34 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class CreateReferencePortfolioRequest
+    public partial class PortfolioGroup
     {
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the PortfolioGroup class.
         /// </summary>
-        public CreateReferencePortfolioRequest()
+        public PortfolioGroup()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreateReferencePortfolioRequest
-        /// class.
+        /// Initializes a new instance of the PortfolioGroup class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        public PortfolioGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), IList<ResourceId> portfolios = default(IList<ResourceId>), IList<ResourceId> subGroups = default(IList<ResourceId>), Version version = default(Version), IList<Link> links = default(IList<Link>))
         {
+            Href = href;
+            Id = id;
             DisplayName = displayName;
             Description = description;
-            Code = code;
-            Created = created;
+            Portfolios = portfolios;
+            SubGroups = subGroups;
+            Version = version;
+            Links = links;
             CustomInit();
         }
 
@@ -54,6 +57,16 @@ namespace Finbourne.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "id")]
+        public ResourceId Id { get; set; }
 
         /// <summary>
         /// </summary>
@@ -67,30 +80,23 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        [JsonProperty(PropertyName = "portfolios")]
+        public IList<ResourceId> Portfolios { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; set; }
+        [JsonProperty(PropertyName = "subGroups")]
+        public IList<ResourceId> SubGroups { get; set; }
 
         /// <summary>
-        /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (Code == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Code");
-            }
-        }
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
+
     }
 }
