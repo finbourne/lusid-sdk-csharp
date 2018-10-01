@@ -216,13 +216,12 @@ namespace LusidSdk.Tests
             {
                 TransactionId = Guid.NewGuid().ToString(),
                 Type = "Buy",
-                InstrumentUid = _instrumentIds.First(),
-                SettlementCurrency = "GBP",
+                InstrumentUid = _instrumentIds.First(),                
                 TransactionDate = effectiveDate,
                 SettlementDate = effectiveDate,
                 Units = 100,
-                TransactionPrice = 12.3,
-                TotalConsideration = 1230,
+                TransactionPrice = new TransactionPrice(12.3, "Price"),
+                TotalConsideration = new CurrencyAndAmount(1230, "GBP"),
                 Source = "Client",
                 Properties = new Dictionary<string, CreatePerpetualPropertyRequest>()
                 {
@@ -232,7 +231,7 @@ namespace LusidSdk.Tests
 
             //    add the transaction
             _client.UpsertTransactions(scope, portfolioId, new List<TransactionRequest> {transaction});
-
+            
             //    get the transactions
             var transactions = _client.GetTransactions(scope, portfolioId);                
             
@@ -423,12 +422,11 @@ namespace LusidSdk.Tests
                 TransactionId = Guid.NewGuid().ToString(),
                 Type = "StockIn",
                 InstrumentUid = id,
-                SettlementCurrency = "GBP",
                 TransactionDate = tradeDate,
                 SettlementDate = tradeDate,
                 Units = 100,
-                TransactionPrice = price,
-                TotalConsideration = 100 * price,
+                TransactionPrice = new TransactionPrice(price, "Price"),
+                TotalConsideration = new CurrencyAndAmount(100 * price, "GBP"),
                 Source = "Client"
             };
         }
@@ -455,12 +453,11 @@ namespace LusidSdk.Tests
                 TransactionId = Guid.NewGuid().ToString(),
                 Type = "StockIn",
                 InstrumentUid = id,
-                SettlementCurrency = "GBP",
                 TransactionDate = tradeDate,
                 SettlementDate = tradeDate,
                 Units = quantity,
-                TransactionPrice = price,
-                TotalConsideration = quantity * price,
+                TransactionPrice = new TransactionPrice(price, "Price"),
+                TotalConsideration = new CurrencyAndAmount(quantity * price, "GBP"),
                 Source = "Client"
             };
         }
