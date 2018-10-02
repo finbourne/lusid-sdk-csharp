@@ -48,7 +48,7 @@ namespace Finbourne.Models
         /// 'HighestCostFirst', 'LowestCostFirst'</param>
         /// <param name="properties">Portfolio properties to add to the
         /// portfolio</param>
-        public CreateTransactionPortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<string> subHoldingKeys = default(IList<string>), IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>))
+        public CreateTransactionPortfolioRequest(string displayName, string code, string baseCurrency, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<string> subHoldingKeys = default(IList<string>), IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>))
         {
             DisplayName = displayName;
             Description = description;
@@ -131,6 +131,10 @@ namespace Finbourne.Models
             if (Code == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Code");
+            }
+            if (BaseCurrency == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "BaseCurrency");
             }
             if (Properties != null)
             {

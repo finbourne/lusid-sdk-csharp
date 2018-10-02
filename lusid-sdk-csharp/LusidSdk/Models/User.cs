@@ -25,20 +25,20 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class UserId
+    public partial class User
     {
         /// <summary>
-        /// Initializes a new instance of the UserId class.
+        /// Initializes a new instance of the User class.
         /// </summary>
-        public UserId()
+        public User()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UserId class.
+        /// Initializes a new instance of the User class.
         /// </summary>
-        public UserId(string id = default(string))
+        public User(string id = default(string))
         {
             Id = id;
             CustomInit();

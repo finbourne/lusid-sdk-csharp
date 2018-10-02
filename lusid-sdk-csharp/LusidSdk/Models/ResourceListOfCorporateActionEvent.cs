@@ -23,31 +23,36 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ProcessedCommand
+    public partial class ResourceListOfCorporateActionEvent
     {
         /// <summary>
-        /// Initializes a new instance of the ProcessedCommand class.
+        /// Initializes a new instance of the
+        /// ResourceListOfCorporateActionEvent class.
         /// </summary>
-        public ProcessedCommand()
+        public ResourceListOfCorporateActionEvent()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ProcessedCommand class.
+        /// Initializes a new instance of the
+        /// ResourceListOfCorporateActionEvent class.
         /// </summary>
-        /// <param name="userId">The user that issued the command.</param>
-        /// <param name="processedTime">The as at time of the events published
-        /// by the processing of
-        /// this command.</param>
-        public ProcessedCommand(string description = default(string), string path = default(string), User userId = default(User), object processedTime = default(object))
+        /// <param name="href">The Uri that returns the same result as the
+        /// original request,
+        /// but may include resolved as at time(s).</param>
+        /// <param name="count">The total number of records returned in the
+        /// set</param>
+        public ResourceListOfCorporateActionEvent(IList<CorporateAction> values = default(IList<CorporateAction>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
-            Description = description;
-            Path = path;
-            UserId = userId;
-            ProcessedTime = processedTime;
+            Values = values;
+            Href = href;
+            Count = count;
+            Links = links;
             CustomInit();
         }
 
@@ -58,27 +63,27 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "values")]
+        public IList<CorporateAction> Values { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Uri that returns the same result as the original
+        /// request,
+        /// but may include resolved as at time(s).
+        /// </summary>
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total number of records returned in the set
+        /// </summary>
+        [JsonProperty(PropertyName = "count")]
+        public int? Count { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "path")]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user that issued the command.
-        /// </summary>
-        [JsonProperty(PropertyName = "userId")]
-        public User UserId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the as at time of the events published by the
-        /// processing of
-        /// this command.
-        /// </summary>
-        [JsonProperty(PropertyName = "processedTime")]
-        public object ProcessedTime { get; set; }
+        [JsonProperty(PropertyName = "links")]
+        public IList<Link> Links { get; set; }
 
     }
 }

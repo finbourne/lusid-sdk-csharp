@@ -309,7 +309,7 @@ namespace Finbourne
             /// </param>
             /// <param name='filter'>
             /// </param>
-            public static IList<CorporateAction> GetCorporateActions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfCorporateActionEvent GetCorporateActions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetCorporateActionsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -343,7 +343,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<CorporateAction>> GetCorporateActionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfCorporateActionEvent> GetCorporateActionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCorporateActionsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {

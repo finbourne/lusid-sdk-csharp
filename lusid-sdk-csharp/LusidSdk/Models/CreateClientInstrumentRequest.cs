@@ -24,8 +24,6 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
     public partial class CreateClientInstrumentRequest
@@ -43,14 +41,17 @@ namespace Finbourne.Models
         /// Initializes a new instance of the CreateClientInstrumentRequest
         /// class.
         /// </summary>
-        /// <param name="instrument">There could be multiple underlying
-        /// instrument definitions (same
-        /// instrument but different format), but for now store one.</param>
-        public CreateClientInstrumentRequest(string clientInstrumentId, string name, IDictionary<string, CreatePropertyRequest> instrumentProperties, ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentDefinition instrument = default(InstrumentDefinition))
+        /// <param name="instrument">Expanded instrument definition - in the
+        /// case of OTC instruments
+        /// this contains the definition of the non-exchange traded instrument.
+        /// The format for this can be client-defined, but in order to
+        /// transparently use
+        /// vendor libraries it must conform to a format that LUSID
+        /// understands.</param>
+        public CreateClientInstrumentRequest(string clientInstrumentId, string name, ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentDefinition instrument = default(InstrumentDefinition))
         {
             ClientInstrumentId = clientInstrumentId;
             Name = name;
-            InstrumentProperties = instrumentProperties;
             LookThroughPortfolioId = lookThroughPortfolioId;
             Instrument = instrument;
             CustomInit();
@@ -73,18 +74,17 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentProperties")]
-        public IDictionary<string, CreatePropertyRequest> InstrumentProperties { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "lookThroughPortfolioId")]
         public ResourceId LookThroughPortfolioId { get; set; }
 
         /// <summary>
-        /// Gets or sets there could be multiple underlying instrument
-        /// definitions (same
-        /// instrument but different format), but for now store one.
+        /// Gets or sets expanded instrument definition - in the case of OTC
+        /// instruments
+        /// this contains the definition of the non-exchange traded instrument.
+        /// The format for this can be client-defined, but in order to
+        /// transparently use
+        /// vendor libraries it must conform to a format that LUSID
+        /// understands.
         /// </summary>
         [JsonProperty(PropertyName = "instrument")]
         public InstrumentDefinition Instrument { get; set; }
@@ -104,20 +104,6 @@ namespace Finbourne.Models
             if (Name == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
-            }
-            if (InstrumentProperties == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentProperties");
-            }
-            if (InstrumentProperties != null)
-            {
-                foreach (var valueElement in InstrumentProperties.Values)
-                {
-                    if (valueElement != null)
-                    {
-                        valueElement.Validate();
-                    }
-                }
             }
         }
     }

@@ -59,7 +59,7 @@ namespace Finbourne.Models
         /// <param name="counterpartyId">Counterparty identifier</param>
         /// <param name="source">Where this transaction came from. Possible
         /// values include: 'System', 'Client'</param>
-        public Transaction(string transactionId, string type, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), double? exchangeRate = default(double?), NullableOfCurrency transactionCurrency = default(NullableOfCurrency), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string))
+        public Transaction(string transactionId, string type, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), double? exchangeRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string))
         {
             TransactionId = transactionId;
             Type = type;
@@ -142,7 +142,7 @@ namespace Finbourne.Models
         /// Gets or sets transaction currency
         /// </summary>
         [JsonProperty(PropertyName = "transactionCurrency")]
-        public NullableOfCurrency TransactionCurrency { get; set; }
+        public string TransactionCurrency { get; set; }
 
         /// <summary>
         /// </summary>
