@@ -27,26 +27,25 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class UpsertCorporateActionsResponse
+    public partial class UpsertPortfolioTransactionsResponse
     {
         /// <summary>
-        /// Initializes a new instance of the UpsertCorporateActionsResponse
-        /// class.
+        /// Initializes a new instance of the
+        /// UpsertPortfolioTransactionsResponse class.
         /// </summary>
-        public UpsertCorporateActionsResponse()
+        public UpsertPortfolioTransactionsResponse()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UpsertCorporateActionsResponse
-        /// class.
+        /// Initializes a new instance of the
+        /// UpsertPortfolioTransactionsResponse class.
         /// </summary>
-        public UpsertCorporateActionsResponse(string href = default(string), IDictionary<string, CorporateAction> values = default(IDictionary<string, CorporateAction>), IDictionary<string, ErrorDetail> failed = default(IDictionary<string, ErrorDetail>), IList<Link> links = default(IList<Link>))
+        public UpsertPortfolioTransactionsResponse(Version version = default(Version), string href = default(string), IList<Link> links = default(IList<Link>))
         {
+            Version = version;
             Href = href;
-            Values = values;
-            Failed = failed;
             Links = links;
             CustomInit();
         }
@@ -58,18 +57,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IDictionary<string, CorporateAction> Values { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "failed")]
-        public IDictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
         /// </summary>

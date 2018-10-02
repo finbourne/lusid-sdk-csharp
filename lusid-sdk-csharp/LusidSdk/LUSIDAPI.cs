@@ -235,16 +235,12 @@ namespace Finbourne
     /// | TransactionDate|datetime|Transaction date |
     /// | SettlementDate|datetime|Settlement date |
     /// | Units|decimal|Quantity of transaction in units of the instrument |
-    /// | TransactionPrice|decimal|Execution price for the transaction |
-    /// | TotalConsideration|decimal|Total value of the transaction |
+    /// | TransactionPrice|tradeprice|Execution price for the transaction |
+    /// | TotalConsideration|currencyandamount|Total value of the transaction |
     /// | ExchangeRate|decimal|Rate between transaction and settle currency |
-    /// | SettlementCurrency|currency|Settlement currency |
     /// | TransactionCurrency|currency|Transaction currency |
     /// | CounterpartyId|string|Counterparty identifier |
     /// | Source|string|Where this transaction came from |
-    /// | DividendState|string|  |
-    /// | TransactionPriceType|string|  |
-    /// | UnitType|string|  |
     /// | NettingSet|string|  |
     ///
     ///
@@ -311,7 +307,6 @@ namespace Finbourne
     /// | lusid-meta-requestId | The unique identifier for the request |
     /// | lusid-schema-url | Url of the schema for the data being returned |
     /// | lusid-property-schema-url | Url of the schema for any properties |
-    ///
     ///
     /// # Error Codes
     ///
@@ -723,7 +718,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -1584,7 +1589,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -2104,7 +2119,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -2612,7 +2637,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (units != null)
             {
-                _queryParameters.Add(string.Format("units={0}", System.Uri.EscapeDataString(string.Join(",", units))));
+                if (units.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("units={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in units)
+                    {
+                        _queryParameters.Add(string.Format("units={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (filter != null)
             {
@@ -3062,181 +3097,6 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Search portfolio groups
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='sortBy'>
-        /// </param>
-        /// <param name='start'>
-        /// </param>
-        /// <param name='limit'>
-        /// </param>
-        /// <param name='filter'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("request", request);
-                tracingParameters.Add("sortBy", sortBy);
-                tracingParameters.Add("start", start);
-                tracingParameters.Add("limit", limit);
-                tracingParameters.Add("filter", filter);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PortfolioGroupsSearch", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/groups/search").ToString();
-            List<string> _queryParameters = new List<string>();
-            if (sortBy != null)
-            {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
-            }
-            if (start != null)
-            {
-                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
-            }
-            if (limit != null)
-            {
-                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
-            }
-            if (filter != null)
-            {
-                _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
-            }
-            if (_queryParameters.Count > 0)
-            {
-                _url += "?" + string.Join("&", _queryParameters);
-            }
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            if(request != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
-                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 200)
-            {
-                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                try
-                {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                    if (_errorBody != null)
-                    {
-                        ex.Body = _errorBody;
-                    }
-                }
-                catch (JsonException)
-                {
-                    // Ignore the exception
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPortfolioGroup>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioGroup>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <summary>
         /// Attempt to create one or more client instruments. Failed instruments will
         /// be identified in the body of the response.
         /// </summary>
@@ -3429,7 +3289,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (uids != null)
             {
-                _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Join(",", uids))));
+                if (uids.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in uids)
+                    {
+                        _queryParameters.Add(string.Format("uids={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -3599,7 +3469,17 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
+                if (instrumentPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in instrumentPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -3769,7 +3649,17 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
+                if (instrumentPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in instrumentPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -4529,7 +4419,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -5019,7 +4919,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -5861,7 +5771,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -6444,7 +6364,17 @@ namespace Finbourne
             }
             if (propertyFilter != null)
             {
-                _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Join(",", propertyFilter))));
+                if (propertyFilter.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in propertyFilter)
+                    {
+                        _queryParameters.Add(string.Format("propertyFilter={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -7488,7 +7418,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -8218,7 +8158,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -8620,7 +8570,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -9003,7 +8963,17 @@ namespace Finbourne
             }
             if (portfolioPropertyKeys != null)
             {
-                _queryParameters.Add(string.Format("portfolioPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", portfolioPropertyKeys))));
+                if (portfolioPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("portfolioPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in portfolioPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("portfolioPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -9110,356 +9080,6 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Search portfolios
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='sortBy'>
-        /// </param>
-        /// <param name='start'>
-        /// </param>
-        /// <param name='limit'>
-        /// </param>
-        /// <param name='filter'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("request", request);
-                tracingParameters.Add("sortBy", sortBy);
-                tracingParameters.Add("start", start);
-                tracingParameters.Add("limit", limit);
-                tracingParameters.Add("filter", filter);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PortfoliosSearch", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/portfolios/search").ToString();
-            List<string> _queryParameters = new List<string>();
-            if (sortBy != null)
-            {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
-            }
-            if (start != null)
-            {
-                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
-            }
-            if (limit != null)
-            {
-                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
-            }
-            if (filter != null)
-            {
-                _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
-            }
-            if (_queryParameters.Count > 0)
-            {
-                _url += "?" + string.Join("&", _queryParameters);
-            }
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            if(request != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
-                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 200)
-            {
-                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                try
-                {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                    if (_errorBody != null)
-                    {
-                        ex.Body = _errorBody;
-                    }
-                }
-                catch (JsonException)
-                {
-                    // Ignore the exception
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPortfolioSearchResult>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioSearchResult>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <summary>
-        /// Search properties
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='sortBy'>
-        /// </param>
-        /// <param name='start'>
-        /// </param>
-        /// <param name='limit'>
-        /// </param>
-        /// <param name='filter'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// Headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <return>
-        /// A response object containing the response body and response headers.
-        /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            // Tracing
-            bool _shouldTrace = ServiceClientTracing.IsEnabled;
-            string _invocationId = null;
-            if (_shouldTrace)
-            {
-                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
-                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("request", request);
-                tracingParameters.Add("sortBy", sortBy);
-                tracingParameters.Add("start", start);
-                tracingParameters.Add("limit", limit);
-                tracingParameters.Add("filter", filter);
-                tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PropertiesSearch", tracingParameters);
-            }
-            // Construct URL
-            var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/properties/search").ToString();
-            List<string> _queryParameters = new List<string>();
-            if (sortBy != null)
-            {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
-            }
-            if (start != null)
-            {
-                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
-            }
-            if (limit != null)
-            {
-                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
-            }
-            if (filter != null)
-            {
-                _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
-            }
-            if (_queryParameters.Count > 0)
-            {
-                _url += "?" + string.Join("&", _queryParameters);
-            }
-            // Create HTTP transport objects
-            var _httpRequest = new HttpRequestMessage();
-            HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
-            _httpRequest.RequestUri = new System.Uri(_url);
-            // Set Headers
-
-
-            if (customHeaders != null)
-            {
-                foreach(var _header in customHeaders)
-                {
-                    if (_httpRequest.Headers.Contains(_header.Key))
-                    {
-                        _httpRequest.Headers.Remove(_header.Key);
-                    }
-                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
-                }
-            }
-
-            // Serialize Request
-            string _requestContent = null;
-            if(request != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
-                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
-            }
-            // Set Credentials
-            if (Credentials != null)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            }
-            // Send Request
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
-            }
-            cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
-            }
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            cancellationToken.ThrowIfCancellationRequested();
-            string _responseContent = null;
-            if ((int)_statusCode != 200)
-            {
-                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                try
-                {
-                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
-                    if (_errorBody != null)
-                    {
-                        ex.Body = _errorBody;
-                    }
-                }
-                catch (JsonException)
-                {
-                    // Ignore the exception
-                }
-                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
-                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
-                if (_shouldTrace)
-                {
-                    ServiceClientTracing.Error(_invocationId, ex);
-                }
-                _httpRequest.Dispose();
-                if (_httpResponse != null)
-                {
-                    _httpResponse.Dispose();
-                }
-                throw ex;
-            }
-            // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfPropertyDefinition>();
-            _result.Request = _httpRequest;
-            _result.Response = _httpResponse;
-            // Deserialize Response
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPropertyDefinition>(_responseContent, DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            if (_shouldTrace)
-            {
-                ServiceClientTracing.Exit(_invocationId, _result);
-            }
-            return _result;
-        }
-
-        /// <summary>
         /// Gets multiple property definitions.
         /// </summary>
         /// <param name='keys'>
@@ -9513,7 +9133,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (keys != null)
             {
-                _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Join(",", keys))));
+                if (keys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in keys)
+                    {
+                        _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (asAt != null)
             {
@@ -9521,7 +9151,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -10679,7 +10319,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -11042,7 +10692,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -11402,7 +11062,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -11846,7 +11516,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (propertyKeys != null)
             {
-                _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", propertyKeys))));
+                if (propertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in propertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (asAt != null)
             {
@@ -12001,7 +11681,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -12097,6 +11787,561 @@ namespace Finbourne
                 try
                 {
                     _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfValueType>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Search portfolio groups
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("request", request);
+                tracingParameters.Add("sortBy", sortBy);
+                tracingParameters.Add("start", start);
+                tracingParameters.Add("limit", limit);
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "PortfolioGroupsSearch", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/search/portfoliogroups").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (sortBy != null)
+            {
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
+            }
+            if (start != null)
+            {
+                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
+            }
+            if (limit != null)
+            {
+                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
+            }
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(request != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                try
+                {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                    if (_errorBody != null)
+                    {
+                        ex.Body = _errorBody;
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Ignore the exception
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ResourceListOfPortfolioGroup>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioGroup>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("request", request);
+                tracingParameters.Add("sortBy", sortBy);
+                tracingParameters.Add("start", start);
+                tracingParameters.Add("limit", limit);
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "PortfoliosSearch", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/search/portfolios").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (sortBy != null)
+            {
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
+            }
+            if (start != null)
+            {
+                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
+            }
+            if (limit != null)
+            {
+                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
+            }
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(request != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                try
+                {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                    if (_errorBody != null)
+                    {
+                        ex.Body = _errorBody;
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Ignore the exception
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ResourceListOfPortfolioSearchResult>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolioSearchResult>(_responseContent, DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Search properties
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ErrorResponseException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("request", request);
+                tracingParameters.Add("sortBy", sortBy);
+                tracingParameters.Add("start", start);
+                tracingParameters.Add("limit", limit);
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "PropertiesSearch", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/search/propertydefinitions").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (sortBy != null)
+            {
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
+            }
+            if (start != null)
+            {
+                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
+            }
+            if (limit != null)
+            {
+                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
+            }
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(request != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(request, SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                try
+                {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    ErrorResponse _errorBody =  SafeJsonConvert.DeserializeObject<ErrorResponse>(_responseContent, DeserializationSettings);
+                    if (_errorBody != null)
+                    {
+                        ex.Body = _errorBody;
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Ignore the exception
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ResourceListOfPropertyDefinition>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPropertyDefinition>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14322,7 +14567,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -14334,7 +14589,17 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
+                if (instrumentPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in instrumentPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (filter != null)
             {
@@ -14477,7 +14742,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertPortfolioTransactions>> UpsertTransactionsWithHttpMessagesAsync(string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpMessagesAsync(string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14593,7 +14858,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<UpsertPortfolioTransactions>();
+            var _result = new HttpOperationResponse<UpsertPortfolioTransactionsResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -14602,7 +14867,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertPortfolioTransactions>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<UpsertPortfolioTransactionsResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14688,7 +14953,17 @@ namespace Finbourne
             List<string> _queryParameters = new List<string>();
             if (id != null)
             {
-                _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString(string.Join(",", id))));
+                if (id.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in id)
+                    {
+                        _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -15256,7 +15531,17 @@ namespace Finbourne
             }
             if (sortBy != null)
             {
-                _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Join(",", sortBy))));
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (start != null)
             {
@@ -15268,7 +15553,17 @@ namespace Finbourne
             }
             if (instrumentPropertyKeys != null)
             {
-                _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Join(",", instrumentPropertyKeys))));
+                if (instrumentPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in instrumentPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (filter != null)
             {

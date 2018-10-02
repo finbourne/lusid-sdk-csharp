@@ -718,54 +718,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Search portfolio groups
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPortfolioGroup PortfolioGroupsSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.PortfolioGroupsSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Search portfolio groups
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPortfolioGroup> PortfolioGroupsSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PortfolioGroupsSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Attempt to create one or more client instruments. Failed instruments will
             /// be identified in the body of the response.
             /// </summary>
@@ -2418,102 +2370,6 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Search portfolios
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPortfolioSearchResult PortfoliosSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.PortfoliosSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Search portfolios
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PortfoliosSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Search properties
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            public static ResourceListOfPropertyDefinition PropertiesSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
-            {
-                return operations.PropertiesSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Search properties
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='sortBy'>
-            /// </param>
-            /// <param name='start'>
-            /// </param>
-            /// <param name='limit'>
-            /// </param>
-            /// <param name='filter'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPropertyDefinition> PropertiesSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PropertiesSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Gets multiple property definitions.
             /// </summary>
             /// <param name='operations'>
@@ -3210,6 +3066,150 @@ namespace Finbourne
             public static async Task<ResourceListOfValueType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetValueTypesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Search portfolio groups
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            public static ResourceListOfPortfolioGroup PortfolioGroupsSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.PortfolioGroupsSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Search portfolio groups
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfPortfolioGroup> PortfolioGroupsSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PortfolioGroupsSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Search portfolios
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            public static ResourceListOfPortfolioSearchResult PortfoliosSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.PortfoliosSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Search portfolios
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PortfoliosSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Search properties
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            public static ResourceListOfPropertyDefinition PropertiesSearch(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.PropertiesSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Search properties
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfPropertyDefinition> PropertiesSearchAsync(this ILUSIDAPI operations, object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PropertiesSearchWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3950,7 +3950,7 @@ namespace Finbourne
             /// <param name='transactions'>
             /// The transactions to be updated
             /// </param>
-            public static UpsertPortfolioTransactions UpsertTransactions(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>))
+            public static UpsertPortfolioTransactionsResponse UpsertTransactions(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>))
             {
                 return operations.UpsertTransactionsAsync(scope, code, transactions).GetAwaiter().GetResult();
             }
@@ -3973,7 +3973,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertPortfolioTransactions> UpsertTransactionsAsync(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertTransactionsWithHttpMessagesAsync(scope, code, transactions, null, cancellationToken).ConfigureAwait(false))
                 {

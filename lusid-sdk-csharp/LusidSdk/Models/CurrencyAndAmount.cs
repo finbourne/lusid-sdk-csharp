@@ -38,10 +38,10 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CurrencyAndAmount class.
         /// </summary>
-        public CurrencyAndAmount(double? value = default(double?), string unit = default(string))
+        public CurrencyAndAmount(double? amount = default(double?), string currency = default(string))
         {
-            Value = value;
-            Unit = unit;
+            Amount = amount;
+            Currency = currency;
             CustomInit();
         }
 
@@ -52,13 +52,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public double? Value { get; private set; }
+        [JsonProperty(PropertyName = "amount")]
+        public double? Amount { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "unit")]
-        public string Unit { get; private set; }
+        [JsonProperty(PropertyName = "currency")]
+        public string Currency { get; set; }
 
     }
 }

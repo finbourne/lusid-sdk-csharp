@@ -43,9 +43,9 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="type">Possible values include: 'Price', 'Yield',
         /// 'Spread'</param>
-        public TransactionPrice(double? value = default(double?), string type = default(string))
+        public TransactionPrice(double? price = default(double?), string type = default(string))
         {
-            Value = value;
+            Price = price;
             Type = type;
             CustomInit();
         }
@@ -57,14 +57,14 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public double? Value { get; private set; }
+        [JsonProperty(PropertyName = "price")]
+        public double? Price { get; set; }
 
         /// <summary>
-        /// Gets possible values include: 'Price', 'Yield', 'Spread'
+        /// Gets or sets possible values include: 'Price', 'Yield', 'Spread'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public string Type { get; private set; }
+        public string Type { get; set; }
 
     }
 }

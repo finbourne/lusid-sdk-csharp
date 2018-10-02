@@ -232,16 +232,12 @@ namespace Finbourne
     /// | TransactionDate|datetime|Transaction date |
     /// | SettlementDate|datetime|Settlement date |
     /// | Units|decimal|Quantity of transaction in units of the instrument |
-    /// | TransactionPrice|decimal|Execution price for the transaction |
-    /// | TotalConsideration|decimal|Total value of the transaction |
+    /// | TransactionPrice|tradeprice|Execution price for the transaction |
+    /// | TotalConsideration|currencyandamount|Total value of the transaction |
     /// | ExchangeRate|decimal|Rate between transaction and settle currency |
-    /// | SettlementCurrency|currency|Settlement currency |
     /// | TransactionCurrency|currency|Transaction currency |
     /// | CounterpartyId|string|Counterparty identifier |
     /// | Source|string|Where this transaction came from |
-    /// | DividendState|string|  |
-    /// | TransactionPriceType|string|  |
-    /// | UnitType|string|  |
     /// | NettingSet|string|  |
     ///
     ///
@@ -308,7 +304,6 @@ namespace Finbourne
     /// | lusid-meta-requestId | The unique identifier for the request |
     /// | lusid-schema-url | Url of the schema for the data being returned |
     /// | lusid-property-schema-url | Url of the schema for any properties |
-    ///
     ///
     /// # Error Codes
     ///
@@ -738,27 +733,6 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Search portfolio groups
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='sortBy'>
-        /// </param>
-        /// <param name='start'>
-        /// </param>
-        /// <param name='limit'>
-        /// </param>
-        /// <param name='filter'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Attempt to create one or more client instruments. Failed
@@ -1489,48 +1463,6 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeletePortfolioPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> portfolioPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Search portfolios
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='sortBy'>
-        /// </param>
-        /// <param name='start'>
-        /// </param>
-        /// <param name='limit'>
-        /// </param>
-        /// <param name='filter'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Search properties
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='sortBy'>
-        /// </param>
-        /// <param name='start'>
-        /// </param>
-        /// <param name='limit'>
-        /// </param>
-        /// <param name='filter'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets multiple property definitions.
         /// </summary>
         /// <param name='keys'>
@@ -1833,6 +1765,69 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ResourceListOfValueType>> GetValueTypesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search portfolio groups
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search properties
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> PropertiesSearchWithHttpMessagesAsync(object request = default(object), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets the list of persisted transaction types
@@ -2182,7 +2177,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertPortfolioTransactions>> UpsertTransactionsWithHttpMessagesAsync(string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpMessagesAsync(string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete transactions

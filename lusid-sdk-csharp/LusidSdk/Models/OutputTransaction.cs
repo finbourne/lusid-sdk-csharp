@@ -40,22 +40,24 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the OutputTransaction class.
         /// </summary>
-        /// <param name="tradeId">Unique trade identifier</param>
+        /// <param name="transactionId">Unique transaction identifier</param>
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
         /// <param name="description">LUSID transaction description</param>
+        /// <param name="transactionPrice">Execution price for the
+        /// transaction</param>
+        /// <param name="totalConsideration">Total value of the transaction in
+        /// settlement currency</param>
         /// <param name="instrumentUid">Unique instrument identifier</param>
-        /// <param name="tradeDate">Trade date</param>
+        /// <param name="transactionDate">Transaction date</param>
         /// <param name="settlementDate">Settlement date</param>
         /// <param name="units">Quantity of trade in units of the
         /// instrument</param>
-        /// <param name="tradePrice">Execution price for the trade</param>
-        /// <param name="totalConsideration">Total value of the trade</param>
-        /// <param name="exchangeRate">Rate between trade and settlement
+        /// <param name="exchangeRate">Rate between transaction and settlement
         /// currency</param>
-        /// <param name="tradeToPortfolioRate">Rate between trade and portfolio
-        /// currency</param>
-        /// <param name="tradeCurrency">Trade currency</param>
+        /// <param name="transactionToPortfolioRate">Rate between transaction
+        /// and portfolio currency</param>
+        /// <param name="transactionCurrency">Transaction currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
         /// <param name="source">Where this transaction came from, either
         /// Client or System. Possible values include: 'System',
@@ -69,20 +71,20 @@ namespace Finbourne.Models
         /// into LUSID</param>
         /// <param name="realisedGainLoss">Collection of gains or
         /// losses</param>
-        public OutputTransaction(string tradeId, string type, string description, string instrumentUid = default(string), System.DateTimeOffset? tradeDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), TransactionPrice tradePrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), double? tradeToPortfolioRate = default(double?), string tradeCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLoss> realisedGainLoss = default(IList<RealisedGainLoss>))
+        public OutputTransaction(string transactionId, string type, string description, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), double? exchangeRate = default(double?), double? transactionToPortfolioRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLoss> realisedGainLoss = default(IList<RealisedGainLoss>))
         {
-            TradeId = tradeId;
+            TransactionId = transactionId;
             Type = type;
             Description = description;
             InstrumentUid = instrumentUid;
-            TradeDate = tradeDate;
+            TransactionDate = transactionDate;
             SettlementDate = settlementDate;
             Units = units;
-            TradePrice = tradePrice;
+            TransactionPrice = transactionPrice;
             TotalConsideration = totalConsideration;
             ExchangeRate = exchangeRate;
-            TradeToPortfolioRate = tradeToPortfolioRate;
-            TradeCurrency = tradeCurrency;
+            TransactionToPortfolioRate = transactionToPortfolioRate;
+            TransactionCurrency = transactionCurrency;
             Properties = properties;
             CounterpartyId = counterpartyId;
             Source = source;
@@ -100,10 +102,10 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets unique trade identifier
+        /// Gets unique transaction identifier
         /// </summary>
-        [JsonProperty(PropertyName = "tradeId")]
-        public string TradeId { get; private set; }
+        [JsonProperty(PropertyName = "transactionId")]
+        public string TransactionId { get; private set; }
 
         /// <summary>
         /// Gets LUSID transaction type code - Buy, Sell, StockIn, StockOut,
@@ -125,10 +127,10 @@ namespace Finbourne.Models
         public string InstrumentUid { get; private set; }
 
         /// <summary>
-        /// Gets trade date
+        /// Gets transaction date
         /// </summary>
-        [JsonProperty(PropertyName = "tradeDate")]
-        public System.DateTimeOffset? TradeDate { get; private set; }
+        [JsonProperty(PropertyName = "transactionDate")]
+        public System.DateTimeOffset? TransactionDate { get; private set; }
 
         /// <summary>
         /// Gets settlement date
@@ -143,34 +145,34 @@ namespace Finbourne.Models
         public double? Units { get; private set; }
 
         /// <summary>
-        /// Gets execution price for the trade
+        /// Gets execution price for the transaction
         /// </summary>
-        [JsonProperty(PropertyName = "tradePrice")]
-        public TransactionPrice TradePrice { get; private set; }
+        [JsonProperty(PropertyName = "transactionPrice")]
+        public TransactionPrice TransactionPrice { get; private set; }
 
         /// <summary>
-        /// Gets total value of the trade
+        /// Gets total value of the transaction in settlement currency
         /// </summary>
         [JsonProperty(PropertyName = "totalConsideration")]
         public CurrencyAndAmount TotalConsideration { get; private set; }
 
         /// <summary>
-        /// Gets rate between trade and settlement currency
+        /// Gets rate between transaction and settlement currency
         /// </summary>
         [JsonProperty(PropertyName = "exchangeRate")]
         public double? ExchangeRate { get; private set; }
 
         /// <summary>
-        /// Gets rate between trade and portfolio currency
+        /// Gets rate between transaction and portfolio currency
         /// </summary>
-        [JsonProperty(PropertyName = "tradeToPortfolioRate")]
-        public double? TradeToPortfolioRate { get; private set; }
+        [JsonProperty(PropertyName = "transactionToPortfolioRate")]
+        public double? TransactionToPortfolioRate { get; private set; }
 
         /// <summary>
-        /// Gets trade currency
+        /// Gets transaction currency
         /// </summary>
-        [JsonProperty(PropertyName = "tradeCurrency")]
-        public string TradeCurrency { get; private set; }
+        [JsonProperty(PropertyName = "transactionCurrency")]
+        public string TransactionCurrency { get; private set; }
 
         /// <summary>
         /// </summary>
