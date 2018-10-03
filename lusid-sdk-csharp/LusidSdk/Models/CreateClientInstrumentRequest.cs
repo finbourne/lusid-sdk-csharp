@@ -105,6 +105,10 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Name");
             }
+            if (Instrument != null)
+            {
+                Instrument.Validate();
+            }
         }
     }
 }

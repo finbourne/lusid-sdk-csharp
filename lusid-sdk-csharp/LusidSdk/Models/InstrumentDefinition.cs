@@ -22,12 +22,16 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
-    /// An opaque instrument definition.
-    /// Understood by some analytics library.
+    /// Expanded instrument definition - in the case of OTC instruments
+    /// this contains the definition of the non-exchange traded instrument.
+    /// The format for this can be client-defined, but in order to
+    /// transparently use
+    /// vendor libraries it must conform to a format that LUSID understands.
     /// </summary>
     public partial class InstrumentDefinition
     {
@@ -42,8 +46,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the InstrumentDefinition class.
         /// </summary>
-        public InstrumentDefinition(string content = default(string))
+        public InstrumentDefinition(string instrumentFormat, string content)
         {
+            InstrumentFormat = instrumentFormat;
             Content = content;
             CustomInit();
         }
@@ -55,8 +60,30 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "instrumentFormat")]
+        public string InstrumentFormat { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "content")]
         public string Content { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (InstrumentFormat == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentFormat");
+            }
+            if (Content == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Content");
+            }
+        }
     }
 }

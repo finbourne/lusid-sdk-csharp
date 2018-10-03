@@ -44,15 +44,15 @@ namespace Finbourne.Models
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
         /// <param name="description">LUSID transaction description</param>
-        /// <param name="transactionPrice">Execution price for the
-        /// transaction</param>
-        /// <param name="totalConsideration">Total value of the transaction in
-        /// settlement currency</param>
         /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="transactionDate">Transaction date</param>
         /// <param name="settlementDate">Settlement date</param>
         /// <param name="units">Quantity of trade in units of the
         /// instrument</param>
+        /// <param name="transactionPrice">Execution price for the
+        /// transaction</param>
+        /// <param name="totalConsideration">Total value of the transaction in
+        /// settlement currency</param>
         /// <param name="exchangeRate">Rate between transaction and settlement
         /// currency</param>
         /// <param name="transactionToPortfolioRate">Rate between transaction
@@ -71,7 +71,7 @@ namespace Finbourne.Models
         /// into LUSID</param>
         /// <param name="realisedGainLoss">Collection of gains or
         /// losses</param>
-        public OutputTransaction(string transactionId, string type, string description, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), double? exchangeRate = default(double?), double? transactionToPortfolioRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLoss> realisedGainLoss = default(IList<RealisedGainLoss>))
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), double? transactionToPortfolioRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLoss> realisedGainLoss = default(IList<RealisedGainLoss>))
         {
             TransactionId = transactionId;
             Type = type;
@@ -222,24 +222,5 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "realisedGainLoss")]
         public IList<RealisedGainLoss> RealisedGainLoss { get; private set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Properties != null)
-            {
-                foreach (var element in Properties)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }

@@ -52,7 +52,9 @@ namespace Finbourne.Models
         /// 'Metric'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
-        public PropertyDefinition(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), IList<Link> links = default(IList<Link>))
+        /// <param name="domain">Possible values include: 'Trade', 'Portfolio',
+        /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType'</param>
+        public PropertyDefinition(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), string domain = default(string), string scope = default(string), string code = default(string), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Key = key;
@@ -63,6 +65,9 @@ namespace Finbourne.Models
             LifeTime = lifeTime;
             Type = type;
             UnitSchema = unitSchema;
+            Domain = domain;
+            Scope = scope;
+            Code = code;
             Links = links;
             CustomInit();
         }
@@ -126,6 +131,23 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "unitSchema")]
         public string UnitSchema { get; set; }
+
+        /// <summary>
+        /// Gets possible values include: 'Trade', 'Portfolio', 'Security',
+        /// 'Holding', 'ReferenceHolding', 'TxnType'
+        /// </summary>
+        [JsonProperty(PropertyName = "domain")]
+        public string Domain { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "scope")]
+        public string Scope { get; private set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "code")]
+        public string Code { get; private set; }
 
         /// <summary>
         /// </summary>
