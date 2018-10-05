@@ -226,6 +226,14 @@ namespace Finbourne
     ///
     /// A transaction represents an economic activity against a Portfolio.
     ///
+    /// Transactions are processed according to a configuration. This will tell
+    /// the LUSID engine how to interpret the transaction and correctly update
+    /// the holdings. LUSID comes with a set of transaction types you can use
+    /// out of the box, or you can configure your own set(s) of transactions.
+    ///
+    /// For more details see the [LUSID Getting Started Guide for transaction
+    /// configuration.](https://support.finbourne.com/hc/en-us/articles/360016737511-Configuring-Transaction-Types)
+    ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
     /// | TransactionId|string|Unique transaction identifier |
@@ -243,6 +251,68 @@ namespace Finbourne
     /// | Source|string|Where this transaction came from |
     /// | NettingSet|string|  |
     ///
+    ///
+    /// ### Example Transactions
+    ///
+    /// #### A Common Purchase Example
+    /// Three example transactions are shown in the table below.
+    ///
+    /// They represent a purchase of USD denominated IBM shares within a
+    /// Sterling denominated portfolio.
+    ///
+    /// * The first two transactions are for separate buy and fx trades
+    /// * Buying 500 IBM shares for $71,480.00
+    /// * A foreign exchange conversion to fund the IBM purchase. (Buy
+    /// $71,480.00 for &amp;#163;54,846.60)
+    /// * The third transaction is an alternate version of the above trades.
+    /// Buying 500 IBM shares and settling directly in Sterling.
+    ///
+    /// | Column |  Buy Trade | Fx Trade | Buy Trade with foreign Settlement |
+    /// | ----- | ----- | ----- | ----- |
+    /// | TransactionId | FBN00001 | FBN00002 | FBN00003 |
+    /// | Type | Buy | FxBuy | Buy |
+    /// | InstrumentUid | FIGI_BBG000BLNNH6 | CCY_USD | FIGI_BBG000BLNNH6 |
+    /// | TransactionDate | 2018-08-02 | 2018-08-02 | 2018-08-02 |
+    /// | SettlementDate | 2018-08-06 | 2018-08-06 | 2018-08-06 |
+    /// | Units | 500 | 71480 | 500 |
+    /// | TransactionPrice | 142.96 | 1 | 142.96 |
+    /// | TradeCurrency | USD | USD | USD |
+    /// | ExchangeRate | 1 | 0.7673 | 0.7673 |
+    /// | TotalConsideration.Amount | 71480.00 | 54846.60 | 54846.60 |
+    /// | TotalConsideration.Currency | USD | GBP | GBP |
+    /// | Trade/default/TradeToPortfolioRate&amp;ast; | 0.7673 | 0.7673 |
+    /// 0.7673 |
+    ///
+    /// [&amp;ast; This is a property field]
+    ///
+    /// #### A Forward FX Example
+    ///
+    /// LUSID has a flexible transaction modelling system, and there are a
+    /// number of different ways of modelling forward fx trades.
+    ///
+    /// The default LUSID transaction types are FwdFxBuy and FwdFxSell. Other
+    /// types and behaviours can be configured as required.
+    ///
+    /// Using these transaction types, the holdings query will report two
+    /// forward positions. One in each currency.
+    ///
+    /// Since an FX trade is an exchange of one currency for another, the
+    /// following two 6 month forward transactions are equivalent:
+    ///
+    /// | Column |  Forward 'Sell' Trade | Forward 'Buy' Trade |
+    /// | ----- | ----- | ----- |
+    /// | TransactionId | FBN00004 | FBN00005 |
+    /// | Type | FwdFxSell | FwdFxBuy |
+    /// | InstrumentUid | CCY_GBP | CCY_USD |
+    /// | TransactionDate | 2018-08-02 | 2018-08-02 |
+    /// | SettlementDate | 2019-02-06 | 2019-02-06 |
+    /// | Units | 10000.00 | 13142.00 |
+    /// | TransactionPrice |1 | 1 |
+    /// | TradeCurrency | GBP | USD |
+    /// | ExchangeRate | 1.3142 | 0.760919 |
+    /// | TotalConsideration.Amount | 13142.00 | 10000.00 |
+    /// | TotalConsideration.Currency | USD | GBP |
+    /// | Trade/default/TradeToPortfolioRate | 1.0 | 0.760919 |
     ///
     /// ## Holdings
     ///
@@ -4378,7 +4448,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPersonalisation>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPersonalisation>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -15200,7 +15270,7 @@ namespace Finbourne
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 201)
+            if ((int)_statusCode != 200)
             {
                 var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -15234,7 +15304,7 @@ namespace Finbourne
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
-            if ((int)_statusCode == 201)
+            if ((int)_statusCode == 200)
             {
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try

@@ -41,7 +41,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreateCorporateAction class.
         /// </summary>
-        public CreateCorporateAction(string corporateActionCode, IList<CorporateActionTransition> transitions, System.DateTimeOffset? announcementDate = default(System.DateTimeOffset?), System.DateTimeOffset? exDate = default(System.DateTimeOffset?), System.DateTimeOffset? recordDate = default(System.DateTimeOffset?), System.DateTimeOffset? paymentDate = default(System.DateTimeOffset?))
+        public CreateCorporateAction(string corporateActionCode, System.DateTimeOffset announcementDate, System.DateTimeOffset exDate, System.DateTimeOffset recordDate, System.DateTimeOffset paymentDate, IList<CorporateActionTransition> transitions)
         {
             CorporateActionCode = corporateActionCode;
             AnnouncementDate = announcementDate;
@@ -65,22 +65,22 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "announcementDate")]
-        public System.DateTimeOffset? AnnouncementDate { get; set; }
+        public System.DateTimeOffset AnnouncementDate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exDate")]
-        public System.DateTimeOffset? ExDate { get; set; }
+        public System.DateTimeOffset ExDate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "recordDate")]
-        public System.DateTimeOffset? RecordDate { get; set; }
+        public System.DateTimeOffset RecordDate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "paymentDate")]
-        public System.DateTimeOffset? PaymentDate { get; set; }
+        public System.DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
         /// </summary>
@@ -102,6 +102,16 @@ namespace Finbourne.Models
             if (Transitions == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Transitions");
+            }
+            if (Transitions != null)
+            {
+                foreach (var element in Transitions)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }

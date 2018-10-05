@@ -49,7 +49,7 @@ namespace Finbourne.Models
         /// required for multiple taxlots</param>
         /// <param name="settlementDate">Original settlement date of the
         /// tax-lot's opening transaction.</param>
-        public TargetTaxLotRequest(double? units = default(double?), double? cost = default(double?), double? portfolioCost = default(double?), double? price = default(double?), System.DateTimeOffset? purchaseDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?))
+        public TargetTaxLotRequest(double units, double? cost = default(double?), double? portfolioCost = default(double?), double? price = default(double?), System.DateTimeOffset? purchaseDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?))
         {
             Units = units;
             Cost = cost;
@@ -69,7 +69,7 @@ namespace Finbourne.Models
         /// Gets or sets quantity of holding
         /// </summary>
         [JsonProperty(PropertyName = "units")]
-        public double? Units { get; set; }
+        public double Units { get; set; }
 
         /// <summary>
         /// Gets or sets book cost of holding in transaction currency
@@ -104,5 +104,15 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "settlementDate")]
         public System.DateTimeOffset? SettlementDate { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

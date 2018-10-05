@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace Finbourne.Models
         /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="unitsDifference">Difference in units</param>
         /// <param name="costDifference">Difference in cost</param>
-        public ReconciliationBreak(string instrumentUid = default(string), IList<Property> properties = default(IList<Property>), double? unitsDifference = default(double?), double? costDifference = default(double?))
+        public ReconciliationBreak(string instrumentUid, IList<Property> properties = default(IList<Property>), double? unitsDifference = default(double?), double? costDifference = default(double?))
         {
             InstrumentUid = instrumentUid;
             Properties = properties;
@@ -83,5 +84,28 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "costDifference")]
         public double? CostDifference { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (InstrumentUid == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+            }
+            if (Properties != null)
+            {
+                foreach (var element in Properties)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

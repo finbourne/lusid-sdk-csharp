@@ -41,7 +41,7 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="op">Possible values include: 'Sum',
         /// 'Proportion'</param>
-        public AggregateSpec(string key, string op = default(string))
+        public AggregateSpec(string key, string op)
         {
             Key = key;
             Op = op;
@@ -75,6 +75,10 @@ namespace Finbourne.Models
             if (Key == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Key");
+            }
+            if (Op == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Op");
             }
         }
     }

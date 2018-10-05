@@ -104,6 +104,16 @@ namespace Finbourne.Models
                     }
                 }
             }
+            if (Movements != null)
+            {
+                foreach (var element1 in Movements)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
             if (Properties != null)
             {
                 foreach (var valueElement in Properties.Values)

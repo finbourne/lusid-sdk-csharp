@@ -66,5 +66,28 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "outputTransitions")]
         public IList<CorporateActionTransitionComponent> OutputTransitions { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (InputTransition != null)
+            {
+                InputTransition.Validate();
+            }
+            if (OutputTransitions != null)
+            {
+                foreach (var element in OutputTransitions)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

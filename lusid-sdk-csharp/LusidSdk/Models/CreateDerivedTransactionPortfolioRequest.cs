@@ -24,6 +24,8 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class CreateDerivedTransactionPortfolioRequest
@@ -41,13 +43,19 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// CreateDerivedTransactionPortfolioRequest class.
         /// </summary>
-        public CreateDerivedTransactionPortfolioRequest(string displayName, string description = default(string), string code = default(string), ResourceId parentPortfolioId = default(ResourceId), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="accountingMethod">Possible values include: 'Default',
+        /// 'AverageCost', 'FirstInFirstOut', 'LastInFirstOut',
+        /// 'HighestCostFirst', 'LowestCostFirst'</param>
+        public CreateDerivedTransactionPortfolioRequest(string displayName, string description = default(string), string code = default(string), ResourceId parentPortfolioId = default(ResourceId), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<string> subHoldingKeys = default(IList<string>))
         {
             DisplayName = displayName;
             Description = description;
             Code = code;
             ParentPortfolioId = parentPortfolioId;
             Created = created;
+            CorporateActionSourceId = corporateActionSourceId;
+            AccountingMethod = accountingMethod;
+            SubHoldingKeys = subHoldingKeys;
             CustomInit();
         }
 
@@ -80,6 +88,24 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "created")]
         public System.DateTimeOffset? Created { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "corporateActionSourceId")]
+        public ResourceId CorporateActionSourceId { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Default', 'AverageCost',
+        /// 'FirstInFirstOut', 'LastInFirstOut', 'HighestCostFirst',
+        /// 'LowestCostFirst'
+        /// </summary>
+        [JsonProperty(PropertyName = "accountingMethod")]
+        public string AccountingMethod { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "subHoldingKeys")]
+        public IList<string> SubHoldingKeys { get; set; }
 
         /// <summary>
         /// Validate the object.

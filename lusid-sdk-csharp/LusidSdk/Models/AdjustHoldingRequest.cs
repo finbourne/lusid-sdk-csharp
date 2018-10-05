@@ -46,13 +46,13 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AdjustHoldingRequest class.
         /// </summary>
-        /// <param name="taxLots">1 or more quantity amounts</param>
         /// <param name="instrumentUid">Unique instrument identifier</param>
+        /// <param name="taxLots">1 or more quantity amounts</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
         /// holdings of a instrument</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public AdjustHoldingRequest(IList<TargetTaxLotRequest> taxLots, string instrumentUid = default(string), IDictionary<string, CreatePerpetualPropertyRequest> subHoldingKeys = default(IDictionary<string, CreatePerpetualPropertyRequest>), IDictionary<string, CreatePerpetualPropertyRequest> properties = default(IDictionary<string, CreatePerpetualPropertyRequest>))
+        public AdjustHoldingRequest(string instrumentUid, IList<TargetTaxLotRequest> taxLots, IDictionary<string, CreatePerpetualPropertyRequest> subHoldingKeys = default(IDictionary<string, CreatePerpetualPropertyRequest>), IDictionary<string, CreatePerpetualPropertyRequest> properties = default(IDictionary<string, CreatePerpetualPropertyRequest>))
         {
             InstrumentUid = instrumentUid;
             SubHoldingKeys = subHoldingKeys;
@@ -99,6 +99,10 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (InstrumentUid == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+            }
             if (TaxLots == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TaxLots");
@@ -120,6 +124,16 @@ namespace Finbourne.Models
                     if (valueElement1 != null)
                     {
                         valueElement1.Validate();
+                    }
+                }
+            }
+            if (TaxLots != null)
+            {
+                foreach (var element in TaxLots)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
                     }
                 }
             }

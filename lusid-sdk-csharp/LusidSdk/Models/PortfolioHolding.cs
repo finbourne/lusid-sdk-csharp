@@ -41,9 +41,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the PortfolioHolding class.
         /// </summary>
+        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="holdingType">Type of holding, eg Position, Balance,
         /// CashCommitment, Receivable, ForwardFX</param>
-        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="units">Quantity of holding</param>
         /// <param name="settledUnits">Settled quantity of holding</param>
         /// <param name="cost">Book cost of holding in transaction
@@ -52,7 +52,7 @@ namespace Finbourne.Models
         /// currency</param>
         /// <param name="transaction">If this is commitment-type holding, the
         /// transaction behind it</param>
-        public PortfolioHolding(string holdingType, string instrumentUid = default(string), IList<Property> properties = default(IList<Property>), double? units = default(double?), double? settledUnits = default(double?), double? cost = default(double?), double? costPortfolioCcy = default(double?), Transaction transaction = default(Transaction))
+        public PortfolioHolding(string instrumentUid, string holdingType, double units, double settledUnits, double cost, double costPortfolioCcy, IList<Property> properties = default(IList<Property>), Transaction transaction = default(Transaction))
         {
             InstrumentUid = instrumentUid;
             Properties = properties;
@@ -92,25 +92,25 @@ namespace Finbourne.Models
         /// Gets or sets quantity of holding
         /// </summary>
         [JsonProperty(PropertyName = "units")]
-        public double? Units { get; set; }
+        public double Units { get; set; }
 
         /// <summary>
         /// Gets or sets settled quantity of holding
         /// </summary>
         [JsonProperty(PropertyName = "settledUnits")]
-        public double? SettledUnits { get; set; }
+        public double SettledUnits { get; set; }
 
         /// <summary>
         /// Gets or sets book cost of holding in transaction currency
         /// </summary>
         [JsonProperty(PropertyName = "cost")]
-        public double? Cost { get; set; }
+        public double Cost { get; set; }
 
         /// <summary>
         /// Gets or sets book cost of holding in portfolio currency
         /// </summary>
         [JsonProperty(PropertyName = "costPortfolioCcy")]
-        public double? CostPortfolioCcy { get; set; }
+        public double CostPortfolioCcy { get; set; }
 
         /// <summary>
         /// Gets or sets if this is commitment-type holding, the transaction
@@ -127,6 +127,10 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (InstrumentUid == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+            }
             if (HoldingType == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "HoldingType");

@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace Finbourne.Models
         /// <param name="side">The Movement Side. Possible values include:
         /// 'Side1', 'Side2', 'BondInt'</param>
         /// <param name="direction">The Movement direction</param>
-        public TransactionConfigurationMovementDataRequest(string movementTypes = default(string), string side = default(string), int? direction = default(int?), IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>), IList<TransactionPropertyMappingRequest> mappings = default(IList<TransactionPropertyMappingRequest>))
+        public TransactionConfigurationMovementDataRequest(string movementTypes, string side, int direction, IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>), IList<TransactionPropertyMappingRequest> mappings = default(IList<TransactionPropertyMappingRequest>))
         {
             MovementTypes = movementTypes;
             Side = side;
@@ -83,7 +84,7 @@ namespace Finbourne.Models
         /// Gets or sets the Movement direction
         /// </summary>
         [JsonProperty(PropertyName = "direction")]
-        public int? Direction { get; set; }
+        public int Direction { get; set; }
 
         /// <summary>
         /// </summary>
@@ -95,5 +96,42 @@ namespace Finbourne.Models
         [JsonProperty(PropertyName = "mappings")]
         public IList<TransactionPropertyMappingRequest> Mappings { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (MovementTypes == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "MovementTypes");
+            }
+            if (Side == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Side");
+            }
+            if (Properties != null)
+            {
+                foreach (var valueElement in Properties.Values)
+                {
+                    if (valueElement != null)
+                    {
+                        valueElement.Validate();
+                    }
+                }
+            }
+            if (Mappings != null)
+            {
+                foreach (var element in Mappings)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

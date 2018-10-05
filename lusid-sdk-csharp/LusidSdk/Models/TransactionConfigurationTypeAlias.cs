@@ -52,7 +52,7 @@ namespace Finbourne.Models
         /// E.g. Increase a long position. Possible values include: 'None',
         /// 'LongLonger', 'LongShorter', 'ShortShorter', 'ShortLonger',
         /// 'Longer', 'Shorter', 'AllRoles'</param>
-        public TransactionConfigurationTypeAlias(string type, string description, string transactionClass, string transactionGroup, string transactionRoles = default(string))
+        public TransactionConfigurationTypeAlias(string type, string description, string transactionClass, string transactionGroup, string transactionRoles)
         {
             Type = type;
             Description = description;
@@ -124,6 +124,10 @@ namespace Finbourne.Models
             if (TransactionGroup == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TransactionGroup");
+            }
+            if (TransactionRoles == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "TransactionRoles");
             }
         }
     }

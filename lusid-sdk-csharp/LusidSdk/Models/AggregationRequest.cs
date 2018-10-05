@@ -45,7 +45,7 @@ namespace Finbourne.Models
         /// Initializes a new instance of the AggregationRequest class.
         /// </summary>
         /// <param name="asAt">The asAt date to use</param>
-        public AggregationRequest(ResourceId recipeId, IList<AggregateSpec> metrics, bool? loadReferencePortfolio = default(bool?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> groupBy = default(IList<string>), IList<PropertyFilter> filters = default(IList<PropertyFilter>), int? limit = default(int?), string sort = default(string))
+        public AggregationRequest(ResourceId recipeId, System.DateTimeOffset effectiveAt, IList<AggregateSpec> metrics, bool? loadReferencePortfolio = default(bool?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> groupBy = default(IList<string>), IList<PropertyFilter> filters = default(IList<PropertyFilter>), int? limit = default(int?), string sort = default(string))
         {
             RecipeId = recipeId;
             LoadReferencePortfolio = loadReferencePortfolio;
@@ -83,7 +83,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "effectiveAt")]
-        public System.DateTimeOffset? EffectiveAt { get; set; }
+        public System.DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
         /// </summary>

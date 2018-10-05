@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -40,7 +41,7 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// CorporateActionTransitionComponent class.
         /// </summary>
-        public CorporateActionTransitionComponent(string instrumentUid = default(string), double? unitsFactor = default(double?), double? costFactor = default(double?))
+        public CorporateActionTransitionComponent(string instrumentUid, double unitsFactor, double costFactor)
         {
             InstrumentUid = instrumentUid;
             UnitsFactor = unitsFactor;
@@ -61,12 +62,25 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "unitsFactor")]
-        public double? UnitsFactor { get; set; }
+        public double UnitsFactor { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "costFactor")]
-        public double? CostFactor { get; set; }
+        public double CostFactor { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (InstrumentUid == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+            }
+        }
     }
 }

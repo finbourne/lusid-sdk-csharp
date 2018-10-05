@@ -44,22 +44,22 @@ namespace Finbourne.Models
         /// <param name="transactionId">Unique transaction identifier</param>
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
-        /// <param name="transactionPrice">Execution price for the
-        /// transaction</param>
-        /// <param name="totalConsideration">Total value of the
-        /// transaction</param>
         /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="transactionDate">Transaction date</param>
         /// <param name="settlementDate">Settlement date</param>
         /// <param name="units">Quantity of transaction in units of the
         /// instrument</param>
+        /// <param name="transactionPrice">Execution price for the
+        /// transaction</param>
+        /// <param name="totalConsideration">Total value of the
+        /// transaction</param>
+        /// <param name="source">Where this transaction came from. Possible
+        /// values include: 'System', 'Client'</param>
         /// <param name="exchangeRate">Rate between transaction and settle
         /// currency</param>
         /// <param name="transactionCurrency">Transaction currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
-        /// <param name="source">Where this transaction came from. Possible
-        /// values include: 'System', 'Client'</param>
-        public Transaction(string transactionId, string type, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), double? exchangeRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string))
+        public Transaction(string transactionId, string type, string instrumentUid, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, double? exchangeRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string nettingSet = default(string))
         {
             TransactionId = transactionId;
             Type = type;
@@ -106,19 +106,19 @@ namespace Finbourne.Models
         /// Gets or sets transaction date
         /// </summary>
         [JsonProperty(PropertyName = "transactionDate")]
-        public System.DateTimeOffset? TransactionDate { get; set; }
+        public System.DateTimeOffset TransactionDate { get; set; }
 
         /// <summary>
         /// Gets or sets settlement date
         /// </summary>
         [JsonProperty(PropertyName = "settlementDate")]
-        public System.DateTimeOffset? SettlementDate { get; set; }
+        public System.DateTimeOffset SettlementDate { get; set; }
 
         /// <summary>
         /// Gets or sets quantity of transaction in units of the instrument
         /// </summary>
         [JsonProperty(PropertyName = "units")]
-        public double? Units { get; set; }
+        public double Units { get; set; }
 
         /// <summary>
         /// Gets or sets execution price for the transaction
@@ -183,6 +183,10 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Type");
             }
+            if (InstrumentUid == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+            }
             if (TransactionPrice == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TransactionPrice");
@@ -190,6 +194,10 @@ namespace Finbourne.Models
             if (TotalConsideration == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TotalConsideration");
+            }
+            if (Source == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Source");
             }
             if (Properties != null)
             {

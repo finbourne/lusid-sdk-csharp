@@ -1047,7 +1047,7 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// </param>
-            public static ResourceListOfPersonalisation GetPersonalisations(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static ResourceListOfPersonalisation GetPersonalisations(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetPersonalisationsAsync(pattern, scope, recursive, wildcards, sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -1081,7 +1081,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfPersonalisation> GetPersonalisationsAsync(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = default(bool?), bool? wildcards = default(bool?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPersonalisation> GetPersonalisationsAsync(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPersonalisationsWithHttpMessagesAsync(pattern, scope, recursive, wildcards, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
