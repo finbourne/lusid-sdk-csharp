@@ -48,7 +48,7 @@ namespace Finbourne.Models
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-        /// 'UnitCreation', 'Currency', 'UserId'</param>
+        /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         public CreateDataTypeRequest(string scope, string code, string typeValueRange, string displayName, string description, string valueType, IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<CreateUnitDefinition> acceptableUnits = default(IList<CreateUnitDefinition>))
@@ -102,7 +102,7 @@ namespace Finbourne.Models
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-        /// 'UnitCreation', 'Currency', 'UserId'
+        /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }

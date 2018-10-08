@@ -22,29 +22,25 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreatePropertyRequest
+    public partial class MetricValue
     {
         /// <summary>
-        /// Initializes a new instance of the CreatePropertyRequest class.
+        /// Initializes a new instance of the MetricValue class.
         /// </summary>
-        public CreatePropertyRequest()
+        public MetricValue()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreatePropertyRequest class.
+        /// Initializes a new instance of the MetricValue class.
         /// </summary>
-        /// <param name="effectiveFrom">Date for which the property is
-        /// effective from</param>
-        public CreatePropertyRequest(object value, System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), string unit = default(string))
+        public MetricValue(double? value = default(double?), string unit = default(string))
         {
             Value = value;
-            EffectiveFrom = effectiveFrom;
             Unit = unit;
             CustomInit();
         }
@@ -57,31 +53,12 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public object Value { get; set; }
-
-        /// <summary>
-        /// Gets or sets date for which the property is effective from
-        /// </summary>
-        [JsonProperty(PropertyName = "effectiveFrom")]
-        public System.DateTimeOffset? EffectiveFrom { get; set; }
+        public double? Value { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "unit")]
         public string Unit { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Value == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Value");
-            }
-        }
     }
 }

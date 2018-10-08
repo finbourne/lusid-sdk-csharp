@@ -2271,7 +2271,7 @@ namespace Finbourne
             /// <param name='effectiveAt'>
             /// The effective date for the change
             /// </param>
-            public static PortfolioProperties UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            public static PortfolioProperties UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IDictionary<string, PropertyValue> portfolioProperties = default(IDictionary<string, PropertyValue>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.UpsertPortfolioPropertiesAsync(scope, code, portfolioProperties, effectiveAt).GetAwaiter().GetResult();
             }
@@ -2299,7 +2299,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PortfolioProperties> UpsertPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PortfolioProperties> UpsertPortfolioPropertiesAsync(this ILUSIDAPI operations, string scope, string code, IDictionary<string, PropertyValue> portfolioProperties = default(IDictionary<string, PropertyValue>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertPortfolioPropertiesWithHttpMessagesAsync(scope, code, portfolioProperties, effectiveAt, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -2465,13 +2465,13 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='name'>
+            /// <param name='code'>
             /// </param>
             /// <param name='asAt'>
             /// </param>
-            public static PropertyDefinition GetPropertyDefinition(this ILUSIDAPI operations, string domain, string scope, string name, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
+            public static PropertyDefinition GetPropertyDefinition(this ILUSIDAPI operations, string domain, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
-                return operations.GetPropertyDefinitionAsync(domain, scope, name, asAt).GetAwaiter().GetResult();
+                return operations.GetPropertyDefinitionAsync(domain, scope, code, asAt).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2486,16 +2486,16 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='name'>
+            /// <param name='code'>
             /// </param>
             /// <param name='asAt'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PropertyDefinition> GetPropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string name, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PropertyDefinition> GetPropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPropertyDefinitionWithHttpMessagesAsync(domain, scope, name, asAt, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPropertyDefinitionWithHttpMessagesAsync(domain, scope, code, asAt, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2513,13 +2513,13 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='name'>
+            /// <param name='code'>
             /// </param>
             /// <param name='definition'>
             /// </param>
-            public static PropertyDefinition UpdatePropertyDefinition(this ILUSIDAPI operations, string domain, string scope, string name, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest))
+            public static PropertyDefinition UpdatePropertyDefinition(this ILUSIDAPI operations, string domain, string scope, string code, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest))
             {
-                return operations.UpdatePropertyDefinitionAsync(domain, scope, name, definition).GetAwaiter().GetResult();
+                return operations.UpdatePropertyDefinitionAsync(domain, scope, code, definition).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2534,16 +2534,16 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='name'>
+            /// <param name='code'>
             /// </param>
             /// <param name='definition'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PropertyDefinition> UpdatePropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string name, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PropertyDefinition> UpdatePropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string code, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpdatePropertyDefinitionWithHttpMessagesAsync(domain, scope, name, definition, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpdatePropertyDefinitionWithHttpMessagesAsync(domain, scope, code, definition, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2561,11 +2561,11 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='name'>
+            /// <param name='code'>
             /// </param>
-            public static DeletedEntityResponse DeletePropertyDefinition(this ILUSIDAPI operations, string domain, string scope, string name)
+            public static DeletedEntityResponse DeletePropertyDefinition(this ILUSIDAPI operations, string domain, string scope, string code)
             {
-                return operations.DeletePropertyDefinitionAsync(domain, scope, name).GetAwaiter().GetResult();
+                return operations.DeletePropertyDefinitionAsync(domain, scope, code).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -2580,14 +2580,14 @@ namespace Finbourne
             /// </param>
             /// <param name='scope'>
             /// </param>
-            /// <param name='name'>
+            /// <param name='code'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string name, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string code, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeletePropertyDefinitionWithHttpMessagesAsync(domain, scope, name, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeletePropertyDefinitionWithHttpMessagesAsync(domain, scope, code, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4054,7 +4054,7 @@ namespace Finbourne
             /// <param name='transactionProperties'>
             /// Transaction properties to add
             /// </param>
-            public static AddTransactionPropertyResponse AddTransactionProperty(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>))
+            public static AddTransactionPropertyResponse AddTransactionProperty(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, PerpetualPropertyValue> transactionProperties = default(IDictionary<string, PerpetualPropertyValue>))
             {
                 return operations.AddTransactionPropertyAsync(scope, code, transactionId, transactionProperties).GetAwaiter().GetResult();
             }
@@ -4083,7 +4083,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<AddTransactionPropertyResponse> AddTransactionPropertyAsync(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AddTransactionPropertyResponse> AddTransactionPropertyAsync(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, PerpetualPropertyValue> transactionProperties = default(IDictionary<string, PerpetualPropertyValue>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddTransactionPropertyWithHttpMessagesAsync(scope, code, transactionId, transactionProperties, null, cancellationToken).ConfigureAwait(false))
                 {

@@ -48,7 +48,7 @@ namespace Finbourne.Models
         /// 'HighestCostFirst', 'LowestCostFirst'</param>
         /// <param name="properties">Portfolio properties to add to the
         /// portfolio</param>
-        public CreateTransactionPortfolioRequest(string displayName, string code, string baseCurrency, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<string> subHoldingKeys = default(IList<string>), IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>))
+        public CreateTransactionPortfolioRequest(string displayName, string code, string baseCurrency, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), string accountingMethod = default(string), IList<string> subHoldingKeys = default(IList<string>), IDictionary<string, PropertyValue> properties = default(IDictionary<string, PropertyValue>))
         {
             DisplayName = displayName;
             Description = description;
@@ -114,7 +114,7 @@ namespace Finbourne.Models
         /// Gets or sets portfolio properties to add to the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, CreatePropertyRequest> Properties { get; set; }
+        public IDictionary<string, PropertyValue> Properties { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -135,16 +135,6 @@ namespace Finbourne.Models
             if (BaseCurrency == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "BaseCurrency");
-            }
-            if (Properties != null)
-            {
-                foreach (var valueElement in Properties.Values)
-                {
-                    if (valueElement != null)
-                    {
-                        valueElement.Validate();
-                    }
-                }
             }
         }
     }

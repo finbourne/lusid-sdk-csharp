@@ -45,7 +45,7 @@ namespace Finbourne.Models
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-        /// 'UnitCreation', 'Currency', 'UserId'</param>
+        /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue'</param>
         public FieldSchema(string scope = default(string), string name = default(string), string displayName = default(string), string type = default(string), bool? isMetric = default(bool?), int? displayOrder = default(int?), IDictionary<string, FieldSchema> propertySchema = default(IDictionary<string, FieldSchema>))
         {
             Scope = scope;
@@ -84,7 +84,7 @@ namespace Finbourne.Models
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-        /// 'UnitCreation', 'Currency', 'UserId'
+        /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }

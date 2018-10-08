@@ -23,33 +23,25 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ReferencePortfolioConstituentRequest
+    public partial class PerpetualPropertyValue
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// ReferencePortfolioConstituentRequest class.
+        /// Initializes a new instance of the PerpetualPropertyValue class.
         /// </summary>
-        public ReferencePortfolioConstituentRequest()
+        public PerpetualPropertyValue()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// ReferencePortfolioConstituentRequest class.
+        /// Initializes a new instance of the PerpetualPropertyValue class.
         /// </summary>
-        /// <param name="type">Possible values include: 'Shares', 'Weight',
-        /// 'Nominal'</param>
-        public ReferencePortfolioConstituentRequest(string instrumentUid = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), double? weight = default(double?), string type = default(string))
+        public PerpetualPropertyValue(string labelValue = default(string), MetricValue metricValue = default(MetricValue))
         {
-            InstrumentUid = instrumentUid;
-            Properties = properties;
-            Weight = weight;
-            Type = type;
+            LabelValue = labelValue;
+            MetricValue = metricValue;
             CustomInit();
         }
 
@@ -60,24 +52,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "labelValue")]
+        public string LabelValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, PerpetualPropertyValue> Properties { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "weight")]
-        public double? Weight { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'Shares', 'Weight', 'Nominal'
-        /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
+        [JsonProperty(PropertyName = "metricValue")]
+        public MetricValue MetricValue { get; set; }
 
     }
 }

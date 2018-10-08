@@ -50,7 +50,7 @@ namespace Finbourne.Models
         /// adjustment.</param>
         /// <param name="unmatchedHoldingMethod">Possible values include:
         /// 'PositionToZero', 'KeepTheSame'</param>
-        public HoldingsAdjustment(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Version version = default(Version), string unmatchedHoldingMethod = default(string), IList<AdjustHoldingRequest> adjustments = default(IList<AdjustHoldingRequest>), IList<Link> links = default(IList<Link>))
+        public HoldingsAdjustment(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Version version = default(Version), string unmatchedHoldingMethod = default(string), IList<HoldingAdjustment> adjustments = default(IList<HoldingAdjustment>), IList<Link> links = default(IList<Link>))
         {
             EffectiveAt = effectiveAt;
             Version = version;
@@ -88,7 +88,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "adjustments")]
-        public IList<AdjustHoldingRequest> Adjustments { get; set; }
+        public IList<HoldingAdjustment> Adjustments { get; set; }
 
         /// <summary>
         /// </summary>

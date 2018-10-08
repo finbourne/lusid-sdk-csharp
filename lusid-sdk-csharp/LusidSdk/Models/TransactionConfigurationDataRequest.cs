@@ -47,7 +47,7 @@ namespace Finbourne.Models
         /// specific transaction model</param>
         /// <param name="movements">Movement data for the transaction
         /// code</param>
-        public TransactionConfigurationDataRequest(IList<TransactionConfigurationTypeAlias> aliases, IList<TransactionConfigurationMovementDataRequest> movements, IDictionary<string, CreatePropertyRequest> properties = default(IDictionary<string, CreatePropertyRequest>))
+        public TransactionConfigurationDataRequest(IList<TransactionConfigurationTypeAlias> aliases, IList<TransactionConfigurationMovementDataRequest> movements, IDictionary<string, PropertyValue> properties = default(IDictionary<string, PropertyValue>))
         {
             Aliases = aliases;
             Movements = movements;
@@ -76,7 +76,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, CreatePropertyRequest> Properties { get; private set; }
+        public IDictionary<string, PropertyValue> Properties { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -111,16 +111,6 @@ namespace Finbourne.Models
                     if (element1 != null)
                     {
                         element1.Validate();
-                    }
-                }
-            }
-            if (Properties != null)
-            {
-                foreach (var valueElement in Properties.Values)
-                {
-                    if (valueElement != null)
-                    {
-                        valueElement.Validate();
                     }
                 }
             }

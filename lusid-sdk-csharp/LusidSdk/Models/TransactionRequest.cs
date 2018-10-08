@@ -60,7 +60,7 @@ namespace Finbourne.Models
         /// currency</param>
         /// <param name="transactionCurrency">Transaction currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
-        public TransactionRequest(string transactionId, string type, string instrumentUid, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, double? exchangeRate = default(double?), string transactionCurrency = default(string), IDictionary<string, CreatePerpetualPropertyRequest> properties = default(IDictionary<string, CreatePerpetualPropertyRequest>), string counterpartyId = default(string), string nettingSet = default(string))
+        public TransactionRequest(string transactionId, string type, string instrumentUid, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, double? exchangeRate = default(double?), string transactionCurrency = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), string counterpartyId = default(string), string nettingSet = default(string))
         {
             TransactionId = transactionId;
             Type = type;
@@ -148,7 +148,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, CreatePerpetualPropertyRequest> Properties { get; set; }
+        public IDictionary<string, PerpetualPropertyValue> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets counterparty identifier
@@ -199,16 +199,6 @@ namespace Finbourne.Models
             if (Source == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Source");
-            }
-            if (Properties != null)
-            {
-                foreach (var valueElement in Properties.Values)
-                {
-                    if (valueElement != null)
-                    {
-                        valueElement.Validate();
-                    }
-                }
             }
         }
     }

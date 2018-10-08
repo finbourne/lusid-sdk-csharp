@@ -29,22 +29,22 @@ namespace Finbourne.Models
     using System.Linq;
 
     /// <summary>
-    /// This request specifies target holdings. i.e. holding data that the
+    /// This 'dto' contains target holdings. i.e. holding data that the
     /// system should match. When processed by the movement
     /// engine, it will create 'true-up' adjustments on the fly.
     /// </summary>
-    public partial class AdjustHoldingRequest
+    public partial class HoldingAdjustment
     {
         /// <summary>
-        /// Initializes a new instance of the AdjustHoldingRequest class.
+        /// Initializes a new instance of the HoldingAdjustment class.
         /// </summary>
-        public AdjustHoldingRequest()
+        public HoldingAdjustment()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the AdjustHoldingRequest class.
+        /// Initializes a new instance of the HoldingAdjustment class.
         /// </summary>
         /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="taxLots">1 or more quantity amounts</param>
@@ -52,7 +52,7 @@ namespace Finbourne.Models
         /// holdings of a instrument</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public AdjustHoldingRequest(string instrumentUid, IList<TargetTaxLotRequest> taxLots, IDictionary<string, PerpetualPropertyValue> subHoldingKeys = default(IDictionary<string, PerpetualPropertyValue>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>))
+        public HoldingAdjustment(string instrumentUid, IList<TargetTaxLot> taxLots, IList<PerpetualProperty> subHoldingKeys = default(IList<PerpetualProperty>), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>))
         {
             InstrumentUid = instrumentUid;
             SubHoldingKeys = subHoldingKeys;
@@ -77,19 +77,19 @@ namespace Finbourne.Models
         /// instrument
         /// </summary>
         [JsonProperty(PropertyName = "subHoldingKeys")]
-        public IDictionary<string, PerpetualPropertyValue> SubHoldingKeys { get; set; }
+        public IList<PerpetualProperty> SubHoldingKeys { get; set; }
 
         /// <summary>
         /// Gets or sets arbitrary properties to store with the holding
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, PerpetualPropertyValue> Properties { get; set; }
+        public IList<PerpetualProperty> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets 1 or more quantity amounts
         /// </summary>
         [JsonProperty(PropertyName = "taxLots")]
-        public IList<TargetTaxLotRequest> TaxLots { get; set; }
+        public IList<TargetTaxLot> TaxLots { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -107,13 +107,33 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TaxLots");
             }
-            if (TaxLots != null)
+            if (SubHoldingKeys != null)
             {
-                foreach (var element in TaxLots)
+                foreach (var element in SubHoldingKeys)
                 {
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Properties != null)
+            {
+                foreach (var element1 in Properties)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
+            if (TaxLots != null)
+            {
+                foreach (var element2 in TaxLots)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

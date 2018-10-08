@@ -22,29 +22,29 @@
 
 namespace Finbourne.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class CreatePerpetualPropertyRequest
+    public partial class PropertyValue
     {
         /// <summary>
-        /// Initializes a new instance of the CreatePerpetualPropertyRequest
-        /// class.
+        /// Initializes a new instance of the PropertyValue class.
         /// </summary>
-        public CreatePerpetualPropertyRequest()
+        public PropertyValue()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the CreatePerpetualPropertyRequest
-        /// class.
+        /// Initializes a new instance of the PropertyValue class.
         /// </summary>
-        public CreatePerpetualPropertyRequest(object value, string unit = default(string))
+        /// <param name="effectiveFrom">Date for which the property is
+        /// effective from</param>
+        public PropertyValue(string labelValue = default(string), MetricValue metricValue = default(MetricValue), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?))
         {
-            Value = value;
-            Unit = unit;
+            LabelValue = labelValue;
+            MetricValue = metricValue;
+            EffectiveFrom = effectiveFrom;
             CustomInit();
         }
 
@@ -55,26 +55,19 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public object Value { get; set; }
+        [JsonProperty(PropertyName = "labelValue")]
+        public string LabelValue { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "unit")]
-        public string Unit { get; set; }
+        [JsonProperty(PropertyName = "metricValue")]
+        public MetricValue MetricValue { get; set; }
 
         /// <summary>
-        /// Validate the object.
+        /// Gets or sets date for which the property is effective from
         /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Value == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Value");
-            }
-        }
+        [JsonProperty(PropertyName = "effectiveFrom")]
+        public System.DateTimeOffset? EffectiveFrom { get; set; }
+
     }
 }

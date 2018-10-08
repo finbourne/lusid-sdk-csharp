@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// Initializes a new instance of the CreateInstrumentPropertyRequest
         /// class.
         /// </summary>
-        public CreateInstrumentPropertyRequest(string instrumentPropertyKey = default(string), CreatePropertyRequest property = default(CreatePropertyRequest))
+        public CreateInstrumentPropertyRequest(string instrumentPropertyKey = default(string), PropertyValue property = default(PropertyValue))
         {
             InstrumentPropertyKey = instrumentPropertyKey;
             Property = property;
@@ -60,20 +60,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "property")]
-        public CreatePropertyRequest Property { get; set; }
+        public PropertyValue Property { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Property != null)
-            {
-                Property.Validate();
-            }
-        }
     }
 }

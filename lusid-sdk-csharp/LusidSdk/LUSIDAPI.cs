@@ -8802,7 +8802,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, PropertyValue> portfolioProperties = default(IDictionary<string, PropertyValue>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -8811,16 +8811,6 @@ namespace Finbourne
             if (code == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "code");
-            }
-            if (portfolioProperties != null)
-            {
-                foreach (var valueElement in portfolioProperties.Values)
-                {
-                    if (valueElement != null)
-                    {
-                        valueElement.Validate();
-                    }
-                }
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9500,7 +9490,7 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
         /// </param>
         /// <param name='asAt'>
         /// </param>
@@ -9525,7 +9515,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -9535,9 +9525,9 @@ namespace Finbourne
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (name == null)
+            if (code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9548,17 +9538,17 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("domain", domain);
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("name", name);
+                tracingParameters.Add("code", code);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetPropertyDefinition", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions/{domain}/{scope}/{name}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions/{domain}/{scope}/{code}").ToString();
             _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
             if (asAt != null)
             {
@@ -9677,7 +9667,7 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
         /// </param>
         /// <param name='definition'>
         /// </param>
@@ -9702,7 +9692,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -9712,9 +9702,9 @@ namespace Finbourne
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (name == null)
+            if (code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9725,17 +9715,17 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("domain", domain);
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("name", name);
+                tracingParameters.Add("code", code);
                 tracingParameters.Add("definition", definition);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdatePropertyDefinition", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions/{domain}/{scope}/{name}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions/{domain}/{scope}/{code}").ToString();
             _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -9851,7 +9841,7 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9874,7 +9864,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (domain == null)
             {
@@ -9884,9 +9874,9 @@ namespace Finbourne
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (name == null)
+            if (code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9897,16 +9887,16 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("domain", domain);
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("name", name);
+                tracingParameters.Add("code", code);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeletePropertyDefinition", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions/{domain}/{scope}/{name}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions/{domain}/{scope}/{code}").ToString();
             _url = _url.Replace("{domain}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(domain, SerializationSettings).Trim('"')));
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -15178,7 +15168,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AddTransactionPropertyResponse>> AddTransactionPropertyWithHttpMessagesAsync(string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AddTransactionPropertyResponse>> AddTransactionPropertyWithHttpMessagesAsync(string scope, string code, string transactionId, IDictionary<string, PerpetualPropertyValue> transactionProperties = default(IDictionary<string, PerpetualPropertyValue>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -15191,16 +15181,6 @@ namespace Finbourne
             if (transactionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "transactionId");
-            }
-            if (transactionProperties != null)
-            {
-                foreach (var valueElement in transactionProperties.Values)
-                {
-                    if (valueElement != null)
-                    {
-                        valueElement.Validate();
-                    }
-                }
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

@@ -1502,7 +1502,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, CreatePropertyRequest> portfolioProperties = default(IDictionary<string, CreatePropertyRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, PropertyValue> portfolioProperties = default(IDictionary<string, PropertyValue>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete one, many or all properties from a portfolio for a specified
@@ -1577,7 +1577,7 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
         /// </param>
         /// <param name='asAt'>
         /// </param>
@@ -1587,7 +1587,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PropertyDefinition>> GetPropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates the specified property definition.
@@ -1598,7 +1598,7 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
         /// </param>
         /// <param name='definition'>
         /// </param>
@@ -1608,7 +1608,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest definition = default(UpdatePropertyDefinitionRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes the property definition.
@@ -1619,7 +1619,7 @@ namespace Finbourne
         /// </param>
         /// <param name='scope'>
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1627,7 +1627,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string name, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Perform a reconciliation between two portfolios
@@ -2296,7 +2296,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<AddTransactionPropertyResponse>> AddTransactionPropertyWithHttpMessagesAsync(string scope, string code, string transactionId, IDictionary<string, CreatePerpetualPropertyRequest> transactionProperties = default(IDictionary<string, CreatePerpetualPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AddTransactionPropertyResponse>> AddTransactionPropertyWithHttpMessagesAsync(string scope, string code, string transactionId, IDictionary<string, PerpetualPropertyValue> transactionProperties = default(IDictionary<string, PerpetualPropertyValue>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete transaction property

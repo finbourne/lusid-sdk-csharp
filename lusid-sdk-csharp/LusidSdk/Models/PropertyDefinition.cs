@@ -45,7 +45,7 @@ namespace Finbourne.Models
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-        /// 'UnitCreation', 'Currency', 'UserId'</param>
+        /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
         /// <param name="type">Possible values include: 'Label',
@@ -93,7 +93,7 @@ namespace Finbourne.Models
         /// 'Percentage', 'BenchmarkType', 'Code', 'Id', 'Uri', 'ArrayOfIds',
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
-        /// 'UnitCreation', 'Currency', 'UserId'
+        /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
