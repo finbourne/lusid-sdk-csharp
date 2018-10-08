@@ -159,10 +159,9 @@ namespace LusidSdk.Tests
             Assert.That(portfolioId, Is.Not.Null, "portfolioId null");
 
             const string propertyValue = "Active";
-            var property = new CreatePropertyRequest(propertyValue);
 
             //    add the portfolio property
-            var properties = new Dictionary<string, CreatePropertyRequest> {[propertyDefinitionDto.Key] = property};
+            var properties = new Dictionary<string, PropertyValue> {[propertyDefinitionDto.Key] = new PropertyValue(propertyValue) };
             var propertiesResult = _client.UpsertPortfolioProperties(scope, portfolioId, properties, portfolio?.Created);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
@@ -223,9 +222,9 @@ namespace LusidSdk.Tests
                 TransactionPrice = new TransactionPrice(12.3, "Price"),
                 TotalConsideration = new CurrencyAndAmount(1230, "GBP"),
                 Source = "Client",
-                Properties = new Dictionary<string, CreatePerpetualPropertyRequest>()
+                Properties = new Dictionary<string, PerpetualPropertyValue>()
                 {
-                    [propertyDefinitionDto.Key] = new CreatePerpetualPropertyRequest(propertyValue)
+                    [propertyDefinitionDto.Key] = new PerpetualPropertyValue(propertyValue)
                 }
             };
 
