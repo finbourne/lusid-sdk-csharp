@@ -2058,11 +2058,11 @@ namespace Finbourne
         Task<HttpOperationResponse<VersionedResourceListOfHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Adjust holdings
+        /// Set All Holdings
         /// </summary>
         /// <remarks>
-        /// Create transactions in a specific portfolio to bring it to the
-        /// specified holdings
+        /// Create transactions in a specific portfolio to bring all holdings
+        /// to the specified targets
         /// </remarks>
         /// <param name='scope'>
         /// The scope of the portfolio
@@ -2084,11 +2084,11 @@ namespace Finbourne
         Task<HttpOperationResponse<AdjustHolding>> SetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<AdjustHoldingRequest> holdingAdjustments = default(IList<AdjustHoldingRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Adjust holdings
+        /// Adjust Selected Holdings
         /// </summary>
         /// <remarks>
-        /// Create transactions in a specific portfolio to bring it to the
-        /// specified holdings
+        /// Create transactions in a specific portfolio to bring the selected
+        /// holdings up to the specified targets
         /// </remarks>
         /// <param name='scope'>
         /// The scope of the portfolio

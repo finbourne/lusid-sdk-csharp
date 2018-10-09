@@ -3564,11 +3564,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Adjust holdings
+            /// Set All Holdings
             /// </summary>
             /// <remarks>
-            /// Create transactions in a specific portfolio to bring it to the specified
-            /// holdings
+            /// Create transactions in a specific portfolio to bring all holdings to the
+            /// specified targets
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -3590,11 +3590,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Adjust holdings
+            /// Set All Holdings
             /// </summary>
             /// <remarks>
-            /// Create transactions in a specific portfolio to bring it to the specified
-            /// holdings
+            /// Create transactions in a specific portfolio to bring all holdings to the
+            /// specified targets
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -3622,11 +3622,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Adjust holdings
+            /// Adjust Selected Holdings
             /// </summary>
             /// <remarks>
-            /// Create transactions in a specific portfolio to bring it to the specified
-            /// holdings
+            /// Create transactions in a specific portfolio to bring the selected holdings
+            /// up to the specified targets
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -3648,11 +3648,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Adjust holdings
+            /// Adjust Selected Holdings
             /// </summary>
             /// <remarks>
-            /// Create transactions in a specific portfolio to bring it to the specified
-            /// holdings
+            /// Create transactions in a specific portfolio to bring the selected holdings
+            /// up to the specified targets
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
