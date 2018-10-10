@@ -2370,6 +2370,54 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Perform a reconciliation between two portfolios
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            public static ResourceListOfReconciliationBreak ReconcileHoldings(this ILUSIDAPI operations, PortfoliosReconciliationRequest request = default(PortfoliosReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.ReconcileHoldingsAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Perform a reconciliation between two portfolios
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// </param>
+            /// <param name='sortBy'>
+            /// </param>
+            /// <param name='start'>
+            /// </param>
+            /// <param name='limit'>
+            /// </param>
+            /// <param name='filter'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync(this ILUSIDAPI operations, PortfoliosReconciliationRequest request = default(PortfoliosReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ReconcileHoldingsWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Gets multiple property definitions.
             /// </summary>
             /// <param name='operations'>
@@ -2588,38 +2636,6 @@ namespace Finbourne
             public static async Task<DeletedEntityResponse> DeletePropertyDefinitionAsync(this ILUSIDAPI operations, string domain, string scope, string code, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DeletePropertyDefinitionWithHttpMessagesAsync(domain, scope, code, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Perform a reconciliation between two portfolios
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            public static ResourceListOfReconciliationBreak PerformReconciliation(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest))
-            {
-                return operations.PerformReconciliationAsync(request).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Perform a reconciliation between two portfolios
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='request'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfReconciliationBreak> PerformReconciliationAsync(this ILUSIDAPI operations, ReconciliationRequest request = default(ReconciliationRequest), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PerformReconciliationWithHttpMessagesAsync(request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

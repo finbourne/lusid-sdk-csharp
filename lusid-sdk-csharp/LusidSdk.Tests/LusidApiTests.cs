@@ -519,11 +519,19 @@ namespace LusidSdk.Tests
             //So now we have the portfolio with 2 days worth of transactions, going to reconcile from T-1 20:00 to now,
             //this should reflect breaks for each instrument equal to the transactions from yesterday till 20 today. 
 
-            var reconcileRequest = new ReconciliationRequest(scope, portfolio.Id.Code, yesterday.AddHours(20),
-                finalAsAtTime,
-                scope, portfolio.Id.Code, today.AddHours(16), finalAsAtTime);
+            var reconcileRequest =
+                new PortfoliosReconciliationRequest(
+                    new PortfolioReconciliationRequest(
+                        new ResourceId(scope, portfolio.Id.Code),
+                        yesterday.AddHours(20),
+                        finalAsAtTime),
+                    new PortfolioReconciliationRequest(
+                        new ResourceId(scope, portfolio.Id.Code),
+                        today.AddHours(16),
+                        finalAsAtTime),
+                    new List<string>());
 
-            var listOfBreaks = _client.PerformReconciliation(reconcileRequest);
+            var listOfBreaks = _client.ReconcileHoldings(reconcileRequest);
 
             Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
             PrintBreaks(listOfBreaks.Values);
@@ -539,17 +547,17 @@ namespace LusidSdk.Tests
            Assert.AreEqual(listOfBreaks.Values.Count, 4);
 
             var map = listOfBreaks.Values.ToDictionary(abreak => abreak.InstrumentUid);
-            Assert.AreEqual(map[_instrumentIds[0]].UnitsDifference, -1500);
-            Assert.AreEqual(map[_instrumentIds[3]].UnitsDifference, 1000);
-            Assert.AreEqual(map[_instrumentIds[2]].UnitsDifference, 1200);
-            Assert.AreEqual(map[_instrumentIds[1]].UnitsDifference, 1000);
+            Assert.AreEqual(map[_instrumentIds[0]].DifferenceUnits, -1500);
+            Assert.AreEqual(map[_instrumentIds[3]].DifferenceUnits, 1000);
+            Assert.AreEqual(map[_instrumentIds[2]].DifferenceUnits, 1200);
+            Assert.AreEqual(map[_instrumentIds[1]].DifferenceUnits, 1000);
             
             void PrintBreaks(IEnumerable<ReconciliationBreak> breaks)
             {
                 foreach (var abreak in breaks)
                 {
                     Console.WriteLine(
-                        $"{abreak.InstrumentUid}\t{abreak.UnitsDifference}\t{abreak.CostDifference}");
+                        $"{abreak.InstrumentUid}\t{abreak.DifferenceUnits}\t{abreak.DifferenceCost}");
                 }
 
                 Console.WriteLine();

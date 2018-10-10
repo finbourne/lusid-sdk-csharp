@@ -45,14 +45,25 @@ namespace Finbourne.Models
         /// Initializes a new instance of the ReconciliationBreak class.
         /// </summary>
         /// <param name="instrumentUid">Unique instrument identifier</param>
-        /// <param name="unitsDifference">Difference in units</param>
-        /// <param name="costDifference">Difference in cost</param>
-        public ReconciliationBreak(string instrumentUid, IList<Property> properties = default(IList<Property>), double? unitsDifference = default(double?), double? costDifference = default(double?))
+        /// <param name="leftUnits">Units from the left hand side</param>
+        /// <param name="rightUnits">Units from the right hand side</param>
+        /// <param name="differenceUnits">Difference in units</param>
+        /// <param name="leftCost">Cost from the left hand side</param>
+        /// <param name="rightCost">Cost from the right hand side</param>
+        /// <param name="differenceCost">Difference in cost</param>
+        /// <param name="instrumentProperties">Additional features relating to
+        /// the security</param>
+        public ReconciliationBreak(string instrumentUid, IList<Property> subHoldingKeys, double leftUnits, double rightUnits, double differenceUnits, CurrencyAndAmount leftCost, CurrencyAndAmount rightCost, CurrencyAndAmount differenceCost, IList<Property> instrumentProperties)
         {
             InstrumentUid = instrumentUid;
-            Properties = properties;
-            UnitsDifference = unitsDifference;
-            CostDifference = costDifference;
+            SubHoldingKeys = subHoldingKeys;
+            LeftUnits = leftUnits;
+            RightUnits = rightUnits;
+            DifferenceUnits = differenceUnits;
+            LeftCost = leftCost;
+            RightCost = rightCost;
+            DifferenceCost = differenceCost;
+            InstrumentProperties = instrumentProperties;
             CustomInit();
         }
 
@@ -69,20 +80,50 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IList<Property> Properties { get; set; }
+        [JsonProperty(PropertyName = "subHoldingKeys")]
+        public IList<Property> SubHoldingKeys { get; set; }
+
+        /// <summary>
+        /// Gets or sets units from the left hand side
+        /// </summary>
+        [JsonProperty(PropertyName = "leftUnits")]
+        public double LeftUnits { get; set; }
+
+        /// <summary>
+        /// Gets or sets units from the right hand side
+        /// </summary>
+        [JsonProperty(PropertyName = "rightUnits")]
+        public double RightUnits { get; set; }
 
         /// <summary>
         /// Gets or sets difference in units
         /// </summary>
-        [JsonProperty(PropertyName = "unitsDifference")]
-        public double? UnitsDifference { get; set; }
+        [JsonProperty(PropertyName = "differenceUnits")]
+        public double DifferenceUnits { get; set; }
+
+        /// <summary>
+        /// Gets or sets cost from the left hand side
+        /// </summary>
+        [JsonProperty(PropertyName = "leftCost")]
+        public CurrencyAndAmount LeftCost { get; set; }
+
+        /// <summary>
+        /// Gets or sets cost from the right hand side
+        /// </summary>
+        [JsonProperty(PropertyName = "rightCost")]
+        public CurrencyAndAmount RightCost { get; set; }
 
         /// <summary>
         /// Gets or sets difference in cost
         /// </summary>
-        [JsonProperty(PropertyName = "costDifference")]
-        public double? CostDifference { get; set; }
+        [JsonProperty(PropertyName = "differenceCost")]
+        public CurrencyAndAmount DifferenceCost { get; set; }
+
+        /// <summary>
+        /// Gets or sets additional features relating to the security
+        /// </summary>
+        [JsonProperty(PropertyName = "instrumentProperties")]
+        public IList<Property> InstrumentProperties { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -96,13 +137,43 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
             }
-            if (Properties != null)
+            if (SubHoldingKeys == null)
             {
-                foreach (var element in Properties)
+                throw new ValidationException(ValidationRules.CannotBeNull, "SubHoldingKeys");
+            }
+            if (LeftCost == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "LeftCost");
+            }
+            if (RightCost == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "RightCost");
+            }
+            if (DifferenceCost == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DifferenceCost");
+            }
+            if (InstrumentProperties == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentProperties");
+            }
+            if (SubHoldingKeys != null)
+            {
+                foreach (var element in SubHoldingKeys)
                 {
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (InstrumentProperties != null)
+            {
+                foreach (var element1 in InstrumentProperties)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

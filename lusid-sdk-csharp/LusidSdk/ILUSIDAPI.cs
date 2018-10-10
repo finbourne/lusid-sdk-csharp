@@ -1533,6 +1533,27 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeletePortfolioPropertiesWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> portfolioPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Perform a reconciliation between two portfolios
+        /// </summary>
+        /// <param name='request'>
+        /// </param>
+        /// <param name='sortBy'>
+        /// </param>
+        /// <param name='start'>
+        /// </param>
+        /// <param name='limit'>
+        /// </param>
+        /// <param name='filter'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsWithHttpMessagesAsync(PortfoliosReconciliationRequest request = default(PortfoliosReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Gets multiple property definitions.
         /// </summary>
         /// <param name='keys'>
@@ -1628,19 +1649,6 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Perform a reconciliation between two portfolios
-        /// </summary>
-        /// <param name='request'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ResourceListOfReconciliationBreak>> PerformReconciliationWithHttpMessagesAsync(ReconciliationRequest request = default(ReconciliationRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create a new reference portfolio
