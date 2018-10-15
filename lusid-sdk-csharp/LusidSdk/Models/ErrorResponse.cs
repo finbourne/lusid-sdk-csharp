@@ -83,8 +83,8 @@ namespace Finbourne.Models
         /// 'InvalidInstrumentIdentifierUnit',
         /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
         /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
-        /// 'EntitySchemaDoesNotExist',
-        /// 'FeatureNotSupportedOnPortfolioType'</param>
+        /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
+        /// 'QuotePublishFailure', 'QuoteQueryFailure'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -150,7 +150,8 @@ namespace Finbourne.Models
         /// 'InvalidInstrumentIdentifierUnit',
         /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
         /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
-        /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType'
+        /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
+        /// 'QuotePublishFailure', 'QuoteQueryFailure'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

@@ -478,6 +478,8 @@ namespace Finbourne
     /// | &lt;a name="215"&gt;215&lt;/a&gt;|EntitySchemaDoesNotExist|  |
     /// | &lt;a name="216"&gt;216&lt;/a&gt;|FeatureNotSupportedOnPortfolioType|
     /// |
+    /// | &lt;a name="217"&gt;217&lt;/a&gt;|QuotePublishFailure|  |
+    /// | &lt;a name="218"&gt;218&lt;/a&gt;|QuoteQueryFailure|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -733,9 +735,6 @@ namespace Finbourne
             };
             CustomInitialize();
         }
-        /// <summary>
-        /// List all analytic stores in client
-        /// </summary>
         /// <param name='asAt'>
         /// </param>
         /// <param name='sortBy'>
@@ -916,11 +915,7 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create a new analytic store for the given scope for the given date
-        /// </summary>
         /// <param name='request'>
-        /// A valid and fully populated analytic store creation request
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1059,23 +1054,15 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get an analytic store
-        /// </summary>
         /// <param name='scope'>
-        /// The analytics data scope
         /// </param>
         /// <param name='year'>
-        /// The year component of the date for the data in the scope
         /// </param>
         /// <param name='month'>
-        /// The month component of the date for the data in the scope
         /// </param>
         /// <param name='day'>
-        /// The day component of the date for the data in the scope
         /// </param>
         /// <param name='asAt'>
-        /// AsAt date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1235,20 +1222,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create a new analytic store for the given scope for the given date
-        /// </summary>
         /// <param name='scope'>
-        /// The analytics data scope
         /// </param>
         /// <param name='year'>
-        /// The year component of the date for the data in the scope
         /// </param>
         /// <param name='month'>
-        /// The month component of the date for the data in the scope
         /// </param>
         /// <param name='day'>
-        /// The day component of the date for the data in the scope
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1398,21 +1378,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Insert analytics into an existing analytic store for the given scope and
-        /// date.
-        /// </summary>
         /// <param name='scope'>
-        /// The analytics data scope
         /// </param>
         /// <param name='year'>
-        /// The year component of the date for the data in the scope
         /// </param>
         /// <param name='month'>
-        /// The month component of the date for the data in the scope
         /// </param>
         /// <param name='day'>
-        /// The day component of the date for the data in the scope
         /// </param>
         /// <param name='data'>
         /// </param>
@@ -1571,20 +1543,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets a corporate action based on dates
-        /// </summary>
         /// <param name='scope'>
-        /// Scope
         /// </param>
         /// <param name='code'>
-        /// Corporate action source id
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective Date
         /// </param>
         /// <param name='asAt'>
-        /// AsAt Date filter
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -1787,18 +1752,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Attempt to create/update one or more corporate action. Failed actions will
-        /// be identified in the body of the response.
-        /// </summary>
         /// <param name='scope'>
-        /// The intended scope of the corporate action
         /// </param>
         /// <param name='code'>
-        /// Source of the corporate action
         /// </param>
         /// <param name='actions'>
-        /// The corporate actions to create
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1965,12 +1923,7 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create a new PropertyDataFormat. Note: Only non-default formats can be
-        /// created.
-        /// </summary>
         /// <param name='request'>
-        /// The definition of the new format
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2113,9 +2066,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Lists all property data formats in the specified scope.
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='includeDefault'>
@@ -2317,9 +2267,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets a property data format.
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='name'>
@@ -2472,17 +2419,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the format being updated
         /// </param>
         /// <param name='name'>
-        /// The name of the format to update
         /// </param>
         /// <param name='request'>
-        /// The new definition of the format
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2643,9 +2584,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Return the definitions for the specified list of units
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='name'>
@@ -2827,18 +2765,9 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create derived portfolio
-        /// </summary>
-        /// <remarks>
-        /// Creates a portfolio that derives from an existing portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope into which to create the new derived portfolio
         /// </param>
         /// <param name='portfolio'>
-        /// The root object of the new derived portfolio, containing a populated
-        /// reference portfolio id and reference scope
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2993,20 +2922,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete portfolio details
-        /// </summary>
-        /// <remarks>
-        /// Deletes the portfolio details for the given code
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// The effective date of the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3166,10 +3086,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Attempt to create one or more client instruments. Failed instruments will
-        /// be identified in the body of the response.
-        /// </summary>
         /// <param name='definitions'>
         /// </param>
         /// <param name='customHeaders'>
@@ -3319,10 +3235,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Attempt to delete one or more client instruments. Failed instruments will
-        /// be identified in the body of the response.
-        /// </summary>
         /// <param name='uids'>
         /// </param>
         /// <param name='customHeaders'>
@@ -3475,18 +3387,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get an individual instrument by the unique instrument uid.  Optionally,
-        /// decorate each instrument with specific properties.
-        /// </summary>
         /// <param name='uid'>
-        /// The uid of the requested instrument
         /// </param>
         /// <param name='asAt'>
-        /// As at date
         /// </param>
         /// <param name='instrumentPropertyKeys'>
-        /// Keys of the properties to be retrieved
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3655,24 +3560,16 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Lookup a large number of instruments by supplying a collection of
-        /// non-Finbourne codes.  Optionally, decorate each instrument with specific
-        /// properties.
-        /// </summary>
         /// <param name='codeType'>
-        /// The type of identifier. Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-        /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// Possible values include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+        /// 'ShareClassFigi', 'Wertpapier'
         /// </param>
         /// <param name='codes'>
-        /// An array of codes
         /// </param>
         /// <param name='asAt'>
-        /// As at date
         /// </param>
         /// <param name='instrumentPropertyKeys'>
-        /// Keys of the properties to be retrieved
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3841,9 +3738,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Upsert instrument properties
-        /// </summary>
         /// <param name='classifications'>
         /// </param>
         /// <param name='customHeaders'>
@@ -3983,12 +3877,7 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get the unique identifier for the SAML Identity Provider to be used by
-        /// domain.
-        /// </summary>
         /// <param name='domain'>
-        /// The domain that the user will be logging in to.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4132,9 +4021,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Request an authorised url for an Excel client version
-        /// </summary>
         /// <param name='version'>
         /// </param>
         /// <param name='customHeaders'>
@@ -4277,9 +4163,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Returns the current major application version
-        /// </summary>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -4410,22 +4293,14 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get a personalisation, recursing to get any referenced if required.
-        /// </summary>
         /// <param name='pattern'>
-        /// The search pattern or specific key
         /// </param>
         /// <param name='scope'>
-        /// The scope level to request for. Possible values include: 'User', 'Group',
-        /// 'Default', 'All'
+        /// Possible values include: 'User', 'Group', 'Default', 'All'
         /// </param>
         /// <param name='recursive'>
-        /// Whether to recurse into dereference recursive settings
         /// </param>
         /// <param name='wildcards'>
-        /// Whether to apply wildcards to the provided pattern and pull back any
-        /// matching
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -4613,9 +4488,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Upsert one or more personalisations
-        /// </summary>
         /// <param name='personalisations'>
         /// </param>
         /// <param name='customHeaders'>
@@ -4755,19 +4627,12 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete a personalisation at a specific scope (or use scope ALL to purge the
-        /// setting entirely)
-        /// </summary>
         /// <param name='key'>
-        /// The key of the setting to be deleted
         /// </param>
         /// <param name='scope'>
-        /// The scope to delete at (use ALL to purge the setting entirely). Possible
-        /// values include: 'User', 'Group', 'Default', 'All'
+        /// Possible values include: 'User', 'Group', 'Default', 'All'
         /// </param>
         /// <param name='group'>
-        /// If deleting a setting at group level, specify the group here
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4919,9 +4784,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// List all groups in a specified scope
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='asAt'>
@@ -4933,7 +4795,6 @@ namespace Finbourne
         /// <param name='limit'>
         /// </param>
         /// <param name='filter'>
-        /// A filter expression to apply to the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5117,9 +4978,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create a new group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='request'>
@@ -5277,9 +5135,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -5444,9 +5299,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Update an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -5612,9 +5464,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete a group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -5767,9 +5616,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Aggregate data in a group hierarchy
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -5971,9 +5817,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Obsolete - Aggregation request data in a group hierarchy into a data tree
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -6139,23 +5982,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets all commands that modified the portfolio groups(s) with the specified
-        /// id.
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
-        /// The portfolio group id
         /// </param>
         /// <param name='fromAsAt'>
-        /// Filters commands by those that were processed at or after this time. Null
-        /// means there is no lower limit.
         /// </param>
         /// <param name='toAsAt'>
-        /// Filters commands by those that were processed at or before this time. Null
-        /// means there is no upper limit (latest).
         /// </param>
         /// <param name='sortBy'>
         /// </param>
@@ -6164,7 +5997,6 @@ namespace Finbourne
         /// <param name='limit'>
         /// </param>
         /// <param name='filter'>
-        /// A filter expression to apply to the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6359,9 +6191,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get a full expansion of an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -6550,9 +6379,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Add a portfolio to an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -6714,9 +6540,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Remove a portfolio that is currently present within an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -6885,9 +6708,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Add a sub group to an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -7049,9 +6869,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Remove a subgroup that is currently present within an existing group
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -7220,23 +7037,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// List scopes that contain portfolios
-        /// </summary>
-        /// <remarks>
-        /// Lists all scopes that have previously been used
-        /// </remarks>
         /// <param name='sortBy'>
-        /// How to order the returned scopes
         /// </param>
         /// <param name='start'>
-        /// The starting index for the returned scopes
         /// </param>
         /// <param name='limit'>
-        /// The final index for the returned scopes
         /// </param>
         /// <param name='filter'>
-        /// Filter to be applied to the list of scopes
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7403,29 +7210,17 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get all portfolios
-        /// </summary>
-        /// <remarks>
-        /// Get all portfolios in a scope
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope to get portfolios from
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='asAt'>
-        /// The asAt date to use
         /// </param>
         /// <param name='sortBy'>
-        /// The columns to sort the returned data by
         /// </param>
         /// <param name='start'>
-        /// How many items to skip from the returned set
         /// </param>
         /// <param name='limit'>
-        /// How many items to return from the set
         /// </param>
         /// <param name='filter'>
         /// </param>
@@ -7616,23 +7411,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get portfolio
-        /// </summary>
-        /// <remarks>
-        /// Gets a single portfolio by code
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='asAt'>
-        /// The asAt date to use
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7797,20 +7582,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Update portfolio
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio to be updated
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='request'>
-        /// The update request
         /// </param>
         /// <param name='effectiveAt'>
-        /// The effective date for the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7981,20 +7759,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete portfolio
-        /// </summary>
-        /// <remarks>
-        /// Deletes a portfolio from the given effectiveAt
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8154,9 +7923,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Aggregate data in a portfolio
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -8358,28 +8124,15 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get modifications
-        /// </summary>
-        /// <remarks>
-        /// Gets all commands that modified the portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// The portfolio id
         /// </param>
         /// <param name='fromAsAt'>
-        /// Filters commands by those that were processed at or after this time. Null
-        /// means there is no lower limit.
         /// </param>
         /// <param name='toAsAt'>
-        /// Filters commands by those that were processed at or before this time. Null
-        /// means there is no upper limit (latest).
         /// </param>
         /// <param name='filter'>
-        /// Command filter
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8549,28 +8302,15 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get properties
-        /// </summary>
-        /// <remarks>
-        /// Get properties attached to the portfolio.  If the asAt is not specified
-        /// then
-        /// the latest system time is used
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='asAt'>
-        /// The asAt date to use
         /// </param>
         /// <param name='sortBy'>
-        /// Property to sort the results by
         /// </param>
         /// <param name='start'>
         /// </param>
@@ -8764,22 +8504,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Update properties
-        /// </summary>
-        /// <remarks>
-        /// Create one or more properties on a portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='portfolioProperties'>
         /// </param>
         /// <param name='effectiveAt'>
-        /// The effective date for the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8946,25 +8677,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete one, many or all properties from a portfolio for a specified
-        /// effective date
-        /// </summary>
-        /// <remarks>
-        /// Specifying no properties will delete all properties
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='portfolioPropertyKeys'>
-        /// The keys of the property to be deleted. None specified indicates the intent
-        /// to delete all properties
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9139,9 +8858,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Perform a reconciliation between two portfolios
-        /// </summary>
         /// <param name='request'>
         /// </param>
         /// <param name='sortBy'>
@@ -9328,9 +9044,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets multiple property definitions.
-        /// </summary>
         /// <param name='keys'>
         /// </param>
         /// <param name='asAt'>
@@ -9528,9 +9241,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Creates a new property definition.
-        /// </summary>
         /// <param name='definition'>
         /// </param>
         /// <param name='customHeaders'>
@@ -9670,9 +9380,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets a property definition.
-        /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
         /// 'ReferenceHolding', 'TxnType'
@@ -9847,9 +9554,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Updates the specified property definition.
-        /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
         /// 'ReferenceHolding', 'TxnType'
@@ -10021,9 +9725,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Deletes the property definition.
-        /// </summary>
         /// <param name='domain'>
         /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
         /// 'ReferenceHolding', 'TxnType'
@@ -10186,14 +9887,9 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create a new reference portfolio
-        /// </summary>
         /// <param name='scope'>
-        /// The intended scope of the portfolio
         /// </param>
         /// <param name='referencePortfolio'>
-        /// The portfolio creation request object
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -10348,9 +10044,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get all the constituents in a reference portfolio
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -10550,9 +10243,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Add constituents to a specific reference portfolio
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -10718,17 +10408,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Retrieve some previously stored results
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the data
         /// </param>
         /// <param name='key'>
-        /// The key that identifies the data
         /// </param>
         /// <param name='date'>
-        /// The date for which the data was loaded
         /// </param>
         /// <param name='asAt'>
         /// </param>
@@ -10923,20 +10607,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Upsert precalculated results against a specified scope/key/date combination
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the data
         /// </param>
         /// <param name='key'>
-        /// The key that identifies the data
         /// </param>
         /// <param name='date'>
-        /// The date for which the data is relevant
         /// </param>
         /// <param name='request'>
-        /// The results to upload
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11095,9 +10772,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Aggregate data from a result set
-        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='resultsKey'>
@@ -11299,9 +10973,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// List all available entities
-        /// </summary>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -11432,9 +11103,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets the schema for a given entity.
-        /// </summary>
         /// <param name='entity'>
         /// </param>
         /// <param name='customHeaders'>
@@ -11579,12 +11247,7 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get the schemas for the provided list of property keys
-        /// </summary>
         /// <param name='propertyKeys'>
-        /// A comma delimited list of property keys in string format. e.g.
-        /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
         /// </param>
         /// <param name='asAt'>
         /// </param>
@@ -11743,9 +11406,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets the available value types that could be returned in a schema
-        /// </summary>
         /// <param name='sortBy'>
         /// </param>
         /// <param name='start'>
@@ -11912,9 +11572,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Search portfolio groups
-        /// </summary>
         /// <param name='request'>
         /// </param>
         /// <param name='sortBy'>
@@ -12097,9 +11754,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Search portfolios
-        /// </summary>
         /// <param name='request'>
         /// </param>
         /// <param name='sortBy'>
@@ -12282,9 +11936,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Search properties
-        /// </summary>
         /// <param name='request'>
         /// </param>
         /// <param name='sortBy'>
@@ -12467,9 +12118,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets the list of persisted transaction types
-        /// </summary>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -12600,9 +12248,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Uploads a list of transaction types to be used by the movements engine
-        /// </summary>
         /// <param name='types'>
         /// </param>
         /// <param name='customHeaders'>
@@ -12752,9 +12397,6 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Adds a new transaction type movement to the list of existing types
-        /// </summary>
         /// <param name='type'>
         /// </param>
         /// <param name='customHeaders'>
@@ -12898,17 +12540,9 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Create portfolio
-        /// </summary>
-        /// <remarks>
-        /// Creates a new portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The intended scope of the portfolio
         /// </param>
         /// <param name='createRequest'>
-        /// The portfolio creation request object
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13063,24 +12697,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get portfolio details
-        /// </summary>
-        /// <remarks>
-        /// Gets the details for a portfolio.  For a derived portfolio this can be
-        /// the details of another reference portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='asAt'>
-        /// The asAt date to use
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13245,24 +12868,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Add/update portfolio details
-        /// </summary>
-        /// <remarks>
-        /// Update the portfolio details for the given code or add if it doesn't
-        /// already exist. Updates with
-        /// null values will remove any existing values
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='details'>
         /// </param>
         /// <param name='effectiveAt'>
-        /// The effective date of the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13429,39 +13041,25 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get holdings
-        /// </summary>
-        /// <remarks>
-        /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-        /// are supplied then values will be defaulted to the latest system time.
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
+        /// </param>
+        /// <param name='byTaxlots'>
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='asAt'>
-        /// As at date
         /// </param>
         /// <param name='sortBy'>
-        /// The columns to sort the returned data by
         /// </param>
         /// <param name='start'>
-        /// How many items to skip from the returned set
         /// </param>
         /// <param name='limit'>
-        /// How many items to return from the set
         /// </param>
         /// <param name='filter'>
-        /// A filter on the results
         /// </param>
         /// <param name='instrumentPropertyKeys'>
-        /// Keys for the instrument properties to be decorated onto the holdings
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13484,7 +13082,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionedResourceListOfHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionedResourceListOfHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -13503,6 +13101,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
+                tracingParameters.Add("byTaxlots", byTaxlots);
                 tracingParameters.Add("effectiveAt", effectiveAt);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
@@ -13519,6 +13118,10 @@ namespace Finbourne
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
+            if (byTaxlots != null)
+            {
+                _queryParameters.Add(string.Format("byTaxlots={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(byTaxlots, SerializationSettings).Trim('"'))));
+            }
             if (effectiveAt != null)
             {
                 _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
@@ -13671,21 +13274,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Set All Holdings
-        /// </summary>
-        /// <remarks>
-        /// Create transactions in a specific portfolio to bring all holdings to the
-        /// specified targets
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='holdingAdjustments'>
         /// </param>
@@ -13856,21 +13449,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Adjust Selected Holdings
-        /// </summary>
-        /// <remarks>
-        /// Create transactions in a specific portfolio to bring the selected holdings
-        /// up to the specified targets
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='holdingAdjustments'>
         /// </param>
@@ -14041,20 +13624,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Cancel adjust-holdings
-        /// </summary>
-        /// <remarks>
-        /// Cancels a previous adjust holdings request
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Effective date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14206,23 +13780,15 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Gets holdings adjustments in an interval of effective time.
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='fromEffectiveAt'>
-        /// Events between this time (inclusive) and the toEffectiveAt are returned.
         /// </param>
         /// <param name='toEffectiveAt'>
-        /// Events between this time (inclusive) and the fromEffectiveAt are returned.
         /// </param>
         /// <param name='asAtTime'>
-        /// The as-at time for which the result is valid.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14392,22 +13958,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get a holdings adjustment for a single portfolio at a specific effective
-        /// time.
-        /// If no adjustment exists at this effective time, not found is returned.
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// The effective time of the holdings adjustment.
         /// </param>
         /// <param name='asAtTime'>
-        /// The as-at time for which the result is valid.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14569,39 +14126,25 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get transactions
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='fromTransactionDate'>
-        /// Include transactions with a transaction date equal or later than this date.
-        /// If not supplied, no lower filter is applied
         /// </param>
         /// <param name='toTransactionDate'>
-        /// Include transactions with a transaction date equal or before this date. If
-        /// not supplied, no upper filter is applied
         /// </param>
         /// <param name='asAt'>
         /// </param>
         /// <param name='sortBy'>
-        /// The columns to sort the returned data by
         /// </param>
         /// <param name='start'>
-        /// How many items to skip from the returned set
         /// </param>
         /// <param name='limit'>
-        /// How many items to return from the set
         /// </param>
         /// <param name='instrumentPropertyKeys'>
-        /// Keys for the instrument properties to be decorated onto the transactions
         /// </param>
         /// <param name='filter'>
-        /// Transaction filter
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14816,17 +14359,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Upsert transactions
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='transactions'>
-        /// The transactions to be updated
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14993,20 +14530,11 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete transactions
-        /// </summary>
-        /// <remarks>
-        /// Delete one or more transactions from a portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='id'>
-        /// Ids of transactions to delete
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -15176,23 +14704,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Add/update transaction properties
-        /// </summary>
-        /// <remarks>
-        /// Add one or more properties to a specific transaction in a portfolio
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='transactionId'>
-        /// Id of transaction to add properties to
         /// </param>
         /// <param name='transactionProperties'>
-        /// Transaction properties to add
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -15355,23 +14873,13 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Delete transaction property
-        /// </summary>
-        /// <remarks>
-        /// Delete a property from a specific transaction
-        /// </remarks>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='transactionId'>
-        /// Id of the transaction to delete the property from
         /// </param>
         /// <param name='transactionPropertyKey'>
-        /// The key of the property to be deleted
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -15537,34 +15045,23 @@ namespace Finbourne
             return _result;
         }
 
-        /// <summary>
-        /// Get transactions
-        /// </summary>
         /// <param name='scope'>
-        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
         /// </param>
         /// <param name='asAt'>
         /// </param>
         /// <param name='sortBy'>
-        /// The columns to sort the returned data by
         /// </param>
         /// <param name='start'>
-        /// How many items to skip from the returned set
         /// </param>
         /// <param name='limit'>
-        /// How many items to return from the set
         /// </param>
         /// <param name='instrumentPropertyKeys'>
-        /// Keys for the instrument properties to be decorated onto the trades
         /// </param>
         /// <param name='filter'>
-        /// Trade filter
         /// </param>
         /// <param name='parameters'>
-        /// Core query parameters
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

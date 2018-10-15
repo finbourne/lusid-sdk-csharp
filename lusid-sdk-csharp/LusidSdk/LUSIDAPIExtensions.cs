@@ -33,9 +33,6 @@ namespace Finbourne
     /// </summary>
     public static partial class LUSIDAPIExtensions
     {
-            /// <summary>
-            /// List all analytic stores in client
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -54,9 +51,6 @@ namespace Finbourne
                 return operations.ListAnalyticStoresAsync(asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// List all analytic stores in client
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -81,28 +75,20 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create a new analytic store for the given scope for the given date
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='request'>
-            /// A valid and fully populated analytic store creation request
             /// </param>
             public static AnalyticStore CreateAnalyticStore(this ILUSIDAPI operations, CreateAnalyticStoreRequest request = default(CreateAnalyticStoreRequest))
             {
                 return operations.CreateAnalyticStoreAsync(request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create a new analytic store for the given scope for the given date
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='request'>
-            /// A valid and fully populated analytic store creation request
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -115,52 +101,36 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get an analytic store
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The analytics data scope
             /// </param>
             /// <param name='year'>
-            /// The year component of the date for the data in the scope
             /// </param>
             /// <param name='month'>
-            /// The month component of the date for the data in the scope
             /// </param>
             /// <param name='day'>
-            /// The day component of the date for the data in the scope
             /// </param>
             /// <param name='asAt'>
-            /// AsAt date
             /// </param>
             public static AnalyticStore GetAnalyticStore(this ILUSIDAPI operations, string scope, int year, int month, int day, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
                 return operations.GetAnalyticStoreAsync(scope, year, month, day, asAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get an analytic store
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The analytics data scope
             /// </param>
             /// <param name='year'>
-            /// The year component of the date for the data in the scope
             /// </param>
             /// <param name='month'>
-            /// The month component of the date for the data in the scope
             /// </param>
             /// <param name='day'>
-            /// The day component of the date for the data in the scope
             /// </param>
             /// <param name='asAt'>
-            /// AsAt date
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -173,46 +143,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create a new analytic store for the given scope for the given date
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The analytics data scope
             /// </param>
             /// <param name='year'>
-            /// The year component of the date for the data in the scope
             /// </param>
             /// <param name='month'>
-            /// The month component of the date for the data in the scope
             /// </param>
             /// <param name='day'>
-            /// The day component of the date for the data in the scope
             /// </param>
             public static DeletedEntityResponse DeleteAnalyticStore(this ILUSIDAPI operations, string scope, int year, int month, int day)
             {
                 return operations.DeleteAnalyticStoreAsync(scope, year, month, day).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create a new analytic store for the given scope for the given date
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The analytics data scope
             /// </param>
             /// <param name='year'>
-            /// The year component of the date for the data in the scope
             /// </param>
             /// <param name='month'>
-            /// The month component of the date for the data in the scope
             /// </param>
             /// <param name='day'>
-            /// The day component of the date for the data in the scope
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -225,24 +181,16 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Insert analytics into an existing analytic store for the given scope and
-            /// date.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The analytics data scope
             /// </param>
             /// <param name='year'>
-            /// The year component of the date for the data in the scope
             /// </param>
             /// <param name='month'>
-            /// The month component of the date for the data in the scope
             /// </param>
             /// <param name='day'>
-            /// The day component of the date for the data in the scope
             /// </param>
             /// <param name='data'>
             /// </param>
@@ -251,24 +199,16 @@ namespace Finbourne
                 return operations.InsertAnalyticsAsync(scope, year, month, day, data).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Insert analytics into an existing analytic store for the given scope and
-            /// date.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The analytics data scope
             /// </param>
             /// <param name='year'>
-            /// The year component of the date for the data in the scope
             /// </param>
             /// <param name='month'>
-            /// The month component of the date for the data in the scope
             /// </param>
             /// <param name='day'>
-            /// The day component of the date for the data in the scope
             /// </param>
             /// <param name='data'>
             /// </param>
@@ -283,23 +223,16 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets a corporate action based on dates
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// Scope
             /// </param>
             /// <param name='code'>
-            /// Corporate action source id
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective Date
             /// </param>
             /// <param name='asAt'>
-            /// AsAt Date filter
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -314,23 +247,16 @@ namespace Finbourne
                 return operations.GetCorporateActionsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets a corporate action based on dates
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// Scope
             /// </param>
             /// <param name='code'>
-            /// Corporate action source id
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective Date
             /// </param>
             /// <param name='asAt'>
-            /// AsAt Date filter
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -351,42 +277,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Attempt to create/update one or more corporate action. Failed actions will
-            /// be identified in the body of the response.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the corporate action
             /// </param>
             /// <param name='code'>
-            /// Source of the corporate action
             /// </param>
             /// <param name='actions'>
-            /// The corporate actions to create
             /// </param>
             public static UpsertCorporateActionsResponse BatchUpsertCorporateActions(this ILUSIDAPI operations, string scope, string code, IList<CreateCorporateAction> actions = default(IList<CreateCorporateAction>))
             {
                 return operations.BatchUpsertCorporateActionsAsync(scope, code, actions).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Attempt to create/update one or more corporate action. Failed actions will
-            /// be identified in the body of the response.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the corporate action
             /// </param>
             /// <param name='code'>
-            /// Source of the corporate action
             /// </param>
             /// <param name='actions'>
-            /// The corporate actions to create
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -399,30 +311,20 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create a new PropertyDataFormat. Note: Only non-default formats can be
-            /// created.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='request'>
-            /// The definition of the new format
             /// </param>
             public static DataType CreateDataType(this ILUSIDAPI operations, CreateDataTypeRequest request = default(CreateDataTypeRequest))
             {
                 return operations.CreateDataTypeAsync(request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create a new PropertyDataFormat. Note: Only non-default formats can be
-            /// created.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='request'>
-            /// The definition of the new format
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -435,9 +337,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Lists all property data formats in the specified scope.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -460,9 +359,6 @@ namespace Finbourne
                 return operations.ListDataTypesAsync(scope, includeDefault, includeSystem, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Lists all property data formats in the specified scope.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -491,9 +387,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets a property data format.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -506,9 +399,6 @@ namespace Finbourne
                 return operations.GetDataTypeAsync(scope, name).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets a property data format.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -527,40 +417,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the format being updated
             /// </param>
             /// <param name='name'>
-            /// The name of the format to update
             /// </param>
             /// <param name='request'>
-            /// The new definition of the format
             /// </param>
             public static DataType UpdateDataType(this ILUSIDAPI operations, string scope, string name, UpdateDataTypeRequest request = default(UpdateDataTypeRequest))
             {
                 return operations.UpdateDataTypeAsync(scope, name, request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Update a PropertyDataFormat. Note: Only non-default formats can be updated.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the format being updated
             /// </param>
             /// <param name='name'>
-            /// The name of the format to update
             /// </param>
             /// <param name='request'>
-            /// The new definition of the format
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -573,9 +451,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Return the definitions for the specified list of units
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -592,9 +467,6 @@ namespace Finbourne
                 return operations.GetUnitsFromDataTypeAsync(scope, name, units, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Return the definitions for the specified list of units
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -617,42 +489,24 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create derived portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a portfolio that derives from an existing portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope into which to create the new derived portfolio
             /// </param>
             /// <param name='portfolio'>
-            /// The root object of the new derived portfolio, containing a populated
-            /// reference portfolio id and reference scope
             /// </param>
             public static Portfolio CreateDerivedPortfolio(this ILUSIDAPI operations, string scope, CreateDerivedTransactionPortfolioRequest portfolio = default(CreateDerivedTransactionPortfolioRequest))
             {
                 return operations.CreateDerivedPortfolioAsync(scope, portfolio).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create derived portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a portfolio that derives from an existing portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope into which to create the new derived portfolio
             /// </param>
             /// <param name='portfolio'>
-            /// The root object of the new derived portfolio, containing a populated
-            /// reference portfolio id and reference scope
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -665,46 +519,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Deletes the portfolio details for the given code
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date of the change
             /// </param>
             public static DeletedEntityResponse DeleteDerivedPortfolioDetails(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.DeleteDerivedPortfolioDetailsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Deletes the portfolio details for the given code
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date of the change
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -717,10 +553,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Attempt to create one or more client instruments. Failed instruments will
-            /// be identified in the body of the response.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -731,10 +563,6 @@ namespace Finbourne
                 return operations.BatchAddClientInstrumentsAsync(definitions).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Attempt to create one or more client instruments. Failed instruments will
-            /// be identified in the body of the response.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -751,10 +579,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Attempt to delete one or more client instruments. Failed instruments will
-            /// be identified in the body of the response.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -765,10 +589,6 @@ namespace Finbourne
                 return operations.BatchDeleteClientInstrumentsAsync(uids).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Attempt to delete one or more client instruments. Failed instruments will
-            /// be identified in the body of the response.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -785,42 +605,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get an individual instrument by the unique instrument uid.  Optionally,
-            /// decorate each instrument with specific properties.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='uid'>
-            /// The uid of the requested instrument
             /// </param>
             /// <param name='asAt'>
-            /// As at date
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys of the properties to be retrieved
             /// </param>
             public static Instrument GetInstrument(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
                 return operations.GetInstrumentAsync(uid, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get an individual instrument by the unique instrument uid.  Optionally,
-            /// decorate each instrument with specific properties.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='uid'>
-            /// The uid of the requested instrument
             /// </param>
             /// <param name='asAt'>
-            /// As at date
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys of the properties to be retrieved
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -833,54 +639,38 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Lookup a large number of instruments by supplying a collection of
-            /// non-Finbourne codes.  Optionally, decorate each instrument with specific
-            /// properties.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='codeType'>
-            /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// Possible values include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
-            /// An array of codes
             /// </param>
             /// <param name='asAt'>
-            /// As at date
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys of the properties to be retrieved
             /// </param>
             public static LookupInstrumentsFromCodesResponse LookupInstrumentsFromCodes(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
                 return operations.LookupInstrumentsFromCodesAsync(codeType, codes, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Lookup a large number of instruments by supplying a collection of
-            /// non-Finbourne codes.  Optionally, decorate each instrument with specific
-            /// properties.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='codeType'>
-            /// The type of identifier. Possible values include: 'Undefined',
-            /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-            /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+            /// Possible values include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
             /// </param>
             /// <param name='codes'>
-            /// An array of codes
             /// </param>
             /// <param name='asAt'>
-            /// As at date
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys of the properties to be retrieved
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -893,9 +683,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Upsert instrument properties
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -906,9 +693,6 @@ namespace Finbourne
                 return operations.BatchUpsertInstrumentPropertiesAsync(classifications).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Upsert instrument properties
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -925,30 +709,20 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get the unique identifier for the SAML Identity Provider to be used by
-            /// domain.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='domain'>
-            /// The domain that the user will be logging in to.
             /// </param>
             public static string GetSamlIdentityProviderId(this ILUSIDAPI operations, string domain)
             {
                 return operations.GetSamlIdentityProviderIdAsync(domain).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get the unique identifier for the SAML Identity Provider to be used by
-            /// domain.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='domain'>
-            /// The domain that the user will be logging in to.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -961,9 +735,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Request an authorised url for an Excel client version
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -974,9 +745,6 @@ namespace Finbourne
                 return operations.GetExcelDownloadUrlAsync(version).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Request an authorised url for an Excel client version
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -993,9 +761,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Returns the current major application version
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1004,9 +769,6 @@ namespace Finbourne
                 return operations.GetLusidVersionsAsync().GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Returns the current major application version
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1021,25 +783,17 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get a personalisation, recursing to get any referenced if required.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pattern'>
-            /// The search pattern or specific key
             /// </param>
             /// <param name='scope'>
-            /// The scope level to request for. Possible values include: 'User', 'Group',
-            /// 'Default', 'All'
+            /// Possible values include: 'User', 'Group', 'Default', 'All'
             /// </param>
             /// <param name='recursive'>
-            /// Whether to recurse into dereference recursive settings
             /// </param>
             /// <param name='wildcards'>
-            /// Whether to apply wildcards to the provided pattern and pull back any
-            /// matching
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -1052,25 +806,17 @@ namespace Finbourne
                 return operations.GetPersonalisationsAsync(pattern, scope, recursive, wildcards, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get a personalisation, recursing to get any referenced if required.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pattern'>
-            /// The search pattern or specific key
             /// </param>
             /// <param name='scope'>
-            /// The scope level to request for. Possible values include: 'User', 'Group',
-            /// 'Default', 'All'
+            /// Possible values include: 'User', 'Group', 'Default', 'All'
             /// </param>
             /// <param name='recursive'>
-            /// Whether to recurse into dereference recursive settings
             /// </param>
             /// <param name='wildcards'>
-            /// Whether to apply wildcards to the provided pattern and pull back any
-            /// matching
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -1089,9 +835,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Upsert one or more personalisations
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1102,9 +845,6 @@ namespace Finbourne
                 return operations.UpsertPersonalisationsAsync(personalisations).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Upsert one or more personalisations
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1121,44 +861,30 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete a personalisation at a specific scope (or use scope ALL to purge the
-            /// setting entirely)
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='key'>
-            /// The key of the setting to be deleted
             /// </param>
             /// <param name='scope'>
-            /// The scope to delete at (use ALL to purge the setting entirely). Possible
-            /// values include: 'User', 'Group', 'Default', 'All'
+            /// Possible values include: 'User', 'Group', 'Default', 'All'
             /// </param>
             /// <param name='group'>
-            /// If deleting a setting at group level, specify the group here
             /// </param>
             public static DeletedEntityResponse DeletePersonalisation(this ILUSIDAPI operations, string key = default(string), string scope = default(string), string group = default(string))
             {
                 return operations.DeletePersonalisationAsync(key, scope, group).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete a personalisation at a specific scope (or use scope ALL to purge the
-            /// setting entirely)
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='key'>
-            /// The key of the setting to be deleted
             /// </param>
             /// <param name='scope'>
-            /// The scope to delete at (use ALL to purge the setting entirely). Possible
-            /// values include: 'User', 'Group', 'Default', 'All'
+            /// Possible values include: 'User', 'Group', 'Default', 'All'
             /// </param>
             /// <param name='group'>
-            /// If deleting a setting at group level, specify the group here
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1171,9 +897,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// List all groups in a specified scope
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1188,16 +911,12 @@ namespace Finbourne
             /// <param name='limit'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
             public static ResourceListOfPortfolioGroup ListPortfolioGroups(this ILUSIDAPI operations, string scope, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListPortfolioGroupsAsync(scope, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// List all groups in a specified scope
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1212,7 +931,6 @@ namespace Finbourne
             /// <param name='limit'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1225,9 +943,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create a new group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1240,9 +955,6 @@ namespace Finbourne
                 return operations.CreatePortfolioGroupAsync(scope, request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create a new group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1261,9 +973,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1278,9 +987,6 @@ namespace Finbourne
                 return operations.GetPortfolioGroupAsync(scope, code, asAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1301,9 +1007,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Update an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1318,9 +1021,6 @@ namespace Finbourne
                 return operations.UpdatePortfolioGroupAsync(scope, code, request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Update an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1341,9 +1041,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete a group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1356,9 +1053,6 @@ namespace Finbourne
                 return operations.DeletePortfolioGroupAsync(scope, code).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete a group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1377,9 +1071,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Aggregate data in a group hierarchy
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1400,9 +1091,6 @@ namespace Finbourne
                 return operations.GetAggregationByGroupAsync(scope, code, request, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Aggregate data in a group hierarchy
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1429,9 +1117,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Obsolete - Aggregation request data in a group hierarchy into a data tree
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1446,9 +1131,6 @@ namespace Finbourne
                 return operations.GetNestedAggregationByGroupAsync(scope, code, request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Obsolete - Aggregation request data in a group hierarchy into a data tree
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1469,26 +1151,16 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets all commands that modified the portfolio groups(s) with the specified
-            /// id.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio group
             /// </param>
             /// <param name='code'>
-            /// The portfolio group id
             /// </param>
             /// <param name='fromAsAt'>
-            /// Filters commands by those that were processed at or after this time. Null
-            /// means there is no lower limit.
             /// </param>
             /// <param name='toAsAt'>
-            /// Filters commands by those that were processed at or before this time. Null
-            /// means there is no upper limit (latest).
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -1497,33 +1169,22 @@ namespace Finbourne
             /// <param name='limit'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
             public static ResourceListOfProcessedCommand GetPortfolioGroupCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetPortfolioGroupCommandsAsync(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets all commands that modified the portfolio groups(s) with the specified
-            /// id.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio group
             /// </param>
             /// <param name='code'>
-            /// The portfolio group id
             /// </param>
             /// <param name='fromAsAt'>
-            /// Filters commands by those that were processed at or after this time. Null
-            /// means there is no lower limit.
             /// </param>
             /// <param name='toAsAt'>
-            /// Filters commands by those that were processed at or before this time. Null
-            /// means there is no upper limit (latest).
             /// </param>
             /// <param name='sortBy'>
             /// </param>
@@ -1532,7 +1193,6 @@ namespace Finbourne
             /// <param name='limit'>
             /// </param>
             /// <param name='filter'>
-            /// A filter expression to apply to the result set
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1545,9 +1205,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get a full expansion of an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1566,9 +1223,6 @@ namespace Finbourne
                 return operations.GetPortfolioGroupExpansionAsync(scope, code, effectiveAt, asAt, propertyFilter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get a full expansion of an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1593,9 +1247,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Add a portfolio to an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1610,9 +1261,6 @@ namespace Finbourne
                 return operations.AddPortfolioToGroupAsync(scope, code, identifier).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Add a portfolio to an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1633,9 +1281,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Remove a portfolio that is currently present within an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1652,9 +1297,6 @@ namespace Finbourne
                 return operations.DeletePortfolioFromGroupAsync(scope, code, portfolioScope, portfolioCode).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Remove a portfolio that is currently present within an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1677,9 +1319,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Add a sub group to an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1694,9 +1333,6 @@ namespace Finbourne
                 return operations.AddSubGroupToGroupAsync(scope, code, identifier).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Add a sub group to an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1717,9 +1353,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Remove a subgroup that is currently present within an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1736,9 +1369,6 @@ namespace Finbourne
                 return operations.DeleteSubGroupFromGroupAsync(scope, code, subgroupScope, subgroupCode).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Remove a subgroup that is currently present within an existing group
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -1761,52 +1391,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// List scopes that contain portfolios
-            /// </summary>
-            /// <remarks>
-            /// Lists all scopes that have previously been used
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='sortBy'>
-            /// How to order the returned scopes
             /// </param>
             /// <param name='start'>
-            /// The starting index for the returned scopes
             /// </param>
             /// <param name='limit'>
-            /// The final index for the returned scopes
             /// </param>
             /// <param name='filter'>
-            /// Filter to be applied to the list of scopes
             /// </param>
             public static ResourceListOfScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.ListPortfolioScopesAsync(sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// List scopes that contain portfolios
-            /// </summary>
-            /// <remarks>
-            /// Lists all scopes that have previously been used
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='sortBy'>
-            /// How to order the returned scopes
             /// </param>
             /// <param name='start'>
-            /// The starting index for the returned scopes
             /// </param>
             /// <param name='limit'>
-            /// The final index for the returned scopes
             /// </param>
             /// <param name='filter'>
-            /// Filter to be applied to the list of scopes
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1819,32 +1429,20 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get all portfolios
-            /// </summary>
-            /// <remarks>
-            /// Get all portfolios in a scope
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope to get portfolios from
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='filter'>
             /// </param>
@@ -1853,32 +1451,20 @@ namespace Finbourne
                 return operations.ListPortfoliosAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get all portfolios
-            /// </summary>
-            /// <remarks>
-            /// Get all portfolios in a scope
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope to get portfolios from
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='filter'>
             /// </param>
@@ -1893,52 +1479,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get portfolio
-            /// </summary>
-            /// <remarks>
-            /// Gets a single portfolio by code
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             public static Portfolio GetPortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
                 return operations.GetPortfolioAsync(scope, code, effectiveAt, asAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get portfolio
-            /// </summary>
-            /// <remarks>
-            /// Gets a single portfolio by code
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1951,46 +1517,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Update portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio to be updated
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='request'>
-            /// The update request
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date for the change
             /// </param>
             public static Portfolio UpdatePortfolio(this ILUSIDAPI operations, string scope, string code, UpdatePortfolioRequest request = default(UpdatePortfolioRequest), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.UpdatePortfolioAsync(scope, code, request, effectiveAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Update portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio to be updated
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='request'>
-            /// The update request
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date for the change
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2003,46 +1555,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete portfolio
-            /// </summary>
-            /// <remarks>
-            /// Deletes a portfolio from the given effectiveAt
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             public static DeletedEntityResponse DeletePortfolio(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.DeletePortfolioAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete portfolio
-            /// </summary>
-            /// <remarks>
-            /// Deletes a portfolio from the given effectiveAt
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2055,9 +1589,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Aggregate data in a portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2078,9 +1609,6 @@ namespace Finbourne
                 return operations.GetAggregationByPortfolioAsync(scope, code, request, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Aggregate data in a portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2107,62 +1635,36 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get modifications
-            /// </summary>
-            /// <remarks>
-            /// Gets all commands that modified the portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// The portfolio id
             /// </param>
             /// <param name='fromAsAt'>
-            /// Filters commands by those that were processed at or after this time. Null
-            /// means there is no lower limit.
             /// </param>
             /// <param name='toAsAt'>
-            /// Filters commands by those that were processed at or before this time. Null
-            /// means there is no upper limit (latest).
             /// </param>
             /// <param name='filter'>
-            /// Command filter
             /// </param>
             public static ResourceListOfProcessedCommand GetPortfolioCommands(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string))
             {
                 return operations.GetPortfolioCommandsAsync(scope, code, fromAsAt, toAsAt, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get modifications
-            /// </summary>
-            /// <remarks>
-            /// Gets all commands that modified the portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// The portfolio id
             /// </param>
             /// <param name='fromAsAt'>
-            /// Filters commands by those that were processed at or after this time. Null
-            /// means there is no lower limit.
             /// </param>
             /// <param name='toAsAt'>
-            /// Filters commands by those that were processed at or before this time. Null
-            /// means there is no upper limit (latest).
             /// </param>
             /// <param name='filter'>
-            /// Command filter
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2175,31 +1677,18 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get properties
-            /// </summary>
-            /// <remarks>
-            /// Get properties attached to the portfolio.  If the asAt is not specified
-            /// then
-            /// the latest system time is used
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             /// <param name='sortBy'>
-            /// Property to sort the results by
             /// </param>
             /// <param name='start'>
             /// </param>
@@ -2210,31 +1699,18 @@ namespace Finbourne
                 return operations.GetPortfolioPropertiesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get properties
-            /// </summary>
-            /// <remarks>
-            /// Get properties attached to the portfolio.  If the asAt is not specified
-            /// then
-            /// the latest system time is used
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             /// <param name='sortBy'>
-            /// Property to sort the results by
             /// </param>
             /// <param name='start'>
             /// </param>
@@ -2251,50 +1727,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Update properties
-            /// </summary>
-            /// <remarks>
-            /// Create one or more properties on a portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='portfolioProperties'>
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date for the change
             /// </param>
             public static PortfolioProperties UpsertPortfolioProperties(this ILUSIDAPI operations, string scope, string code, IDictionary<string, PropertyValue> portfolioProperties = default(IDictionary<string, PropertyValue>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.UpsertPortfolioPropertiesAsync(scope, code, portfolioProperties, effectiveAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Update properties
-            /// </summary>
-            /// <remarks>
-            /// Create one or more properties on a portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='portfolioProperties'>
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date for the change
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2307,56 +1765,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete one, many or all properties from a portfolio for a specified
-            /// effective date
-            /// </summary>
-            /// <remarks>
-            /// Specifying no properties will delete all properties
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='portfolioPropertyKeys'>
-            /// The keys of the property to be deleted. None specified indicates the intent
-            /// to delete all properties
             /// </param>
             public static DeletedEntityResponse DeletePortfolioProperties(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> portfolioPropertyKeys = default(IList<string>))
             {
                 return operations.DeletePortfolioPropertiesAsync(scope, code, effectiveAt, portfolioPropertyKeys).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete one, many or all properties from a portfolio for a specified
-            /// effective date
-            /// </summary>
-            /// <remarks>
-            /// Specifying no properties will delete all properties
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='portfolioPropertyKeys'>
-            /// The keys of the property to be deleted. None specified indicates the intent
-            /// to delete all properties
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2369,9 +1803,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Perform a reconciliation between two portfolios
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2390,9 +1821,6 @@ namespace Finbourne
                 return operations.ReconcileHoldingsAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Perform a reconciliation between two portfolios
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2417,9 +1845,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets multiple property definitions.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2440,9 +1865,6 @@ namespace Finbourne
                 return operations.GetMultiplePropertyDefinitionsAsync(keys, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets multiple property definitions.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2469,9 +1891,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Creates a new property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2482,9 +1901,6 @@ namespace Finbourne
                 return operations.CreatePropertyDefinitionAsync(definition).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Creates a new property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2501,9 +1917,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets a property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2522,9 +1935,6 @@ namespace Finbourne
                 return operations.GetPropertyDefinitionAsync(domain, scope, code, asAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets a property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2549,9 +1959,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Updates the specified property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2570,9 +1977,6 @@ namespace Finbourne
                 return operations.UpdatePropertyDefinitionAsync(domain, scope, code, definition).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Updates the specified property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2597,9 +2001,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Deletes the property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2616,9 +2017,6 @@ namespace Finbourne
                 return operations.DeletePropertyDefinitionAsync(domain, scope, code).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Deletes the property definition.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2641,34 +2039,24 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create a new reference portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the portfolio
             /// </param>
             /// <param name='referencePortfolio'>
-            /// The portfolio creation request object
             /// </param>
             public static Portfolio CreateReferencePortfolio(this ILUSIDAPI operations, string scope, CreateReferencePortfolioRequest referencePortfolio = default(CreateReferencePortfolioRequest))
             {
                 return operations.CreateReferencePortfolioAsync(scope, referencePortfolio).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create a new reference portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the portfolio
             /// </param>
             /// <param name='referencePortfolio'>
-            /// The portfolio creation request object
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2681,9 +2069,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get all the constituents in a reference portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2706,9 +2091,6 @@ namespace Finbourne
                 return operations.GetReferencePortfolioConstituentsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get all the constituents in a reference portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2737,9 +2119,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Add constituents to a specific reference portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2756,9 +2135,6 @@ namespace Finbourne
                 return operations.UpsertReferencePortfolioConstituentsAsync(scope, code, effectiveAt, constituents).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Add constituents to a specific reference portfolio
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2781,20 +2157,14 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Retrieve some previously stored results
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the data
             /// </param>
             /// <param name='key'>
-            /// The key that identifies the data
             /// </param>
             /// <param name='date'>
-            /// The date for which the data was loaded
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -2809,20 +2179,14 @@ namespace Finbourne
                 return operations.GetResultsAsync(scope, key, date, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Retrieve some previously stored results
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the data
             /// </param>
             /// <param name='key'>
-            /// The key that identifies the data
             /// </param>
             /// <param name='date'>
-            /// The date for which the data was loaded
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -2843,46 +2207,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Upsert precalculated results against a specified scope/key/date combination
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the data
             /// </param>
             /// <param name='key'>
-            /// The key that identifies the data
             /// </param>
             /// <param name='date'>
-            /// The date for which the data is relevant
             /// </param>
             /// <param name='request'>
-            /// The results to upload
             /// </param>
             public static Results UpsertResults(this ILUSIDAPI operations, string scope, string key, System.DateTimeOffset date, CreateResults request = default(CreateResults))
             {
                 return operations.UpsertResultsAsync(scope, key, date, request).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Upsert precalculated results against a specified scope/key/date combination
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the data
             /// </param>
             /// <param name='key'>
-            /// The key that identifies the data
             /// </param>
             /// <param name='date'>
-            /// The date for which the data is relevant
             /// </param>
             /// <param name='request'>
-            /// The results to upload
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2895,9 +2245,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Aggregate data from a result set
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2918,9 +2265,6 @@ namespace Finbourne
                 return operations.GetAggregationByResultSetAsync(scope, resultsKey, request, sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Aggregate data from a result set
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2947,9 +2291,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// List all available entities
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2958,9 +2299,6 @@ namespace Finbourne
                 return operations.ListEntitiesAsync().GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// List all available entities
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2975,9 +2313,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets the schema for a given entity.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -2988,9 +2323,6 @@ namespace Finbourne
                 return operations.GetEntitySchemaAsync(entity).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets the schema for a given entity.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3007,15 +2339,10 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get the schemas for the provided list of property keys
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='propertyKeys'>
-            /// A comma delimited list of property keys in string format. e.g.
-            /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -3024,15 +2351,10 @@ namespace Finbourne
                 return operations.GetPropertySchemaAsync(propertyKeys, asAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get the schemas for the provided list of property keys
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='propertyKeys'>
-            /// A comma delimited list of property keys in string format. e.g.
-            /// "Portfolio/default/PropertyName,Portfolio/differentScope/MyProperty"
             /// </param>
             /// <param name='asAt'>
             /// </param>
@@ -3047,9 +2369,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets the available value types that could be returned in a schema
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3064,9 +2383,6 @@ namespace Finbourne
                 return operations.GetValueTypesAsync(sortBy, start, limit).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets the available value types that could be returned in a schema
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3087,9 +2403,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Search portfolio groups
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3108,9 +2421,6 @@ namespace Finbourne
                 return operations.PortfolioGroupsSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Search portfolio groups
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3135,9 +2445,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Search portfolios
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3156,9 +2463,6 @@ namespace Finbourne
                 return operations.PortfoliosSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Search portfolios
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3183,9 +2487,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Search properties
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3204,9 +2505,6 @@ namespace Finbourne
                 return operations.PropertiesSearchAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Search properties
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3231,9 +2529,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets the list of persisted transaction types
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3242,9 +2537,6 @@ namespace Finbourne
                 return operations.ListConfigurationTransactionTypesAsync().GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets the list of persisted transaction types
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3259,9 +2551,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Uploads a list of transaction types to be used by the movements engine
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3272,9 +2561,6 @@ namespace Finbourne
                 return operations.SetConfigurationTransactionTypesAsync(types).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Uploads a list of transaction types to be used by the movements engine
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3291,9 +2577,6 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Adds a new transaction type movement to the list of existing types
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3304,9 +2587,6 @@ namespace Finbourne
                 return operations.CreateConfigurationTransactionTypeAsync(type).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Adds a new transaction type movement to the list of existing types
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3323,40 +2603,24 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Create portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a new portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the portfolio
             /// </param>
             /// <param name='createRequest'>
-            /// The portfolio creation request object
             /// </param>
             public static Portfolio CreatePortfolio(this ILUSIDAPI operations, string scope, CreateTransactionPortfolioRequest createRequest = default(CreateTransactionPortfolioRequest))
             {
                 return operations.CreatePortfolioAsync(scope, createRequest).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Create portfolio
-            /// </summary>
-            /// <remarks>
-            /// Creates a new portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The intended scope of the portfolio
             /// </param>
             /// <param name='createRequest'>
-            /// The portfolio creation request object
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3369,54 +2633,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Gets the details for a portfolio.  For a derived portfolio this can be
-            /// the details of another reference portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             public static PortfolioDetails GetDetails(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
             {
                 return operations.GetDetailsAsync(scope, code, effectiveAt, asAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Gets the details for a portfolio.  For a derived portfolio this can be
-            /// the details of another reference portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// The asAt date to use
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3429,54 +2671,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Add/update portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Update the portfolio details for the given code or add if it doesn't
-            /// already exist. Updates with
-            /// null values will remove any existing values
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='details'>
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date of the change
             /// </param>
             public static PortfolioDetails UpsertPortfolioDetails(this ILUSIDAPI operations, string scope, string code, CreatePortfolioDetails details = default(CreatePortfolioDetails), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
             {
                 return operations.UpsertPortfolioDetailsAsync(scope, code, details, effectiveAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Add/update portfolio details
-            /// </summary>
-            /// <remarks>
-            /// Update the portfolio details for the given code or add if it doesn't
-            /// already exist. Updates with
-            /// null values will remove any existing values
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='details'>
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date of the change
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3489,114 +2709,76 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get holdings
-            /// </summary>
-            /// <remarks>
-            /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-            /// are supplied then values will be defaulted to the latest system time.
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
+            /// </param>
+            /// <param name='byTaxlots'>
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// As at date
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='filter'>
-            /// A filter on the results
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys for the instrument properties to be decorated onto the holdings
             /// </param>
-            public static VersionedResourceListOfHolding GetHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static VersionedResourceListOfHolding GetHoldings(this ILUSIDAPI operations, string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.GetHoldingsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys).GetAwaiter().GetResult();
+                return operations.GetHoldingsAsync(scope, code, byTaxlots, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get holdings
-            /// </summary>
-            /// <remarks>
-            /// Get the aggregate holdings of a portfolio.  If no effectiveAt or asAt
-            /// are supplied then values will be defaulted to the latest system time.
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
+            /// </param>
+            /// <param name='byTaxlots'>
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='asAt'>
-            /// As at date
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='filter'>
-            /// A filter on the results
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys for the instrument properties to be decorated onto the holdings
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionedResourceListOfHolding> GetHoldingsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionedResourceListOfHolding> GetHoldingsAsync(this ILUSIDAPI operations, string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetHoldingsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetHoldingsWithHttpMessagesAsync(scope, code, byTaxlots, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
-            /// <summary>
-            /// Set All Holdings
-            /// </summary>
-            /// <remarks>
-            /// Create transactions in a specific portfolio to bring all holdings to the
-            /// specified targets
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='holdingAdjustments'>
             /// </param>
@@ -3605,24 +2787,14 @@ namespace Finbourne
                 return operations.SetHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Set All Holdings
-            /// </summary>
-            /// <remarks>
-            /// Create transactions in a specific portfolio to bring all holdings to the
-            /// specified targets
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='holdingAdjustments'>
             /// </param>
@@ -3637,24 +2809,14 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Adjust Selected Holdings
-            /// </summary>
-            /// <remarks>
-            /// Create transactions in a specific portfolio to bring the selected holdings
-            /// up to the specified targets
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='holdingAdjustments'>
             /// </param>
@@ -3663,24 +2825,14 @@ namespace Finbourne
                 return operations.AdjustHoldingsAsync(scope, code, effectiveAt, holdingAdjustments).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Adjust Selected Holdings
-            /// </summary>
-            /// <remarks>
-            /// Create transactions in a specific portfolio to bring the selected holdings
-            /// up to the specified targets
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='holdingAdjustments'>
             /// </param>
@@ -3695,46 +2847,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Cancel adjust-holdings
-            /// </summary>
-            /// <remarks>
-            /// Cancels a previous adjust holdings request
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             public static DeletedEntityResponse CancelAdjustHoldings(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt)
             {
                 return operations.CancelAdjustHoldingsAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Cancel adjust-holdings
-            /// </summary>
-            /// <remarks>
-            /// Cancels a previous adjust holdings request
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Effective date
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3747,52 +2881,36 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Gets holdings adjustments in an interval of effective time.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='fromEffectiveAt'>
-            /// Events between this time (inclusive) and the toEffectiveAt are returned.
             /// </param>
             /// <param name='toEffectiveAt'>
-            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
             /// </param>
             /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
             /// </param>
             public static ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
             {
                 return operations.ListHoldingsAdjustmentsAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Gets holdings adjustments in an interval of effective time.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='fromEffectiveAt'>
-            /// Events between this time (inclusive) and the toEffectiveAt are returned.
             /// </param>
             /// <param name='toEffectiveAt'>
-            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
             /// </param>
             /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3805,50 +2923,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get a holdings adjustment for a single portfolio at a specific effective
-            /// time.
-            /// If no adjustment exists at this effective time, not found is returned.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective time of the holdings adjustment.
             /// </param>
             /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
             /// </param>
             public static HoldingsAdjustment GetHoldingsAdjustment(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
             {
                 return operations.GetHoldingsAdjustmentAsync(scope, code, effectiveAt, asAtTime).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get a holdings adjustment for a single portfolio at a specific effective
-            /// time.
-            /// If no adjustment exists at this effective time, not found is returned.
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective time of the holdings adjustment.
             /// </param>
             /// <param name='asAtTime'>
-            /// The as-at time for which the result is valid.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3861,84 +2961,56 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get transactions
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='fromTransactionDate'>
-            /// Include transactions with a transaction date equal or later than this date.
-            /// If not supplied, no lower filter is applied
             /// </param>
             /// <param name='toTransactionDate'>
-            /// Include transactions with a transaction date equal or before this date. If
-            /// not supplied, no upper filter is applied
             /// </param>
             /// <param name='asAt'>
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys for the instrument properties to be decorated onto the transactions
             /// </param>
             /// <param name='filter'>
-            /// Transaction filter
             /// </param>
             public static VersionedResourceListOfTransaction GetTransactions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? toTransactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string))
             {
                 return operations.GetTransactionsAsync(scope, code, fromTransactionDate, toTransactionDate, asAt, sortBy, start, limit, instrumentPropertyKeys, filter).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get transactions
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='fromTransactionDate'>
-            /// Include transactions with a transaction date equal or later than this date.
-            /// If not supplied, no lower filter is applied
             /// </param>
             /// <param name='toTransactionDate'>
-            /// Include transactions with a transaction date equal or before this date. If
-            /// not supplied, no upper filter is applied
             /// </param>
             /// <param name='asAt'>
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys for the instrument properties to be decorated onto the transactions
             /// </param>
             /// <param name='filter'>
-            /// Transaction filter
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3951,40 +3023,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Upsert transactions
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='transactions'>
-            /// The transactions to be updated
             /// </param>
             public static UpsertPortfolioTransactionsResponse UpsertTransactions(this ILUSIDAPI operations, string scope, string code, IList<TransactionRequest> transactions = default(IList<TransactionRequest>))
             {
                 return operations.UpsertTransactionsAsync(scope, code, transactions).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Upsert transactions
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='transactions'>
-            /// The transactions to be updated
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3997,46 +3057,28 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete transactions
-            /// </summary>
-            /// <remarks>
-            /// Delete one or more transactions from a portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='id'>
-            /// Ids of transactions to delete
             /// </param>
             public static DeletedEntityResponse DeleteTransactions(this ILUSIDAPI operations, string scope, string code, IList<string> id = default(IList<string>))
             {
                 return operations.DeleteTransactionsAsync(scope, code, id).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete transactions
-            /// </summary>
-            /// <remarks>
-            /// Delete one or more transactions from a portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='id'>
-            /// Ids of transactions to delete
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4049,52 +3091,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Add/update transaction properties
-            /// </summary>
-            /// <remarks>
-            /// Add one or more properties to a specific transaction in a portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='transactionId'>
-            /// Id of transaction to add properties to
             /// </param>
             /// <param name='transactionProperties'>
-            /// Transaction properties to add
             /// </param>
             public static AddTransactionPropertyResponse AddTransactionProperty(this ILUSIDAPI operations, string scope, string code, string transactionId, IDictionary<string, PerpetualPropertyValue> transactionProperties = default(IDictionary<string, PerpetualPropertyValue>))
             {
                 return operations.AddTransactionPropertyAsync(scope, code, transactionId, transactionProperties).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Add/update transaction properties
-            /// </summary>
-            /// <remarks>
-            /// Add one or more properties to a specific transaction in a portfolio
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='transactionId'>
-            /// Id of transaction to add properties to
             /// </param>
             /// <param name='transactionProperties'>
-            /// Transaction properties to add
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4107,52 +3129,32 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Delete transaction property
-            /// </summary>
-            /// <remarks>
-            /// Delete a property from a specific transaction
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='transactionId'>
-            /// Id of the transaction to delete the property from
             /// </param>
             /// <param name='transactionPropertyKey'>
-            /// The key of the property to be deleted
             /// </param>
             public static DeletedEntityResponse DeletePropertyFromTransaction(this ILUSIDAPI operations, string scope, string code, string transactionId, string transactionPropertyKey = default(string))
             {
                 return operations.DeletePropertyFromTransactionAsync(scope, code, transactionId, transactionPropertyKey).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Delete transaction property
-            /// </summary>
-            /// <remarks>
-            /// Delete a property from a specific transaction
-            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='transactionId'>
-            /// Id of the transaction to delete the property from
             /// </param>
             /// <param name='transactionPropertyKey'>
-            /// The key of the property to be deleted
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4165,74 +3167,52 @@ namespace Finbourne
                 }
             }
 
-            /// <summary>
-            /// Get transactions
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='asAt'>
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys for the instrument properties to be decorated onto the trades
             /// </param>
             /// <param name='filter'>
-            /// Trade filter
             /// </param>
             /// <param name='parameters'>
-            /// Core query parameters
             /// </param>
             public static VersionedResourceListOfOutputTransaction BuildTransactions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), IList<string> instrumentPropertyKeys = default(IList<string>), string filter = default(string), TransactionQueryParameters parameters = default(TransactionQueryParameters))
             {
                 return operations.BuildTransactionsAsync(scope, code, asAt, sortBy, start, limit, instrumentPropertyKeys, filter, parameters).GetAwaiter().GetResult();
             }
 
-            /// <summary>
-            /// Get transactions
-            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
-            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
             /// </param>
             /// <param name='asAt'>
             /// </param>
             /// <param name='sortBy'>
-            /// The columns to sort the returned data by
             /// </param>
             /// <param name='start'>
-            /// How many items to skip from the returned set
             /// </param>
             /// <param name='limit'>
-            /// How many items to return from the set
             /// </param>
             /// <param name='instrumentPropertyKeys'>
-            /// Keys for the instrument properties to be decorated onto the trades
             /// </param>
             /// <param name='filter'>
-            /// Trade filter
             /// </param>
             /// <param name='parameters'>
-            /// Core query parameters
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
