@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the Instrument class.
         /// </summary>
-        public Instrument(string href = default(string), string uid = default(string), Version version = default(Version), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), string marketIdentifierCode = default(string), IList<Link> links = default(IList<Link>))
+        public Instrument(string href = default(string), string uid = default(string), Version version = default(Version), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), string marketIdentifierCode = default(string), ResourceId lookthroughPortfolio = default(ResourceId), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Uid = uid;
@@ -49,6 +49,7 @@ namespace Finbourne.Models
             Aliases = aliases;
             Properties = properties;
             MarketIdentifierCode = marketIdentifierCode;
+            LookthroughPortfolio = lookthroughPortfolio;
             Links = links;
             CustomInit();
         }
@@ -92,6 +93,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "marketIdentifierCode")]
         public string MarketIdentifierCode { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "lookthroughPortfolio")]
+        public ResourceId LookthroughPortfolio { get; set; }
 
         /// <summary>
         /// </summary>
