@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ErrorResponse class.
         /// </summary>
-        /// <param name="code">Possible values include:
+        /// <param name="code">Possible values include: 'Unknown',
         /// 'PersonalisationNotFound', 'NonRecursivePersonalisation',
         /// 'VersionNotFound', 'InstrumentNotFound', 'PropertyNotFound',
         /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
@@ -74,9 +74,10 @@ namespace Finbourne.Models
         /// 'AccrualSourceNotFound', 'EntitlementsFailure',
         /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
         /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
-        /// 'InvalidUnitForDataType', 'InvalidTypeForDataType',
-        /// 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
-        /// 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
+        /// 'ServerConfigurationError', 'InvalidUnitForDataType',
+        /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
+        /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
+        /// 'CannotSpecifyUnitsOnDataType',
         /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
         /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
         /// 'InvalidInstrumentIdentifierUnit',
@@ -85,8 +86,7 @@ namespace Finbourne.Models
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
         /// 'QuotePublishFailure', 'QuoteQueryFailure',
         /// 'ReferencePortfolioRequestNotSupported',
-        /// 'TransactionPortfolioRequestNotSupported',
-        /// 'ServerConfigurationError', 'Unknown'</param>
+        /// 'TransactionPortfolioRequestNotSupported'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -109,7 +109,7 @@ namespace Finbourne.Models
         public int? Status { get; private set; }
 
         /// <summary>
-        /// Gets possible values include: 'PersonalisationNotFound',
+        /// Gets possible values include: 'Unknown', 'PersonalisationNotFound',
         /// 'NonRecursivePersonalisation', 'VersionNotFound',
         /// 'InstrumentNotFound', 'PropertyNotFound',
         /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
@@ -143,9 +143,10 @@ namespace Finbourne.Models
         /// 'AccrualSourceNotFound', 'EntitlementsFailure',
         /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
         /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
-        /// 'InvalidUnitForDataType', 'InvalidTypeForDataType',
-        /// 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
-        /// 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
+        /// 'ServerConfigurationError', 'InvalidUnitForDataType',
+        /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
+        /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
+        /// 'CannotSpecifyUnitsOnDataType',
         /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
         /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
         /// 'InvalidInstrumentIdentifierUnit',
@@ -154,8 +155,7 @@ namespace Finbourne.Models
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
         /// 'QuotePublishFailure', 'QuoteQueryFailure',
         /// 'ReferencePortfolioRequestNotSupported',
-        /// 'TransactionPortfolioRequestNotSupported',
-        /// 'ServerConfigurationError', 'Unknown'
+        /// 'TransactionPortfolioRequestNotSupported'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }
