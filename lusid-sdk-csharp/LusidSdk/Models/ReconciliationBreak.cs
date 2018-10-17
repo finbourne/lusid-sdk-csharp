@@ -45,6 +45,8 @@ namespace Finbourne.Models
         /// Initializes a new instance of the ReconciliationBreak class.
         /// </summary>
         /// <param name="instrumentUid">Unique instrument identifier</param>
+        /// <param name="subHoldingKeys">Any other properties that comprise the
+        /// Sub-Holding Key</param>
         /// <param name="leftUnits">Units from the left hand side</param>
         /// <param name="rightUnits">Units from the right hand side</param>
         /// <param name="differenceUnits">Difference in units</param>
@@ -79,6 +81,7 @@ namespace Finbourne.Models
         public string InstrumentUid { get; set; }
 
         /// <summary>
+        /// Gets or sets any other properties that comprise the Sub-Holding Key
         /// </summary>
         [JsonProperty(PropertyName = "subHoldingKeys")]
         public IList<Property> SubHoldingKeys { get; set; }

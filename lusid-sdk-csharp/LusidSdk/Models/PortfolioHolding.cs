@@ -52,9 +52,10 @@ namespace Finbourne.Models
         /// currency</param>
         /// <param name="transaction">If this is commitment-type holding, the
         /// transaction behind it</param>
-        public PortfolioHolding(string instrumentUid, string holdingType, double units, double settledUnits, double cost, double costPortfolioCcy, IList<Property> properties = default(IList<Property>), Transaction transaction = default(Transaction))
+        public PortfolioHolding(string instrumentUid, string holdingType, double units, double settledUnits, CurrencyAndAmount cost, CurrencyAndAmount costPortfolioCcy, IList<PerpetualProperty> subHoldingKeys = default(IList<PerpetualProperty>), IList<Property> properties = default(IList<Property>), Transaction transaction = default(Transaction))
         {
             InstrumentUid = instrumentUid;
+            SubHoldingKeys = subHoldingKeys;
             Properties = properties;
             HoldingType = holdingType;
             Units = units;
@@ -75,6 +76,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "instrumentUid")]
         public string InstrumentUid { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "subHoldingKeys")]
+        public IList<PerpetualProperty> SubHoldingKeys { get; set; }
 
         /// <summary>
         /// </summary>
@@ -104,13 +110,13 @@ namespace Finbourne.Models
         /// Gets or sets book cost of holding in transaction currency
         /// </summary>
         [JsonProperty(PropertyName = "cost")]
-        public double Cost { get; set; }
+        public CurrencyAndAmount Cost { get; set; }
 
         /// <summary>
         /// Gets or sets book cost of holding in portfolio currency
         /// </summary>
         [JsonProperty(PropertyName = "costPortfolioCcy")]
-        public double CostPortfolioCcy { get; set; }
+        public CurrencyAndAmount CostPortfolioCcy { get; set; }
 
         /// <summary>
         /// Gets or sets if this is commitment-type holding, the transaction
@@ -135,13 +141,31 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "HoldingType");
             }
-            if (Properties != null)
+            if (Cost == null)
             {
-                foreach (var element in Properties)
+                throw new ValidationException(ValidationRules.CannotBeNull, "Cost");
+            }
+            if (CostPortfolioCcy == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "CostPortfolioCcy");
+            }
+            if (SubHoldingKeys != null)
+            {
+                foreach (var element in SubHoldingKeys)
                 {
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Properties != null)
+            {
+                foreach (var element1 in Properties)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

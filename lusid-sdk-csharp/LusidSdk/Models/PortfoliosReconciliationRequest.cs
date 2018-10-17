@@ -43,6 +43,13 @@ namespace Finbourne.Models
         /// Initializes a new instance of the PortfoliosReconciliationRequest
         /// class.
         /// </summary>
+        /// <param name="left">The specification of the left hand side of the
+        /// portfolio reconciliation</param>
+        /// <param name="right">The specification of the right hand side of the
+        /// portfolio reconciliation</param>
+        /// <param name="instrumentPropertyKeys">Instrument properties to be
+        /// included with any identified breaks. These properties will be in
+        /// the effective and AsAt dates of the left portfolio</param>
         public PortfoliosReconciliationRequest(PortfolioReconciliationRequest left, PortfolioReconciliationRequest right, IList<string> instrumentPropertyKeys)
         {
             Left = left;
@@ -57,16 +64,23 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the specification of the left hand side of the
+        /// portfolio reconciliation
         /// </summary>
         [JsonProperty(PropertyName = "left")]
         public PortfolioReconciliationRequest Left { get; set; }
 
         /// <summary>
+        /// Gets or sets the specification of the right hand side of the
+        /// portfolio reconciliation
         /// </summary>
         [JsonProperty(PropertyName = "right")]
         public PortfolioReconciliationRequest Right { get; set; }
 
         /// <summary>
+        /// Gets or sets instrument properties to be included with any
+        /// identified breaks. These properties will be in the effective and
+        /// AsAt dates of the left portfolio
         /// </summary>
         [JsonProperty(PropertyName = "instrumentPropertyKeys")]
         public IList<string> InstrumentPropertyKeys { get; set; }

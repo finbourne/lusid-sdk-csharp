@@ -326,8 +326,9 @@ namespace Finbourne
     /// CashCommitment, Receivable, ForwardFX |
     /// | Units|decimal|Quantity of holding |
     /// | SettledUnits|decimal|Settled quantity of holding |
-    /// | Cost|decimal|Book cost of holding in transaction currency |
-    /// | CostPortfolioCcy|decimal|Book cost of holding in portfolio currency |
+    /// | Cost|currencyandamount|Book cost of holding in transaction currency |
+    /// | CostPortfolioCcy|currencyandamount|Book cost of holding in portfolio
+    /// currency |
     /// | Transaction|TransactionDto|If this is commitment-type holding, the
     /// transaction behind it |
     ///
@@ -480,6 +481,8 @@ namespace Finbourne
     /// |
     /// | &lt;a name="217"&gt;217&lt;/a&gt;|QuotePublishFailure|  |
     /// | &lt;a name="218"&gt;218&lt;/a&gt;|QuoteQueryFailure|  |
+    /// | &lt;a name="219"&gt;219&lt;/a&gt;|InvalidInstrumentDefinition|  |
+    /// | &lt;a name="221"&gt;221&lt;/a&gt;|InstrumentUpsertFailure|  |
     /// | &lt;a
     /// name="222"&gt;222&lt;/a&gt;|ReferencePortfolioRequestNotSupported|  |
     /// | &lt;a
@@ -739,15 +742,28 @@ namespace Finbourne
             };
             CustomInitialize();
         }
+        /// <summary>
+        /// List analytic stores
+        /// </summary>
+        /// <remarks>
+        /// List all defined analytic stores
+        /// </remarks>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -919,7 +935,14 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create analytic store
+        /// </summary>
+        /// <remarks>
+        /// Create a new analytic store for the specified scope and date
+        /// </remarks>
         /// <param name='request'>
+        /// A populated analytic store definition
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1058,15 +1081,27 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get analytic store
+        /// </summary>
+        /// <remarks>
+        /// Get the meta data associated with a specified scope and date combination
+        /// (analytic store)
+        /// </remarks>
         /// <param name='scope'>
+        /// The analytics data scope
         /// </param>
         /// <param name='year'>
+        /// The year component of the date for the data in the scope
         /// </param>
         /// <param name='month'>
+        /// The month component of the date for the data in the scope
         /// </param>
         /// <param name='day'>
+        /// The day component of the date for the data in the scope
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1226,13 +1261,23 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete analytic store
+        /// </summary>
+        /// <remarks>
+        /// Delete stored analytic data in the specified scope for the specified date
+        /// </remarks>
         /// <param name='scope'>
+        /// The analytics data scope
         /// </param>
         /// <param name='year'>
+        /// The year component of the date
         /// </param>
         /// <param name='month'>
+        /// The month component of the date
         /// </param>
         /// <param name='day'>
+        /// The day component of the date
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1382,15 +1427,27 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Set analytic data
+        /// </summary>
+        /// <remarks>
+        /// Store the complete set of analytics for an existing analytic store for the
+        /// specified scope and date
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the data being stored
         /// </param>
         /// <param name='year'>
+        /// The year component of the date for the data
         /// </param>
         /// <param name='month'>
+        /// The month component of the date for the data
         /// </param>
         /// <param name='day'>
+        /// The day component of the date for the data
         /// </param>
         /// <param name='data'>
+        /// The analytic data being inserted
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1413,7 +1470,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<AnalyticStore>> InsertAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<InstrumentAnalytic> data = default(IList<InstrumentAnalytic>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AnalyticStore>> SetAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<InstrumentAnalytic> data = default(IList<InstrumentAnalytic>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1432,7 +1489,7 @@ namespace Finbourne
                 tracingParameters.Add("day", day);
                 tracingParameters.Add("data", data);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "InsertAnalytics", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "SetAnalytics", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -1444,7 +1501,7 @@ namespace Finbourne
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
-            _httpRequest.Method = new HttpMethod("POST");
+            _httpRequest.Method = new HttpMethod("PUT");
             _httpRequest.RequestUri = new System.Uri(_url);
             // Set Headers
 
@@ -1547,21 +1604,37 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get corporate actions
+        /// </summary>
+        /// <remarks>
+        /// Gets corporate actions from a specific corporate action source
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the corporate action source
         /// </param>
         /// <param name='code'>
+        /// The code of the corporate action source
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1756,11 +1829,22 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Upsert corporate actions
+        /// </summary>
+        /// <remarks>
+        /// Attempt to create/update one or more corporate action in a specified
+        /// corporate action source. Failed actions will be identified in the body of
+        /// the response.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of corporate action source
         /// </param>
         /// <param name='code'>
+        /// The code of the corporate action source
         /// </param>
         /// <param name='actions'>
+        /// The corporate action definitions
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1927,7 +2011,16 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create data type definition
+        /// </summary>
+        /// <remarks>
+        /// Create a new data type definition
+        ///
+        /// Data types cannot be created in either the "default" or "system" scopes.
+        /// </remarks>
         /// <param name='request'>
+        /// The definition of the new data type
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2070,19 +2163,34 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List data types
+        /// </summary>
+        /// <remarks>
+        /// List all data types in a specified scope
+        /// </remarks>
         /// <param name='scope'>
+        /// The requested scope of the data types
         /// </param>
         /// <param name='includeDefault'>
+        /// Whether to additionally include those data types in the "default" scope
         /// </param>
         /// <param name='includeSystem'>
+        /// Whether to additionally include those data types in the "system" scope
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2271,9 +2379,17 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get data type definition
+        /// </summary>
+        /// <remarks>
+        /// Get the definition of a specified data type
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the data type
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
+        /// The code of the data type
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2296,15 +2412,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DataType>> GetDataTypeWithHttpMessagesAsync(string scope, string name, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DataType>> GetDataTypeWithHttpMessagesAsync(string scope, string code, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (name == null)
+            if (code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2314,15 +2430,15 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("name", name);
+                tracingParameters.Add("code", code);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetDataType", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/datatypes/{scope}/{name}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/datatypes/{scope}/{code}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2423,11 +2539,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Update data type definition
+        /// </summary>
+        /// <remarks>
+        /// Update the definition of the specified existing data type
+        ///
+        /// Not all elements within a data type definition are modifiable due to the
+        /// potential implications for data
+        /// already stored against the types
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the data type
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
+        /// The code of the data type
         /// </param>
         /// <param name='request'>
+        /// The updated definition of the data type
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2450,15 +2579,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DataType>> UpdateDataTypeWithHttpMessagesAsync(string scope, string name, UpdateDataTypeRequest request = default(UpdateDataTypeRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DataType>> UpdateDataTypeWithHttpMessagesAsync(string scope, string code, UpdateDataTypeRequest request = default(UpdateDataTypeRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (name == null)
+            if (code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
             }
             if (request != null)
             {
@@ -2472,16 +2601,16 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("name", name);
+                tracingParameters.Add("code", code);
                 tracingParameters.Add("request", request);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateDataType", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/datatypes/{scope}/{name}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/datatypes/{scope}/{code}").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2588,13 +2717,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get units from data type
+        /// </summary>
+        /// <remarks>
+        /// Get the definitions of the specified units associated bound to a specific
+        /// data type
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the data type
         /// </param>
-        /// <param name='name'>
+        /// <param name='code'>
+        /// The code of the data type
         /// </param>
         /// <param name='units'>
+        /// One or more unit identifiers for which the definition is being requested
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2617,15 +2757,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IUnitDefinition>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string name, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IUnitDefinition>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "scope");
             }
-            if (name == null)
+            if (code == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "name");
+                throw new ValidationException(ValidationRules.CannotBeNull, "code");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2635,7 +2775,7 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
-                tracingParameters.Add("name", name);
+                tracingParameters.Add("code", code);
                 tracingParameters.Add("units", units);
                 tracingParameters.Add("filter", filter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
@@ -2643,9 +2783,9 @@ namespace Finbourne
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/datatypes/{scope}/{name}/units").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/datatypes/{scope}/{code}/units").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
-            _url = _url.Replace("{name}", System.Uri.EscapeDataString(name));
+            _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
             if (units != null)
             {
@@ -2769,9 +2909,27 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create derived transaction portfolio
+        /// </summary>
+        /// <remarks>
+        /// Creates a transaction portfolio that derives from an existing transaction
+        /// portfolio. In a derived portfolio, parts of the portfolio can either be
+        /// specific to this portfolio, or can be inherited from a "parent". Different
+        /// parts of the portfolio (e.g. transactions or properties) are combined in
+        /// different ways. The portfolio details are either overridden in entirety, or
+        /// not at all. The same is true for properties. Transactions on a derived
+        /// portfolio are merged with its parent portfolio's transactions. If the
+        /// parent portfolio is itself a derived portfolio, transactions from that
+        /// parent are also merged (and that parent's portfolio's, if it is also a
+        /// derived portfolio, and so on).
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope into which to create the new derived portfolio
         /// </param>
         /// <param name='portfolio'>
+        /// The root object of the new derived portfolio, containing a populated
+        /// reference portfolio id and reference scope
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2926,11 +3084,21 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete portfolio details
+        /// </summary>
+        /// <remarks>
+        /// Deletes the portfolio details for the specified derived transaction
+        /// portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// The effective date of the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3090,7 +3258,21 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create instrument
+        /// </summary>
+        /// <remarks>
+        /// Attempt to create one or more "client" instruments.
+        ///
+        /// The response will return both the collection of successfully created
+        /// instruments, as well as those that were rejected and why their creation
+        /// failed.
+        ///
+        /// It is important to always check the 'Failed' set for any unsuccessful
+        /// results.
+        /// </remarks>
         /// <param name='definitions'>
+        /// The client instrument definitions
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3239,7 +3421,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete instrument
+        /// </summary>
+        /// <remarks>
+        /// Attempt to delete one or more "client" instruments.
+        ///
+        /// The response will include those instruments that could not be deleted (as
+        /// well as any available details).
+        ///
+        /// It is important to always check the 'Failed' set for any unsuccessful
+        /// results.
+        /// </remarks>
         /// <param name='uids'>
+        /// The unique identifiers of the instruments to delete
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3391,11 +3586,22 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get instrument definition
+        /// </summary>
+        /// <remarks>
+        /// Get an individual instrument by the one of its unique instrument
+        /// identifiers. Optionally, it is possible to decorate each instrument with
+        /// specified property data.
+        /// </remarks>
         /// <param name='uid'>
+        /// The uid of the requested instrument
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the instrument
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3564,16 +3770,34 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Lookup instrument definition
+        /// </summary>
+        /// <remarks>
+        /// Lookup one or more instrument definitions by specifying non-LUSID
+        /// identifiers. Optionally, it is possible to decorate each instrument with
+        /// specified property data.
+        ///
+        /// The response will return both the collection of found instruments for each
+        /// identifier, as well as a collection of all identifiers for which no
+        /// instruments could be found (as well as any available details).
+        ///
+        /// It is important to always check the 'Failed' set for any unsuccessful
+        /// results.
+        /// </remarks>
         /// <param name='codeType'>
-        /// Possible values include: 'Undefined', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier'
+        /// The type of identifiers. Possible values include: 'Undefined',
+        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
+        /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
         /// </param>
         /// <param name='codes'>
+        /// One or more identifiers of the type specified in the codeType
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the instrument
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3742,7 +3966,21 @@ namespace Finbourne
             return _result;
         }
 
-        /// <param name='classifications'>
+        /// <summary>
+        /// Upsert instrument properties
+        /// </summary>
+        /// <remarks>
+        /// Attempt to upsert property data for one or more instruments, properties,
+        /// and effective dates.
+        ///
+        /// The response will include the details of any failures that occurred during
+        /// data storage.
+        ///
+        /// It is important to always check the 'Failed' collection for any
+        /// unsuccessful results.
+        /// </remarks>
+        /// <param name='instrumentProperties'>
+        /// The instrument property data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3759,7 +3997,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> classifications = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3768,7 +4006,7 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("classifications", classifications);
+                tracingParameters.Add("instrumentProperties", instrumentProperties);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "BatchUpsertInstrumentProperties", tracingParameters);
             }
@@ -3797,9 +4035,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(classifications != null)
+            if(instrumentProperties != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(classifications, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(instrumentProperties, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -3881,7 +4119,15 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get SAML Identity Provider
+        /// </summary>
+        /// <remarks>
+        /// Get the unique identifier for the SAML 2.0 Identity Provider to be used for
+        /// domain.
+        /// </remarks>
         /// <param name='domain'>
+        /// The domain that the user will be logging in to
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4025,7 +4271,14 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get Excel download url
+        /// </summary>
+        /// <remarks>
+        /// Request an authorised url for an Excel client version
+        /// </remarks>
         /// <param name='version'>
+        /// The requested version of the Excel plugin
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4167,6 +4420,12 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get LUSID versions
+        /// </summary>
+        /// <remarks>
+        /// Get the semantic versions associated with LUSID and its ecosystem
+        /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -4297,20 +4556,36 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get personalisation
+        /// </summary>
+        /// <remarks>
+        /// Get a personalisation, recursing to get any referenced if required.
+        /// </remarks>
         /// <param name='pattern'>
+        /// The search pattern or specific key
         /// </param>
         /// <param name='scope'>
-        /// Possible values include: 'User', 'Group', 'Default', 'All'
+        /// Optional. The scope level to request for. Possible values include: 'User',
+        /// 'Group', 'Default', 'All'
         /// </param>
         /// <param name='recursive'>
+        /// Optional. Whether to recurse into dereference recursive settings
         /// </param>
         /// <param name='wildcards'>
+        /// Optional. Whether to apply wildcards to the provided pattern and pull back
+        /// any matching
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4492,6 +4767,12 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Upsert personalisations
+        /// </summary>
+        /// <remarks>
+        /// Upsert one or more personalisations
+        /// </remarks>
         /// <param name='personalisations'>
         /// </param>
         /// <param name='customHeaders'>
@@ -4631,12 +4912,22 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete a personalisation
+        /// </summary>
+        /// <remarks>
+        /// Delete a personalisation at a specific scope (or use scope ALL to purge the
+        /// setting entirely)
+        /// </remarks>
         /// <param name='key'>
+        /// The key of the setting to be deleted
         /// </param>
         /// <param name='scope'>
-        /// Possible values include: 'User', 'Group', 'Default', 'All'
+        /// The scope to delete at (use ALL to purge the setting entirely). Possible
+        /// values include: 'User', 'Group', 'Default', 'All'
         /// </param>
         /// <param name='group'>
+        /// Optional. If deleting a setting at group level, specify the group here
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4788,17 +5079,31 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List groups in scope
+        /// </summary>
+        /// <remarks>
+        /// Lists all portfolio groups in a specified scope
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4982,9 +5287,17 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create group
+        /// </summary>
+        /// <remarks>
+        /// Create a new portfolio group.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope into which the portfolio group will be created
         /// </param>
         /// <param name='request'>
+        /// The definition of the new portfolio group
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5139,11 +5452,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get portfolio group
+        /// </summary>
+        /// <remarks>
+        /// Get the definition of the specified portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5303,11 +5625,23 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Update group
+        /// </summary>
+        /// <remarks>
+        /// Update the definition of the specified existing portfolio group.
+        ///
+        /// Not all elements within a portfolio group definition are modifiable after
+        /// creation.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='request'>
+        /// The updated definition of the portfolio group
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5468,9 +5802,17 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete group
+        /// </summary>
+        /// <remarks>
+        /// Deletes the definition of the specified portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5620,17 +5962,31 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Aggregate data in a portfolio group
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data sourced from the specified portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='request'>
+        /// The request specifying the parameters of the aggregation
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5821,11 +6177,21 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested
+        /// </summary>
+        /// <remarks>
+        /// Obsolete - Aggregate data sourced from the specified portfolio group into a
+        /// nested structure. Data is nested following the group-by specifications.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='request'>
+        /// The request specifying the parameters of the aggregation
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5986,21 +6352,39 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get commands
+        /// </summary>
+        /// <remarks>
+        /// Gets all commands that modified a specific portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='fromAsAt'>
+        /// Optional. Filters commands by those that were processed at or after this
+        /// date and time
         /// </param>
         /// <param name='toAsAt'>
+        /// Optional. Filters commands by those that were processed at or before this
+        /// date and time
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6195,15 +6579,27 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get a full expansion of a portfolio group
+        /// </summary>
+        /// <remarks>
+        /// Lists all portfolios in a group, and all sub groups. Portfolios are
+        /// decorated with their properties.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='propertyFilter'>
+        /// Optional. The restricted set of properties that should be returned
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6383,11 +6779,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Add portfolio to group
+        /// </summary>
+        /// <remarks>
+        /// Adds a portfolio to a previously defined portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group to which a portfolio is being added
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group to which a portfolio is being added
         /// </param>
-        /// <param name='identifier'>
+        /// <param name='portfolioId'>
+        /// The id of the portfolio
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6410,7 +6815,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroup>> AddPortfolioToGroupWithHttpMessagesAsync(string scope, string code, ResourceId identifier = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> AddPortfolioToGroupWithHttpMessagesAsync(string scope, string code, ResourceId portfolioId = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6429,7 +6834,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
-                tracingParameters.Add("identifier", identifier);
+                tracingParameters.Add("portfolioId", portfolioId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "AddPortfolioToGroup", tracingParameters);
             }
@@ -6460,9 +6865,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(identifier != null)
+            if(portfolioId != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(identifier, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(portfolioId, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -6544,13 +6949,23 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Remove portfolio from group
+        /// </summary>
+        /// <remarks>
+        /// Removes a portfolio from a portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='portfolioScope'>
+        /// The scope of the portfolio being removed
         /// </param>
         /// <param name='portfolioCode'>
+        /// The code of the portfolio being removed
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6712,11 +7127,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Add group to group
+        /// </summary>
+        /// <remarks>
+        /// Adds a portfolio group, as a sub-group, to an existing portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group to which a sub-group is being added
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group to which a sub-group is being added
         /// </param>
-        /// <param name='identifier'>
+        /// <param name='portfolioGroupId'>
+        /// The id of the portfolio group being added as a sub-group
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6739,7 +7163,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PortfolioGroup>> AddSubGroupToGroupWithHttpMessagesAsync(string scope, string code, ResourceId identifier = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PortfolioGroup>> AddSubGroupToGroupWithHttpMessagesAsync(string scope, string code, ResourceId portfolioGroupId = default(ResourceId), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -6758,7 +7182,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
-                tracingParameters.Add("identifier", identifier);
+                tracingParameters.Add("portfolioGroupId", portfolioGroupId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "AddSubGroupToGroup", tracingParameters);
             }
@@ -6789,9 +7213,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(identifier != null)
+            if(portfolioGroupId != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(identifier, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(portfolioGroupId, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -6873,13 +7297,23 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Remove group from group
+        /// </summary>
+        /// <remarks>
+        /// Remove a portfolio group (sub-group) from a parent portfolio group
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio group
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio group
         /// </param>
         /// <param name='subgroupScope'>
+        /// The scope of the sub-group being removed
         /// </param>
         /// <param name='subgroupCode'>
+        /// The code of the sub-group being removed
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7041,13 +7475,26 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List portfolio scopes
+        /// </summary>
+        /// <remarks>
+        /// Lists all scopes that are either currently or have previously had
+        /// portfolios in them
+        /// </remarks>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Filter to be applied to the list of scopes
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7214,19 +7661,34 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List portfolios
+        /// </summary>
+        /// <remarks>
+        /// List all the portfolios in the specified scope
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7415,13 +7877,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get portfolio definition
+        /// </summary>
+        /// <remarks>
+        /// Retrieves the basic set of information about a portfolio using the
+        /// specified scope and code.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7586,13 +8059,25 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Update portfolio definition
+        /// </summary>
+        /// <remarks>
+        /// Update the definition of a specific portfolio. Note, some parts of a
+        /// portfolio definition are not available for modification after the initial
+        /// creation.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='request'>
+        /// The updated portfolio definition
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date for the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7763,11 +8248,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete portfolio
+        /// </summary>
+        /// <remarks>
+        /// Delete a portfolio at the specified effectiveAt
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the deletion
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -7927,17 +8421,31 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Aggregate data in a portfolio
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data sourced from the specified portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='request'>
+        /// The request specifying the parameters of the aggregation
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8128,15 +8636,39 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get commands
+        /// </summary>
+        /// <remarks>
+        /// Gets all commands that modified a specific portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='fromAsAt'>
+        /// Optional. Filters commands by those that were processed at or after this
+        /// date and time
         /// </param>
         /// <param name='toAsAt'>
+        /// Optional. Filters commands by those that were processed at or before this
+        /// date and time
+        /// </param>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8159,7 +8691,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfProcessedCommand>> GetPortfolioCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfProcessedCommand>> GetPortfolioCommandsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromAsAt = default(System.DateTimeOffset?), System.DateTimeOffset? toAsAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -8180,6 +8712,9 @@ namespace Finbourne
                 tracingParameters.Add("code", code);
                 tracingParameters.Add("fromAsAt", fromAsAt);
                 tracingParameters.Add("toAsAt", toAsAt);
+                tracingParameters.Add("sortBy", sortBy);
+                tracingParameters.Add("start", start);
+                tracingParameters.Add("limit", limit);
                 tracingParameters.Add("filter", filter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetPortfolioCommands", tracingParameters);
@@ -8197,6 +8732,28 @@ namespace Finbourne
             if (toAsAt != null)
             {
                 _queryParameters.Add(string.Format("toAsAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(toAsAt, SerializationSettings).Trim('"'))));
+            }
+            if (sortBy != null)
+            {
+                if (sortBy.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in sortBy)
+                    {
+                        _queryParameters.Add(string.Format("sortBy={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
+            }
+            if (start != null)
+            {
+                _queryParameters.Add(string.Format("start={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(start, SerializationSettings).Trim('"'))));
+            }
+            if (limit != null)
+            {
+                _queryParameters.Add(string.Format("limit={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(limit, SerializationSettings).Trim('"'))));
             }
             if (filter != null)
             {
@@ -8306,19 +8863,34 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get portfolio properties
+        /// </summary>
+        /// <remarks>
+        /// Get the properties of a portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8508,13 +9080,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Upsert properties
+        /// </summary>
+        /// <remarks>
+        /// Upsert one or more property values to a portfolio for the specified
+        /// effectiveAt. All properties must be of the domain Portfolio.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='portfolioProperties'>
+        /// The property values to be upserted to the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8681,13 +9264,27 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete portfolios
+        /// </summary>
+        /// <remarks>
+        /// Delete one, many or all property values from a portfolio for the specified
+        /// effectiveAt
+        ///
+        /// Specifying no effectiveAt will delete all properties
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// Code for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the deletion
         /// </param>
         /// <param name='portfolioPropertyKeys'>
+        /// Optional. The keys of the properties to be deleted. None specified
+        /// indicates the intention to delete all properties from the portfolio
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -8862,15 +9459,28 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Reconcile portfolio holdings
+        /// </summary>
+        /// <remarks>
+        /// Reconcile the holdings of two portfolios.
+        /// </remarks>
         /// <param name='request'>
+        /// The specifications of the inputs to the reconciliation
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9048,17 +9658,28 @@ namespace Finbourne
             return _result;
         }
 
-        /// <param name='keys'>
+        /// <summary>
+        /// Get one or more property definitions
+        /// </summary>
+        /// <param name='propertyKeys'>
+        /// One or more keys for properties for which the schema should be returned
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9075,7 +9696,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> keys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPropertyDefinition>> GetMultiplePropertyDefinitionsWithHttpMessagesAsync(IList<string> propertyKeys = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9084,7 +9705,7 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("keys", keys);
+                tracingParameters.Add("propertyKeys", propertyKeys);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
@@ -9097,17 +9718,17 @@ namespace Finbourne
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/propertydefinitions").ToString();
             List<string> _queryParameters = new List<string>();
-            if (keys != null)
+            if (propertyKeys != null)
             {
-                if (keys.Count == 0)
+                if (propertyKeys.Count == 0)
                 {
-                    _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString(string.Empty)));
+                    _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
                 }
                 else
                 {
-                    foreach (var _item in keys)
+                    foreach (var _item in propertyKeys)
                     {
-                        _queryParameters.Add(string.Format("keys={0}", System.Uri.EscapeDataString("" + _item)));
+                        _queryParameters.Add(string.Format("propertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
                     }
                 }
             }
@@ -9245,7 +9866,11 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Define a new property
+        /// </summary>
         /// <param name='definition'>
+        /// The definition of the new property
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9384,15 +10009,21 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Retrieve the definition for the identified property
+        /// </summary>
         /// <param name='domain'>
-        /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType'
+        /// The Property Domain of the requested property. Possible values include:
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
+        /// The scope of the requested property
         /// </param>
         /// <param name='code'>
+        /// The code of the requested property
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9558,15 +10189,26 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Update the definition of the specified existing property
+        /// </summary>
+        /// <remarks>
+        /// Not all elements within a property definition are modifiable due to the
+        /// potential implications for data
+        /// already stored against these properties
+        /// </remarks>
         /// <param name='domain'>
-        /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType'
+        /// The Property Domain of the property being updated. Possible values include:
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
+        /// The scope of the property to be updated
         /// </param>
         /// <param name='code'>
+        /// The code of the property to be updated
         /// </param>
         /// <param name='definition'>
+        /// The updated definition of the property
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9729,13 +10371,18 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete the definition of the specified property
+        /// </summary>
         /// <param name='domain'>
-        /// Possible values include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType'
+        /// The Property Domain of the property to be deleted. Possible values include:
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
         /// </param>
         /// <param name='scope'>
+        /// The scope of the property to be deleted
         /// </param>
         /// <param name='code'>
+        /// The code of the property to be deleted
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9891,9 +10538,17 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create reference portfolio
+        /// </summary>
+        /// <remarks>
+        /// Create a new reference portfolio.
+        /// </remarks>
         /// <param name='scope'>
+        /// The intended scope of the portfolio
         /// </param>
         /// <param name='referencePortfolio'>
+        /// The portfolio creation request object
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -10048,6 +10703,9 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get constituents
+        /// </summary>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -10247,6 +10905,12 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Add constituents
+        /// </summary>
+        /// <remarks>
+        /// Add constituents to the specified reference portfolio.
+        /// </remarks>
         /// <param name='scope'>
         /// </param>
         /// <param name='code'>
@@ -10412,19 +11076,34 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get results
+        /// </summary>
+        /// <remarks>
+        /// Retrieve some previously stored results
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the data
         /// </param>
         /// <param name='key'>
+        /// The key that identifies the data
         /// </param>
         /// <param name='date'>
+        /// The date for which the data was loaded
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -10611,13 +11290,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Upsert results
+        /// </summary>
+        /// <remarks>
+        /// Upsert pre-calculated results against a specified scope/key/date
+        /// combination
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the data
         /// </param>
         /// <param name='key'>
+        /// The key that identifies the data
         /// </param>
         /// <param name='date'>
+        /// The date for which the data is relevant
         /// </param>
         /// <param name='request'>
+        /// The results to upload
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -10776,17 +11466,32 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Aggregate using result data
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data from a previously-run Result data set into a flat row of
+        /// results
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the Result data set
         /// </param>
         /// <param name='resultsKey'>
+        /// The key of the Result data set
         /// </param>
         /// <param name='request'>
+        /// The request specifying the parameters of the aggregation
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -10977,6 +11682,12 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -11107,7 +11818,14 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get schema
+        /// </summary>
+        /// <remarks>
+        /// Gets the schema and meta-data for a given entity
+        /// </remarks>
         /// <param name='entity'>
+        /// The name of a valid entity
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11251,9 +11969,17 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get property schema
+        /// </summary>
+        /// <remarks>
+        /// Get the schemas for the provided list of property keys.
+        /// </remarks>
         /// <param name='propertyKeys'>
+        /// One or more property keys for which the schema is requested
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11410,11 +12136,22 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get value types
+        /// </summary>
+        /// <remarks>
+        /// Gets the available value types for which a schema is available.
+        /// </remarks>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11576,15 +12313,25 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Search portfolio groups
+        /// </summary>
         /// <param name='request'>
+        /// A valid Elasticsearch 5.x request
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11758,15 +12505,25 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
         /// <param name='request'>
+        /// A valid Elasticsearch 5.x request
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11940,15 +12697,25 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Search property definitions
+        /// </summary>
         /// <param name='request'>
+        /// A valid Elasticsearch 5.x request
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -12122,6 +12889,12 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List transaction types
+        /// </summary>
+        /// <remarks>
+        /// Get the list of persisted transaction types
+        /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -12252,7 +13025,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Set transaction types
+        /// </summary>
+        /// <remarks>
+        /// Set all transaction types to be used by the movements engine, for the
+        /// organisation
+        ///
+        /// WARNING! Changing these mappings will have a material impact on how data,
+        /// new and old, is processed and aggregated by LUSID. This will affect your
+        /// whole organisation. Only change if you are fully aware of the implications
+        /// of the change.
+        /// </remarks>
         /// <param name='types'>
+        /// The complete set of transaction type definitions
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -12401,7 +13187,15 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create transaction type
+        /// </summary>
+        /// <remarks>
+        /// Create a new transaction type by specifying a definition and the mappings
+        /// to movements
+        /// </remarks>
         /// <param name='type'>
+        /// A transaction type definition
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -12544,9 +13338,17 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Create transaction portfolio
+        /// </summary>
+        /// <remarks>
+        /// Create a transaction portfolio in a specific scope
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope into which the transaction portfolio will be created
         /// </param>
         /// <param name='createRequest'>
+        /// The transaction portfolio definition
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -12701,13 +13503,26 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get portfolio details
+        /// </summary>
+        /// <remarks>
+        /// Get the details document associated with a transaction portfolio
+        ///
+        /// When requesting details from a derived transaction portfolio, the returned
+        /// set of details could come from a different transaction portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -12872,13 +13687,25 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Upsert details
+        /// </summary>
+        /// <remarks>
+        /// Update the portfolio details for the specified transaction portfolios or
+        /// add if it doesn't already exist (in the case of a derived transaction
+        /// portfolio).
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='details'>
+        /// The set of details for the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13045,25 +13872,46 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get holdings
+        /// </summary>
+        /// <remarks>
+        /// Get the aggregate holdings of a transaction portfolio.  If no effectiveAt
+        /// or asAt
+        /// are supplied then values will be defaulted to the latest system time.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='byTaxlots'>
+        /// Option to expand holdings to return the underlying tax-lots
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the portfolio
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys for the instrument property values to be decorated onto the
+        /// holdings
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13278,13 +14126,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Set all holdings on a transaction portfolio
+        /// </summary>
+        /// <remarks>
+        /// Prompt the creation of transactions in a specific transaction portfolio to
+        /// bring all holdings to the specified targets
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the transaction portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the transaction portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// The effective date of the change
         /// </param>
         /// <param name='holdingAdjustments'>
+        /// The complete set of holdings adjustments for the portfolio
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13453,13 +14312,26 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Adjust holdings
+        /// </summary>
+        /// <remarks>
+        /// Adjust one or more holdings in a transaction portfolio
+        ///
+        /// Prompt the creation of transactions in a specific transaction portfolio to
+        /// bring selected holdings to the specified targets
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// The effective date of the change
         /// </param>
         /// <param name='holdingAdjustments'>
+        /// The selected set of holdings adjustments
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13628,11 +14500,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Cancel holdings adjustments
+        /// </summary>
+        /// <remarks>
+        /// Cancel previous adjust-holdings for the portfolio for a specific date
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// The effective date of the change
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13784,15 +14665,29 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// List holdings adjustments
+        /// </summary>
+        /// <remarks>
+        /// Get holdings adjustments from a transaction portfolio in an interval of
+        /// effective time.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// Code for the portfolio
         /// </param>
         /// <param name='fromEffectiveAt'>
+        /// Holdings adjustments between this time (inclusive) and the toEffectiveAt
+        /// are returned.
         /// </param>
         /// <param name='toEffectiveAt'>
+        /// Holdings adjustments between this time (inclusive) and the fromEffectiveAt
+        /// are returned.
         /// </param>
-        /// <param name='asAtTime'>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13815,7 +14710,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -13836,7 +14731,7 @@ namespace Finbourne
                 tracingParameters.Add("code", code);
                 tracingParameters.Add("fromEffectiveAt", fromEffectiveAt);
                 tracingParameters.Add("toEffectiveAt", toEffectiveAt);
-                tracingParameters.Add("asAtTime", asAtTime);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ListHoldingsAdjustments", tracingParameters);
             }
@@ -13854,9 +14749,9 @@ namespace Finbourne
             {
                 _queryParameters.Add(string.Format("toEffectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(toEffectiveAt, SerializationSettings).Trim('"'))));
             }
-            if (asAtTime != null)
+            if (asAt != null)
             {
-                _queryParameters.Add(string.Format("asAtTime={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAtTime, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -13962,13 +14857,27 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get holding adjustment
+        /// </summary>
+        /// <remarks>
+        /// Get a holdings adjustment for a transaction portfolio at a specific
+        /// effective time.
+        ///
+        /// A holdings adjustment definition will only be returned if one exists for
+        /// the specified effective time
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// The effective time of the holdings adjustment
         /// </param>
-        /// <param name='asAtTime'>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13991,7 +14900,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<HoldingsAdjustment>> GetHoldingsAdjustmentWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<HoldingsAdjustment>> GetHoldingsAdjustmentWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14011,7 +14920,7 @@ namespace Finbourne
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
                 tracingParameters.Add("effectiveAt", effectiveAt);
-                tracingParameters.Add("asAtTime", asAtTime);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetHoldingsAdjustment", tracingParameters);
             }
@@ -14022,9 +14931,9 @@ namespace Finbourne
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             _url = _url.Replace("{effectiveAt}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
-            if (asAtTime != null)
+            if (asAt != null)
             {
-                _queryParameters.Add(string.Format("asAtTime={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAtTime, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -14130,25 +15039,50 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Get transactions
+        /// </summary>
+        /// <remarks>
+        /// Get the transactions from a transaction portfolio
+        ///
+        /// When the requested portfolio is a derived transaction portfolio, the
+        /// returned set of transactions is the union set of all transactions of the
+        /// parent (and ancestors) and the specified portfolio.
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='fromTransactionDate'>
+        /// Optional. Limit the returned transactions to those with a transaction date
+        /// equal or later than this date
         /// </param>
         /// <param name='toTransactionDate'>
+        /// Optional. Limit the returned transactions to those with a transaction date
+        /// equal or before this date
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys for the instrument property values that will be decorated
+        /// onto the transactions
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14363,11 +15297,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Upsert transactions into the specified transaction portfolio
+        /// </summary>
+        /// <remarks>
+        /// Upsert transactions
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code for the portfolio
         /// </param>
         /// <param name='transactions'>
+        /// The transactions to be upserted
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14534,11 +15477,20 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete transactions
+        /// </summary>
+        /// <remarks>
+        /// Delete one or more transactions from a transaction portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
-        /// <param name='id'>
+        /// <param name='transactionIds'>
+        /// Ids of transactions to delete
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14561,7 +15513,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DeletedEntityResponse>> DeleteTransactionsWithHttpMessagesAsync(string scope, string code, IList<string> id = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DeletedEntityResponse>> DeleteTransactionsWithHttpMessagesAsync(string scope, string code, IList<string> transactionIds = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -14580,7 +15532,7 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
-                tracingParameters.Add("id", id);
+                tracingParameters.Add("transactionIds", transactionIds);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteTransactions", tracingParameters);
             }
@@ -14590,17 +15542,17 @@ namespace Finbourne
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
-            if (id != null)
+            if (transactionIds != null)
             {
-                if (id.Count == 0)
+                if (transactionIds.Count == 0)
                 {
-                    _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString(string.Empty)));
+                    _queryParameters.Add(string.Format("transactionIds={0}", System.Uri.EscapeDataString(string.Empty)));
                 }
                 else
                 {
-                    foreach (var _item in id)
+                    foreach (var _item in transactionIds)
                     {
-                        _queryParameters.Add(string.Format("id={0}", System.Uri.EscapeDataString("" + _item)));
+                        _queryParameters.Add(string.Format("transactionIds={0}", System.Uri.EscapeDataString("" + _item)));
                     }
                 }
             }
@@ -14708,13 +15660,24 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Add transaction properties
+        /// </summary>
+        /// <remarks>
+        /// Upsert one or more transaction properties to a single transaction in a
+        /// portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='transactionId'>
+        /// Id of transaction
         /// </param>
         /// <param name='transactionProperties'>
+        /// Transaction properties values
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -14877,13 +15840,23 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Delete transaction property
+        /// </summary>
+        /// <remarks>
+        /// Delete a property value from a single transaction in a portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// Code for the portfolio
         /// </param>
         /// <param name='transactionId'>
+        /// Id of the transaction to delete the property from
         /// </param>
         /// <param name='transactionPropertyKey'>
+        /// The key of the property to be deleted
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -15049,23 +16022,42 @@ namespace Finbourne
             return _result;
         }
 
+        /// <summary>
+        /// Build output transactions
+        /// </summary>
+        /// <remarks>
+        /// Builds and returns the collection of all types of transactions that affect
+        /// the holdings of a portfolio in to a set of output transactions
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many.
         /// </param>
         /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys for the instrument property values to be decorated onto the
+        /// transactions
         /// </param>
         /// <param name='filter'>
+        /// Optional. Expression to filter the result set
         /// </param>
         /// <param name='parameters'>
+        /// Optional. Transaction query parameters
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

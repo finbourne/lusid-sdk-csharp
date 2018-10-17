@@ -41,6 +41,11 @@ namespace Finbourne.Models
         /// Initializes a new instance of the PortfolioReconciliationRequest
         /// class.
         /// </summary>
+        /// <param name="portfolioId">The id of the portfolio to be
+        /// reconciled</param>
+        /// <param name="effectiveAt">The effective date of the
+        /// portfolio</param>
+        /// <param name="asAt">Optional. The AsAt date of the portfolio</param>
         public PortfolioReconciliationRequest(ResourceId portfolioId, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?))
         {
             PortfolioId = portfolioId;
@@ -55,16 +60,19 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the id of the portfolio to be reconciled
         /// </summary>
         [JsonProperty(PropertyName = "portfolioId")]
         public ResourceId PortfolioId { get; set; }
 
         /// <summary>
+        /// Gets or sets the effective date of the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "effectiveAt")]
         public System.DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
+        /// Gets or sets optional. The AsAt date of the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "asAt")]
         public System.DateTimeOffset? AsAt { get; set; }

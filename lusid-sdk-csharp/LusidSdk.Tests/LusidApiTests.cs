@@ -396,7 +396,7 @@ namespace LusidSdk.Tests
             };
             
             //    add prices
-            _client.InsertAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
+            _client.SetAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
                        
             var aggregationRequest = new AggregationRequest
             {
