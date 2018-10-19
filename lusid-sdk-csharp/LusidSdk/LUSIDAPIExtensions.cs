@@ -887,11 +887,14 @@ namespace Finbourne
             /// Create instrument
             /// </summary>
             /// <remarks>
-            /// Attempt to create one or more "client" instruments.
+            /// Attempt to create one or more "client" instruments. Each instrument is
+            /// keyed by some unique key. This key is unimportant, and serves only as a
+            /// method to identify created instruments in the response.
             ///
             /// The response will return both the collection of successfully created
             /// instruments, as well as those that were rejected and why their creation
-            /// failed.
+            /// failed. They will be keyed against the key supplied in the
+            /// request.
             ///
             /// It is important to always check the 'Failed' set for any unsuccessful
             /// results.
@@ -902,7 +905,7 @@ namespace Finbourne
             /// <param name='definitions'>
             /// The client instrument definitions
             /// </param>
-            public static TryAddClientInstruments BatchAddClientInstruments(this ILUSIDAPI operations, IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>))
+            public static TryAddClientInstruments BatchAddClientInstruments(this ILUSIDAPI operations, IDictionary<string, CreateClientInstrumentRequest> definitions = default(IDictionary<string, CreateClientInstrumentRequest>))
             {
                 return operations.BatchAddClientInstrumentsAsync(definitions).GetAwaiter().GetResult();
             }
@@ -911,11 +914,14 @@ namespace Finbourne
             /// Create instrument
             /// </summary>
             /// <remarks>
-            /// Attempt to create one or more "client" instruments.
+            /// Attempt to create one or more "client" instruments. Each instrument is
+            /// keyed by some unique key. This key is unimportant, and serves only as a
+            /// method to identify created instruments in the response.
             ///
             /// The response will return both the collection of successfully created
             /// instruments, as well as those that were rejected and why their creation
-            /// failed.
+            /// failed. They will be keyed against the key supplied in the
+            /// request.
             ///
             /// It is important to always check the 'Failed' set for any unsuccessful
             /// results.
@@ -929,7 +935,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryAddClientInstruments> BatchAddClientInstrumentsAsync(this ILUSIDAPI operations, IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<TryAddClientInstruments> BatchAddClientInstrumentsAsync(this ILUSIDAPI operations, IDictionary<string, CreateClientInstrumentRequest> definitions = default(IDictionary<string, CreateClientInstrumentRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.BatchAddClientInstrumentsWithHttpMessagesAsync(definitions, null, cancellationToken).ConfigureAwait(false))
                 {

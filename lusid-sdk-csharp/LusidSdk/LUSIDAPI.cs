@@ -3262,11 +3262,14 @@ namespace Finbourne
         /// Create instrument
         /// </summary>
         /// <remarks>
-        /// Attempt to create one or more "client" instruments.
+        /// Attempt to create one or more "client" instruments. Each instrument is
+        /// keyed by some unique key. This key is unimportant, and serves only as a
+        /// method to identify created instruments in the response.
         ///
         /// The response will return both the collection of successfully created
         /// instruments, as well as those that were rejected and why their creation
-        /// failed.
+        /// failed. They will be keyed against the key supplied in the
+        /// request.
         ///
         /// It is important to always check the 'Failed' set for any unsuccessful
         /// results.
@@ -3289,15 +3292,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TryAddClientInstruments>> BatchAddClientInstrumentsWithHttpMessagesAsync(IList<CreateClientInstrumentRequest> definitions = default(IList<CreateClientInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<TryAddClientInstruments>> BatchAddClientInstrumentsWithHttpMessagesAsync(IDictionary<string, CreateClientInstrumentRequest> definitions = default(IDictionary<string, CreateClientInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (definitions != null)
             {
-                foreach (var element in definitions)
+                foreach (var valueElement in definitions.Values)
                 {
-                    if (element != null)
+                    if (valueElement != null)
                     {
-                        element.Validate();
+                        valueElement.Validate();
                     }
                 }
             }
