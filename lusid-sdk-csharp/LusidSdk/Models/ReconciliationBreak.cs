@@ -55,7 +55,7 @@ namespace Finbourne.Models
         /// <param name="differenceCost">Difference in cost</param>
         /// <param name="instrumentProperties">Additional features relating to
         /// the security</param>
-        public ReconciliationBreak(string instrumentUid, IList<Property> subHoldingKeys, double leftUnits, double rightUnits, double differenceUnits, CurrencyAndAmount leftCost, CurrencyAndAmount rightCost, CurrencyAndAmount differenceCost, IList<Property> instrumentProperties)
+        public ReconciliationBreak(string instrumentUid, IList<PerpetualProperty> subHoldingKeys, double leftUnits, double rightUnits, double differenceUnits, CurrencyAndAmount leftCost, CurrencyAndAmount rightCost, CurrencyAndAmount differenceCost, IList<Property> instrumentProperties)
         {
             InstrumentUid = instrumentUid;
             SubHoldingKeys = subHoldingKeys;
@@ -84,7 +84,7 @@ namespace Finbourne.Models
         /// Gets or sets any other properties that comprise the Sub-Holding Key
         /// </summary>
         [JsonProperty(PropertyName = "subHoldingKeys")]
-        public IList<Property> SubHoldingKeys { get; set; }
+        public IList<PerpetualProperty> SubHoldingKeys { get; set; }
 
         /// <summary>
         /// Gets or sets units from the left hand side

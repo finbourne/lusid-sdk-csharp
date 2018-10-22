@@ -483,6 +483,8 @@ namespace Finbourne
     /// name="222"&gt;222&lt;/a&gt;|ReferencePortfolioRequestNotSupported|  |
     /// | &lt;a
     /// name="223"&gt;223&lt;/a&gt;|TransactionPortfolioRequestNotSupported|  |
+    /// | &lt;a name="230"&gt;230&lt;/a&gt;|TransactionTypeNotFound|  |
+    /// | &lt;a name="231"&gt;231&lt;/a&gt;|TransactionTypeDuplication|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///

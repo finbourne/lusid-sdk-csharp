@@ -86,7 +86,8 @@ namespace Finbourne.Models
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
         /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
-        /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure'</param>
+        /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
+        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -155,7 +156,8 @@ namespace Finbourne.Models
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
         /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
-        /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure'
+        /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
+        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }
