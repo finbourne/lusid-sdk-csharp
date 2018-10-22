@@ -84,8 +84,7 @@ namespace Finbourne.Models
         /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
         /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
-        /// 'QuotePublishFailure', 'QuoteQueryFailure',
-        /// 'ReferencePortfolioRequestNotSupported',
+        /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
@@ -154,8 +153,7 @@ namespace Finbourne.Models
         /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
         /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
-        /// 'QuotePublishFailure', 'QuoteQueryFailure',
-        /// 'ReferencePortfolioRequestNotSupported',
+        /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure'
         /// </summary>

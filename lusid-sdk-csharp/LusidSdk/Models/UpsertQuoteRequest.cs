@@ -26,31 +26,23 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Link
+    public partial class UpsertQuoteRequest
     {
         /// <summary>
-        /// Initializes a new instance of the Link class.
+        /// Initializes a new instance of the UpsertQuoteRequest class.
         /// </summary>
-        public Link()
+        public UpsertQuoteRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Link class.
+        /// Initializes a new instance of the UpsertQuoteRequest class.
         /// </summary>
-        /// <param name="relation">Possible values include: 'Root',
-        /// 'Properties', 'Transactions', 'Details', 'Constituents',
-        /// 'Holdings', 'Commands', 'HoldingsAdjustments', 'Parent',
-        /// 'PropertySchema', 'EntitySchema', 'Quote'</param>
-        /// <param name="method">Possible values include: 'POST', 'GET',
-        /// 'PATCH', 'DELETE'</param>
-        public Link(string relation, string href, string method, string description = default(string))
+        public UpsertQuoteRequest(string id, MetricValue metricValue)
         {
-            Relation = relation;
-            Href = href;
-            Description = description;
-            Method = method;
+            Id = id;
+            MetricValue = metricValue;
             CustomInit();
         }
 
@@ -60,30 +52,14 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets possible values include: 'Root', 'Properties',
-        /// 'Transactions', 'Details', 'Constituents', 'Holdings', 'Commands',
-        /// 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema',
-        /// 'Quote'
         /// </summary>
-        [JsonProperty(PropertyName = "relation")]
-        public string Relation { get; set; }
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'POST', 'GET', 'PATCH',
-        /// 'DELETE'
-        /// </summary>
-        [JsonProperty(PropertyName = "method")]
-        public string Method { get; set; }
+        [JsonProperty(PropertyName = "metricValue")]
+        public MetricValue MetricValue { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -93,17 +69,13 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Relation == null)
+            if (Id == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Relation");
+                throw new ValidationException(ValidationRules.CannotBeNull, "Id");
             }
-            if (Href == null)
+            if (MetricValue == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Href");
-            }
-            if (Method == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Method");
+                throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
             }
         }
     }

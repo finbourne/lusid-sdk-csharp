@@ -3316,6 +3316,206 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Get quotes
+            /// </summary>
+            /// <remarks>
+            /// Get quotes effective at the specified date/time (if any). An optional
+            /// maximum age of quotes can be specified, and is infinite by default.
+            /// Quotes which are older than this at the time of the effective date/time
+            /// will not be returned.
+            /// MaxAge is a duration of time represented in an ISO8601 format, eg.
+            /// P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
+            /// The results are paged, and by default the 1st page of results is returned
+            /// with a limit of 100 results per page
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quotes
+            /// </param>
+            /// <param name='quoteIds'>
+            /// The ids of the quotes
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The date/time from which the quotes are effective
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The 'AsAt' date/time
+            /// </param>
+            /// <param name='maxAge'>
+            /// Optional. The quote staleness tolerance
+            /// </param>
+            /// <param name='page'>
+            /// Optional. The page of results to return
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. The number of results per page
+            /// </param>
+            public static ResourceListOfQuote GetQuotes(this ILUSIDAPI operations, string scope, IList<string> quoteIds = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?))
+            {
+                return operations.GetQuotesAsync(scope, quoteIds, effectiveAt, asAt, maxAge, page, limit).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get quotes
+            /// </summary>
+            /// <remarks>
+            /// Get quotes effective at the specified date/time (if any). An optional
+            /// maximum age of quotes can be specified, and is infinite by default.
+            /// Quotes which are older than this at the time of the effective date/time
+            /// will not be returned.
+            /// MaxAge is a duration of time represented in an ISO8601 format, eg.
+            /// P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).
+            /// The results are paged, and by default the 1st page of results is returned
+            /// with a limit of 100 results per page
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quotes
+            /// </param>
+            /// <param name='quoteIds'>
+            /// The ids of the quotes
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The date/time from which the quotes are effective
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The 'AsAt' date/time
+            /// </param>
+            /// <param name='maxAge'>
+            /// Optional. The quote staleness tolerance
+            /// </param>
+            /// <param name='page'>
+            /// Optional. The page of results to return
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. The number of results per page
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfQuote> GetQuotesAsync(this ILUSIDAPI operations, string scope, IList<string> quoteIds = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetQuotesWithHttpMessagesAsync(scope, quoteIds, effectiveAt, asAt, maxAge, page, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add quotes
+            /// </summary>
+            /// <remarks>
+            /// Add quotes effective at the specified time. If a quote is added with the
+            /// same id (and is effective at the same time) as an existing quote, then the
+            /// more recently added quote will be returned when queried
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quotes
+            /// </param>
+            /// <param name='quotes'>
+            /// The quotes to add
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The date/time from which the quotes are effective
+            /// </param>
+            public static UpsertQuotesResponse UpsertQuotes(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            {
+                return operations.UpsertQuotesAsync(scope, quotes, effectiveAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add quotes
+            /// </summary>
+            /// <remarks>
+            /// Add quotes effective at the specified time. If a quote is added with the
+            /// same id (and is effective at the same time) as an existing quote, then the
+            /// more recently added quote will be returned when queried
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quotes
+            /// </param>
+            /// <param name='quotes'>
+            /// The quotes to add
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The date/time from which the quotes are effective
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UpsertQuotesResponse> UpsertQuotesAsync(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertQuotesWithHttpMessagesAsync(scope, quotes, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a quote
+            /// </summary>
+            /// <remarks>
+            /// Delete the specified quote. In order for a quote to be deleted the id and
+            /// effectiveFrom date must exactly match.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quote
+            /// </param>
+            /// <param name='id'>
+            /// The quote id
+            /// </param>
+            /// <param name='effectiveFrom'>
+            /// The date/time from which the quote is effective
+            /// </param>
+            public static DeleteQuotesResponse DeleteQuote(this ILUSIDAPI operations, string scope, string id = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?))
+            {
+                return operations.DeleteQuoteAsync(scope, id, effectiveFrom).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a quote
+            /// </summary>
+            /// <remarks>
+            /// Delete the specified quote. In order for a quote to be deleted the id and
+            /// effectiveFrom date must exactly match.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quote
+            /// </param>
+            /// <param name='id'>
+            /// The quote id
+            /// </param>
+            /// <param name='effectiveFrom'>
+            /// The date/time from which the quote is effective
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeleteQuotesResponse> DeleteQuoteAsync(this ILUSIDAPI operations, string scope, string id = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteQuoteWithHttpMessagesAsync(scope, id, effectiveFrom, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Create reference portfolio
             /// </summary>
             /// <remarks>
