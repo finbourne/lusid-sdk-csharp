@@ -1078,6 +1078,19 @@ namespace Finbourne
         Task<HttpOperationResponse<string>> GetExcelDownloadUrlWithHttpMessagesAsync(string version = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Download the LUSID Excel Addin
+        /// </summary>
+        /// <param name='version'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<string>> GetExcelAddinWithHttpMessagesAsync(string version = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get LUSID versions
         /// </summary>
         /// <remarks>

@@ -1268,6 +1268,38 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Download the LUSID Excel Addin
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='version'>
+            /// </param>
+            public static string GetExcelAddin(this ILUSIDAPI operations, string version = default(string))
+            {
+                return operations.GetExcelAddinAsync(version).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Download the LUSID Excel Addin
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='version'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<string> GetExcelAddinAsync(this ILUSIDAPI operations, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetExcelAddinWithHttpMessagesAsync(version, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get LUSID versions
             /// </summary>
             /// <remarks>
