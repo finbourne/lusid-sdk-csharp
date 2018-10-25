@@ -42,14 +42,11 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// ReferencePortfolioConstituentRequest class.
         /// </summary>
-        /// <param name="type">Possible values include: 'Shares', 'Weight',
-        /// 'Nominal'</param>
-        public ReferencePortfolioConstituentRequest(string instrumentUid = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), double? weight = default(double?), string type = default(string))
+        public ReferencePortfolioConstituentRequest(string instrumentUid = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), double? weight = default(double?))
         {
             InstrumentUid = instrumentUid;
             Properties = properties;
             Weight = weight;
-            Type = type;
             CustomInit();
         }
 
@@ -72,12 +69,6 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "weight")]
         public double? Weight { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'Shares', 'Weight', 'Nominal'
-        /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
 
     }
 }

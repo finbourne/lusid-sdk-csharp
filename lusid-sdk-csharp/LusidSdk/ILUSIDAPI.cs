@@ -168,9 +168,9 @@ namespace Finbourne
     /// fund holdings
     ///
     /// ### Reference Portfolios
-    /// Reference portfolios are portfolios that contain only holdings or
-    /// weights, as opposed to transactions, and are designed to represent
-    /// entities such as indices.
+    /// Reference portfolios are portfolios that contain only weights, as
+    /// opposed to transactions, and are designed to represent entities such as
+    /// indices.
     ///
     /// ### Derived Portfolios
     ///
@@ -999,9 +999,9 @@ namespace Finbourne
         /// </remarks>
         /// <param name='codeType'>
         /// The type of identifiers. Possible values include: 'Undefined',
-        /// 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip', 'Ticker',
-        /// 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-        /// 'Wertpapier'
+        /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol',
+        /// 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+        /// 'ShareClassFigi', 'Wertpapier'
         /// </param>
         /// <param name='codes'>
         /// One or more identifiers of the type specified in the codeType
