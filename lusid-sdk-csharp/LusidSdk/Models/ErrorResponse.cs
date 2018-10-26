@@ -74,6 +74,7 @@ namespace Finbourne.Models
         /// 'AccrualSourceNotFound', 'EntitlementsFailure',
         /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
         /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
+        /// 'CutDefinitionNotFound', 'CutDefinitionInvalid',
         /// 'ServerConfigurationError', 'InvalidUnitForDataType',
         /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
         /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
@@ -87,7 +88,8 @@ namespace Finbourne.Models
         /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
-        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication'</param>
+        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
+        /// 'InvalidPropertyValueAssignment'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -144,6 +146,7 @@ namespace Finbourne.Models
         /// 'AccrualSourceNotFound', 'EntitlementsFailure',
         /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
         /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
+        /// 'CutDefinitionNotFound', 'CutDefinitionInvalid',
         /// 'ServerConfigurationError', 'InvalidUnitForDataType',
         /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
         /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
@@ -157,7 +160,8 @@ namespace Finbourne.Models
         /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
-        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication'
+        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
+        /// 'InvalidPropertyValueAssignment'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

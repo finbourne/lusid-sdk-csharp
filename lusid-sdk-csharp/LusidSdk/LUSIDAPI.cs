@@ -461,6 +461,8 @@ namespace Finbourne
     /// | &lt;a name="189"&gt;189&lt;/a&gt;|PriceNotFound|  |
     /// | &lt;a name="190"&gt;190&lt;/a&gt;|InvalidSubHoldingKeysProvided|  |
     /// | &lt;a name="191"&gt;191&lt;/a&gt;|DuplicateSubHoldingKeysProvided|  |
+    /// | &lt;a name="192"&gt;192&lt;/a&gt;|CutDefinitionNotFound|  |
+    /// | &lt;a name="193"&gt;193&lt;/a&gt;|CutDefinitionInvalid|  |
     /// | &lt;a name="200"&gt;200&lt;/a&gt;|InvalidUnitForDataType|  |
     /// | &lt;a name="201"&gt;201&lt;/a&gt;|InvalidTypeForDataType|  |
     /// | &lt;a name="202"&gt;202&lt;/a&gt;|InvalidValueForDataType|  |
@@ -488,6 +490,7 @@ namespace Finbourne
     /// name="222"&gt;222&lt;/a&gt;|ReferencePortfolioRequestNotSupported|  |
     /// | &lt;a
     /// name="223"&gt;223&lt;/a&gt;|TransactionPortfolioRequestNotSupported|  |
+    /// | &lt;a name="224"&gt;224&lt;/a&gt;|InvalidPropertyValueAssignment|  |
     /// | &lt;a name="230"&gt;230&lt;/a&gt;|TransactionTypeNotFound|  |
     /// | &lt;a name="231"&gt;231&lt;/a&gt;|TransactionTypeDuplication|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
@@ -10166,7 +10169,8 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
+        /// 'Instrument'
         /// </param>
         /// <param name='scope'>
         /// The scope of the requested property
@@ -10351,7 +10355,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
+        /// 'Instrument'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be updated
@@ -10528,7 +10533,8 @@ namespace Finbourne
         /// </summary>
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
+        /// 'Instrument'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be deleted

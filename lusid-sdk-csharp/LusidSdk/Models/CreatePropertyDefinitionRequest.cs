@@ -41,7 +41,8 @@ namespace Finbourne.Models
         /// class.
         /// </summary>
         /// <param name="domain">Possible values include: 'Trade', 'Portfolio',
-        /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType'</param>
+        /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
+        /// 'Instrument'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
         /// <param name="type">Possible values include: 'Label',
@@ -66,7 +67,7 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets or sets possible values include: 'Trade', 'Portfolio',
-        /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType'
+        /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument'
         /// </summary>
         [JsonProperty(PropertyName = "domain")]
         public string Domain { get; set; }
