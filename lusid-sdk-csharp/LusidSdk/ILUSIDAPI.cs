@@ -2568,6 +2568,26 @@ namespace Finbourne
         Task<HttpOperationResponse<PortfolioDetails>> UpsertPortfolioDetailsWithHttpMessagesAsync(string scope, string code, CreatePortfolioDetails details = default(CreatePortfolioDetails), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Upsert executions
+        /// </summary>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='executions'>
+        /// The executions to be updated
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<UpsertPortfolioExecutionsResponse>> UpsertExecutionsWithHttpMessagesAsync(string scope, string code, IList<ExecutionRequest> executions = default(IList<ExecutionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get holdings
         /// </summary>
         /// <remarks>

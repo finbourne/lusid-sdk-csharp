@@ -4554,6 +4554,52 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Upsert executions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='executions'>
+            /// The executions to be updated
+            /// </param>
+            public static UpsertPortfolioExecutionsResponse UpsertExecutions(this ILUSIDAPI operations, string scope, string code, IList<ExecutionRequest> executions = default(IList<ExecutionRequest>))
+            {
+                return operations.UpsertExecutionsAsync(scope, code, executions).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Upsert executions
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='executions'>
+            /// The executions to be updated
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UpsertPortfolioExecutionsResponse> UpsertExecutionsAsync(this ILUSIDAPI operations, string scope, string code, IList<ExecutionRequest> executions = default(IList<ExecutionRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertExecutionsWithHttpMessagesAsync(scope, code, executions, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get holdings
             /// </summary>
             /// <remarks>
