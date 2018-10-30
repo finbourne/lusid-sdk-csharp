@@ -1270,12 +1270,17 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Download the LUSID Excel Addin
+            /// Download Excel Addin
             /// </summary>
+            /// <remarks>
+            /// Download the LUSID Excel Addin for Microsoft Excel. Not providing a
+            /// specific value will return the latest version being returned
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='version'>
+            /// The requested version of the Excel plugin
             /// </param>
             public static string GetExcelAddin(this ILUSIDAPI operations, string version = default(string))
             {
@@ -1283,12 +1288,17 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Download the LUSID Excel Addin
+            /// Download Excel Addin
             /// </summary>
+            /// <remarks>
+            /// Download the LUSID Excel Addin for Microsoft Excel. Not providing a
+            /// specific value will return the latest version being returned
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='version'>
+            /// The requested version of the Excel plugin
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1429,6 +1439,7 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='personalisations'>
+            /// The set of personalisations to persist
             /// </param>
             public static UpsertPersonalisationResponse UpsertPersonalisations(this ILUSIDAPI operations, IList<Personalisation> personalisations = default(IList<Personalisation>))
             {
@@ -1445,6 +1456,7 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='personalisations'>
+            /// The set of personalisations to persist
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3050,8 +3062,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Get one or more property definitions
+            /// Get multiple property definitions
             /// </summary>
+            /// <remarks>
+            /// Get one or more property definitions
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3081,8 +3096,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Get one or more property definitions
+            /// Get multiple property definitions
             /// </summary>
+            /// <remarks>
+            /// Get one or more property definitions
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3120,6 +3138,9 @@ namespace Finbourne
             /// <summary>
             /// Define a new property
             /// </summary>
+            /// <remarks>
+            /// Create a new property definition
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3134,6 +3155,9 @@ namespace Finbourne
             /// <summary>
             /// Define a new property
             /// </summary>
+            /// <remarks>
+            /// Create a new property definition
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3152,8 +3176,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Retrieve the definition for the identified property
+            /// Get property definition
             /// </summary>
+            /// <remarks>
+            /// Retrieve the definition for the identified property
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3177,8 +3204,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Retrieve the definition for the identified property
+            /// Get property definition
             /// </summary>
+            /// <remarks>
+            /// Retrieve the definition for the identified property
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3274,8 +3304,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Delete the definition of the specified property
+            /// Delete property definition
             /// </summary>
+            /// <remarks>
+            /// Delete the definition of the specified property
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3296,8 +3329,11 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Delete the definition of the specified property
+            /// Delete property definition
             /// </summary>
+            /// <remarks>
+            /// Delete the definition of the specified property
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -3572,22 +3608,34 @@ namespace Finbourne
             /// <summary>
             /// Get constituents
             /// </summary>
+            /// <remarks>
+            /// Get all the constituents in the specified reference portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
             /// </param>
             /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
             /// </param>
             /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
             /// </param>
             /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many
             /// </param>
             public static ResourceListOfReferencePortfolioConstituent GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
@@ -3597,22 +3645,34 @@ namespace Finbourne
             /// <summary>
             /// Get constituents
             /// </summary>
+            /// <remarks>
+            /// Get all the constituents in the specified reference portfolio
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
             /// </param>
             /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
             /// </param>
             /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
             /// </param>
             /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3635,12 +3695,16 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
+            /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
             /// </param>
             /// <param name='constituents'>
+            /// The constituents to upload to the portfolio
             /// </param>
             public static UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>))
             {
@@ -3657,12 +3721,16 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scope'>
+            /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
+            /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
             /// </param>
             /// <param name='constituents'>
+            /// The constituents to upload to the portfolio
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4070,6 +4138,9 @@ namespace Finbourne
             /// <summary>
             /// Search portfolio groups
             /// </summary>
+            /// <remarks>
+            /// Search through all portfolio groups
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4098,6 +4169,9 @@ namespace Finbourne
             /// <summary>
             /// Search portfolio groups
             /// </summary>
+            /// <remarks>
+            /// Search through all portfolio groups
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4132,6 +4206,9 @@ namespace Finbourne
             /// <summary>
             /// Search portfolios
             /// </summary>
+            /// <remarks>
+            /// Search through all portfolios
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4160,6 +4237,9 @@ namespace Finbourne
             /// <summary>
             /// Search portfolios
             /// </summary>
+            /// <remarks>
+            /// Search through all portfolios
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4194,6 +4274,9 @@ namespace Finbourne
             /// <summary>
             /// Search property definitions
             /// </summary>
+            /// <remarks>
+            /// Search through all property definitions
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4222,6 +4305,9 @@ namespace Finbourne
             /// <summary>
             /// Search property definitions
             /// </summary>
+            /// <remarks>
+            /// Search through all property definitions
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4556,6 +4642,9 @@ namespace Finbourne
             /// <summary>
             /// Upsert executions
             /// </summary>
+            /// <remarks>
+            /// Inserts new executions, or updates those already present
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4563,7 +4652,7 @@ namespace Finbourne
             /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
+            /// The code of the portfolio
             /// </param>
             /// <param name='executions'>
             /// The executions to be updated
@@ -4576,6 +4665,9 @@ namespace Finbourne
             /// <summary>
             /// Upsert executions
             /// </summary>
+            /// <remarks>
+            /// Inserts new executions, or updates those already present
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -4583,7 +4675,7 @@ namespace Finbourne
             /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// Code for the portfolio
+            /// The code of the portfolio
             /// </param>
             /// <param name='executions'>
             /// The executions to be updated

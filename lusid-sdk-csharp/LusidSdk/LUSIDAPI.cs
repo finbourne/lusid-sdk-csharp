@@ -4431,9 +4431,14 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Download the LUSID Excel Addin
+        /// Download Excel Addin
         /// </summary>
+        /// <remarks>
+        /// Download the LUSID Excel Addin for Microsoft Excel. Not providing a
+        /// specific value will return the latest version being returned
+        /// </remarks>
         /// <param name='version'>
+        /// The requested version of the Excel plugin
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4929,6 +4934,7 @@ namespace Finbourne
         /// Upsert one or more personalisations
         /// </remarks>
         /// <param name='personalisations'>
+        /// The set of personalisations to persist
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9814,8 +9820,11 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Get one or more property definitions
+        /// Get multiple property definitions
         /// </summary>
+        /// <remarks>
+        /// Get one or more property definitions
+        /// </remarks>
         /// <param name='propertyKeys'>
         /// One or more keys for properties for which the schema should be returned
         /// </param>
@@ -10024,6 +10033,9 @@ namespace Finbourne
         /// <summary>
         /// Define a new property
         /// </summary>
+        /// <remarks>
+        /// Create a new property definition
+        /// </remarks>
         /// <param name='definition'>
         /// The definition of the new property
         /// </param>
@@ -10165,8 +10177,11 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Retrieve the definition for the identified property
+        /// Get property definition
         /// </summary>
+        /// <remarks>
+        /// Retrieve the definition for the identified property
+        /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values include:
         /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
@@ -10529,8 +10544,11 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Delete the definition of the specified property
+        /// Delete property definition
         /// </summary>
+        /// <remarks>
+        /// Delete the definition of the specified property
+        /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values include:
         /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
@@ -11444,19 +11462,31 @@ namespace Finbourne
         /// <summary>
         /// Get constituents
         /// </summary>
+        /// <remarks>
+        /// Get all the constituents in the specified reference portfolio
+        /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
         /// </param>
         /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to this
+        /// many
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -11650,12 +11680,16 @@ namespace Finbourne
         /// Add constituents to the specified reference portfolio.
         /// </remarks>
         /// <param name='scope'>
+        /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
         /// </param>
         /// <param name='constituents'>
+        /// The constituents to upload to the portfolio
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -13054,6 +13088,9 @@ namespace Finbourne
         /// <summary>
         /// Search portfolio groups
         /// </summary>
+        /// <remarks>
+        /// Search through all portfolio groups
+        /// </remarks>
         /// <param name='request'>
         /// A valid Elasticsearch 5.x request
         /// </param>
@@ -13246,6 +13283,9 @@ namespace Finbourne
         /// <summary>
         /// Search portfolios
         /// </summary>
+        /// <remarks>
+        /// Search through all portfolios
+        /// </remarks>
         /// <param name='request'>
         /// A valid Elasticsearch 5.x request
         /// </param>
@@ -13438,6 +13478,9 @@ namespace Finbourne
         /// <summary>
         /// Search property definitions
         /// </summary>
+        /// <remarks>
+        /// Search through all property definitions
+        /// </remarks>
         /// <param name='request'>
         /// A valid Elasticsearch 5.x request
         /// </param>
@@ -14613,11 +14656,14 @@ namespace Finbourne
         /// <summary>
         /// Upsert executions
         /// </summary>
+        /// <remarks>
+        /// Inserts new executions, or updates those already present
+        /// </remarks>
         /// <param name='scope'>
         /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// Code for the portfolio
+        /// The code of the portfolio
         /// </param>
         /// <param name='executions'>
         /// The executions to be updated
