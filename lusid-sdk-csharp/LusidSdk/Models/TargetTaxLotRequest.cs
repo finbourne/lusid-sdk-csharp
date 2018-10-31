@@ -49,7 +49,7 @@ namespace Finbourne.Models
         /// required for multiple taxlots</param>
         /// <param name="settlementDate">Original settlement date of the
         /// tax-lot's opening transaction.</param>
-        public TargetTaxLotRequest(double units, double? cost = default(double?), double? portfolioCost = default(double?), double? price = default(double?), System.DateTimeOffset? purchaseDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?))
+        public TargetTaxLotRequest(double units, CurrencyAndAmount cost = default(CurrencyAndAmount), double? portfolioCost = default(double?), double? price = default(double?), System.DateTimeOffset? purchaseDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?))
         {
             Units = units;
             Cost = cost;
@@ -75,7 +75,7 @@ namespace Finbourne.Models
         /// Gets or sets book cost of holding in transaction currency
         /// </summary>
         [JsonProperty(PropertyName = "cost")]
-        public double? Cost { get; set; }
+        public CurrencyAndAmount Cost { get; set; }
 
         /// <summary>
         /// Gets or sets book cost of holding in portfolio currency
@@ -112,7 +112,6 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
         }
     }
 }
