@@ -2928,7 +2928,7 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Delete portfolios
+            /// Delete portfolio properties
             /// </summary>
             /// <remarks>
             /// Delete one, many or all property values from a portfolio for the specified
@@ -2958,7 +2958,7 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Delete portfolios
+            /// Delete portfolio properties
             /// </summary>
             /// <remarks>
             /// Delete one, many or all property values from a portfolio for the specified

@@ -24,6 +24,8 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class CreateReferencePortfolioRequest
@@ -41,12 +43,15 @@ namespace Finbourne.Models
         /// Initializes a new instance of the CreateReferencePortfolioRequest
         /// class.
         /// </summary>
-        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?))
+        /// <param name="properties">Portfolio properties to add to the
+        /// portfolio</param>
+        public CreateReferencePortfolioRequest(string displayName, string code, string description = default(string), System.DateTimeOffset? created = default(System.DateTimeOffset?), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>))
         {
             DisplayName = displayName;
             Description = description;
             Code = code;
             Created = created;
+            Properties = properties;
             CustomInit();
         }
 
@@ -74,6 +79,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "created")]
         public System.DateTimeOffset? Created { get; set; }
+
+        /// <summary>
+        /// Gets or sets portfolio properties to add to the portfolio
+        /// </summary>
+        [JsonProperty(PropertyName = "properties")]
+        public IDictionary<string, PerpetualPropertyValue> Properties { get; set; }
 
         /// <summary>
         /// Validate the object.

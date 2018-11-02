@@ -1837,7 +1837,7 @@ namespace Finbourne
         Task<HttpOperationResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpMessagesAsync(string scope, string code, IDictionary<string, PropertyValue> portfolioProperties = default(IDictionary<string, PropertyValue>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Delete portfolios
+        /// Delete portfolio properties
         /// </summary>
         /// <remarks>
         /// Delete one, many or all property values from a portfolio for the
