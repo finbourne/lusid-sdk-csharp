@@ -366,7 +366,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// Optional. Expression to filter the result set
             /// </param>
-            public static ResourceListOfCorporateActionEvent GetCorporateActions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfCorporateAction GetCorporateActions(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
                 return operations.GetCorporateActionsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -409,7 +409,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfCorporateActionEvent> GetCorporateActionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfCorporateAction> GetCorporateActionsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCorporateActionsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4348,7 +4348,7 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ResourceListOfTransactionMetaData ListConfigurationTransactionTypes(this ILUSIDAPI operations)
+            public static ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes(this ILUSIDAPI operations)
             {
                 return operations.ListConfigurationTransactionTypesAsync().GetAwaiter().GetResult();
             }
@@ -4365,7 +4365,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfTransactionMetaData> ListConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListConfigurationTransactionTypesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4391,7 +4391,7 @@ namespace Finbourne
             /// <param name='types'>
             /// The complete set of transaction type definitions
             /// </param>
-            public static ResourceListOfTransactionMetaData SetConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TransactionConfigurationDataRequest> types = default(IList<TransactionConfigurationDataRequest>))
+            public static ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes(this ILUSIDAPI operations, IList<TransactionConfigurationDataRequest> types = default(IList<TransactionConfigurationDataRequest>))
             {
                 return operations.SetConfigurationTransactionTypesAsync(types).GetAwaiter().GetResult();
             }
@@ -4417,7 +4417,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfTransactionMetaData> SetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TransactionConfigurationDataRequest> types = default(IList<TransactionConfigurationDataRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync(this ILUSIDAPI operations, IList<TransactionConfigurationDataRequest> types = default(IList<TransactionConfigurationDataRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.SetConfigurationTransactionTypesWithHttpMessagesAsync(types, null, cancellationToken).ConfigureAwait(false))
                 {

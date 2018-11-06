@@ -27,19 +27,19 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ResourceListOfTransactionMetaData
+    public partial class ResourceListOfCorporateAction
     {
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfTransactionMetaData
+        /// Initializes a new instance of the ResourceListOfCorporateAction
         /// class.
         /// </summary>
-        public ResourceListOfTransactionMetaData()
+        public ResourceListOfCorporateAction()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfTransactionMetaData
+        /// Initializes a new instance of the ResourceListOfCorporateAction
         /// class.
         /// </summary>
         /// <param name="href">The Uri that returns the same result as the
@@ -47,7 +47,7 @@ namespace Finbourne.Models
         /// but may include resolved as at time(s).</param>
         /// <param name="count">The total number of records returned in the
         /// set</param>
-        public ResourceListOfTransactionMetaData(IList<TransactionConfigurationData> values = default(IList<TransactionConfigurationData>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
+        public ResourceListOfCorporateAction(IList<CorporateAction> values = default(IList<CorporateAction>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
             Values = values;
             Href = href;
@@ -64,7 +64,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public IList<TransactionConfigurationData> Values { get; set; }
+        public IList<CorporateAction> Values { get; set; }
 
         /// <summary>
         /// Gets or sets the Uri that returns the same result as the original

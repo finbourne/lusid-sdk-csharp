@@ -89,7 +89,8 @@ namespace Finbourne.Models
         /// 'TransactionPortfolioRequestNotSupported',
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
         /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
-        /// 'InvalidPropertyValueAssignment'</param>
+        /// 'InvalidPropertyValueAssignment',
+        /// 'PortfolioDoesNotExistAtGivenDate'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -161,7 +162,8 @@ namespace Finbourne.Models
         /// 'TransactionPortfolioRequestNotSupported',
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
         /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
-        /// 'InvalidPropertyValueAssignment'
+        /// 'InvalidPropertyValueAssignment',
+        /// 'PortfolioDoesNotExistAtGivenDate'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }
