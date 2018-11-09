@@ -43,17 +43,17 @@ namespace Finbourne.Models
         /// identifier.</param>
         /// <param name="side">FIX Field 54.</param>
         /// <param name="instrumentUid">Unique instrument identifier.</param>
-        /// <param name="transactTime">FIX field 60.  Time the transaction
+        /// <param name="transactionTime">FIX field 60.  Time the transaction
         /// represented by this ExecutionReport occurred.</param>
         /// <param name="orderQty">FIX field 38.  Order quantity.</param>
         /// <param name="price">FIX field 44.</param>
         /// <param name="currency">FIX field 15.</param>
-        public ExecutionRequest(string executionId, string side, string instrumentUid, System.DateTimeOffset transactTime, double orderQty, double price, string currency)
+        public ExecutionRequest(string executionId, string side, string instrumentUid, System.DateTimeOffset transactionTime, double orderQty, double price, string currency)
         {
             ExecutionId = executionId;
             Side = side;
             InstrumentUid = instrumentUid;
-            TransactTime = transactTime;
+            TransactionTime = transactionTime;
             OrderQty = orderQty;
             Price = price;
             Currency = currency;
@@ -87,8 +87,8 @@ namespace Finbourne.Models
         /// Gets or sets FIX field 60.  Time the transaction represented by
         /// this ExecutionReport occurred.
         /// </summary>
-        [JsonProperty(PropertyName = "transactTime")]
-        public System.DateTimeOffset TransactTime { get; set; }
+        [JsonProperty(PropertyName = "transactionTime")]
+        public System.DateTimeOffset TransactionTime { get; set; }
 
         /// <summary>
         /// Gets or sets FIX field 38.  Order quantity.
