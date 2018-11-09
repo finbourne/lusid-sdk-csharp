@@ -1,0 +1,7 @@
+{
+    "packageName": "LusidSdk",
+    "sourceFolder": ".",
+    "targetFramework": "v5.0",
+    "useDateTimeOffset": true,
+    "netCoreProjectFile": true
+}
