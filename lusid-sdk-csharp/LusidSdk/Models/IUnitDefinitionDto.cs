@@ -25,22 +25,22 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class IUnitDefinition
+    public partial class IUnitDefinitionDto
     {
         /// <summary>
-        /// Initializes a new instance of the IUnitDefinition class.
+        /// Initializes a new instance of the IUnitDefinitionDto class.
         /// </summary>
-        public IUnitDefinition()
+        public IUnitDefinitionDto()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the IUnitDefinition class.
+        /// Initializes a new instance of the IUnitDefinitionDto class.
         /// </summary>
         /// <param name="schema">Possible values include: 'NoUnits', 'Basic',
         /// 'Iso4217Currency'</param>
-        public IUnitDefinition(string schema = default(string), string code = default(string), string displayName = default(string), string description = default(string))
+        public IUnitDefinitionDto(string schema = default(string), string code = default(string), string displayName = default(string), string description = default(string))
         {
             Schema = schema;
             Code = code;

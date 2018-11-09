@@ -331,7 +331,7 @@ namespace Finbourne
     /// | Cost|currencyandamount|Book cost of holding in transaction currency |
     /// | CostPortfolioCcy|currencyandamount|Book cost of holding in portfolio
     /// currency |
-    /// | Transaction|TransactionDto|If this is commitment-type holding, the
+    /// | Transaction|Transaction|If this is commitment-type holding, the
     /// transaction behind it |
     ///
     ///
@@ -2765,7 +2765,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IUnitDefinition>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2889,7 +2889,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IUnitDefinition>();
+            var _result = new HttpOperationResponse<IUnitDefinitionDto>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2898,7 +2898,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IUnitDefinition>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<IUnitDefinitionDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4603,7 +4603,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionSummary>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionSummaryDto>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4690,7 +4690,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<VersionSummary>();
+            var _result = new HttpOperationResponse<VersionSummaryDto>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4699,7 +4699,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<VersionSummary>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<VersionSummaryDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -14897,7 +14897,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<VersionedResourceListOfHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -15061,7 +15061,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<VersionedResourceListOfHolding>();
+            var _result = new HttpOperationResponse<VersionedResourceListOfPortfolioHolding>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -15070,7 +15070,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfHolding>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<VersionedResourceListOfPortfolioHolding>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

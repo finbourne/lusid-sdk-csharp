@@ -51,7 +51,7 @@ namespace Finbourne.Models
         /// 'ArrayOfQuotes'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
-        public DataType(string href = default(string), string typeValueRange = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string valueType = default(string), IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<IUnitDefinition> acceptableUnits = default(IList<IUnitDefinition>), IList<Link> links = default(IList<Link>))
+        public DataType(string href = default(string), string typeValueRange = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string valueType = default(string), IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<IUnitDefinitionDto> acceptableUnits = default(IList<IUnitDefinitionDto>), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             TypeValueRange = typeValueRange;
@@ -124,7 +124,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "acceptableUnits")]
-        public IList<IUnitDefinition> AcceptableUnits { get; set; }
+        public IList<IUnitDefinitionDto> AcceptableUnits { get; set; }
 
         /// <summary>
         /// </summary>

@@ -725,7 +725,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// Optional. Expression to filter the result set
             /// </param>
-            public static IUnitDefinition GetUnitsFromDataType(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string))
+            public static IUnitDefinitionDto GetUnitsFromDataType(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string))
             {
                 return operations.GetUnitsFromDataTypeAsync(scope, code, units, filter).GetAwaiter().GetResult();
             }
@@ -755,7 +755,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IUnitDefinition> GetUnitsFromDataTypeAsync(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IUnitDefinitionDto> GetUnitsFromDataTypeAsync(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetUnitsFromDataTypeWithHttpMessagesAsync(scope, code, units, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1320,7 +1320,7 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static VersionSummary GetLusidVersions(this ILUSIDAPI operations)
+            public static VersionSummaryDto GetLusidVersions(this ILUSIDAPI operations)
             {
                 return operations.GetLusidVersionsAsync().GetAwaiter().GetResult();
             }
@@ -1337,7 +1337,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionSummary> GetLusidVersionsAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionSummaryDto> GetLusidVersionsAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetLusidVersionsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4735,7 +4735,7 @@ namespace Finbourne
             /// Optional. Keys for the instrument property values to be decorated onto the
             /// holdings
             /// </param>
-            public static VersionedResourceListOfHolding GetHoldings(this ILUSIDAPI operations, string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static VersionedResourceListOfPortfolioHolding GetHoldings(this ILUSIDAPI operations, string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
                 return operations.GetHoldingsAsync(scope, code, byTaxlots, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
@@ -4787,7 +4787,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionedResourceListOfHolding> GetHoldingsAsync(this ILUSIDAPI operations, string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync(this ILUSIDAPI operations, string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetHoldingsWithHttpMessagesAsync(scope, code, byTaxlots, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {

@@ -328,7 +328,7 @@ namespace Finbourne
     /// | Cost|currencyandamount|Book cost of holding in transaction currency |
     /// | CostPortfolioCcy|currencyandamount|Book cost of holding in portfolio
     /// currency |
-    /// | Transaction|TransactionDto|If this is commitment-type holding, the
+    /// | Transaction|Transaction|If this is commitment-type holding, the
     /// transaction behind it |
     ///
     ///
@@ -852,7 +852,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IUnitDefinition>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create derived transaction portfolio
@@ -1115,7 +1115,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<VersionSummary>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<VersionSummaryDto>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get personalisation
@@ -2683,7 +2683,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<VersionedResourceListOfHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsWithHttpMessagesAsync(string scope, string code, bool? byTaxlots = default(bool?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Set all holdings on a transaction portfolio

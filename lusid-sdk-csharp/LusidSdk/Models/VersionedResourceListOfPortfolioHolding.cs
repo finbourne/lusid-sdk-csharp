@@ -27,24 +27,32 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class VersionSummary
+    public partial class VersionedResourceListOfPortfolioHolding
     {
         /// <summary>
-        /// Initializes a new instance of the VersionSummary class.
+        /// Initializes a new instance of the
+        /// VersionedResourceListOfPortfolioHolding class.
         /// </summary>
-        public VersionSummary()
+        public VersionedResourceListOfPortfolioHolding()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the VersionSummary class.
+        /// Initializes a new instance of the
+        /// VersionedResourceListOfPortfolioHolding class.
         /// </summary>
-        public VersionSummary(string apiVersion = default(string), string buildVersion = default(string), string excelVersion = default(string), IList<Link> links = default(IList<Link>))
+        /// <param name="href">The Uri that returns the same result as the
+        /// original request,
+        /// but may include resolved as at time(s).</param>
+        /// <param name="count">The total number of records returned in the
+        /// set</param>
+        public VersionedResourceListOfPortfolioHolding(Version version = default(Version), IList<PortfolioHolding> values = default(IList<PortfolioHolding>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
-            ApiVersion = apiVersion;
-            BuildVersion = buildVersion;
-            ExcelVersion = excelVersion;
+            Version = version;
+            Values = values;
+            Href = href;
+            Count = count;
             Links = links;
             CustomInit();
         }
@@ -56,18 +64,27 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "apiVersion")]
-        public string ApiVersion { get; private set; }
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "buildVersion")]
-        public string BuildVersion { get; private set; }
+        [JsonProperty(PropertyName = "values")]
+        public IList<PortfolioHolding> Values { get; set; }
 
         /// <summary>
+        /// Gets or sets the Uri that returns the same result as the original
+        /// request,
+        /// but may include resolved as at time(s).
         /// </summary>
-        [JsonProperty(PropertyName = "excelVersion")]
-        public string ExcelVersion { get; private set; }
+        [JsonProperty(PropertyName = "href")]
+        public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total number of records returned in the set
+        /// </summary>
+        [JsonProperty(PropertyName = "count")]
+        public int? Count { get; set; }
 
         /// <summary>
         /// </summary>
