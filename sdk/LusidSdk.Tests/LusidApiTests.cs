@@ -8,7 +8,6 @@ using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
-using FinbourneClient;
 using LusidSdk.Api;
 using LusidSdk.Client;
 using LusidSdk.Model;

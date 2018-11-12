@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>LusidSdk</AssemblyName>
     <PackageId>LusidSdk</PackageId>
     <OutputType>Library</OutputType>

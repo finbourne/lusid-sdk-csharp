@@ -2,7 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LusidSdk", "src\LusidSdk\LusidSdk.csproj", "{3E1F32B7-3D62-4B1E-A526-A67EF99F5E36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LusidSdk", "LusidSdk\LusidSdk.csproj", "{AD6D98AB-353A-405F-B99E-E812D3B79311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LusidSdk.Tests", "LusidSdk.Tests\LusidSdk.Tests.csproj", "{571E8D74-3A36-4BAE-BDCB-77BEED165269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,14 +12,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3E1F32B7-3D62-4B1E-A526-A67EF99F5E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E1F32B7-3D62-4B1E-A526-A67EF99F5E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E1F32B7-3D62-4B1E-A526-A67EF99F5E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E1F32B7-3D62-4B1E-A526-A67EF99F5E36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6D98AB-353A-405F-B99E-E812D3B79311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6D98AB-353A-405F-B99E-E812D3B79311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6D98AB-353A-405F-B99E-E812D3B79311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6D98AB-353A-405F-B99E-E812D3B79311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571E8D74-3A36-4BAE-BDCB-77BEED165269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571E8D74-3A36-4BAE-BDCB-77BEED165269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571E8D74-3A36-4BAE-BDCB-77BEED165269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571E8D74-3A36-4BAE-BDCB-77BEED165269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
