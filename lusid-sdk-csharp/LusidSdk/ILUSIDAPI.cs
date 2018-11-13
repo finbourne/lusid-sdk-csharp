@@ -852,7 +852,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create derived transaction portfolio
@@ -1101,7 +1101,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<string>> GetExcelAddinWithHttpMessagesAsync(string version = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<FileResponse>> GetExcelAddinWithHttpMessagesAsync(string version = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get LUSID versions
@@ -2532,7 +2532,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<TransactionConfigurationData>> CreateConfigurationTransactionTypeWithHttpMessagesAsync(TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeWithHttpMessagesAsync(TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create transaction portfolio

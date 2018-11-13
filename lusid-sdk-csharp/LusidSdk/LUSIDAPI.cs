@@ -2765,7 +2765,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeWithHttpMessagesAsync(string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -2889,7 +2889,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IUnitDefinitionDto>();
+            var _result = new HttpOperationResponse<ResourceListOfIUnitDefinitionDto>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -2898,7 +2898,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<IUnitDefinitionDto>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfIUnitDefinitionDto>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4457,7 +4457,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> GetExcelAddinWithHttpMessagesAsync(string version = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<FileResponse>> GetExcelAddinWithHttpMessagesAsync(string version = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4554,7 +4554,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<string>();
+            var _result = new HttpOperationResponse<FileResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4563,7 +4563,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<string>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<FileResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -13995,7 +13995,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<TransactionConfigurationData>> CreateConfigurationTransactionTypeWithHttpMessagesAsync(TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeWithHttpMessagesAsync(TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (type != null)
             {
@@ -14093,7 +14093,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<TransactionConfigurationData>();
+            var _result = new HttpOperationResponse<ResourceListOfTransactionConfigurationData>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -14102,7 +14102,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<TransactionConfigurationData>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfTransactionConfigurationData>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

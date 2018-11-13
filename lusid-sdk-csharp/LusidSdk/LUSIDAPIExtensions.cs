@@ -725,7 +725,7 @@ namespace Finbourne
             /// <param name='filter'>
             /// Optional. Expression to filter the result set
             /// </param>
-            public static IUnitDefinitionDto GetUnitsFromDataType(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string))
+            public static ResourceListOfIUnitDefinitionDto GetUnitsFromDataType(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string))
             {
                 return operations.GetUnitsFromDataTypeAsync(scope, code, units, filter).GetAwaiter().GetResult();
             }
@@ -755,7 +755,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IUnitDefinitionDto> GetUnitsFromDataTypeAsync(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync(this ILUSIDAPI operations, string scope, string code, IList<string> units = default(IList<string>), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetUnitsFromDataTypeWithHttpMessagesAsync(scope, code, units, filter, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1282,7 +1282,7 @@ namespace Finbourne
             /// <param name='version'>
             /// The requested version of the Excel plugin
             /// </param>
-            public static string GetExcelAddin(this ILUSIDAPI operations, string version = default(string))
+            public static FileResponse GetExcelAddin(this ILUSIDAPI operations, string version = default(string))
             {
                 return operations.GetExcelAddinAsync(version).GetAwaiter().GetResult();
             }
@@ -1303,7 +1303,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> GetExcelAddinAsync(this ILUSIDAPI operations, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<FileResponse> GetExcelAddinAsync(this ILUSIDAPI operations, string version = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetExcelAddinWithHttpMessagesAsync(version, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4438,7 +4438,7 @@ namespace Finbourne
             /// <param name='type'>
             /// A transaction type definition
             /// </param>
-            public static TransactionConfigurationData CreateConfigurationTransactionType(this ILUSIDAPI operations, TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest))
+            public static ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType(this ILUSIDAPI operations, TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest))
             {
                 return operations.CreateConfigurationTransactionTypeAsync(type).GetAwaiter().GetResult();
             }
@@ -4459,7 +4459,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TransactionConfigurationData> CreateConfigurationTransactionTypeAsync(this ILUSIDAPI operations, TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync(this ILUSIDAPI operations, TransactionConfigurationDataRequest type = default(TransactionConfigurationDataRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateConfigurationTransactionTypeWithHttpMessagesAsync(type, null, cancellationToken).ConfigureAwait(false))
                 {
