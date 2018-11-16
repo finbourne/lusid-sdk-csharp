@@ -1,4 +1,4 @@
-# LusidSdk.Api.SchemasApi
+# Lusid.Sdk.Api.SchemasApi
 
 All URIs are relative to *https://localhost*
 
@@ -22,9 +22,9 @@ Gets the schema and meta-data for a given entity
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -86,9 +86,9 @@ Get the schemas for the provided list of property keys.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -152,9 +152,9 @@ Gets the available value types for which a schema is available.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -220,9 +220,9 @@ List all available entities for which schema information is available.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

@@ -1,4 +1,4 @@
-# LusidSdk.Model.User
+# Lusid.Sdk.Model.User
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfValueType
+# Lusid.Sdk.Model.ResourceListOfValueType
 ## Properties
 
 Name | Type | Description | Notes

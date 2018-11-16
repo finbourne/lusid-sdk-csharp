@@ -1,4 +1,4 @@
-# LusidSdk.Model.TransactionConfigurationTypeAlias
+# Lusid.Sdk.Model.TransactionConfigurationTypeAlias
 ## Properties
 
 Name | Type | Description | Notes

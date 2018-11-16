@@ -1,4 +1,4 @@
-# LusidSdk.Api.AnalyticsStoresApi
+# Lusid.Sdk.Api.AnalyticsStoresApi
 
 All URIs are relative to *https://localhost*
 
@@ -23,9 +23,9 @@ Create a new analytic store for the specified scope and date
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -87,9 +87,9 @@ Delete stored analytic data in the specified scope for the specified date
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -157,9 +157,9 @@ Get the meta data associated with a specified scope and date combination (analyt
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -229,9 +229,9 @@ List all defined analytic stores
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -301,9 +301,9 @@ Store the complete set of analytics for an existing analytic store for the speci
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

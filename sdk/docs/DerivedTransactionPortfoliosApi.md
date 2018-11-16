@@ -1,4 +1,4 @@
-# LusidSdk.Api.DerivedTransactionPortfoliosApi
+# Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
 All URIs are relative to *https://localhost*
 
@@ -20,9 +20,9 @@ Creates a transaction portfolio that derives from an existing transaction portfo
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -86,9 +86,9 @@ Deletes the portfolio details for the specified derived transaction portfolio
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

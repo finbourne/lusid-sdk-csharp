@@ -1,4 +1,4 @@
-# LusidSdk.Model.AggregationRequest
+# Lusid.Sdk.Model.AggregationRequest
 ## Properties
 
 Name | Type | Description | Notes

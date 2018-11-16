@@ -1,4 +1,4 @@
-# LusidSdk.Model.Personalisation
+# Lusid.Sdk.Model.Personalisation
 ## Properties
 
 Name | Type | Description | Notes

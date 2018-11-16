@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceId
+# Lusid.Sdk.Model.ResourceId
 ## Properties
 
 Name | Type | Description | Notes

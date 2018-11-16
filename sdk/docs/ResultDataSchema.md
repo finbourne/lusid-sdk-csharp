@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResultDataSchema
+# Lusid.Sdk.Model.ResultDataSchema
 ## Properties
 
 Name | Type | Description | Notes

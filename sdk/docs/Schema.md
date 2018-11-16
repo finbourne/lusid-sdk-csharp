@@ -1,4 +1,4 @@
-# LusidSdk.Model.Schema
+# Lusid.Sdk.Model.Schema
 ## Properties
 
 Name | Type | Description | Notes

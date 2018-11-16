@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreatePropertyDefinitionRequest
+# Lusid.Sdk.Model.CreatePropertyDefinitionRequest
 ## Properties
 
 Name | Type | Description | Notes

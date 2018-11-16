@@ -1,4 +1,4 @@
-# LusidSdk.Api.PersonalisationsApi
+# Lusid.Sdk.Api.PersonalisationsApi
 
 All URIs are relative to *https://localhost*
 
@@ -21,9 +21,9 @@ Delete a personalisation at a specific scope (or use scope ALL to purge the sett
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -89,9 +89,9 @@ Get a personalisation, recursing to get any referenced if required.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -165,9 +165,9 @@ Upsert one or more personalisations
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -179,7 +179,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PersonalisationsApi();
-            var personalisations = new List<Personalisation>(); // List<Personalisation> |  (optional) 
+            var personalisations = new List<Personalisation>(); // List<Personalisation> | The set of personalisations to persist (optional) 
 
             try
             {
@@ -200,7 +200,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **personalisations** | [**List&lt;Personalisation&gt;**](Personalisation.md)|  | [optional] 
+ **personalisations** | [**List&lt;Personalisation&gt;**](Personalisation.md)| The set of personalisations to persist | [optional] 
 
 ### Return type
 

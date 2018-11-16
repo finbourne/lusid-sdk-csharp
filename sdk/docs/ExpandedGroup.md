@@ -1,4 +1,4 @@
-# LusidSdk.Model.ExpandedGroup
+# Lusid.Sdk.Model.ExpandedGroup
 ## Properties
 
 Name | Type | Description | Notes

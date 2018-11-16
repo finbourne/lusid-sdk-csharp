@@ -12,12 +12,12 @@ fi
 NUGET_API_KEY=$1
 sdk_version=$(cat lusid.json | jq -r '.info.version')-alpha
 
-sed -i 's/<Version>.*<\/Version>/<Version>'$sdk_version'<\/Version>/g' sdk/LusidSdk/LusidSdk.csproj
+sed -i 's/<Version>.*<\/Version>/<Version>'$sdk_version'<\/Version>/g' sdk/Lusid.Sdk/Lusid.Sdk.csproj
 
 echo "sdk_version=$sdk_version"
 
-dotnet pack -c Release sdk/LusidSdk/LusidSdk.csproj
-dotnet nuget push sdk/LusidSdk/bin/Release/LusidSdk.${sdk_version}.nupkg \
+dotnet pack -c Release sdk/Lusid.Sdk/Lusid.Sdk.csproj
+dotnet nuget push sdk/Lusid.Sdk/bin/Release/Lusid.Sdk.${sdk_version}.nupkg \
     --source https://nexus.finbourne.com/repository/nuget-hosted \
     --api-key $NUGET_API_KEY \
     

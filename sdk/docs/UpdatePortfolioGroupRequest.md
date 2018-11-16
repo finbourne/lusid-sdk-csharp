@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpdatePortfolioGroupRequest
+# Lusid.Sdk.Model.UpdatePortfolioGroupRequest
 ## Properties
 
 Name | Type | Description | Notes

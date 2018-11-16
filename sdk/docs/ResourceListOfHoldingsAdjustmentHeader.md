@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfHoldingsAdjustmentHeader
+# Lusid.Sdk.Model.ResourceListOfHoldingsAdjustmentHeader
 ## Properties
 
 Name | Type | Description | Notes

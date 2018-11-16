@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreateCorporateAction
+# Lusid.Sdk.Model.CreateCorporateAction
 ## Properties
 
 Name | Type | Description | Notes

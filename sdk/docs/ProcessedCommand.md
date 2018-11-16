@@ -1,4 +1,4 @@
-# LusidSdk.Model.ProcessedCommand
+# Lusid.Sdk.Model.ProcessedCommand
 ## Properties
 
 Name | Type | Description | Notes

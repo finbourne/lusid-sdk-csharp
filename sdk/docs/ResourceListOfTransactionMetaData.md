@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfTransactionMetaData
+# Lusid.Sdk.Model.ResourceListOfTransactionMetaData
 ## Properties
 
 Name | Type | Description | Notes

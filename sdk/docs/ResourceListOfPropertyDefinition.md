@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfPropertyDefinition
+# Lusid.Sdk.Model.ResourceListOfPropertyDefinition
 ## Properties
 
 Name | Type | Description | Notes

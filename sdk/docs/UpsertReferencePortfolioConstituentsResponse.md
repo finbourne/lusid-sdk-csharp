@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpsertReferencePortfolioConstituentsResponse
+# Lusid.Sdk.Model.UpsertReferencePortfolioConstituentsResponse
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreateDataTypeRequest
+# Lusid.Sdk.Model.CreateDataTypeRequest
 ## Properties
 
 Name | Type | Description | Notes

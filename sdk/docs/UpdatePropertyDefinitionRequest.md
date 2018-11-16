@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpdatePropertyDefinitionRequest
+# Lusid.Sdk.Model.UpdatePropertyDefinitionRequest
 ## Properties
 
 Name | Type | Description | Notes

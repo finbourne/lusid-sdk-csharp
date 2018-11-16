@@ -1,4 +1,4 @@
-# LusidSdk.Model.AggregationResponseNode
+# Lusid.Sdk.Model.AggregationResponseNode
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfDataType
+# Lusid.Sdk.Model.ResourceListOfDataType
 ## Properties
 
 Name | Type | Description | Notes

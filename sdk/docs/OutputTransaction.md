@@ -1,4 +1,4 @@
-# LusidSdk.Model.OutputTransaction
+# Lusid.Sdk.Model.OutputTransaction
 ## Properties
 
 Name | Type | Description | Notes

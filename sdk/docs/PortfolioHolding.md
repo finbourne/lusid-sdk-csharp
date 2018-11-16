@@ -1,4 +1,4 @@
-# LusidSdk.Model.PortfolioHolding
+# Lusid.Sdk.Model.PortfolioHolding
 ## Properties
 
 Name | Type | Description | Notes

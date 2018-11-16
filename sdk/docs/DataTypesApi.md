@@ -1,4 +1,4 @@
-# LusidSdk.Api.DataTypesApi
+# Lusid.Sdk.Api.DataTypesApi
 
 All URIs are relative to *https://localhost*
 
@@ -23,9 +23,9 @@ Create a new data type definition    Data types cannot be created in either the 
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -87,9 +87,9 @@ Get the definition of a specified data type
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 <a name="getunitsfromdatatype"></a>
 # **GetUnitsFromDataType**
-> IUnitDefinition GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
+> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
 
 Get units from data type
 
@@ -153,9 +153,9 @@ Get the definitions of the specified units associated bound to a specific data t
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -175,7 +175,7 @@ namespace Example
             try
             {
                 // Get units from data type
-                IUnitDefinition result = apiInstance.GetUnitsFromDataType(scope, code, units, filter);
+                ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IUnitDefinition**](IUnitDefinition.md)
+[**ResourceListOfIUnitDefinitionDto**](ResourceListOfIUnitDefinitionDto.md)
 
 ### Authorization
 
@@ -223,9 +223,9 @@ List all data types in a specified scope
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -299,9 +299,9 @@ Update the definition of the specified existing data type    Not all elements wi
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

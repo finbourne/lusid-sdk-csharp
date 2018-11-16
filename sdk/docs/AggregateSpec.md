@@ -1,4 +1,4 @@
-# LusidSdk.Model.AggregateSpec
+# Lusid.Sdk.Model.AggregateSpec
 ## Properties
 
 Name | Type | Description | Notes

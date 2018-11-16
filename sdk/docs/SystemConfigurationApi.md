@@ -1,4 +1,4 @@
-# LusidSdk.Api.SystemConfigurationApi
+# Lusid.Sdk.Api.SystemConfigurationApi
 
 All URIs are relative to *https://localhost*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createconfigurationtransactiontype"></a>
 # **CreateConfigurationTransactionType**
-> TransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
+> ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
 
 Create transaction type
 
@@ -21,9 +21,9 @@ Create a new transaction type by specifying a definition and the mappings to mov
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -40,7 +40,7 @@ namespace Example
             try
             {
                 // Create transaction type
-                TransactionConfigurationData result = apiInstance.CreateConfigurationTransactionType(type);
+                ResourceListOfTransactionConfigurationData result = apiInstance.CreateConfigurationTransactionType(type);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TransactionConfigurationData**](TransactionConfigurationData.md)
+[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="listconfigurationtransactiontypes"></a>
 # **ListConfigurationTransactionTypes**
-> ResourceListOfTransactionMetaData ListConfigurationTransactionTypes ()
+> ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ()
 
 List transaction types
 
@@ -85,9 +85,9 @@ Get the list of persisted transaction types
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -103,7 +103,7 @@ namespace Example
             try
             {
                 // List transaction types
-                ResourceListOfTransactionMetaData result = apiInstance.ListConfigurationTransactionTypes();
+                ResourceListOfTransactionConfigurationData result = apiInstance.ListConfigurationTransactionTypes();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -120,7 +120,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourceListOfTransactionMetaData**](ResourceListOfTransactionMetaData.md)
+[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 
 <a name="setconfigurationtransactiontypes"></a>
 # **SetConfigurationTransactionTypes**
-> ResourceListOfTransactionMetaData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null)
+> ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null)
 
 Set transaction types
 
@@ -145,9 +145,9 @@ Set all transaction types to be used by the movements engine, for the organisati
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Set transaction types
-                ResourceListOfTransactionMetaData result = apiInstance.SetConfigurationTransactionTypes(types);
+                ResourceListOfTransactionConfigurationData result = apiInstance.SetConfigurationTransactionTypes(types);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfTransactionMetaData**](ResourceListOfTransactionMetaData.md)
+[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
 
 ### Authorization
 

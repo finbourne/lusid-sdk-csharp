@@ -1,4 +1,4 @@
-# LusidSdk.Model.FieldSchema
+# Lusid.Sdk.Model.FieldSchema
 ## Properties
 
 Name | Type | Description | Notes

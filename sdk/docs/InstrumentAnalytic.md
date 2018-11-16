@@ -1,4 +1,4 @@
-# LusidSdk.Model.InstrumentAnalytic
+# Lusid.Sdk.Model.InstrumentAnalytic
 ## Properties
 
 Name | Type | Description | Notes

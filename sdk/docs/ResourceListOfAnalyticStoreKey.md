@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfAnalyticStoreKey
+# Lusid.Sdk.Model.ResourceListOfAnalyticStoreKey
 ## Properties
 
 Name | Type | Description | Notes

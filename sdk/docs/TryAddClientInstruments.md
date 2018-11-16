@@ -1,4 +1,4 @@
-# LusidSdk.Model.TryAddClientInstruments
+# Lusid.Sdk.Model.TryAddClientInstruments
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.InstrumentDefinition
+# Lusid.Sdk.Model.InstrumentDefinition
 ## Properties
 
 Name | Type | Description | Notes

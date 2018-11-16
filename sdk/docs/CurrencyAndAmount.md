@@ -1,4 +1,4 @@
-# LusidSdk.Model.CurrencyAndAmount
+# Lusid.Sdk.Model.CurrencyAndAmount
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.HoldingAdjustment
+# Lusid.Sdk.Model.HoldingAdjustment
 ## Properties
 
 Name | Type | Description | Notes

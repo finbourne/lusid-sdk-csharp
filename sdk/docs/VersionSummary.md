@@ -1,4 +1,4 @@
-# LusidSdk.Model.VersionSummary
+# Lusid.Sdk.Model.VersionSummary
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.TransactionConfigurationMovementData
+# Lusid.Sdk.Model.TransactionConfigurationMovementData
 ## Properties
 
 Name | Type | Description | Notes

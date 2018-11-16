@@ -1,4 +1,4 @@
-# LusidSdk.Api.ResultsApi
+# Lusid.Sdk.Api.ResultsApi
 
 All URIs are relative to *https://localhost*
 
@@ -20,9 +20,9 @@ Retrieve some previously stored results
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -96,9 +96,9 @@ Upsert pre-calculated results against a specified scope/key/date combination
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

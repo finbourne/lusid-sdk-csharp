@@ -1,4 +1,4 @@
-# LusidSdk.Model.CorporateActionTransitionComponent
+# Lusid.Sdk.Model.CorporateActionTransitionComponent
 ## Properties
 
 Name | Type | Description | Notes

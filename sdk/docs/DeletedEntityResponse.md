@@ -1,4 +1,4 @@
-# LusidSdk.Model.DeletedEntityResponse
+# Lusid.Sdk.Model.DeletedEntityResponse
 ## Properties
 
 Name | Type | Description | Notes

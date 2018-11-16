@@ -1,4 +1,4 @@
-# LusidSdk.Model.Link
+# Lusid.Sdk.Model.Link
 ## Properties
 
 Name | Type | Description | Notes

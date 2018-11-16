@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpsertPersonalisationResponse
+# Lusid.Sdk.Model.UpsertPersonalisationResponse
 ## Properties
 
 Name | Type | Description | Notes

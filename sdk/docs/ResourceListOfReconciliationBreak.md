@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfReconciliationBreak
+# Lusid.Sdk.Model.ResourceListOfReconciliationBreak
 ## Properties
 
 Name | Type | Description | Notes

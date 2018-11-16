@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpsertCorporateActionsResponse
+# Lusid.Sdk.Model.UpsertCorporateActionsResponse
 ## Properties
 
 Name | Type | Description | Notes

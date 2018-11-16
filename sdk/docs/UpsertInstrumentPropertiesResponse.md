@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpsertInstrumentPropertiesResponse
+# Lusid.Sdk.Model.UpsertInstrumentPropertiesResponse
 ## Properties
 
 Name | Type | Description | Notes

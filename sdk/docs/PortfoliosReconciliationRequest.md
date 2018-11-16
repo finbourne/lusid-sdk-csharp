@@ -1,4 +1,4 @@
-# LusidSdk.Model.PortfoliosReconciliationRequest
+# Lusid.Sdk.Model.PortfoliosReconciliationRequest
 ## Properties
 
 Name | Type | Description | Notes

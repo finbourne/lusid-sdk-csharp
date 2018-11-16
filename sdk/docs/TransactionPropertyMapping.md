@@ -1,4 +1,4 @@
-# LusidSdk.Model.TransactionPropertyMapping
+# Lusid.Sdk.Model.TransactionPropertyMapping
 ## Properties
 
 Name | Type | Description | Notes

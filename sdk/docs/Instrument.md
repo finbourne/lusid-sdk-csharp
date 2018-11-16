@@ -1,13 +1,13 @@
-# LusidSdk.Model.Instrument
+# Lusid.Sdk.Model.Instrument
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** |  | [optional] 
-**Uid** | **string** |  | [optional] 
+**LusidInstrumentId** | **string** |  | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
-**CommonName** | **string** |  | [optional] 
-**Aliases** | **Dictionary&lt;string, string&gt;** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**Identifiers** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 **Properties** | [**List&lt;Property&gt;**](Property.md) |  | [optional] 
 **MarketIdentifierCode** | **string** |  | [optional] 
 **LookthroughPortfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 

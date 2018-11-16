@@ -1,11 +1,11 @@
-# LusidSdk.Api.ReferencePortfolioApi
+# Lusid.Sdk.Api.ReferencePortfolioApi
 
 All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | Create reference portfolio
-[**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents | 
+[**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents | Get constituents
 [**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents | Add constituents
 
 
@@ -21,9 +21,9 @@ Create a new reference portfolio.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -79,17 +79,17 @@ Name | Type | Description  | Notes
 # **GetReferencePortfolioConstituents**
 > ResourceListOfReferencePortfolioConstituent GetReferencePortfolioConstituents (string scope, string code, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
 
-
-
 Get constituents
+
+Get all the constituents in the specified reference portfolio
 
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -101,16 +101,17 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ReferencePortfolioApi();
-            var scope = scope_example;  // string | 
-            var code = code_example;  // string | 
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? |  (optional) 
-            var sortBy = new List<string>(); // List<string> |  (optional) 
-            var start = 56;  // int? |  (optional) 
-            var limit = 56;  // int? |  (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio
+            var code = code_example;  // string | The scope of the portfolio
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
+            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many (optional) 
 
             try
             {
+                // Get constituents
                 ResourceListOfReferencePortfolioConstituent result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, sortBy, start, limit);
                 Debug.WriteLine(result);
             }
@@ -127,13 +128,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**|  | 
- **code** | **string**|  | 
- **effectiveAt** | **DateTimeOffset?**|  | 
- **asAt** | **DateTimeOffset?**|  | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)|  | [optional] 
- **start** | **int?**|  | [optional] 
- **limit** | **int?**|  | [optional] 
+ **scope** | **string**| The scope of the portfolio | 
+ **code** | **string**| The scope of the portfolio | 
+ **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | 
+ **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
+ **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
+ **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
+ **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many | [optional] 
 
 ### Return type
 
@@ -162,9 +163,9 @@ Add constituents to the specified reference portfolio.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -176,10 +177,10 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ReferencePortfolioApi();
-            var scope = scope_example;  // string | 
-            var code = code_example;  // string | 
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | 
-            var constituents = new List<ReferencePortfolioConstituentRequest>(); // List<ReferencePortfolioConstituentRequest> |  (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio
+            var code = code_example;  // string | The code of the portfolio
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data
+            var constituents = new List<ReferencePortfolioConstituentRequest>(); // List<ReferencePortfolioConstituentRequest> | The constituents to upload to the portfolio (optional) 
 
             try
             {
@@ -200,10 +201,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**|  | 
- **code** | **string**|  | 
- **effectiveAt** | **DateTimeOffset?**|  | 
- **constituents** | [**List&lt;ReferencePortfolioConstituentRequest&gt;**](ReferencePortfolioConstituentRequest.md)|  | [optional] 
+ **scope** | **string**| The scope of the portfolio | 
+ **code** | **string**| The code of the portfolio | 
+ **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | 
+ **constituents** | [**List&lt;ReferencePortfolioConstituentRequest&gt;**](ReferencePortfolioConstituentRequest.md)| The constituents to upload to the portfolio | [optional] 
 
 ### Return type
 

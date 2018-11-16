@@ -1,4 +1,4 @@
-# LusidSdk.Model.TransactionQueryParameters
+# Lusid.Sdk.Model.TransactionQueryParameters
 ## Properties
 
 Name | Type | Description | Notes

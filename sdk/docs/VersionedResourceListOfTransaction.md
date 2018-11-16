@@ -1,4 +1,4 @@
-# LusidSdk.Model.VersionedResourceListOfTransaction
+# Lusid.Sdk.Model.VersionedResourceListOfTransaction
 ## Properties
 
 Name | Type | Description | Notes

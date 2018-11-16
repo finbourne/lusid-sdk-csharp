@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfString
+# Lusid.Sdk.Model.ResourceListOfString
 ## Properties
 
 Name | Type | Description | Notes

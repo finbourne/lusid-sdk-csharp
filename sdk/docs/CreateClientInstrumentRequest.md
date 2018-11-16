@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreateClientInstrumentRequest
+# Lusid.Sdk.Model.CreateClientInstrumentRequest
 ## Properties
 
 Name | Type | Description | Notes

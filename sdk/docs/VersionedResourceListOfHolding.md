@@ -1,4 +1,4 @@
-# LusidSdk.Model.VersionedResourceListOfHolding
+# Lusid.Sdk.Model.VersionedResourceListOfHolding
 ## Properties
 
 Name | Type | Description | Notes

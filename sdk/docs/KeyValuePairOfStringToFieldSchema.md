@@ -1,4 +1,4 @@
-# LusidSdk.Model.KeyValuePairOfStringToFieldSchema
+# Lusid.Sdk.Model.KeyValuePairOfStringToFieldSchema
 ## Properties
 
 Name | Type | Description | Notes

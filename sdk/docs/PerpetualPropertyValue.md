@@ -1,4 +1,4 @@
-# LusidSdk.Model.PerpetualPropertyValue
+# Lusid.Sdk.Model.PerpetualPropertyValue
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.ErrorResponse
+# Lusid.Sdk.Model.ErrorResponse
 ## Properties
 
 Name | Type | Description | Notes

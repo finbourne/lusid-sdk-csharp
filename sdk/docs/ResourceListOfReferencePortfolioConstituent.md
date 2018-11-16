@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfReferencePortfolioConstituent
+# Lusid.Sdk.Model.ResourceListOfReferencePortfolioConstituent
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,2 +1,4 @@
-**/LusidSdk.Tests/**
-**/LusidSdk/Api/LusidApi.cs
+**/*.csproj
+**/Lusid.Sdk.Tests/**
+**/Lusid.Sdk/Api/LusidApiFactory.cs
+**/Lusid.Sdk/Api/ApiConfiguration.cs

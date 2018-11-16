@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfCorporateActionEvent
+# Lusid.Sdk.Model.ResourceListOfCorporateActionEvent
 ## Properties
 
 Name | Type | Description | Notes

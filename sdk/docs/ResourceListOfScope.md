@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfScope
+# Lusid.Sdk.Model.ResourceListOfScope
 ## Properties
 
 Name | Type | Description | Notes

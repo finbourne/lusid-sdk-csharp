@@ -1,4 +1,4 @@
-# LusidSdk.Model.ResourceListOfPersonalisation
+# Lusid.Sdk.Model.ResourceListOfPersonalisation
 ## Properties
 
 Name | Type | Description | Notes

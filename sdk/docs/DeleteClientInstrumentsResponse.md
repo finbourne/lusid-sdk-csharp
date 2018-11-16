@@ -1,4 +1,4 @@
-# LusidSdk.Model.DeleteClientInstrumentsResponse
+# Lusid.Sdk.Model.DeleteClientInstrumentsResponse
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.MetricValue
+# Lusid.Sdk.Model.MetricValue
 ## Properties
 
 Name | Type | Description | Notes

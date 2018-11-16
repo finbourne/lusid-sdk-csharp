@@ -1,4 +1,4 @@
-# LusidSdk.Model.ListAggregationResponse
+# Lusid.Sdk.Model.ListAggregationResponse
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Model.RealisedGainLoss
+# Lusid.Sdk.Model.RealisedGainLoss
 ## Properties
 
 Name | Type | Description | Notes

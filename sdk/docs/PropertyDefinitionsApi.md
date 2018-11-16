@@ -1,13 +1,13 @@
-# LusidSdk.Api.PropertyDefinitionsApi
+# Lusid.Sdk.Api.PropertyDefinitionsApi
 
 All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | Define a new property
-[**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | Delete the definition of the specified property
-[**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | Get one or more property definitions
-[**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | Retrieve the definition for the identified property
+[**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | Delete property definition
+[**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | Get multiple property definitions
+[**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | Get property definition
 [**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | Update the definition of the specified existing property
 
 
@@ -17,13 +17,15 @@ Method | HTTP request | Description
 
 Define a new property
 
+Create a new property definition
+
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -77,15 +79,17 @@ Name | Type | Description  | Notes
 # **DeletePropertyDefinition**
 > DeletedEntityResponse DeletePropertyDefinition (string domain, string scope, string code)
 
+Delete property definition
+
 Delete the definition of the specified property
 
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -103,7 +107,7 @@ namespace Example
 
             try
             {
-                // Delete the definition of the specified property
+                // Delete property definition
                 DeletedEntityResponse result = apiInstance.DeletePropertyDefinition(domain, scope, code);
                 Debug.WriteLine(result);
             }
@@ -143,15 +147,17 @@ Name | Type | Description  | Notes
 # **GetMultiplePropertyDefinitions**
 > ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
+Get multiple property definitions
+
 Get one or more property definitions
 
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -172,7 +178,7 @@ namespace Example
 
             try
             {
-                // Get one or more property definitions
+                // Get multiple property definitions
                 ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -215,15 +221,17 @@ Name | Type | Description  | Notes
 # **GetPropertyDefinition**
 > PropertyDefinition GetPropertyDefinition (string domain, string scope, string code, DateTimeOffset? asAt = null)
 
+Get property definition
+
 Retrieve the definition for the identified property
 
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -242,7 +250,7 @@ namespace Example
 
             try
             {
-                // Retrieve the definition for the identified property
+                // Get property definition
                 PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt);
                 Debug.WriteLine(result);
             }
@@ -291,9 +299,9 @@ Not all elements within a property definition are modifiable due to the potentia
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

@@ -1,4 +1,4 @@
-# LusidSdk.Api.LoginApi
+# Lusid.Sdk.Api.LoginApi
 
 All URIs are relative to *https://localhost*
 
@@ -19,9 +19,9 @@ Get the unique identifier for the SAML 2.0 Identity Provider to be used for doma
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

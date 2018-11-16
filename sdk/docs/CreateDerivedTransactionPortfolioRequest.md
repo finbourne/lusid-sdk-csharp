@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreateDerivedTransactionPortfolioRequest
+# Lusid.Sdk.Model.CreateDerivedTransactionPortfolioRequest
 ## Properties
 
 Name | Type | Description | Notes

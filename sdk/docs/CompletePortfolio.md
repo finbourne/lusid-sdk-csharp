@@ -1,4 +1,4 @@
-# LusidSdk.Model.CompletePortfolio
+# Lusid.Sdk.Model.CompletePortfolio
 ## Properties
 
 Name | Type | Description | Notes

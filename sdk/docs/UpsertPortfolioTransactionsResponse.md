@@ -1,4 +1,4 @@
-# LusidSdk.Model.UpsertPortfolioTransactionsResponse
+# Lusid.Sdk.Model.UpsertPortfolioTransactionsResponse
 ## Properties
 
 Name | Type | Description | Notes

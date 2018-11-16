@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreateAnalyticStoreRequest
+# Lusid.Sdk.Model.CreateAnalyticStoreRequest
 ## Properties
 
 Name | Type | Description | Notes

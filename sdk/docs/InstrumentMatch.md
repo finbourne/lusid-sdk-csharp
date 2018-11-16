@@ -1,0 +1,12 @@
+# Lusid.Sdk.Model.InstrumentMatch
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** | **string** |  | [optional] 
+**Aliases** | [**InstrumentMatchAliases**](InstrumentMatchAliases.md) |  | [optional] 
+**BloombergExchangeCode** | **string** |  | [optional] 
+**MarketIdentifierCode** | **string** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

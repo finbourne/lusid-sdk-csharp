@@ -1,4 +1,4 @@
-# LusidSdk.Model.HoldingsAdjustmentHeader
+# Lusid.Sdk.Model.HoldingsAdjustmentHeader
 ## Properties
 
 Name | Type | Description | Notes

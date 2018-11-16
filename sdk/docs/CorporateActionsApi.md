@@ -1,4 +1,4 @@
-# LusidSdk.Api.CorporateActionsApi
+# Lusid.Sdk.Api.CorporateActionsApi
 
 All URIs are relative to *https://localhost*
 
@@ -20,9 +20,9 @@ Attempt to create/update one or more corporate action in a specified corporate a
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="getcorporateactions"></a>
 # **GetCorporateActions**
-> ResourceListOfCorporateActionEvent GetCorporateActions (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfCorporateAction GetCorporateActions (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get corporate actions
 
@@ -88,9 +88,9 @@ Gets corporate actions from a specific corporate action source
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -114,7 +114,7 @@ namespace Example
             try
             {
                 // Get corporate actions
-                ResourceListOfCorporateActionEvent result = apiInstance.GetCorporateActions(scope, code, effectiveAt, asAt, sortBy, start, limit, filter);
+                ResourceListOfCorporateAction result = apiInstance.GetCorporateActions(scope, code, effectiveAt, asAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfCorporateActionEvent**](ResourceListOfCorporateActionEvent.md)
+[**ResourceListOfCorporateAction**](ResourceListOfCorporateAction.md)
 
 ### Authorization
 

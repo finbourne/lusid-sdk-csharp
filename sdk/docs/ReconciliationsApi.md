@@ -1,4 +1,4 @@
-# LusidSdk.Api.ReconciliationsApi
+# Lusid.Sdk.Api.ReconciliationsApi
 
 All URIs are relative to *https://localhost*
 
@@ -19,9 +19,9 @@ Reconcile the holdings of two portfolios.
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

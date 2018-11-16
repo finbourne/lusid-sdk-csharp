@@ -1,4 +1,4 @@
-# LusidSdk.Model.AnalyticStore
+# Lusid.Sdk.Model.AnalyticStore
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LusidSdk.Api.SearchApi
+# Lusid.Sdk.Api.SearchApi
 
 All URIs are relative to *https://localhost*
 
@@ -15,13 +15,15 @@ Method | HTTP request | Description
 
 Search portfolio groups
 
+Search through all portfolio groups
+
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -85,13 +87,15 @@ Name | Type | Description  | Notes
 
 Search portfolios
 
+Search through all portfolios
+
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {
@@ -155,13 +159,15 @@ Name | Type | Description  | Notes
 
 Search property definitions
 
+Search through all property definitions
+
 ### Example
 ```csharp
 using System;
 using System.Diagnostics;
-using LusidSdk.Api;
-using LusidSdk.Client;
-using LusidSdk.Model;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
 namespace Example
 {

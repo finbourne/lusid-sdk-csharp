@@ -1,4 +1,4 @@
-# LusidSdk.Model.NestedAggregationResponse
+# Lusid.Sdk.Model.NestedAggregationResponse
 ## Properties
 
 Name | Type | Description | Notes

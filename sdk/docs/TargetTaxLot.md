@@ -1,10 +1,10 @@
-# LusidSdk.Model.TargetTaxLot
+# Lusid.Sdk.Model.TargetTaxLot
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Units** | **double?** | Quantity of holding | 
-**Cost** | **double?** | Book cost of holding in transaction currency | [optional] 
+**Cost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Book cost of holding in transaction currency | [optional] 
 **PortfolioCost** | **double?** | Book cost of holding in portfolio currency | [optional] 
 **Price** | **double?** | Purchase price. Part of the unique key required for multiple taxlots | [optional] 
 **PurchaseDate** | **DateTimeOffset?** | Purchase Date. Part of the unique key required for multiple taxlots | [optional] 

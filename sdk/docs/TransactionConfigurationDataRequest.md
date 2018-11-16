@@ -1,4 +1,4 @@
-# LusidSdk.Model.TransactionConfigurationDataRequest
+# Lusid.Sdk.Model.TransactionConfigurationDataRequest
 ## Properties
 
 Name | Type | Description | Notes

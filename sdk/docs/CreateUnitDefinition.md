@@ -1,4 +1,4 @@
-# LusidSdk.Model.CreateUnitDefinition
+# Lusid.Sdk.Model.CreateUnitDefinition
 ## Properties
 
 Name | Type | Description | Notes

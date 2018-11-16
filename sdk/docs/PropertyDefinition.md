@@ -1,4 +1,4 @@
-# LusidSdk.Model.PropertyDefinition
+# Lusid.Sdk.Model.PropertyDefinition
 ## Properties
 
 Name | Type | Description | Notes

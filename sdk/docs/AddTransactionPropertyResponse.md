@@ -1,4 +1,4 @@
-# LusidSdk.Model.AddTransactionPropertyResponse
+# Lusid.Sdk.Model.AddTransactionPropertyResponse
 ## Properties
 
 Name | Type | Description | Notes

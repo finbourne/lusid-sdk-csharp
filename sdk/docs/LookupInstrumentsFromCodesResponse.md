@@ -1,4 +1,4 @@
-# LusidSdk.Model.LookupInstrumentsFromCodesResponse
+# Lusid.Sdk.Model.LookupInstrumentsFromCodesResponse
 ## Properties
 
 Name | Type | Description | Notes
