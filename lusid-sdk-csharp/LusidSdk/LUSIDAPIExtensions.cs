@@ -884,60 +884,234 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Create instrument
+            /// Get allowable instrument identifiers
             /// </summary>
             /// <remarks>
-            /// Attempt to create one or more "client" instruments. Each instrument is
-            /// keyed by some unique key. This key is unimportant, and serves only as a
-            /// method to identify created instruments in the response.
+            /// Gets the set of identifiers that have been configured as unique identifiers
+            /// for instruments.
             ///
-            /// The response will return both the collection of successfully created
-            /// instruments, as well as those that were rejected and why their creation
-            /// failed. They will be keyed against the key supplied in the
-            /// request.
-            ///
-            /// It is important to always check the 'Failed' set for any unsuccessful
-            /// results.
+            /// Only CodeTypes returned from this end point can be used as identifiers for
+            /// instruments.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='definitions'>
-            /// The client instrument definitions
-            /// </param>
-            public static TryAddClientInstruments BatchAddClientInstruments(this ILUSIDAPI operations, IDictionary<string, CreateClientInstrumentRequest> definitions = default(IDictionary<string, CreateClientInstrumentRequest>))
+            public static ResourceListOfCodeType GetInstrumentIdentifiers(this ILUSIDAPI operations)
             {
-                return operations.BatchAddClientInstrumentsAsync(definitions).GetAwaiter().GetResult();
+                return operations.GetInstrumentIdentifiersAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Create instrument
+            /// Get allowable instrument identifiers
             /// </summary>
             /// <remarks>
-            /// Attempt to create one or more "client" instruments. Each instrument is
-            /// keyed by some unique key. This key is unimportant, and serves only as a
-            /// method to identify created instruments in the response.
+            /// Gets the set of identifiers that have been configured as unique identifiers
+            /// for instruments.
             ///
-            /// The response will return both the collection of successfully created
-            /// instruments, as well as those that were rejected and why their creation
-            /// failed. They will be keyed against the key supplied in the
-            /// request.
-            ///
-            /// It is important to always check the 'Failed' set for any unsuccessful
-            /// results.
+            /// Only CodeTypes returned from this end point can be used as identifiers for
+            /// instruments.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='definitions'>
-            /// The client instrument definitions
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<TryAddClientInstruments> BatchAddClientInstrumentsAsync(this ILUSIDAPI operations, IDictionary<string, CreateClientInstrumentRequest> definitions = default(IDictionary<string, CreateClientInstrumentRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfCodeType> GetInstrumentIdentifiersAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchAddClientInstrumentsWithHttpMessagesAsync(definitions, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetInstrumentIdentifiersWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Upsert instruments
+            /// </summary>
+            /// <remarks>
+            /// Attempt to master one or more instruments in LUSID's instrument master.
+            /// Each instrument is keyed by some unique key. This key is unimportant, and
+            /// serves only as a method to identify created instruments in the response.
+            ///
+            /// The response will return both the collection of successfully created
+            /// instruments, as well as those that were rejected and why their creation
+            /// failed. They will be keyed against the key supplied in the
+            /// request.
+            ///
+            /// It is important to always check the 'Failed' set for any unsuccessful
+            /// results.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requests'>
+            /// The instrument definitions
+            /// </param>
+            public static UpsertInstrumentsResponse UpsertInstruments(this ILUSIDAPI operations, IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>))
+            {
+                return operations.UpsertInstrumentsAsync(requests).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Upsert instruments
+            /// </summary>
+            /// <remarks>
+            /// Attempt to master one or more instruments in LUSID's instrument master.
+            /// Each instrument is keyed by some unique key. This key is unimportant, and
+            /// serves only as a method to identify created instruments in the response.
+            ///
+            /// The response will return both the collection of successfully created
+            /// instruments, as well as those that were rejected and why their creation
+            /// failed. They will be keyed against the key supplied in the
+            /// request.
+            ///
+            /// It is important to always check the 'Failed' set for any unsuccessful
+            /// results.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requests'>
+            /// The instrument definitions
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(this ILUSIDAPI operations, IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertInstrumentsWithHttpMessagesAsync(requests, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get instrument definition
+            /// </summary>
+            /// <remarks>
+            /// Get an individual instrument by the one of its unique instrument
+            /// identifiers. Optionally, it is possible to decorate each instrument with
+            /// specified property data.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='type'>
+            /// The type of identifier being supplied. Possible values include:
+            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='id'>
+            /// The identifier of the requested instrument
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the query
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Optional. Keys of the properties to be decorated on to the instrument
+            /// </param>
+            public static Instrument GetInstrument(this ILUSIDAPI operations, string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            {
+                return operations.GetInstrumentAsync(type, id, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get instrument definition
+            /// </summary>
+            /// <remarks>
+            /// Get an individual instrument by the one of its unique instrument
+            /// identifiers. Optionally, it is possible to decorate each instrument with
+            /// specified property data.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='type'>
+            /// The type of identifier being supplied. Possible values include:
+            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='id'>
+            /// The identifier of the requested instrument
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the query
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Optional. Keys of the properties to be decorated on to the instrument
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Instrument> GetInstrumentAsync(this ILUSIDAPI operations, string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetInstrumentWithHttpMessagesAsync(type, id, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Update instrument identifier
+            /// </summary>
+            /// <remarks>
+            /// Adds, updates, or removes an identifier on an instrument
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='type'>
+            /// The type of identifier being supplied. Possible values include:
+            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='id'>
+            /// The instrument identifier
+            /// </param>
+            /// <param name='request'>
+            /// The identifier to add, update, or remove
+            /// </param>
+            public static Instrument UpdateInstrumentIdentifier(this ILUSIDAPI operations, string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest))
+            {
+                return operations.UpdateInstrumentIdentifierAsync(type, id, request).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Update instrument identifier
+            /// </summary>
+            /// <remarks>
+            /// Adds, updates, or removes an identifier on an instrument
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='type'>
+            /// The type of identifier being supplied. Possible values include:
+            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='id'>
+            /// The instrument identifier
+            /// </param>
+            /// <param name='request'>
+            /// The identifier to add, update, or remove
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Instrument> UpdateInstrumentIdentifierAsync(this ILUSIDAPI operations, string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateInstrumentIdentifierWithHttpMessagesAsync(type, id, request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -958,12 +1132,18 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uids'>
-            /// The unique identifiers of the instruments to delete
+            /// <param name='type'>
+            /// The type of identifier being supplied. Possible values include:
+            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
             /// </param>
-            public static DeleteClientInstrumentsResponse BatchDeleteClientInstruments(this ILUSIDAPI operations, IList<string> uids = default(IList<string>))
+            /// <param name='id'>
+            /// The instrument identifier
+            /// </param>
+            public static DeleteInstrumentResponse DeleteInstrument(this ILUSIDAPI operations, string type, string id)
             {
-                return operations.BatchDeleteClientInstrumentsAsync(uids).GetAwaiter().GetResult();
+                return operations.DeleteInstrumentAsync(type, id).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -981,15 +1161,75 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uids'>
-            /// The unique identifiers of the instruments to delete
+            /// <param name='type'>
+            /// The type of identifier being supplied. Possible values include:
+            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
+            /// 'ShareClassFigi', 'Wertpapier'
+            /// </param>
+            /// <param name='id'>
+            /// The instrument identifier
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DeleteClientInstrumentsResponse> BatchDeleteClientInstrumentsAsync(this ILUSIDAPI operations, IList<string> uids = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeleteInstrumentResponse> DeleteInstrumentAsync(this ILUSIDAPI operations, string type, string id, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchDeleteClientInstrumentsWithHttpMessagesAsync(uids, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteInstrumentWithHttpMessagesAsync(type, id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Find externally mastered instruments
+            /// </summary>
+            /// <remarks>
+            /// Search for a set of instruments from an external instrument mastering
+            /// service
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='codeType'>
+            /// The type of codes to search for. Possible values include: 'Undefined',
+            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+            /// 'Wertpapier'
+            /// </param>
+            /// <param name='codes'>
+            /// The collection of instruments to search for
+            /// </param>
+            public static FindInstrumentsResponse FindExternalInstruments(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>))
+            {
+                return operations.FindExternalInstrumentsAsync(codeType, codes).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Find externally mastered instruments
+            /// </summary>
+            /// <remarks>
+            /// Search for a set of instruments from an external instrument mastering
+            /// service
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='codeType'>
+            /// The type of codes to search for. Possible values include: 'Undefined',
+            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+            /// 'Wertpapier'
+            /// </param>
+            /// <param name='codes'>
+            /// The collection of instruments to search for
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<FindInstrumentsResponse> FindExternalInstrumentsAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.FindExternalInstrumentsWithHttpMessagesAsync(codeType, codes, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -999,43 +1239,59 @@ namespace Finbourne
             /// Get instrument definition
             /// </summary>
             /// <remarks>
-            /// Get an individual instrument by the one of its unique instrument
-            /// identifiers. Optionally, it is possible to decorate each instrument with
-            /// specified property data.
+            /// Get a collection of instruments by a set of identifiers. Optionally, it is
+            /// possible to decorate each instrument with specified property data.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uid'>
-            /// The uid of the requested instrument
+            /// <param name='codeType'>
+            /// the type of codes being specified. Possible values include: 'Undefined',
+            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+            /// 'Wertpapier'
+            /// </param>
+            /// <param name='codes'>
+            /// The identifiers of the instruments to get
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the request
             /// </param>
             /// <param name='asAt'>
-            /// Optional. The AsAt date of the data
+            /// Optional. The as at date of the request
             /// </param>
             /// <param name='instrumentPropertyKeys'>
             /// Optional. Keys of the properties to be decorated on to the instrument
             /// </param>
-            public static Instrument GetInstrument(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static GetInstrumentsResponse GetInstruments(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.GetInstrumentAsync(uid, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+                return operations.GetInstrumentsAsync(codeType, codes, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
             /// Get instrument definition
             /// </summary>
             /// <remarks>
-            /// Get an individual instrument by the one of its unique instrument
-            /// identifiers. Optionally, it is possible to decorate each instrument with
-            /// specified property data.
+            /// Get a collection of instruments by a set of identifiers. Optionally, it is
+            /// possible to decorate each instrument with specified property data.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='uid'>
-            /// The uid of the requested instrument
+            /// <param name='codeType'>
+            /// the type of codes being specified. Possible values include: 'Undefined',
+            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+            /// 'Wertpapier'
+            /// </param>
+            /// <param name='codes'>
+            /// The identifiers of the instruments to get
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the request
             /// </param>
             /// <param name='asAt'>
-            /// Optional. The AsAt date of the data
+            /// Optional. The as at date of the request
             /// </param>
             /// <param name='instrumentPropertyKeys'>
             /// Optional. Keys of the properties to be decorated on to the instrument
@@ -1043,81 +1299,59 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Instrument> GetInstrumentAsync(this ILUSIDAPI operations, string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GetInstrumentsResponse> GetInstrumentsAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetInstrumentWithHttpMessagesAsync(uid, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetInstrumentsWithHttpMessagesAsync(codeType, codes, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Lookup instrument definition
+            /// Search instrument definition
             /// </summary>
             /// <remarks>
-            /// Lookup one or more instrument definitions by specifying non-LUSID
-            /// identifiers. Optionally, it is possible to decorate each instrument with
-            /// specified property data.
-            ///
-            /// The response will return both the collection of found instruments for each
-            /// identifier, as well as a collection of all identifiers for which no
-            /// instruments could be found (as well as any available details).
-            ///
-            /// It is important to always check the 'Failed' set for any unsuccessful
-            /// results.
+            /// Get a collection of instruments by a set of identifiers. Optionally, it is
+            /// possible to decorate each instrument with specified property data.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of identifiers. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier'
+            /// <param name='aliases'>
+            /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
             /// </param>
-            /// <param name='codes'>
-            /// One or more identifiers of the type specified in the codeType
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
             /// </param>
             /// <param name='asAt'>
-            /// Optional. The AsAt date of the data
+            /// Optional. The AsAt date of the query
             /// </param>
             /// <param name='instrumentPropertyKeys'>
             /// Optional. Keys of the properties to be decorated on to the instrument
             /// </param>
-            public static LookupInstrumentsFromCodesResponse LookupInstrumentsFromCodes(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static ResourceListOfInstrument FindInstruments(this ILUSIDAPI operations, IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.LookupInstrumentsFromCodesAsync(codeType, codes, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+                return operations.FindInstrumentsAsync(aliases, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Lookup instrument definition
+            /// Search instrument definition
             /// </summary>
             /// <remarks>
-            /// Lookup one or more instrument definitions by specifying non-LUSID
-            /// identifiers. Optionally, it is possible to decorate each instrument with
-            /// specified property data.
-            ///
-            /// The response will return both the collection of found instruments for each
-            /// identifier, as well as a collection of all identifiers for which no
-            /// instruments could be found (as well as any available details).
-            ///
-            /// It is important to always check the 'Failed' set for any unsuccessful
-            /// results.
+            /// Get a collection of instruments by a set of identifiers. Optionally, it is
+            /// possible to decorate each instrument with specified property data.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of identifiers. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier'
+            /// <param name='aliases'>
+            /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
             /// </param>
-            /// <param name='codes'>
-            /// One or more identifiers of the type specified in the codeType
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
             /// </param>
             /// <param name='asAt'>
-            /// Optional. The AsAt date of the data
+            /// Optional. The AsAt date of the query
             /// </param>
             /// <param name='instrumentPropertyKeys'>
             /// Optional. Keys of the properties to be decorated on to the instrument
@@ -1125,9 +1359,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<LookupInstrumentsFromCodesResponse> LookupInstrumentsFromCodesAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfInstrument> FindInstrumentsAsync(this ILUSIDAPI operations, IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.LookupInstrumentsFromCodesWithHttpMessagesAsync(codeType, codes, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.FindInstrumentsWithHttpMessagesAsync(aliases, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1152,9 +1386,9 @@ namespace Finbourne
             /// <param name='instrumentProperties'>
             /// The instrument property data
             /// </param>
-            public static UpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>))
+            public static UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>))
             {
-                return operations.BatchUpsertInstrumentPropertiesAsync(instrumentProperties).GetAwaiter().GetResult();
+                return operations.UpsertInstrumentsPropertiesAsync(instrumentProperties).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1179,9 +1413,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesAsync(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BatchUpsertInstrumentPropertiesWithHttpMessagesAsync(instrumentProperties, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpsertInstrumentsPropertiesWithHttpMessagesAsync(instrumentProperties, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

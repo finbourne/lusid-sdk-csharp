@@ -40,11 +40,18 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the InstrumentProperty class.
         /// </summary>
-        /// <param name="instrumentUid">Unique instrument identifier</param>
-        public InstrumentProperty(string instrumentUid = default(string), IList<CreateInstrumentPropertyRequest> properties = default(IList<CreateInstrumentPropertyRequest>))
+        /// <param name="lusidInstrumentId">Unique instrument
+        /// identifier</param>
+        /// <param name="properties">A collection of properties to create or
+        /// update</param>
+        /// <param name="deletedProperties">A collection of property keys to
+        /// remove property values from, if any are set for the
+        /// instrument</param>
+        public InstrumentProperty(string lusidInstrumentId = default(string), IList<CreateInstrumentPropertyRequest> properties = default(IList<CreateInstrumentPropertyRequest>), IList<DeleteInstrumentPropertyRequest> deletedProperties = default(IList<DeleteInstrumentPropertyRequest>))
         {
-            InstrumentUid = instrumentUid;
+            LusidInstrumentId = lusidInstrumentId;
             Properties = properties;
+            DeletedProperties = deletedProperties;
             CustomInit();
         }
 
@@ -56,13 +63,21 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets unique instrument identifier
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "lusidInstrumentId")]
+        public string LusidInstrumentId { get; set; }
 
         /// <summary>
+        /// Gets or sets a collection of properties to create or update
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
         public IList<CreateInstrumentPropertyRequest> Properties { get; set; }
+
+        /// <summary>
+        /// Gets or sets a collection of property keys to remove property
+        /// values from, if any are set for the instrument
+        /// </summary>
+        [JsonProperty(PropertyName = "deletedProperties")]
+        public IList<DeleteInstrumentPropertyRequest> DeletedProperties { get; set; }
 
     }
 }

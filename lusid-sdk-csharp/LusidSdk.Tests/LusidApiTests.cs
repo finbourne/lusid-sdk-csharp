@@ -70,10 +70,28 @@ namespace LusidSdk.Tests
             var credentials = new TokenCredentials(_apiToken);
             _client = new LUSIDAPI(new Uri(_apiUrl, UriKind.Absolute), credentials);
 
-            var figis = new List<string> {"BBG000C6K6G9","BBG000C04D57","BBG000FV67Q4","BBG000BF0KW3","BBG000BF4KL1"};
-            var ids = _client.LookupInstrumentsFromCodes("Figi", figis);
+            var instruments = new List<(string Figi, string Name)>
+            {
+                (Figi: "BBG000C6K6G9", Name: "VODAFONE GROUP PLC"),
+                (Figi: "BBG000C04D57", Name: "BARCLAYS PLC"),
+                (Figi: "BBG000FV67Q4", Name: "NATIONAL GRID PLC"),
+                (Figi: "BBG000BF0KW3", Name: "SAINSBURY (J) PLC"),
+                (Figi: "BBG000BF4KL1", Name: "TAYLOR WIMPEY PLC")
+            };            
 
-             _instrumentIds = ids.Values.SelectMany(x => x.Value.Select(r => r.Uid)).ToList();
+            var upsertResponse =_client.UpsertInstruments(instruments.ToDictionary(
+                k => k.Figi,
+                v => new UpsertInstrumentRequest(
+                    name: v.Name,
+                    identifiers: new Dictionary<string, string> {["Figi"] = v.Figi}
+                )
+            ));
+            
+            Assert.That(upsertResponse.Failed.Count, Is.EqualTo(0));
+            
+            var ids = _client.GetInstruments("Figi", instruments.Select(i => i.Figi).ToList());
+
+            _instrumentIds = ids.Values.Select(x => x.Value.LusidInstrumentId).ToList();
         }
 
         [Test]
@@ -430,7 +448,7 @@ namespace LusidSdk.Tests
             };
         }
 
-        [Test]
+        [Test, Ignore("Isin not yet supported")]
          public void Lookup_Securities()
          {            
              var isins = new List<string> 
@@ -440,7 +458,7 @@ namespace LusidSdk.Tests
              };
              
              //    look up ids
-             var fbnIds = _client.LookupInstrumentsFromCodes("Isin", isins);
+             var fbnIds = _client.GetInstruments("Isin", isins);
              
              Assert.That(fbnIds.Values.Count, Is.EqualTo(2));
          }

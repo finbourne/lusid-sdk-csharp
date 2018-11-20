@@ -42,9 +42,12 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// UpsertInstrumentPropertiesResponse class.
         /// </summary>
-        public UpsertInstrumentPropertiesResponse(string href = default(string), IList<Link> links = default(IList<Link>))
+        /// <param name="failed">A list of any values that failed to be
+        /// upserted.</param>
+        public UpsertInstrumentPropertiesResponse(string href = default(string), IList<ErrorDetail> failed = default(IList<ErrorDetail>), IList<Link> links = default(IList<Link>))
         {
             Href = href;
+            Failed = failed;
             Links = links;
             CustomInit();
         }
@@ -58,6 +61,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
+
+        /// <summary>
+        /// Gets a list of any values that failed to be upserted.
+        /// </summary>
+        [JsonProperty(PropertyName = "failed")]
+        public IList<ErrorDetail> Failed { get; private set; }
 
         /// <summary>
         /// </summary>

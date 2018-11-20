@@ -40,6 +40,10 @@ namespace Finbourne.Models
         /// Initializes a new instance of the CreateInstrumentPropertyRequest
         /// class.
         /// </summary>
+        /// <param name="instrumentPropertyKey">The property key of the
+        /// property, e.g, 'Instrument/default/Isin'</param>
+        /// <param name="property">The value of the property, which must not be
+        /// empty or null. e.g, 'US0378331005'</param>
         public CreateInstrumentPropertyRequest(string instrumentPropertyKey = default(string), PropertyValue property = default(PropertyValue))
         {
             InstrumentPropertyKey = instrumentPropertyKey;
@@ -53,11 +57,15 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the property key of the property, e.g,
+        /// 'Instrument/default/Isin'
         /// </summary>
         [JsonProperty(PropertyName = "instrumentPropertyKey")]
         public string InstrumentPropertyKey { get; set; }
 
         /// <summary>
+        /// Gets or sets the value of the property, which must not be empty or
+        /// null. e.g, 'US0378331005'
         /// </summary>
         [JsonProperty(PropertyName = "property")]
         public PropertyValue Property { get; set; }

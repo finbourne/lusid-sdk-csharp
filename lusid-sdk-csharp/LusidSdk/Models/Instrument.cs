@@ -40,13 +40,26 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the Instrument class.
         /// </summary>
-        public Instrument(string href = default(string), string uid = default(string), Version version = default(Version), string commonName = default(string), IDictionary<string, string> aliases = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), string marketIdentifierCode = default(string), ResourceId lookthroughPortfolio = default(ResourceId), IList<Link> links = default(IList<Link>))
+        /// <param name="lusidInstrumentId">The lusid instrument id (LUID) of
+        /// the instrument</param>
+        /// <param name="version">The version of the instrument</param>
+        /// <param name="name">The name of the instrument</param>
+        /// <param name="identifiers">The set of identifiers that can be used
+        /// to uniquely identify the instrument</param>
+        /// <param name="properties">Any requested instrument properties. If no
+        /// property can be found for the instrument, then
+        /// a value of 'Unknown' will be returned</param>
+        /// <param name="marketIdentifierCode">The market identifier of the
+        /// instrument (if any).</param>
+        /// <param name="lookthroughPortfolio">The lookthrough portfolio of the
+        /// instrument (if any).</param>
+        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), string marketIdentifierCode = default(string), ResourceId lookthroughPortfolio = default(ResourceId), IList<Link> links = default(IList<Link>))
         {
             Href = href;
-            Uid = uid;
+            LusidInstrumentId = lusidInstrumentId;
             Version = version;
-            CommonName = commonName;
-            Aliases = aliases;
+            Name = name;
+            Identifiers = identifiers;
             Properties = properties;
             MarketIdentifierCode = marketIdentifierCode;
             LookthroughPortfolio = lookthroughPortfolio;
@@ -65,36 +78,46 @@ namespace Finbourne.Models
         public string Href { get; set; }
 
         /// <summary>
+        /// Gets or sets the lusid instrument id (LUID) of the instrument
         /// </summary>
-        [JsonProperty(PropertyName = "uid")]
-        public string Uid { get; set; }
+        [JsonProperty(PropertyName = "lusidInstrumentId")]
+        public string LusidInstrumentId { get; set; }
 
         /// <summary>
+        /// Gets or sets the version of the instrument
         /// </summary>
         [JsonProperty(PropertyName = "version")]
         public Version Version { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the instrument
         /// </summary>
-        [JsonProperty(PropertyName = "commonName")]
-        public string CommonName { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the set of identifiers that can be used to uniquely
+        /// identify the instrument
         /// </summary>
-        [JsonProperty(PropertyName = "aliases")]
-        public IDictionary<string, string> Aliases { get; set; }
+        [JsonProperty(PropertyName = "identifiers")]
+        public IDictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
+        /// Gets or sets any requested instrument properties. If no property
+        /// can be found for the instrument, then
+        /// a value of 'Unknown' will be returned
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
         public IList<Property> Properties { get; set; }
 
         /// <summary>
+        /// Gets or sets the market identifier of the instrument (if any).
         /// </summary>
         [JsonProperty(PropertyName = "marketIdentifierCode")]
         public string MarketIdentifierCode { get; set; }
 
         /// <summary>
+        /// Gets or sets the lookthrough portfolio of the instrument (if any).
         /// </summary>
         [JsonProperty(PropertyName = "lookthroughPortfolio")]
         public ResourceId LookthroughPortfolio { get; set; }

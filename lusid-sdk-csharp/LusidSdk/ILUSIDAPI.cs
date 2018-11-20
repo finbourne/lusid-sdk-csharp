@@ -150,7 +150,7 @@ namespace Finbourne
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | InstrumentUid|string|Unique instrument identifier |
+    /// | LusidInstrumentId|string|Unique instrument identifier |
     ///
     ///
     /// ## Portfolios
@@ -377,6 +377,7 @@ namespace Finbourne
     /// | lusid-meta-requestId | The unique identifier for the request |
     /// | lusid-schema-url | Url of the schema for the data being returned |
     /// | lusid-property-schema-url | Url of the schema for any properties |
+    ///
     ///
     /// # Error Codes
     ///
@@ -910,12 +911,31 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Create instrument
+        /// Get allowable instrument identifiers
         /// </summary>
         /// <remarks>
-        /// Attempt to create one or more "client" instruments. Each instrument
-        /// is keyed by some unique key. This key is unimportant, and serves
-        /// only as a method to identify created instruments in the response.
+        /// Gets the set of identifiers that have been configured as unique
+        /// identifiers for instruments.
+        ///
+        /// Only CodeTypes returned from this end point can be used as
+        /// identifiers for instruments.
+        /// </remarks>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfCodeType>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Upsert instruments
+        /// </summary>
+        /// <remarks>
+        /// Attempt to master one or more instruments in LUSID's instrument
+        /// master. Each instrument is keyed by some unique key. This key is
+        /// unimportant, and serves only as a method to identify created
+        /// instruments in the response.
         ///
         /// The response will return both the collection of successfully
         /// created instruments, as well as those that were rejected and why
@@ -926,8 +946,8 @@ namespace Finbourne
         /// It is important to always check the 'Failed' set for any
         /// unsuccessful results.
         /// </remarks>
-        /// <param name='definitions'>
-        /// The client instrument definitions
+        /// <param name='requests'>
+        /// The instrument definitions
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -935,7 +955,68 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<TryAddClientInstruments>> BatchAddClientInstrumentsWithHttpMessagesAsync(IDictionary<string, CreateClientInstrumentRequest> definitions = default(IDictionary<string, CreateClientInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpMessagesAsync(IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get instrument definition
+        /// </summary>
+        /// <remarks>
+        /// Get an individual instrument by the one of its unique instrument
+        /// identifiers. Optionally, it is possible to decorate each instrument
+        /// with specified property data.
+        /// </remarks>
+        /// <param name='type'>
+        /// The type of identifier being supplied. Possible values include:
+        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// </param>
+        /// <param name='id'>
+        /// The identifier of the requested instrument
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the query
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the query
+        /// </param>
+        /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the
+        /// instrument
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update instrument identifier
+        /// </summary>
+        /// <remarks>
+        /// Adds, updates, or removes an identifier on an instrument
+        /// </remarks>
+        /// <param name='type'>
+        /// The type of identifier being supplied. Possible values include:
+        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// </param>
+        /// <param name='id'>
+        /// The instrument identifier
+        /// </param>
+        /// <param name='request'>
+        /// The identifier to add, update, or remove
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<Instrument>> UpdateInstrumentIdentifierWithHttpMessagesAsync(string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete instrument
@@ -949,8 +1030,14 @@ namespace Finbourne
         /// It is important to always check the 'Failed' set for any
         /// unsuccessful results.
         /// </remarks>
-        /// <param name='uids'>
-        /// The unique identifiers of the instruments to delete
+        /// <param name='type'>
+        /// The type of identifier being supplied. Possible values include:
+        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// </param>
+        /// <param name='id'>
+        /// The instrument identifier
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -958,61 +1045,54 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<DeleteClientInstrumentsResponse>> BatchDeleteClientInstrumentsWithHttpMessagesAsync(IList<string> uids = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpMessagesAsync(string type, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Find externally mastered instruments
+        /// </summary>
+        /// <remarks>
+        /// Search for a set of instruments from an external instrument
+        /// mastering service
+        /// </remarks>
+        /// <param name='codeType'>
+        /// The type of codes to search for. Possible values include:
+        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// </param>
+        /// <param name='codes'>
+        /// The collection of instruments to search for
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<FindInstrumentsResponse>> FindExternalInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get instrument definition
         /// </summary>
         /// <remarks>
-        /// Get an individual instrument by the one of its unique instrument
-        /// identifiers. Optionally, it is possible to decorate each instrument
-        /// with specified property data.
-        /// </remarks>
-        /// <param name='uid'>
-        /// The uid of the requested instrument
-        /// </param>
-        /// <param name='asAt'>
-        /// Optional. The AsAt date of the data
-        /// </param>
-        /// <param name='instrumentPropertyKeys'>
-        /// Optional. Keys of the properties to be decorated on to the
-        /// instrument
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string uid, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Lookup instrument definition
-        /// </summary>
-        /// <remarks>
-        /// Lookup one or more instrument definitions by specifying non-LUSID
-        /// identifiers. Optionally, it is possible to decorate each instrument
-        /// with specified property data.
-        ///
-        /// The response will return both the collection of found instruments
-        /// for each identifier, as well as a collection of all identifiers for
-        /// which no instruments could be found (as well as any available
-        /// details).
-        ///
-        /// It is important to always check the 'Failed' set for any
-        /// unsuccessful results.
+        /// Get a collection of instruments by a set of identifiers.
+        /// Optionally, it is possible to decorate each instrument with
+        /// specified property data.
         /// </remarks>
         /// <param name='codeType'>
-        /// The type of identifiers. Possible values include: 'Undefined',
-        /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol',
-        /// 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier'
+        /// the type of codes being specified. Possible values include:
+        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
         /// </param>
         /// <param name='codes'>
-        /// One or more identifiers of the type specified in the codeType
+        /// The identifiers of the instruments to get
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the request
         /// </param>
         /// <param name='asAt'>
-        /// Optional. The AsAt date of the data
+        /// Optional. The as at date of the request
         /// </param>
         /// <param name='instrumentPropertyKeys'>
         /// Optional. Keys of the properties to be decorated on to the
@@ -1024,7 +1104,37 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<LookupInstrumentsFromCodesResponse>> LookupInstrumentsFromCodesWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search instrument definition
+        /// </summary>
+        /// <remarks>
+        /// Get a collection of instruments by a set of identifiers.
+        /// Optionally, it is possible to decorate each instrument with
+        /// specified property data.
+        /// </remarks>
+        /// <param name='aliases'>
+        /// The list of market aliases (e.g ISIN, Ticker) to find instruments
+        /// by.
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the query
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the query
+        /// </param>
+        /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the
+        /// instrument
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfInstrument>> FindInstrumentsWithHttpMessagesAsync(IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert instrument properties
@@ -1048,7 +1158,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get SAML Identity Provider
