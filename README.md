@@ -2,7 +2,7 @@
 
 This repository enables the generation of a C# SDK from the FINBOURNE OpenAPI specification using the [autorest](https://github.com/Azure/autorest) tool.
 
-A generated version of the SDK is included in the `lusid-sdk-csharp` folder based on the OpenAPI specification named `lusid.json` in the root folder.  The most up to date version of the OpenAPI specification can be downloaded from https://api.finbourne.com/swagger/v0/swagger.json
+A generated version of the SDK is included in the `lusid-sdk-csharp` folder based on the OpenAPI specification named `lusid.json` in the root folder.  The most up to date version of the OpenAPI specification can be downloaded from https://api.lusid.com/swagger/v0/swagger.json
 
 In addtion to the SDK, a set of examples on how to use the SDK can be found in the [LusidSdk.Tests](https://github.com/finbourne/lusid-sdk-csharp/tree/master/lusid-sdk-csharp/LusidSdk.Tests) folder.  These exist in the form of unit tests and further instructions on running the tests can be found in the [README](https://github.com/finbourne/lusid-sdk-csharp/blob/master/lusid-sdk-csharp/readme.md).
 
