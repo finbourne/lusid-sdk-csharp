@@ -8,7 +8,7 @@ using System.Web;
 using Lusid.Sdk.Client;
 using Newtonsoft.Json;
 
-namespace Lusid.Sdk.Api
+namespace Lusid.Sdk.Utilities
 {
     public class LusidApiFactory
     {
@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Api
 
         private void Init(Configuration configuration)
         {   
-            _apis = Assembly.GetAssembly(typeof(LusidApiFactory))
+            _apis = Assembly.GetAssembly(typeof(ApiClient))
                 .GetTypes()
                 .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass)
                 .ToDictionary(k => k, v => Activator.CreateInstance(v, configuration));

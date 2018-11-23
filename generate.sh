@@ -6,21 +6,23 @@ if [[ ${#1} -eq 0 ]]; then
     exit 1
 fi
 
-echo "removing previous sdk"
-
 gen_root=/usr/swagger
-sdk_output_folder=$gen_root/sdk/
+sdk_output_folder=$gen_root/sdk
 
 #   remove all previously generated files
 shopt -s extglob 
-rm -rf $sdk_output_folder/LusidSdk/!(*.csproj)
+echo "removing previous sdk:"
+rm -rf $sdk_output_folder/Lusid.Sdk/!(*.csproj)
+rm !(*.sln|*.jar|Dockerfile|docker-compose.yml)
 shopt -u extglob 
 
 # ignore files
 mkdir -p $sdk_output_folder
 cp /usr/src/.swagger-codegen-ignore $sdk_output_folder
 
-# java -jar swagger-codegen-cli.jar swagger-codegen-cli help
+echo "generating sdk"
+
+#java -jar swagger-codegen-cli.jar swagger-codegen-cli help
 java -jar swagger-codegen-cli.jar generate \
     -i $gen_root/$1 \
     -l csharp \

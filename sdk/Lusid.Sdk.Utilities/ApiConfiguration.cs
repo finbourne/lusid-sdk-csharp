@@ -1,4 +1,4 @@
-namespace Lusid.Sdk.Api
+namespace Lusid.Sdk.Utilities
 {
     public class ApiConfiguration
     {

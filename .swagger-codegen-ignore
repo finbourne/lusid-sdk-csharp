@@ -1,3 +1,4 @@
+*.sln
 **/*.csproj
 **/Lusid.Sdk.Tests/**
 **/Lusid.Sdk/Api/LusidApiFactory.cs

@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+
+  lusid-sdk-csharp-test:
+    build: .
+    container_name: lusid-sdk-csharp-test
+    image: finbourne/lusid-sdk-csharp-test
+    environment:
+      - FBN_LUSID_API_URL
+    volumes:
+      - .:/usr/src

@@ -11,11 +11,12 @@ using System.Web;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
+using Lusid.Sdk.Utilities;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace LusidSdk.Tests
+namespace Lusid.Sdk.Tests
 {
     [TestFixture]
     public class LusidApiTests
@@ -361,7 +362,7 @@ namespace LusidSdk.Tests
             {
                 foreach (var transaction in tradeList)
                 {
-                    Console.WriteLine($"{transaction.InstrumentUid}\t{transaction.TransactionDate}\t{transaction.Units}\t{transaction.TransactionPrice}\t{transaction.TotalConsideration}");
+                    Console.WriteLine($"{transaction.InstrumentUid}\t{transaction.TransactionDate}\t{transaction.Units}\t{transaction.TransactionPrice.Price}\t{transaction.TotalConsideration.Amount}");
                 }
 
                 Console.WriteLine();

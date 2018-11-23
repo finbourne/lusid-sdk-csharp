@@ -2,10 +2,11 @@ using System;
 using System.IO;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Utilities;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 
-namespace LusidSdk.Tests
+namespace Lusid.Sdk.Tests
 {
     [TestFixture]
     public class LusidApiFactoryTests
