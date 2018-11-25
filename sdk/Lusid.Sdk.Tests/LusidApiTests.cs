@@ -404,21 +404,12 @@ namespace Lusid.Sdk.Tests
 
             //    add transactions
             _transactionPortfoliosApi.UpsertTransactions(scope, portfolioId, newtransactions.ToList());
+            
+            //    set up analytic store
+            var analyticStores = _analyticsStoresApi.ListAnalyticStores();
+            var store = analyticStores.Values.Select(s => s.Date == effectiveDate);
 
-            bool mustCreateAnalyticsStore = false;
-            try
-            {
-                AnalyticStore store = _analyticsStoresApi.GetAnalyticStore(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day);
-                
-                Assert.That(store.Key.Scope, Is.EqualTo(scope));
-            }
-            catch (Exception ex)
-            {
-//                mustCreateAnalyticsStore = ex.Body.Code == "AnalyticStoreNotFound";
-                Console.WriteLine();
-            }
-
-            if(mustCreateAnalyticsStore)
+            if (!store.Any())
             {
                 //    create the analytic store
                 var analyticStoreRequest = new CreateAnalyticStoreRequest(scope, effectiveDate);
