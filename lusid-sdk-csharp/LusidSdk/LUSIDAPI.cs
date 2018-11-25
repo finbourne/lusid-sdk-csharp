@@ -36,9 +36,9 @@ namespace Finbourne
     /// <summary>
     /// # Introduction
     ///
-    /// This page documents the [LUSID
-    /// APIs](https://api.finbourne.com/swagger), which allows authorised
-    /// clients to query and update their data within the LUSID platform.
+    /// This page documents the [LUSID APIs](https://api.lusid.com/swagger),
+    /// which allows authorised clients to query and update their data within
+    /// the LUSID platform.
     ///
     /// SDKs to interact with the LUSID APIs are available in the following
     /// languages :
@@ -246,13 +246,20 @@ namespace Finbourne
     /// | SettlementDate|datetime|Settlement date |
     /// | Units|decimal|Quantity of transaction in units of the instrument |
     /// | TransactionPrice|tradeprice|Execution price for the transaction |
-    /// | TotalConsideration|currencyandamount|Total value of the transaction |
+    /// | TotalConsideration|currencyandamount|Total value of the transaction
+    /// in settlement currency |
     /// | ExchangeRate|decimal|Rate between transaction and settle currency |
     /// | TransactionCurrency|currency|Transaction currency |
     /// | CounterpartyId|string|Counterparty identifier |
     /// | Source|string|Where this transaction came from |
     /// | NettingSet|string|  |
     ///
+    ///
+    /// From these fields, the following values can be calculated
+    /// * **Transaction value in Transaction currency**: TotalConsideration /
+    /// ExchangeRate
+    /// * **Transaction value in Portfolio currency**: Transaction value in
+    /// Transaction currency * TradeToPortfolioRate
     ///
     /// ### Example Transactions
     ///
@@ -12168,10 +12175,10 @@ namespace Finbourne
         /// The scope of the portfolio
         /// </param>
         /// <param name='code'>
-        /// The scope of the portfolio
+        /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Optional. The effective date of the data
+        /// The effective date of the constituents to retrieve
         /// </param>
         /// <param name='asAt'>
         /// Optional. The AsAt date of the data
@@ -12385,7 +12392,7 @@ namespace Finbourne
         /// The code of the portfolio
         /// </param>
         /// <param name='effectiveAt'>
-        /// Optional. The effective date of the data
+        /// The effective date of the constituents
         /// </param>
         /// <param name='constituents'>
         /// The constituents to upload to the portfolio

@@ -51,8 +51,8 @@ namespace Finbourne.Models
         /// instrument</param>
         /// <param name="transactionPrice">Execution price for the
         /// transaction</param>
-        /// <param name="totalConsideration">Total value of the
-        /// transaction</param>
+        /// <param name="totalConsideration">Total value of the transaction in
+        /// settlement currency</param>
         /// <param name="source">Where this transaction came from. Possible
         /// values include: 'System', 'Client'</param>
         /// <param name="exchangeRate">Rate between transaction and settle
@@ -127,7 +127,7 @@ namespace Finbourne.Models
         public TransactionPrice TransactionPrice { get; set; }
 
         /// <summary>
-        /// Gets or sets total value of the transaction
+        /// Gets or sets total value of the transaction in settlement currency
         /// </summary>
         [JsonProperty(PropertyName = "totalConsideration")]
         public CurrencyAndAmount TotalConsideration { get; set; }

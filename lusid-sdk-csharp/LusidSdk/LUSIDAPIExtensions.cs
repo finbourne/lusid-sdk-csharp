@@ -3852,10 +3852,10 @@ namespace Finbourne
             /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// The scope of the portfolio
+            /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Optional. The effective date of the data
+            /// The effective date of the constituents to retrieve
             /// </param>
             /// <param name='asAt'>
             /// Optional. The AsAt date of the data
@@ -3889,10 +3889,10 @@ namespace Finbourne
             /// The scope of the portfolio
             /// </param>
             /// <param name='code'>
-            /// The scope of the portfolio
+            /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Optional. The effective date of the data
+            /// The effective date of the constituents to retrieve
             /// </param>
             /// <param name='asAt'>
             /// Optional. The AsAt date of the data
@@ -3935,7 +3935,7 @@ namespace Finbourne
             /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Optional. The effective date of the data
+            /// The effective date of the constituents
             /// </param>
             /// <param name='constituents'>
             /// The constituents to upload to the portfolio
@@ -3961,7 +3961,7 @@ namespace Finbourne
             /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// Optional. The effective date of the data
+            /// The effective date of the constituents
             /// </param>
             /// <param name='constituents'>
             /// The constituents to upload to the portfolio
