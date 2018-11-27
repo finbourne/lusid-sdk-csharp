@@ -19,5 +19,4 @@ echo "sdk_version=$sdk_version"
 dotnet pack -c Release sdk/Lusid.Sdk/Lusid.Sdk.csproj
 dotnet nuget push sdk/Lusid.Sdk/bin/Release/Lusid.Sdk.${sdk_version}.nupkg \
     --source https://nexus.finbourne.com/repository/nuget-hosted \
-    --api-key $NUGET_API_KEY \
-    
+    --api-key $NUGET_API_KEY
