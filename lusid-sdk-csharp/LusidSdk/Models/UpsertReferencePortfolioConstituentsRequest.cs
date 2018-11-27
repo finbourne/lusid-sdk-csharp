@@ -28,30 +28,34 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ReferencePortfolioConstituent
+    public partial class UpsertReferencePortfolioConstituentsRequest
     {
         /// <summary>
-        /// Initializes a new instance of the ReferencePortfolioConstituent
-        /// class.
+        /// Initializes a new instance of the
+        /// UpsertReferencePortfolioConstituentsRequest class.
         /// </summary>
-        public ReferencePortfolioConstituent()
+        public UpsertReferencePortfolioConstituentsRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ReferencePortfolioConstituent
-        /// class.
+        /// Initializes a new instance of the
+        /// UpsertReferencePortfolioConstituentsRequest class.
         /// </summary>
-        /// <param name="properties">Properties associated with the
-        /// constituent</param>
-        public ReferencePortfolioConstituent(string instrumentUid, string currency, double weight, IList<Property> properties = default(IList<Property>), double? floatingWeight = default(double?))
+        /// <param name="weightType">Possible values include: 'Static',
+        /// 'Floating', 'Periodical'</param>
+        /// <param name="constituents">Set of constituents (instrument/weight
+        /// pairings)</param>
+        /// <param name="periodType">Possible values include: 'Daily',
+        /// 'Weekly', 'Monthly', 'Quarterly', 'Annually'</param>
+        public UpsertReferencePortfolioConstituentsRequest(System.DateTimeOffset effectiveFrom, string weightType, IList<ReferencePortfolioConstituentRequest> constituents, string periodType = default(string), int? periodCount = default(int?))
         {
-            InstrumentUid = instrumentUid;
-            Currency = currency;
-            Properties = properties;
-            Weight = weight;
-            FloatingWeight = floatingWeight;
+            EffectiveFrom = effectiveFrom;
+            WeightType = weightType;
+            PeriodType = periodType;
+            PeriodCount = periodCount;
+            Constituents = constituents;
             CustomInit();
         }
 
@@ -62,29 +66,33 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "effectiveFrom")]
+        public System.DateTimeOffset EffectiveFrom { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Static', 'Floating',
+        /// 'Periodical'
+        /// </summary>
+        [JsonProperty(PropertyName = "weightType")]
+        public string WeightType { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Daily', 'Weekly', 'Monthly',
+        /// 'Quarterly', 'Annually'
+        /// </summary>
+        [JsonProperty(PropertyName = "periodType")]
+        public string PeriodType { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "currency")]
-        public string Currency { get; set; }
+        [JsonProperty(PropertyName = "periodCount")]
+        public int? PeriodCount { get; set; }
 
         /// <summary>
-        /// Gets or sets properties associated with the constituent
+        /// Gets or sets set of constituents (instrument/weight pairings)
         /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IList<Property> Properties { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "weight")]
-        public double Weight { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "floatingWeight")]
-        public double? FloatingWeight { get; set; }
+        [JsonProperty(PropertyName = "constituents")]
+        public IList<ReferencePortfolioConstituentRequest> Constituents { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -94,23 +102,13 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (InstrumentUid == null)
+            if (WeightType == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+                throw new ValidationException(ValidationRules.CannotBeNull, "WeightType");
             }
-            if (Currency == null)
+            if (Constituents == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Currency");
-            }
-            if (Properties != null)
-            {
-                foreach (var element in Properties)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
+                throw new ValidationException(ValidationRules.CannotBeNull, "Constituents");
             }
         }
     }

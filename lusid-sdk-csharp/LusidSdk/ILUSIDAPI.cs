@@ -2283,8 +2283,8 @@ namespace Finbourne
         /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
-        /// Optional. Order the results by these fields. Use use the '-' sign
-        /// to denote descending order e.g. -MyFieldName
+        /// Optional. Order the results by these fields. Use the '-' sign to
+        /// denote descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
         /// Optional. When paginating, skip this number of results
@@ -2299,7 +2299,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add constituents
@@ -2313,9 +2313,6 @@ namespace Finbourne
         /// <param name='code'>
         /// The code of the portfolio
         /// </param>
-        /// <param name='effectiveAt'>
-        /// The effective date of the constituents
-        /// </param>
         /// <param name='constituents'>
         /// The constituents to upload to the portfolio
         /// </param>
@@ -2325,7 +2322,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get results

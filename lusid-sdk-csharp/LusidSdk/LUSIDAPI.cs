@@ -12184,7 +12184,7 @@ namespace Finbourne
         /// Optional. The AsAt date of the data
         /// </param>
         /// <param name='sortBy'>
-        /// Optional. Order the results by these fields. Use use the '-' sign to denote
+        /// Optional. Order the results by these fields. Use the '-' sign to denote
         /// descending order e.g. -MyFieldName
         /// </param>
         /// <param name='start'>
@@ -12215,7 +12215,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12351,7 +12351,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfReferencePortfolioConstituent>();
+            var _result = new HttpOperationResponse<GetReferencePortfolioConstituentsResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -12360,7 +12360,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfReferencePortfolioConstituent>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<GetReferencePortfolioConstituentsResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -12391,9 +12391,6 @@ namespace Finbourne
         /// <param name='code'>
         /// The code of the portfolio
         /// </param>
-        /// <param name='effectiveAt'>
-        /// The effective date of the constituents
-        /// </param>
         /// <param name='constituents'>
         /// The constituents to upload to the portfolio
         /// </param>
@@ -12418,7 +12415,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12427,6 +12424,10 @@ namespace Finbourne
             if (code == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "code");
+            }
+            if (constituents != null)
+            {
+                constituents.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -12437,17 +12438,15 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
-                tracingParameters.Add("effectiveAt", effectiveAt);
                 tracingParameters.Add("constituents", constituents);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpsertReferencePortfolioConstituents", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/referenceportfolios/{scope}/{code}/constituents").ToString();
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
-            _url = _url.Replace("{effectiveAt}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

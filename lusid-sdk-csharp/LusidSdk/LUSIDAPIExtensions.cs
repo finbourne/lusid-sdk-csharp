@@ -3861,7 +3861,7 @@ namespace Finbourne
             /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
-            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// Optional. Order the results by these fields. Use the '-' sign to denote
             /// descending order e.g. -MyFieldName
             /// </param>
             /// <param name='start'>
@@ -3871,7 +3871,7 @@ namespace Finbourne
             /// Optional. When paginating, limit the number of returned results to this
             /// many
             /// </param>
-            public static ResourceListOfReferencePortfolioConstituent GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetReferencePortfolioConstituentsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -3898,7 +3898,7 @@ namespace Finbourne
             /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
-            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// Optional. Order the results by these fields. Use the '-' sign to denote
             /// descending order e.g. -MyFieldName
             /// </param>
             /// <param name='start'>
@@ -3911,7 +3911,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfReferencePortfolioConstituent> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3934,15 +3934,12 @@ namespace Finbourne
             /// <param name='code'>
             /// The code of the portfolio
             /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date of the constituents
-            /// </param>
             /// <param name='constituents'>
             /// The constituents to upload to the portfolio
             /// </param>
-            public static UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>))
+            public static UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest))
             {
-                return operations.UpsertReferencePortfolioConstituentsAsync(scope, code, effectiveAt, constituents).GetAwaiter().GetResult();
+                return operations.UpsertReferencePortfolioConstituentsAsync(scope, code, constituents).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -3960,18 +3957,15 @@ namespace Finbourne
             /// <param name='code'>
             /// The code of the portfolio
             /// </param>
-            /// <param name='effectiveAt'>
-            /// The effective date of the constituents
-            /// </param>
             /// <param name='constituents'>
             /// The constituents to upload to the portfolio
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, IList<ReferencePortfolioConstituentRequest> constituents = default(IList<ReferencePortfolioConstituentRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, effectiveAt, constituents, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, constituents, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
