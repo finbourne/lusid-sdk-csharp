@@ -10,7 +10,12 @@ using Newtonsoft.Json;
 
 namespace Lusid.Sdk.Utilities
 {
-    public class LusidApiFactory
+    public interface ILusidApiFactory
+    {
+        TApi Api<TApi>() where TApi : class, IApiAccessor;
+    }
+
+    public class LusidApiFactory : ILusidApiFactory
     {
         private Dictionary<Type, object> _apis;
             

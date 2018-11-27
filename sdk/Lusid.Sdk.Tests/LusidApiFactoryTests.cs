@@ -11,7 +11,7 @@ namespace Lusid.Sdk.Tests
     [TestFixture]
     public class LusidApiFactoryTests
     {
-        private LusidApiFactory _factory = new LusidApiFactory(new Configuration());
+        private ILusidApiFactory _factory = new LusidApiFactory(new Configuration());
 
         [OneTimeSetUp]
         public void SetUp()
