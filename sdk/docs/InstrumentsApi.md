@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 <a name="findexternalinstruments"></a>
 # **FindExternalInstruments**
-> ResourceListOfInstrumentMatch FindExternalInstruments (string codeType = null, List<string> codes = null)
+> FindInstrumentsResponse FindExternalInstruments (string codeType = null, List<string> codes = null)
 
 Find externally mastered instruments
 
@@ -113,7 +113,7 @@ namespace Example
             try
             {
                 // Find externally mastered instruments
-                ResourceListOfInstrumentMatch result = apiInstance.FindExternalInstruments(codeType, codes);
+                FindInstrumentsResponse result = apiInstance.FindExternalInstruments(codeType, codes);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfInstrumentMatch**](ResourceListOfInstrumentMatch.md)
+[**FindInstrumentsResponse**](FindInstrumentsResponse.md)
 
 ### Authorization
 

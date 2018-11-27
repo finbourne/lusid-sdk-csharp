@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **SettlementDate** | **DateTimeOffset?** | Settlement date | 
 **Units** | **double?** | Quantity of transaction in units of the instrument | 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) | Execution price for the transaction | 
-**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Total value of the transaction | 
+**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Total value of the transaction in settlement currency | 
 **ExchangeRate** | **double?** | Rate between transaction and settle currency | [optional] 
 **TransactionCurrency** | **string** | Transaction currency | [optional] 
 **Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 

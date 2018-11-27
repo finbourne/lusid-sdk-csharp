@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | Create reference portfolio
 [**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents | Get constituents
-[**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/{effectiveAt}/constituents | Add constituents
+[**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | Add constituents
 
 
 <a name="createreferenceportfolio"></a>
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="getreferenceportfolioconstituents"></a>
 # **GetReferencePortfolioConstituents**
-> ResourceListOfReferencePortfolioConstituent GetReferencePortfolioConstituents (string scope, string code, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
+> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
 
 Get constituents
 
@@ -102,17 +102,17 @@ namespace Example
 
             var apiInstance = new ReferencePortfolioApi();
             var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The scope of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data
+            var code = code_example;  // string | The code of the portfolio
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date of the constituents to retrieve
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many (optional) 
 
             try
             {
                 // Get constituents
-                ResourceListOfReferencePortfolioConstituent result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, sortBy, start, limit);
+                GetReferencePortfolioConstituentsResponse result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, sortBy, start, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -129,16 +129,16 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The scope of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | 
+ **code** | **string**| The code of the portfolio | 
+ **effectiveAt** | **DateTimeOffset?**| The effective date of the constituents to retrieve | 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
+ **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many | [optional] 
 
 ### Return type
 
-[**ResourceListOfReferencePortfolioConstituent**](ResourceListOfReferencePortfolioConstituent.md)
+[**GetReferencePortfolioConstituentsResponse**](GetReferencePortfolioConstituentsResponse.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 <a name="upsertreferenceportfolioconstituents"></a>
 # **UpsertReferencePortfolioConstituents**
-> UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents (string scope, string code, DateTimeOffset? effectiveAt, List<ReferencePortfolioConstituentRequest> constituents = null)
+> UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents (string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = null)
 
 Add constituents
 
@@ -179,13 +179,12 @@ namespace Example
             var apiInstance = new ReferencePortfolioApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data
-            var constituents = new List<ReferencePortfolioConstituentRequest>(); // List<ReferencePortfolioConstituentRequest> | The constituents to upload to the portfolio (optional) 
+            var constituents = new UpsertReferencePortfolioConstituentsRequest(); // UpsertReferencePortfolioConstituentsRequest | The constituents to upload to the portfolio (optional) 
 
             try
             {
                 // Add constituents
-                UpsertReferencePortfolioConstituentsResponse result = apiInstance.UpsertReferencePortfolioConstituents(scope, code, effectiveAt, constituents);
+                UpsertReferencePortfolioConstituentsResponse result = apiInstance.UpsertReferencePortfolioConstituents(scope, code, constituents);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -203,8 +202,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | 
- **constituents** | [**List&lt;ReferencePortfolioConstituentRequest&gt;**](ReferencePortfolioConstituentRequest.md)| The constituents to upload to the portfolio | [optional] 
+ **constituents** | [**UpsertReferencePortfolioConstituentsRequest**](UpsertReferencePortfolioConstituentsRequest.md)| The constituents to upload to the portfolio | [optional] 
 
 ### Return type
 
