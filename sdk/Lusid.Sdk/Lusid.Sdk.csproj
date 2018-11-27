@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>Lusid.Sdk</RootNamespace>
-    <Version>0.7.179-alpha</Version>
+    <Version>0.8.26-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>
