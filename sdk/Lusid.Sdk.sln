@@ -1,12 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lusid.Sdk", "Lusid.Sdk\Lusid.Sdk.csproj", "{A18E97D1-1621-43FF-87E4-C5C00FD2E516}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lusid.Sdk.Tests", "Lusid.Sdk.Tests\Lusid.Sdk.Tests.csproj", "{529EE36E-F438-4EC0-8705-3341D3787505}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lusid.Sdk.Utilities", "Lusid.Sdk.Utilities\Lusid.Sdk.Utilities.csproj", "{994D2725-343A-4AD2-9E03-E6CAD5884400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +24,6 @@ Global
 		{529EE36E-F438-4EC0-8705-3341D3787505}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{529EE36E-F438-4EC0-8705-3341D3787505}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{529EE36E-F438-4EC0-8705-3341D3787505}.Release|Any CPU.Build.0 = Release|Any CPU
-		{994D2725-343A-4AD2-9E03-E6CAD5884400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994D2725-343A-4AD2-9E03-E6CAD5884400}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{994D2725-343A-4AD2-9E03-E6CAD5884400}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{994D2725-343A-4AD2-9E03-E6CAD5884400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

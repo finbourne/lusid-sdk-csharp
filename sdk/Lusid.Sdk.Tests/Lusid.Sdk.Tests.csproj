@@ -13,7 +13,6 @@
     <None Include="secrets.json" CopyToOutputDirectory="Always" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lusid.Sdk.Utilities\Lusid.Sdk.Utilities.csproj" />
     <ProjectReference Include="..\Lusid.Sdk\Lusid.Sdk.csproj" />
   </ItemGroup>
 </Project>

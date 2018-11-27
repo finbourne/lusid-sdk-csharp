@@ -12,7 +12,7 @@ sdk_output_folder=$gen_root/sdk
 #   remove all previously generated files
 shopt -s extglob 
 echo "removing previous sdk:"
-rm -rf $sdk_output_folder/Lusid.Sdk/!(*.csproj)
+rm -rf $sdk_output_folder/Lusid.Sdk/!(Utilities|*.csproj)
 rm !(*.sln|*.jar|Dockerfile|docker-compose.yml)
 shopt -u extglob 
 
