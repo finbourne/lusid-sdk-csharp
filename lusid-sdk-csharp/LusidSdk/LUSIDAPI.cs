@@ -3592,7 +3592,7 @@ namespace Finbourne
         /// The type of identifier being supplied. Possible values include:
         /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
         /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier'
+        /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
         /// </param>
         /// <param name='id'>
         /// The identifier of the requested instrument
@@ -3794,7 +3794,7 @@ namespace Finbourne
         /// The type of identifier being supplied. Possible values include:
         /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
         /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier'
+        /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
         /// </param>
         /// <param name='id'>
         /// The instrument identifier
@@ -3973,7 +3973,7 @@ namespace Finbourne
         /// The type of identifier being supplied. Possible values include:
         /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
         /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier'
+        /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
         /// </param>
         /// <param name='id'>
         /// The instrument identifier
@@ -4137,7 +4137,7 @@ namespace Finbourne
         /// The type of codes to search for. Possible values include: 'Undefined',
         /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
         /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-        /// 'Wertpapier'
+        /// 'Wertpapier', 'RIC', 'QuotePermId'
         /// </param>
         /// <param name='codes'>
         /// The collection of instruments to search for
@@ -4300,7 +4300,7 @@ namespace Finbourne
         /// the type of codes being specified. Possible values include: 'Undefined',
         /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
         /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-        /// 'Wertpapier'
+        /// 'Wertpapier', 'RIC', 'QuotePermId'
         /// </param>
         /// <param name='codes'>
         /// The identifiers of the instruments to get

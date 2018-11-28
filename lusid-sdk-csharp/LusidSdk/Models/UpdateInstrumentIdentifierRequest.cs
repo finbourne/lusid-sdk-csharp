@@ -45,7 +45,8 @@ namespace Finbourne.Models
         /// allowable for instrument identifiers. Possible values include:
         /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
         /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'</param>
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
+        /// 'QuotePermId'</param>
         /// <param name="value">The value of the identifier. If set to `null`,
         /// this will remove the identifier completely.
         /// Note that, if an instrument only has one identifier, it is an error
@@ -72,7 +73,8 @@ namespace Finbourne.Models
         /// allowable for instrument identifiers. Possible values include:
         /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
         /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier'
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
+        /// 'QuotePermId'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
