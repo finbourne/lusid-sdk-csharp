@@ -64,6 +64,24 @@ namespace Lusid.Sdk.Tests
         {
             Assert.That(() => _factory.Api<InvalidApi>(), Throws.TypeOf<InvalidOperationException>());
         }
-        
+
+        [Test]
+        public void Api_From_Interface()
+        {
+            var api = _factory.Api<ITransactionPortfoliosApi>();
+            
+            Assert.That(api, Is.Not.Null);
+            Assert.That(api, Is.InstanceOf<TransactionPortfoliosApi>());
+        }
+
+        [Test]
+        public void Api_From_Implementation()
+        {
+            var api = _factory.Api<TransactionPortfoliosApi>();
+            
+            Assert.That(api, Is.Not.Null);
+            Assert.That(api, Is.InstanceOf<TransactionPortfoliosApi>());
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -17,7 +18,7 @@ namespace Lusid.Sdk.Utilities
 
     public class LusidApiFactory : ILusidApiFactory
     {
-        private Dictionary<Type, object> _apis;
+        private Dictionary<Type, IApiAccessor> _apis;
             
         public LusidApiFactory(ApiConfiguration apiConfiguration)
         {
@@ -63,10 +64,24 @@ namespace Lusid.Sdk.Utilities
 
         private void Init(Configuration configuration)
         {   
-            _apis = Assembly.GetAssembly(typeof(ApiClient))
+            IEnumerable<Type> apis = Assembly.GetAssembly(typeof(ApiClient))
                 .GetTypes()
-                .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass)
-                .ToDictionary(k => k, v => Activator.CreateInstance(v, configuration));
+                .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+
+            _apis = new Dictionary<Type, IApiAccessor>();
+            foreach (var api in apis)
+            {
+                if (!(Activator.CreateInstance(api, configuration) is IApiAccessor impl))
+                {
+                    throw new Exception($"Unable to create type {api}");
+                }
+
+                var @interface = api.GetInterfaces()
+                    .First(i => typeof(IApiAccessor).IsAssignableFrom(i));
+
+                _apis[api] = impl;
+                _apis[@interface] = impl;
+            }
         }
 
         public TApi Api<TApi>() where TApi : class, IApiAccessor
