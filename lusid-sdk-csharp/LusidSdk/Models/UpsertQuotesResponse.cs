@@ -43,9 +43,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the UpsertQuotesResponse class.
         /// </summary>
-        public UpsertQuotesResponse(Version version = default(Version), IList<Link> links = default(IList<Link>))
+        public UpsertQuotesResponse(System.DateTimeOffset asAtDate, IList<Link> links = default(IList<Link>))
         {
-            Version = version;
+            AsAtDate = asAtDate;
             Links = links;
             CustomInit();
         }
@@ -57,13 +57,32 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "version")]
-        public Version Version { get; set; }
+        [JsonProperty(PropertyName = "asAtDate")]
+        public System.DateTimeOffset AsAtDate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "links")]
         public IList<Link> Links { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Links != null)
+            {
+                foreach (var element in Links)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

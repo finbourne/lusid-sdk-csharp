@@ -884,42 +884,68 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Get allowable instrument identifiers
+            /// Get all of the currently mastered instruments in LUSID
             /// </summary>
             /// <remarks>
-            /// Gets the set of identifiers that have been configured as unique identifiers
-            /// for instruments.
-            ///
-            /// Only CodeTypes returned from this end point can be used as identifiers for
-            /// instruments.
+            /// Lists all instruments that have been mastered within LUSID.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ResourceListOfCodeType GetInstrumentIdentifiers(this ILUSIDAPI operations)
+            /// <param name='asAt'>
+            /// The AsAt time
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            public static ResourceListOfInstrument ListInstruments(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.GetInstrumentIdentifiersAsync().GetAwaiter().GetResult();
+                return operations.ListInstrumentsAsync(asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Get allowable instrument identifiers
+            /// Get all of the currently mastered instruments in LUSID
             /// </summary>
             /// <remarks>
-            /// Gets the set of identifiers that have been configured as unique identifiers
-            /// for instruments.
-            ///
-            /// Only CodeTypes returned from this end point can be used as identifiers for
-            /// instruments.
+            /// Lists all instruments that have been mastered within LUSID.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='asAt'>
+            /// The AsAt time
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfCodeType> GetInstrumentIdentifiersAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfInstrument> ListInstrumentsAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetInstrumentIdentifiersWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListInstrumentsWithHttpMessagesAsync(asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1416,6 +1442,48 @@ namespace Finbourne
             public static async Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertInstrumentsPropertiesWithHttpMessagesAsync(instrumentProperties, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get allowable instrument identifiers
+            /// </summary>
+            /// <remarks>
+            /// Gets the set of identifiers that have been configured as unique identifiers
+            /// for instruments.
+            ///
+            /// Only CodeTypes returned from this end point can be used as identifiers for
+            /// instruments.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static ResourceListOfCodeType GetInstrumentIdentifiers(this ILUSIDAPI operations)
+            {
+                return operations.GetInstrumentIdentifiersAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get allowable instrument identifiers
+            /// </summary>
+            /// <remarks>
+            /// Gets the set of identifiers that have been configured as unique identifiers
+            /// for instruments.
+            ///
+            /// Only CodeTypes returned from this end point can be used as identifiers for
+            /// instruments.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfCodeType> GetInstrumentIdentifiersAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetInstrumentIdentifiersWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2935,7 +3003,8 @@ namespace Finbourne
             /// Get commands
             /// </summary>
             /// <remarks>
-            /// Gets all commands that modified a specific portfolio
+            /// Gets all commands that modified a specific portfolio, including any input
+            /// transactions.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2977,7 +3046,8 @@ namespace Finbourne
             /// Get commands
             /// </summary>
             /// <remarks>
-            /// Gets all commands that modified a specific portfolio
+            /// Gets all commands that modified a specific portfolio, including any input
+            /// transactions.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -3594,6 +3664,104 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Add quotes
+            /// </summary>
+            /// <remarks>
+            /// Add quotes effective at the specified time. If a quote is added with the
+            /// same id (and is effective at the same time) as an existing quote, then the
+            /// more recently added quote will be returned when queried
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quotes
+            /// </param>
+            /// <param name='quotes'>
+            /// The quotes to add
+            /// </param>
+            public static UpsertQuotesResponse UpsertQuotes(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>))
+            {
+                return operations.UpsertQuotesAsync(scope, quotes).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add quotes
+            /// </summary>
+            /// <remarks>
+            /// Add quotes effective at the specified time. If a quote is added with the
+            /// same id (and is effective at the same time) as an existing quote, then the
+            /// more recently added quote will be returned when queried
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quotes
+            /// </param>
+            /// <param name='quotes'>
+            /// The quotes to add
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UpsertQuotesResponse> UpsertQuotesAsync(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpsertQuotesWithHttpMessagesAsync(scope, quotes, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a quote
+            /// </summary>
+            /// <remarks>
+            /// Delete the specified quotes. In order for a quote to be deleted the id and
+            /// effectiveFrom date must exactly match.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quote
+            /// </param>
+            /// <param name='quotes'>
+            /// The quotes to delete
+            /// </param>
+            public static DeleteQuotesResponse DeleteQuote(this ILUSIDAPI operations, string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>))
+            {
+                return operations.DeleteQuoteAsync(scope, quotes).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a quote
+            /// </summary>
+            /// <remarks>
+            /// Delete the specified quotes. In order for a quote to be deleted the id and
+            /// effectiveFrom date must exactly match.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the quote
+            /// </param>
+            /// <param name='quotes'>
+            /// The quotes to delete
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeleteQuotesResponse> DeleteQuoteAsync(this ILUSIDAPI operations, string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteQuoteWithHttpMessagesAsync(scope, quotes, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get quotes
             /// </summary>
             /// <remarks>
@@ -3630,7 +3798,7 @@ namespace Finbourne
             /// <param name='limit'>
             /// Optional. The number of results per page
             /// </param>
-            public static ResourceListOfQuote GetQuotes(this ILUSIDAPI operations, string scope, IList<string> quoteIds = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?))
+            public static GetQuotesResponse GetQuotes(this ILUSIDAPI operations, string scope, IList<QuoteId> quoteIds = default(IList<QuoteId>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?))
             {
                 return operations.GetQuotesAsync(scope, quoteIds, effectiveAt, asAt, maxAge, page, limit).GetAwaiter().GetResult();
             }
@@ -3675,119 +3843,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfQuote> GetQuotesAsync(this ILUSIDAPI operations, string scope, IList<string> quoteIds = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GetQuotesResponse> GetQuotesAsync(this ILUSIDAPI operations, string scope, IList<QuoteId> quoteIds = default(IList<QuoteId>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetQuotesWithHttpMessagesAsync(scope, quoteIds, effectiveAt, asAt, maxAge, page, limit, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add quotes
-            /// </summary>
-            /// <remarks>
-            /// Add quotes effective at the specified time. If a quote is added with the
-            /// same id (and is effective at the same time) as an existing quote, then the
-            /// more recently added quote will be returned when queried
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the quotes
-            /// </param>
-            /// <param name='quotes'>
-            /// The quotes to add
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Optional. The date/time from which the quotes are effective
-            /// </param>
-            public static UpsertQuotesResponse UpsertQuotes(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
-            {
-                return operations.UpsertQuotesAsync(scope, quotes, effectiveAt).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add quotes
-            /// </summary>
-            /// <remarks>
-            /// Add quotes effective at the specified time. If a quote is added with the
-            /// same id (and is effective at the same time) as an existing quote, then the
-            /// more recently added quote will be returned when queried
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the quotes
-            /// </param>
-            /// <param name='quotes'>
-            /// The quotes to add
-            /// </param>
-            /// <param name='effectiveAt'>
-            /// Optional. The date/time from which the quotes are effective
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<UpsertQuotesResponse> UpsertQuotesAsync(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertQuotesWithHttpMessagesAsync(scope, quotes, effectiveAt, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete a quote
-            /// </summary>
-            /// <remarks>
-            /// Delete the specified quote. In order for a quote to be deleted the id and
-            /// effectiveFrom date must exactly match.
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the quote
-            /// </param>
-            /// <param name='id'>
-            /// The quote id
-            /// </param>
-            /// <param name='effectiveFrom'>
-            /// The date/time from which the quote is effective
-            /// </param>
-            public static DeleteQuotesResponse DeleteQuote(this ILUSIDAPI operations, string scope, string id = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?))
-            {
-                return operations.DeleteQuoteAsync(scope, id, effectiveFrom).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete a quote
-            /// </summary>
-            /// <remarks>
-            /// Delete the specified quote. In order for a quote to be deleted the id and
-            /// effectiveFrom date must exactly match.
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='scope'>
-            /// The scope of the quote
-            /// </param>
-            /// <param name='id'>
-            /// The quote id
-            /// </param>
-            /// <param name='effectiveFrom'>
-            /// The date/time from which the quote is effective
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeleteQuotesResponse> DeleteQuoteAsync(this ILUSIDAPI operations, string scope, string id = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeleteQuoteWithHttpMessagesAsync(scope, id, effectiveFrom, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

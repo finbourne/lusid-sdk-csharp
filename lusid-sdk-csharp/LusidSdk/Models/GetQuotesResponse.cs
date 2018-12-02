@@ -27,30 +27,23 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ResourceListOfQuote
+    public partial class GetQuotesResponse
     {
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfQuote class.
+        /// Initializes a new instance of the GetQuotesResponse class.
         /// </summary>
-        public ResourceListOfQuote()
+        public GetQuotesResponse()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfQuote class.
+        /// Initializes a new instance of the GetQuotesResponse class.
         /// </summary>
-        /// <param name="href">The Uri that returns the same result as the
-        /// original request,
-        /// but may include resolved as at time(s).</param>
-        /// <param name="count">The total number of records returned in the
-        /// set</param>
-        public ResourceListOfQuote(IList<Quote> values = default(IList<Quote>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
+        public GetQuotesResponse(IList<Quote> found = default(IList<Quote>), IList<QuoteId> notFound = default(IList<QuoteId>))
         {
-            Values = values;
-            Href = href;
-            Count = count;
-            Links = links;
+            Found = found;
+            NotFound = notFound;
             CustomInit();
         }
 
@@ -61,27 +54,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IList<Quote> Values { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Uri that returns the same result as the original
-        /// request,
-        /// but may include resolved as at time(s).
-        /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// Gets or sets the total number of records returned in the set
-        /// </summary>
-        [JsonProperty(PropertyName = "count")]
-        public int? Count { get; set; }
+        [JsonProperty(PropertyName = "found")]
+        public IList<Quote> Found { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "links")]
-        public IList<Link> Links { get; set; }
+        [JsonProperty(PropertyName = "notFound")]
+        public IList<QuoteId> NotFound { get; set; }
 
     }
 }

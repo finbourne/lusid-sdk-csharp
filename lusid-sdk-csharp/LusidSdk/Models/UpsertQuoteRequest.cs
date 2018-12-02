@@ -39,10 +39,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the UpsertQuoteRequest class.
         /// </summary>
-        public UpsertQuoteRequest(string id, MetricValue metricValue)
+        public UpsertQuoteRequest(QuoteId quoteId, MetricValue metricValue, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
         {
-            Id = id;
+            QuoteId = quoteId;
             MetricValue = metricValue;
+            EffectiveAt = effectiveAt;
             CustomInit();
         }
 
@@ -53,13 +54,18 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        [JsonProperty(PropertyName = "quoteId")]
+        public QuoteId QuoteId { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "metricValue")]
         public MetricValue MetricValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "effectiveAt")]
+        public System.DateTimeOffset? EffectiveAt { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -69,13 +75,17 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Id == null)
+            if (QuoteId == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Id");
+                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteId");
             }
             if (MetricValue == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
+            }
+            if (QuoteId != null)
+            {
+                QuoteId.Validate();
             }
         }
     }

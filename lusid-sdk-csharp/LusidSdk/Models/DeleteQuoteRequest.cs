@@ -26,25 +26,23 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Quote
+    public partial class DeleteQuoteRequest
     {
         /// <summary>
-        /// Initializes a new instance of the Quote class.
+        /// Initializes a new instance of the DeleteQuoteRequest class.
         /// </summary>
-        public Quote()
+        public DeleteQuoteRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Quote class.
+        /// Initializes a new instance of the DeleteQuoteRequest class.
         /// </summary>
-        public Quote(QuoteId quoteId, MetricValue metricValue, System.DateTimeOffset? effectiveAtDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?))
+        public DeleteQuoteRequest(QuoteId quoteId, System.DateTimeOffset effectiveAt)
         {
             QuoteId = quoteId;
-            MetricValue = metricValue;
-            EffectiveAtDate = effectiveAtDate;
-            AsAtDate = asAtDate;
+            EffectiveAt = effectiveAt;
             CustomInit();
         }
 
@@ -60,18 +58,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "metricValue")]
-        public MetricValue MetricValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "effectiveAtDate")]
-        public System.DateTimeOffset? EffectiveAtDate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "asAtDate")]
-        public System.DateTimeOffset? AsAtDate { get; set; }
+        [JsonProperty(PropertyName = "effectiveAt")]
+        public System.DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -84,10 +72,6 @@ namespace Finbourne.Models
             if (QuoteId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "QuoteId");
-            }
-            if (MetricValue == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
             }
             if (QuoteId != null)
             {

@@ -918,22 +918,35 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Get allowable instrument identifiers
+        /// Get all of the currently mastered instruments in LUSID
         /// </summary>
         /// <remarks>
-        /// Gets the set of identifiers that have been configured as unique
-        /// identifiers for instruments.
-        ///
-        /// Only CodeTypes returned from this end point can be used as
-        /// identifiers for instruments.
+        /// Lists all instruments that have been mastered within LUSID.
         /// </remarks>
+        /// <param name='asAt'>
+        /// The AsAt time
+        /// </param>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign
+        /// to denote descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to
+        /// this many.
+        /// </param>
+        /// <param name='filter'>
+        /// Optional. Expression to filter the result set
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfCodeType>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert instruments
@@ -1171,6 +1184,24 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get allowable instrument identifiers
+        /// </summary>
+        /// <remarks>
+        /// Gets the set of identifiers that have been configured as unique
+        /// identifiers for instruments.
+        ///
+        /// Only CodeTypes returned from this end point can be used as
+        /// identifiers for instruments.
+        /// </remarks>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfCodeType>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get SAML Identity Provider
@@ -1858,7 +1889,8 @@ namespace Finbourne
         /// Get commands
         /// </summary>
         /// <remarks>
-        /// Gets all commands that modified a specific portfolio
+        /// Gets all commands that modified a specific portfolio, including any
+        /// input transactions.
         /// </remarks>
         /// <param name='scope'>
         /// The scope of the portfolio
@@ -2157,6 +2189,50 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Add quotes
+        /// </summary>
+        /// <remarks>
+        /// Add quotes effective at the specified time. If a quote is added
+        /// with the same id (and is effective at the same time) as an existing
+        /// quote, then the more recently added quote will be returned when
+        /// queried
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the quotes
+        /// </param>
+        /// <param name='quotes'>
+        /// The quotes to add
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<UpsertQuotesResponse>> UpsertQuotesWithHttpMessagesAsync(string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a quote
+        /// </summary>
+        /// <remarks>
+        /// Delete the specified quotes. In order for a quote to be deleted the
+        /// id and effectiveFrom date must exactly match.
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the quote
+        /// </param>
+        /// <param name='quotes'>
+        /// The quotes to delete
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DeleteQuotesResponse>> DeleteQuoteWithHttpMessagesAsync(string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get quotes
         /// </summary>
         /// <remarks>
@@ -2197,57 +2273,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfQuote>> GetQuotesWithHttpMessagesAsync(string scope, IList<string> quoteIds = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Add quotes
-        /// </summary>
-        /// <remarks>
-        /// Add quotes effective at the specified time. If a quote is added
-        /// with the same id (and is effective at the same time) as an existing
-        /// quote, then the more recently added quote will be returned when
-        /// queried
-        /// </remarks>
-        /// <param name='scope'>
-        /// The scope of the quotes
-        /// </param>
-        /// <param name='quotes'>
-        /// The quotes to add
-        /// </param>
-        /// <param name='effectiveAt'>
-        /// Optional. The date/time from which the quotes are effective
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<UpsertQuotesResponse>> UpsertQuotesWithHttpMessagesAsync(string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Delete a quote
-        /// </summary>
-        /// <remarks>
-        /// Delete the specified quote. In order for a quote to be deleted the
-        /// id and effectiveFrom date must exactly match.
-        /// </remarks>
-        /// <param name='scope'>
-        /// The scope of the quote
-        /// </param>
-        /// <param name='id'>
-        /// The quote id
-        /// </param>
-        /// <param name='effectiveFrom'>
-        /// The date/time from which the quote is effective
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<DeleteQuotesResponse>> DeleteQuoteWithHttpMessagesAsync(string scope, string id = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<GetQuotesResponse>> GetQuotesWithHttpMessagesAsync(string scope, IList<QuoteId> quoteIds = default(IList<QuoteId>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), string maxAge = default(string), int? page = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create reference portfolio

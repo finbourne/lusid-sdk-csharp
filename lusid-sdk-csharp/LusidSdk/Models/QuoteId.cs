@@ -26,25 +26,26 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Quote
+    public partial class QuoteId
     {
         /// <summary>
-        /// Initializes a new instance of the Quote class.
+        /// Initializes a new instance of the QuoteId class.
         /// </summary>
-        public Quote()
+        public QuoteId()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Quote class.
+        /// Initializes a new instance of the QuoteId class.
         /// </summary>
-        public Quote(QuoteId quoteId, MetricValue metricValue, System.DateTimeOffset? effectiveAtDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?))
+        public QuoteId(string instrumentId, string instrumentIdType, string quoteConvention, string quoteType, string priceSource = default(string))
         {
-            QuoteId = quoteId;
-            MetricValue = metricValue;
-            EffectiveAtDate = effectiveAtDate;
-            AsAtDate = asAtDate;
+            InstrumentId = instrumentId;
+            InstrumentIdType = instrumentIdType;
+            QuoteConvention = quoteConvention;
+            QuoteType = quoteType;
+            PriceSource = priceSource;
             CustomInit();
         }
 
@@ -55,23 +56,28 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "quoteId")]
-        public QuoteId QuoteId { get; set; }
+        [JsonProperty(PropertyName = "instrumentId")]
+        public string InstrumentId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "metricValue")]
-        public MetricValue MetricValue { get; set; }
+        [JsonProperty(PropertyName = "instrumentIdType")]
+        public string InstrumentIdType { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "effectiveAtDate")]
-        public System.DateTimeOffset? EffectiveAtDate { get; set; }
+        [JsonProperty(PropertyName = "quoteConvention")]
+        public string QuoteConvention { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "asAtDate")]
-        public System.DateTimeOffset? AsAtDate { get; set; }
+        [JsonProperty(PropertyName = "quoteType")]
+        public string QuoteType { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "priceSource")]
+        public string PriceSource { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -81,17 +87,21 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (QuoteId == null)
+            if (InstrumentId == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentId");
             }
-            if (MetricValue == null)
+            if (InstrumentIdType == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentIdType");
             }
-            if (QuoteId != null)
+            if (QuoteConvention == null)
             {
-                QuoteId.Validate();
+                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteConvention");
+            }
+            if (QuoteType == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteType");
             }
         }
     }
