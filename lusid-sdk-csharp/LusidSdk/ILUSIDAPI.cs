@@ -675,8 +675,11 @@ namespace Finbourne
         /// <param name='code'>
         /// The code of the corporate action source
         /// </param>
-        /// <param name='effectiveAt'>
-        /// Optional. The effective date of the data
+        /// <param name='fromEffectiveAt'>
+        /// Optional. The start effective date of the data range
+        /// </param>
+        /// <param name='toEffectiveAt'>
+        /// Optional. The end effective date of the data range
         /// </param>
         /// <param name='asAt'>
         /// Optional. The AsAt date of the data
@@ -701,7 +704,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert corporate actions

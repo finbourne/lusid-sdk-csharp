@@ -1632,8 +1632,11 @@ namespace Finbourne
         /// <param name='code'>
         /// The code of the corporate action source
         /// </param>
-        /// <param name='effectiveAt'>
-        /// Optional. The effective date of the data
+        /// <param name='fromEffectiveAt'>
+        /// Optional. The start effective date of the data range
+        /// </param>
+        /// <param name='toEffectiveAt'>
+        /// Optional. The end effective date of the data range
         /// </param>
         /// <param name='asAt'>
         /// Optional. The AsAt date of the data
@@ -1673,7 +1676,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfCorporateAction>> GetCorporateActionsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -1692,7 +1695,8 @@ namespace Finbourne
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("code", code);
-                tracingParameters.Add("effectiveAt", effectiveAt);
+                tracingParameters.Add("fromEffectiveAt", fromEffectiveAt);
+                tracingParameters.Add("toEffectiveAt", toEffectiveAt);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
@@ -1707,9 +1711,13 @@ namespace Finbourne
             _url = _url.Replace("{scope}", System.Uri.EscapeDataString(scope));
             _url = _url.Replace("{code}", System.Uri.EscapeDataString(code));
             List<string> _queryParameters = new List<string>();
-            if (effectiveAt != null)
+            if (fromEffectiveAt != null)
             {
-                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("fromEffectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(fromEffectiveAt, SerializationSettings).Trim('"'))));
+            }
+            if (toEffectiveAt != null)
+            {
+                _queryParameters.Add(string.Format("toEffectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(toEffectiveAt, SerializationSettings).Trim('"'))));
             }
             if (asAt != null)
             {
