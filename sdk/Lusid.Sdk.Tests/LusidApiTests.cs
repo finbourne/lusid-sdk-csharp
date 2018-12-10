@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Tests
 
             var upsertResponse =_instrumentsApi.UpsertInstruments(instruments.ToDictionary(
                 k => k.Figi,
-                v => new UpsertInstrumentRequest(
+                v => new InstrumentDefinition(
                     Name: v.Name,
                     Identifiers: new Dictionary<string, string> {["Figi"] = v.Figi}
                 )
