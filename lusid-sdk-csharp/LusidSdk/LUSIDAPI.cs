@@ -3509,7 +3509,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpMessagesAsync(IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpMessagesAsync(IDictionary<string, InstrumentDefinition> requests = default(IDictionary<string, InstrumentDefinition>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (requests != null)
             {
@@ -3960,7 +3960,7 @@ namespace Finbourne
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 201)
+            if ((int)_statusCode != 200)
             {
                 var ex = new ErrorResponseException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -3994,7 +3994,7 @@ namespace Finbourne
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
-            if ((int)_statusCode == 201)
+            if ((int)_statusCode == 200)
             {
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
@@ -4188,20 +4188,23 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Find externally mastered instruments
+        /// Search instrument definition
         /// </summary>
         /// <remarks>
-        /// Search for a set of instruments from an external instrument mastering
-        /// service
+        /// Get a collection of instruments by a set of identifiers. Optionally, it is
+        /// possible to decorate each instrument with specified property data.
         /// </remarks>
-        /// <param name='codeType'>
-        /// The type of codes to search for. Possible values include: 'Undefined',
-        /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-        /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-        /// 'Wertpapier', 'RIC', 'QuotePermId'
+        /// <param name='aliases'>
+        /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
         /// </param>
-        /// <param name='codes'>
-        /// The collection of instruments to search for
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the query
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the query
+        /// </param>
+        /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the instrument
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4218,8 +4221,18 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<FindInstrumentsResponse>> FindExternalInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfInstrument>> FindInstrumentsWithHttpMessagesAsync(IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (aliases != null)
+            {
+                foreach (var element in aliases)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4227,18 +4240,38 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("codeType", codeType);
-                tracingParameters.Add("codes", codes);
+                tracingParameters.Add("aliases", aliases);
+                tracingParameters.Add("effectiveAt", effectiveAt);
+                tracingParameters.Add("asAt", asAt);
+                tracingParameters.Add("instrumentPropertyKeys", instrumentPropertyKeys);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "FindExternalInstruments", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "FindInstruments", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/$find").ToString();
             List<string> _queryParameters = new List<string>();
-            if (codeType != null)
+            if (effectiveAt != null)
             {
-                _queryParameters.Add(string.Format("codeType={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(codeType, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+            }
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
+            }
+            if (instrumentPropertyKeys != null)
+            {
+                if (instrumentPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in instrumentPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {
@@ -4266,9 +4299,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(codes != null)
+            if(aliases != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(codes, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(aliases, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -4322,7 +4355,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<FindInstrumentsResponse>();
+            var _result = new HttpOperationResponse<ResourceListOfInstrument>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4331,7 +4364,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<FindInstrumentsResponse>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfInstrument>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4548,23 +4581,20 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Search instrument definition
+        /// Find externally mastered instruments
         /// </summary>
         /// <remarks>
-        /// Get a collection of instruments by a set of identifiers. Optionally, it is
-        /// possible to decorate each instrument with specified property data.
+        /// Search for a set of instruments from an external instrument mastering
+        /// service
         /// </remarks>
-        /// <param name='aliases'>
-        /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
+        /// <param name='codeType'>
+        /// The type of codes to search for. Possible values include: 'Undefined',
+        /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+        /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+        /// 'Wertpapier', 'RIC', 'QuotePermId'
         /// </param>
-        /// <param name='effectiveAt'>
-        /// Optional. The effective date of the query
-        /// </param>
-        /// <param name='asAt'>
-        /// Optional. The AsAt date of the query
-        /// </param>
-        /// <param name='instrumentPropertyKeys'>
-        /// Optional. Keys of the properties to be decorated on to the instrument
+        /// <param name='codes'>
+        /// The collection of instruments to search for
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4581,18 +4611,8 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfInstrument>> FindInstrumentsWithHttpMessagesAsync(IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<MatchInstrumentsResponse>> MatchInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (aliases != null)
-            {
-                foreach (var element in aliases)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4600,38 +4620,18 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("aliases", aliases);
-                tracingParameters.Add("effectiveAt", effectiveAt);
-                tracingParameters.Add("asAt", asAt);
-                tracingParameters.Add("instrumentPropertyKeys", instrumentPropertyKeys);
+                tracingParameters.Add("codeType", codeType);
+                tracingParameters.Add("codes", codes);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "FindInstruments", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "MatchInstruments", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/$query").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/$match").ToString();
             List<string> _queryParameters = new List<string>();
-            if (effectiveAt != null)
+            if (codeType != null)
             {
-                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
-            }
-            if (asAt != null)
-            {
-                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
-            }
-            if (instrumentPropertyKeys != null)
-            {
-                if (instrumentPropertyKeys.Count == 0)
-                {
-                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
-                }
-                else
-                {
-                    foreach (var _item in instrumentPropertyKeys)
-                    {
-                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
-                    }
-                }
+                _queryParameters.Add(string.Format("codeType={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(codeType, SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -4659,9 +4659,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(aliases != null)
+            if(codes != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(aliases, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(codes, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -4715,7 +4715,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfInstrument>();
+            var _result = new HttpOperationResponse<MatchInstrumentsResponse>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4724,7 +4724,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfInstrument>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<MatchInstrumentsResponse>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -11093,7 +11093,7 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values include:
         /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-        /// 'Instrument'
+        /// 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the requested property
@@ -11279,7 +11279,7 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values include:
         /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-        /// 'Instrument'
+        /// 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be updated
@@ -11460,7 +11460,7 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values include:
         /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-        /// 'Instrument'
+        /// 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be deleted

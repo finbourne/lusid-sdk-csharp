@@ -28,22 +28,24 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class UpsertInstrumentRequest
+    public partial class InstrumentDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the UpsertInstrumentRequest class.
+        /// Initializes a new instance of the InstrumentDefinition class.
         /// </summary>
-        public UpsertInstrumentRequest()
+        public InstrumentDefinition()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UpsertInstrumentRequest class.
+        /// Initializes a new instance of the InstrumentDefinition class.
         /// </summary>
         /// <param name="name">Required. The name of the instrument</param>
         /// <param name="identifiers">Required. A set of identifiers that
         /// uniquely identify this instrument (e.g FIGI, RIC)</param>
+        /// <param name="properties">Optional. A collection of properties to
+        /// upsert on the instrument.</param>
         /// <param name="lookThroughPortfolioId">Optional. The identifier of
         /// the portfolio that represents this instrument</param>
         /// <param name="definition">Expanded instrument definition - in the
@@ -53,10 +55,11 @@ namespace Finbourne.Models
         /// transparently use
         /// vendor libraries it must conform to a format that LUSID
         /// understands.</param>
-        public UpsertInstrumentRequest(string name, IDictionary<string, string> identifiers, ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentEconomicDefinition definition = default(InstrumentEconomicDefinition))
+        public InstrumentDefinition(string name, IDictionary<string, string> identifiers, IList<UpsertInstrumentPropertyRequest> properties = default(IList<UpsertInstrumentPropertyRequest>), ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentEconomicDefinition definition = default(InstrumentEconomicDefinition))
         {
             Name = name;
             Identifiers = identifiers;
+            Properties = properties;
             LookThroughPortfolioId = lookThroughPortfolioId;
             Definition = definition;
             CustomInit();
@@ -79,6 +82,13 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "identifiers")]
         public IDictionary<string, string> Identifiers { get; set; }
+
+        /// <summary>
+        /// Gets optional. A collection of properties to upsert on the
+        /// instrument.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties")]
+        public IList<UpsertInstrumentPropertyRequest> Properties { get; private set; }
 
         /// <summary>
         /// Gets or sets optional. The identifier of the portfolio that

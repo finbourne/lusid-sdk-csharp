@@ -47,7 +47,7 @@ namespace Finbourne.Models
         /// <param name="deletedProperties">A collection of property keys to
         /// remove property values from, if any are set for the
         /// instrument</param>
-        public InstrumentProperty(string lusidInstrumentId = default(string), IList<CreateInstrumentPropertyRequest> properties = default(IList<CreateInstrumentPropertyRequest>), IList<DeleteInstrumentPropertyRequest> deletedProperties = default(IList<DeleteInstrumentPropertyRequest>))
+        public InstrumentProperty(string lusidInstrumentId = default(string), IList<UpsertInstrumentPropertyRequest> properties = default(IList<UpsertInstrumentPropertyRequest>), IList<DeleteInstrumentPropertyRequest> deletedProperties = default(IList<DeleteInstrumentPropertyRequest>))
         {
             LusidInstrumentId = lusidInstrumentId;
             Properties = properties;
@@ -70,7 +70,7 @@ namespace Finbourne.Models
         /// Gets or sets a collection of properties to create or update
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<CreateInstrumentPropertyRequest> Properties { get; set; }
+        public IList<UpsertInstrumentPropertyRequest> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets a collection of property keys to remove property

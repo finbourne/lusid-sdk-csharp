@@ -23,33 +23,31 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class FindInstrumentsResponse
+    public partial class UpsertInstrumentPropertyRequest
     {
         /// <summary>
-        /// Initializes a new instance of the FindInstrumentsResponse class.
+        /// Initializes a new instance of the UpsertInstrumentPropertyRequest
+        /// class.
         /// </summary>
-        public FindInstrumentsResponse()
+        public UpsertInstrumentPropertyRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the FindInstrumentsResponse class.
+        /// Initializes a new instance of the UpsertInstrumentPropertyRequest
+        /// class.
         /// </summary>
-        /// <param name="values">A dictionary of instruments that are keyed by
-        /// the search criteria supplied in the
-        /// matching request. If no match was found, then there will be no
-        /// values in the collection
-        /// for that key.</param>
-        public FindInstrumentsResponse(string href = default(string), IDictionary<string, IList<InstrumentMatch>> values = default(IDictionary<string, IList<InstrumentMatch>>), IList<Link> links = default(IList<Link>))
+        /// <param name="instrumentPropertyKey">The property key of the
+        /// property, e.g, 'Instrument/default/Isin'</param>
+        /// <param name="property">The value of the property, which must not be
+        /// empty or null. e.g, 'US0378331005'</param>
+        public UpsertInstrumentPropertyRequest(string instrumentPropertyKey = default(string), PropertyValue property = default(PropertyValue))
         {
-            Href = href;
-            Values = values;
-            Links = links;
+            InstrumentPropertyKey = instrumentPropertyKey;
+            Property = property;
             CustomInit();
         }
 
@@ -59,24 +57,18 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the property key of the property, e.g,
+        /// 'Instrument/default/Isin'
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        [JsonProperty(PropertyName = "instrumentPropertyKey")]
+        public string InstrumentPropertyKey { get; set; }
 
         /// <summary>
-        /// Gets or sets a dictionary of instruments that are keyed by the
-        /// search criteria supplied in the
-        /// matching request. If no match was found, then there will be no
-        /// values in the collection
-        /// for that key.
+        /// Gets or sets the value of the property, which must not be empty or
+        /// null. e.g, 'US0378331005'
         /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IDictionary<string, IList<InstrumentMatch>> Values { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "links")]
-        public IList<Link> Links { get; set; }
+        [JsonProperty(PropertyName = "property")]
+        public PropertyValue Property { get; set; }
 
     }
 }

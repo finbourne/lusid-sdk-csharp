@@ -978,7 +978,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpMessagesAsync(IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpMessagesAsync(IDictionary<string, InstrumentDefinition> requests = default(IDictionary<string, InstrumentDefinition>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get instrument definition
@@ -1074,21 +1074,26 @@ namespace Finbourne
         Task<HttpOperationResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpMessagesAsync(string type, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Find externally mastered instruments
+        /// Search instrument definition
         /// </summary>
         /// <remarks>
-        /// Search for a set of instruments from an external instrument
-        /// mastering service
+        /// Get a collection of instruments by a set of identifiers.
+        /// Optionally, it is possible to decorate each instrument with
+        /// specified property data.
         /// </remarks>
-        /// <param name='codeType'>
-        /// The type of codes to search for. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// <param name='aliases'>
+        /// The list of market aliases (e.g ISIN, Ticker) to find instruments
+        /// by.
         /// </param>
-        /// <param name='codes'>
-        /// The collection of instruments to search for
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the query
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the query
+        /// </param>
+        /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the
+        /// instrument
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1096,7 +1101,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<FindInstrumentsResponse>> FindExternalInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfInstrument>> FindInstrumentsWithHttpMessagesAsync(IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get instrument definition
@@ -1135,26 +1140,21 @@ namespace Finbourne
         Task<HttpOperationResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Search instrument definition
+        /// Find externally mastered instruments
         /// </summary>
         /// <remarks>
-        /// Get a collection of instruments by a set of identifiers.
-        /// Optionally, it is possible to decorate each instrument with
-        /// specified property data.
+        /// Search for a set of instruments from an external instrument
+        /// mastering service
         /// </remarks>
-        /// <param name='aliases'>
-        /// The list of market aliases (e.g ISIN, Ticker) to find instruments
-        /// by.
+        /// <param name='codeType'>
+        /// The type of codes to search for. Possible values include:
+        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
+        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
+        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
+        /// 'QuotePermId'
         /// </param>
-        /// <param name='effectiveAt'>
-        /// Optional. The effective date of the query
-        /// </param>
-        /// <param name='asAt'>
-        /// Optional. The AsAt date of the query
-        /// </param>
-        /// <param name='instrumentPropertyKeys'>
-        /// Optional. Keys of the properties to be decorated on to the
-        /// instrument
+        /// <param name='codes'>
+        /// The collection of instruments to search for
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1162,7 +1162,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfInstrument>> FindInstrumentsWithHttpMessagesAsync(IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<MatchInstrumentsResponse>> MatchInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert instrument properties
@@ -2117,7 +2117,7 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values
         /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType', 'Instrument'
+        /// 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the requested property
@@ -2147,7 +2147,7 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values
         /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType', 'Instrument'
+        /// 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be updated
@@ -2175,7 +2175,7 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values
         /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType', 'Instrument'
+        /// 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be deleted

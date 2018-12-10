@@ -979,7 +979,7 @@ namespace Finbourne
             /// <param name='requests'>
             /// The instrument definitions
             /// </param>
-            public static UpsertInstrumentsResponse UpsertInstruments(this ILUSIDAPI operations, IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>))
+            public static UpsertInstrumentsResponse UpsertInstruments(this ILUSIDAPI operations, IDictionary<string, InstrumentDefinition> requests = default(IDictionary<string, InstrumentDefinition>))
             {
                 return operations.UpsertInstrumentsAsync(requests).GetAwaiter().GetResult();
             }
@@ -1009,7 +1009,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(this ILUSIDAPI operations, IDictionary<string, UpsertInstrumentRequest> requests = default(IDictionary<string, UpsertInstrumentRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(this ILUSIDAPI operations, IDictionary<string, InstrumentDefinition> requests = default(IDictionary<string, InstrumentDefinition>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertInstrumentsWithHttpMessagesAsync(requests, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1214,54 +1214,60 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Find externally mastered instruments
+            /// Search instrument definition
             /// </summary>
             /// <remarks>
-            /// Search for a set of instruments from an external instrument mastering
-            /// service
+            /// Get a collection of instruments by a set of identifiers. Optionally, it is
+            /// possible to decorate each instrument with specified property data.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of codes to search for. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='aliases'>
+            /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
             /// </param>
-            /// <param name='codes'>
-            /// The collection of instruments to search for
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
             /// </param>
-            public static FindInstrumentsResponse FindExternalInstruments(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>))
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the query
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Optional. Keys of the properties to be decorated on to the instrument
+            /// </param>
+            public static ResourceListOfInstrument FindInstruments(this ILUSIDAPI operations, IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.FindExternalInstrumentsAsync(codeType, codes).GetAwaiter().GetResult();
+                return operations.FindInstrumentsAsync(aliases, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Find externally mastered instruments
+            /// Search instrument definition
             /// </summary>
             /// <remarks>
-            /// Search for a set of instruments from an external instrument mastering
-            /// service
+            /// Get a collection of instruments by a set of identifiers. Optionally, it is
+            /// possible to decorate each instrument with specified property data.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of codes to search for. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='aliases'>
+            /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
             /// </param>
-            /// <param name='codes'>
-            /// The collection of instruments to search for
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the query
+            /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Optional. Keys of the properties to be decorated on to the instrument
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<FindInstrumentsResponse> FindExternalInstrumentsAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfInstrument> FindInstrumentsAsync(this ILUSIDAPI operations, IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.FindExternalInstrumentsWithHttpMessagesAsync(codeType, codes, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.FindInstrumentsWithHttpMessagesAsync(aliases, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1340,60 +1346,54 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Search instrument definition
+            /// Find externally mastered instruments
             /// </summary>
             /// <remarks>
-            /// Get a collection of instruments by a set of identifiers. Optionally, it is
-            /// possible to decorate each instrument with specified property data.
+            /// Search for a set of instruments from an external instrument mastering
+            /// service
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='aliases'>
-            /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
+            /// <param name='codeType'>
+            /// The type of codes to search for. Possible values include: 'Undefined',
+            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+            /// 'Wertpapier', 'RIC', 'QuotePermId'
             /// </param>
-            /// <param name='effectiveAt'>
-            /// Optional. The effective date of the query
+            /// <param name='codes'>
+            /// The collection of instruments to search for
             /// </param>
-            /// <param name='asAt'>
-            /// Optional. The AsAt date of the query
-            /// </param>
-            /// <param name='instrumentPropertyKeys'>
-            /// Optional. Keys of the properties to be decorated on to the instrument
-            /// </param>
-            public static ResourceListOfInstrument FindInstruments(this ILUSIDAPI operations, IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static MatchInstrumentsResponse MatchInstruments(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>))
             {
-                return operations.FindInstrumentsAsync(aliases, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+                return operations.MatchInstrumentsAsync(codeType, codes).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Search instrument definition
+            /// Find externally mastered instruments
             /// </summary>
             /// <remarks>
-            /// Get a collection of instruments by a set of identifiers. Optionally, it is
-            /// possible to decorate each instrument with specified property data.
+            /// Search for a set of instruments from an external instrument mastering
+            /// service
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='aliases'>
-            /// The list of market aliases (e.g ISIN, Ticker) to find instruments by.
+            /// <param name='codeType'>
+            /// The type of codes to search for. Possible values include: 'Undefined',
+            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
+            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
+            /// 'Wertpapier', 'RIC', 'QuotePermId'
             /// </param>
-            /// <param name='effectiveAt'>
-            /// Optional. The effective date of the query
-            /// </param>
-            /// <param name='asAt'>
-            /// Optional. The AsAt date of the query
-            /// </param>
-            /// <param name='instrumentPropertyKeys'>
-            /// Optional. Keys of the properties to be decorated on to the instrument
+            /// <param name='codes'>
+            /// The collection of instruments to search for
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfInstrument> FindInstrumentsAsync(this ILUSIDAPI operations, IList<Property> aliases = default(IList<Property>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<MatchInstrumentsResponse> MatchInstrumentsAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.FindInstrumentsWithHttpMessagesAsync(aliases, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.MatchInstrumentsWithHttpMessagesAsync(codeType, codes, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3497,7 +3497,7 @@ namespace Finbourne
             /// <param name='domain'>
             /// The Property Domain of the requested property. Possible values include:
             /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument'
+            /// 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the requested property
@@ -3525,7 +3525,7 @@ namespace Finbourne
             /// <param name='domain'>
             /// The Property Domain of the requested property. Possible values include:
             /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument'
+            /// 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the requested property
@@ -3561,7 +3561,7 @@ namespace Finbourne
             /// <param name='domain'>
             /// The Property Domain of the property being updated. Possible values include:
             /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument'
+            /// 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be updated
@@ -3591,7 +3591,7 @@ namespace Finbourne
             /// <param name='domain'>
             /// The Property Domain of the property being updated. Possible values include:
             /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument'
+            /// 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be updated
@@ -3625,7 +3625,7 @@ namespace Finbourne
             /// <param name='domain'>
             /// The Property Domain of the property to be deleted. Possible values include:
             /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument'
+            /// 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be deleted
@@ -3650,7 +3650,7 @@ namespace Finbourne
             /// <param name='domain'>
             /// The Property Domain of the property to be deleted. Possible values include:
             /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument'
+            /// 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be deleted
