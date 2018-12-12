@@ -90,7 +90,11 @@ namespace Finbourne.Models
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
         /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
         /// 'InvalidPropertyValueAssignment',
-        /// 'PortfolioDoesNotExistAtGivenDate'</param>
+        /// 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure',
+        /// 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
+        /// 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+        /// 'CashFlowsFailure', 'ResultRetrievalFailure',
+        /// 'ResultProcessingFailure', 'VendorResultProcessingFailure'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -163,7 +167,11 @@ namespace Finbourne.Models
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
         /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
         /// 'InvalidPropertyValueAssignment',
-        /// 'PortfolioDoesNotExistAtGivenDate'
+        /// 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure',
+        /// 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
+        /// 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+        /// 'CashFlowsFailure', 'ResultRetrievalFailure',
+        /// 'ResultProcessingFailure', 'VendorResultProcessingFailure'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

@@ -40,11 +40,14 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the Results class.
         /// </summary>
-        public Results(Version version = default(Version), string href = default(string), object values = default(object), IList<Link> links = default(IList<Link>))
+        /// <param name="format">Possible values include: 'DataReader',
+        /// 'Portfolio'</param>
+        public Results(Version version = default(Version), string href = default(string), string values = default(string), string format = default(string), IList<Link> links = default(IList<Link>))
         {
             Version = version;
             Href = href;
             Values = values;
+            Format = format;
             Links = links;
             CustomInit();
         }
@@ -67,7 +70,13 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public object Values { get; set; }
+        public string Values { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'DataReader', 'Portfolio'
+        /// </summary>
+        [JsonProperty(PropertyName = "format")]
+        public string Format { get; set; }
 
         /// <summary>
         /// </summary>

@@ -3372,6 +3372,80 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Reconcile valuations performed on one or two sets of holdings using one or
+            /// two configuration recipes.
+            /// </summary>
+            /// <remarks>
+            /// Perform valuation of one or two set of holdings using different one or two
+            /// configuration recipes. Produce a breakdown of the resulting differences in
+            /// valuation.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// The specifications of the inputs to the reconciliation
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            public static ResourceListOfReconciliationBreak ReconcileValuation(this ILUSIDAPI operations, ValuationsReconciliationRequest request = default(ValuationsReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.ReconcileValuationAsync(request, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Reconcile valuations performed on one or two sets of holdings using one or
+            /// two configuration recipes.
+            /// </summary>
+            /// <remarks>
+            /// Perform valuation of one or two set of holdings using different one or two
+            /// configuration recipes. Produce a breakdown of the resulting differences in
+            /// valuation.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='request'>
+            /// The specifications of the inputs to the reconciliation
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync(this ILUSIDAPI operations, ValuationsReconciliationRequest request = default(ValuationsReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ReconcileValuationWithHttpMessagesAsync(request, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get multiple property definitions
             /// </summary>
             /// <remarks>

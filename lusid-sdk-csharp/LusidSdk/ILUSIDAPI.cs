@@ -500,6 +500,16 @@ namespace Finbourne
     /// | &lt;a name="231"&gt;231&lt;/a&gt;|TransactionTypeDuplication|  |
     /// | &lt;a name="232"&gt;232&lt;/a&gt;|PortfolioDoesNotExistAtGivenDate|
     /// |
+    /// | &lt;a name="301"&gt;301&lt;/a&gt;|DependenciesFailure|  |
+    /// | &lt;a name="304"&gt;304&lt;/a&gt;|PortfolioPreprocessFailure|  |
+    /// | &lt;a name="310"&gt;310&lt;/a&gt;|ValuationEngineFailure|  |
+    /// | &lt;a name="311"&gt;311&lt;/a&gt;|TaskFactoryFailure|  |
+    /// | &lt;a name="312"&gt;312&lt;/a&gt;|TaskEvaluationFailure|  |
+    /// | &lt;a name="350"&gt;350&lt;/a&gt;|InstrumentFailure|  |
+    /// | &lt;a name="351"&gt;351&lt;/a&gt;|CashFlowsFailure|  |
+    /// | &lt;a name="370"&gt;370&lt;/a&gt;|ResultRetrievalFailure|  |
+    /// | &lt;a name="371"&gt;371&lt;/a&gt;|ResultProcessingFailure|  |
+    /// | &lt;a name="372"&gt;372&lt;/a&gt;|VendorResultProcessingFailure|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -2055,6 +2065,40 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsWithHttpMessagesAsync(PortfoliosReconciliationRequest request = default(PortfoliosReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Reconcile valuations performed on one or two sets of holdings using
+        /// one or two configuration recipes.
+        /// </summary>
+        /// <remarks>
+        /// Perform valuation of one or two set of holdings using different one
+        /// or two configuration recipes. Produce a breakdown of the resulting
+        /// differences in valuation.
+        /// </remarks>
+        /// <param name='request'>
+        /// The specifications of the inputs to the reconciliation
+        /// </param>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign
+        /// to denote descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to
+        /// this many.
+        /// </param>
+        /// <param name='filter'>
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfReconciliationBreak>> ReconcileValuationWithHttpMessagesAsync(ValuationsReconciliationRequest request = default(ValuationsReconciliationRequest), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get multiple property definitions
