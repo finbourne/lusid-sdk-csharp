@@ -44,7 +44,10 @@ namespace Finbourne.Models
         /// original request,
         /// but may include resolved as at time(s).</param>
         /// <param name="count">The total number of records returned in the
-        /// set</param>
+        /// set.
+        /// Note: If count is set by the func 'AddDynamicCounter', Count will
+        /// be zero until the values
+        /// are evaluated. This is due to lazy evaluation.</param>
         public ResourceListOfValueType(IList<string> values = default(IList<string>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
             Values = values;
@@ -73,7 +76,10 @@ namespace Finbourne.Models
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or sets the total number of records returned in the set
+        /// Gets or sets the total number of records returned in the set.
+        /// Note: If count is set by the func 'AddDynamicCounter', Count will
+        /// be zero until the values
+        /// are evaluated. This is due to lazy evaluation.
         /// </summary>
         [JsonProperty(PropertyName = "count")]
         public int? Count { get; set; }
