@@ -38,12 +38,25 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreateResults class.
         /// </summary>
-        public CreateResults(object data = default(object), string scope = default(string), string key = default(string), System.DateTimeOffset? date = default(System.DateTimeOffset?))
+        /// <param name="key">The key is a unique point in 'run' space. For a
+        /// given scope and time point, one would wish to
+        /// identify a unique result set for a given recipe. In essence, this
+        /// key is the unique identifier for the tuple (recipe,portfolios)
+        /// However, that only matters when one is trying to use it
+        /// automatically to retrieve them.
+        /// A question becomes whether we would wish to store groups of
+        /// protfolio results together, or only single ones.
+        /// Also, whether we would accept uploading of groups and then split
+        /// them apart.</param>
+        /// <param name="format">Possible values include: 'DataReader',
+        /// 'Portfolio'</param>
+        public CreateResults(string data = default(string), string scope = default(string), string key = default(string), System.DateTimeOffset? date = default(System.DateTimeOffset?), string format = default(string))
         {
             Data = data;
             Scope = scope;
             Key = key;
             Date = date;
+            Format = format;
             CustomInit();
         }
 
@@ -55,7 +68,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "data")]
-        public object Data { get; set; }
+        public string Data { get; set; }
 
         /// <summary>
         /// </summary>
@@ -63,6 +76,16 @@ namespace Finbourne.Models
         public string Scope { get; set; }
 
         /// <summary>
+        /// Gets or sets the key is a unique point in 'run' space. For a given
+        /// scope and time point, one would wish to
+        /// identify a unique result set for a given recipe. In essence, this
+        /// key is the unique identifier for the tuple (recipe,portfolios)
+        /// However, that only matters when one is trying to use it
+        /// automatically to retrieve them.
+        /// A question becomes whether we would wish to store groups of
+        /// protfolio results together, or only single ones.
+        /// Also, whether we would accept uploading of groups and then split
+        /// them apart.
         /// </summary>
         [JsonProperty(PropertyName = "key")]
         public string Key { get; set; }
@@ -71,6 +94,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "date")]
         public System.DateTimeOffset? Date { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'DataReader', 'Portfolio'
+        /// </summary>
+        [JsonProperty(PropertyName = "format")]
+        public string Format { get; set; }
 
     }
 }

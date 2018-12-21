@@ -51,14 +51,14 @@ namespace Finbourne.Models
         /// this will remove the identifier completely.
         /// Note that, if an instrument only has one identifier, it is an error
         /// to remove this.</param>
-        /// <param name="effectiveFrom">The date at which the identifier
+        /// <param name="effectiveAt">The date at which the identifier
         /// modification is to be effective from. If unset, will
         /// default to `now`.</param>
-        public UpdateInstrumentIdentifierRequest(string type = default(string), string value = default(string), System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?))
+        public UpdateInstrumentIdentifierRequest(string type = default(string), string value = default(string), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
         {
             Type = type;
             Value = value;
-            EffectiveFrom = effectiveFrom;
+            EffectiveAt = effectiveAt;
             CustomInit();
         }
 
@@ -93,8 +93,8 @@ namespace Finbourne.Models
         /// effective from. If unset, will
         /// default to `now`.
         /// </summary>
-        [JsonProperty(PropertyName = "effectiveFrom")]
-        public System.DateTimeOffset? EffectiveFrom { get; set; }
+        [JsonProperty(PropertyName = "effectiveAt")]
+        public System.DateTimeOffset? EffectiveAt { get; set; }
 
     }
 }

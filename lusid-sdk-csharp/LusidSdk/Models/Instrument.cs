@@ -49,11 +49,9 @@ namespace Finbourne.Models
         /// <param name="properties">Any requested instrument properties. If no
         /// property can be found for the instrument, then
         /// a value of 'Unknown' will be returned</param>
-        /// <param name="marketIdentifierCode">The market identifier of the
-        /// instrument (if any).</param>
         /// <param name="lookthroughPortfolio">The lookthrough portfolio of the
         /// instrument (if any).</param>
-        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), string marketIdentifierCode = default(string), ResourceId lookthroughPortfolio = default(ResourceId), IList<Link> links = default(IList<Link>))
+        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), ResourceId lookthroughPortfolio = default(ResourceId), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             LusidInstrumentId = lusidInstrumentId;
@@ -61,7 +59,6 @@ namespace Finbourne.Models
             Name = name;
             Identifiers = identifiers;
             Properties = properties;
-            MarketIdentifierCode = marketIdentifierCode;
             LookthroughPortfolio = lookthroughPortfolio;
             Links = links;
             CustomInit();
@@ -109,12 +106,6 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
         public IList<Property> Properties { get; set; }
-
-        /// <summary>
-        /// Gets or sets the market identifier of the instrument (if any).
-        /// </summary>
-        [JsonProperty(PropertyName = "marketIdentifierCode")]
-        public string MarketIdentifierCode { get; set; }
 
         /// <summary>
         /// Gets or sets the lookthrough portfolio of the instrument (if any).
