@@ -27,33 +27,32 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class UpsertInstrumentPropertyRequest
+    /// <summary>
+    /// A collection of instrument search results
+    /// </summary>
+    public partial class InstrumentMatch
     {
         /// <summary>
-        /// Initializes a new instance of the UpsertInstrumentPropertyRequest
-        /// class.
+        /// Initializes a new instance of the InstrumentMatch class.
         /// </summary>
-        public UpsertInstrumentPropertyRequest()
+        public InstrumentMatch()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UpsertInstrumentPropertyRequest
-        /// class.
+        /// Initializes a new instance of the InstrumentMatch class.
         /// </summary>
-        /// <param name="lusidInstrumentId">Unique instrument
-        /// identifier</param>
-        /// <param name="properties">A collection of properties to create or
-        /// update</param>
-        /// <param name="deletedProperties">A collection of property keys to
-        /// remove property values from, if any are set for the
-        /// instrument</param>
-        public UpsertInstrumentPropertyRequest(string lusidInstrumentId = default(string), IList<InstrumentProperty> properties = default(IList<InstrumentProperty>), IList<DeleteInstrumentPropertyRequest> deletedProperties = default(IList<DeleteInstrumentPropertyRequest>))
+        /// <param name="masteredInstruments">A collection of instruments that
+        /// have met some criteria that have been previously
+        /// mastered within LUSID</param>
+        /// <param name="externalInstruments">A collection of instruments that
+        /// have met some criteria, but that have not been
+        /// mastered within LUSID.</param>
+        public InstrumentMatch(IList<InstrumentDefinition> masteredInstruments = default(IList<InstrumentDefinition>), IList<InstrumentDefinition> externalInstruments = default(IList<InstrumentDefinition>))
         {
-            LusidInstrumentId = lusidInstrumentId;
-            Properties = properties;
-            DeletedProperties = deletedProperties;
+            MasteredInstruments = masteredInstruments;
+            ExternalInstruments = externalInstruments;
             CustomInit();
         }
 
@@ -63,23 +62,20 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique instrument identifier
+        /// Gets or sets a collection of instruments that have met some
+        /// criteria that have been previously
+        /// mastered within LUSID
         /// </summary>
-        [JsonProperty(PropertyName = "lusidInstrumentId")]
-        public string LusidInstrumentId { get; set; }
+        [JsonProperty(PropertyName = "masteredInstruments")]
+        public IList<InstrumentDefinition> MasteredInstruments { get; set; }
 
         /// <summary>
-        /// Gets or sets a collection of properties to create or update
+        /// Gets or sets a collection of instruments that have met some
+        /// criteria, but that have not been
+        /// mastered within LUSID.
         /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IList<InstrumentProperty> Properties { get; set; }
-
-        /// <summary>
-        /// Gets or sets a collection of property keys to remove property
-        /// values from, if any are set for the instrument
-        /// </summary>
-        [JsonProperty(PropertyName = "deletedProperties")]
-        public IList<DeleteInstrumentPropertyRequest> DeletedProperties { get; set; }
+        [JsonProperty(PropertyName = "externalInstruments")]
+        public IList<InstrumentDefinition> ExternalInstruments { get; set; }
 
     }
 }

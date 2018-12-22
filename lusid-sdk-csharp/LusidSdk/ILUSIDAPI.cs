@@ -150,7 +150,6 @@ namespace Finbourne
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | LusidInstrumentId|string|Unique instrument identifier |
     ///
     ///
     /// ## Portfolios
@@ -1196,7 +1195,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpMessagesAsync(IList<UpsertInstrumentPropertyRequest> instrumentProperties = default(IList<UpsertInstrumentPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get allowable instrument identifiers
@@ -2577,6 +2576,35 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ResourceListOfValueType>> GetValueTypesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search instruments
+        /// </summary>
+        /// <remarks>
+        /// Search through instruments that have been mastered in LUSID, and
+        /// optionally augment results with instruments from a symbology
+        /// service
+        /// </remarks>
+        /// <param name='symbols'>
+        /// A collection of instrument symbols to search for
+        /// </param>
+        /// <param name='masteredEffectiveAt'>
+        /// Optional. The effective date for searching mastered instruments. If
+        /// this is not set, then the current date is taken.
+        /// This parameter has no effect on instruments that have not been
+        /// mastered within LUSID.
+        /// </param>
+        /// <param name='masteredOnly'>
+        /// Optional. If set to true, only search over instruments that have
+        /// been mastered within LUSID. Default to false
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IList<InstrumentMatch>>> InstrumentsSearchWithHttpMessagesAsync(IList<InstrumentSearchProperty> symbols = default(IList<InstrumentSearchProperty>), System.DateTimeOffset? masteredEffectiveAt = default(System.DateTimeOffset?), bool? masteredOnly = false, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Search portfolio groups

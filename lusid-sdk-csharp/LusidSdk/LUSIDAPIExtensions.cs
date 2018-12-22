@@ -1418,7 +1418,7 @@ namespace Finbourne
             /// <param name='instrumentProperties'>
             /// The instrument property data
             /// </param>
-            public static UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>))
+            public static UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(this ILUSIDAPI operations, IList<UpsertInstrumentPropertyRequest> instrumentProperties = default(IList<UpsertInstrumentPropertyRequest>))
             {
                 return operations.UpsertInstrumentsPropertiesAsync(instrumentProperties).GetAwaiter().GetResult();
             }
@@ -1445,7 +1445,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(this ILUSIDAPI operations, IList<UpsertInstrumentPropertyRequest> instrumentProperties = default(IList<UpsertInstrumentPropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertInstrumentsPropertiesWithHttpMessagesAsync(instrumentProperties, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -4496,6 +4496,68 @@ namespace Finbourne
             public static async Task<ResourceListOfValueType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetValueTypesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Search instruments
+            /// </summary>
+            /// <remarks>
+            /// Search through instruments that have been mastered in LUSID, and optionally
+            /// augment results with instruments from a symbology service
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='symbols'>
+            /// A collection of instrument symbols to search for
+            /// </param>
+            /// <param name='masteredEffectiveAt'>
+            /// Optional. The effective date for searching mastered instruments. If this is
+            /// not set, then the current date is taken.
+            /// This parameter has no effect on instruments that have not been mastered
+            /// within LUSID.
+            /// </param>
+            /// <param name='masteredOnly'>
+            /// Optional. If set to true, only search over instruments that have been
+            /// mastered within LUSID. Default to false
+            /// </param>
+            public static IList<InstrumentMatch> InstrumentsSearch(this ILUSIDAPI operations, IList<InstrumentSearchProperty> symbols = default(IList<InstrumentSearchProperty>), System.DateTimeOffset? masteredEffectiveAt = default(System.DateTimeOffset?), bool? masteredOnly = false)
+            {
+                return operations.InstrumentsSearchAsync(symbols, masteredEffectiveAt, masteredOnly).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Search instruments
+            /// </summary>
+            /// <remarks>
+            /// Search through instruments that have been mastered in LUSID, and optionally
+            /// augment results with instruments from a symbology service
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='symbols'>
+            /// A collection of instrument symbols to search for
+            /// </param>
+            /// <param name='masteredEffectiveAt'>
+            /// Optional. The effective date for searching mastered instruments. If this is
+            /// not set, then the current date is taken.
+            /// This parameter has no effect on instruments that have not been mastered
+            /// within LUSID.
+            /// </param>
+            /// <param name='masteredOnly'>
+            /// Optional. If set to true, only search over instruments that have been
+            /// mastered within LUSID. Default to false
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<InstrumentMatch>> InstrumentsSearchAsync(this ILUSIDAPI operations, IList<InstrumentSearchProperty> symbols = default(IList<InstrumentSearchProperty>), System.DateTimeOffset? masteredEffectiveAt = default(System.DateTimeOffset?), bool? masteredOnly = false, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.InstrumentsSearchWithHttpMessagesAsync(symbols, masteredEffectiveAt, masteredOnly, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

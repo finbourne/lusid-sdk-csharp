@@ -25,24 +25,24 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class InstrumentProperty
+    public partial class InstrumentSearchProperty
     {
         /// <summary>
-        /// Initializes a new instance of the InstrumentProperty class.
+        /// Initializes a new instance of the InstrumentSearchProperty class.
         /// </summary>
-        public InstrumentProperty()
+        public InstrumentSearchProperty()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the InstrumentProperty class.
+        /// Initializes a new instance of the InstrumentSearchProperty class.
         /// </summary>
         /// <param name="key">The property key of the property, e.g,
         /// 'Instrument/default/Isin'</param>
         /// <param name="value">The value of the property, which must not be
         /// empty or null. e.g, 'US0378331005'</param>
-        public InstrumentProperty(string key = default(string), PropertyValue value = default(PropertyValue))
+        public InstrumentSearchProperty(string key = default(string), string value = default(string))
         {
             Key = key;
             Value = value;
@@ -66,7 +66,7 @@ namespace Finbourne.Models
         /// null. e.g, 'US0378331005'
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public PropertyValue Value { get; set; }
+        public string Value { get; set; }
 
     }
 }
