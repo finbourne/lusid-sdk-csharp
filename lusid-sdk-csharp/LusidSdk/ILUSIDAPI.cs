@@ -673,6 +673,77 @@ namespace Finbourne
         Task<HttpOperationResponse<AnalyticStore>> SetAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<InstrumentAnalytic> data = default(IList<InstrumentAnalytic>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Get corporate action sources
+        /// </summary>
+        /// <remarks>
+        /// Gets a list of all corporate action sources
+        /// </remarks>
+        /// <param name='effectiveAt'>
+        /// Optional. The start effective date of the data range
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
+        /// </param>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign
+        /// to denote descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to
+        /// this many
+        /// </param>
+        /// <param name='filter'>
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfCorporateActionSource>> ListCorporateActionSourcesWithHttpMessagesAsync(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create Corporate Action Source
+        /// </summary>
+        /// <remarks>
+        /// Attempt to create a corporate action source.
+        /// </remarks>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a corporate action source
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single corporate action source
+        /// </remarks>
+        /// <param name='scope'>
+        /// The Scope of the Corporate Action Source to be deleted
+        /// </param>
+        /// <param name='code'>
+        /// The Code of the Corporate Action Source to be deleted
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Optional. The start effective date of the data
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get corporate actions
         /// </summary>
         /// <remarks>

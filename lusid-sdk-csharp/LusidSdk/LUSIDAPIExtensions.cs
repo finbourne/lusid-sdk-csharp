@@ -332,6 +332,166 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Get corporate action sources
+            /// </summary>
+            /// <remarks>
+            /// Gets a list of all corporate action sources
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data range
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            public static ResourceListOfCorporateActionSource ListCorporateActionSources(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.ListCorporateActionSourcesAsync(effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get corporate action sources
+            /// </summary>
+            /// <remarks>
+            /// Gets a list of all corporate action sources
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data range
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListCorporateActionSourcesWithHttpMessagesAsync(effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Create Corporate Action Source
+            /// </summary>
+            /// <remarks>
+            /// Attempt to create a corporate action source.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static CorporateActionSource CreateCorporateActionSource(this ILUSIDAPI operations)
+            {
+                return operations.CreateCorporateActionSourceAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create Corporate Action Source
+            /// </summary>
+            /// <remarks>
+            /// Attempt to create a corporate action source.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<CorporateActionSource> CreateCorporateActionSourceAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateCorporateActionSourceWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a corporate action source
+            /// </summary>
+            /// <remarks>
+            /// Deletes a single corporate action source
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The Scope of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='code'>
+            /// The Code of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data
+            /// </param>
+            public static DeletedEntityResponse DeleteCorporateActionSource(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            {
+                return operations.DeleteCorporateActionSourceAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a corporate action source
+            /// </summary>
+            /// <remarks>
+            /// Deletes a single corporate action source
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The Scope of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='code'>
+            /// The Code of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteCorporateActionSourceWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get corporate actions
             /// </summary>
             /// <remarks>
