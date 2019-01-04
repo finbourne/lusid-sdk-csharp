@@ -499,6 +499,7 @@ namespace Finbourne
     /// | &lt;a name="231"&gt;231&lt;/a&gt;|TransactionTypeDuplication|  |
     /// | &lt;a name="232"&gt;232&lt;/a&gt;|PortfolioDoesNotExistAtGivenDate|
     /// |
+    /// | &lt;a name="233"&gt;233&lt;/a&gt;|QueryParserFailure|  |
     /// | &lt;a name="301"&gt;301&lt;/a&gt;|DependenciesFailure|  |
     /// | &lt;a name="304"&gt;304&lt;/a&gt;|PortfolioPreprocessFailure|  |
     /// | &lt;a name="310"&gt;310&lt;/a&gt;|ValuationEngineFailure|  |
@@ -509,6 +510,8 @@ namespace Finbourne
     /// | &lt;a name="370"&gt;370&lt;/a&gt;|ResultRetrievalFailure|  |
     /// | &lt;a name="371"&gt;371&lt;/a&gt;|ResultProcessingFailure|  |
     /// | &lt;a name="372"&gt;372&lt;/a&gt;|VendorResultProcessingFailure|  |
+    /// | &lt;a
+    /// name="373"&gt;373&lt;/a&gt;|CannotSupplyTimesWithPortfoliosQuery|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -1791,12 +1794,32 @@ namespace Finbourne
         Task<HttpOperationResponse<PortfolioGroup>> DeleteSubGroupFromGroupWithHttpMessagesAsync(string scope, string code, string subgroupScope, string subgroupCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// List portfolio scopes
+        /// List portfolios
         /// </summary>
         /// <remarks>
-        /// Lists all scopes that are either currently or have previously had
-        /// portfolios in them
+        /// List all portfolios matching the specified criteria.
+        ///
+        /// Example query syntax for the query parameter:
+        ///
+        /// - To see which portfolios have holdings in the specified
+        /// instruments:
+        ///
+        /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'),
+        /// ('Figi', 'BBG000BLNNH6'))
+        ///
+        /// * Note that if a query is specified then it is executed for the
+        /// current EffectiveAt and AsAt
+        /// Specifying EffectiveAt or AsAt in addition to the query is not
+        /// supported
+        /// Also note that copy/pasting above examples results in incorrect
+        /// single quote character
         /// </remarks>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
+        /// </param>
         /// <param name='sortBy'>
         /// Optional. Order the results by these fields. Use use the '-' sign
         /// to denote descending order e.g. -MyFieldName
@@ -1809,7 +1832,11 @@ namespace Finbourne
         /// this many.
         /// </param>
         /// <param name='filter'>
-        /// Filter to be applied to the list of scopes
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='query'>
+        /// Optional. Expression specifying the criteria that the returned
+        /// portfolios must meet
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1817,10 +1844,10 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfScope>> ListPortfolioScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// List portfolios
+        /// List portfolios for scope
         /// </summary>
         /// <remarks>
         /// List all the portfolios in the specified scope
@@ -1854,7 +1881,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get portfolio definition

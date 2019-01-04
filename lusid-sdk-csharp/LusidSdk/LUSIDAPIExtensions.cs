@@ -2774,14 +2774,32 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// List portfolio scopes
+            /// List portfolios
             /// </summary>
             /// <remarks>
-            /// Lists all scopes that are either currently or have previously had
-            /// portfolios in them
+            /// List all portfolios matching the specified criteria.
+            ///
+            /// Example query syntax for the query parameter:
+            ///
+            /// - To see which portfolios have holdings in the specified instruments:
+            ///
+            /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+            /// 'BBG000BLNNH6'))
+            ///
+            /// * Note that if a query is specified then it is executed for the current
+            /// EffectiveAt and AsAt
+            /// Specifying EffectiveAt or AsAt in addition to the query is not supported
+            /// Also note that copy/pasting above examples results in incorrect single
+            /// quote character
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -2795,22 +2813,44 @@ namespace Finbourne
             /// many.
             /// </param>
             /// <param name='filter'>
-            /// Filter to be applied to the list of scopes
+            /// Optional. Expression to filter the result set
             /// </param>
-            public static ResourceListOfScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
+            /// </param>
+            public static ResourceListOfPortfolio ListPortfolios(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string))
             {
-                return operations.ListPortfolioScopesAsync(sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.ListPortfoliosAsync(effectiveAt, asAt, sortBy, start, limit, filter, query).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// List portfolio scopes
+            /// List portfolios
             /// </summary>
             /// <remarks>
-            /// Lists all scopes that are either currently or have previously had
-            /// portfolios in them
+            /// List all portfolios matching the specified criteria.
+            ///
+            /// Example query syntax for the query parameter:
+            ///
+            /// - To see which portfolios have holdings in the specified instruments:
+            ///
+            /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+            /// 'BBG000BLNNH6'))
+            ///
+            /// * Note that if a query is specified then it is executed for the current
+            /// EffectiveAt and AsAt
+            /// Specifying EffectiveAt or AsAt in addition to the query is not supported
+            /// Also note that copy/pasting above examples results in incorrect single
+            /// quote character
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -2824,21 +2864,25 @@ namespace Finbourne
             /// many.
             /// </param>
             /// <param name='filter'>
-            /// Filter to be applied to the list of scopes
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfScope> ListPortfolioScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolio> ListPortfoliosAsync(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListPortfolioScopesWithHttpMessagesAsync(sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListPortfoliosWithHttpMessagesAsync(effectiveAt, asAt, sortBy, start, limit, filter, query, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// List portfolios
+            /// List portfolios for scope
             /// </summary>
             /// <remarks>
             /// List all the portfolios in the specified scope
@@ -2869,13 +2913,13 @@ namespace Finbourne
             /// <param name='filter'>
             /// Optional. Expression to filter the result set
             /// </param>
-            public static ResourceListOfPortfolio ListPortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPortfolio ListPortfoliosForScope(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.ListPortfoliosAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.ListPortfoliosForScopeAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// List portfolios
+            /// List portfolios for scope
             /// </summary>
             /// <remarks>
             /// List all the portfolios in the specified scope
@@ -2909,9 +2953,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfPortfolio> ListPortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolio> ListPortfoliosForScopeAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListPortfoliosWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListPortfoliosForScopeWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

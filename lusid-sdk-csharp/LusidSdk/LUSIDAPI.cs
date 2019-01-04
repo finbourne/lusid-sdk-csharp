@@ -502,6 +502,7 @@ namespace Finbourne
     /// | &lt;a name="231"&gt;231&lt;/a&gt;|TransactionTypeDuplication|  |
     /// | &lt;a name="232"&gt;232&lt;/a&gt;|PortfolioDoesNotExistAtGivenDate|
     /// |
+    /// | &lt;a name="233"&gt;233&lt;/a&gt;|QueryParserFailure|  |
     /// | &lt;a name="301"&gt;301&lt;/a&gt;|DependenciesFailure|  |
     /// | &lt;a name="304"&gt;304&lt;/a&gt;|PortfolioPreprocessFailure|  |
     /// | &lt;a name="310"&gt;310&lt;/a&gt;|ValuationEngineFailure|  |
@@ -512,6 +513,8 @@ namespace Finbourne
     /// | &lt;a name="370"&gt;370&lt;/a&gt;|ResultRetrievalFailure|  |
     /// | &lt;a name="371"&gt;371&lt;/a&gt;|ResultProcessingFailure|  |
     /// | &lt;a name="372"&gt;372&lt;/a&gt;|VendorResultProcessingFailure|  |
+    /// | &lt;a
+    /// name="373"&gt;373&lt;/a&gt;|CannotSupplyTimesWithPortfoliosQuery|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -9071,12 +9074,30 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// List portfolio scopes
+        /// List portfolios
         /// </summary>
         /// <remarks>
-        /// Lists all scopes that are either currently or have previously had
-        /// portfolios in them
+        /// List all portfolios matching the specified criteria.
+        ///
+        /// Example query syntax for the query parameter:
+        ///
+        /// - To see which portfolios have holdings in the specified instruments:
+        ///
+        /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+        /// 'BBG000BLNNH6'))
+        ///
+        /// * Note that if a query is specified then it is executed for the current
+        /// EffectiveAt and AsAt
+        /// Specifying EffectiveAt or AsAt in addition to the query is not supported
+        /// Also note that copy/pasting above examples results in incorrect single
+        /// quote character
         /// </remarks>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
+        /// </param>
         /// <param name='sortBy'>
         /// Optional. Order the results by these fields. Use use the '-' sign to denote
         /// descending order e.g. -MyFieldName
@@ -9089,7 +9110,11 @@ namespace Finbourne
         /// many.
         /// </param>
         /// <param name='filter'>
-        /// Filter to be applied to the list of scopes
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='query'>
+        /// Optional. Expression specifying the criteria that the returned portfolios
+        /// must meet
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -9106,7 +9131,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfScope>> ListPortfolioScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -9115,17 +9140,28 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("effectiveAt", effectiveAt);
+                tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
                 tracingParameters.Add("filter", filter);
+                tracingParameters.Add("query", query);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "ListPortfolioScopes", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "ListPortfolios", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/portfolios").ToString();
             List<string> _queryParameters = new List<string>();
+            if (effectiveAt != null)
+            {
+                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
+            }
+            if (asAt != null)
+            {
+                _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
+            }
             if (sortBy != null)
             {
                 if (sortBy.Count == 0)
@@ -9151,6 +9187,10 @@ namespace Finbourne
             if (filter != null)
             {
                 _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (query != null)
+            {
+                _queryParameters.Add(string.Format("query={0}", System.Uri.EscapeDataString(query)));
             }
             if (_queryParameters.Count > 0)
             {
@@ -9228,7 +9268,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfScope>();
+            var _result = new HttpOperationResponse<ResourceListOfPortfolio>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -9237,7 +9277,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfScope>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfPortfolio>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -9257,7 +9297,7 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// List portfolios
+        /// List portfolios for scope
         /// </summary>
         /// <remarks>
         /// List all the portfolios in the specified scope
@@ -9306,7 +9346,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -9327,7 +9367,7 @@ namespace Finbourne
                 tracingParameters.Add("limit", limit);
                 tracingParameters.Add("filter", filter);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "ListPortfolios", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "ListPortfoliosForScope", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
