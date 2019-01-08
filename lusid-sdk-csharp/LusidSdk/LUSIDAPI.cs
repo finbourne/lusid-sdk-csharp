@@ -11861,8 +11861,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-        /// 'Instrument', 'CutDefinition'
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the requested property
@@ -12047,8 +12047,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-        /// 'Instrument', 'CutDefinition'
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be updated
@@ -12228,8 +12228,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-        /// 'Instrument', 'CutDefinition'
+        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be deleted
