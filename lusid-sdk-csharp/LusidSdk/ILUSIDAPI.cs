@@ -389,11 +389,6 @@ namespace Finbourne
     ///
     /// | Code|Name|Description |
     /// | ---|---|--- |
-    /// | &lt;a name="100"&gt;100&lt;/a&gt;|Personalisations not found|The
-    /// personalisation(s) identified by the pattern provided could not be
-    /// found, either because it does not exist or it has been deleted. Please
-    /// check the pattern your provided. |
-    /// | &lt;a name="101"&gt;101&lt;/a&gt;|NonRecursivePersonalisation|  |
     /// | &lt;a name="102"&gt;102&lt;/a&gt;|VersionNotFound|  |
     /// | &lt;a name="104"&gt;104&lt;/a&gt;|InstrumentNotFound|  |
     /// | &lt;a name="105"&gt;105&lt;/a&gt;|PropertyNotFound|  |
@@ -1355,88 +1350,6 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<VersionSummaryDto>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Get personalisation
-        /// </summary>
-        /// <remarks>
-        /// Get a personalisation, recursing to get any referenced if required.
-        /// </remarks>
-        /// <param name='pattern'>
-        /// The search pattern or specific key
-        /// </param>
-        /// <param name='scope'>
-        /// Optional. The scope level to request for. Possible values include:
-        /// 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='recursive'>
-        /// Optional. Whether to recurse into dereference recursive settings
-        /// </param>
-        /// <param name='wildcards'>
-        /// Optional. Whether to apply wildcards to the provided pattern and
-        /// pull back any matching
-        /// </param>
-        /// <param name='sortBy'>
-        /// Optional. Order the results by these fields. Use use the '-' sign
-        /// to denote descending order e.g. -MyFieldName
-        /// </param>
-        /// <param name='start'>
-        /// Optional. When paginating, skip this number of results
-        /// </param>
-        /// <param name='limit'>
-        /// Optional. When paginating, limit the number of returned results to
-        /// this many.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ResourceListOfPersonalisation>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Upsert personalisations
-        /// </summary>
-        /// <remarks>
-        /// Upsert one or more personalisations
-        /// </remarks>
-        /// <param name='personalisations'>
-        /// The set of personalisations to persist
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<UpsertPersonalisationResponse>> UpsertPersonalisationsWithHttpMessagesAsync(IList<Personalisation> personalisations = default(IList<Personalisation>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Delete a personalisation
-        /// </summary>
-        /// <remarks>
-        /// Delete a personalisation at a specific scope (or use scope ALL to
-        /// purge the setting entirely)
-        /// </remarks>
-        /// <param name='key'>
-        /// The key of the setting to be deleted
-        /// </param>
-        /// <param name='scope'>
-        /// The scope to delete at (use ALL to purge the setting entirely).
-        /// Possible values include: 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='group'>
-        /// Optional. If deleting a setting at group level, specify the group
-        /// here
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<DeletedEntityResponse>> DeletePersonalisationWithHttpMessagesAsync(string key = default(string), string scope = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List groups in scope
