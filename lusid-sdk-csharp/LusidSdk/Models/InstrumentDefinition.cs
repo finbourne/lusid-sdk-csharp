@@ -84,11 +84,11 @@ namespace Finbourne.Models
         public IDictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
-        /// Gets optional. A collection of properties to upsert on the
+        /// Gets or sets optional. A collection of properties to upsert on the
         /// instrument.
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<InstrumentProperty> Properties { get; private set; }
+        public IList<InstrumentProperty> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets optional. The identifier of the portfolio that
