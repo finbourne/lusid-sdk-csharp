@@ -4526,6 +4526,76 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// List scopes
+            /// </summary>
+            /// <remarks>
+            /// List all the scopes
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
+            /// </param>
+            public static ResourceListOfScopeDefinition ListScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string))
+            {
+                return operations.ListScopesAsync(sortBy, start, limit, filter, query).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// List scopes
+            /// </summary>
+            /// <remarks>
+            /// List all the scopes
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfScopeDefinition> ListScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListScopesWithHttpMessagesAsync(sortBy, start, limit, filter, query, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Search instruments
             /// </summary>
             /// <remarks>

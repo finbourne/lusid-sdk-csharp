@@ -2592,6 +2592,38 @@ namespace Finbourne
         Task<HttpOperationResponse<ResourceListOfValueType>> GetValueTypesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// List scopes
+        /// </summary>
+        /// <remarks>
+        /// List all the scopes
+        /// </remarks>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign
+        /// to denote descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to
+        /// this many.
+        /// </param>
+        /// <param name='filter'>
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='query'>
+        /// Optional. Expression specifying the criteria that the returned
+        /// portfolios must meet
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfScopeDefinition>> ListScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Search instruments
         /// </summary>
         /// <remarks>
