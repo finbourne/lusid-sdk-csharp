@@ -4134,6 +4134,72 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Gets constituents adjustments in an interval of effective time.
+            /// </summary>
+            /// <remarks>
+            /// Specify a time period in which you'd like to see the list of times that
+            /// adjustments where made to this portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            public static ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
+            {
+                return operations.ListConstituentsAdjustmentsAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets constituents adjustments in an interval of effective time.
+            /// </summary>
+            /// <remarks>
+            /// Specify a time period in which you'd like to see the list of times that
+            /// adjustments where made to this portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListConstituentsAdjustmentsWithHttpMessagesAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get results
             /// </summary>
             /// <remarks>

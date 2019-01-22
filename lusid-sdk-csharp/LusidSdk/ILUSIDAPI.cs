@@ -2416,6 +2416,38 @@ namespace Finbourne
         Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Gets constituents adjustments in an interval of effective time.
+        /// </summary>
+        /// <remarks>
+        /// Specify a time period in which you'd like to see the list of times
+        /// that adjustments where made to this portfolio
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='fromEffectiveAt'>
+        /// Events between this time (inclusive) and the toEffectiveAt are
+        /// returned.
+        /// </param>
+        /// <param name='toEffectiveAt'>
+        /// Events between this time (inclusive) and the fromEffectiveAt are
+        /// returned.
+        /// </param>
+        /// <param name='asAtTime'>
+        /// The as-at time for which the result is valid.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get results
         /// </summary>
         /// <remarks>

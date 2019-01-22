@@ -42,7 +42,8 @@ namespace Finbourne.Models
         /// <param name="relation">Possible values include: 'Root',
         /// 'Properties', 'Transactions', 'Details', 'Constituents',
         /// 'Holdings', 'Commands', 'HoldingsAdjustments', 'Parent',
-        /// 'PropertySchema', 'EntitySchema', 'Quote'</param>
+        /// 'PropertySchema', 'EntitySchema', 'Quote',
+        /// 'ConstituentsAdjustments'</param>
         /// <param name="method">Possible values include: 'POST', 'GET',
         /// 'PATCH', 'DELETE'</param>
         public Link(string relation, string href, string method, string description = default(string))
@@ -63,7 +64,7 @@ namespace Finbourne.Models
         /// Gets or sets possible values include: 'Root', 'Properties',
         /// 'Transactions', 'Details', 'Constituents', 'Holdings', 'Commands',
         /// 'HoldingsAdjustments', 'Parent', 'PropertySchema', 'EntitySchema',
-        /// 'Quote'
+        /// 'Quote', 'ConstituentsAdjustments'
         /// </summary>
         [JsonProperty(PropertyName = "relation")]
         public string Relation { get; set; }
