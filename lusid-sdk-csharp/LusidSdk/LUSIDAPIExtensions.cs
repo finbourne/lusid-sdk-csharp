@@ -3768,10 +3768,10 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add quotes
+            /// Upsert quotes
             /// </summary>
             /// <remarks>
-            /// Add quotes effective at the specified time. If a quote is added with the
+            /// Upsert quotes effective at the specified time. If a quote is added with the
             /// same id (and is effective at the same time) as an existing quote, then the
             /// more recently added quote will be returned when queried
             /// </remarks>
@@ -3782,7 +3782,7 @@ namespace Finbourne
             /// The scope of the quotes
             /// </param>
             /// <param name='quotes'>
-            /// The quotes to add
+            /// The quotes to upsert
             /// </param>
             public static UpsertQuotesResponse UpsertQuotes(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>))
             {
@@ -3790,10 +3790,10 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add quotes
+            /// Upsert quotes
             /// </summary>
             /// <remarks>
-            /// Add quotes effective at the specified time. If a quote is added with the
+            /// Upsert quotes effective at the specified time. If a quote is added with the
             /// same id (and is effective at the same time) as an existing quote, then the
             /// more recently added quote will be returned when queried
             /// </remarks>
@@ -3804,7 +3804,7 @@ namespace Finbourne
             /// The scope of the quotes
             /// </param>
             /// <param name='quotes'>
-            /// The quotes to add
+            /// The quotes to upsert
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

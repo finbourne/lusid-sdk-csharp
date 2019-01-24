@@ -39,8 +39,8 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AggregateSpec class.
         /// </summary>
-        /// <param name="op">Possible values include: 'Sum',
-        /// 'Proportion'</param>
+        /// <param name="op">Possible values include: 'Sum', 'Proportion',
+        /// 'Average', 'Count', 'Min', 'Max', 'Value'</param>
         public AggregateSpec(string key, string op)
         {
             Key = key;
@@ -59,7 +59,8 @@ namespace Finbourne.Models
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'Sum', 'Proportion'
+        /// Gets or sets possible values include: 'Sum', 'Proportion',
+        /// 'Average', 'Count', 'Min', 'Max', 'Value'
         /// </summary>
         [JsonProperty(PropertyName = "op")]
         public string Op { get; set; }

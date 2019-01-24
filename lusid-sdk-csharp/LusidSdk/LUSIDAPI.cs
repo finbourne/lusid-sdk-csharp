@@ -510,6 +510,7 @@ namespace Finbourne
     /// | &lt;a name="372"&gt;372&lt;/a&gt;|VendorResultProcessingFailure|  |
     /// | &lt;a
     /// name="373"&gt;373&lt;/a&gt;|CannotSupplyTimesWithPortfoliosQuery|  |
+    /// | &lt;a name="374"&gt;374&lt;/a&gt;|AttemptToUpsertDuplicateQuotes|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -11863,10 +11864,10 @@ namespace Finbourne
         }
 
         /// <summary>
-        /// Add quotes
+        /// Upsert quotes
         /// </summary>
         /// <remarks>
-        /// Add quotes effective at the specified time. If a quote is added with the
+        /// Upsert quotes effective at the specified time. If a quote is added with the
         /// same id (and is effective at the same time) as an existing quote, then the
         /// more recently added quote will be returned when queried
         /// </remarks>
@@ -11874,7 +11875,7 @@ namespace Finbourne
         /// The scope of the quotes
         /// </param>
         /// <param name='quotes'>
-        /// The quotes to add
+        /// The quotes to upsert
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
