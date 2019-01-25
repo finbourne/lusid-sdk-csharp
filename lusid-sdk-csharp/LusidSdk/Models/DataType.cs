@@ -48,7 +48,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
         /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-        /// 'ArrayOfQuoteIds'</param>
+        /// 'ArrayOfQuoteIds', 'ResourceId'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         public DataType(string href = default(string), string typeValueRange = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), string valueType = default(string), IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<IUnitDefinitionDto> acceptableUnits = default(IList<IUnitDefinitionDto>), IList<Link> links = default(IList<Link>))
@@ -104,7 +104,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
         /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-        /// 'ArrayOfQuoteIds'
+        /// 'ArrayOfQuoteIds', 'ResourceId'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
