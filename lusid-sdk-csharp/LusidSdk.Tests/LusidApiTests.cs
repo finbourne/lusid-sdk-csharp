@@ -421,11 +421,11 @@ namespace LusidSdk.Tests
                 RecipeId = new ResourceId(scope, "default"),
                 Metrics = new List<AggregateSpec>
                 {
-                    new AggregateSpec("Security/default/CommonName", "Value"),
+                    new AggregateSpec("Instrument/default/Name", "Value"),
                     new AggregateSpec("Holding/default/PV", "Proportion"),
                     new AggregateSpec("Holding/default/PV", "Sum")
                 },
-                GroupBy = new List<string> {"Security/default/CommonName"},
+                GroupBy = new List<string> {"Instrument/default/Name"},
                 EffectiveAt = effectiveDate
             };
 
