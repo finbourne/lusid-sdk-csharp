@@ -23,8 +23,6 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
     public partial class InstrumentProperty
@@ -40,18 +38,14 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the InstrumentProperty class.
         /// </summary>
-        /// <param name="lusidInstrumentId">Unique instrument
-        /// identifier</param>
-        /// <param name="properties">A collection of properties to create or
-        /// update</param>
-        /// <param name="deletedProperties">A collection of property keys to
-        /// remove property values from, if any are set for the
-        /// instrument</param>
-        public InstrumentProperty(string lusidInstrumentId = default(string), IList<UpsertInstrumentPropertyRequest> properties = default(IList<UpsertInstrumentPropertyRequest>), IList<DeleteInstrumentPropertyRequest> deletedProperties = default(IList<DeleteInstrumentPropertyRequest>))
+        /// <param name="key">The property key of the property, e.g,
+        /// 'Instrument/default/Isin'</param>
+        /// <param name="value">The value of the property, which must not be
+        /// empty or null. e.g, 'US0378331005'</param>
+        public InstrumentProperty(string key = default(string), PropertyValue value = default(PropertyValue))
         {
-            LusidInstrumentId = lusidInstrumentId;
-            Properties = properties;
-            DeletedProperties = deletedProperties;
+            Key = key;
+            Value = value;
             CustomInit();
         }
 
@@ -61,23 +55,18 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique instrument identifier
+        /// Gets or sets the property key of the property, e.g,
+        /// 'Instrument/default/Isin'
         /// </summary>
-        [JsonProperty(PropertyName = "lusidInstrumentId")]
-        public string LusidInstrumentId { get; set; }
+        [JsonProperty(PropertyName = "key")]
+        public string Key { get; set; }
 
         /// <summary>
-        /// Gets or sets a collection of properties to create or update
+        /// Gets or sets the value of the property, which must not be empty or
+        /// null. e.g, 'US0378331005'
         /// </summary>
-        [JsonProperty(PropertyName = "properties")]
-        public IList<UpsertInstrumentPropertyRequest> Properties { get; set; }
-
-        /// <summary>
-        /// Gets or sets a collection of property keys to remove property
-        /// values from, if any are set for the instrument
-        /// </summary>
-        [JsonProperty(PropertyName = "deletedProperties")]
-        public IList<DeleteInstrumentPropertyRequest> DeletedProperties { get; set; }
+        [JsonProperty(PropertyName = "value")]
+        public PropertyValue Value { get; set; }
 
     }
 }

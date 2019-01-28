@@ -27,24 +27,34 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class UpsertPersonalisationResponse
+    public partial class ResourceListOfScopeDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the UpsertPersonalisationResponse
+        /// Initializes a new instance of the ResourceListOfScopeDefinition
         /// class.
         /// </summary>
-        public UpsertPersonalisationResponse()
+        public ResourceListOfScopeDefinition()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UpsertPersonalisationResponse
+        /// Initializes a new instance of the ResourceListOfScopeDefinition
         /// class.
         /// </summary>
-        public UpsertPersonalisationResponse(string href = default(string), IList<Link> links = default(IList<Link>))
+        /// <param name="href">The Uri that returns the same result as the
+        /// original request,
+        /// but may include resolved as at time(s).</param>
+        /// <param name="count">The total number of records returned in the
+        /// set.
+        /// Note: If count is set by the func 'AddDynamicCounter', Count will
+        /// be zero until the values
+        /// are evaluated. This is due to lazy evaluation.</param>
+        public ResourceListOfScopeDefinition(IList<ScopeDefinition> values = default(IList<ScopeDefinition>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
+            Values = values;
             Href = href;
+            Count = count;
             Links = links;
             CustomInit();
         }
@@ -56,8 +66,25 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "values")]
+        public IList<ScopeDefinition> Values { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Uri that returns the same result as the original
+        /// request,
+        /// but may include resolved as at time(s).
+        /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total number of records returned in the set.
+        /// Note: If count is set by the func 'AddDynamicCounter', Count will
+        /// be zero until the values
+        /// are evaluated. This is due to lazy evaluation.
+        /// </summary>
+        [JsonProperty(PropertyName = "count")]
+        public int? Count { get; set; }
 
         /// <summary>
         /// </summary>

@@ -332,6 +332,166 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Get corporate action sources
+            /// </summary>
+            /// <remarks>
+            /// Gets a list of all corporate action sources
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data range
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            public static ResourceListOfCorporateActionSource ListCorporateActionSources(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            {
+                return operations.ListCorporateActionSourcesAsync(effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get corporate action sources
+            /// </summary>
+            /// <remarks>
+            /// Gets a list of all corporate action sources
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data range
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListCorporateActionSourcesWithHttpMessagesAsync(effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Create Corporate Action Source
+            /// </summary>
+            /// <remarks>
+            /// Attempt to create a corporate action source.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static CorporateActionSource CreateCorporateActionSource(this ILUSIDAPI operations)
+            {
+                return operations.CreateCorporateActionSourceAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create Corporate Action Source
+            /// </summary>
+            /// <remarks>
+            /// Attempt to create a corporate action source.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<CorporateActionSource> CreateCorporateActionSourceAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateCorporateActionSourceWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a corporate action source
+            /// </summary>
+            /// <remarks>
+            /// Deletes a single corporate action source
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The Scope of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='code'>
+            /// The Code of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data
+            /// </param>
+            public static DeletedEntityResponse DeleteCorporateActionSource(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+            {
+                return operations.DeleteCorporateActionSourceAsync(scope, code, effectiveAt).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a corporate action source
+            /// </summary>
+            /// <remarks>
+            /// Deletes a single corporate action source
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The Scope of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='code'>
+            /// The Code of the Corporate Action Source to be deleted
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The start effective date of the data
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteCorporateActionSourceWithHttpMessagesAsync(scope, code, effectiveAt, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get corporate actions
             /// </summary>
             /// <remarks>
@@ -1418,7 +1578,7 @@ namespace Finbourne
             /// <param name='instrumentProperties'>
             /// The instrument property data
             /// </param>
-            public static UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>))
+            public static UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(this ILUSIDAPI operations, IList<UpsertInstrumentPropertyRequest> instrumentProperties = default(IList<UpsertInstrumentPropertyRequest>))
             {
                 return operations.UpsertInstrumentsPropertiesAsync(instrumentProperties).GetAwaiter().GetResult();
             }
@@ -1445,7 +1605,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(this ILUSIDAPI operations, IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(this ILUSIDAPI operations, IList<UpsertInstrumentPropertyRequest> instrumentProperties = default(IList<UpsertInstrumentPropertyRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertInstrumentsPropertiesWithHttpMessagesAsync(instrumentProperties, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1648,186 +1808,6 @@ namespace Finbourne
             public static async Task<VersionSummaryDto> GetLusidVersionsAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetLusidVersionsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get personalisation
-            /// </summary>
-            /// <remarks>
-            /// Get a personalisation, recursing to get any referenced if required.
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='pattern'>
-            /// The search pattern or specific key
-            /// </param>
-            /// <param name='scope'>
-            /// Optional. The scope level to request for. Possible values include: 'User',
-            /// 'Group', 'Default', 'All'
-            /// </param>
-            /// <param name='recursive'>
-            /// Optional. Whether to recurse into dereference recursive settings
-            /// </param>
-            /// <param name='wildcards'>
-            /// Optional. Whether to apply wildcards to the provided pattern and pull back
-            /// any matching
-            /// </param>
-            /// <param name='sortBy'>
-            /// Optional. Order the results by these fields. Use use the '-' sign to denote
-            /// descending order e.g. -MyFieldName
-            /// </param>
-            /// <param name='start'>
-            /// Optional. When paginating, skip this number of results
-            /// </param>
-            /// <param name='limit'>
-            /// Optional. When paginating, limit the number of returned results to this
-            /// many.
-            /// </param>
-            public static ResourceListOfPersonalisation GetPersonalisations(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
-            {
-                return operations.GetPersonalisationsAsync(pattern, scope, recursive, wildcards, sortBy, start, limit).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get personalisation
-            /// </summary>
-            /// <remarks>
-            /// Get a personalisation, recursing to get any referenced if required.
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='pattern'>
-            /// The search pattern or specific key
-            /// </param>
-            /// <param name='scope'>
-            /// Optional. The scope level to request for. Possible values include: 'User',
-            /// 'Group', 'Default', 'All'
-            /// </param>
-            /// <param name='recursive'>
-            /// Optional. Whether to recurse into dereference recursive settings
-            /// </param>
-            /// <param name='wildcards'>
-            /// Optional. Whether to apply wildcards to the provided pattern and pull back
-            /// any matching
-            /// </param>
-            /// <param name='sortBy'>
-            /// Optional. Order the results by these fields. Use use the '-' sign to denote
-            /// descending order e.g. -MyFieldName
-            /// </param>
-            /// <param name='start'>
-            /// Optional. When paginating, skip this number of results
-            /// </param>
-            /// <param name='limit'>
-            /// Optional. When paginating, limit the number of returned results to this
-            /// many.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ResourceListOfPersonalisation> GetPersonalisationsAsync(this ILUSIDAPI operations, string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetPersonalisationsWithHttpMessagesAsync(pattern, scope, recursive, wildcards, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Upsert personalisations
-            /// </summary>
-            /// <remarks>
-            /// Upsert one or more personalisations
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='personalisations'>
-            /// The set of personalisations to persist
-            /// </param>
-            public static UpsertPersonalisationResponse UpsertPersonalisations(this ILUSIDAPI operations, IList<Personalisation> personalisations = default(IList<Personalisation>))
-            {
-                return operations.UpsertPersonalisationsAsync(personalisations).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Upsert personalisations
-            /// </summary>
-            /// <remarks>
-            /// Upsert one or more personalisations
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='personalisations'>
-            /// The set of personalisations to persist
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<UpsertPersonalisationResponse> UpsertPersonalisationsAsync(this ILUSIDAPI operations, IList<Personalisation> personalisations = default(IList<Personalisation>), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpsertPersonalisationsWithHttpMessagesAsync(personalisations, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Delete a personalisation
-            /// </summary>
-            /// <remarks>
-            /// Delete a personalisation at a specific scope (or use scope ALL to purge the
-            /// setting entirely)
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='key'>
-            /// The key of the setting to be deleted
-            /// </param>
-            /// <param name='scope'>
-            /// The scope to delete at (use ALL to purge the setting entirely). Possible
-            /// values include: 'User', 'Group', 'Default', 'All'
-            /// </param>
-            /// <param name='group'>
-            /// Optional. If deleting a setting at group level, specify the group here
-            /// </param>
-            public static DeletedEntityResponse DeletePersonalisation(this ILUSIDAPI operations, string key = default(string), string scope = default(string), string group = default(string))
-            {
-                return operations.DeletePersonalisationAsync(key, scope, group).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Delete a personalisation
-            /// </summary>
-            /// <remarks>
-            /// Delete a personalisation at a specific scope (or use scope ALL to purge the
-            /// setting entirely)
-            /// </remarks>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='key'>
-            /// The key of the setting to be deleted
-            /// </param>
-            /// <param name='scope'>
-            /// The scope to delete at (use ALL to purge the setting entirely). Possible
-            /// values include: 'User', 'Group', 'Default', 'All'
-            /// </param>
-            /// <param name='group'>
-            /// Optional. If deleting a setting at group level, specify the group here
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<DeletedEntityResponse> DeletePersonalisationAsync(this ILUSIDAPI operations, string key = default(string), string scope = default(string), string group = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeletePersonalisationWithHttpMessagesAsync(key, scope, group, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -2614,14 +2594,32 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// List portfolio scopes
+            /// List portfolios
             /// </summary>
             /// <remarks>
-            /// Lists all scopes that are either currently or have previously had
-            /// portfolios in them
+            /// List all portfolios matching the specified criteria.
+            ///
+            /// Example query syntax for the query parameter:
+            ///
+            /// - To see which portfolios have holdings in the specified instruments:
+            ///
+            /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+            /// 'BBG000BLNNH6'))
+            ///
+            /// * Note that if a query is specified then it is executed for the current
+            /// EffectiveAt and AsAt
+            /// Specifying EffectiveAt or AsAt in addition to the query is not supported
+            /// Also note that copy/pasting above examples results in incorrect single
+            /// quote character
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -2635,22 +2633,44 @@ namespace Finbourne
             /// many.
             /// </param>
             /// <param name='filter'>
-            /// Filter to be applied to the list of scopes
+            /// Optional. Expression to filter the result set
             /// </param>
-            public static ResourceListOfScope ListPortfolioScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
+            /// </param>
+            public static ResourceListOfPortfolio ListPortfolios(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string))
             {
-                return operations.ListPortfolioScopesAsync(sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.ListPortfoliosAsync(effectiveAt, asAt, sortBy, start, limit, filter, query).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// List portfolio scopes
+            /// List portfolios
             /// </summary>
             /// <remarks>
-            /// Lists all scopes that are either currently or have previously had
-            /// portfolios in them
+            /// List all portfolios matching the specified criteria.
+            ///
+            /// Example query syntax for the query parameter:
+            ///
+            /// - To see which portfolios have holdings in the specified instruments:
+            ///
+            /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi',
+            /// 'BBG000BLNNH6'))
+            ///
+            /// * Note that if a query is specified then it is executed for the current
+            /// EffectiveAt and AsAt
+            /// Specifying EffectiveAt or AsAt in addition to the query is not supported
+            /// Also note that copy/pasting above examples results in incorrect single
+            /// quote character
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the data
+            /// </param>
+            /// <param name='asAt'>
+            /// Optional. The AsAt date of the data
             /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -2664,21 +2684,25 @@ namespace Finbourne
             /// many.
             /// </param>
             /// <param name='filter'>
-            /// Filter to be applied to the list of scopes
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfScope> ListPortfolioScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolio> ListPortfoliosAsync(this ILUSIDAPI operations, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListPortfolioScopesWithHttpMessagesAsync(sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListPortfoliosWithHttpMessagesAsync(effectiveAt, asAt, sortBy, start, limit, filter, query, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// List portfolios
+            /// List portfolios for scope
             /// </summary>
             /// <remarks>
             /// List all the portfolios in the specified scope
@@ -2709,13 +2733,13 @@ namespace Finbourne
             /// <param name='filter'>
             /// Optional. Expression to filter the result set
             /// </param>
-            public static ResourceListOfPortfolio ListPortfolios(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfPortfolio ListPortfoliosForScope(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
             {
-                return operations.ListPortfoliosAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.ListPortfoliosForScopeAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// List portfolios
+            /// List portfolios for scope
             /// </summary>
             /// <remarks>
             /// List all the portfolios in the specified scope
@@ -2749,9 +2773,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfPortfolio> ListPortfoliosAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfPortfolio> ListPortfoliosForScopeAsync(this ILUSIDAPI operations, string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListPortfoliosWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListPortfoliosForScopeWithHttpMessagesAsync(scope, effectiveAt, asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -3570,8 +3594,8 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the requested property. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument', 'CutDefinition'
+            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the requested property
@@ -3598,8 +3622,8 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the requested property. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument', 'CutDefinition'
+            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the requested property
@@ -3634,8 +3658,8 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property being updated. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument', 'CutDefinition'
+            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be updated
@@ -3664,8 +3688,8 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property being updated. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument', 'CutDefinition'
+            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be updated
@@ -3698,8 +3722,8 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property to be deleted. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument', 'CutDefinition'
+            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be deleted
@@ -3723,8 +3747,8 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property to be deleted. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding', 'TxnType',
-            /// 'Instrument', 'CutDefinition'
+            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
             /// The scope of the property to be deleted
@@ -3744,10 +3768,10 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add quotes
+            /// Upsert quotes
             /// </summary>
             /// <remarks>
-            /// Add quotes effective at the specified time. If a quote is added with the
+            /// Upsert quotes effective at the specified time. If a quote is added with the
             /// same id (and is effective at the same time) as an existing quote, then the
             /// more recently added quote will be returned when queried
             /// </remarks>
@@ -3758,7 +3782,7 @@ namespace Finbourne
             /// The scope of the quotes
             /// </param>
             /// <param name='quotes'>
-            /// The quotes to add
+            /// The quotes to upsert
             /// </param>
             public static UpsertQuotesResponse UpsertQuotes(this ILUSIDAPI operations, string scope, IList<UpsertQuoteRequest> quotes = default(IList<UpsertQuoteRequest>))
             {
@@ -3766,10 +3790,10 @@ namespace Finbourne
             }
 
             /// <summary>
-            /// Add quotes
+            /// Upsert quotes
             /// </summary>
             /// <remarks>
-            /// Add quotes effective at the specified time. If a quote is added with the
+            /// Upsert quotes effective at the specified time. If a quote is added with the
             /// same id (and is effective at the same time) as an existing quote, then the
             /// more recently added quote will be returned when queried
             /// </remarks>
@@ -3780,7 +3804,7 @@ namespace Finbourne
             /// The scope of the quotes
             /// </param>
             /// <param name='quotes'>
-            /// The quotes to add
+            /// The quotes to upsert
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -4104,6 +4128,72 @@ namespace Finbourne
             public static async Task<UpsertReferencePortfolioConstituentsResponse> UpsertReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, constituents, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets constituents adjustments in an interval of effective time.
+            /// </summary>
+            /// <remarks>
+            /// Specify a time period in which you'd like to see the list of times that
+            /// adjustments where made to this portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            public static ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?))
+            {
+                return operations.ListConstituentsAdjustmentsAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets constituents adjustments in an interval of effective time.
+            /// </summary>
+            /// <remarks>
+            /// Specify a time period in which you'd like to see the list of times that
+            /// adjustments where made to this portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// Code for the portfolio
+            /// </param>
+            /// <param name='fromEffectiveAt'>
+            /// Events between this time (inclusive) and the toEffectiveAt are returned.
+            /// </param>
+            /// <param name='toEffectiveAt'>
+            /// Events between this time (inclusive) and the fromEffectiveAt are returned.
+            /// </param>
+            /// <param name='asAtTime'>
+            /// The as-at time for which the result is valid.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListConstituentsAdjustmentsWithHttpMessagesAsync(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -4496,6 +4586,138 @@ namespace Finbourne
             public static async Task<ResourceListOfValueType> GetValueTypesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetValueTypesWithHttpMessagesAsync(sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// List scopes
+            /// </summary>
+            /// <remarks>
+            /// List all the scopes
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
+            /// </param>
+            public static ResourceListOfScopeDefinition ListScopes(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string))
+            {
+                return operations.ListScopesAsync(sortBy, start, limit, filter, query).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// List scopes
+            /// </summary>
+            /// <remarks>
+            /// List all the scopes
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='sortBy'>
+            /// Optional. Order the results by these fields. Use use the '-' sign to denote
+            /// descending order e.g. -MyFieldName
+            /// </param>
+            /// <param name='start'>
+            /// Optional. When paginating, skip this number of results
+            /// </param>
+            /// <param name='limit'>
+            /// Optional. When paginating, limit the number of returned results to this
+            /// many.
+            /// </param>
+            /// <param name='filter'>
+            /// Optional. Expression to filter the result set
+            /// </param>
+            /// <param name='query'>
+            /// Optional. Expression specifying the criteria that the returned portfolios
+            /// must meet
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ResourceListOfScopeDefinition> ListScopesAsync(this ILUSIDAPI operations, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ListScopesWithHttpMessagesAsync(sortBy, start, limit, filter, query, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Search instruments
+            /// </summary>
+            /// <remarks>
+            /// Search through instruments that have been mastered in LUSID, and optionally
+            /// augment results with instruments from a symbology service
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='symbols'>
+            /// A collection of instrument symbols to search for
+            /// </param>
+            /// <param name='masteredEffectiveAt'>
+            /// Optional. The effective date for searching mastered instruments. If this is
+            /// not set, then the current date is taken.
+            /// This parameter has no effect on instruments that have not been mastered
+            /// within LUSID.
+            /// </param>
+            /// <param name='masteredOnly'>
+            /// Optional. If set to true, only search over instruments that have been
+            /// mastered within LUSID. Default to false
+            /// </param>
+            public static IList<InstrumentMatch> InstrumentsSearch(this ILUSIDAPI operations, IList<InstrumentSearchProperty> symbols = default(IList<InstrumentSearchProperty>), System.DateTimeOffset? masteredEffectiveAt = default(System.DateTimeOffset?), bool? masteredOnly = false)
+            {
+                return operations.InstrumentsSearchAsync(symbols, masteredEffectiveAt, masteredOnly).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Search instruments
+            /// </summary>
+            /// <remarks>
+            /// Search through instruments that have been mastered in LUSID, and optionally
+            /// augment results with instruments from a symbology service
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='symbols'>
+            /// A collection of instrument symbols to search for
+            /// </param>
+            /// <param name='masteredEffectiveAt'>
+            /// Optional. The effective date for searching mastered instruments. If this is
+            /// not set, then the current date is taken.
+            /// This parameter has no effect on instruments that have not been mastered
+            /// within LUSID.
+            /// </param>
+            /// <param name='masteredOnly'>
+            /// Optional. If set to true, only search over instruments that have been
+            /// mastered within LUSID. Default to false
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<InstrumentMatch>> InstrumentsSearchAsync(this ILUSIDAPI operations, IList<InstrumentSearchProperty> symbols = default(IList<InstrumentSearchProperty>), System.DateTimeOffset? masteredEffectiveAt = default(System.DateTimeOffset?), bool? masteredOnly = false, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.InstrumentsSearchWithHttpMessagesAsync(symbols, masteredEffectiveAt, masteredOnly, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

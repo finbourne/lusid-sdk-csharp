@@ -41,7 +41,6 @@ namespace Finbourne.Models
         /// Initializes a new instance of the ErrorResponse class.
         /// </summary>
         /// <param name="code">Possible values include: 'Unknown',
-        /// 'PersonalisationNotFound', 'NonRecursivePersonalisation',
         /// 'VersionNotFound', 'InstrumentNotFound', 'PropertyNotFound',
         /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
         /// 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
@@ -90,11 +89,14 @@ namespace Finbourne.Models
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
         /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
         /// 'InvalidPropertyValueAssignment',
-        /// 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure',
-        /// 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
-        /// 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
-        /// 'CashFlowsFailure', 'ResultRetrievalFailure',
-        /// 'ResultProcessingFailure', 'VendorResultProcessingFailure'</param>
+        /// 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure',
+        /// 'DependenciesFailure', 'PortfolioPreprocessFailure',
+        /// 'ValuationEngineFailure', 'TaskFactoryFailure',
+        /// 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure',
+        /// 'ResultRetrievalFailure', 'ResultProcessingFailure',
+        /// 'VendorResultProcessingFailure',
+        /// 'CannotSupplyTimesWithPortfoliosQuery',
+        /// 'AttemptToUpsertDuplicateQuotes'</param>
         public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
         {
             Status = status;
@@ -117,8 +119,7 @@ namespace Finbourne.Models
         public int? Status { get; private set; }
 
         /// <summary>
-        /// Gets possible values include: 'Unknown', 'PersonalisationNotFound',
-        /// 'NonRecursivePersonalisation', 'VersionNotFound',
+        /// Gets possible values include: 'Unknown', 'VersionNotFound',
         /// 'InstrumentNotFound', 'PropertyNotFound',
         /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
         /// 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
@@ -167,11 +168,14 @@ namespace Finbourne.Models
         /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
         /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
         /// 'InvalidPropertyValueAssignment',
-        /// 'PortfolioDoesNotExistAtGivenDate', 'DependenciesFailure',
-        /// 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
-        /// 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
-        /// 'CashFlowsFailure', 'ResultRetrievalFailure',
-        /// 'ResultProcessingFailure', 'VendorResultProcessingFailure'
+        /// 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure',
+        /// 'DependenciesFailure', 'PortfolioPreprocessFailure',
+        /// 'ValuationEngineFailure', 'TaskFactoryFailure',
+        /// 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure',
+        /// 'ResultRetrievalFailure', 'ResultProcessingFailure',
+        /// 'VendorResultProcessingFailure',
+        /// 'CannotSupplyTimesWithPortfoliosQuery',
+        /// 'AttemptToUpsertDuplicateQuotes'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }

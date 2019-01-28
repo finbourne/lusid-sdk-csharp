@@ -150,7 +150,6 @@ namespace Finbourne
     ///
     /// | Field|Type|Description |
     /// | ---|---|--- |
-    /// | LusidInstrumentId|string|Unique instrument identifier |
     ///
     ///
     /// ## Portfolios
@@ -390,11 +389,6 @@ namespace Finbourne
     ///
     /// | Code|Name|Description |
     /// | ---|---|--- |
-    /// | &lt;a name="100"&gt;100&lt;/a&gt;|Personalisations not found|The
-    /// personalisation(s) identified by the pattern provided could not be
-    /// found, either because it does not exist or it has been deleted. Please
-    /// check the pattern your provided. |
-    /// | &lt;a name="101"&gt;101&lt;/a&gt;|NonRecursivePersonalisation|  |
     /// | &lt;a name="102"&gt;102&lt;/a&gt;|VersionNotFound|  |
     /// | &lt;a name="104"&gt;104&lt;/a&gt;|InstrumentNotFound|  |
     /// | &lt;a name="105"&gt;105&lt;/a&gt;|PropertyNotFound|  |
@@ -500,6 +494,7 @@ namespace Finbourne
     /// | &lt;a name="231"&gt;231&lt;/a&gt;|TransactionTypeDuplication|  |
     /// | &lt;a name="232"&gt;232&lt;/a&gt;|PortfolioDoesNotExistAtGivenDate|
     /// |
+    /// | &lt;a name="233"&gt;233&lt;/a&gt;|QueryParserFailure|  |
     /// | &lt;a name="301"&gt;301&lt;/a&gt;|DependenciesFailure|  |
     /// | &lt;a name="304"&gt;304&lt;/a&gt;|PortfolioPreprocessFailure|  |
     /// | &lt;a name="310"&gt;310&lt;/a&gt;|ValuationEngineFailure|  |
@@ -510,6 +505,9 @@ namespace Finbourne
     /// | &lt;a name="370"&gt;370&lt;/a&gt;|ResultRetrievalFailure|  |
     /// | &lt;a name="371"&gt;371&lt;/a&gt;|ResultProcessingFailure|  |
     /// | &lt;a name="372"&gt;372&lt;/a&gt;|VendorResultProcessingFailure|  |
+    /// | &lt;a
+    /// name="373"&gt;373&lt;/a&gt;|CannotSupplyTimesWithPortfoliosQuery|  |
+    /// | &lt;a name="374"&gt;374&lt;/a&gt;|AttemptToUpsertDuplicateQuotes|  |
     /// | &lt;a name="-10"&gt;-10&lt;/a&gt;|ServerConfigurationError|  |
     /// | &lt;a name="-1"&gt;-1&lt;/a&gt;|Unknown error|  |
     ///
@@ -672,6 +670,77 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<AnalyticStore>> SetAnalyticsWithHttpMessagesAsync(string scope, int year, int month, int day, IList<InstrumentAnalytic> data = default(IList<InstrumentAnalytic>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get corporate action sources
+        /// </summary>
+        /// <remarks>
+        /// Gets a list of all corporate action sources
+        /// </remarks>
+        /// <param name='effectiveAt'>
+        /// Optional. The start effective date of the data range
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
+        /// </param>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign
+        /// to denote descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to
+        /// this many
+        /// </param>
+        /// <param name='filter'>
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfCorporateActionSource>> ListCorporateActionSourcesWithHttpMessagesAsync(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Create Corporate Action Source
+        /// </summary>
+        /// <remarks>
+        /// Attempt to create a corporate action source.
+        /// </remarks>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a corporate action source
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single corporate action source
+        /// </remarks>
+        /// <param name='scope'>
+        /// The Scope of the Corporate Action Source to be deleted
+        /// </param>
+        /// <param name='code'>
+        /// The Code of the Corporate Action Source to be deleted
+        /// </param>
+        /// <param name='effectiveAt'>
+        /// Optional. The start effective date of the data
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DeletedEntityResponse>> DeleteCorporateActionSourceWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get corporate actions
@@ -1196,7 +1265,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpMessagesAsync(IList<InstrumentProperty> instrumentProperties = default(IList<InstrumentProperty>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpMessagesAsync(IList<UpsertInstrumentPropertyRequest> instrumentProperties = default(IList<UpsertInstrumentPropertyRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get allowable instrument identifiers
@@ -1282,88 +1351,6 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<VersionSummaryDto>> GetLusidVersionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Get personalisation
-        /// </summary>
-        /// <remarks>
-        /// Get a personalisation, recursing to get any referenced if required.
-        /// </remarks>
-        /// <param name='pattern'>
-        /// The search pattern or specific key
-        /// </param>
-        /// <param name='scope'>
-        /// Optional. The scope level to request for. Possible values include:
-        /// 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='recursive'>
-        /// Optional. Whether to recurse into dereference recursive settings
-        /// </param>
-        /// <param name='wildcards'>
-        /// Optional. Whether to apply wildcards to the provided pattern and
-        /// pull back any matching
-        /// </param>
-        /// <param name='sortBy'>
-        /// Optional. Order the results by these fields. Use use the '-' sign
-        /// to denote descending order e.g. -MyFieldName
-        /// </param>
-        /// <param name='start'>
-        /// Optional. When paginating, skip this number of results
-        /// </param>
-        /// <param name='limit'>
-        /// Optional. When paginating, limit the number of returned results to
-        /// this many.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ResourceListOfPersonalisation>> GetPersonalisationsWithHttpMessagesAsync(string pattern = default(string), string scope = default(string), bool? recursive = false, bool? wildcards = false, IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Upsert personalisations
-        /// </summary>
-        /// <remarks>
-        /// Upsert one or more personalisations
-        /// </remarks>
-        /// <param name='personalisations'>
-        /// The set of personalisations to persist
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<UpsertPersonalisationResponse>> UpsertPersonalisationsWithHttpMessagesAsync(IList<Personalisation> personalisations = default(IList<Personalisation>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Delete a personalisation
-        /// </summary>
-        /// <remarks>
-        /// Delete a personalisation at a specific scope (or use scope ALL to
-        /// purge the setting entirely)
-        /// </remarks>
-        /// <param name='key'>
-        /// The key of the setting to be deleted
-        /// </param>
-        /// <param name='scope'>
-        /// The scope to delete at (use ALL to purge the setting entirely).
-        /// Possible values include: 'User', 'Group', 'Default', 'All'
-        /// </param>
-        /// <param name='group'>
-        /// Optional. If deleting a setting at group level, specify the group
-        /// here
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<DeletedEntityResponse>> DeletePersonalisationWithHttpMessagesAsync(string key = default(string), string scope = default(string), string group = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List groups in scope
@@ -1721,12 +1708,32 @@ namespace Finbourne
         Task<HttpOperationResponse<PortfolioGroup>> DeleteSubGroupFromGroupWithHttpMessagesAsync(string scope, string code, string subgroupScope, string subgroupCode, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// List portfolio scopes
+        /// List portfolios
         /// </summary>
         /// <remarks>
-        /// Lists all scopes that are either currently or have previously had
-        /// portfolios in them
+        /// List all portfolios matching the specified criteria.
+        ///
+        /// Example query syntax for the query parameter:
+        ///
+        /// - To see which portfolios have holdings in the specified
+        /// instruments:
+        ///
+        /// instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'),
+        /// ('Figi', 'BBG000BLNNH6'))
+        ///
+        /// * Note that if a query is specified then it is executed for the
+        /// current EffectiveAt and AsAt
+        /// Specifying EffectiveAt or AsAt in addition to the query is not
+        /// supported
+        /// Also note that copy/pasting above examples results in incorrect
+        /// single quote character
         /// </remarks>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the data
+        /// </param>
+        /// <param name='asAt'>
+        /// Optional. The AsAt date of the data
+        /// </param>
         /// <param name='sortBy'>
         /// Optional. Order the results by these fields. Use use the '-' sign
         /// to denote descending order e.g. -MyFieldName
@@ -1739,7 +1746,11 @@ namespace Finbourne
         /// this many.
         /// </param>
         /// <param name='filter'>
-        /// Filter to be applied to the list of scopes
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='query'>
+        /// Optional. Expression specifying the criteria that the returned
+        /// portfolios must meet
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1747,10 +1758,10 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfScope>> ListPortfolioScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// List portfolios
+        /// List portfolios for scope
         /// </summary>
         /// <remarks>
         /// List all the portfolios in the specified scope
@@ -1784,7 +1795,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeWithHttpMessagesAsync(string scope, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get portfolio definition
@@ -2161,7 +2172,8 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values
         /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
+        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
+        /// 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the requested property
@@ -2191,7 +2203,8 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values
         /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
+        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
+        /// 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be updated
@@ -2219,7 +2232,8 @@ namespace Finbourne
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values
         /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TxnType', 'Instrument', 'CutDefinition'
+        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
+        /// 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be deleted
@@ -2236,10 +2250,10 @@ namespace Finbourne
         Task<HttpOperationResponse<DeletedEntityResponse>> DeletePropertyDefinitionWithHttpMessagesAsync(string domain, string scope, string code, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Add quotes
+        /// Upsert quotes
         /// </summary>
         /// <remarks>
-        /// Add quotes effective at the specified time. If a quote is added
+        /// Upsert quotes effective at the specified time. If a quote is added
         /// with the same id (and is effective at the same time) as an existing
         /// quote, then the more recently added quote will be returned when
         /// queried
@@ -2248,7 +2262,7 @@ namespace Finbourne
         /// The scope of the quotes
         /// </param>
         /// <param name='quotes'>
-        /// The quotes to add
+        /// The quotes to upsert
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -2401,6 +2415,38 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<UpsertReferencePortfolioConstituentsResponse>> UpsertReferencePortfolioConstituentsWithHttpMessagesAsync(string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = default(UpsertReferencePortfolioConstituentsRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets constituents adjustments in an interval of effective time.
+        /// </summary>
+        /// <remarks>
+        /// Specify a time period in which you'd like to see the list of times
+        /// that adjustments where made to this portfolio
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// Code for the portfolio
+        /// </param>
+        /// <param name='fromEffectiveAt'>
+        /// Events between this time (inclusive) and the toEffectiveAt are
+        /// returned.
+        /// </param>
+        /// <param name='toEffectiveAt'>
+        /// Events between this time (inclusive) and the fromEffectiveAt are
+        /// returned.
+        /// </param>
+        /// <param name='asAtTime'>
+        /// The as-at time for which the result is valid.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsWithHttpMessagesAsync(string scope, string code, System.DateTimeOffset? fromEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? toEffectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAtTime = default(System.DateTimeOffset?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get results
@@ -2577,6 +2623,67 @@ namespace Finbourne
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ResourceListOfValueType>> GetValueTypesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List scopes
+        /// </summary>
+        /// <remarks>
+        /// List all the scopes
+        /// </remarks>
+        /// <param name='sortBy'>
+        /// Optional. Order the results by these fields. Use use the '-' sign
+        /// to denote descending order e.g. -MyFieldName
+        /// </param>
+        /// <param name='start'>
+        /// Optional. When paginating, skip this number of results
+        /// </param>
+        /// <param name='limit'>
+        /// Optional. When paginating, limit the number of returned results to
+        /// this many.
+        /// </param>
+        /// <param name='filter'>
+        /// Optional. Expression to filter the result set
+        /// </param>
+        /// <param name='query'>
+        /// Optional. Expression specifying the criteria that the returned
+        /// portfolios must meet
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ResourceListOfScopeDefinition>> ListScopesWithHttpMessagesAsync(IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), string query = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Search instruments
+        /// </summary>
+        /// <remarks>
+        /// Search through instruments that have been mastered in LUSID, and
+        /// optionally augment results with instruments from a symbology
+        /// service
+        /// </remarks>
+        /// <param name='symbols'>
+        /// A collection of instrument symbols to search for
+        /// </param>
+        /// <param name='masteredEffectiveAt'>
+        /// Optional. The effective date for searching mastered instruments. If
+        /// this is not set, then the current date is taken.
+        /// This parameter has no effect on instruments that have not been
+        /// mastered within LUSID.
+        /// </param>
+        /// <param name='masteredOnly'>
+        /// Optional. If set to true, only search over instruments that have
+        /// been mastered within LUSID. Default to false
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IList<InstrumentMatch>>> InstrumentsSearchWithHttpMessagesAsync(IList<InstrumentSearchProperty> symbols = default(IList<InstrumentSearchProperty>), System.DateTimeOffset? masteredEffectiveAt = default(System.DateTimeOffset?), bool? masteredOnly = false, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Search portfolio groups

@@ -25,29 +25,27 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Personalisation
+    public partial class CreateCorporateActionSourceRequest
     {
         /// <summary>
-        /// Initializes a new instance of the Personalisation class.
+        /// Initializes a new instance of the
+        /// CreateCorporateActionSourceRequest class.
         /// </summary>
-        public Personalisation()
+        public CreateCorporateActionSourceRequest()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Personalisation class.
+        /// Initializes a new instance of the
+        /// CreateCorporateActionSourceRequest class.
         /// </summary>
-        /// <param name="scope">Possible values include: 'User', 'Group',
-        /// 'Default', 'All'</param>
-        public Personalisation(string scope = default(string), string scopeValue = default(string), string settingKey = default(string), string settingValue = default(string), string dataType = default(string), string href = default(string))
+        /// <param name="scope">Scope of Corporate Action Source</param>
+        /// <param name="code">Code of Corporate Action Source</param>
+        public CreateCorporateActionSourceRequest(string scope = default(string), string code = default(string))
         {
             Scope = scope;
-            ScopeValue = scopeValue;
-            SettingKey = settingKey;
-            SettingValue = settingValue;
-            DataType = dataType;
-            Href = href;
+            Code = code;
             CustomInit();
         }
 
@@ -57,36 +55,16 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets possible values include: 'User', 'Group', 'Default',
-        /// 'All'
+        /// Gets scope of Corporate Action Source
         /// </summary>
         [JsonProperty(PropertyName = "scope")]
-        public string Scope { get; set; }
+        public string Scope { get; private set; }
 
         /// <summary>
+        /// Gets code of Corporate Action Source
         /// </summary>
-        [JsonProperty(PropertyName = "scopeValue")]
-        public string ScopeValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "settingKey")]
-        public string SettingKey { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "settingValue")]
-        public string SettingValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "dataType")]
-        public string DataType { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
+        [JsonProperty(PropertyName = "code")]
+        public string Code { get; private set; }
 
     }
 }

@@ -27,34 +27,24 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ResourceListOfPersonalisation
+    public partial class CorporateActionSource
     {
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfPersonalisation
-        /// class.
+        /// Initializes a new instance of the CorporateActionSource class.
         /// </summary>
-        public ResourceListOfPersonalisation()
+        public CorporateActionSource()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfPersonalisation
-        /// class.
+        /// Initializes a new instance of the CorporateActionSource class.
         /// </summary>
-        /// <param name="href">The Uri that returns the same result as the
-        /// original request,
-        /// but may include resolved as at time(s).</param>
-        /// <param name="count">The total number of records returned in the
-        /// set.
-        /// Note: If count is set by the func 'AddDynamicCounter', Count will
-        /// be zero until the values
-        /// are evaluated. This is due to lazy evaluation.</param>
-        public ResourceListOfPersonalisation(IList<Personalisation> values = default(IList<Personalisation>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
+        public CorporateActionSource(string href = default(string), ResourceId id = default(ResourceId), Version version = default(Version), IList<Link> links = default(IList<Link>))
         {
-            Values = values;
             Href = href;
-            Count = count;
+            Id = id;
+            Version = version;
             Links = links;
             CustomInit();
         }
@@ -66,25 +56,18 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IList<Personalisation> Values { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Uri that returns the same result as the original
-        /// request,
-        /// but may include resolved as at time(s).
-        /// </summary>
         [JsonProperty(PropertyName = "href")]
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or sets the total number of records returned in the set.
-        /// Note: If count is set by the func 'AddDynamicCounter', Count will
-        /// be zero until the values
-        /// are evaluated. This is due to lazy evaluation.
         /// </summary>
-        [JsonProperty(PropertyName = "count")]
-        public int? Count { get; set; }
+        [JsonProperty(PropertyName = "id")]
+        public ResourceId Id { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
 
         /// <summary>
         /// </summary>

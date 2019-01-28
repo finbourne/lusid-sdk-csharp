@@ -23,29 +23,29 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class Schema
+    public partial class InstrumentSearchProperty
     {
         /// <summary>
-        /// Initializes a new instance of the Schema class.
+        /// Initializes a new instance of the InstrumentSearchProperty class.
         /// </summary>
-        public Schema()
+        public InstrumentSearchProperty()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Schema class.
+        /// Initializes a new instance of the InstrumentSearchProperty class.
         /// </summary>
-        public Schema(string entity = default(string), string href = default(string), IDictionary<string, FieldSchema> values = default(IDictionary<string, FieldSchema>), IList<Link> links = default(IList<Link>))
+        /// <param name="key">The property key of the property, e.g,
+        /// 'Instrument/default/Isin'</param>
+        /// <param name="value">The value of the property, which must not be
+        /// empty or null. e.g, 'US0378331005'</param>
+        public InstrumentSearchProperty(string key = default(string), string value = default(string))
         {
-            Entity = entity;
-            Href = href;
-            Values = values;
-            Links = links;
+            Key = key;
+            Value = value;
             CustomInit();
         }
 
@@ -55,24 +55,18 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the property key of the property, e.g,
+        /// 'Instrument/default/Isin'
         /// </summary>
-        [JsonProperty(PropertyName = "entity")]
-        public string Entity { get; set; }
+        [JsonProperty(PropertyName = "key")]
+        public string Key { get; set; }
 
         /// <summary>
+        /// Gets or sets the value of the property, which must not be empty or
+        /// null. e.g, 'US0378331005'
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IDictionary<string, FieldSchema> Values { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "links")]
-        public IList<Link> Links { get; set; }
+        [JsonProperty(PropertyName = "value")]
+        public string Value { get; set; }
 
     }
 }

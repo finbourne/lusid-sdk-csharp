@@ -22,30 +22,29 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class Schema
+    /// <summary>
+    /// Defines a scope
+    /// </summary>
+    public partial class ScopeDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the Schema class.
+        /// Initializes a new instance of the ScopeDefinition class.
         /// </summary>
-        public Schema()
+        public ScopeDefinition()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Schema class.
+        /// Initializes a new instance of the ScopeDefinition class.
         /// </summary>
-        public Schema(string entity = default(string), string href = default(string), IDictionary<string, FieldSchema> values = default(IDictionary<string, FieldSchema>), IList<Link> links = default(IList<Link>))
+        public ScopeDefinition(string scope)
         {
-            Entity = entity;
-            Href = href;
-            Values = values;
-            Links = links;
+            Scope = scope;
             CustomInit();
         }
 
@@ -56,23 +55,21 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "entity")]
-        public string Entity { get; set; }
+        [JsonProperty(PropertyName = "scope")]
+        public string Scope { get; set; }
 
         /// <summary>
+        /// Validate the object.
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IDictionary<string, FieldSchema> Values { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "links")]
-        public IList<Link> Links { get; set; }
-
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Scope == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Scope");
+            }
+        }
     }
 }

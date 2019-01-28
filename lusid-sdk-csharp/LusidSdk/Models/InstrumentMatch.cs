@@ -23,27 +23,36 @@
 namespace Finbourne.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
-    public partial class KeyValuePairOfPropertyKeyToFieldSchema
+    /// <summary>
+    /// A collection of instrument search results
+    /// </summary>
+    public partial class InstrumentMatch
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// KeyValuePairOfPropertyKeyToFieldSchema class.
+        /// Initializes a new instance of the InstrumentMatch class.
         /// </summary>
-        public KeyValuePairOfPropertyKeyToFieldSchema()
+        public InstrumentMatch()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// KeyValuePairOfPropertyKeyToFieldSchema class.
+        /// Initializes a new instance of the InstrumentMatch class.
         /// </summary>
-        public KeyValuePairOfPropertyKeyToFieldSchema(string key = default(string), FieldSchema value = default(FieldSchema))
+        /// <param name="masteredInstruments">A collection of instruments that
+        /// have met some criteria that have been previously
+        /// mastered within LUSID</param>
+        /// <param name="externalInstruments">A collection of instruments that
+        /// have met some criteria, but that have not been
+        /// mastered within LUSID.</param>
+        public InstrumentMatch(IList<InstrumentDefinition> masteredInstruments = default(IList<InstrumentDefinition>), IList<InstrumentDefinition> externalInstruments = default(IList<InstrumentDefinition>))
         {
-            Key = key;
-            Value = value;
+            MasteredInstruments = masteredInstruments;
+            ExternalInstruments = externalInstruments;
             CustomInit();
         }
 
@@ -53,14 +62,20 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets a collection of instruments that have met some
+        /// criteria that have been previously
+        /// mastered within LUSID
         /// </summary>
-        [JsonProperty(PropertyName = "key")]
-        public string Key { get; private set; }
+        [JsonProperty(PropertyName = "masteredInstruments")]
+        public IList<InstrumentDefinition> MasteredInstruments { get; set; }
 
         /// <summary>
+        /// Gets or sets a collection of instruments that have met some
+        /// criteria, but that have not been
+        /// mastered within LUSID.
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public FieldSchema Value { get; private set; }
+        [JsonProperty(PropertyName = "externalInstruments")]
+        public IList<InstrumentDefinition> ExternalInstruments { get; set; }
 
     }
 }

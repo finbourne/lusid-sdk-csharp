@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ResultDataSchema class.
         /// </summary>
-        public ResultDataSchema(IList<KeyValuePairOfPropertyKeyToFieldSchema> nodeValueSchema = default(IList<KeyValuePairOfPropertyKeyToFieldSchema>), IDictionary<string, FieldSchema> propertySchema = default(IDictionary<string, FieldSchema>))
+        public ResultDataSchema(IDictionary<string, FieldSchema> nodeValueSchema = default(IDictionary<string, FieldSchema>), IDictionary<string, FieldSchema> propertySchema = default(IDictionary<string, FieldSchema>))
         {
             NodeValueSchema = nodeValueSchema;
             PropertySchema = propertySchema;
@@ -55,7 +55,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "nodeValueSchema")]
-        public IList<KeyValuePairOfPropertyKeyToFieldSchema> NodeValueSchema { get; set; }
+        public IDictionary<string, FieldSchema> NodeValueSchema { get; set; }
 
         /// <summary>
         /// </summary>

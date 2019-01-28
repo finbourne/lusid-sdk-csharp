@@ -46,7 +46,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
         /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-        /// 'ArrayOfQuoteIds'</param>
+        /// 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
         /// <param name="type">Possible values include: 'Label',
@@ -54,8 +54,8 @@ namespace Finbourne.Models
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         /// <param name="domain">Possible values include: 'Trade', 'Portfolio',
-        /// 'Security', 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument',
-        /// 'CutDefinition'</param>
+        /// 'Security', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'</param>
         public PropertyDefinition(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), string domain = default(string), string scope = default(string), string code = default(string), IList<Link> links = default(IList<Link>))
         {
             Href = href;
@@ -96,7 +96,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
         /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-        /// 'ArrayOfQuoteIds'
+        /// 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }
@@ -137,8 +137,8 @@ namespace Finbourne.Models
 
         /// <summary>
         /// Gets possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding', 'TxnType', 'Instrument',
-        /// 'CutDefinition'
+        /// 'Holding', 'ReferenceHolding', 'TransactionConfiguration',
+        /// 'Instrument', 'CutDefinition'
         /// </summary>
         [JsonProperty(PropertyName = "domain")]
         public string Domain { get; private set; }

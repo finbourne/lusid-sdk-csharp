@@ -39,10 +39,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the Quote class.
         /// </summary>
-        public Quote(QuoteId quoteId, MetricValue metricValue, System.DateTimeOffset? effectiveAtDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?))
+        public Quote(QuoteId quoteId, MetricValue metricValue, QuoteLineage quoteLineage, System.DateTimeOffset? effectiveAtDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?))
         {
             QuoteId = quoteId;
             MetricValue = metricValue;
+            QuoteLineage = quoteLineage;
             EffectiveAtDate = effectiveAtDate;
             AsAtDate = asAtDate;
             CustomInit();
@@ -62,6 +63,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "metricValue")]
         public MetricValue MetricValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "quoteLineage")]
+        public QuoteLineage QuoteLineage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -89,9 +95,17 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
             }
+            if (QuoteLineage == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteLineage");
+            }
             if (QuoteId != null)
             {
                 QuoteId.Validate();
+            }
+            if (QuoteLineage != null)
+            {
+                QuoteLineage.Validate();
             }
         }
     }

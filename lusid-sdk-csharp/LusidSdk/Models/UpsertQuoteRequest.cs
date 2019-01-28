@@ -39,10 +39,11 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the UpsertQuoteRequest class.
         /// </summary>
-        public UpsertQuoteRequest(QuoteId quoteId, MetricValue metricValue, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+        public UpsertQuoteRequest(QuoteId quoteId, MetricValue metricValue, QuoteLineage quoteLineage, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
         {
             QuoteId = quoteId;
             MetricValue = metricValue;
+            QuoteLineage = quoteLineage;
             EffectiveAt = effectiveAt;
             CustomInit();
         }
@@ -61,6 +62,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "metricValue")]
         public MetricValue MetricValue { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "quoteLineage")]
+        public QuoteLineage QuoteLineage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -83,9 +89,17 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
             }
+            if (QuoteLineage == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteLineage");
+            }
             if (QuoteId != null)
             {
                 QuoteId.Validate();
+            }
+            if (QuoteLineage != null)
+            {
+                QuoteLineage.Validate();
             }
         }
     }

@@ -24,6 +24,8 @@ namespace Finbourne.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class ExecutionRequest
@@ -42,17 +44,18 @@ namespace Finbourne.Models
         /// <param name="executionId">FIX Field 17.  Unique execution
         /// identifier.</param>
         /// <param name="side">FIX Field 54.</param>
-        /// <param name="instrumentUid">Unique instrument identifier.</param>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="transactionTime">FIX field 60.  Time the transaction
         /// represented by this ExecutionReport occurred.</param>
         /// <param name="orderQty">FIX field 38.  Order quantity.</param>
         /// <param name="price">FIX field 44.</param>
         /// <param name="currency">FIX field 15.</param>
-        public ExecutionRequest(string executionId, string side, string instrumentUid, System.DateTimeOffset transactionTime, double orderQty, double price, string currency)
+        public ExecutionRequest(string executionId, string side, IDictionary<string, string> instrumentIdentifiers, System.DateTimeOffset transactionTime, double orderQty, double price, string currency)
         {
             ExecutionId = executionId;
             Side = side;
-            InstrumentUid = instrumentUid;
+            InstrumentIdentifiers = instrumentIdentifiers;
             TransactionTime = transactionTime;
             OrderQty = orderQty;
             Price = price;
@@ -78,10 +81,10 @@ namespace Finbourne.Models
         public string Side { get; set; }
 
         /// <summary>
-        /// Gets or sets unique instrument identifier.
+        /// Gets or sets unique instrument identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// Gets or sets FIX field 60.  Time the transaction represented by
@@ -124,9 +127,9 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Side");
             }
-            if (InstrumentUid == null)
+            if (InstrumentIdentifiers == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentIdentifiers");
             }
             if (Currency == null)
             {

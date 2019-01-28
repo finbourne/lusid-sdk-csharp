@@ -49,7 +49,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
         /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-        /// 'ArrayOfQuoteIds'</param>
+        /// 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         public CreateDataTypeRequest(string scope, string code, string typeValueRange, string displayName, string description, string valueType, IList<object> acceptableValues = default(IList<object>), string unitSchema = default(string), IList<CreateUnitDefinition> acceptableUnits = default(IList<CreateUnitDefinition>))
@@ -104,7 +104,7 @@ namespace Finbourne.Models
         /// 'ArrayOfTransactionAliases', 'ArrayofTransactionMovements',
         /// 'ArrayofUnits', 'StringArray', 'CurrencyAndAmount', 'TradePrice',
         /// 'UnitCreation', 'Currency', 'UserId', 'MetricValue', 'QuoteId',
-        /// 'ArrayOfQuoteIds'
+        /// 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'
         /// </summary>
         [JsonProperty(PropertyName = "valueType")]
         public string ValueType { get; set; }

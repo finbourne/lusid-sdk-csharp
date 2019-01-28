@@ -22,28 +22,27 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class KeyValuePairOfStringToFieldSchema
+    public partial class QuoteLineage
     {
         /// <summary>
-        /// Initializes a new instance of the KeyValuePairOfStringToFieldSchema
-        /// class.
+        /// Initializes a new instance of the QuoteLineage class.
         /// </summary>
-        public KeyValuePairOfStringToFieldSchema()
+        public QuoteLineage()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the KeyValuePairOfStringToFieldSchema
-        /// class.
+        /// Initializes a new instance of the QuoteLineage class.
         /// </summary>
-        public KeyValuePairOfStringToFieldSchema(string key = default(string), FieldSchema value = default(FieldSchema))
+        public QuoteLineage(string dataVendor, string contributor)
         {
-            Key = key;
-            Value = value;
+            DataVendor = dataVendor;
+            Contributor = contributor;
             CustomInit();
         }
 
@@ -54,13 +53,30 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "key")]
-        public string Key { get; private set; }
+        [JsonProperty(PropertyName = "dataVendor")]
+        public string DataVendor { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public FieldSchema Value { get; private set; }
+        [JsonProperty(PropertyName = "contributor")]
+        public string Contributor { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (DataVendor == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DataVendor");
+            }
+            if (Contributor == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Contributor");
+            }
+        }
     }
 }

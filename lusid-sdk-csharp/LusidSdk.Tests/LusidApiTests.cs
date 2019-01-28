@@ -421,6 +421,7 @@ namespace LusidSdk.Tests
                 RecipeId = new ResourceId(scope, "default"),
                 Metrics = new List<AggregateSpec>
                 {
+                    new AggregateSpec("Security/default/CommonName", "Value"),
                     new AggregateSpec("Holding/default/PV", "Proportion"),
                     new AggregateSpec("Holding/default/PV", "Sum")
                 },

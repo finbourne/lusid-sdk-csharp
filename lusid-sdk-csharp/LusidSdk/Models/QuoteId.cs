@@ -39,13 +39,19 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the QuoteId class.
         /// </summary>
-        public QuoteId(string instrumentId, string instrumentIdType, string quoteConvention, string quoteType, string priceSource = default(string))
+        /// <param name="instrumentIdType">Possible values include:
+        /// 'LusidInstrumentId', 'Figi', 'RIC', 'QuotePermId', 'Isin',
+        /// 'CurrencyPair'</param>
+        /// <param name="quoteType">Possible values include: 'Price', 'Spread',
+        /// 'Rate'</param>
+        /// <param name="priceSide">Possible values include: 'Bid', 'Mid',
+        /// 'Ask'</param>
+        public QuoteId(string instrumentId, string instrumentIdType, string quoteType, string priceSide)
         {
             InstrumentId = instrumentId;
             InstrumentIdType = instrumentIdType;
-            QuoteConvention = quoteConvention;
             QuoteType = quoteType;
-            PriceSource = priceSource;
+            PriceSide = priceSide;
             CustomInit();
         }
 
@@ -60,24 +66,23 @@ namespace Finbourne.Models
         public string InstrumentId { get; set; }
 
         /// <summary>
+        /// Gets or sets possible values include: 'LusidInstrumentId', 'Figi',
+        /// 'RIC', 'QuotePermId', 'Isin', 'CurrencyPair'
         /// </summary>
         [JsonProperty(PropertyName = "instrumentIdType")]
         public string InstrumentIdType { get; set; }
 
         /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "quoteConvention")]
-        public string QuoteConvention { get; set; }
-
-        /// <summary>
+        /// Gets or sets possible values include: 'Price', 'Spread', 'Rate'
         /// </summary>
         [JsonProperty(PropertyName = "quoteType")]
         public string QuoteType { get; set; }
 
         /// <summary>
+        /// Gets or sets possible values include: 'Bid', 'Mid', 'Ask'
         /// </summary>
-        [JsonProperty(PropertyName = "priceSource")]
-        public string PriceSource { get; set; }
+        [JsonProperty(PropertyName = "priceSide")]
+        public string PriceSide { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -95,13 +100,13 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentIdType");
             }
-            if (QuoteConvention == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteConvention");
-            }
             if (QuoteType == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "QuoteType");
+            }
+            if (PriceSide == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "PriceSide");
             }
         }
     }

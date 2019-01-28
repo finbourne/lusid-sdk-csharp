@@ -50,7 +50,7 @@ namespace Finbourne.Models
         /// <param name="side">The Movement Side. Possible values include:
         /// 'Side1', 'Side2', 'BondInt'</param>
         /// <param name="direction">The Movement direction</param>
-        public TransactionConfigurationMovementDataRequest(string movementTypes, string side, int direction, IDictionary<string, PropertyValue> properties = default(IDictionary<string, PropertyValue>), IList<TransactionPropertyMappingRequest> mappings = default(IList<TransactionPropertyMappingRequest>))
+        public TransactionConfigurationMovementDataRequest(string movementTypes, string side, int direction, IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), IList<TransactionPropertyMappingRequest> mappings = default(IList<TransactionPropertyMappingRequest>))
         {
             MovementTypes = movementTypes;
             Side = side;
@@ -89,7 +89,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary<string, PropertyValue> Properties { get; set; }
+        public IDictionary<string, PerpetualPropertyValue> Properties { get; set; }
 
         /// <summary>
         /// </summary>

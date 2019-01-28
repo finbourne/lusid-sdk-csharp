@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the PropertySchema class.
         /// </summary>
-        public PropertySchema(string href = default(string), IList<KeyValuePairOfPropertyKeyToFieldSchema> values = default(IList<KeyValuePairOfPropertyKeyToFieldSchema>), IList<Link> links = default(IList<Link>))
+        public PropertySchema(string href = default(string), IDictionary<string, FieldSchema> values = default(IDictionary<string, FieldSchema>), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             Values = values;
@@ -61,7 +61,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public IList<KeyValuePairOfPropertyKeyToFieldSchema> Values { get; set; }
+        public IDictionary<string, FieldSchema> Values { get; set; }
 
         /// <summary>
         /// </summary>

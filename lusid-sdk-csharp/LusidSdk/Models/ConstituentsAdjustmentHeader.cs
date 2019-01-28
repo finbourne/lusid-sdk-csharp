@@ -27,24 +27,29 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class Schema
+    public partial class ConstituentsAdjustmentHeader
     {
         /// <summary>
-        /// Initializes a new instance of the Schema class.
+        /// Initializes a new instance of the ConstituentsAdjustmentHeader
+        /// class.
         /// </summary>
-        public Schema()
+        public ConstituentsAdjustmentHeader()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Schema class.
+        /// Initializes a new instance of the ConstituentsAdjustmentHeader
+        /// class.
         /// </summary>
-        public Schema(string entity = default(string), string href = default(string), IDictionary<string, FieldSchema> values = default(IDictionary<string, FieldSchema>), IList<Link> links = default(IList<Link>))
+        /// <param name="effectiveAt">There can be at most one holdings
+        /// adjustment for a portfolio at a
+        /// specific effective time so this uniquely identifies the
+        /// adjustment.</param>
+        public ConstituentsAdjustmentHeader(System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), Version version = default(Version), IList<Link> links = default(IList<Link>))
         {
-            Entity = entity;
-            Href = href;
-            Values = values;
+            EffectiveAt = effectiveAt;
+            Version = version;
             Links = links;
             CustomInit();
         }
@@ -55,19 +60,17 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets there can be at most one holdings adjustment for a
+        /// portfolio at a
+        /// specific effective time so this uniquely identifies the adjustment.
         /// </summary>
-        [JsonProperty(PropertyName = "entity")]
-        public string Entity { get; set; }
+        [JsonProperty(PropertyName = "effectiveAt")]
+        public System.DateTimeOffset? EffectiveAt { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "values")]
-        public IDictionary<string, FieldSchema> Values { get; set; }
+        [JsonProperty(PropertyName = "version")]
+        public Version Version { get; set; }
 
         /// <summary>
         /// </summary>

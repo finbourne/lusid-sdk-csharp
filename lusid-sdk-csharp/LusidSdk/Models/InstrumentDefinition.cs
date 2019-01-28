@@ -55,7 +55,7 @@ namespace Finbourne.Models
         /// transparently use
         /// vendor libraries it must conform to a format that LUSID
         /// understands.</param>
-        public InstrumentDefinition(string name, IDictionary<string, string> identifiers, IList<UpsertInstrumentPropertyRequest> properties = default(IList<UpsertInstrumentPropertyRequest>), ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentEconomicDefinition definition = default(InstrumentEconomicDefinition))
+        public InstrumentDefinition(string name, IDictionary<string, string> identifiers, IList<InstrumentProperty> properties = default(IList<InstrumentProperty>), ResourceId lookThroughPortfolioId = default(ResourceId), InstrumentEconomicDefinition definition = default(InstrumentEconomicDefinition))
         {
             Name = name;
             Identifiers = identifiers;
@@ -84,11 +84,11 @@ namespace Finbourne.Models
         public IDictionary<string, string> Identifiers { get; set; }
 
         /// <summary>
-        /// Gets optional. A collection of properties to upsert on the
+        /// Gets or sets optional. A collection of properties to upsert on the
         /// instrument.
         /// </summary>
         [JsonProperty(PropertyName = "properties")]
-        public IList<UpsertInstrumentPropertyRequest> Properties { get; private set; }
+        public IList<InstrumentProperty> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets optional. The identifier of the portfolio that

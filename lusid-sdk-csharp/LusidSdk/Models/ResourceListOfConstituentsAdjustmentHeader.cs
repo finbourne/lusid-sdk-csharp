@@ -27,18 +27,20 @@ namespace Finbourne.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class ResourceListOfScope
+    public partial class ResourceListOfConstituentsAdjustmentHeader
     {
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfScope class.
+        /// Initializes a new instance of the
+        /// ResourceListOfConstituentsAdjustmentHeader class.
         /// </summary>
-        public ResourceListOfScope()
+        public ResourceListOfConstituentsAdjustmentHeader()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ResourceListOfScope class.
+        /// Initializes a new instance of the
+        /// ResourceListOfConstituentsAdjustmentHeader class.
         /// </summary>
         /// <param name="href">The Uri that returns the same result as the
         /// original request,
@@ -48,7 +50,7 @@ namespace Finbourne.Models
         /// Note: If count is set by the func 'AddDynamicCounter', Count will
         /// be zero until the values
         /// are evaluated. This is due to lazy evaluation.</param>
-        public ResourceListOfScope(IList<string> values = default(IList<string>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
+        public ResourceListOfConstituentsAdjustmentHeader(IList<ConstituentsAdjustmentHeader> values = default(IList<ConstituentsAdjustmentHeader>), string href = default(string), int? count = default(int?), IList<Link> links = default(IList<Link>))
         {
             Values = values;
             Href = href;
@@ -65,7 +67,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "values")]
-        public IList<string> Values { get; set; }
+        public IList<ConstituentsAdjustmentHeader> Values { get; set; }
 
         /// <summary>
         /// Gets or sets the Uri that returns the same result as the original
