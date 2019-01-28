@@ -26,26 +26,23 @@ namespace Finbourne.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Quote
+    public partial class QuoteLineage
     {
         /// <summary>
-        /// Initializes a new instance of the Quote class.
+        /// Initializes a new instance of the QuoteLineage class.
         /// </summary>
-        public Quote()
+        public QuoteLineage()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Quote class.
+        /// Initializes a new instance of the QuoteLineage class.
         /// </summary>
-        public Quote(QuoteId quoteId, MetricValue metricValue, QuoteLineage quoteLineage, System.DateTimeOffset? effectiveAtDate = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?))
+        public QuoteLineage(string dataVendor, string contributor)
         {
-            QuoteId = quoteId;
-            MetricValue = metricValue;
-            QuoteLineage = quoteLineage;
-            EffectiveAtDate = effectiveAtDate;
-            AsAtDate = asAtDate;
+            DataVendor = dataVendor;
+            Contributor = contributor;
             CustomInit();
         }
 
@@ -56,28 +53,13 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "quoteId")]
-        public QuoteId QuoteId { get; set; }
+        [JsonProperty(PropertyName = "dataVendor")]
+        public string DataVendor { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "metricValue")]
-        public MetricValue MetricValue { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "quoteLineage")]
-        public QuoteLineage QuoteLineage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "effectiveAtDate")]
-        public System.DateTimeOffset? EffectiveAtDate { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "asAtDate")]
-        public System.DateTimeOffset? AsAtDate { get; set; }
+        [JsonProperty(PropertyName = "contributor")]
+        public string Contributor { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -87,25 +69,13 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (QuoteId == null)
+            if (DataVendor == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "DataVendor");
             }
-            if (MetricValue == null)
+            if (Contributor == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "MetricValue");
-            }
-            if (QuoteLineage == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "QuoteLineage");
-            }
-            if (QuoteId != null)
-            {
-                QuoteId.Validate();
-            }
-            if (QuoteLineage != null)
-            {
-                QuoteLineage.Validate();
+                throw new ValidationException(ValidationRules.CannotBeNull, "Contributor");
             }
         }
     }
