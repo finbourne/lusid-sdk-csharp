@@ -40,8 +40,6 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// CreateCorporateActionSourceRequest class.
         /// </summary>
-        /// <param name="scope">Scope of Corporate Action Source</param>
-        /// <param name="code">Code of Corporate Action Source</param>
         public CreateCorporateActionSourceRequest(string scope = default(string), string code = default(string))
         {
             Scope = scope;
@@ -55,16 +53,14 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets scope of Corporate Action Source
         /// </summary>
         [JsonProperty(PropertyName = "scope")]
-        public string Scope { get; private set; }
+        public string Scope { get; set; }
 
         /// <summary>
-        /// Gets code of Corporate Action Source
         /// </summary>
         [JsonProperty(PropertyName = "code")]
-        public string Code { get; private set; }
+        public string Code { get; set; }
 
     }
 }

@@ -414,9 +414,12 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static CorporateActionSource CreateCorporateActionSource(this ILUSIDAPI operations)
+            /// <param name='request'>
+            /// The corporate action source definition
+            /// </param>
+            public static CorporateActionSource CreateCorporateActionSource(this ILUSIDAPI operations, CreateCorporateActionSourceRequest request)
             {
-                return operations.CreateCorporateActionSourceAsync().GetAwaiter().GetResult();
+                return operations.CreateCorporateActionSourceAsync(request).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -428,12 +431,15 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='request'>
+            /// The corporate action source definition
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<CorporateActionSource> CreateCorporateActionSourceAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<CorporateActionSource> CreateCorporateActionSourceAsync(this ILUSIDAPI operations, CreateCorporateActionSourceRequest request, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateCorporateActionSourceWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateCorporateActionSourceWithHttpMessagesAsync(request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1188,13 +1194,10 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='type'>
-            /// The type of identifier being supplied. Possible values include:
-            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-            /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifier being supplied
             /// </param>
-            /// <param name='id'>
+            /// <param name='identifier'>
             /// The identifier of the requested instrument
             /// </param>
             /// <param name='effectiveAt'>
@@ -1206,9 +1209,9 @@ namespace Finbourne
             /// <param name='instrumentPropertyKeys'>
             /// Optional. Keys of the properties to be decorated on to the instrument
             /// </param>
-            public static Instrument GetInstrument(this ILUSIDAPI operations, string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static Instrument GetInstrument(this ILUSIDAPI operations, string identifierType, string identifier, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.GetInstrumentAsync(type, id, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+                return operations.GetInstrumentAsync(identifierType, identifier, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1222,13 +1225,10 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='type'>
-            /// The type of identifier being supplied. Possible values include:
-            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-            /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifier being supplied
             /// </param>
-            /// <param name='id'>
+            /// <param name='identifier'>
             /// The identifier of the requested instrument
             /// </param>
             /// <param name='effectiveAt'>
@@ -1243,9 +1243,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Instrument> GetInstrumentAsync(this ILUSIDAPI operations, string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Instrument> GetInstrumentAsync(this ILUSIDAPI operations, string identifierType, string identifier, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetInstrumentWithHttpMessagesAsync(type, id, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetInstrumentWithHttpMessagesAsync(identifierType, identifier, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1260,21 +1260,18 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='type'>
-            /// The type of identifier being supplied. Possible values include:
-            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-            /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifier being supplied
             /// </param>
-            /// <param name='id'>
+            /// <param name='identifier'>
             /// The instrument identifier
             /// </param>
             /// <param name='request'>
             /// The identifier to add, update, or remove
             /// </param>
-            public static Instrument UpdateInstrumentIdentifier(this ILUSIDAPI operations, string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest))
+            public static Instrument UpdateInstrumentIdentifier(this ILUSIDAPI operations, string identifierType, string identifier, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest))
             {
-                return operations.UpdateInstrumentIdentifierAsync(type, id, request).GetAwaiter().GetResult();
+                return operations.UpdateInstrumentIdentifierAsync(identifierType, identifier, request).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1286,13 +1283,10 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='type'>
-            /// The type of identifier being supplied. Possible values include:
-            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-            /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifier being supplied
             /// </param>
-            /// <param name='id'>
+            /// <param name='identifier'>
             /// The instrument identifier
             /// </param>
             /// <param name='request'>
@@ -1301,9 +1295,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Instrument> UpdateInstrumentIdentifierAsync(this ILUSIDAPI operations, string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Instrument> UpdateInstrumentIdentifierAsync(this ILUSIDAPI operations, string identifierType, string identifier, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpdateInstrumentIdentifierWithHttpMessagesAsync(type, id, request, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.UpdateInstrumentIdentifierWithHttpMessagesAsync(identifierType, identifier, request, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1324,18 +1318,15 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='type'>
-            /// The type of identifier being supplied. Possible values include:
-            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-            /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifier being supplied
             /// </param>
-            /// <param name='id'>
+            /// <param name='identifier'>
             /// The instrument identifier
             /// </param>
-            public static DeleteInstrumentResponse DeleteInstrument(this ILUSIDAPI operations, string type, string id)
+            public static DeleteInstrumentResponse DeleteInstrument(this ILUSIDAPI operations, string identifierType, string identifier)
             {
-                return operations.DeleteInstrumentAsync(type, id).GetAwaiter().GetResult();
+                return operations.DeleteInstrumentAsync(identifierType, identifier).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1353,21 +1344,18 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='type'>
-            /// The type of identifier being supplied. Possible values include:
-            /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-            /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-            /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifier being supplied
             /// </param>
-            /// <param name='id'>
+            /// <param name='identifier'>
             /// The instrument identifier
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DeleteInstrumentResponse> DeleteInstrumentAsync(this ILUSIDAPI operations, string type, string id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeleteInstrumentResponse> DeleteInstrumentAsync(this ILUSIDAPI operations, string identifierType, string identifier, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteInstrumentWithHttpMessagesAsync(type, id, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteInstrumentWithHttpMessagesAsync(identifierType, identifier, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1443,13 +1431,10 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// the type of codes being specified. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifiers being supplied
             /// </param>
-            /// <param name='codes'>
+            /// <param name='identifiers'>
             /// The identifiers of the instruments to get
             /// </param>
             /// <param name='effectiveAt'>
@@ -1461,9 +1446,9 @@ namespace Finbourne
             /// <param name='instrumentPropertyKeys'>
             /// Optional. Keys of the properties to be decorated on to the instrument
             /// </param>
-            public static GetInstrumentsResponse GetInstruments(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
+            public static GetInstrumentsResponse GetInstruments(this ILUSIDAPI operations, string identifierType = default(string), IList<string> identifiers = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.GetInstrumentsAsync(codeType, codes, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
+                return operations.GetInstrumentsAsync(identifierType, identifiers, effectiveAt, asAt, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1476,13 +1461,10 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// the type of codes being specified. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifiers being supplied
             /// </param>
-            /// <param name='codes'>
+            /// <param name='identifiers'>
             /// The identifiers of the instruments to get
             /// </param>
             /// <param name='effectiveAt'>
@@ -1497,9 +1479,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GetInstrumentsResponse> GetInstrumentsAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GetInstrumentsResponse> GetInstrumentsAsync(this ILUSIDAPI operations, string identifierType = default(string), IList<string> identifiers = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetInstrumentsWithHttpMessagesAsync(codeType, codes, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetInstrumentsWithHttpMessagesAsync(identifierType, identifiers, effectiveAt, asAt, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1515,18 +1497,15 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of codes to search for. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifiers being supplied
             /// </param>
-            /// <param name='codes'>
-            /// The collection of instruments to search for
+            /// <param name='identifiers'>
+            /// The identifiers of the instruments to get
             /// </param>
-            public static MatchInstrumentsResponse MatchInstruments(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>))
+            public static MatchInstrumentsResponse MatchInstruments(this ILUSIDAPI operations, string identifierType = default(string), IList<string> identifiers = default(IList<string>))
             {
-                return operations.MatchInstrumentsAsync(codeType, codes).GetAwaiter().GetResult();
+                return operations.MatchInstrumentsAsync(identifierType, identifiers).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1539,21 +1518,18 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='codeType'>
-            /// The type of codes to search for. Possible values include: 'Undefined',
-            /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-            /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-            /// 'Wertpapier', 'RIC', 'QuotePermId'
+            /// <param name='identifierType'>
+            /// The type of identifiers being supplied
             /// </param>
-            /// <param name='codes'>
-            /// The collection of instruments to search for
+            /// <param name='identifiers'>
+            /// The identifiers of the instruments to get
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<MatchInstrumentsResponse> MatchInstrumentsAsync(this ILUSIDAPI operations, string codeType = default(string), IList<string> codes = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<MatchInstrumentsResponse> MatchInstrumentsAsync(this ILUSIDAPI operations, string identifierType = default(string), IList<string> identifiers = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.MatchInstrumentsWithHttpMessagesAsync(codeType, codes, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.MatchInstrumentsWithHttpMessagesAsync(identifierType, identifiers, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1626,7 +1602,7 @@ namespace Finbourne
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ResourceListOfCodeType GetInstrumentIdentifiers(this ILUSIDAPI operations)
+            public static ResourceListOfString GetInstrumentIdentifiers(this ILUSIDAPI operations)
             {
                 return operations.GetInstrumentIdentifiersAsync().GetAwaiter().GetResult();
             }
@@ -1647,7 +1623,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfCodeType> GetInstrumentIdentifiersAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfString> GetInstrumentIdentifiersAsync(this ILUSIDAPI operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetInstrumentIdentifiersWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3594,7 +3570,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the requested property. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
             /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
@@ -3622,7 +3598,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the requested property. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
             /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
@@ -3658,7 +3634,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property being updated. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
             /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
@@ -3688,7 +3664,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property being updated. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
             /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
@@ -3722,7 +3698,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property to be deleted. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
             /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>
@@ -3747,7 +3723,7 @@ namespace Finbourne
             /// </param>
             /// <param name='domain'>
             /// The Property Domain of the property to be deleted. Possible values include:
-            /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+            /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
             /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
             /// </param>
             /// <param name='scope'>

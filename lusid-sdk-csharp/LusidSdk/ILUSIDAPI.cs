@@ -711,13 +711,16 @@ namespace Finbourne
         /// <remarks>
         /// Attempt to create a corporate action source.
         /// </remarks>
+        /// <param name='request'>
+        /// The corporate action source definition
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpMessagesAsync(CreateCorporateActionSourceRequest request, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete a corporate action source
@@ -1067,14 +1070,10 @@ namespace Finbourne
         /// identifiers. Optionally, it is possible to decorate each instrument
         /// with specified property data.
         /// </remarks>
-        /// <param name='type'>
-        /// The type of identifier being supplied. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifier being supplied
         /// </param>
-        /// <param name='id'>
+        /// <param name='identifier'>
         /// The identifier of the requested instrument
         /// </param>
         /// <param name='effectiveAt'>
@@ -1093,7 +1092,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string identifierType, string identifier, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update instrument identifier
@@ -1101,14 +1100,10 @@ namespace Finbourne
         /// <remarks>
         /// Adds, updates, or removes an identifier on an instrument
         /// </remarks>
-        /// <param name='type'>
-        /// The type of identifier being supplied. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifier being supplied
         /// </param>
-        /// <param name='id'>
+        /// <param name='identifier'>
         /// The instrument identifier
         /// </param>
         /// <param name='request'>
@@ -1120,7 +1115,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Instrument>> UpdateInstrumentIdentifierWithHttpMessagesAsync(string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Instrument>> UpdateInstrumentIdentifierWithHttpMessagesAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Delete instrument
@@ -1134,14 +1129,10 @@ namespace Finbourne
         /// It is important to always check the 'Failed' set for any
         /// unsuccessful results.
         /// </remarks>
-        /// <param name='type'>
-        /// The type of identifier being supplied. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifier being supplied
         /// </param>
-        /// <param name='id'>
+        /// <param name='identifier'>
         /// The instrument identifier
         /// </param>
         /// <param name='customHeaders'>
@@ -1150,7 +1141,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpMessagesAsync(string type, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpMessagesAsync(string identifierType, string identifier, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Search instrument definition
@@ -1190,14 +1181,10 @@ namespace Finbourne
         /// Optionally, it is possible to decorate each instrument with
         /// specified property data.
         /// </remarks>
-        /// <param name='codeType'>
-        /// the type of codes being specified. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifiers being supplied
         /// </param>
-        /// <param name='codes'>
+        /// <param name='identifiers'>
         /// The identifiers of the instruments to get
         /// </param>
         /// <param name='effectiveAt'>
@@ -1216,7 +1203,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpMessagesAsync(string identifierType = default(string), IList<string> identifiers = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Find externally mastered instruments
@@ -1225,15 +1212,11 @@ namespace Finbourne
         /// Search for a set of instruments from an external instrument
         /// mastering service
         /// </remarks>
-        /// <param name='codeType'>
-        /// The type of codes to search for. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifiers being supplied
         /// </param>
-        /// <param name='codes'>
-        /// The collection of instruments to search for
+        /// <param name='identifiers'>
+        /// The identifiers of the instruments to get
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1241,7 +1224,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<MatchInstrumentsResponse>> MatchInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<MatchInstrumentsResponse>> MatchInstrumentsWithHttpMessagesAsync(string identifierType = default(string), IList<string> identifiers = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert instrument properties
@@ -1283,7 +1266,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfCodeType>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfString>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get SAML Identity Provider
@@ -2171,9 +2154,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values
-        /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-        /// 'CutDefinition'
+        /// include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the requested property
@@ -2202,9 +2184,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values
-        /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-        /// 'CutDefinition'
+        /// include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be updated
@@ -2231,9 +2212,8 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values
-        /// include: 'Trade', 'Portfolio', 'Security', 'Holding',
-        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
-        /// 'CutDefinition'
+        /// include: 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
+        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
         /// The scope of the property to be deleted

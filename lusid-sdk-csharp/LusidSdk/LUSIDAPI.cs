@@ -1835,6 +1835,9 @@ namespace Finbourne
         /// <remarks>
         /// Attempt to create a corporate action source.
         /// </remarks>
+        /// <param name='request'>
+        /// The corporate action source definition
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -1847,12 +1850,21 @@ namespace Finbourne
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<CorporateActionSource>> CreateCorporateActionSourceWithHttpMessagesAsync(CreateCorporateActionSourceRequest request, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            CreateCorporateActionSourceRequest request = default(CreateCorporateActionSourceRequest);
+            if (request == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "request");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4175,13 +4187,10 @@ namespace Finbourne
         /// identifiers. Optionally, it is possible to decorate each instrument with
         /// specified property data.
         /// </remarks>
-        /// <param name='type'>
-        /// The type of identifier being supplied. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifier being supplied
         /// </param>
-        /// <param name='id'>
+        /// <param name='identifier'>
         /// The identifier of the requested instrument
         /// </param>
         /// <param name='effectiveAt'>
@@ -4214,15 +4223,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string type, string id, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Instrument>> GetInstrumentWithHttpMessagesAsync(string identifierType, string identifier, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (type == null)
+            if (identifierType == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "type");
+                throw new ValidationException(ValidationRules.CannotBeNull, "identifierType");
             }
-            if (id == null)
+            if (identifier == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "id");
+                throw new ValidationException(ValidationRules.CannotBeNull, "identifier");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4231,8 +4240,8 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("type", type);
-                tracingParameters.Add("id", id);
+                tracingParameters.Add("identifierType", identifierType);
+                tracingParameters.Add("identifier", identifier);
                 tracingParameters.Add("effectiveAt", effectiveAt);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("instrumentPropertyKeys", instrumentPropertyKeys);
@@ -4241,9 +4250,9 @@ namespace Finbourne
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/{type}/{id}").ToString();
-            _url = _url.Replace("{type}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(type, SerializationSettings).Trim('"')));
-            _url = _url.Replace("{id}", System.Uri.EscapeDataString(id));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/{identifierType}/{identifier}").ToString();
+            _url = _url.Replace("{identifierType}", System.Uri.EscapeDataString(identifierType));
+            _url = _url.Replace("{identifier}", System.Uri.EscapeDataString(identifier));
             List<string> _queryParameters = new List<string>();
             if (effectiveAt != null)
             {
@@ -4377,13 +4386,10 @@ namespace Finbourne
         /// <remarks>
         /// Adds, updates, or removes an identifier on an instrument
         /// </remarks>
-        /// <param name='type'>
-        /// The type of identifier being supplied. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifier being supplied
         /// </param>
-        /// <param name='id'>
+        /// <param name='identifier'>
         /// The instrument identifier
         /// </param>
         /// <param name='request'>
@@ -4410,15 +4416,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Instrument>> UpdateInstrumentIdentifierWithHttpMessagesAsync(string type, string id, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Instrument>> UpdateInstrumentIdentifierWithHttpMessagesAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest request = default(UpdateInstrumentIdentifierRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (type == null)
+            if (identifierType == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "type");
+                throw new ValidationException(ValidationRules.CannotBeNull, "identifierType");
             }
-            if (id == null)
+            if (identifier == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "id");
+                throw new ValidationException(ValidationRules.CannotBeNull, "identifier");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4427,17 +4433,17 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("type", type);
-                tracingParameters.Add("id", id);
+                tracingParameters.Add("identifierType", identifierType);
+                tracingParameters.Add("identifier", identifier);
                 tracingParameters.Add("request", request);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateInstrumentIdentifier", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/{type}/{id}").ToString();
-            _url = _url.Replace("{type}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(type, SerializationSettings).Trim('"')));
-            _url = _url.Replace("{id}", System.Uri.EscapeDataString(id));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/{identifierType}/{identifier}").ToString();
+            _url = _url.Replace("{identifierType}", System.Uri.EscapeDataString(identifierType));
+            _url = _url.Replace("{identifier}", System.Uri.EscapeDataString(identifier));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -4556,13 +4562,10 @@ namespace Finbourne
         /// It is important to always check the 'Failed' set for any unsuccessful
         /// results.
         /// </remarks>
-        /// <param name='type'>
-        /// The type of identifier being supplied. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi',
-        /// 'ShareClassFigi', 'Wertpapier', 'RIC', 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifier being supplied
         /// </param>
-        /// <param name='id'>
+        /// <param name='identifier'>
         /// The instrument identifier
         /// </param>
         /// <param name='customHeaders'>
@@ -4586,15 +4589,15 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpMessagesAsync(string type, string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpMessagesAsync(string identifierType, string identifier, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (type == null)
+            if (identifierType == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "type");
+                throw new ValidationException(ValidationRules.CannotBeNull, "identifierType");
             }
-            if (id == null)
+            if (identifier == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "id");
+                throw new ValidationException(ValidationRules.CannotBeNull, "identifier");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4603,16 +4606,16 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("type", type);
-                tracingParameters.Add("id", id);
+                tracingParameters.Add("identifierType", identifierType);
+                tracingParameters.Add("identifier", identifier);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteInstrument", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/{type}/{id}").ToString();
-            _url = _url.Replace("{type}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(type, SerializationSettings).Trim('"')));
-            _url = _url.Replace("{id}", System.Uri.EscapeDataString(id));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/{identifierType}/{identifier}").ToString();
+            _url = _url.Replace("{identifierType}", System.Uri.EscapeDataString(identifierType));
+            _url = _url.Replace("{identifier}", System.Uri.EscapeDataString(identifier));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -4916,13 +4919,10 @@ namespace Finbourne
         /// Get a collection of instruments by a set of identifiers. Optionally, it is
         /// possible to decorate each instrument with specified property data.
         /// </remarks>
-        /// <param name='codeType'>
-        /// the type of codes being specified. Possible values include: 'Undefined',
-        /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-        /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-        /// 'Wertpapier', 'RIC', 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifiers being supplied
         /// </param>
-        /// <param name='codes'>
+        /// <param name='identifiers'>
         /// The identifiers of the instruments to get
         /// </param>
         /// <param name='effectiveAt'>
@@ -4949,7 +4949,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpMessagesAsync(string identifierType = default(string), IList<string> identifiers = default(IList<string>), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4958,8 +4958,8 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("codeType", codeType);
-                tracingParameters.Add("codes", codes);
+                tracingParameters.Add("identifierType", identifierType);
+                tracingParameters.Add("identifiers", identifiers);
                 tracingParameters.Add("effectiveAt", effectiveAt);
                 tracingParameters.Add("asAt", asAt);
                 tracingParameters.Add("instrumentPropertyKeys", instrumentPropertyKeys);
@@ -4970,9 +4970,9 @@ namespace Finbourne
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/$get").ToString();
             List<string> _queryParameters = new List<string>();
-            if (codeType != null)
+            if (identifierType != null)
             {
-                _queryParameters.Add(string.Format("codeType={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(codeType, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("identifierType={0}", System.Uri.EscapeDataString(identifierType)));
             }
             if (effectiveAt != null)
             {
@@ -5022,9 +5022,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(codes != null)
+            if(identifiers != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(codes, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(identifiers, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -5113,14 +5113,11 @@ namespace Finbourne
         /// Search for a set of instruments from an external instrument mastering
         /// service
         /// </remarks>
-        /// <param name='codeType'>
-        /// The type of codes to search for. Possible values include: 'Undefined',
-        /// 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin', 'Sedol', 'Cusip',
-        /// 'Ticker', 'ClientInternal', 'Figi', 'CompositeFigi', 'ShareClassFigi',
-        /// 'Wertpapier', 'RIC', 'QuotePermId'
+        /// <param name='identifierType'>
+        /// The type of identifiers being supplied
         /// </param>
-        /// <param name='codes'>
-        /// The collection of instruments to search for
+        /// <param name='identifiers'>
+        /// The identifiers of the instruments to get
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5137,7 +5134,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<MatchInstrumentsResponse>> MatchInstrumentsWithHttpMessagesAsync(string codeType = default(string), IList<string> codes = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<MatchInstrumentsResponse>> MatchInstrumentsWithHttpMessagesAsync(string identifierType = default(string), IList<string> identifiers = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -5146,8 +5143,8 @@ namespace Finbourne
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("codeType", codeType);
-                tracingParameters.Add("codes", codes);
+                tracingParameters.Add("identifierType", identifierType);
+                tracingParameters.Add("identifiers", identifiers);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "MatchInstruments", tracingParameters);
             }
@@ -5155,9 +5152,9 @@ namespace Finbourne
             var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "api/instruments/$match").ToString();
             List<string> _queryParameters = new List<string>();
-            if (codeType != null)
+            if (identifierType != null)
             {
-                _queryParameters.Add(string.Format("codeType={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(codeType, SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("identifierType={0}", System.Uri.EscapeDataString(identifierType)));
             }
             if (_queryParameters.Count > 0)
             {
@@ -5185,9 +5182,9 @@ namespace Finbourne
 
             // Serialize Request
             string _requestContent = null;
-            if(codes != null)
+            if(identifiers != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(codes, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(identifiers, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
             }
@@ -5447,7 +5444,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfCodeType>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfString>> GetInstrumentIdentifiersWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -5534,7 +5531,7 @@ namespace Finbourne
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ResourceListOfCodeType>();
+            var _result = new HttpOperationResponse<ResourceListOfString>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -5543,7 +5540,7 @@ namespace Finbourne
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfCodeType>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<ResourceListOfString>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -11333,7 +11330,7 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the requested property. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+        /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
         /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
@@ -11519,7 +11516,7 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property being updated. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+        /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
         /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>
@@ -11700,7 +11697,7 @@ namespace Finbourne
         /// </remarks>
         /// <param name='domain'>
         /// The Property Domain of the property to be deleted. Possible values include:
-        /// 'Trade', 'Portfolio', 'Security', 'Holding', 'ReferenceHolding',
+        /// 'Trade', 'Portfolio', 'Holding', 'ReferenceHolding',
         /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'
         /// </param>
         /// <param name='scope'>

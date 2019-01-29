@@ -42,11 +42,7 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="type">The type of the identifier to upsert. This must
         /// be one of the code types marked as
-        /// allowable for instrument identifiers. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'</param>
+        /// allowable for instrument identifiers.</param>
         /// <param name="value">The value of the identifier. If set to `null`,
         /// this will remove the identifier completely.
         /// Note that, if an instrument only has one identifier, it is an error
@@ -70,11 +66,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Gets or sets the type of the identifier to upsert. This must be one
         /// of the code types marked as
-        /// allowable for instrument identifiers. Possible values include:
-        /// 'Undefined', 'LusidInstrumentId', 'ReutersAssetId', 'CINS', 'Isin',
-        /// 'Sedol', 'Cusip', 'Ticker', 'ClientInternal', 'Figi',
-        /// 'CompositeFigi', 'ShareClassFigi', 'Wertpapier', 'RIC',
-        /// 'QuotePermId'
+        /// allowable for instrument identifiers.
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }

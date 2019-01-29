@@ -54,8 +54,8 @@ namespace Finbourne.Models
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         /// <param name="domain">Possible values include: 'Trade', 'Portfolio',
-        /// 'Security', 'Holding', 'ReferenceHolding',
-        /// 'TransactionConfiguration', 'Instrument', 'CutDefinition'</param>
+        /// 'Holding', 'ReferenceHolding', 'TransactionConfiguration',
+        /// 'Instrument', 'CutDefinition'</param>
         public PropertyDefinition(string href = default(string), string key = default(string), string valueType = default(string), bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string), string unitSchema = default(string), string domain = default(string), string scope = default(string), string code = default(string), IList<Link> links = default(IList<Link>))
         {
             Href = href;
@@ -136,9 +136,9 @@ namespace Finbourne.Models
         public string UnitSchema { get; set; }
 
         /// <summary>
-        /// Gets possible values include: 'Trade', 'Portfolio', 'Security',
-        /// 'Holding', 'ReferenceHolding', 'TransactionConfiguration',
-        /// 'Instrument', 'CutDefinition'
+        /// Gets possible values include: 'Trade', 'Portfolio', 'Holding',
+        /// 'ReferenceHolding', 'TransactionConfiguration', 'Instrument',
+        /// 'CutDefinition'
         /// </summary>
         [JsonProperty(PropertyName = "domain")]
         public string Domain { get; private set; }

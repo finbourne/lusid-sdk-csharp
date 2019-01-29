@@ -41,11 +41,10 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the Version class.
         /// </summary>
-        public Version(System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?), string href = default(string))
+        public Version(System.DateTimeOffset? effectiveFrom = default(System.DateTimeOffset?), System.DateTimeOffset? asAtDate = default(System.DateTimeOffset?))
         {
             EffectiveFrom = effectiveFrom;
             AsAtDate = asAtDate;
-            Href = href;
             CustomInit();
         }
 
@@ -63,11 +62,6 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "asAtDate")]
         public System.DateTimeOffset? AsAtDate { get; private set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; private set; }
 
     }
 }
