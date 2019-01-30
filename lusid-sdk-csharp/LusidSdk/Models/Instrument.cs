@@ -51,7 +51,10 @@ namespace Finbourne.Models
         /// a value of 'Unknown' will be returned</param>
         /// <param name="lookthroughPortfolio">The lookthrough portfolio of the
         /// instrument (if any).</param>
-        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), ResourceId lookthroughPortfolio = default(ResourceId), IList<Link> links = default(IList<Link>))
+        /// <param name="instrumentDefinition">The economic definition of the
+        /// instrument for an OTC or instrument where an expanded definition
+        /// exists.</param>
+        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), ResourceId lookthroughPortfolio = default(ResourceId), InstrumentEconomicDefinition instrumentDefinition = default(InstrumentEconomicDefinition), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             LusidInstrumentId = lusidInstrumentId;
@@ -60,6 +63,7 @@ namespace Finbourne.Models
             Identifiers = identifiers;
             Properties = properties;
             LookthroughPortfolio = lookthroughPortfolio;
+            InstrumentDefinition = instrumentDefinition;
             Links = links;
             CustomInit();
         }
@@ -114,9 +118,49 @@ namespace Finbourne.Models
         public ResourceId LookthroughPortfolio { get; set; }
 
         /// <summary>
+        /// Gets or sets the economic definition of the instrument for an OTC
+        /// or instrument where an expanded definition exists.
+        /// </summary>
+        [JsonProperty(PropertyName = "instrumentDefinition")]
+        public InstrumentEconomicDefinition InstrumentDefinition { get; set; }
+
+        /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "links")]
         public IList<Link> Links { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Properties != null)
+            {
+                foreach (var element in Properties)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (InstrumentDefinition != null)
+            {
+                InstrumentDefinition.Validate();
+            }
+            if (Links != null)
+            {
+                foreach (var element1 in Links)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
+        }
     }
 }
