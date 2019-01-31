@@ -38,9 +38,10 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreatePortfolioDetails class.
         /// </summary>
-        public CreatePortfolioDetails(string baseCurrency = default(string))
+        public CreatePortfolioDetails(string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId))
         {
             BaseCurrency = baseCurrency;
+            CorporateActionSourceId = corporateActionSourceId;
             CustomInit();
         }
 
@@ -53,6 +54,11 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "baseCurrency")]
         public string BaseCurrency { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "corporateActionSourceId")]
+        public ResourceId CorporateActionSourceId { get; set; }
 
     }
 }

@@ -116,10 +116,10 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "status")]
-        public int? Status { get; private set; }
+        public int? Status { get; set; }
 
         /// <summary>
-        /// Gets possible values include: 'Unknown', 'VersionNotFound',
+        /// Gets or sets possible values include: 'Unknown', 'VersionNotFound',
         /// 'InstrumentNotFound', 'PropertyNotFound',
         /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
         /// 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
@@ -178,17 +178,17 @@ namespace Finbourne.Models
         /// 'AttemptToUpsertDuplicateQuotes'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
-        public string Code { get; private set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "message")]
-        public string Message { get; private set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "detailedMessage")]
-        public string DetailedMessage { get; private set; }
+        public string DetailedMessage { get; set; }
 
         /// <summary>
         /// </summary>
@@ -198,7 +198,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "moreInfo")]
-        public string MoreInfo { get; private set; }
+        public string MoreInfo { get; set; }
 
     }
 }
