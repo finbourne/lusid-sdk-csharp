@@ -56,12 +56,12 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "effectiveFrom")]
-        public System.DateTimeOffset? EffectiveFrom { get; private set; }
+        public System.DateTimeOffset? EffectiveFrom { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "asAtDate")]
-        public System.DateTimeOffset? AsAtDate { get; private set; }
+        public System.DateTimeOffset? AsAtDate { get; set; }
 
     }
 }

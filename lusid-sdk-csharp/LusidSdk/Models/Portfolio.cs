@@ -72,60 +72,60 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets link to retrieve the current entity
+        /// Gets or sets link to retrieve the current entity
         /// </summary>
         [JsonProperty(PropertyName = "href")]
-        public string Href { get; private set; }
+        public string Href { get; set; }
 
         /// <summary>
-        /// Gets identifier for the portfolio
+        /// Gets or sets identifier for the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public ResourceId Id { get; private set; }
+        public ResourceId Id { get; set; }
 
         /// <summary>
-        /// Gets the type of portfolio this is (e.g. Transaction Portfolio,
-        /// Reference  Portfolio). Possible values include: 'Transaction',
-        /// 'Reference', 'DerivedTransaction'
+        /// Gets or sets the type of portfolio this is (e.g. Transaction
+        /// Portfolio, Reference  Portfolio). Possible values include:
+        /// 'Transaction', 'Reference', 'DerivedTransaction'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public string Type { get; private set; }
+        public string Type { get; set; }
 
         /// <summary>
-        /// Gets display name of the portfolio
+        /// Gets or sets display name of the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; private set; }
+        public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets description of the portfolio
+        /// Gets or sets description of the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "description")]
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
         /// <summary>
-        /// Gets portfolio creation time in UTC
+        /// Gets or sets portfolio creation time in UTC
         /// </summary>
         [JsonProperty(PropertyName = "created")]
-        public System.DateTimeOffset? Created { get; private set; }
+        public System.DateTimeOffset? Created { get; set; }
 
         /// <summary>
-        /// Gets if this is a derived portfolio, the identifier of the
+        /// Gets or sets if this is a derived portfolio, the identifier of the
         /// portfolio from which it is derived
         /// </summary>
         [JsonProperty(PropertyName = "parentPortfolioId")]
-        public ResourceId ParentPortfolioId { get; private set; }
+        public ResourceId ParentPortfolioId { get; set; }
 
         /// <summary>
-        /// Gets the version of the portfolio
+        /// Gets or sets the version of the portfolio
         /// </summary>
         [JsonProperty(PropertyName = "version")]
-        public Version Version { get; private set; }
+        public Version Version { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "isDerived")]
-        public bool? IsDerived { get; private set; }
+        public bool? IsDerived { get; set; }
 
         /// <summary>
         /// </summary>
