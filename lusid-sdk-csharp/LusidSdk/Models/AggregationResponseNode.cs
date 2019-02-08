@@ -40,7 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AggregationResponseNode class.
         /// </summary>
-        public AggregationResponseNode(string key = default(string), string value = default(string), int? depth = default(int?), IDictionary<string, object> properties = default(IDictionary<string, object>), IList<AggregationResponseNode> children = default(IList<AggregationResponseNode>))
+        public AggregationResponseNode(AggregateSpec key = default(AggregateSpec), string value = default(string), int? depth = default(int?), IDictionary<string, object> properties = default(IDictionary<string, object>), IList<AggregationResponseNode> children = default(IList<AggregationResponseNode>))
         {
             Key = key;
             Value = value;
@@ -58,7 +58,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "key")]
-        public string Key { get; set; }
+        public AggregateSpec Key { get; set; }
 
         /// <summary>
         /// </summary>

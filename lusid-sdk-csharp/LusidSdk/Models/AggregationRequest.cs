@@ -120,16 +120,6 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Metrics");
             }
-            if (Metrics != null)
-            {
-                foreach (var element in Metrics)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
         }
     }
 }
