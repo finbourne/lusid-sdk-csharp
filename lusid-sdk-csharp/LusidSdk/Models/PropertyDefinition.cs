@@ -49,8 +49,8 @@ namespace Finbourne.Models
         /// 'QuoteLineage', 'ArrayOfQuoteIds', 'ResourceId'</param>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
-        /// <param name="type">Possible values include: 'Label',
-        /// 'Metric'</param>
+        /// <param name="type">Possible values include: 'Label', 'Metric',
+        /// 'Information'</param>
         /// <param name="unitSchema">Possible values include: 'NoUnits',
         /// 'Basic', 'Iso4217Currency'</param>
         /// <param name="domain">Possible values include: 'Trade', 'Portfolio',
@@ -123,7 +123,8 @@ namespace Finbourne.Models
         public string LifeTime { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'Label', 'Metric'
+        /// Gets or sets possible values include: 'Label', 'Metric',
+        /// 'Information'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }

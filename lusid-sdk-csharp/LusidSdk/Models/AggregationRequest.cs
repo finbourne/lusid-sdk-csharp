@@ -44,7 +44,33 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AggregationRequest class.
         /// </summary>
+        /// <param name="recipeId">The configuration recipe, consisting of user
+        /// scope and recipe name, to use in performing the
+        /// aggregation.</param>
+        /// <param name="effectiveAt">The market data time, i.e. the time to
+        /// run the aggregation request effective of.</param>
+        /// <param name="metrics">The set of specifications for items to
+        /// calculate or retrieve during the aggregation and present in the
+        /// results.
+        /// This is logically equivalent to the set of operations in a Sql
+        /// select statement
+        /// select [operation1(field1), operation2(field2), ... ] from
+        /// results</param>
         /// <param name="asAt">The asAt date to use</param>
+        /// <param name="groupBy">The set of items by which to perform
+        /// grouping. This primarily matters when one or more of the metric
+        /// operators is a mapping
+        /// that reduces set size, e.g. sum or proportion. The group-by
+        /// statement determines the set of keys by which to break the results
+        /// out.</param>
+        /// <param name="filters">A set of filters to use to reduce the data
+        /// found in a request. Equivalent to the 'where ...' part of a Sql
+        /// select statement.
+        /// For example, filter a set of values within a given range or
+        /// matching a particular value.</param>
+        /// <param name="limit">limit the results to a particular number of
+        /// values.</param>
+        /// <param name="sort">Sort the results or not.</param>
         public AggregationRequest(ResourceId recipeId, System.DateTimeOffset effectiveAt, IList<AggregateSpec> metrics, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> groupBy = default(IList<string>), IList<PropertyFilter> filters = default(IList<PropertyFilter>), int? limit = default(int?), string sort = default(string))
         {
             RecipeId = recipeId;
@@ -64,6 +90,8 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the configuration recipe, consisting of user scope and
+        /// recipe name, to use in performing the aggregation.
         /// </summary>
         [JsonProperty(PropertyName = "recipeId")]
         public ResourceId RecipeId { get; set; }
@@ -75,31 +103,51 @@ namespace Finbourne.Models
         public System.DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
+        /// Gets or sets the market data time, i.e. the time to run the
+        /// aggregation request effective of.
         /// </summary>
         [JsonProperty(PropertyName = "effectiveAt")]
         public System.DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
+        /// Gets or sets the set of specifications for items to calculate or
+        /// retrieve during the aggregation and present in the results.
+        /// This is logically equivalent to the set of operations in a Sql
+        /// select statement
+        /// select [operation1(field1), operation2(field2), ... ] from results
         /// </summary>
         [JsonProperty(PropertyName = "metrics")]
         public IList<AggregateSpec> Metrics { get; set; }
 
         /// <summary>
+        /// Gets or sets the set of items by which to perform grouping. This
+        /// primarily matters when one or more of the metric operators is a
+        /// mapping
+        /// that reduces set size, e.g. sum or proportion. The group-by
+        /// statement determines the set of keys by which to break the results
+        /// out.
         /// </summary>
         [JsonProperty(PropertyName = "groupBy")]
         public IList<string> GroupBy { get; set; }
 
         /// <summary>
+        /// Gets or sets a set of filters to use to reduce the data found in a
+        /// request. Equivalent to the 'where ...' part of a Sql select
+        /// statement.
+        /// For example, filter a set of values within a given range or
+        /// matching a particular value.
         /// </summary>
         [JsonProperty(PropertyName = "filters")]
         public IList<PropertyFilter> Filters { get; set; }
 
         /// <summary>
+        /// Gets or sets limit the results to a particular number of values.
         /// </summary>
         [JsonProperty(PropertyName = "limit")]
         public int? Limit { get; set; }
 
         /// <summary>
+        /// Gets or sets sort the results or not.
         /// </summary>
         [JsonProperty(PropertyName = "sort")]
         public string Sort { get; set; }

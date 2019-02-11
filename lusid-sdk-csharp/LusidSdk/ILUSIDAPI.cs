@@ -2915,6 +2915,29 @@ namespace Finbourne
         Task<HttpOperationResponse<UpsertPortfolioExecutionsResponse>> UpsertExecutionsWithHttpMessagesAsync(string scope, string code, IList<ExecutionRequest> executions = default(IList<ExecutionRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Delete executions
+        /// </summary>
+        /// <remarks>
+        /// Delete one or more executions from a transaction portfolio
+        /// </remarks>
+        /// <param name='scope'>
+        /// The scope of the portfolio
+        /// </param>
+        /// <param name='code'>
+        /// The code of the portfolio
+        /// </param>
+        /// <param name='executionIds'>
+        /// Ids of executions to delete
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DeletedEntityResponse>> DeleteExecutionsWithHttpMessagesAsync(string scope, string code, IList<string> executionIds = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get holdings
         /// </summary>
         /// <remarks>

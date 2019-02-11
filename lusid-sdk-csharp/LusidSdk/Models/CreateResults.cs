@@ -38,6 +38,9 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the CreateResults class.
         /// </summary>
+        /// <param name="data">The data that should be stored in the results
+        /// cube.</param>
+        /// <param name="scope">The scope of the data to be stored.</param>
         /// <param name="key">The key is a unique point in 'run' space. For a
         /// given scope and time point, one would wish to
         /// identify a unique result set for a given recipe. In essence, this
@@ -48,7 +51,10 @@ namespace Finbourne.Models
         /// protfolio results together, or only single ones.
         /// Also, whether we would accept uploading of groups and then split
         /// them apart.</param>
-        /// <param name="format">Possible values include: 'DataReader',
+        /// <param name="date">The date for which the results should be
+        /// stored.</param>
+        /// <param name="format">The format in which the results are
+        /// stored/structured. Possible values include: 'DataReader',
         /// 'Portfolio'</param>
         public CreateResults(string data = default(string), string scope = default(string), string key = default(string), System.DateTimeOffset? date = default(System.DateTimeOffset?), string format = default(string))
         {
@@ -66,11 +72,13 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the data that should be stored in the results cube.
         /// </summary>
         [JsonProperty(PropertyName = "data")]
         public string Data { get; set; }
 
         /// <summary>
+        /// Gets or sets the scope of the data to be stored.
         /// </summary>
         [JsonProperty(PropertyName = "scope")]
         public string Scope { get; set; }
@@ -91,12 +99,14 @@ namespace Finbourne.Models
         public string Key { get; set; }
 
         /// <summary>
+        /// Gets or sets the date for which the results should be stored.
         /// </summary>
         [JsonProperty(PropertyName = "date")]
         public System.DateTimeOffset? Date { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'DataReader', 'Portfolio'
+        /// Gets or sets the format in which the results are stored/structured.
+        /// Possible values include: 'DataReader', 'Portfolio'
         /// </summary>
         [JsonProperty(PropertyName = "format")]
         public string Format { get; set; }

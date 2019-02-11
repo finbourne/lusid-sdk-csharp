@@ -42,8 +42,8 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="lifeTime">Possible values include: 'Perpetual',
         /// 'TimeVariant'</param>
-        /// <param name="type">Possible values include: 'Label',
-        /// 'Metric'</param>
+        /// <param name="type">Possible values include: 'Label', 'Metric',
+        /// 'Information'</param>
         public UpdatePropertyDefinitionRequest(bool? valueRequired = default(bool?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string lifeTime = default(string), string type = default(string))
         {
             ValueRequired = valueRequired;
@@ -81,7 +81,8 @@ namespace Finbourne.Models
         public string LifeTime { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'Label', 'Metric'
+        /// Gets or sets possible values include: 'Label', 'Metric',
+        /// 'Information'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }

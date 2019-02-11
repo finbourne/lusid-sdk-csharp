@@ -5256,6 +5256,58 @@ namespace Finbourne
             }
 
             /// <summary>
+            /// Delete executions
+            /// </summary>
+            /// <remarks>
+            /// Delete one or more executions from a transaction portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// The code of the portfolio
+            /// </param>
+            /// <param name='executionIds'>
+            /// Ids of executions to delete
+            /// </param>
+            public static DeletedEntityResponse DeleteExecutions(this ILUSIDAPI operations, string scope, string code, IList<string> executionIds = default(IList<string>))
+            {
+                return operations.DeleteExecutionsAsync(scope, code, executionIds).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete executions
+            /// </summary>
+            /// <remarks>
+            /// Delete one or more executions from a transaction portfolio
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='scope'>
+            /// The scope of the portfolio
+            /// </param>
+            /// <param name='code'>
+            /// The code of the portfolio
+            /// </param>
+            /// <param name='executionIds'>
+            /// Ids of executions to delete
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DeletedEntityResponse> DeleteExecutionsAsync(this ILUSIDAPI operations, string scope, string code, IList<string> executionIds = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteExecutionsWithHttpMessagesAsync(scope, code, executionIds, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get holdings
             /// </summary>
             /// <remarks>

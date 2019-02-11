@@ -48,17 +48,17 @@ namespace Finbourne.Models
         /// identifiers.</param>
         /// <param name="transactionTime">FIX field 60.  Time the transaction
         /// represented by this ExecutionReport occurred.</param>
-        /// <param name="orderQty">FIX field 38.  Order quantity.</param>
-        /// <param name="price">FIX field 44.</param>
+        /// <param name="lastShares">FIX field 32.</param>
+        /// <param name="lastPx">FIX field 31.</param>
         /// <param name="currency">FIX field 15.</param>
-        public ExecutionRequest(string executionId, string side, IDictionary<string, string> instrumentIdentifiers, System.DateTimeOffset transactionTime, double orderQty, double price, string currency)
+        public ExecutionRequest(string executionId, string side, IDictionary<string, string> instrumentIdentifiers, System.DateTimeOffset transactionTime, double lastShares, double lastPx, string currency)
         {
             ExecutionId = executionId;
             Side = side;
             InstrumentIdentifiers = instrumentIdentifiers;
             TransactionTime = transactionTime;
-            OrderQty = orderQty;
-            Price = price;
+            LastShares = lastShares;
+            LastPx = lastPx;
             Currency = currency;
             CustomInit();
         }
@@ -94,16 +94,16 @@ namespace Finbourne.Models
         public System.DateTimeOffset TransactionTime { get; set; }
 
         /// <summary>
-        /// Gets or sets FIX field 38.  Order quantity.
+        /// Gets or sets FIX field 32.
         /// </summary>
-        [JsonProperty(PropertyName = "orderQty")]
-        public double OrderQty { get; set; }
+        [JsonProperty(PropertyName = "lastShares")]
+        public double LastShares { get; set; }
 
         /// <summary>
-        /// Gets or sets FIX field 44.
+        /// Gets or sets FIX field 31.
         /// </summary>
-        [JsonProperty(PropertyName = "price")]
-        public double Price { get; set; }
+        [JsonProperty(PropertyName = "lastPx")]
+        public double LastPx { get; set; }
 
         /// <summary>
         /// Gets or sets FIX field 15.
