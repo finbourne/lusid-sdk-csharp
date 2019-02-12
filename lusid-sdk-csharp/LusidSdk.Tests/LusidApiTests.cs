@@ -27,6 +27,8 @@ namespace LusidSdk.Tests
         private LUSIDAPI _client;
         private List<string> _instrumentIds = new List<string>();
 
+        private static readonly string LUSID_INSTRUMENT_IDENTIFIER = "Instrument/default/LusidInstrumentId";
+
         [OneTimeSetUp]
         public void SetUp()
         {
@@ -188,8 +190,7 @@ namespace LusidSdk.Tests
           
         [Test]
         public void Create_Trade_With_Property()
-        {
-           
+        {           
             var uuid = Guid.NewGuid().ToString();
             const string scope = "finbourne";
             var propertyName = $"traderId-{uuid}";
@@ -233,7 +234,7 @@ namespace LusidSdk.Tests
             {
                 TransactionId = Guid.NewGuid().ToString(),
                 Type = "Buy",
-                InstrumentUid = _instrumentIds.First(),                
+                InstrumentIdentifiers = new Dictionary<string, string>() {{ LUSID_INSTRUMENT_IDENTIFIER, _instrumentIds.First() }},
                 TransactionDate = effectiveDate,
                 SettlementDate = effectiveDate,
                 Units = 100,
@@ -253,7 +254,7 @@ namespace LusidSdk.Tests
             var transactions = _client.GetTransactions(scope, portfolioId);                
             
             Assert.That(transactions.Values.Count, Is.EqualTo(1));
-            Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentUid));
+            Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(_instrumentIds.First()));
             Assert.That(transactions.Values[0].Properties[0].Value, Is.EqualTo(propertyValue));
         }
 
@@ -288,7 +289,7 @@ namespace LusidSdk.Tests
                 }
                 .OrderBy(i => i.Id);
 
-            var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, id.Price, id.TradeDate));
+            var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, 100, id.Price, id.TradeDate));
 
             //    add initial batch of transactions
             var initialResult = _client.UpsertTransactions(scope, portfolioId, newtransactions.ToList());
@@ -299,7 +300,7 @@ namespace LusidSdk.Tests
             //    add another transaction for 2018-1-8
             var laterResult = _client.UpsertTransactions(scope, portfolioId, new List<TransactionRequest>
             {
-                BuildTransaction(_instrumentIds[3], 104, new DateTime(2018, 1, 8))
+                BuildTransaction(_instrumentIds[3], 100, 104, new DateTime(2018, 1, 8))
             });
 
             var asAtBatch2 = laterResult.Version.AsAtDate;
@@ -308,7 +309,7 @@ namespace LusidSdk.Tests
             //    add back-dated transaction
             var backDatedResult = _client.UpsertTransactions(scope, portfolioId, new List<TransactionRequest>
             {
-                BuildTransaction(_instrumentIds[4], 105, new DateTime(2018, 1, 5))
+                BuildTransaction(_instrumentIds[4], 100, 105, new DateTime(2018, 1, 5))
             });
 
             var asAtBatch3 = backDatedResult.Version.AsAtDate;
@@ -384,7 +385,7 @@ namespace LusidSdk.Tests
                 }
                 .OrderBy(i => i.Id);
 
-            var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, id.Price, id.TradeDate));
+            var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, 100, id.Price, id.TradeDate));
 
             //    add transactions
             _client.UpsertTransactions(scope, portfolioId, newtransactions.ToList());
@@ -433,18 +434,18 @@ namespace LusidSdk.Tests
             _client.GetAggregationByPortfolio(scope, portfolioId, aggregationRequest);
         }
         
-        private TransactionRequest BuildTransaction(string id, double price, DateTimeOffset tradeDate)
+        private TransactionRequest BuildTransaction(string instrumentId, double quantity, double price, DateTimeOffset tradeDate)
         {
             return new TransactionRequest()
             {
                 TransactionId = Guid.NewGuid().ToString(),
                 Type = "StockIn",
-                InstrumentUid = id,
+                InstrumentIdentifiers = new Dictionary<string, string>() {{ LUSID_INSTRUMENT_IDENTIFIER, instrumentId }},
                 TransactionDate = tradeDate,
                 SettlementDate = tradeDate,
-                Units = 100,
+                Units = quantity,
                 TransactionPrice = new TransactionPrice(price, "Price"),
-                TotalConsideration = new CurrencyAndAmount(100 * price, "GBP"),
+                TotalConsideration = new CurrencyAndAmount(quantity * price, "GBP"),
                 Source = "Client"
             };
         }
@@ -463,22 +464,6 @@ namespace LusidSdk.Tests
              
              Assert.That(fbnIds.Values.Count, Is.EqualTo(2));
          }
-
-        private TransactionRequest BuildTradeWithQuantity(string id, double price, double quantity,  DateTimeOffset tradeDate)
-        {
-            return new TransactionRequest
-            {
-                TransactionId = Guid.NewGuid().ToString(),
-                Type = "StockIn",
-                InstrumentUid = id,
-                TransactionDate = tradeDate,
-                SettlementDate = tradeDate,
-                Units = quantity,
-                TransactionPrice = new TransactionPrice(price, "Price"),
-                TotalConsideration = new CurrencyAndAmount(quantity * price, "GBP"),
-                Source = "Client"
-            };
-        }
 
         [Test]
         public void Reconcile_Portfolio()
@@ -511,7 +496,7 @@ namespace LusidSdk.Tests
                 (Id: _instrumentIds[3], Price: 103, Quantity: 2000,  TradeDate: yesterday.AddHours(9))
             };
             
-            var transactions = transactionsYesterday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
+            var transactions = transactionsYesterday.Select(id => BuildTransaction(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add transactions
             _client.UpsertTransactions(scope, portfolioCode, transactions.ToList());
@@ -527,7 +512,7 @@ namespace LusidSdk.Tests
                 (Id: _instrumentIds[3], Price: 103, Quantity: 2000,  TradeDate: today.AddHours(20))   // long 5000 but outside recon window
             };
 
-            transactions = transactionsToday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
+            transactions = transactionsToday.Select(id => BuildTransaction(id.Id, id.Quantity, id.Price, id.TradeDate));
 
             //    add transactions
             var finalResult = _client.UpsertTransactions(scope, portfolioCode, transactions.ToList());
@@ -566,10 +551,10 @@ namespace LusidSdk.Tests
            Assert.AreEqual(listOfBreaks.Values.Count, 4);
 
             var map = listOfBreaks.Values.ToDictionary(abreak => abreak.InstrumentUid);
-            Assert.AreEqual(map[_instrumentIds[0]].DifferenceUnits, -1500);
-            Assert.AreEqual(map[_instrumentIds[3]].DifferenceUnits, 1000);
-            Assert.AreEqual(map[_instrumentIds[2]].DifferenceUnits, 1200);
-            Assert.AreEqual(map[_instrumentIds[1]].DifferenceUnits, 1000);
+            Assert.That(map[_instrumentIds[0]].DifferenceUnits, Is.EqualTo(-1500));
+            Assert.That(map[_instrumentIds[3]].DifferenceUnits, Is.EqualTo(1000));
+            Assert.That(map[_instrumentIds[2]].DifferenceUnits, Is.EqualTo(1200));
+            Assert.That(map[_instrumentIds[1]].DifferenceUnits, Is.EqualTo(1000));
             
             void PrintBreaks(IEnumerable<ReconciliationBreak> breaks)
             {
