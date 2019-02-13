@@ -44,6 +44,8 @@ namespace Finbourne.Models
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
         /// <param name="description">LUSID transaction description</param>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="transactionDate">Transaction date</param>
         /// <param name="settlementDate">Settlement date</param>
@@ -71,11 +73,12 @@ namespace Finbourne.Models
         /// into LUSID</param>
         /// <param name="realisedGainLoss">Collection of gains or
         /// losses</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), double? transactionToPortfolioRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLoss> realisedGainLoss = default(IList<RealisedGainLoss>))
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), string instrumentUid = default(string), System.DateTimeOffset? transactionDate = default(System.DateTimeOffset?), System.DateTimeOffset? settlementDate = default(System.DateTimeOffset?), double? units = default(double?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), double? transactionToPortfolioRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string source = default(string), string nettingSet = default(string), string transactionStatus = default(string), System.DateTimeOffset? entryDateTime = default(System.DateTimeOffset?), System.DateTimeOffset? cancelDateTime = default(System.DateTimeOffset?), IList<RealisedGainLoss> realisedGainLoss = default(IList<RealisedGainLoss>))
         {
             TransactionId = transactionId;
             Type = type;
             Description = description;
+            InstrumentIdentifiers = instrumentIdentifiers;
             InstrumentUid = instrumentUid;
             TransactionDate = transactionDate;
             SettlementDate = settlementDate;
@@ -119,6 +122,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; private set; }
+
+        /// <summary>
+        /// Gets or sets unique instrument identifiers.
+        /// </summary>
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// Gets unique instrument identifier

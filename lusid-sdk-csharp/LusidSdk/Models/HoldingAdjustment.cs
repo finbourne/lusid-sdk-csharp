@@ -48,12 +48,15 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="taxLots">1 or more quantity amounts</param>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
         /// holdings of a instrument</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public HoldingAdjustment(string instrumentUid, IList<TargetTaxLot> taxLots, IList<PerpetualProperty> subHoldingKeys = default(IList<PerpetualProperty>), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>))
+        public HoldingAdjustment(string instrumentUid, IList<TargetTaxLot> taxLots, IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), IList<PerpetualProperty> subHoldingKeys = default(IList<PerpetualProperty>), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>))
         {
+            InstrumentIdentifiers = instrumentIdentifiers;
             InstrumentUid = instrumentUid;
             SubHoldingKeys = subHoldingKeys;
             Properties = properties;
@@ -65,6 +68,12 @@ namespace Finbourne.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// Gets or sets unique instrument identifiers.
+        /// </summary>
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// Gets or sets unique instrument identifier

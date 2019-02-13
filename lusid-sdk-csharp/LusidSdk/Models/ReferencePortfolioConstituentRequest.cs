@@ -42,9 +42,11 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// ReferencePortfolioConstituentRequest class.
         /// </summary>
-        public ReferencePortfolioConstituentRequest(string instrumentUid = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), double? weight = default(double?), string currency = default(string))
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
+        public ReferencePortfolioConstituentRequest(IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), double? weight = default(double?), string currency = default(string))
         {
-            InstrumentUid = instrumentUid;
+            InstrumentIdentifiers = instrumentIdentifiers;
             Properties = properties;
             Weight = weight;
             Currency = currency;
@@ -57,9 +59,10 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets unique instrument identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// </summary>

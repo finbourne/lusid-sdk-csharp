@@ -43,10 +43,13 @@ namespace Finbourne.Models
         /// Initializes a new instance of the ReferencePortfolioConstituent
         /// class.
         /// </summary>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="properties">Properties associated with the
         /// constituent</param>
-        public ReferencePortfolioConstituent(string instrumentUid, string currency, double weight, IList<Property> properties = default(IList<Property>), double? floatingWeight = default(double?))
+        public ReferencePortfolioConstituent(string instrumentUid, string currency, double weight, IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), double? floatingWeight = default(double?))
         {
+            InstrumentIdentifiers = instrumentIdentifiers;
             InstrumentUid = instrumentUid;
             Currency = currency;
             Properties = properties;
@@ -59,6 +62,12 @@ namespace Finbourne.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// Gets or sets unique instrument identifiers.
+        /// </summary>
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// </summary>

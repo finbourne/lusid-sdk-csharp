@@ -55,14 +55,17 @@ namespace Finbourne.Models
         /// settlement currency</param>
         /// <param name="source">Where this transaction came from. Possible
         /// values include: 'System', 'Client'</param>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="exchangeRate">Rate between transaction and settle
         /// currency</param>
         /// <param name="transactionCurrency">Transaction currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
-        public Transaction(string transactionId, string type, string instrumentUid, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, double? exchangeRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string nettingSet = default(string))
+        public Transaction(string transactionId, string type, string instrumentUid, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), double? exchangeRate = default(double?), string transactionCurrency = default(string), IList<PerpetualProperty> properties = default(IList<PerpetualProperty>), string counterpartyId = default(string), string nettingSet = default(string))
         {
             TransactionId = transactionId;
             Type = type;
+            InstrumentIdentifiers = instrumentIdentifiers;
             InstrumentUid = instrumentUid;
             TransactionDate = transactionDate;
             SettlementDate = settlementDate;
@@ -95,6 +98,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets unique instrument identifiers.
+        /// </summary>
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// Gets or sets unique instrument identifier

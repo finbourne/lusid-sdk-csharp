@@ -46,15 +46,16 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AdjustHoldingRequest class.
         /// </summary>
-        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="taxLots">1 or more quantity amounts</param>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
         /// holdings of a instrument</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public AdjustHoldingRequest(string instrumentUid, IList<TargetTaxLotRequest> taxLots, IDictionary<string, PerpetualPropertyValue> subHoldingKeys = default(IDictionary<string, PerpetualPropertyValue>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>))
+        public AdjustHoldingRequest(IList<TargetTaxLotRequest> taxLots, IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), IDictionary<string, PerpetualPropertyValue> subHoldingKeys = default(IDictionary<string, PerpetualPropertyValue>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>))
         {
-            InstrumentUid = instrumentUid;
+            InstrumentIdentifiers = instrumentIdentifiers;
             SubHoldingKeys = subHoldingKeys;
             Properties = properties;
             TaxLots = taxLots;
@@ -67,10 +68,10 @@ namespace Finbourne.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique instrument identifier
+        /// Gets or sets unique instrument identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// Gets or sets key fields to uniquely index the sub holdings of a
@@ -99,10 +100,6 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (InstrumentUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
-            }
             if (TaxLots == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TaxLots");

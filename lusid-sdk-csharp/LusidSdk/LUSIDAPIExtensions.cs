@@ -3809,9 +3809,9 @@ namespace Finbourne
             /// <param name='quotes'>
             /// The quotes to delete
             /// </param>
-            public static DeleteQuotesResponse DeleteQuote(this ILUSIDAPI operations, string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>))
+            public static DeleteQuotesResponse DeleteQuotes(this ILUSIDAPI operations, string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>))
             {
-                return operations.DeleteQuoteAsync(scope, quotes).GetAwaiter().GetResult();
+                return operations.DeleteQuotesAsync(scope, quotes).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -3833,9 +3833,9 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DeleteQuotesResponse> DeleteQuoteAsync(this ILUSIDAPI operations, string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DeleteQuotesResponse> DeleteQuotesAsync(this ILUSIDAPI operations, string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteQuoteWithHttpMessagesAsync(scope, quotes, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteQuotesWithHttpMessagesAsync(scope, quotes, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

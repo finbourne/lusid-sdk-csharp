@@ -240,6 +240,8 @@ namespace Finbourne
     /// | TransactionId|string|Unique transaction identifier |
     /// | Type|string|LUSID transaction type code - Buy, Sell, StockIn,
     /// StockOut, etc |
+    /// | InstrumentIdentifiers|IReadOnlyDictionary`2|Unique instrument
+    /// identifiers. |
     /// | InstrumentUid|string|Unique instrument identifier |
     /// | TransactionDate|datetime|Transaction date |
     /// | SettlementDate|datetime|Settlement date |
@@ -498,6 +500,8 @@ namespace Finbourne
     /// | &lt;a name="232"&gt;232&lt;/a&gt;|PortfolioDoesNotExistAtGivenDate|
     /// |
     /// | &lt;a name="233"&gt;233&lt;/a&gt;|QueryParserFailure|  |
+    /// | &lt;a name="234"&gt;234&lt;/a&gt;|DuplicateConstituentFailure|  |
+    /// | &lt;a name="235"&gt;235&lt;/a&gt;|UnresolvedConstituentFailure|  |
     /// | &lt;a name="301"&gt;301&lt;/a&gt;|DependenciesFailure|  |
     /// | &lt;a name="304"&gt;304&lt;/a&gt;|PortfolioPreprocessFailure|  |
     /// | &lt;a name="310"&gt;310&lt;/a&gt;|ValuationEngineFailure|  |
@@ -12067,7 +12071,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DeleteQuotesResponse>> DeleteQuoteWithHttpMessagesAsync(string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DeleteQuotesResponse>> DeleteQuotesWithHttpMessagesAsync(string scope, IList<DeleteQuoteRequest> quotes = default(IList<DeleteQuoteRequest>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (scope == null)
             {
@@ -12093,7 +12097,7 @@ namespace Finbourne
                 tracingParameters.Add("scope", scope);
                 tracingParameters.Add("quotes", quotes);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "DeleteQuote", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "DeleteQuotes", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;

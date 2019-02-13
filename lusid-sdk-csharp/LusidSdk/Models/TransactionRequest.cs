@@ -44,7 +44,6 @@ namespace Finbourne.Models
         /// <param name="transactionId">Unique transaction identifier</param>
         /// <param name="type">LUSID transaction type code - Buy, Sell,
         /// StockIn, StockOut, etc</param>
-        /// <param name="instrumentUid">Unique instrument identifier</param>
         /// <param name="transactionDate">Transaction date</param>
         /// <param name="settlementDate">Settlement date</param>
         /// <param name="units">Quantity of transaction in units of the
@@ -56,15 +55,17 @@ namespace Finbourne.Models
         /// <param name="source">Where this transaction came from, either
         /// Client or System. Possible values include: 'System',
         /// 'Client'</param>
+        /// <param name="instrumentIdentifiers">Unique instrument
+        /// identifiers.</param>
         /// <param name="exchangeRate">Rate between transaction and settle
         /// currency</param>
         /// <param name="transactionCurrency">Transaction currency</param>
         /// <param name="counterpartyId">Counterparty identifier</param>
-        public TransactionRequest(string transactionId, string type, string instrumentUid, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, double? exchangeRate = default(double?), string transactionCurrency = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), string counterpartyId = default(string), string nettingSet = default(string))
+        public TransactionRequest(string transactionId, string type, System.DateTimeOffset transactionDate, System.DateTimeOffset settlementDate, double units, TransactionPrice transactionPrice, CurrencyAndAmount totalConsideration, string source, IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), double? exchangeRate = default(double?), string transactionCurrency = default(string), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), string counterpartyId = default(string), string nettingSet = default(string))
         {
             TransactionId = transactionId;
             Type = type;
-            InstrumentUid = instrumentUid;
+            InstrumentIdentifiers = instrumentIdentifiers;
             TransactionDate = transactionDate;
             SettlementDate = settlementDate;
             Units = units;
@@ -98,10 +99,10 @@ namespace Finbourne.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets unique instrument identifier
+        /// Gets or sets unique instrument identifiers.
         /// </summary>
-        [JsonProperty(PropertyName = "instrumentUid")]
-        public string InstrumentUid { get; set; }
+        [JsonProperty(PropertyName = "instrumentIdentifiers")]
+        public IDictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
         /// Gets or sets transaction date
@@ -183,10 +184,6 @@ namespace Finbourne.Models
             if (Type == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Type");
-            }
-            if (InstrumentUid == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentUid");
             }
             if (TransactionPrice == null)
             {
