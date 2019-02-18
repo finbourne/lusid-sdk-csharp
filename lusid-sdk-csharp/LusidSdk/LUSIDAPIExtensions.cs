@@ -3993,7 +3993,7 @@ namespace Finbourne
             /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date of the constituents to retrieve
+            /// Optional. The effective date of the constituents to retrieve
             /// </param>
             /// <param name='asAt'>
             /// Optional. The AsAt date of the data
@@ -4009,7 +4009,7 @@ namespace Finbourne
             /// Optional. When paginating, limit the number of returned results to this
             /// many
             /// </param>
-            public static GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
+            public static GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?))
             {
                 return operations.GetReferencePortfolioConstituentsAsync(scope, code, effectiveAt, asAt, sortBy, start, limit).GetAwaiter().GetResult();
             }
@@ -4030,7 +4030,7 @@ namespace Finbourne
             /// The code of the portfolio
             /// </param>
             /// <param name='effectiveAt'>
-            /// The effective date of the constituents to retrieve
+            /// Optional. The effective date of the constituents to retrieve
             /// </param>
             /// <param name='asAt'>
             /// Optional. The AsAt date of the data
@@ -4049,7 +4049,7 @@ namespace Finbourne
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset effectiveAt, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync(this ILUSIDAPI operations, string scope, string code, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetReferencePortfolioConstituentsWithHttpMessagesAsync(scope, code, effectiveAt, asAt, sortBy, start, limit, null, cancellationToken).ConfigureAwait(false))
                 {

@@ -46,14 +46,14 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the AdjustHoldingRequest class.
         /// </summary>
-        /// <param name="taxLots">1 or more quantity amounts</param>
         /// <param name="instrumentIdentifiers">Unique instrument
         /// identifiers.</param>
+        /// <param name="taxLots">1 or more quantity amounts</param>
         /// <param name="subHoldingKeys">Key fields to uniquely index the sub
         /// holdings of a instrument</param>
         /// <param name="properties">Arbitrary properties to store with the
         /// holding</param>
-        public AdjustHoldingRequest(IList<TargetTaxLotRequest> taxLots, IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), IDictionary<string, PerpetualPropertyValue> subHoldingKeys = default(IDictionary<string, PerpetualPropertyValue>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>))
+        public AdjustHoldingRequest(IDictionary<string, string> instrumentIdentifiers, IList<TargetTaxLotRequest> taxLots, IDictionary<string, PerpetualPropertyValue> subHoldingKeys = default(IDictionary<string, PerpetualPropertyValue>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>))
         {
             InstrumentIdentifiers = instrumentIdentifiers;
             SubHoldingKeys = subHoldingKeys;
@@ -100,6 +100,10 @@ namespace Finbourne.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (InstrumentIdentifiers == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentIdentifiers");
+            }
             if (TaxLots == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "TaxLots");

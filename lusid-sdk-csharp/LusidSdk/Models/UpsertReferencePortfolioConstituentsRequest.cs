@@ -110,6 +110,16 @@ namespace Finbourne.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Constituents");
             }
+            if (Constituents != null)
+            {
+                foreach (var element in Constituents)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
         }
     }
 }

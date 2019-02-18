@@ -22,6 +22,7 @@
 
 namespace Finbourne.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -44,7 +45,7 @@ namespace Finbourne.Models
         /// </summary>
         /// <param name="instrumentIdentifiers">Unique instrument
         /// identifiers.</param>
-        public ReferencePortfolioConstituentRequest(IDictionary<string, string> instrumentIdentifiers = default(IDictionary<string, string>), IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), double? weight = default(double?), string currency = default(string))
+        public ReferencePortfolioConstituentRequest(IDictionary<string, string> instrumentIdentifiers, double weight, IDictionary<string, PerpetualPropertyValue> properties = default(IDictionary<string, PerpetualPropertyValue>), string currency = default(string))
         {
             InstrumentIdentifiers = instrumentIdentifiers;
             Properties = properties;
@@ -72,12 +73,25 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "weight")]
-        public double? Weight { get; set; }
+        public double Weight { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "currency")]
         public string Currency { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (InstrumentIdentifiers == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "InstrumentIdentifiers");
+            }
+        }
     }
 }
