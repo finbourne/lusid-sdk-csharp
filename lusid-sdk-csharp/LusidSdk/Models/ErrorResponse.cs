@@ -40,87 +40,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the ErrorResponse class.
         /// </summary>
-        /// <param name="code">Possible values include: 'Unknown',
-        /// 'VersionNotFound', 'InstrumentNotFound', 'PropertyNotFound',
-        /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
-        /// 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
-        /// 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio',
-        /// 'MissingBaseClaims', 'PropertyNotDefined',
-        /// 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
-        /// 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
-        /// 'CannotModifyDefaultDataType', 'GroupAlreadyExists',
-        /// 'NoSuchDataType', 'ValidationError',
-        /// 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
-        /// 'PriceSourceNotFound', 'AnalyticStoreNotFound',
-        /// 'AnalyticStoreAlreadyExists', 'ClientInstrumentAlreadyExists',
-        /// 'DuplicateInParameterSet', 'ResultsNotFound',
-        /// 'OrderFieldNotInResultSet', 'OperationFailed',
-        /// 'ElasticSearchError', 'InvalidParameterValue',
-        /// 'CommandProcessingFailure', 'EntityStateConstructionFailure',
-        /// 'EntityTimelineDoesNotExist', 'EventPublishFailure',
-        /// 'InvalidRequestFailure', 'EventPublishUnknown',
-        /// 'EventQueryFailure', 'BlobDidNotExistFailure',
-        /// 'SubSystemRequestFailure', 'SubSystemConfigurationFailure',
-        /// 'FailedToDelete', 'UpsertClientInstrumentFailure',
-        /// 'IllegalAsAtInterval', 'IllegalBitemporalQuery',
-        /// 'InvalidAlternateId', 'CannotAddSourcePortfolioPropertyExplicitly',
-        /// 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
-        /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
-        /// 'InvalidTransactions', 'ReferencePortfolioNotFound',
-        /// 'DuplicateIdFailure', 'CommandRetrievalFailure',
-        /// 'DataFilterApplicationFailure', 'SearchFailed',
-        /// 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
-        /// 'AccrualSourceNotFound', 'EntitlementsFailure',
-        /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
-        /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
-        /// 'CutDefinitionNotFound', 'CutDefinitionInvalid',
-        /// 'ServerConfigurationError', 'InvalidUnitForDataType',
-        /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
-        /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
-        /// 'CannotSpecifyUnitsOnDataType',
-        /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
-        /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
-        /// 'InvalidInstrumentIdentifierUnit',
-        /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
-        /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
-        /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
-        /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
-        /// 'TransactionPortfolioRequestNotSupported',
-        /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
-        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
-        /// 'InvalidPropertyValueAssignment',
-        /// 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure',
-        /// 'DuplicateConstituentFailure', 'UnresolvedConstituentFailure',
-        /// 'DependenciesFailure', 'PortfolioPreprocessFailure',
-        /// 'ValuationEngineFailure', 'TaskFactoryFailure',
-        /// 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure',
-        /// 'ResultRetrievalFailure', 'ResultProcessingFailure',
-        /// 'VendorResultProcessingFailure',
-        /// 'CannotSupplyTimesWithPortfoliosQuery',
-        /// 'AttemptToUpsertDuplicateQuotes'</param>
-        public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
-        {
-            Status = status;
-            Code = code;
-            Message = message;
-            DetailedMessage = detailedMessage;
-            Items = items;
-            MoreInfo = moreInfo;
-            CustomInit();
-        }
-
-        /// <summary>
-        /// An initialization method that performs custom operations like setting defaults
-        /// </summary>
-        partial void CustomInit();
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "status")]
-        public int? Status { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'Unknown', 'VersionNotFound',
+        /// <param name="code">Possible values include: 'VersionNotFound',
         /// 'InstrumentNotFound', 'PropertyNotFound',
         /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
         /// 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
@@ -154,30 +74,108 @@ namespace Finbourne.Models
         /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
         /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
         /// 'CutDefinitionNotFound', 'CutDefinitionInvalid',
-        /// 'ServerConfigurationError', 'InvalidUnitForDataType',
-        /// 'InvalidTypeForDataType', 'InvalidValueForDataType',
-        /// 'UnitNotDefinedForDataType', 'UnitsNotSupportedOnDataType',
-        /// 'CannotSpecifyUnitsOnDataType',
+        /// 'InvalidUnitForDataType', 'InvalidTypeForDataType',
+        /// 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
+        /// 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
         /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
         /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
         /// 'InvalidInstrumentIdentifierUnit',
         /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
         /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
         /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
-        /// 'QuoteNotFoundFailure', 'ReferencePortfolioRequestNotSupported',
+        /// 'QuoteNotFoundFailure', 'InvalidInstrumentDefinition',
+        /// 'InstrumentUpsertFailure', 'ReferencePortfolioRequestNotSupported',
         /// 'TransactionPortfolioRequestNotSupported',
-        /// 'InvalidInstrumentDefinition', 'InstrumentUpsertFailure',
-        /// 'TransactionTypeNotFound', 'TransactionTypeDuplication',
-        /// 'InvalidPropertyValueAssignment',
-        /// 'PortfolioDoesNotExistAtGivenDate', 'QueryParserFailure',
-        /// 'DuplicateConstituentFailure', 'UnresolvedConstituentFailure',
-        /// 'DependenciesFailure', 'PortfolioPreprocessFailure',
-        /// 'ValuationEngineFailure', 'TaskFactoryFailure',
-        /// 'TaskEvaluationFailure', 'InstrumentFailure', 'CashFlowsFailure',
-        /// 'ResultRetrievalFailure', 'ResultProcessingFailure',
-        /// 'VendorResultProcessingFailure',
+        /// 'InvalidPropertyValueAssignment', 'TransactionTypeNotFound',
+        /// 'TransactionTypeDuplication', 'PortfolioDoesNotExistAtGivenDate',
+        /// 'QueryParserFailure', 'DuplicateConstituentFailure',
+        /// 'UnresolvedConstituentFailure', 'DependenciesFailure',
+        /// 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
+        /// 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+        /// 'CashFlowsFailure', 'ResultRetrievalFailure',
+        /// 'ResultProcessingFailure', 'VendorResultProcessingFailure',
         /// 'CannotSupplyTimesWithPortfoliosQuery',
-        /// 'AttemptToUpsertDuplicateQuotes'
+        /// 'AttemptToUpsertDuplicateQuotes', 'ServerConfigurationError',
+        /// 'Unknown'</param>
+        public ErrorResponse(int? status = default(int?), string code = default(string), string message = default(string), string detailedMessage = default(string), IList<ErrorDetailBase> items = default(IList<ErrorDetailBase>), string moreInfo = default(string))
+        {
+            Status = status;
+            Code = code;
+            Message = message;
+            DetailedMessage = detailedMessage;
+            Items = items;
+            MoreInfo = moreInfo;
+            CustomInit();
+        }
+
+        /// <summary>
+        /// An initialization method that performs custom operations like setting defaults
+        /// </summary>
+        partial void CustomInit();
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "status")]
+        public int? Status { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'VersionNotFound',
+        /// 'InstrumentNotFound', 'PropertyNotFound',
+        /// 'PortfolioRecursionDepth', 'GroupNotFound', 'PortfolioNotFound',
+        /// 'PropertySchemaNotFound', 'PortfolioAncestryNotFound',
+        /// 'PortfolioWithIdAlreadyExists', 'OrphanedPortfolio',
+        /// 'MissingBaseClaims', 'PropertyNotDefined',
+        /// 'CannotDeleteSystemProperty', 'CannotModifyImmutablePropertyField',
+        /// 'PropertyAlreadyExists', 'InvalidPropertyLifeTime',
+        /// 'CannotModifyDefaultDataType', 'GroupAlreadyExists',
+        /// 'NoSuchDataType', 'ValidationError',
+        /// 'LoopDetectedInGroupHierarchy', 'SubGroupAlreadyExists',
+        /// 'PriceSourceNotFound', 'AnalyticStoreNotFound',
+        /// 'AnalyticStoreAlreadyExists', 'ClientInstrumentAlreadyExists',
+        /// 'DuplicateInParameterSet', 'ResultsNotFound',
+        /// 'OrderFieldNotInResultSet', 'OperationFailed',
+        /// 'ElasticSearchError', 'InvalidParameterValue',
+        /// 'CommandProcessingFailure', 'EntityStateConstructionFailure',
+        /// 'EntityTimelineDoesNotExist', 'EventPublishFailure',
+        /// 'InvalidRequestFailure', 'EventPublishUnknown',
+        /// 'EventQueryFailure', 'BlobDidNotExistFailure',
+        /// 'SubSystemRequestFailure', 'SubSystemConfigurationFailure',
+        /// 'FailedToDelete', 'UpsertClientInstrumentFailure',
+        /// 'IllegalAsAtInterval', 'IllegalBitemporalQuery',
+        /// 'InvalidAlternateId', 'CannotAddSourcePortfolioPropertyExplicitly',
+        /// 'EntityAlreadyExistsInGroup', 'EntityWithIdAlreadyExists',
+        /// 'PortfolioDetailsDoNotExist', 'PortfolioWithNameAlreadyExists',
+        /// 'InvalidTransactions', 'ReferencePortfolioNotFound',
+        /// 'DuplicateIdFailure', 'CommandRetrievalFailure',
+        /// 'DataFilterApplicationFailure', 'SearchFailed',
+        /// 'MovementsEngineConfigurationKeyFailure', 'FxRateSourceNotFound',
+        /// 'AccrualSourceNotFound', 'EntitlementsFailure',
+        /// 'InvalidIdentityToken', 'InvalidRequestHeaders', 'PriceNotFound',
+        /// 'InvalidSubHoldingKeysProvided', 'DuplicateSubHoldingKeysProvided',
+        /// 'CutDefinitionNotFound', 'CutDefinitionInvalid',
+        /// 'InvalidUnitForDataType', 'InvalidTypeForDataType',
+        /// 'InvalidValueForDataType', 'UnitNotDefinedForDataType',
+        /// 'UnitsNotSupportedOnDataType', 'CannotSpecifyUnitsOnDataType',
+        /// 'UnitSchemaInconsistentWithDataType', 'UnitDefinitionNotSpecified',
+        /// 'DuplicateUnitDefinitionsSpecified', 'InvalidUnitsDefinition',
+        /// 'InvalidInstrumentIdentifierUnit',
+        /// 'HoldingsAdjustmentDoesNotExist', 'CouldNotBuildExcelUrl',
+        /// 'CouldNotGetExcelVersion', 'InstrumentByCodeNotFound',
+        /// 'EntitySchemaDoesNotExist', 'FeatureNotSupportedOnPortfolioType',
+        /// 'QuoteNotFoundFailure', 'InvalidInstrumentDefinition',
+        /// 'InstrumentUpsertFailure', 'ReferencePortfolioRequestNotSupported',
+        /// 'TransactionPortfolioRequestNotSupported',
+        /// 'InvalidPropertyValueAssignment', 'TransactionTypeNotFound',
+        /// 'TransactionTypeDuplication', 'PortfolioDoesNotExistAtGivenDate',
+        /// 'QueryParserFailure', 'DuplicateConstituentFailure',
+        /// 'UnresolvedConstituentFailure', 'DependenciesFailure',
+        /// 'PortfolioPreprocessFailure', 'ValuationEngineFailure',
+        /// 'TaskFactoryFailure', 'TaskEvaluationFailure', 'InstrumentFailure',
+        /// 'CashFlowsFailure', 'ResultRetrievalFailure',
+        /// 'ResultProcessingFailure', 'VendorResultProcessingFailure',
+        /// 'CannotSupplyTimesWithPortfoliosQuery',
+        /// 'AttemptToUpsertDuplicateQuotes', 'ServerConfigurationError',
+        /// 'Unknown'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
