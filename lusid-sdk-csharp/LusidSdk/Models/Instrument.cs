@@ -54,7 +54,9 @@ namespace Finbourne.Models
         /// <param name="instrumentDefinition">The economic definition of the
         /// instrument for an OTC or instrument where an expanded definition
         /// exists.</param>
-        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), ResourceId lookthroughPortfolio = default(ResourceId), InstrumentEconomicDefinition instrumentDefinition = default(InstrumentEconomicDefinition), IList<Link> links = default(IList<Link>))
+        /// <param name="state">Possible values include: 'Active',
+        /// 'Inactive'</param>
+        public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), IDictionary<string, string> identifiers = default(IDictionary<string, string>), IList<Property> properties = default(IList<Property>), ResourceId lookthroughPortfolio = default(ResourceId), InstrumentEconomicDefinition instrumentDefinition = default(InstrumentEconomicDefinition), string state = default(string), IList<Link> links = default(IList<Link>))
         {
             Href = href;
             LusidInstrumentId = lusidInstrumentId;
@@ -64,6 +66,7 @@ namespace Finbourne.Models
             Properties = properties;
             LookthroughPortfolio = lookthroughPortfolio;
             InstrumentDefinition = instrumentDefinition;
+            State = state;
             Links = links;
             CustomInit();
         }
@@ -123,6 +126,12 @@ namespace Finbourne.Models
         /// </summary>
         [JsonProperty(PropertyName = "instrumentDefinition")]
         public InstrumentEconomicDefinition InstrumentDefinition { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'Active', 'Inactive'
+        /// </summary>
+        [JsonProperty(PropertyName = "state")]
+        public string State { get; set; }
 
         /// <summary>
         /// </summary>

@@ -1013,7 +1013,7 @@ namespace Finbourne
         /// Lists all instruments that have been mastered within LUSID.
         /// </remarks>
         /// <param name='asAt'>
-        /// The AsAt time
+        /// Optional. The AsAt time
         /// </param>
         /// <param name='sortBy'>
         /// Optional. Order the results by these fields. Use use the '-' sign
@@ -1024,10 +1024,11 @@ namespace Finbourne
         /// </param>
         /// <param name='limit'>
         /// Optional. When paginating, limit the number of returned results to
-        /// this many.
+        /// this many
         /// </param>
         /// <param name='filter'>
-        /// Optional. Expression to filter the result set
+        /// Optional. Expression to filter the result set - the default filter
+        /// returns only instruments in the Active state
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1035,7 +1036,7 @@ namespace Finbourne
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upsert instruments

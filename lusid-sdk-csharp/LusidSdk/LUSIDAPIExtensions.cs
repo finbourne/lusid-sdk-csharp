@@ -1065,7 +1065,7 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='asAt'>
-            /// The AsAt time
+            /// Optional. The AsAt time
             /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -1076,12 +1076,13 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// Optional. When paginating, limit the number of returned results to this
-            /// many.
+            /// many
             /// </param>
             /// <param name='filter'>
-            /// Optional. Expression to filter the result set
+            /// Optional. Expression to filter the result set - the default filter returns
+            /// only instruments in the Active state
             /// </param>
-            public static ResourceListOfInstrument ListInstruments(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+            public static ResourceListOfInstrument ListInstruments(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'")
             {
                 return operations.ListInstrumentsAsync(asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
             }
@@ -1096,7 +1097,7 @@ namespace Finbourne
             /// The operations group for this extension method.
             /// </param>
             /// <param name='asAt'>
-            /// The AsAt time
+            /// Optional. The AsAt time
             /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -1107,15 +1108,16 @@ namespace Finbourne
             /// </param>
             /// <param name='limit'>
             /// Optional. When paginating, limit the number of returned results to this
-            /// many.
+            /// many
             /// </param>
             /// <param name='filter'>
-            /// Optional. Expression to filter the result set
+            /// Optional. Expression to filter the result set - the default filter returns
+            /// only instruments in the Active state
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfInstrument> ListInstrumentsAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfInstrument> ListInstrumentsAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListInstrumentsWithHttpMessagesAsync(asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
                 {

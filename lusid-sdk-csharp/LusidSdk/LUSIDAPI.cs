@@ -3831,7 +3831,7 @@ namespace Finbourne
         /// Lists all instruments that have been mastered within LUSID.
         /// </remarks>
         /// <param name='asAt'>
-        /// The AsAt time
+        /// Optional. The AsAt time
         /// </param>
         /// <param name='sortBy'>
         /// Optional. Order the results by these fields. Use use the '-' sign to denote
@@ -3842,10 +3842,11 @@ namespace Finbourne
         /// </param>
         /// <param name='limit'>
         /// Optional. When paginating, limit the number of returned results to this
-        /// many.
+        /// many
         /// </param>
         /// <param name='filter'>
-        /// Optional. Expression to filter the result set
+        /// Optional. Expression to filter the result set - the default filter returns
+        /// only instruments in the Active state
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3862,7 +3863,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
