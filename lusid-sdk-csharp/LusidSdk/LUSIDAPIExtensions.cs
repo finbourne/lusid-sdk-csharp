@@ -1067,6 +1067,9 @@ namespace Finbourne
             /// <param name='asAt'>
             /// Optional. The AsAt time
             /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
+            /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
             /// descending order e.g. -MyFieldName
@@ -1082,9 +1085,12 @@ namespace Finbourne
             /// Optional. Expression to filter the result set - the default filter returns
             /// only instruments in the Active state
             /// </param>
-            public static ResourceListOfInstrument ListInstruments(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'")
+            /// <param name='instrumentPropertyKeys'>
+            /// Optional. Keys of the properties to be decorated on to the instrument
+            /// </param>
+            public static ResourceListOfInstrument ListInstruments(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", IList<string> instrumentPropertyKeys = default(IList<string>))
             {
-                return operations.ListInstrumentsAsync(asAt, sortBy, start, limit, filter).GetAwaiter().GetResult();
+                return operations.ListInstrumentsAsync(asAt, effectiveAt, sortBy, start, limit, filter, instrumentPropertyKeys).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1099,6 +1105,9 @@ namespace Finbourne
             /// <param name='asAt'>
             /// Optional. The AsAt time
             /// </param>
+            /// <param name='effectiveAt'>
+            /// Optional. The effective date of the query
+            /// </param>
             /// <param name='sortBy'>
             /// Optional. Order the results by these fields. Use use the '-' sign to denote
             /// descending order e.g. -MyFieldName
@@ -1114,12 +1123,15 @@ namespace Finbourne
             /// Optional. Expression to filter the result set - the default filter returns
             /// only instruments in the Active state
             /// </param>
+            /// <param name='instrumentPropertyKeys'>
+            /// Optional. Keys of the properties to be decorated on to the instrument
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ResourceListOfInstrument> ListInstrumentsAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResourceListOfInstrument> ListInstrumentsAsync(this ILUSIDAPI operations, System.DateTimeOffset? asAt = default(System.DateTimeOffset?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", IList<string> instrumentPropertyKeys = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ListInstrumentsWithHttpMessagesAsync(asAt, sortBy, start, limit, filter, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListInstrumentsWithHttpMessagesAsync(asAt, effectiveAt, sortBy, start, limit, filter, instrumentPropertyKeys, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

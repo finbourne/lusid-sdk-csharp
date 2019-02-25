@@ -3833,6 +3833,9 @@ namespace Finbourne
         /// <param name='asAt'>
         /// Optional. The AsAt time
         /// </param>
+        /// <param name='effectiveAt'>
+        /// Optional. The effective date of the query
+        /// </param>
         /// <param name='sortBy'>
         /// Optional. Order the results by these fields. Use use the '-' sign to denote
         /// descending order e.g. -MyFieldName
@@ -3847,6 +3850,9 @@ namespace Finbourne
         /// <param name='filter'>
         /// Optional. Expression to filter the result set - the default filter returns
         /// only instruments in the Active state
+        /// </param>
+        /// <param name='instrumentPropertyKeys'>
+        /// Optional. Keys of the properties to be decorated on to the instrument
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3863,7 +3869,7 @@ namespace Finbourne
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ResourceListOfInstrument>> ListInstrumentsWithHttpMessagesAsync(System.DateTimeOffset? asAt = default(System.DateTimeOffset?), System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?), IList<string> sortBy = default(IList<string>), int? start = default(int?), int? limit = default(int?), string filter = "State eq 'Active'", IList<string> instrumentPropertyKeys = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -3873,10 +3879,12 @@ namespace Finbourne
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("asAt", asAt);
+                tracingParameters.Add("effectiveAt", effectiveAt);
                 tracingParameters.Add("sortBy", sortBy);
                 tracingParameters.Add("start", start);
                 tracingParameters.Add("limit", limit);
                 tracingParameters.Add("filter", filter);
+                tracingParameters.Add("instrumentPropertyKeys", instrumentPropertyKeys);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ListInstruments", tracingParameters);
             }
@@ -3887,6 +3895,10 @@ namespace Finbourne
             if (asAt != null)
             {
                 _queryParameters.Add(string.Format("asAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(asAt, SerializationSettings).Trim('"'))));
+            }
+            if (effectiveAt != null)
+            {
+                _queryParameters.Add(string.Format("effectiveAt={0}", System.Uri.EscapeDataString(SafeJsonConvert.SerializeObject(effectiveAt, SerializationSettings).Trim('"'))));
             }
             if (sortBy != null)
             {
@@ -3913,6 +3925,20 @@ namespace Finbourne
             if (filter != null)
             {
                 _queryParameters.Add(string.Format("filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (instrumentPropertyKeys != null)
+            {
+                if (instrumentPropertyKeys.Count == 0)
+                {
+                    _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString(string.Empty)));
+                }
+                else
+                {
+                    foreach (var _item in instrumentPropertyKeys)
+                    {
+                        _queryParameters.Add(string.Format("instrumentPropertyKeys={0}", System.Uri.EscapeDataString("" + _item)));
+                    }
+                }
             }
             if (_queryParameters.Count > 0)
             {

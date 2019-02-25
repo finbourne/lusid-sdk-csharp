@@ -39,7 +39,7 @@ namespace Finbourne.Models
         /// <summary>
         /// Initializes a new instance of the UpsertQuoteRequest class.
         /// </summary>
-        public UpsertQuoteRequest(QuoteId quoteId, MetricValue metricValue, QuoteLineage quoteLineage, System.DateTimeOffset? effectiveAt = default(System.DateTimeOffset?))
+        public UpsertQuoteRequest(QuoteId quoteId, MetricValue metricValue, QuoteLineage quoteLineage, System.DateTimeOffset effectiveAt)
         {
             QuoteId = quoteId;
             MetricValue = metricValue;
@@ -71,7 +71,7 @@ namespace Finbourne.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "effectiveAt")]
-        public System.DateTimeOffset? EffectiveAt { get; set; }
+        public System.DateTimeOffset EffectiveAt { get; set; }
 
         /// <summary>
         /// Validate the object.
