@@ -42,12 +42,9 @@ namespace Finbourne.Models
         /// Initializes a new instance of the
         /// UpsertInstrumentPropertiesResponse class.
         /// </summary>
-        /// <param name="failed">A list of any values that failed to be
-        /// upserted.</param>
-        public UpsertInstrumentPropertiesResponse(string href = default(string), IList<ErrorDetail> failed = default(IList<ErrorDetail>), IList<Link> links = default(IList<Link>))
+        public UpsertInstrumentPropertiesResponse(System.DateTimeOffset asAtDate, IList<Link> links = default(IList<Link>))
         {
-            Href = href;
-            Failed = failed;
+            AsAtDate = asAtDate;
             Links = links;
             CustomInit();
         }
@@ -59,19 +56,32 @@ namespace Finbourne.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "href")]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// Gets a list of any values that failed to be upserted.
-        /// </summary>
-        [JsonProperty(PropertyName = "failed")]
-        public IList<ErrorDetail> Failed { get; private set; }
+        [JsonProperty(PropertyName = "asAtDate")]
+        public System.DateTimeOffset AsAtDate { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "links")]
         public IList<Link> Links { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Links != null)
+            {
+                foreach (var element in Links)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }
