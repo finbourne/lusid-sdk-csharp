@@ -10,7 +10,7 @@ if [[ (${#1} -eq 0) ]] ; then
 fi
 
 NUGET_API_KEY=$1
-sdk_version=$(cat lusid.json | jq -r '.info.version')-alpha
+sdk_version=$(cat lusid.json | jq -r '.info.version')
 
 sed -i 's/<Version>.*<\/Version>/<Version>'$sdk_version'<\/Version>/g' sdk/Lusid.Sdk/Lusid.Sdk.csproj
 
