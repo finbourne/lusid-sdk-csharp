@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.9.100-alpha</Version>
+    <PackageId>Lusid.Sdk</PackageId>
+    <Authors>engineering@finbourne.com</Authors>
+    <Company>FINBOURNE Technology Limited</Company>
+    <Product>LUSID</Product>
+    <Description>LUSID SDK</Description>
+    <RepositoryUrl>https://github.com/finbourne/lusid-sdk-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.7" />
+    <PackageReference Include="FubarCoder.RestSharp.Portable.HttpClient" Version="4.0.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="JsonSubTypes" Version="1.2.0" />
+  </ItemGroup>
+  
+</Project>
