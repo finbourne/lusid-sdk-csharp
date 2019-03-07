@@ -23,64 +23,157 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransactionConfigurationData
+    /// It is possible to control which supplier is used for a given asset class.
     /// </summary>
     [DataContract]
-    public partial class TransactionConfigurationData :  IEquatable<TransactionConfigurationData>
+    public partial class MarketContextSuppliers :  IEquatable<MarketContextSuppliers>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// Defines Commodity
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TransactionConfigurationData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
-        /// </summary>
-        /// <param name="Aliases">List of transaction codes that map to this specific transaction model (required).</param>
-        /// <param name="Movements">Movement data for the transaction code (required).</param>
-        /// <param name="Properties">Properties.</param>
-        public TransactionConfigurationData(List<TransactionConfigurationTypeAlias> Aliases = default(List<TransactionConfigurationTypeAlias>), List<TransactionConfigurationMovementData> Movements = default(List<TransactionConfigurationMovementData>), List<PerpetualProperty> Properties = default(List<PerpetualProperty>))
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CommodityEnum
         {
-            // to ensure "Aliases" is required (not null)
-            if (Aliases == null)
-            {
-                throw new InvalidDataException("Aliases is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Aliases = Aliases;
-            }
-            // to ensure "Movements" is required (not null)
-            if (Movements == null)
-            {
-                throw new InvalidDataException("Movements is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Movements = Movements;
-            }
-            this.Properties = Properties;
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// Gets or Sets Commodity
+        /// </summary>
+        [DataMember(Name="Commodity", EmitDefaultValue=false)]
+        public CommodityEnum? Commodity { get; set; }
+        /// <summary>
+        /// Defines Credit
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CreditEnum
+        {
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// Gets or Sets Credit
+        /// </summary>
+        [DataMember(Name="Credit", EmitDefaultValue=false)]
+        public CreditEnum? Credit { get; set; }
+        /// <summary>
+        /// Defines Equity
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EquityEnum
+        {
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// Gets or Sets Equity
+        /// </summary>
+        [DataMember(Name="Equity", EmitDefaultValue=false)]
+        public EquityEnum? Equity { get; set; }
+        /// <summary>
+        /// Defines Fx
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FxEnum
+        {
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// Gets or Sets Fx
+        /// </summary>
+        [DataMember(Name="Fx", EmitDefaultValue=false)]
+        public FxEnum? Fx { get; set; }
+        /// <summary>
+        /// Defines Rates
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RatesEnum
+        {
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// Gets or Sets Rates
+        /// </summary>
+        [DataMember(Name="Rates", EmitDefaultValue=false)]
+        public RatesEnum? Rates { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MarketContextSuppliers" /> class.
+        /// </summary>
+        /// <param name="Commodity">Commodity.</param>
+        /// <param name="Credit">Credit.</param>
+        /// <param name="Equity">Equity.</param>
+        /// <param name="Fx">Fx.</param>
+        /// <param name="Rates">Rates.</param>
+        public MarketContextSuppliers(CommodityEnum? Commodity = default(CommodityEnum?), CreditEnum? Credit = default(CreditEnum?), EquityEnum? Equity = default(EquityEnum?), FxEnum? Fx = default(FxEnum?), RatesEnum? Rates = default(RatesEnum?))
+        {
+            this.Commodity = Commodity;
+            this.Credit = Credit;
+            this.Equity = Equity;
+            this.Fx = Fx;
+            this.Rates = Rates;
         }
         
-        /// <summary>
-        /// List of transaction codes that map to this specific transaction model
-        /// </summary>
-        /// <value>List of transaction codes that map to this specific transaction model</value>
-        [DataMember(Name="aliases", EmitDefaultValue=false)]
-        public List<TransactionConfigurationTypeAlias> Aliases { get; set; }
 
-        /// <summary>
-        /// Movement data for the transaction code
-        /// </summary>
-        /// <value>Movement data for the transaction code</value>
-        [DataMember(Name="movements", EmitDefaultValue=false)]
-        public List<TransactionConfigurationMovementData> Movements { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Properties
-        /// </summary>
-        [DataMember(Name="properties", EmitDefaultValue=false)]
-        public List<PerpetualProperty> Properties { get; set; }
+
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,10 +182,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionConfigurationData {\n");
-            sb.Append("  Aliases: ").Append(Aliases).Append("\n");
-            sb.Append("  Movements: ").Append(Movements).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("class MarketContextSuppliers {\n");
+            sb.Append("  Commodity: ").Append(Commodity).Append("\n");
+            sb.Append("  Credit: ").Append(Credit).Append("\n");
+            sb.Append("  Equity: ").Append(Equity).Append("\n");
+            sb.Append("  Fx: ").Append(Fx).Append("\n");
+            sb.Append("  Rates: ").Append(Rates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,34 +208,44 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionConfigurationData);
+            return this.Equals(input as MarketContextSuppliers);
         }
 
         /// <summary>
-        /// Returns true if TransactionConfigurationData instances are equal
+        /// Returns true if MarketContextSuppliers instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionConfigurationData to be compared</param>
+        /// <param name="input">Instance of MarketContextSuppliers to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionConfigurationData input)
+        public bool Equals(MarketContextSuppliers input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Aliases == input.Aliases ||
-                    this.Aliases != null &&
-                    this.Aliases.SequenceEqual(input.Aliases)
+                    this.Commodity == input.Commodity ||
+                    (this.Commodity != null &&
+                    this.Commodity.Equals(input.Commodity))
                 ) && 
                 (
-                    this.Movements == input.Movements ||
-                    this.Movements != null &&
-                    this.Movements.SequenceEqual(input.Movements)
+                    this.Credit == input.Credit ||
+                    (this.Credit != null &&
+                    this.Credit.Equals(input.Credit))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.Equity == input.Equity ||
+                    (this.Equity != null &&
+                    this.Equity.Equals(input.Equity))
+                ) && 
+                (
+                    this.Fx == input.Fx ||
+                    (this.Fx != null &&
+                    this.Fx.Equals(input.Fx))
+                ) && 
+                (
+                    this.Rates == input.Rates ||
+                    (this.Rates != null &&
+                    this.Rates.Equals(input.Rates))
                 );
         }
 
@@ -153,12 +258,16 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Aliases != null)
-                    hashCode = hashCode * 59 + this.Aliases.GetHashCode();
-                if (this.Movements != null)
-                    hashCode = hashCode * 59 + this.Movements.GetHashCode();
-                if (this.Properties != null)
-                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.Commodity != null)
+                    hashCode = hashCode * 59 + this.Commodity.GetHashCode();
+                if (this.Credit != null)
+                    hashCode = hashCode * 59 + this.Credit.GetHashCode();
+                if (this.Equity != null)
+                    hashCode = hashCode * 59 + this.Equity.GetHashCode();
+                if (this.Fx != null)
+                    hashCode = hashCode * 59 + this.Fx.GetHashCode();
+                if (this.Rates != null)
+                    hashCode = hashCode * 59 + this.Rates.GetHashCode();
                 return hashCode;
             }
         }

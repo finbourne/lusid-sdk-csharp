@@ -23,64 +23,43 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransactionConfigurationData
+    /// Market context node. This defines how LUSID processes parts of a request that require resolution of market data such as instrument prices or  Fx rates. It controls where the data is loaded from and which sources take precedence.
     /// </summary>
     [DataContract]
-    public partial class TransactionConfigurationData :  IEquatable<TransactionConfigurationData>
+    public partial class MarketContext :  IEquatable<MarketContext>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// Initializes a new instance of the <see cref="MarketContext" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TransactionConfigurationData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
-        /// </summary>
-        /// <param name="Aliases">List of transaction codes that map to this specific transaction model (required).</param>
-        /// <param name="Movements">Movement data for the transaction code (required).</param>
-        /// <param name="Properties">Properties.</param>
-        public TransactionConfigurationData(List<TransactionConfigurationTypeAlias> Aliases = default(List<TransactionConfigurationTypeAlias>), List<TransactionConfigurationMovementData> Movements = default(List<TransactionConfigurationMovementData>), List<PerpetualProperty> Properties = default(List<PerpetualProperty>))
+        /// <param name="MarketRules">The set of rules that define how to resolve particular use cases. These can be relatively general or specific in nature.  Nominally any number are possible and will be processed in order where applicable. However, there is evidently a potential  for increased computational cost where many rules must be applied to resolve data. Ensuring that portfolios are structured in  such a way as to reduce the number of rules required is therefore sensible..</param>
+        /// <param name="Suppliers">Suppliers.</param>
+        /// <param name="Options">Miscellaneous options around market loading. In the simplest usage case, this is just a default supplier and instrument resolution code..</param>
+        public MarketContext(List<MarketDataKeyRule> MarketRules = default(List<MarketDataKeyRule>), MarketContextSuppliers Suppliers = default(MarketContextSuppliers), MarketOptions Options = default(MarketOptions))
         {
-            // to ensure "Aliases" is required (not null)
-            if (Aliases == null)
-            {
-                throw new InvalidDataException("Aliases is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Aliases = Aliases;
-            }
-            // to ensure "Movements" is required (not null)
-            if (Movements == null)
-            {
-                throw new InvalidDataException("Movements is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Movements = Movements;
-            }
-            this.Properties = Properties;
+            this.MarketRules = MarketRules;
+            this.Suppliers = Suppliers;
+            this.Options = Options;
         }
         
         /// <summary>
-        /// List of transaction codes that map to this specific transaction model
+        /// The set of rules that define how to resolve particular use cases. These can be relatively general or specific in nature.  Nominally any number are possible and will be processed in order where applicable. However, there is evidently a potential  for increased computational cost where many rules must be applied to resolve data. Ensuring that portfolios are structured in  such a way as to reduce the number of rules required is therefore sensible.
         /// </summary>
-        /// <value>List of transaction codes that map to this specific transaction model</value>
-        [DataMember(Name="aliases", EmitDefaultValue=false)]
-        public List<TransactionConfigurationTypeAlias> Aliases { get; set; }
+        /// <value>The set of rules that define how to resolve particular use cases. These can be relatively general or specific in nature.  Nominally any number are possible and will be processed in order where applicable. However, there is evidently a potential  for increased computational cost where many rules must be applied to resolve data. Ensuring that portfolios are structured in  such a way as to reduce the number of rules required is therefore sensible.</value>
+        [DataMember(Name="marketRules", EmitDefaultValue=false)]
+        public List<MarketDataKeyRule> MarketRules { get; set; }
 
         /// <summary>
-        /// Movement data for the transaction code
+        /// Gets or Sets Suppliers
         /// </summary>
-        /// <value>Movement data for the transaction code</value>
-        [DataMember(Name="movements", EmitDefaultValue=false)]
-        public List<TransactionConfigurationMovementData> Movements { get; set; }
+        [DataMember(Name="suppliers", EmitDefaultValue=false)]
+        public MarketContextSuppliers Suppliers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Properties
+        /// Miscellaneous options around market loading. In the simplest usage case, this is just a default supplier and instrument resolution code.
         /// </summary>
-        [DataMember(Name="properties", EmitDefaultValue=false)]
-        public List<PerpetualProperty> Properties { get; set; }
+        /// <value>Miscellaneous options around market loading. In the simplest usage case, this is just a default supplier and instrument resolution code.</value>
+        [DataMember(Name="options", EmitDefaultValue=false)]
+        public MarketOptions Options { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,10 +68,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionConfigurationData {\n");
-            sb.Append("  Aliases: ").Append(Aliases).Append("\n");
-            sb.Append("  Movements: ").Append(Movements).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("class MarketContext {\n");
+            sb.Append("  MarketRules: ").Append(MarketRules).Append("\n");
+            sb.Append("  Suppliers: ").Append(Suppliers).Append("\n");
+            sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,34 +92,34 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionConfigurationData);
+            return this.Equals(input as MarketContext);
         }
 
         /// <summary>
-        /// Returns true if TransactionConfigurationData instances are equal
+        /// Returns true if MarketContext instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionConfigurationData to be compared</param>
+        /// <param name="input">Instance of MarketContext to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionConfigurationData input)
+        public bool Equals(MarketContext input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Aliases == input.Aliases ||
-                    this.Aliases != null &&
-                    this.Aliases.SequenceEqual(input.Aliases)
+                    this.MarketRules == input.MarketRules ||
+                    this.MarketRules != null &&
+                    this.MarketRules.SequenceEqual(input.MarketRules)
                 ) && 
                 (
-                    this.Movements == input.Movements ||
-                    this.Movements != null &&
-                    this.Movements.SequenceEqual(input.Movements)
+                    this.Suppliers == input.Suppliers ||
+                    (this.Suppliers != null &&
+                    this.Suppliers.Equals(input.Suppliers))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.Options == input.Options ||
+                    (this.Options != null &&
+                    this.Options.Equals(input.Options))
                 );
         }
 
@@ -153,12 +132,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Aliases != null)
-                    hashCode = hashCode * 59 + this.Aliases.GetHashCode();
-                if (this.Movements != null)
-                    hashCode = hashCode * 59 + this.Movements.GetHashCode();
-                if (this.Properties != null)
-                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.MarketRules != null)
+                    hashCode = hashCode * 59 + this.MarketRules.GetHashCode();
+                if (this.Suppliers != null)
+                    hashCode = hashCode * 59 + this.Suppliers.GetHashCode();
+                if (this.Options != null)
+                    hashCode = hashCode * 59 + this.Options.GetHashCode();
                 return hashCode;
             }
         }

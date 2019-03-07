@@ -23,64 +23,48 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransactionConfigurationData
+    /// The Configuration or Calculation Recipe controls how LUSID processes a given request.  This can be used to change where market data used in pricing is loaded from and in what order, or which model is used to  price a given instrument as well as how aggregation will process the produced results.
     /// </summary>
     [DataContract]
-    public partial class TransactionConfigurationData :  IEquatable<TransactionConfigurationData>
+    public partial class ConfigurationRecipe :  IEquatable<ConfigurationRecipe>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// Initializes a new instance of the <see cref="ConfigurationRecipe" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TransactionConfigurationData() { }
+        protected ConfigurationRecipe() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// Initializes a new instance of the <see cref="ConfigurationRecipe" /> class.
         /// </summary>
-        /// <param name="Aliases">List of transaction codes that map to this specific transaction model (required).</param>
-        /// <param name="Movements">Movement data for the transaction code (required).</param>
-        /// <param name="Properties">Properties.</param>
-        public TransactionConfigurationData(List<TransactionConfigurationTypeAlias> Aliases = default(List<TransactionConfigurationTypeAlias>), List<TransactionConfigurationMovementData> Movements = default(List<TransactionConfigurationMovementData>), List<PerpetualProperty> Properties = default(List<PerpetualProperty>))
+        /// <param name="Code">User given string name (code) to identify the recipe. (required).</param>
+        /// <param name="Market">The market configuration node that defines where market data used in processing a request is loaded from and how it is resolved..</param>
+        public ConfigurationRecipe(string Code = default(string), MarketContext Market = default(MarketContext))
         {
-            // to ensure "Aliases" is required (not null)
-            if (Aliases == null)
+            // to ensure "Code" is required (not null)
+            if (Code == null)
             {
-                throw new InvalidDataException("Aliases is a required property for TransactionConfigurationData and cannot be null");
+                throw new InvalidDataException("Code is a required property for ConfigurationRecipe and cannot be null");
             }
             else
             {
-                this.Aliases = Aliases;
+                this.Code = Code;
             }
-            // to ensure "Movements" is required (not null)
-            if (Movements == null)
-            {
-                throw new InvalidDataException("Movements is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Movements = Movements;
-            }
-            this.Properties = Properties;
+            this.Market = Market;
         }
         
         /// <summary>
-        /// List of transaction codes that map to this specific transaction model
+        /// User given string name (code) to identify the recipe.
         /// </summary>
-        /// <value>List of transaction codes that map to this specific transaction model</value>
-        [DataMember(Name="aliases", EmitDefaultValue=false)]
-        public List<TransactionConfigurationTypeAlias> Aliases { get; set; }
+        /// <value>User given string name (code) to identify the recipe.</value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; set; }
 
         /// <summary>
-        /// Movement data for the transaction code
+        /// The market configuration node that defines where market data used in processing a request is loaded from and how it is resolved.
         /// </summary>
-        /// <value>Movement data for the transaction code</value>
-        [DataMember(Name="movements", EmitDefaultValue=false)]
-        public List<TransactionConfigurationMovementData> Movements { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Properties
-        /// </summary>
-        [DataMember(Name="properties", EmitDefaultValue=false)]
-        public List<PerpetualProperty> Properties { get; set; }
+        /// <value>The market configuration node that defines where market data used in processing a request is loaded from and how it is resolved.</value>
+        [DataMember(Name="market", EmitDefaultValue=false)]
+        public MarketContext Market { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,10 +73,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionConfigurationData {\n");
-            sb.Append("  Aliases: ").Append(Aliases).Append("\n");
-            sb.Append("  Movements: ").Append(Movements).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("class ConfigurationRecipe {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,34 +96,29 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionConfigurationData);
+            return this.Equals(input as ConfigurationRecipe);
         }
 
         /// <summary>
-        /// Returns true if TransactionConfigurationData instances are equal
+        /// Returns true if ConfigurationRecipe instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionConfigurationData to be compared</param>
+        /// <param name="input">Instance of ConfigurationRecipe to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionConfigurationData input)
+        public bool Equals(ConfigurationRecipe input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Aliases == input.Aliases ||
-                    this.Aliases != null &&
-                    this.Aliases.SequenceEqual(input.Aliases)
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.Movements == input.Movements ||
-                    this.Movements != null &&
-                    this.Movements.SequenceEqual(input.Movements)
-                ) && 
-                (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
                 );
         }
 
@@ -153,12 +131,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Aliases != null)
-                    hashCode = hashCode * 59 + this.Aliases.GetHashCode();
-                if (this.Movements != null)
-                    hashCode = hashCode * 59 + this.Movements.GetHashCode();
-                if (this.Properties != null)
-                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Market != null)
+                    hashCode = hashCode * 59 + this.Market.GetHashCode();
                 return hashCode;
             }
         }

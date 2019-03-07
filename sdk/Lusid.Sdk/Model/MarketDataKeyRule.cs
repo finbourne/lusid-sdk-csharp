@@ -23,64 +23,158 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransactionConfigurationData
+    /// MarketDataKeyRule
     /// </summary>
     [DataContract]
-    public partial class TransactionConfigurationData :  IEquatable<TransactionConfigurationData>
+    public partial class MarketDataKeyRule :  IEquatable<MarketDataKeyRule>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// the market data supplier (where the data comes from)
+        /// </summary>
+        /// <value>the market data supplier (where the data comes from)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SupplierEnum
+        {
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// the market data supplier (where the data comes from)
+        /// </summary>
+        /// <value>the market data supplier (where the data comes from)</value>
+        [DataMember(Name="supplier", EmitDefaultValue=false)]
+        public SupplierEnum Supplier { get; set; }
+        /// <summary>
+        /// is the quote to be looked for a price, yield etc.
+        /// </summary>
+        /// <value>is the quote to be looked for a price, yield etc.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QuoteTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum Price for value: Price
+            /// </summary>
+            [EnumMember(Value = "Price")]
+            Price = 1,
+            
+            /// <summary>
+            /// Enum Spread for value: Spread
+            /// </summary>
+            [EnumMember(Value = "Spread")]
+            Spread = 2,
+            
+            /// <summary>
+            /// Enum Rate for value: Rate
+            /// </summary>
+            [EnumMember(Value = "Rate")]
+            Rate = 3
+        }
+
+        /// <summary>
+        /// is the quote to be looked for a price, yield etc.
+        /// </summary>
+        /// <value>is the quote to be looked for a price, yield etc.</value>
+        [DataMember(Name="quoteType", EmitDefaultValue=false)]
+        public QuoteTypeEnum? QuoteType { get; set; }
+        /// <summary>
+        /// the conceptual qualification for the field. Something like Bid, Ask or Mid.
+        /// </summary>
+        /// <value>the conceptual qualification for the field. Something like Bid, Ask or Mid.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PriceSideEnum
+        {
+            
+            /// <summary>
+            /// Enum Bid for value: Bid
+            /// </summary>
+            [EnumMember(Value = "Bid")]
+            Bid = 1,
+            
+            /// <summary>
+            /// Enum Mid for value: Mid
+            /// </summary>
+            [EnumMember(Value = "Mid")]
+            Mid = 2,
+            
+            /// <summary>
+            /// Enum Ask for value: Ask
+            /// </summary>
+            [EnumMember(Value = "Ask")]
+            Ask = 3
+        }
+
+        /// <summary>
+        /// the conceptual qualification for the field. Something like Bid, Ask or Mid.
+        /// </summary>
+        /// <value>the conceptual qualification for the field. Something like Bid, Ask or Mid.</value>
+        [DataMember(Name="priceSide", EmitDefaultValue=false)]
+        public PriceSideEnum? PriceSide { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MarketDataKeyRule" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TransactionConfigurationData() { }
+        protected MarketDataKeyRule() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// Initializes a new instance of the <see cref="MarketDataKeyRule" /> class.
         /// </summary>
-        /// <param name="Aliases">List of transaction codes that map to this specific transaction model (required).</param>
-        /// <param name="Movements">Movement data for the transaction code (required).</param>
-        /// <param name="Properties">Properties.</param>
-        public TransactionConfigurationData(List<TransactionConfigurationTypeAlias> Aliases = default(List<TransactionConfigurationTypeAlias>), List<TransactionConfigurationMovementData> Movements = default(List<TransactionConfigurationMovementData>), List<PerpetualProperty> Properties = default(List<PerpetualProperty>))
+        /// <param name="DataScope">the scope in which the data should be found when using this rule..</param>
+        /// <param name="Key">The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*) (required).</param>
+        /// <param name="Supplier">the market data supplier (where the data comes from) (required).</param>
+        /// <param name="QuoteType">is the quote to be looked for a price, yield etc..</param>
+        /// <param name="PriceSide">the conceptual qualification for the field. Something like Bid, Ask or Mid..</param>
+        public MarketDataKeyRule(string DataScope = default(string), string Key = default(string), SupplierEnum Supplier = default(SupplierEnum), QuoteTypeEnum? QuoteType = default(QuoteTypeEnum?), PriceSideEnum? PriceSide = default(PriceSideEnum?))
         {
-            // to ensure "Aliases" is required (not null)
-            if (Aliases == null)
+            // to ensure "Key" is required (not null)
+            if (Key == null)
             {
-                throw new InvalidDataException("Aliases is a required property for TransactionConfigurationData and cannot be null");
+                throw new InvalidDataException("Key is a required property for MarketDataKeyRule and cannot be null");
             }
             else
             {
-                this.Aliases = Aliases;
+                this.Key = Key;
             }
-            // to ensure "Movements" is required (not null)
-            if (Movements == null)
+            // to ensure "Supplier" is required (not null)
+            if (Supplier == null)
             {
-                throw new InvalidDataException("Movements is a required property for TransactionConfigurationData and cannot be null");
+                throw new InvalidDataException("Supplier is a required property for MarketDataKeyRule and cannot be null");
             }
             else
             {
-                this.Movements = Movements;
+                this.Supplier = Supplier;
             }
-            this.Properties = Properties;
+            this.DataScope = DataScope;
+            this.QuoteType = QuoteType;
+            this.PriceSide = PriceSide;
         }
         
         /// <summary>
-        /// List of transaction codes that map to this specific transaction model
+        /// the scope in which the data should be found when using this rule.
         /// </summary>
-        /// <value>List of transaction codes that map to this specific transaction model</value>
-        [DataMember(Name="aliases", EmitDefaultValue=false)]
-        public List<TransactionConfigurationTypeAlias> Aliases { get; set; }
+        /// <value>the scope in which the data should be found when using this rule.</value>
+        [DataMember(Name="dataScope", EmitDefaultValue=false)]
+        public string DataScope { get; set; }
 
         /// <summary>
-        /// Movement data for the transaction code
+        /// The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*)
         /// </summary>
-        /// <value>Movement data for the transaction code</value>
-        [DataMember(Name="movements", EmitDefaultValue=false)]
-        public List<TransactionConfigurationMovementData> Movements { get; set; }
+        /// <value>The market data key pattern which this is a rule for. A dot separated string (A.B.C.D.*)</value>
+        [DataMember(Name="key", EmitDefaultValue=false)]
+        public string Key { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Properties
-        /// </summary>
-        [DataMember(Name="properties", EmitDefaultValue=false)]
-        public List<PerpetualProperty> Properties { get; set; }
+
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,10 +183,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionConfigurationData {\n");
-            sb.Append("  Aliases: ").Append(Aliases).Append("\n");
-            sb.Append("  Movements: ").Append(Movements).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("class MarketDataKeyRule {\n");
+            sb.Append("  DataScope: ").Append(DataScope).Append("\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Supplier: ").Append(Supplier).Append("\n");
+            sb.Append("  QuoteType: ").Append(QuoteType).Append("\n");
+            sb.Append("  PriceSide: ").Append(PriceSide).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,34 +209,44 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionConfigurationData);
+            return this.Equals(input as MarketDataKeyRule);
         }
 
         /// <summary>
-        /// Returns true if TransactionConfigurationData instances are equal
+        /// Returns true if MarketDataKeyRule instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionConfigurationData to be compared</param>
+        /// <param name="input">Instance of MarketDataKeyRule to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionConfigurationData input)
+        public bool Equals(MarketDataKeyRule input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Aliases == input.Aliases ||
-                    this.Aliases != null &&
-                    this.Aliases.SequenceEqual(input.Aliases)
+                    this.DataScope == input.DataScope ||
+                    (this.DataScope != null &&
+                    this.DataScope.Equals(input.DataScope))
                 ) && 
                 (
-                    this.Movements == input.Movements ||
-                    this.Movements != null &&
-                    this.Movements.SequenceEqual(input.Movements)
+                    this.Key == input.Key ||
+                    (this.Key != null &&
+                    this.Key.Equals(input.Key))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.Supplier == input.Supplier ||
+                    (this.Supplier != null &&
+                    this.Supplier.Equals(input.Supplier))
+                ) && 
+                (
+                    this.QuoteType == input.QuoteType ||
+                    (this.QuoteType != null &&
+                    this.QuoteType.Equals(input.QuoteType))
+                ) && 
+                (
+                    this.PriceSide == input.PriceSide ||
+                    (this.PriceSide != null &&
+                    this.PriceSide.Equals(input.PriceSide))
                 );
         }
 
@@ -153,12 +259,16 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Aliases != null)
-                    hashCode = hashCode * 59 + this.Aliases.GetHashCode();
-                if (this.Movements != null)
-                    hashCode = hashCode * 59 + this.Movements.GetHashCode();
-                if (this.Properties != null)
-                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.DataScope != null)
+                    hashCode = hashCode * 59 + this.DataScope.GetHashCode();
+                if (this.Key != null)
+                    hashCode = hashCode * 59 + this.Key.GetHashCode();
+                if (this.Supplier != null)
+                    hashCode = hashCode * 59 + this.Supplier.GetHashCode();
+                if (this.QuoteType != null)
+                    hashCode = hashCode * 59 + this.QuoteType.GetHashCode();
+                if (this.PriceSide != null)
+                    hashCode = hashCode * 59 + this.PriceSide.GetHashCode();
                 return hashCode;
             }
         }

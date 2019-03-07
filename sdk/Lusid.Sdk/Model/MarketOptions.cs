@@ -23,64 +23,105 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransactionConfigurationData
+    /// The set of options that control miscellaneous and default market resolution behaviour.  These are aimed at a &#39;crude&#39; level of control for those who do not wish to fine tune the way that data is resolved.  For clients who wish to simply match instruments to prices this is quite possibly sufficient. For those wishing to control market data sources  according to requirements based on accuracy or timeliness it is not. In more advanced cases the options should largely be ignored and rules specified  per source. Be aware that where no specified rule matches the final fallback is on to the logic implied here.
     /// </summary>
     [DataContract]
-    public partial class TransactionConfigurationData :  IEquatable<TransactionConfigurationData>
+    public partial class MarketOptions :  IEquatable<MarketOptions>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
+        /// The default supplier of data. This controls which &#39;dialect&#39; is used to find particular market data. e.g. one supplier might address data by RIC, another by PermId
+        /// </summary>
+        /// <value>The default supplier of data. This controls which &#39;dialect&#39; is used to find particular market data. e.g. one supplier might address data by RIC, another by PermId</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DefaultSupplierEnum
+        {
+            
+            /// <summary>
+            /// Enum DataScope for value: DataScope
+            /// </summary>
+            [EnumMember(Value = "DataScope")]
+            DataScope = 1,
+            
+            /// <summary>
+            /// Enum Lusid for value: Lusid
+            /// </summary>
+            [EnumMember(Value = "Lusid")]
+            Lusid = 2
+        }
+
+        /// <summary>
+        /// The default supplier of data. This controls which &#39;dialect&#39; is used to find particular market data. e.g. one supplier might address data by RIC, another by PermId
+        /// </summary>
+        /// <value>The default supplier of data. This controls which &#39;dialect&#39; is used to find particular market data. e.g. one supplier might address data by RIC, another by PermId</value>
+        [DataMember(Name="defaultSupplier", EmitDefaultValue=false)]
+        public DefaultSupplierEnum? DefaultSupplier { get; set; }
+        /// <summary>
+        /// when instrument quotes are searched for, what identifier should be used by default
+        /// </summary>
+        /// <value>when instrument quotes are searched for, what identifier should be used by default</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DefaultInstrumentCodeTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum LusidInstrumentId for value: LusidInstrumentId
+            /// </summary>
+            [EnumMember(Value = "LusidInstrumentId")]
+            LusidInstrumentId = 1,
+            
+            /// <summary>
+            /// Enum Figi for value: Figi
+            /// </summary>
+            [EnumMember(Value = "Figi")]
+            Figi = 2,
+            
+            /// <summary>
+            /// Enum RIC for value: RIC
+            /// </summary>
+            [EnumMember(Value = "RIC")]
+            RIC = 3,
+            
+            /// <summary>
+            /// Enum QuotePermId for value: QuotePermId
+            /// </summary>
+            [EnumMember(Value = "QuotePermId")]
+            QuotePermId = 4,
+            
+            /// <summary>
+            /// Enum Isin for value: Isin
+            /// </summary>
+            [EnumMember(Value = "Isin")]
+            Isin = 5,
+            
+            /// <summary>
+            /// Enum CurrencyPair for value: CurrencyPair
+            /// </summary>
+            [EnumMember(Value = "CurrencyPair")]
+            CurrencyPair = 6
+        }
+
+        /// <summary>
+        /// when instrument quotes are searched for, what identifier should be used by default
+        /// </summary>
+        /// <value>when instrument quotes are searched for, what identifier should be used by default</value>
+        [DataMember(Name="defaultInstrumentCodeType", EmitDefaultValue=false)]
+        public DefaultInstrumentCodeTypeEnum? DefaultInstrumentCodeType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MarketOptions" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TransactionConfigurationData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionConfigurationData" /> class.
-        /// </summary>
-        /// <param name="Aliases">List of transaction codes that map to this specific transaction model (required).</param>
-        /// <param name="Movements">Movement data for the transaction code (required).</param>
-        /// <param name="Properties">Properties.</param>
-        public TransactionConfigurationData(List<TransactionConfigurationTypeAlias> Aliases = default(List<TransactionConfigurationTypeAlias>), List<TransactionConfigurationMovementData> Movements = default(List<TransactionConfigurationMovementData>), List<PerpetualProperty> Properties = default(List<PerpetualProperty>))
+        public MarketOptions()
         {
-            // to ensure "Aliases" is required (not null)
-            if (Aliases == null)
-            {
-                throw new InvalidDataException("Aliases is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Aliases = Aliases;
-            }
-            // to ensure "Movements" is required (not null)
-            if (Movements == null)
-            {
-                throw new InvalidDataException("Movements is a required property for TransactionConfigurationData and cannot be null");
-            }
-            else
-            {
-                this.Movements = Movements;
-            }
-            this.Properties = Properties;
         }
         
-        /// <summary>
-        /// List of transaction codes that map to this specific transaction model
-        /// </summary>
-        /// <value>List of transaction codes that map to this specific transaction model</value>
-        [DataMember(Name="aliases", EmitDefaultValue=false)]
-        public List<TransactionConfigurationTypeAlias> Aliases { get; set; }
+
 
         /// <summary>
-        /// Movement data for the transaction code
+        /// for default rules, which scope should data be searched for in
         /// </summary>
-        /// <value>Movement data for the transaction code</value>
-        [DataMember(Name="movements", EmitDefaultValue=false)]
-        public List<TransactionConfigurationMovementData> Movements { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Properties
-        /// </summary>
-        [DataMember(Name="properties", EmitDefaultValue=false)]
-        public List<PerpetualProperty> Properties { get; set; }
+        /// <value>for default rules, which scope should data be searched for in</value>
+        [DataMember(Name="defaultScope", EmitDefaultValue=false)]
+        public string DefaultScope { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,10 +130,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransactionConfigurationData {\n");
-            sb.Append("  Aliases: ").Append(Aliases).Append("\n");
-            sb.Append("  Movements: ").Append(Movements).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("class MarketOptions {\n");
+            sb.Append("  DefaultSupplier: ").Append(DefaultSupplier).Append("\n");
+            sb.Append("  DefaultInstrumentCodeType: ").Append(DefaultInstrumentCodeType).Append("\n");
+            sb.Append("  DefaultScope: ").Append(DefaultScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,34 +154,34 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionConfigurationData);
+            return this.Equals(input as MarketOptions);
         }
 
         /// <summary>
-        /// Returns true if TransactionConfigurationData instances are equal
+        /// Returns true if MarketOptions instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionConfigurationData to be compared</param>
+        /// <param name="input">Instance of MarketOptions to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionConfigurationData input)
+        public bool Equals(MarketOptions input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Aliases == input.Aliases ||
-                    this.Aliases != null &&
-                    this.Aliases.SequenceEqual(input.Aliases)
+                    this.DefaultSupplier == input.DefaultSupplier ||
+                    (this.DefaultSupplier != null &&
+                    this.DefaultSupplier.Equals(input.DefaultSupplier))
                 ) && 
                 (
-                    this.Movements == input.Movements ||
-                    this.Movements != null &&
-                    this.Movements.SequenceEqual(input.Movements)
+                    this.DefaultInstrumentCodeType == input.DefaultInstrumentCodeType ||
+                    (this.DefaultInstrumentCodeType != null &&
+                    this.DefaultInstrumentCodeType.Equals(input.DefaultInstrumentCodeType))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.DefaultScope == input.DefaultScope ||
+                    (this.DefaultScope != null &&
+                    this.DefaultScope.Equals(input.DefaultScope))
                 );
         }
 
@@ -153,12 +194,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Aliases != null)
-                    hashCode = hashCode * 59 + this.Aliases.GetHashCode();
-                if (this.Movements != null)
-                    hashCode = hashCode * 59 + this.Movements.GetHashCode();
-                if (this.Properties != null)
-                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.DefaultSupplier != null)
+                    hashCode = hashCode * 59 + this.DefaultSupplier.GetHashCode();
+                if (this.DefaultInstrumentCodeType != null)
+                    hashCode = hashCode * 59 + this.DefaultInstrumentCodeType.GetHashCode();
+                if (this.DefaultScope != null)
+                    hashCode = hashCode * 59 + this.DefaultScope.GetHashCode();
                 return hashCode;
             }
         }
