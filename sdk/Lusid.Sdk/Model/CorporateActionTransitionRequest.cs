@@ -23,234 +23,33 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfValueType
+    /// A &#39;transition&#39; within a corporate action, representing a set of output movements paired to a single input position
     /// </summary>
     [DataContract]
-    public partial class ResourceListOfValueType :  IEquatable<ResourceListOfValueType>
+    public partial class CorporateActionTransitionRequest :  IEquatable<CorporateActionTransitionRequest>
     {
         /// <summary>
-        /// Defines Values
+        /// Initializes a new instance of the <see cref="CorporateActionTransitionRequest" /> class.
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ValuesEnum
+        /// <param name="InputTransition">InputTransition.</param>
+        /// <param name="OutputTransitions">OutputTransitions.</param>
+        public CorporateActionTransitionRequest(CorporateActionTransitionComponentRequest InputTransition = default(CorporateActionTransitionComponentRequest), List<CorporateActionTransitionComponentRequest> OutputTransitions = default(List<CorporateActionTransitionComponentRequest>))
         {
-            
-            /// <summary>
-            /// Enum String for value: String
-            /// </summary>
-            [EnumMember(Value = "String")]
-            String = 1,
-            
-            /// <summary>
-            /// Enum Int for value: Int
-            /// </summary>
-            [EnumMember(Value = "Int")]
-            Int = 2,
-            
-            /// <summary>
-            /// Enum Decimal for value: Decimal
-            /// </summary>
-            [EnumMember(Value = "Decimal")]
-            Decimal = 3,
-            
-            /// <summary>
-            /// Enum DateTime for value: DateTime
-            /// </summary>
-            [EnumMember(Value = "DateTime")]
-            DateTime = 4,
-            
-            /// <summary>
-            /// Enum Boolean for value: Boolean
-            /// </summary>
-            [EnumMember(Value = "Boolean")]
-            Boolean = 5,
-            
-            /// <summary>
-            /// Enum Map for value: Map
-            /// </summary>
-            [EnumMember(Value = "Map")]
-            Map = 6,
-            
-            /// <summary>
-            /// Enum List for value: List
-            /// </summary>
-            [EnumMember(Value = "List")]
-            List = 7,
-            
-            /// <summary>
-            /// Enum PropertyArray for value: PropertyArray
-            /// </summary>
-            [EnumMember(Value = "PropertyArray")]
-            PropertyArray = 8,
-            
-            /// <summary>
-            /// Enum Percentage for value: Percentage
-            /// </summary>
-            [EnumMember(Value = "Percentage")]
-            Percentage = 9,
-            
-            /// <summary>
-            /// Enum BenchmarkType for value: BenchmarkType
-            /// </summary>
-            [EnumMember(Value = "BenchmarkType")]
-            BenchmarkType = 10,
-            
-            /// <summary>
-            /// Enum Code for value: Code
-            /// </summary>
-            [EnumMember(Value = "Code")]
-            Code = 11,
-            
-            /// <summary>
-            /// Enum Id for value: Id
-            /// </summary>
-            [EnumMember(Value = "Id")]
-            Id = 12,
-            
-            /// <summary>
-            /// Enum Uri for value: Uri
-            /// </summary>
-            [EnumMember(Value = "Uri")]
-            Uri = 13,
-            
-            /// <summary>
-            /// Enum ArrayOfIds for value: ArrayOfIds
-            /// </summary>
-            [EnumMember(Value = "ArrayOfIds")]
-            ArrayOfIds = 14,
-            
-            /// <summary>
-            /// Enum ArrayOfTransactionAliases for value: ArrayOfTransactionAliases
-            /// </summary>
-            [EnumMember(Value = "ArrayOfTransactionAliases")]
-            ArrayOfTransactionAliases = 15,
-            
-            /// <summary>
-            /// Enum ArrayofTransactionMovements for value: ArrayofTransactionMovements
-            /// </summary>
-            [EnumMember(Value = "ArrayofTransactionMovements")]
-            ArrayofTransactionMovements = 16,
-            
-            /// <summary>
-            /// Enum ArrayofUnits for value: ArrayofUnits
-            /// </summary>
-            [EnumMember(Value = "ArrayofUnits")]
-            ArrayofUnits = 17,
-            
-            /// <summary>
-            /// Enum StringArray for value: StringArray
-            /// </summary>
-            [EnumMember(Value = "StringArray")]
-            StringArray = 18,
-            
-            /// <summary>
-            /// Enum CurrencyAndAmount for value: CurrencyAndAmount
-            /// </summary>
-            [EnumMember(Value = "CurrencyAndAmount")]
-            CurrencyAndAmount = 19,
-            
-            /// <summary>
-            /// Enum TradePrice for value: TradePrice
-            /// </summary>
-            [EnumMember(Value = "TradePrice")]
-            TradePrice = 20,
-            
-            /// <summary>
-            /// Enum UnitCreation for value: UnitCreation
-            /// </summary>
-            [EnumMember(Value = "UnitCreation")]
-            UnitCreation = 21,
-            
-            /// <summary>
-            /// Enum Currency for value: Currency
-            /// </summary>
-            [EnumMember(Value = "Currency")]
-            Currency = 22,
-            
-            /// <summary>
-            /// Enum UserId for value: UserId
-            /// </summary>
-            [EnumMember(Value = "UserId")]
-            UserId = 23,
-            
-            /// <summary>
-            /// Enum MetricValue for value: MetricValue
-            /// </summary>
-            [EnumMember(Value = "MetricValue")]
-            MetricValue = 24,
-            
-            /// <summary>
-            /// Enum QuoteId for value: QuoteId
-            /// </summary>
-            [EnumMember(Value = "QuoteId")]
-            QuoteId = 25,
-            
-            /// <summary>
-            /// Enum QuoteLineage for value: QuoteLineage
-            /// </summary>
-            [EnumMember(Value = "QuoteLineage")]
-            QuoteLineage = 26,
-            
-            /// <summary>
-            /// Enum ArrayOfQuoteIds for value: ArrayOfQuoteIds
-            /// </summary>
-            [EnumMember(Value = "ArrayOfQuoteIds")]
-            ArrayOfQuoteIds = 27,
-            
-            /// <summary>
-            /// Enum ResourceId for value: ResourceId
-            /// </summary>
-            [EnumMember(Value = "ResourceId")]
-            ResourceId = 28,
-            
-            /// <summary>
-            /// Enum ResultValue for value: ResultValue
-            /// </summary>
-            [EnumMember(Value = "ResultValue")]
-            ResultValue = 29
-        }
-
-
-        /// <summary>
-        /// Gets or Sets Values
-        /// </summary>
-        [DataMember(Name="values", EmitDefaultValue=false)]
-        public List<ValuesEnum> Values { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfValueType" /> class.
-        /// </summary>
-        /// <param name="Values">Values.</param>
-        /// <param name="Href">The Uri that returns the same result as the original request,  but may include resolved as at time(s)..</param>
-        /// <param name="Count">The total number of records returned in the set.  Note: If count is set by the func &#39;AddDynamicCounter&#39;, Count will be zero until the values  are evaluated. This is due to lazy evaluation..</param>
-        /// <param name="Links">Links.</param>
-        public ResourceListOfValueType(List<ValuesEnum> Values = default(List<ValuesEnum>), string Href = default(string), int? Count = default(int?), List<Link> Links = default(List<Link>))
-        {
-            this.Values = Values;
-            this.Href = Href;
-            this.Count = Count;
-            this.Links = Links;
+            this.InputTransition = InputTransition;
+            this.OutputTransitions = OutputTransitions;
         }
         
+        /// <summary>
+        /// Gets or Sets InputTransition
+        /// </summary>
+        [DataMember(Name="inputTransition", EmitDefaultValue=false)]
+        public CorporateActionTransitionComponentRequest InputTransition { get; set; }
 
         /// <summary>
-        /// The Uri that returns the same result as the original request,  but may include resolved as at time(s).
+        /// Gets or Sets OutputTransitions
         /// </summary>
-        /// <value>The Uri that returns the same result as the original request,  but may include resolved as at time(s).</value>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; set; }
-
-        /// <summary>
-        /// The total number of records returned in the set.  Note: If count is set by the func &#39;AddDynamicCounter&#39;, Count will be zero until the values  are evaluated. This is due to lazy evaluation.
-        /// </summary>
-        /// <value>The total number of records returned in the set.  Note: If count is set by the func &#39;AddDynamicCounter&#39;, Count will be zero until the values  are evaluated. This is due to lazy evaluation.</value>
-        [DataMember(Name="count", EmitDefaultValue=false)]
-        public int? Count { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name="links", EmitDefaultValue=false)]
-        public List<Link> Links { get; set; }
+        [DataMember(Name="outputTransitions", EmitDefaultValue=false)]
+        public List<CorporateActionTransitionComponentRequest> OutputTransitions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -259,11 +58,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResourceListOfValueType {\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("class CorporateActionTransitionRequest {\n");
+            sb.Append("  InputTransition: ").Append(InputTransition).Append("\n");
+            sb.Append("  OutputTransitions: ").Append(OutputTransitions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -284,39 +81,29 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfValueType);
+            return this.Equals(input as CorporateActionTransitionRequest);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfValueType instances are equal
+        /// Returns true if CorporateActionTransitionRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfValueType to be compared</param>
+        /// <param name="input">Instance of CorporateActionTransitionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfValueType input)
+        public bool Equals(CorporateActionTransitionRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
+                    this.InputTransition == input.InputTransition ||
+                    (this.InputTransition != null &&
+                    this.InputTransition.Equals(input.InputTransition))
                 ) && 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
-                ) && 
-                (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    this.OutputTransitions == input.OutputTransitions ||
+                    this.OutputTransitions != null &&
+                    this.OutputTransitions.SequenceEqual(input.OutputTransitions)
                 );
         }
 
@@ -329,14 +116,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Values != null)
-                    hashCode = hashCode * 59 + this.Values.GetHashCode();
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
-                if (this.Count != null)
-                    hashCode = hashCode * 59 + this.Count.GetHashCode();
-                if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
+                if (this.InputTransition != null)
+                    hashCode = hashCode * 59 + this.InputTransition.GetHashCode();
+                if (this.OutputTransitions != null)
+                    hashCode = hashCode * 59 + this.OutputTransitions.GetHashCode();
                 return hashCode;
             }
         }
