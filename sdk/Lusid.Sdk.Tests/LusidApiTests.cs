@@ -277,7 +277,7 @@ namespace Lusid.Sdk.Tests
                 Units: 100,
                 TransactionPrice: new TransactionPrice(12.3, TransactionPrice.TypeEnum.Price),
                 TotalConsideration: new CurrencyAndAmount(1230, "GBP"),
-                Source: TransactionRequest.SourceEnum.Client,
+                Source: "Custodian",
                 Properties: new Dictionary<string, PerpetualPropertyValue>
                 {
                     [propertyDefinitionDto.Key] = new PerpetualPropertyValue(propertyValue)
@@ -475,7 +475,7 @@ namespace Lusid.Sdk.Tests
                 Units: 100,
                 TransactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
                 TotalConsideration: new CurrencyAndAmount(100 * price, "GBP"),
-                Source: TransactionRequest.SourceEnum.Client
+                Source: "Custodian"
             );
         }
 
@@ -506,7 +506,7 @@ namespace Lusid.Sdk.Tests
                 Units: quantity,
                 TransactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
                 TotalConsideration: new CurrencyAndAmount(quantity * price, "GBP"),
-                Source: TransactionRequest.SourceEnum.Client
+                Source: "Custodian"
             );
         }
 

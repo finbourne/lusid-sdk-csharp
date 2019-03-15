@@ -3,7 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentUid** | **string** |  | 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | unique instrument identifiers. | 
+**InstrumentUid** | **string** | Unique instrument identifier | 
 **UnitsFactor** | **double?** |  | 
 **CostFactor** | **double?** |  | 
 
