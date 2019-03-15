@@ -3,7 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipeId** | [**ResourceId**](ResourceId.md) | The configuration recipe, consisting of user scope and recipe name, to use in performing the aggregation. | 
+**RecipeId** | [**ResourceId**](ResourceId.md) | The configuration recipe, consisting of recipe scope and recipe name, to use in performing the aggregation. | [optional] 
+**InlineRecipe** | [**ConfigurationRecipe**](ConfigurationRecipe.md) | Target Method for providing a non-named recipe.  If given, this replaces the &#39;RecipeId&#39; used with the bespoke recipe. This is intended to allow use of non-named  recipes to iterate quickly for design purposes. Ultimately it is recommended that production recipes would be stored  in Lusid.    USE OF ANY (INLINE) RECIPE IS AT PRESENT LIABLE TO CHANGE. | [optional] 
 **AsAt** | **DateTimeOffset?** | The asAt date to use | [optional] 
 **EffectiveAt** | **DateTimeOffset?** | The market data time, i.e. the time to run the aggregation request effective of. | 
 **Metrics** | [**List&lt;AggregateSpec&gt;**](AggregateSpec.md) | The set of specifications for items to calculate or retrieve during the aggregation and present in the results.  This is logically equivalent to the set of operations in a Sql select statement  select [operation1(field1), operation2(field2), ... ] from results | 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ExDate** | **DateTimeOffset?** |  | 
 **RecordDate** | **DateTimeOffset?** |  | 
 **PaymentDate** | **DateTimeOffset?** |  | 
-**Transitions** | [**List&lt;CorporateActionTransition&gt;**](CorporateActionTransition.md) |  | 
+**Transitions** | [**List&lt;CorporateActionTransitionRequest&gt;**](CorporateActionTransitionRequest.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
