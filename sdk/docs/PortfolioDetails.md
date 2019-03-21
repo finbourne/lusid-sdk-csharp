@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **OriginPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Version** | [**Version**](Version.md) | The version of the portfolio | [optional] 
 **BaseCurrency** | **string** |  | [optional] 
+**CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

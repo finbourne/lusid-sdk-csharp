@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentUid** | **string** | Unique instrument identifier | [optional] 
+**InstrumentUid** | **string** | Unique instrument identifier | 
 **Value** | **double?** | Value of the analytic, eg price | [optional] 
 **Denomination** | **string** | Underlying unit of the analytic, eg currency, EPS etc. | [optional] 
 
