@@ -35,3 +35,4 @@ rm $sdk_output_folder/.gitignore
 rm $sdk_output_folder/.swagger-codegen-ignore
 rm $sdk_output_folder/git_push.sh
 rm $sdk_output_folder/README.md
+
