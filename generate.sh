@@ -23,12 +23,17 @@ cp /usr/src/.swagger-codegen-ignore $sdk_output_folder
 echo "generating sdk"
 
 #java -jar swagger-codegen-cli.jar swagger-codegen-cli help
+
+# Note that swagger-codegen doesn't currently support overriding of type mappings
+# for user defined types, so the --type-mappings parameter is redundant.  However,
+# leaving it here for if/when the capability is added
 java -jar swagger-codegen-cli.jar generate \
     -i $gen_root/$1 \
     -l csharp \
     -o $sdk_output_folder \
     -c $gen_root/config.json \
-    -t $gen_root/templates
+    -t $gen_root/templates \
+	--type-mappings cutlabel=CutLabel
 
 rm -rf $sdk_output_folder/.swagger-codegen
 rm $sdk_output_folder/.gitignore
