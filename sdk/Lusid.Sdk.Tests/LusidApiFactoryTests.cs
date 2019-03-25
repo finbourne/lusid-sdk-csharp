@@ -102,5 +102,14 @@ namespace Lusid.Sdk.Tests
             }            
         }
 
+        [Test]
+        public void ApiException_Without_ErrorContent_Returns_Null()
+        {
+            var error = new ApiException();
+            var errorResponse = error.ErrorResponse();
+            
+            Assert.That(errorResponse, Is.Null);
+        }
+
     }
 }

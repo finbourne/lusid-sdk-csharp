@@ -8,6 +8,11 @@ namespace Lusid.Sdk.Utilities
     {
         public static ErrorResponse ErrorResponse(this ApiException ex)
         {
+            if (ex.ErrorContent == null)
+            {
+                return null;
+            }
+            
             //    ApiException.ErrorContent contains a JSON serialized ErrorResponse
             ErrorResponse errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(ex.ErrorContent);
             return errorResponse;
