@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
@@ -271,7 +271,7 @@ namespace Lusid.Sdk.Tests
             var transaction = new TransactionRequest(
                 TransactionId: Guid.NewGuid().ToString(),
                 Type: "Buy",
-                InstrumentIdentifiers: new Dictionary<string, InstrumentIdValue> { ["Instrument/default/LusidInstrumentId"] = new InstrumentIdValue(_instrumentIds.First()) },                
+                InstrumentIdentifiers: new Dictionary<string, string> { ["Instrument/default/LusidInstrumentId"] = _instrumentIds.First() },
                 TransactionDate: effectiveDate,
                 SettlementDate: effectiveDate,
                 Units: 100,
@@ -469,7 +469,7 @@ namespace Lusid.Sdk.Tests
             return new TransactionRequest(        
                 TransactionId: Guid.NewGuid().ToString(),
                 Type: "StockIn",
-                InstrumentIdentifiers: new Dictionary<string, InstrumentIdValue> { [LUSID_INSTRUMENT_IDENTIFIER] = new InstrumentIdValue(id) },
+                InstrumentIdentifiers: new Dictionary<string, string> { [LUSID_INSTRUMENT_IDENTIFIER] = id },
                 TransactionDate: tradeDate,
                 SettlementDate: tradeDate,
                 Units: 100,
@@ -500,7 +500,7 @@ namespace Lusid.Sdk.Tests
             (
                 TransactionId: Guid.NewGuid().ToString(),
                 Type: "StockIn",
-                InstrumentIdentifiers: new Dictionary<string, InstrumentIdValue> { [LUSID_INSTRUMENT_IDENTIFIER] = new InstrumentIdValue(id) },
+                InstrumentIdentifiers: new Dictionary<string, string> { [LUSID_INSTRUMENT_IDENTIFIER] = id },
                 TransactionDate: tradeDate,
                 SettlementDate: tradeDate,
                 Units: quantity,
