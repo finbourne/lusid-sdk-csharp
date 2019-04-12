@@ -23,65 +23,64 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioReconciliationRequest
+    /// ResourceListOfInstrumentIdTypeDescriptor
     /// </summary>
     [DataContract]
-    public partial class PortfolioReconciliationRequest :  IEquatable<PortfolioReconciliationRequest>
+    public partial class ResourceListOfInstrumentIdTypeDescriptor :  IEquatable<ResourceListOfInstrumentIdTypeDescriptor>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioReconciliationRequest" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfInstrumentIdTypeDescriptor" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioReconciliationRequest() { }
+        protected ResourceListOfInstrumentIdTypeDescriptor() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioReconciliationRequest" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfInstrumentIdTypeDescriptor" /> class.
         /// </summary>
-        /// <param name="PortfolioId">The id of the portfolio to be reconciled (required).</param>
-        /// <param name="EffectiveAt">The effective date of the portfolio (required).</param>
-        /// <param name="AsAt">Optional. The AsAt date of the portfolio.</param>
-        public PortfolioReconciliationRequest(ResourceId PortfolioId = default(ResourceId), DateTimeOffset? EffectiveAt = default(DateTimeOffset?), DateTimeOffset? AsAt = default(DateTimeOffset?))
+        /// <param name="Values">Values (required).</param>
+        /// <param name="Href">The Uri that returns the same result as the original request,  but may include resolved as at time(s)..</param>
+        /// <param name="Count">The total number of items (when available).</param>
+        /// <param name="Links">Links.</param>
+        public ResourceListOfInstrumentIdTypeDescriptor(List<InstrumentIdTypeDescriptor> Values = default(List<InstrumentIdTypeDescriptor>), string Href = default(string), int? Count = default(int?), List<Link> Links = default(List<Link>))
         {
-            // to ensure "PortfolioId" is required (not null)
-            if (PortfolioId == null)
+            // to ensure "Values" is required (not null)
+            if (Values == null)
             {
-                throw new InvalidDataException("PortfolioId is a required property for PortfolioReconciliationRequest and cannot be null");
+                throw new InvalidDataException("Values is a required property for ResourceListOfInstrumentIdTypeDescriptor and cannot be null");
             }
             else
             {
-                this.PortfolioId = PortfolioId;
+                this.Values = Values;
             }
-            // to ensure "EffectiveAt" is required (not null)
-            if (EffectiveAt == null)
-            {
-                throw new InvalidDataException("EffectiveAt is a required property for PortfolioReconciliationRequest and cannot be null");
-            }
-            else
-            {
-                this.EffectiveAt = EffectiveAt;
-            }
-            this.AsAt = AsAt;
+            this.Href = Href;
+            this.Count = Count;
+            this.Links = Links;
         }
         
         /// <summary>
-        /// The id of the portfolio to be reconciled
+        /// Gets or Sets Values
         /// </summary>
-        /// <value>The id of the portfolio to be reconciled</value>
-        [DataMember(Name="portfolioId", EmitDefaultValue=false)]
-        public ResourceId PortfolioId { get; set; }
+        [DataMember(Name="values", EmitDefaultValue=false)]
+        public List<InstrumentIdTypeDescriptor> Values { get; set; }
 
         /// <summary>
-        /// The effective date of the portfolio
+        /// The Uri that returns the same result as the original request,  but may include resolved as at time(s).
         /// </summary>
-        /// <value>The effective date of the portfolio</value>
-        [DataMember(Name="effectiveAt", EmitDefaultValue=false)]
-        public DateTimeOffset? EffectiveAt { get; set; }
+        /// <value>The Uri that returns the same result as the original request,  but may include resolved as at time(s).</value>
+        [DataMember(Name="href", EmitDefaultValue=false)]
+        public string Href { get; set; }
 
         /// <summary>
-        /// Optional. The AsAt date of the portfolio
+        /// The total number of items (when available)
         /// </summary>
-        /// <value>Optional. The AsAt date of the portfolio</value>
-        [DataMember(Name="asAt", EmitDefaultValue=false)]
-        public DateTimeOffset? AsAt { get; set; }
+        /// <value>The total number of items (when available)</value>
+        [DataMember(Name="count", EmitDefaultValue=false)]
+        public int? Count { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name="links", EmitDefaultValue=false)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,10 +89,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PortfolioReconciliationRequest {\n");
-            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
+            sb.Append("class ResourceListOfInstrumentIdTypeDescriptor {\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,34 +114,39 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioReconciliationRequest);
+            return this.Equals(input as ResourceListOfInstrumentIdTypeDescriptor);
         }
 
         /// <summary>
-        /// Returns true if PortfolioReconciliationRequest instances are equal
+        /// Returns true if ResourceListOfInstrumentIdTypeDescriptor instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioReconciliationRequest to be compared</param>
+        /// <param name="input">Instance of ResourceListOfInstrumentIdTypeDescriptor to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioReconciliationRequest input)
+        public bool Equals(ResourceListOfInstrumentIdTypeDescriptor input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PortfolioId == input.PortfolioId ||
-                    (this.PortfolioId != null &&
-                    this.PortfolioId.Equals(input.PortfolioId))
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.AsAt == input.AsAt ||
-                    (this.AsAt != null &&
-                    this.AsAt.Equals(input.AsAt))
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -154,12 +159,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PortfolioId != null)
-                    hashCode = hashCode * 59 + this.PortfolioId.GetHashCode();
-                if (this.EffectiveAt != null)
-                    hashCode = hashCode * 59 + this.EffectiveAt.GetHashCode();
-                if (this.AsAt != null)
-                    hashCode = hashCode * 59 + this.AsAt.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
+                if (this.Href != null)
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.Count != null)
+                    hashCode = hashCode * 59 + this.Count.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }

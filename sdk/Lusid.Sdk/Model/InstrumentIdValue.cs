@@ -23,65 +23,48 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioReconciliationRequest
+    /// InstrumentIdValue
     /// </summary>
     [DataContract]
-    public partial class PortfolioReconciliationRequest :  IEquatable<PortfolioReconciliationRequest>
+    public partial class InstrumentIdValue :  IEquatable<InstrumentIdValue>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioReconciliationRequest" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentIdValue" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioReconciliationRequest() { }
+        protected InstrumentIdValue() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioReconciliationRequest" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentIdValue" /> class.
         /// </summary>
-        /// <param name="PortfolioId">The id of the portfolio to be reconciled (required).</param>
-        /// <param name="EffectiveAt">The effective date of the portfolio (required).</param>
-        /// <param name="AsAt">Optional. The AsAt date of the portfolio.</param>
-        public PortfolioReconciliationRequest(ResourceId PortfolioId = default(ResourceId), DateTimeOffset? EffectiveAt = default(DateTimeOffset?), DateTimeOffset? AsAt = default(DateTimeOffset?))
+        /// <param name="Value">The value of the instrument id, which must not be empty or null. e.g, &#39;BBG123456&#39; (required).</param>
+        /// <param name="EffectiveAt">The effective at date of the instrument id, which is optional. The default value in the null case  is DateTimeOffset.MinValue..</param>
+        public InstrumentIdValue(string Value = default(string), DateTimeOffset? EffectiveAt = default(DateTimeOffset?))
         {
-            // to ensure "PortfolioId" is required (not null)
-            if (PortfolioId == null)
+            // to ensure "Value" is required (not null)
+            if (Value == null)
             {
-                throw new InvalidDataException("PortfolioId is a required property for PortfolioReconciliationRequest and cannot be null");
+                throw new InvalidDataException("Value is a required property for InstrumentIdValue and cannot be null");
             }
             else
             {
-                this.PortfolioId = PortfolioId;
+                this.Value = Value;
             }
-            // to ensure "EffectiveAt" is required (not null)
-            if (EffectiveAt == null)
-            {
-                throw new InvalidDataException("EffectiveAt is a required property for PortfolioReconciliationRequest and cannot be null");
-            }
-            else
-            {
-                this.EffectiveAt = EffectiveAt;
-            }
-            this.AsAt = AsAt;
+            this.EffectiveAt = EffectiveAt;
         }
         
         /// <summary>
-        /// The id of the portfolio to be reconciled
+        /// The value of the instrument id, which must not be empty or null. e.g, &#39;BBG123456&#39;
         /// </summary>
-        /// <value>The id of the portfolio to be reconciled</value>
-        [DataMember(Name="portfolioId", EmitDefaultValue=false)]
-        public ResourceId PortfolioId { get; set; }
+        /// <value>The value of the instrument id, which must not be empty or null. e.g, &#39;BBG123456&#39;</value>
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public string Value { get; set; }
 
         /// <summary>
-        /// The effective date of the portfolio
+        /// The effective at date of the instrument id, which is optional. The default value in the null case  is DateTimeOffset.MinValue.
         /// </summary>
-        /// <value>The effective date of the portfolio</value>
+        /// <value>The effective at date of the instrument id, which is optional. The default value in the null case  is DateTimeOffset.MinValue.</value>
         [DataMember(Name="effectiveAt", EmitDefaultValue=false)]
         public DateTimeOffset? EffectiveAt { get; set; }
-
-        /// <summary>
-        /// Optional. The AsAt date of the portfolio
-        /// </summary>
-        /// <value>Optional. The AsAt date of the portfolio</value>
-        [DataMember(Name="asAt", EmitDefaultValue=false)]
-        public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,10 +73,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PortfolioReconciliationRequest {\n");
-            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
+            sb.Append("class InstrumentIdValue {\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,34 +96,29 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioReconciliationRequest);
+            return this.Equals(input as InstrumentIdValue);
         }
 
         /// <summary>
-        /// Returns true if PortfolioReconciliationRequest instances are equal
+        /// Returns true if InstrumentIdValue instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioReconciliationRequest to be compared</param>
+        /// <param name="input">Instance of InstrumentIdValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioReconciliationRequest input)
+        public bool Equals(InstrumentIdValue input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PortfolioId == input.PortfolioId ||
-                    (this.PortfolioId != null &&
-                    this.PortfolioId.Equals(input.PortfolioId))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
                     this.EffectiveAt == input.EffectiveAt ||
                     (this.EffectiveAt != null &&
                     this.EffectiveAt.Equals(input.EffectiveAt))
-                ) && 
-                (
-                    this.AsAt == input.AsAt ||
-                    (this.AsAt != null &&
-                    this.AsAt.Equals(input.AsAt))
                 );
         }
 
@@ -154,12 +131,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PortfolioId != null)
-                    hashCode = hashCode * 59 + this.PortfolioId.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.EffectiveAt != null)
                     hashCode = hashCode * 59 + this.EffectiveAt.GetHashCode();
-                if (this.AsAt != null)
-                    hashCode = hashCode * 59 + this.AsAt.GetHashCode();
                 return hashCode;
             }
         }

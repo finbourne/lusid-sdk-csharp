@@ -23,65 +23,94 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioReconciliationRequest
+    /// Describes an instrument identifier type - what it&#39;s name, property key, and cardinality type are.
     /// </summary>
     [DataContract]
-    public partial class PortfolioReconciliationRequest :  IEquatable<PortfolioReconciliationRequest>
+    public partial class InstrumentIdTypeDescriptor :  IEquatable<InstrumentIdTypeDescriptor>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioReconciliationRequest" /> class.
+        /// The cardinality of the identifier type (i.e., how many instruments may share an identifer  of this identifier type)
+        /// </summary>
+        /// <value>The cardinality of the identifier type (i.e., how many instruments may share an identifer  of this identifier type)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CardinalityEnum
+        {
+            
+            /// <summary>
+            /// Enum IdentifierCardinalityUnique for value: IdentifierCardinalityUnique
+            /// </summary>
+            [EnumMember(Value = "IdentifierCardinalityUnique")]
+            IdentifierCardinalityUnique = 1,
+            
+            /// <summary>
+            /// Enum IdentifierCardinalityAlias for value: IdentifierCardinalityAlias
+            /// </summary>
+            [EnumMember(Value = "IdentifierCardinalityAlias")]
+            IdentifierCardinalityAlias = 2
+        }
+
+        /// <summary>
+        /// The cardinality of the identifier type (i.e., how many instruments may share an identifer  of this identifier type)
+        /// </summary>
+        /// <value>The cardinality of the identifier type (i.e., how many instruments may share an identifer  of this identifier type)</value>
+        [DataMember(Name="cardinality", EmitDefaultValue=false)]
+        public CardinalityEnum Cardinality { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InstrumentIdTypeDescriptor" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioReconciliationRequest() { }
+        protected InstrumentIdTypeDescriptor() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioReconciliationRequest" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentIdTypeDescriptor" /> class.
         /// </summary>
-        /// <param name="PortfolioId">The id of the portfolio to be reconciled (required).</param>
-        /// <param name="EffectiveAt">The effective date of the portfolio (required).</param>
-        /// <param name="AsAt">Optional. The AsAt date of the portfolio.</param>
-        public PortfolioReconciliationRequest(ResourceId PortfolioId = default(ResourceId), DateTimeOffset? EffectiveAt = default(DateTimeOffset?), DateTimeOffset? AsAt = default(DateTimeOffset?))
+        /// <param name="IdName">The name of the identifier type (required).</param>
+        /// <param name="PropertyKeyValue">The property key that corresponds to this instrument identifier type (required).</param>
+        /// <param name="Cardinality">The cardinality of the identifier type (i.e., how many instruments may share an identifer  of this identifier type) (required).</param>
+        public InstrumentIdTypeDescriptor(string IdName = default(string), string PropertyKeyValue = default(string), CardinalityEnum Cardinality = default(CardinalityEnum))
         {
-            // to ensure "PortfolioId" is required (not null)
-            if (PortfolioId == null)
+            // to ensure "IdName" is required (not null)
+            if (IdName == null)
             {
-                throw new InvalidDataException("PortfolioId is a required property for PortfolioReconciliationRequest and cannot be null");
+                throw new InvalidDataException("IdName is a required property for InstrumentIdTypeDescriptor and cannot be null");
             }
             else
             {
-                this.PortfolioId = PortfolioId;
+                this.IdName = IdName;
             }
-            // to ensure "EffectiveAt" is required (not null)
-            if (EffectiveAt == null)
+            // to ensure "PropertyKeyValue" is required (not null)
+            if (PropertyKeyValue == null)
             {
-                throw new InvalidDataException("EffectiveAt is a required property for PortfolioReconciliationRequest and cannot be null");
+                throw new InvalidDataException("PropertyKeyValue is a required property for InstrumentIdTypeDescriptor and cannot be null");
             }
             else
             {
-                this.EffectiveAt = EffectiveAt;
+                this.PropertyKeyValue = PropertyKeyValue;
             }
-            this.AsAt = AsAt;
+            // to ensure "Cardinality" is required (not null)
+            if (Cardinality == null)
+            {
+                throw new InvalidDataException("Cardinality is a required property for InstrumentIdTypeDescriptor and cannot be null");
+            }
+            else
+            {
+                this.Cardinality = Cardinality;
+            }
         }
         
         /// <summary>
-        /// The id of the portfolio to be reconciled
+        /// The name of the identifier type
         /// </summary>
-        /// <value>The id of the portfolio to be reconciled</value>
-        [DataMember(Name="portfolioId", EmitDefaultValue=false)]
-        public ResourceId PortfolioId { get; set; }
+        /// <value>The name of the identifier type</value>
+        [DataMember(Name="idName", EmitDefaultValue=false)]
+        public string IdName { get; set; }
 
         /// <summary>
-        /// The effective date of the portfolio
+        /// The property key that corresponds to this instrument identifier type
         /// </summary>
-        /// <value>The effective date of the portfolio</value>
-        [DataMember(Name="effectiveAt", EmitDefaultValue=false)]
-        public DateTimeOffset? EffectiveAt { get; set; }
+        /// <value>The property key that corresponds to this instrument identifier type</value>
+        [DataMember(Name="propertyKeyValue", EmitDefaultValue=false)]
+        public string PropertyKeyValue { get; set; }
 
-        /// <summary>
-        /// Optional. The AsAt date of the portfolio
-        /// </summary>
-        /// <value>Optional. The AsAt date of the portfolio</value>
-        [DataMember(Name="asAt", EmitDefaultValue=false)]
-        public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,10 +119,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PortfolioReconciliationRequest {\n");
-            sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  AsAt: ").Append(AsAt).Append("\n");
+            sb.Append("class InstrumentIdTypeDescriptor {\n");
+            sb.Append("  IdName: ").Append(IdName).Append("\n");
+            sb.Append("  PropertyKeyValue: ").Append(PropertyKeyValue).Append("\n");
+            sb.Append("  Cardinality: ").Append(Cardinality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,34 +143,34 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioReconciliationRequest);
+            return this.Equals(input as InstrumentIdTypeDescriptor);
         }
 
         /// <summary>
-        /// Returns true if PortfolioReconciliationRequest instances are equal
+        /// Returns true if InstrumentIdTypeDescriptor instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioReconciliationRequest to be compared</param>
+        /// <param name="input">Instance of InstrumentIdTypeDescriptor to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioReconciliationRequest input)
+        public bool Equals(InstrumentIdTypeDescriptor input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PortfolioId == input.PortfolioId ||
-                    (this.PortfolioId != null &&
-                    this.PortfolioId.Equals(input.PortfolioId))
+                    this.IdName == input.IdName ||
+                    (this.IdName != null &&
+                    this.IdName.Equals(input.IdName))
                 ) && 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.PropertyKeyValue == input.PropertyKeyValue ||
+                    (this.PropertyKeyValue != null &&
+                    this.PropertyKeyValue.Equals(input.PropertyKeyValue))
                 ) && 
                 (
-                    this.AsAt == input.AsAt ||
-                    (this.AsAt != null &&
-                    this.AsAt.Equals(input.AsAt))
+                    this.Cardinality == input.Cardinality ||
+                    (this.Cardinality != null &&
+                    this.Cardinality.Equals(input.Cardinality))
                 );
         }
 
@@ -154,12 +183,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PortfolioId != null)
-                    hashCode = hashCode * 59 + this.PortfolioId.GetHashCode();
-                if (this.EffectiveAt != null)
-                    hashCode = hashCode * 59 + this.EffectiveAt.GetHashCode();
-                if (this.AsAt != null)
-                    hashCode = hashCode * 59 + this.AsAt.GetHashCode();
+                if (this.IdName != null)
+                    hashCode = hashCode * 59 + this.IdName.GetHashCode();
+                if (this.PropertyKeyValue != null)
+                    hashCode = hashCode * 59 + this.PropertyKeyValue.GetHashCode();
+                if (this.Cardinality != null)
+                    hashCode = hashCode * 59 + this.Cardinality.GetHashCode();
                 return hashCode;
             }
         }
