@@ -9,156 +9,328 @@
  */
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
+using System.Linq;
+using RestSharp.Portable;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
-namespace Lusid.Sdk.Model
+namespace Lusid.Sdk.Api
 {
     /// <summary>
-    /// Options for controlling the default aspects and behaviour of the pricing engine.
+    /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    [DataContract]
-    public partial class PricingOptions :  IEquatable<PricingOptions>
+    public interface IEntitiesApi : IApiAccessor
     {
+        #region Synchronous Operations
         /// <summary>
-        /// Initializes a new instance of the <see cref="PricingOptions" /> class.
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
-        /// <param name="ModelSelection">The default model and pricing library to use if no others specified.</param>
-        /// <param name="UseInstrumentTypeToDeterminePricer">If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis..</param>
-        /// <param name="AllowAnyInstrumentsWithSecUidToPriceOffLookup">By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true..</param>
-        /// <param name="AllowPartiallySuccessfulEvaluation">If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere.</param>
-        public PricingOptions(ModelSelection ModelSelection = default(ModelSelection), bool? UseInstrumentTypeToDeterminePricer = default(bool?), bool? AllowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool?), bool? AllowPartiallySuccessfulEvaluation = default(bool?))
-        {
-            this.ModelSelection = ModelSelection;
-            this.UseInstrumentTypeToDeterminePricer = UseInstrumentTypeToDeterminePricer;
-            this.AllowAnyInstrumentsWithSecUidToPriceOffLookup = AllowAnyInstrumentsWithSecUidToPriceOffLookup;
-            this.AllowPartiallySuccessfulEvaluation = AllowPartiallySuccessfulEvaluation;
-        }
-        
-        /// <summary>
-        /// The default model and pricing library to use if no others specified
-        /// </summary>
-        /// <value>The default model and pricing library to use if no others specified</value>
-        [DataMember(Name="modelSelection", EmitDefaultValue=false)]
-        public ModelSelection ModelSelection { get; set; }
+        /// <remarks>
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ResourceListOfChange</returns>
+        ResourceListOfChange GetPortfolioChanges (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
-        /// <value>If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.</value>
-        [DataMember(Name="useInstrumentTypeToDeterminePricer", EmitDefaultValue=false)]
-        public bool? UseInstrumentTypeToDeterminePricer { get; set; }
+        /// <remarks>
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfChange</returns>
+        ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null);
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
+        /// <summary>
+        /// Get the next change to each portfolio in a scope.
+        /// </summary>
+        /// <remarks>
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ResourceListOfChange</returns>
+        System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
-        /// <value>By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.</value>
-        [DataMember(Name="allowAnyInstrumentsWithSecUidToPriceOffLookup", EmitDefaultValue=false)]
-        public bool? AllowAnyInstrumentsWithSecUidToPriceOffLookup { get; set; }
-
-        /// <summary>
-        /// If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere
-        /// </summary>
-        /// <value>If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere</value>
-        [DataMember(Name="allowPartiallySuccessfulEvaluation", EmitDefaultValue=false)]
-        public bool? AllowPartiallySuccessfulEvaluation { get; set; }
-
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append("class PricingOptions {\n");
-            sb.Append("  ModelSelection: ").Append(ModelSelection).Append("\n");
-            sb.Append("  UseInstrumentTypeToDeterminePricer: ").Append(UseInstrumentTypeToDeterminePricer).Append("\n");
-            sb.Append("  AllowAnyInstrumentsWithSecUidToPriceOffLookup: ").Append(AllowAnyInstrumentsWithSecUidToPriceOffLookup).Append("\n");
-            sb.Append("  AllowPartiallySuccessfulEvaluation: ").Append(AllowPartiallySuccessfulEvaluation).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-  
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as PricingOptions);
-        }
-
-        /// <summary>
-        /// Returns true if PricingOptions instances are equal
-        /// </summary>
-        /// <param name="input">Instance of PricingOptions to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(PricingOptions input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.ModelSelection == input.ModelSelection ||
-                    (this.ModelSelection != null &&
-                    this.ModelSelection.Equals(input.ModelSelection))
-                ) && 
-                (
-                    this.UseInstrumentTypeToDeterminePricer == input.UseInstrumentTypeToDeterminePricer ||
-                    (this.UseInstrumentTypeToDeterminePricer != null &&
-                    this.UseInstrumentTypeToDeterminePricer.Equals(input.UseInstrumentTypeToDeterminePricer))
-                ) && 
-                (
-                    this.AllowAnyInstrumentsWithSecUidToPriceOffLookup == input.AllowAnyInstrumentsWithSecUidToPriceOffLookup ||
-                    (this.AllowAnyInstrumentsWithSecUidToPriceOffLookup != null &&
-                    this.AllowAnyInstrumentsWithSecUidToPriceOffLookup.Equals(input.AllowAnyInstrumentsWithSecUidToPriceOffLookup))
-                ) && 
-                (
-                    this.AllowPartiallySuccessfulEvaluation == input.AllowPartiallySuccessfulEvaluation ||
-                    (this.AllowPartiallySuccessfulEvaluation != null &&
-                    this.AllowPartiallySuccessfulEvaluation.Equals(input.AllowPartiallySuccessfulEvaluation))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ModelSelection != null)
-                    hashCode = hashCode * 59 + this.ModelSelection.GetHashCode();
-                if (this.UseInstrumentTypeToDeterminePricer != null)
-                    hashCode = hashCode * 59 + this.UseInstrumentTypeToDeterminePricer.GetHashCode();
-                if (this.AllowAnyInstrumentsWithSecUidToPriceOffLookup != null)
-                    hashCode = hashCode * 59 + this.AllowAnyInstrumentsWithSecUidToPriceOffLookup.GetHashCode();
-                if (this.AllowPartiallySuccessfulEvaluation != null)
-                    hashCode = hashCode * 59 + this.AllowPartiallySuccessfulEvaluation.GetHashCode();
-                return hashCode;
-            }
-        }
+        /// <remarks>
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesAsyncWithHttpInfo (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null);
+        #endregion Asynchronous Operations
     }
 
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public partial class EntitiesApi : IEntitiesApi
+    {
+        private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class.
+        /// </summary>
+        /// <returns></returns>
+        public EntitiesApi(String basePath)
+        {
+            this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
+
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class
+        /// using Configuration object
+        /// </summary>
+        /// <param name="configuration">An instance of Configuration</param>
+        /// <returns></returns>
+        public EntitiesApi(Lusid.Sdk.Client.Configuration configuration = null)
+        {
+            if (configuration == null) // use the default one in Configuration
+                this.Configuration = Lusid.Sdk.Client.Configuration.Default;
+            else
+                this.Configuration = configuration;
+
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Gets the base path of the API client.
+        /// </summary>
+        /// <value>The base path</value>
+        public String GetBasePath()
+        {
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+        }
+
+        /// <summary>
+        /// Sets the base path of the API client.
+        /// </summary>
+        /// <value>The base path</value>
+        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
+        public void SetBasePath(String basePath)
+        {
+            // do nothing
+        }
+
+        /// <summary>
+        /// Gets or sets the configuration object
+        /// </summary>
+        /// <value>An instance of the Configuration</value>
+        public Lusid.Sdk.Client.Configuration Configuration {get; set;}
+
+        /// <summary>
+        /// Provides a factory method hook for the creation of exceptions.
+        /// </summary>
+        public Lusid.Sdk.Client.ExceptionFactory ExceptionFactory
+        {
+            get
+            {
+                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                {
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                }
+                return _exceptionFactory;
+            }
+            set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Gets the default header.
+        /// </summary>
+        /// <returns>Dictionary of HTTP header</returns>
+        [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
+        public IDictionary<String, String> DefaultHeader()
+        {
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
+        }
+
+        /// <summary>
+        /// Add default header.
+        /// </summary>
+        /// <param name="key">Header field name.</param>
+        /// <param name="value">Header field value.</param>
+        /// <returns></returns>
+        [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
+        public void AddDefaultHeader(string key, string value)
+        {
+            this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ResourceListOfChange</returns>
+        public ResourceListOfChange GetPortfolioChanges (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
+        {
+             ApiResponse<ResourceListOfChange> localVarResponse = GetPortfolioChangesWithHttpInfo(scope, effectiveAt, asAt);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfChange</returns>
+        public ApiResponse< ResourceListOfChange > GetPortfolioChangesWithHttpInfo (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
+        {
+
+            var localVarPath = "./api/entities/changes/portfolios";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPortfolioChanges", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfChange>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key,  x => String.Join(",", x.Value.ToArray())),
+                (ResourceListOfChange) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfChange)));
+        }
+
+        /// <summary>
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ResourceListOfChange</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
+        {
+             ApiResponse<ResourceListOfChange> localVarResponse = await GetPortfolioChangesAsyncWithHttpInfo(scope, effectiveAt, asAt);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope (optional)</param>
+        /// <param name="effectiveAt">The effective date of the origin. (optional)</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesAsyncWithHttpInfo (string scope = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
+        {
+
+            var localVarPath = "./api/entities/changes/portfolios";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPortfolioChanges", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfChange>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key,  x => String.Join(",", x.Value.ToArray())),
+                (ResourceListOfChange) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfChange)));
+        }
+
+    }
+    
 }

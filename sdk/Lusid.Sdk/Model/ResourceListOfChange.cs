@@ -23,53 +23,64 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Options for controlling the default aspects and behaviour of the pricing engine.
+    /// ResourceListOfChange
     /// </summary>
     [DataContract]
-    public partial class PricingOptions :  IEquatable<PricingOptions>
+    public partial class ResourceListOfChange :  IEquatable<ResourceListOfChange>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PricingOptions" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfChange" /> class.
         /// </summary>
-        /// <param name="ModelSelection">The default model and pricing library to use if no others specified.</param>
-        /// <param name="UseInstrumentTypeToDeterminePricer">If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis..</param>
-        /// <param name="AllowAnyInstrumentsWithSecUidToPriceOffLookup">By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true..</param>
-        /// <param name="AllowPartiallySuccessfulEvaluation">If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere.</param>
-        public PricingOptions(ModelSelection ModelSelection = default(ModelSelection), bool? UseInstrumentTypeToDeterminePricer = default(bool?), bool? AllowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool?), bool? AllowPartiallySuccessfulEvaluation = default(bool?))
+        [JsonConstructorAttribute]
+        protected ResourceListOfChange() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceListOfChange" /> class.
+        /// </summary>
+        /// <param name="Values">Values (required).</param>
+        /// <param name="Href">The Uri that returns the same result as the original request,  but may include resolved as at time(s)..</param>
+        /// <param name="Count">The total number of items (when available).</param>
+        /// <param name="Links">Links.</param>
+        public ResourceListOfChange(List<Change> Values = default(List<Change>), string Href = default(string), int? Count = default(int?), List<Link> Links = default(List<Link>))
         {
-            this.ModelSelection = ModelSelection;
-            this.UseInstrumentTypeToDeterminePricer = UseInstrumentTypeToDeterminePricer;
-            this.AllowAnyInstrumentsWithSecUidToPriceOffLookup = AllowAnyInstrumentsWithSecUidToPriceOffLookup;
-            this.AllowPartiallySuccessfulEvaluation = AllowPartiallySuccessfulEvaluation;
+            // to ensure "Values" is required (not null)
+            if (Values == null)
+            {
+                throw new InvalidDataException("Values is a required property for ResourceListOfChange and cannot be null");
+            }
+            else
+            {
+                this.Values = Values;
+            }
+            this.Href = Href;
+            this.Count = Count;
+            this.Links = Links;
         }
         
         /// <summary>
-        /// The default model and pricing library to use if no others specified
+        /// Gets or Sets Values
         /// </summary>
-        /// <value>The default model and pricing library to use if no others specified</value>
-        [DataMember(Name="modelSelection", EmitDefaultValue=false)]
-        public ModelSelection ModelSelection { get; set; }
+        [DataMember(Name="values", EmitDefaultValue=false)]
+        public List<Change> Values { get; set; }
 
         /// <summary>
-        /// If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.
+        /// The Uri that returns the same result as the original request,  but may include resolved as at time(s).
         /// </summary>
-        /// <value>If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.</value>
-        [DataMember(Name="useInstrumentTypeToDeterminePricer", EmitDefaultValue=false)]
-        public bool? UseInstrumentTypeToDeterminePricer { get; set; }
+        /// <value>The Uri that returns the same result as the original request,  but may include resolved as at time(s).</value>
+        [DataMember(Name="href", EmitDefaultValue=false)]
+        public string Href { get; set; }
 
         /// <summary>
-        /// By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.
+        /// The total number of items (when available)
         /// </summary>
-        /// <value>By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.</value>
-        [DataMember(Name="allowAnyInstrumentsWithSecUidToPriceOffLookup", EmitDefaultValue=false)]
-        public bool? AllowAnyInstrumentsWithSecUidToPriceOffLookup { get; set; }
+        /// <value>The total number of items (when available)</value>
+        [DataMember(Name="count", EmitDefaultValue=false)]
+        public int? Count { get; set; }
 
         /// <summary>
-        /// If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere</value>
-        [DataMember(Name="allowPartiallySuccessfulEvaluation", EmitDefaultValue=false)]
-        public bool? AllowPartiallySuccessfulEvaluation { get; set; }
+        [DataMember(Name="links", EmitDefaultValue=false)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,11 +89,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PricingOptions {\n");
-            sb.Append("  ModelSelection: ").Append(ModelSelection).Append("\n");
-            sb.Append("  UseInstrumentTypeToDeterminePricer: ").Append(UseInstrumentTypeToDeterminePricer).Append("\n");
-            sb.Append("  AllowAnyInstrumentsWithSecUidToPriceOffLookup: ").Append(AllowAnyInstrumentsWithSecUidToPriceOffLookup).Append("\n");
-            sb.Append("  AllowPartiallySuccessfulEvaluation: ").Append(AllowPartiallySuccessfulEvaluation).Append("\n");
+            sb.Append("class ResourceListOfChange {\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,39 +114,39 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PricingOptions);
+            return this.Equals(input as ResourceListOfChange);
         }
 
         /// <summary>
-        /// Returns true if PricingOptions instances are equal
+        /// Returns true if ResourceListOfChange instances are equal
         /// </summary>
-        /// <param name="input">Instance of PricingOptions to be compared</param>
+        /// <param name="input">Instance of ResourceListOfChange to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PricingOptions input)
+        public bool Equals(ResourceListOfChange input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ModelSelection == input.ModelSelection ||
-                    (this.ModelSelection != null &&
-                    this.ModelSelection.Equals(input.ModelSelection))
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
-                    this.UseInstrumentTypeToDeterminePricer == input.UseInstrumentTypeToDeterminePricer ||
-                    (this.UseInstrumentTypeToDeterminePricer != null &&
-                    this.UseInstrumentTypeToDeterminePricer.Equals(input.UseInstrumentTypeToDeterminePricer))
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.AllowAnyInstrumentsWithSecUidToPriceOffLookup == input.AllowAnyInstrumentsWithSecUidToPriceOffLookup ||
-                    (this.AllowAnyInstrumentsWithSecUidToPriceOffLookup != null &&
-                    this.AllowAnyInstrumentsWithSecUidToPriceOffLookup.Equals(input.AllowAnyInstrumentsWithSecUidToPriceOffLookup))
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
                 ) && 
                 (
-                    this.AllowPartiallySuccessfulEvaluation == input.AllowPartiallySuccessfulEvaluation ||
-                    (this.AllowPartiallySuccessfulEvaluation != null &&
-                    this.AllowPartiallySuccessfulEvaluation.Equals(input.AllowPartiallySuccessfulEvaluation))
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -148,14 +159,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ModelSelection != null)
-                    hashCode = hashCode * 59 + this.ModelSelection.GetHashCode();
-                if (this.UseInstrumentTypeToDeterminePricer != null)
-                    hashCode = hashCode * 59 + this.UseInstrumentTypeToDeterminePricer.GetHashCode();
-                if (this.AllowAnyInstrumentsWithSecUidToPriceOffLookup != null)
-                    hashCode = hashCode * 59 + this.AllowAnyInstrumentsWithSecUidToPriceOffLookup.GetHashCode();
-                if (this.AllowPartiallySuccessfulEvaluation != null)
-                    hashCode = hashCode * 59 + this.AllowPartiallySuccessfulEvaluation.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
+                if (this.Href != null)
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.Count != null)
+                    hashCode = hashCode * 59 + this.Count.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }

@@ -23,53 +23,89 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Options for controlling the default aspects and behaviour of the pricing engine.
+    /// The time an entity was modified (amendment and/or historical correction).
     /// </summary>
     [DataContract]
-    public partial class PricingOptions :  IEquatable<PricingOptions>
+    public partial class Change :  IEquatable<Change>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PricingOptions" /> class.
+        /// Initializes a new instance of the <see cref="Change" /> class.
         /// </summary>
-        /// <param name="ModelSelection">The default model and pricing library to use if no others specified.</param>
-        /// <param name="UseInstrumentTypeToDeterminePricer">If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis..</param>
-        /// <param name="AllowAnyInstrumentsWithSecUidToPriceOffLookup">By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true..</param>
-        /// <param name="AllowPartiallySuccessfulEvaluation">If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere.</param>
-        public PricingOptions(ModelSelection ModelSelection = default(ModelSelection), bool? UseInstrumentTypeToDeterminePricer = default(bool?), bool? AllowAnyInstrumentsWithSecUidToPriceOffLookup = default(bool?), bool? AllowPartiallySuccessfulEvaluation = default(bool?))
+        /// <param name="Href">Href.</param>
+        /// <param name="EntityId">EntityId.</param>
+        /// <param name="Corrected">Corrected.</param>
+        /// <param name="CorrectionEffectiveAt">CorrectionEffectiveAt.</param>
+        /// <param name="CorrectionAsAt">CorrectionAsAt.</param>
+        /// <param name="Amended">Amended.</param>
+        /// <param name="AmendmentEffectiveAt">AmendmentEffectiveAt.</param>
+        /// <param name="AmendmentAsAt">AmendmentAsAt.</param>
+        /// <param name="Links">Links.</param>
+        public Change(string Href = default(string), ResourceId EntityId = default(ResourceId), bool? Corrected = default(bool?), DateTimeOffset? CorrectionEffectiveAt = default(DateTimeOffset?), Object CorrectionAsAt = default(Object), bool? Amended = default(bool?), DateTimeOffset? AmendmentEffectiveAt = default(DateTimeOffset?), Object AmendmentAsAt = default(Object), List<Link> Links = default(List<Link>))
         {
-            this.ModelSelection = ModelSelection;
-            this.UseInstrumentTypeToDeterminePricer = UseInstrumentTypeToDeterminePricer;
-            this.AllowAnyInstrumentsWithSecUidToPriceOffLookup = AllowAnyInstrumentsWithSecUidToPriceOffLookup;
-            this.AllowPartiallySuccessfulEvaluation = AllowPartiallySuccessfulEvaluation;
+            this.Href = Href;
+            this.EntityId = EntityId;
+            this.Corrected = Corrected;
+            this.CorrectionEffectiveAt = CorrectionEffectiveAt;
+            this.CorrectionAsAt = CorrectionAsAt;
+            this.Amended = Amended;
+            this.AmendmentEffectiveAt = AmendmentEffectiveAt;
+            this.AmendmentAsAt = AmendmentAsAt;
+            this.Links = Links;
         }
         
         /// <summary>
-        /// The default model and pricing library to use if no others specified
+        /// Gets or Sets Href
         /// </summary>
-        /// <value>The default model and pricing library to use if no others specified</value>
-        [DataMember(Name="modelSelection", EmitDefaultValue=false)]
-        public ModelSelection ModelSelection { get; set; }
+        [DataMember(Name="href", EmitDefaultValue=false)]
+        public string Href { get; set; }
 
         /// <summary>
-        /// If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.
+        /// Gets or Sets EntityId
         /// </summary>
-        /// <value>If true then use the instrument type to set the default instrument pricer  This applies where no more specific set of overrides are provided on a per-vendor and instrument basis.</value>
-        [DataMember(Name="useInstrumentTypeToDeterminePricer", EmitDefaultValue=false)]
-        public bool? UseInstrumentTypeToDeterminePricer { get; set; }
+        [DataMember(Name="entityId", EmitDefaultValue=false)]
+        public ResourceId EntityId { get; set; }
 
         /// <summary>
-        /// By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.
+        /// Gets or Sets Corrected
         /// </summary>
-        /// <value>By default, one would not expect to price and exotic instrument, i.e. an instrument with a complicated  instrument definition simply through looking up a price as there should be a better way of evaluating it.  To override that behaviour and allow lookup for a price from the instrument identifier(s), set this to true.</value>
-        [DataMember(Name="allowAnyInstrumentsWithSecUidToPriceOffLookup", EmitDefaultValue=false)]
-        public bool? AllowAnyInstrumentsWithSecUidToPriceOffLookup { get; set; }
+        [DataMember(Name="corrected", EmitDefaultValue=false)]
+        public bool? Corrected { get; set; }
 
         /// <summary>
-        /// If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere
+        /// Gets or Sets CorrectionEffectiveAt
         /// </summary>
-        /// <value>If true then a failure in task evaluation doesn&#39;t cause overall failure.  results will be returned where they succeeded and annotation elsewhere</value>
-        [DataMember(Name="allowPartiallySuccessfulEvaluation", EmitDefaultValue=false)]
-        public bool? AllowPartiallySuccessfulEvaluation { get; set; }
+        [DataMember(Name="correctionEffectiveAt", EmitDefaultValue=false)]
+        public DateTimeOffset? CorrectionEffectiveAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CorrectionAsAt
+        /// </summary>
+        [DataMember(Name="correctionAsAt", EmitDefaultValue=false)]
+        public Object CorrectionAsAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amended
+        /// </summary>
+        [DataMember(Name="amended", EmitDefaultValue=false)]
+        public bool? Amended { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmendmentEffectiveAt
+        /// </summary>
+        [DataMember(Name="amendmentEffectiveAt", EmitDefaultValue=false)]
+        public DateTimeOffset? AmendmentEffectiveAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmendmentAsAt
+        /// </summary>
+        [DataMember(Name="amendmentAsAt", EmitDefaultValue=false)]
+        public Object AmendmentAsAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name="links", EmitDefaultValue=false)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,11 +114,16 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PricingOptions {\n");
-            sb.Append("  ModelSelection: ").Append(ModelSelection).Append("\n");
-            sb.Append("  UseInstrumentTypeToDeterminePricer: ").Append(UseInstrumentTypeToDeterminePricer).Append("\n");
-            sb.Append("  AllowAnyInstrumentsWithSecUidToPriceOffLookup: ").Append(AllowAnyInstrumentsWithSecUidToPriceOffLookup).Append("\n");
-            sb.Append("  AllowPartiallySuccessfulEvaluation: ").Append(AllowPartiallySuccessfulEvaluation).Append("\n");
+            sb.Append("class Change {\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  Corrected: ").Append(Corrected).Append("\n");
+            sb.Append("  CorrectionEffectiveAt: ").Append(CorrectionEffectiveAt).Append("\n");
+            sb.Append("  CorrectionAsAt: ").Append(CorrectionAsAt).Append("\n");
+            sb.Append("  Amended: ").Append(Amended).Append("\n");
+            sb.Append("  AmendmentEffectiveAt: ").Append(AmendmentEffectiveAt).Append("\n");
+            sb.Append("  AmendmentAsAt: ").Append(AmendmentAsAt).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,39 +144,64 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PricingOptions);
+            return this.Equals(input as Change);
         }
 
         /// <summary>
-        /// Returns true if PricingOptions instances are equal
+        /// Returns true if Change instances are equal
         /// </summary>
-        /// <param name="input">Instance of PricingOptions to be compared</param>
+        /// <param name="input">Instance of Change to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PricingOptions input)
+        public bool Equals(Change input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ModelSelection == input.ModelSelection ||
-                    (this.ModelSelection != null &&
-                    this.ModelSelection.Equals(input.ModelSelection))
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.UseInstrumentTypeToDeterminePricer == input.UseInstrumentTypeToDeterminePricer ||
-                    (this.UseInstrumentTypeToDeterminePricer != null &&
-                    this.UseInstrumentTypeToDeterminePricer.Equals(input.UseInstrumentTypeToDeterminePricer))
+                    this.EntityId == input.EntityId ||
+                    (this.EntityId != null &&
+                    this.EntityId.Equals(input.EntityId))
                 ) && 
                 (
-                    this.AllowAnyInstrumentsWithSecUidToPriceOffLookup == input.AllowAnyInstrumentsWithSecUidToPriceOffLookup ||
-                    (this.AllowAnyInstrumentsWithSecUidToPriceOffLookup != null &&
-                    this.AllowAnyInstrumentsWithSecUidToPriceOffLookup.Equals(input.AllowAnyInstrumentsWithSecUidToPriceOffLookup))
+                    this.Corrected == input.Corrected ||
+                    (this.Corrected != null &&
+                    this.Corrected.Equals(input.Corrected))
                 ) && 
                 (
-                    this.AllowPartiallySuccessfulEvaluation == input.AllowPartiallySuccessfulEvaluation ||
-                    (this.AllowPartiallySuccessfulEvaluation != null &&
-                    this.AllowPartiallySuccessfulEvaluation.Equals(input.AllowPartiallySuccessfulEvaluation))
+                    this.CorrectionEffectiveAt == input.CorrectionEffectiveAt ||
+                    (this.CorrectionEffectiveAt != null &&
+                    this.CorrectionEffectiveAt.Equals(input.CorrectionEffectiveAt))
+                ) && 
+                (
+                    this.CorrectionAsAt == input.CorrectionAsAt ||
+                    (this.CorrectionAsAt != null &&
+                    this.CorrectionAsAt.Equals(input.CorrectionAsAt))
+                ) && 
+                (
+                    this.Amended == input.Amended ||
+                    (this.Amended != null &&
+                    this.Amended.Equals(input.Amended))
+                ) && 
+                (
+                    this.AmendmentEffectiveAt == input.AmendmentEffectiveAt ||
+                    (this.AmendmentEffectiveAt != null &&
+                    this.AmendmentEffectiveAt.Equals(input.AmendmentEffectiveAt))
+                ) && 
+                (
+                    this.AmendmentAsAt == input.AmendmentAsAt ||
+                    (this.AmendmentAsAt != null &&
+                    this.AmendmentAsAt.Equals(input.AmendmentAsAt))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -148,14 +214,24 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ModelSelection != null)
-                    hashCode = hashCode * 59 + this.ModelSelection.GetHashCode();
-                if (this.UseInstrumentTypeToDeterminePricer != null)
-                    hashCode = hashCode * 59 + this.UseInstrumentTypeToDeterminePricer.GetHashCode();
-                if (this.AllowAnyInstrumentsWithSecUidToPriceOffLookup != null)
-                    hashCode = hashCode * 59 + this.AllowAnyInstrumentsWithSecUidToPriceOffLookup.GetHashCode();
-                if (this.AllowPartiallySuccessfulEvaluation != null)
-                    hashCode = hashCode * 59 + this.AllowPartiallySuccessfulEvaluation.GetHashCode();
+                if (this.Href != null)
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.EntityId != null)
+                    hashCode = hashCode * 59 + this.EntityId.GetHashCode();
+                if (this.Corrected != null)
+                    hashCode = hashCode * 59 + this.Corrected.GetHashCode();
+                if (this.CorrectionEffectiveAt != null)
+                    hashCode = hashCode * 59 + this.CorrectionEffectiveAt.GetHashCode();
+                if (this.CorrectionAsAt != null)
+                    hashCode = hashCode * 59 + this.CorrectionAsAt.GetHashCode();
+                if (this.Amended != null)
+                    hashCode = hashCode * 59 + this.Amended.GetHashCode();
+                if (this.AmendmentEffectiveAt != null)
+                    hashCode = hashCode * 59 + this.AmendmentEffectiveAt.GetHashCode();
+                if (this.AmendmentAsAt != null)
+                    hashCode = hashCode * 59 + this.AmendmentAsAt.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }
