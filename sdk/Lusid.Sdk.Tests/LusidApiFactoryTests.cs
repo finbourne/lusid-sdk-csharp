@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
@@ -86,27 +88,59 @@ namespace Lusid.Sdk.Tests
         }
 
         [Test]
-        public void ApiException_Converts_To_ErrorResponse()
+        public void ApiException_Converts_To_ProblemDetails()
         {
             try
             {
-                var api = _factory.Api<PortfoliosApi>().GetPortfolio("doesnt", "exist");
+                var _ = _factory.Api<PortfoliosApi>().GetPortfolio("doesnt", "exist");
             }
             catch (ApiException e)
             {
                 //    ApiException.ErrorContent contains a JSON serialized ErrorResponse
-                ErrorResponse errorResponse = e.ErrorResponse();
+                LusidProblemDetails errorResponse = e.ProblemDetails();
                 
-                Assert.That(errorResponse.DetailedMessage, Does.Match("Portfolio with id exist in scope doesnt effective.*does not exist"));
-                Assert.That(errorResponse.Code, Is.EqualTo(ErrorResponse.CodeEnum.PortfolioNotFound));
+                Assert.That(errorResponse.Detail, Does.Match("Portfolio with id exist in scope doesnt effective.*does not exist"));
+                Assert.That(errorResponse.Name, Is.EqualTo("PortfolioNotFound"));
             }            
         }
-
+        
+        [Test]
+        public void ApiException_Converts_To_ValidationProblemDetails()
+        {
+            try
+            {
+                var _ = _factory.Api<PortfoliosApi>().GetPortfolio("@£$@£%", "@@@@@@");
+            }
+            catch (ApiException e)
+            {
+                Assert.That(e.IsValidationProblem, Is.True, "Response should indicate that there was a validation error with the request");
+                
+                //    An ApiException.ErrorContent thrown because of a request validation contains a JSON serialized LusidValidationProblemDetails
+                if (e.TryGetValidationProblemDetails(out var errorResponse))
+                {
+                    //Should identify that there was a validation error with the code
+                    Assert.That(errorResponse.Errors, Contains.Key("code"));
+                    Assert.That(errorResponse.Errors["code"].Single(), Is.EqualTo("The supplied text value contains one or more invalid characters."));
+                    
+                    //Should identify that there was a validation error with the scope
+                    Assert.That(errorResponse.Errors, Contains.Key("scope"));
+                    Assert.That(errorResponse.Errors["scope"].Single(), Is.EqualTo("The supplied text value contains one or more invalid characters."));
+                
+                    Assert.That(errorResponse.Detail, Does.Match("One or more of the bits of input data provided were not valid.*"));
+                    Assert.That(errorResponse.Name, Is.EqualTo("InvalidParameterValue"));
+                }
+                else
+                {
+                    Assert.Fail("The request should have failed due to a validation error, and the validation details should be returned");
+                }
+            }
+        }
+        
         [Test]
         public void ApiException_Without_ErrorContent_Returns_Null()
         {
             var error = new ApiException();
-            var errorResponse = error.ErrorResponse();
+            var errorResponse = error.ProblemDetails();
             
             Assert.That(errorResponse, Is.Null);
         }
