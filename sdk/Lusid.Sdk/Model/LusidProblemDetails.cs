@@ -23,71 +23,102 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CorporateActionTransitionComponentRequest
+    /// LusidProblemDetails
     /// </summary>
     [DataContract]
-    public partial class CorporateActionTransitionComponentRequest :  IEquatable<CorporateActionTransitionComponentRequest>
+    public partial class LusidProblemDetails :  IEquatable<LusidProblemDetails>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CorporateActionTransitionComponentRequest" /> class.
+        /// Initializes a new instance of the <see cref="LusidProblemDetails" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CorporateActionTransitionComponentRequest() { }
+        protected LusidProblemDetails() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CorporateActionTransitionComponentRequest" /> class.
+        /// Initializes a new instance of the <see cref="LusidProblemDetails" /> class.
         /// </summary>
-        /// <param name="InstrumentIdentifiers">unique instrument identifiers. (required).</param>
-        /// <param name="UnitsFactor">UnitsFactor (required).</param>
-        /// <param name="CostFactor">CostFactor (required).</param>
-        public CorporateActionTransitionComponentRequest(Dictionary<string, string> InstrumentIdentifiers = default(Dictionary<string, string>), double? UnitsFactor = default(double?), double? CostFactor = default(double?))
+        /// <param name="Name">Name (required).</param>
+        /// <param name="ErrorDetails">ErrorDetails.</param>
+        /// <param name="Code">Code (required).</param>
+        /// <param name="Type">Type.</param>
+        /// <param name="Title">Title.</param>
+        /// <param name="Status">Status.</param>
+        /// <param name="Detail">Detail.</param>
+        /// <param name="Instance">Instance.</param>
+        public LusidProblemDetails(string Name = default(string), List<Dictionary<string, string>> ErrorDetails = default(List<Dictionary<string, string>>), int? Code = default(int?), string Type = default(string), string Title = default(string), int? Status = default(int?), string Detail = default(string), string Instance = default(string))
         {
-            // to ensure "InstrumentIdentifiers" is required (not null)
-            if (InstrumentIdentifiers == null)
+            // to ensure "Name" is required (not null)
+            if (Name == null)
             {
-                throw new InvalidDataException("InstrumentIdentifiers is a required property for CorporateActionTransitionComponentRequest and cannot be null");
+                throw new InvalidDataException("Name is a required property for LusidProblemDetails and cannot be null");
             }
             else
             {
-                this.InstrumentIdentifiers = InstrumentIdentifiers;
+                this.Name = Name;
             }
-            // to ensure "UnitsFactor" is required (not null)
-            if (UnitsFactor == null)
+            // to ensure "Code" is required (not null)
+            if (Code == null)
             {
-                throw new InvalidDataException("UnitsFactor is a required property for CorporateActionTransitionComponentRequest and cannot be null");
+                throw new InvalidDataException("Code is a required property for LusidProblemDetails and cannot be null");
             }
             else
             {
-                this.UnitsFactor = UnitsFactor;
+                this.Code = Code;
             }
-            // to ensure "CostFactor" is required (not null)
-            if (CostFactor == null)
-            {
-                throw new InvalidDataException("CostFactor is a required property for CorporateActionTransitionComponentRequest and cannot be null");
-            }
-            else
-            {
-                this.CostFactor = CostFactor;
-            }
+            this.ErrorDetails = ErrorDetails;
+            this.Type = Type;
+            this.Title = Title;
+            this.Status = Status;
+            this.Detail = Detail;
+            this.Instance = Instance;
         }
         
         /// <summary>
-        /// unique instrument identifiers.
+        /// Gets or Sets Name
         /// </summary>
-        /// <value>unique instrument identifiers.</value>
-        [DataMember(Name="instrumentIdentifiers", EmitDefaultValue=false)]
-        public Dictionary<string, string> InstrumentIdentifiers { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitsFactor
+        /// Gets or Sets ErrorDetails
         /// </summary>
-        [DataMember(Name="unitsFactor", EmitDefaultValue=false)]
-        public double? UnitsFactor { get; set; }
+        [DataMember(Name="errorDetails", EmitDefaultValue=false)]
+        public List<Dictionary<string, string>> ErrorDetails { get; set; }
 
         /// <summary>
-        /// Gets or Sets CostFactor
+        /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name="costFactor", EmitDefaultValue=false)]
-        public double? CostFactor { get; set; }
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public int? Code { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Title
+        /// </summary>
+        [DataMember(Name="title", EmitDefaultValue=false)]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public int? Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Detail
+        /// </summary>
+        [DataMember(Name="detail", EmitDefaultValue=false)]
+        public string Detail { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Instance
+        /// </summary>
+        [DataMember(Name="instance", EmitDefaultValue=false)]
+        public string Instance { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,10 +127,15 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CorporateActionTransitionComponentRequest {\n");
-            sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
-            sb.Append("  UnitsFactor: ").Append(UnitsFactor).Append("\n");
-            sb.Append("  CostFactor: ").Append(CostFactor).Append("\n");
+            sb.Append("class LusidProblemDetails {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ErrorDetails: ").Append(ErrorDetails).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Detail: ").Append(Detail).Append("\n");
+            sb.Append("  Instance: ").Append(Instance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,34 +156,59 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CorporateActionTransitionComponentRequest);
+            return this.Equals(input as LusidProblemDetails);
         }
 
         /// <summary>
-        /// Returns true if CorporateActionTransitionComponentRequest instances are equal
+        /// Returns true if LusidProblemDetails instances are equal
         /// </summary>
-        /// <param name="input">Instance of CorporateActionTransitionComponentRequest to be compared</param>
+        /// <param name="input">Instance of LusidProblemDetails to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CorporateActionTransitionComponentRequest input)
+        public bool Equals(LusidProblemDetails input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InstrumentIdentifiers == input.InstrumentIdentifiers ||
-                    this.InstrumentIdentifiers != null &&
-                    this.InstrumentIdentifiers.SequenceEqual(input.InstrumentIdentifiers)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.UnitsFactor == input.UnitsFactor ||
-                    (this.UnitsFactor != null &&
-                    this.UnitsFactor.Equals(input.UnitsFactor))
+                    this.ErrorDetails == input.ErrorDetails ||
+                    this.ErrorDetails != null &&
+                    this.ErrorDetails.SequenceEqual(input.ErrorDetails)
                 ) && 
                 (
-                    this.CostFactor == input.CostFactor ||
-                    (this.CostFactor != null &&
-                    this.CostFactor.Equals(input.CostFactor))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Detail == input.Detail ||
+                    (this.Detail != null &&
+                    this.Detail.Equals(input.Detail))
+                ) && 
+                (
+                    this.Instance == input.Instance ||
+                    (this.Instance != null &&
+                    this.Instance.Equals(input.Instance))
                 );
         }
 
@@ -160,12 +221,22 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InstrumentIdentifiers != null)
-                    hashCode = hashCode * 59 + this.InstrumentIdentifiers.GetHashCode();
-                if (this.UnitsFactor != null)
-                    hashCode = hashCode * 59 + this.UnitsFactor.GetHashCode();
-                if (this.CostFactor != null)
-                    hashCode = hashCode * 59 + this.CostFactor.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.ErrorDetails != null)
+                    hashCode = hashCode * 59 + this.ErrorDetails.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Title != null)
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Detail != null)
+                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
+                if (this.Instance != null)
+                    hashCode = hashCode * 59 + this.Instance.GetHashCode();
                 return hashCode;
             }
         }
