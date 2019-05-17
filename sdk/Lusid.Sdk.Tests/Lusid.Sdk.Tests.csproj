@@ -10,7 +10,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="secrets.json" CopyToOutputDirectory="Always" />
+    <None Include="secrets.json" CopyToOutputDirectory="Always" Condition="Exists('secrets.json')"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lusid.Sdk\Lusid.Sdk.csproj" />
