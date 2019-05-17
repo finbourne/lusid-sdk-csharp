@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Lusid.Sdk.Utilities
 {
-    public static class ApiExeceptionExtensions
+    public static class ApiExceptionExtensions
     {
         /// <summary>
         /// Identify whether the API exception was caused by a request validation problem

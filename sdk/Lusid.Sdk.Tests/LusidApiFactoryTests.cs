@@ -20,18 +20,7 @@ namespace Lusid.Sdk.Tests
         [OneTimeSetUp]
         public void SetUp()
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("secrets.json")
-                .Build();
-            
-            ApiConfiguration apiConfiguration = new ApiConfiguration();
-
-            config.GetSection("api").Bind(apiConfiguration);           
-
-            Assert.That(apiConfiguration, Is.Not.Null);
-            
-            _factory = new LusidApiFactory(apiConfiguration);
+            _factory = LusidApiFactoryBuilder.Build("secrets.json");
         }
 
         [Test]

@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Web;
 using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Utilities;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests
@@ -26,72 +19,12 @@ namespace Lusid.Sdk.Tests
         private readonly ApiConfiguration _apiConfiguration = new ApiConfiguration();
         private List<string> _instrumentIds = new List<string>();
 
-        private PortfoliosApi _portfoliosApi;
-        private TransactionPortfoliosApi _transactionPortfoliosApi;
-        private InstrumentsApi _instrumentsApi;
-        private PropertyDefinitionsApi _propertyDefinitionsApi;
-        private AnalyticsStoresApi _analyticsStoresApi;
-        private AggregationApi _aggregationApi;
-        private ReconciliationsApi _reconciliationsApi;
-        private SchemasApi _schemasApi;
-        private ReferencePortfolioApi _referencePortfolioApi;
+        private ILusidApiFactory _apiFactory;
        
         [OneTimeSetUp]
         public void SetUp()
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("secrets.json")
-                .Build();
-
-            config.GetSection("api").Bind(_apiConfiguration);
-
-            Assert.That(_apiConfiguration, Is.Not.Null);
-            Assert.That(_apiConfiguration.ApiUrl, Is.Not.Null);
-
-            var tokenUrl = Environment.GetEnvironmentVariable("FBN_TOKEN_URL") ?? _apiConfiguration.TokenUrl;
-            var username = Environment.GetEnvironmentVariable("FBN_USERNAME") ?? _apiConfiguration.Username;
-            var password = Environment.GetEnvironmentVariable("FBN_PASSWORD") ?? _apiConfiguration.Password;
-            var clientId = Environment.GetEnvironmentVariable("FBN_CLIENT_ID") ?? _apiConfiguration.ClientId;
-            var clientSecret = Environment.GetEnvironmentVariable("FBN_CLIENT_SECRET") ?? _apiConfiguration.ClientSecret;
-            var apiUrl = Environment.GetEnvironmentVariable("FBN_LUSID_API_URL") ?? _apiConfiguration.ApiUrl;
-
-            var tokenRequestBody = $"grant_type=password&username={HttpUtility.UrlEncode(username)}&password={HttpUtility.UrlEncode(password)}&scope=openid client groups&client_id={clientId}&client_secret={clientSecret}";
-            string apiToken;
-
-            using (var httpClient = new HttpClient())
-            {
-                //Only accept JSON
-                httpClient.DefaultRequestHeaders.Accept.Clear();
-                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                // gets the response
-                var tokenRequest =
-                    new HttpRequestMessage(HttpMethod.Post, tokenUrl) {Content = new StringContent(tokenRequestBody)};
-                tokenRequest.Content.Headers.ContentType =
-                    new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-
-                var response = httpClient.SendAsync(tokenRequest).Result;
-                var body = response.Content.ReadAsStringAsync().Result;
-                response.EnsureSuccessStatusCode();
-                apiToken = JsonConvert.DeserializeObject<Dictionary<string, string>>(body)["access_token"];                
-            }
-
-            var configuration = new Configuration
-            {
-                BasePath = apiUrl,
-                AccessToken = apiToken
-            };
-
-            _transactionPortfoliosApi = new TransactionPortfoliosApi(configuration);
-            _instrumentsApi = new InstrumentsApi(configuration);
-            _propertyDefinitionsApi = new PropertyDefinitionsApi(configuration);
-            _portfoliosApi = new PortfoliosApi(configuration);
-            _analyticsStoresApi = new AnalyticsStoresApi(configuration);
-            _aggregationApi = new AggregationApi(configuration);
-            _reconciliationsApi = new ReconciliationsApi(configuration);
-            _schemasApi = new SchemasApi(configuration);
-            _referencePortfolioApi = new ReferencePortfolioApi(configuration);
+            _apiFactory = LusidApiFactoryBuilder.Build("secrets.json");
 
             var instruments = new List<(string Figi, string Name)>
             {
@@ -102,7 +35,7 @@ namespace Lusid.Sdk.Tests
                 (Figi: "BBG000BF4KL1", Name: "TAYLOR WIMPEY PLC")
             };            
 
-            var upsertResponse =_instrumentsApi.UpsertInstruments(instruments.ToDictionary(
+            var upsertResponse = _apiFactory.Api<IInstrumentsApi>().UpsertInstruments(instruments.ToDictionary(
                 k => k.Figi,
                 v => new InstrumentDefinition(
                     Name: v.Name,
@@ -112,7 +45,7 @@ namespace Lusid.Sdk.Tests
             
             Assert.That(upsertResponse.Failed.Count, Is.EqualTo(0));
             
-            var ids = _instrumentsApi.GetInstruments("Figi", instruments.Select(i => i.Figi).ToList());
+            var ids = _apiFactory.Api<IInstrumentsApi>().GetInstruments("Figi", instruments.Select(i => i.Figi).ToList());
 
              _instrumentIds = ids.Values.Select(x => x.Value.LusidInstrumentId).ToList();
         }
@@ -125,11 +58,11 @@ namespace Lusid.Sdk.Tests
             var uuid = Guid.NewGuid().ToString();
             var request = new CreateReferencePortfolioRequest($"Portfolio-{uuid}", $"id-{uuid}", $"id-{uuid}");
 
-            var portfolio = _referencePortfolioApi.CreateReferencePortfolio(scope, request);
+            var portfolio = _apiFactory.Api<IReferencePortfolioApi>().CreateReferencePortfolio(scope, request);
 
             Assert.That(portfolio.Id.Code, Is.EqualTo(request.Code));
 
-            var constituents = _referencePortfolioApi.GetReferencePortfolioConstituents(scope, portfolio.Id.Code);
+            var constituents = _apiFactory.Api<IReferencePortfolioApi>().GetReferencePortfolioConstituents(scope, portfolio.Id.Code);
             
             Assert.That(constituents, Is.Not.Null);
         }
@@ -145,10 +78,10 @@ namespace Lusid.Sdk.Tests
 
             var request = new CreateTransactionPortfolioRequest($"Portfolio-{code}", Code: code, BaseCurrency: "GBP");
 
-            _transactionPortfoliosApi.CreatePortfolio(scope, request);
+            _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             // WHEN the portfolio is queried
-            var portfolioResponse = _portfoliosApi.GetPortfolioAsyncWithHttpInfo(scope, code).Result;
+            var portfolioResponse = _apiFactory.Api<IPortfoliosApi>().GetPortfolioAsyncWithHttpInfo(scope, code).Result;
 
             // THEN the result should include a schema Url
             var schemaHeaderItem = portfolioResponse.Headers["lusid-schema-url"];
@@ -158,7 +91,7 @@ namespace Lusid.Sdk.Tests
             Regex regex = new Regex(".+/(\\w+)");
             var entityType = regex.Match(schemaHeaderItem);
 
-            var schema = _schemasApi.GetEntitySchema(entityType.Groups[1].Value);
+            var schema = _apiFactory.Api<ISchemasApi>().GetEntitySchema(entityType.Groups[1].Value);
 
             Assert.That(schema, Is.Not.Null);
             Assert.That(schema.Values, Is.Not.Empty);
@@ -178,7 +111,7 @@ namespace Lusid.Sdk.Tests
             var uuid = Guid.NewGuid().ToString();
             var request = new CreateTransactionPortfolioRequest($"Portfolio-{uuid}", Code: $"id-{uuid}", BaseCurrency: "GBP");
 
-            var portfolio = _transactionPortfoliosApi.CreatePortfolio(scope, request);
+            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             Assert.That(portfolio.DisplayName, Is.EqualTo(request.DisplayName));            
         }
@@ -202,11 +135,11 @@ namespace Lusid.Sdk.Tests
             };
 
             //    create property definition
-            var propertyDefinitionDto = _propertyDefinitionsApi.CreatePropertyDefinition(propertyDefinition);
+            var propertyDefinitionDto = _apiFactory.Api<IPropertyDefinitionsApi>().CreatePropertyDefinition(propertyDefinition);
                 
             //    create portfolio
             var request = new CreateTransactionPortfolioRequest($"Portfolio-{uuid}", Code: $"id-{uuid}", BaseCurrency: "GBP");
-            var portfolio = _transactionPortfoliosApi.CreatePortfolio(scope, request);
+            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.DisplayName, Is.EqualTo(request.DisplayName));
 
@@ -219,7 +152,7 @@ namespace Lusid.Sdk.Tests
 
             //    add the portfolio property
             var properties = new Dictionary<string, PropertyValue> {[propertyDefinitionDto.Key] = new PropertyValue(propertyValue) };
-            var propertiesResult = _portfoliosApi.UpsertPortfolioProperties(scope, portfolioId, properties);
+            var propertiesResult = _apiFactory.Api<IPortfoliosApi>().UpsertPortfolioProperties(scope, portfolioId, properties, portfolio?.Created);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
             Assert.That(propertiesResult.Properties[0].Value, Is.EqualTo(propertyValue));            
@@ -245,7 +178,7 @@ namespace Lusid.Sdk.Tests
             };
 
             //    create property definition
-            var propertyDefinitionDto = _propertyDefinitionsApi.CreatePropertyDefinition(propertyDefinition);
+            var propertyDefinitionDto = _apiFactory.Api<IPropertyDefinitionsApi>().CreatePropertyDefinition(propertyDefinition);
 
             var effectiveDate = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
@@ -256,7 +189,7 @@ namespace Lusid.Sdk.Tests
                 BaseCurrency: "GBP", 
                 Created: effectiveDate
             );
-            var portfolio = _transactionPortfoliosApi.CreatePortfolio(scope, request);
+            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.DisplayName, Is.EqualTo(request.DisplayName));
 
@@ -285,10 +218,10 @@ namespace Lusid.Sdk.Tests
             );
 
             //    add the transaction
-            _transactionPortfoliosApi.UpsertTransactions(scope, portfolioId, new List<TransactionRequest> {transaction});
+            _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioId, new List<TransactionRequest> {transaction});
             
             //    get the transactions
-            var transactions = _transactionPortfoliosApi.GetTransactions(scope, portfolioId);                
+            var transactions = _apiFactory.Api<ITransactionPortfoliosApi>().GetTransactions(scope, portfolioId);                
             
             Assert.That(transactions.Values.Count, Is.EqualTo(1));
             Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentIdentifiers.First().Value));
@@ -311,7 +244,7 @@ namespace Lusid.Sdk.Tests
             );            
 
             //    create portfolio
-            var portfolio = _transactionPortfoliosApi.CreatePortfolio(scope, request);
+            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             Assert.That(portfolio.DisplayName, Is.EqualTo(request.DisplayName));
 
@@ -329,13 +262,13 @@ namespace Lusid.Sdk.Tests
             var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, id.Price, id.TradeDate));
 
             //    add initial batch of transactions
-            var initialResult = _transactionPortfoliosApi.UpsertTransactions(scope, portfolioId, newtransactions.ToList());
+            var initialResult = _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioId, newtransactions.ToList());
 
             var asAtBatch1 = initialResult.Version.AsAtDate;
             Thread.Sleep(500);
 
             //    add another transaction for 2018-1-8
-            var laterResult = _transactionPortfoliosApi.UpsertTransactions(scope, portfolioId, new List<TransactionRequest>
+            var laterResult = _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioId, new List<TransactionRequest>
             {
                 BuildTransaction(_instrumentIds[3], 104, new DateTime(2018, 1, 8))
             });
@@ -344,7 +277,7 @@ namespace Lusid.Sdk.Tests
             Thread.Sleep(500);
 
             //    add back-dated transaction
-            var backDatedResult = _transactionPortfoliosApi.UpsertTransactions(scope, portfolioId, new List<TransactionRequest>
+            var backDatedResult = _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioId, new List<TransactionRequest>
             {
                 BuildTransaction(_instrumentIds[4], 105, new DateTime(2018, 1, 5))
             });
@@ -353,25 +286,25 @@ namespace Lusid.Sdk.Tests
             Thread.Sleep(500);
 
             //    list transactions
-            var transactions = _transactionPortfoliosApi.GetTransactions(scope, portfolioId, asAt: asAtBatch1);
+            var transactions = _apiFactory.Api<ITransactionPortfoliosApi>().GetTransactions(scope, portfolioId, asAt: asAtBatch1);
             
             Assert.That(transactions.Values.Count, Is.EqualTo(3), $"AsAt: {asAtBatch1:o}");
             Console.WriteLine($"transactions at {asAtBatch1}");
             PrintTransactions(transactions.Values);
 
-            transactions = _transactionPortfoliosApi.GetTransactions(scope, portfolioId, asAt: asAtBatch2);
+            transactions = _apiFactory.Api<ITransactionPortfoliosApi>().GetTransactions(scope, portfolioId, asAt: asAtBatch2);
             
             Assert.That(transactions.Values.Count, Is.EqualTo(4), $"AsAt: {asAtBatch2:o}");
             Console.WriteLine($"transactions at {asAtBatch2}");
             PrintTransactions(transactions.Values);
 
-            transactions = _transactionPortfoliosApi.GetTransactions(scope, portfolioId, asAt: asAtBatch3);
+            transactions = _apiFactory.Api<ITransactionPortfoliosApi>().GetTransactions(scope, portfolioId, asAt: asAtBatch3);
             
             Assert.That(transactions.Values.Count, Is.EqualTo(5), $"AsAt: {asAtBatch3:o}");
             Console.WriteLine($"transactions at {asAtBatch3}");
             PrintTransactions(transactions.Values);
 
-            transactions = _transactionPortfoliosApi.GetTransactions(scope, portfolioId);
+            transactions = _apiFactory.Api<ITransactionPortfoliosApi>().GetTransactions(scope, portfolioId);
             
             Console.WriteLine($"transactions at {DateTimeOffset.Now}");
             PrintTransactions(transactions.Values);
@@ -407,7 +340,7 @@ namespace Lusid.Sdk.Tests
             );            
 
             //    create portfolio
-            var portfolio = _transactionPortfoliosApi.CreatePortfolio(scope, request);
+            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             Assert.That(portfolio.DisplayName, Is.EqualTo(request.DisplayName));
 
@@ -425,17 +358,17 @@ namespace Lusid.Sdk.Tests
             var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, id.Price, id.TradeDate));
 
             //    add transactions
-            _transactionPortfoliosApi.UpsertTransactions(scope, portfolioId, newtransactions.ToList());
+            _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioId, newtransactions.ToList());
             
             //    set up analytic store
-            var analyticStores = _analyticsStoresApi.ListAnalyticStores();
+            var analyticStores = _apiFactory.Api<IAnalyticsStoresApi>().ListAnalyticStores();
             var store = analyticStores.Values.Select(s => s.Date == effectiveDate);
 
             if (!store.Any())
             {
                 //    create the analytic store
                 var analyticStoreRequest = new CreateAnalyticStoreRequest(scope, effectiveDate);
-                _analyticsStoresApi.CreateAnalyticStore(analyticStoreRequest);
+                _apiFactory.Api<IAnalyticsStoresApi>().CreateAnalyticStore(analyticStoreRequest);
             }
                         
             var prices = new List<InstrumentAnalytic>
@@ -446,7 +379,7 @@ namespace Lusid.Sdk.Tests
             };
             
             //    add prices
-            _analyticsStoresApi.SetAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
+            _apiFactory.Api<IAnalyticsStoresApi>().SetAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
                        
             var aggregationRequest = new AggregationRequest(
                 RecipeId: new ResourceId(scope, "default"),
@@ -461,7 +394,7 @@ namespace Lusid.Sdk.Tests
             );
 
             //    do the aggregation
-            _aggregationApi.GetAggregationByPortfolio(scope, portfolioId, aggregationRequest);
+            _apiFactory.Api<IAggregationApi>().GetAggregationByPortfolio(scope, portfolioId, aggregationRequest);
         }
         
         private TransactionRequest BuildTransaction(string id, double price, DateTimeOffset tradeDate)
@@ -489,7 +422,7 @@ namespace Lusid.Sdk.Tests
              };
              
              //    look up ids
-             var fbnIds = _instrumentsApi.GetInstruments("Isin", isins);
+             var fbnIds = _apiFactory.Api<IInstrumentsApi>().GetInstruments("Isin", isins);
              
              Assert.That(fbnIds.Values.Count, Is.EqualTo(2));
          }
@@ -529,7 +462,7 @@ namespace Lusid.Sdk.Tests
                 BaseCurrency: "GBP", 
                 Created: yesterday
             );
-            var portfolio = _transactionPortfoliosApi.CreatePortfolio(scope, requestPortfolio);
+            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, requestPortfolio);
            
             //Book some transactions for yesterday
             var transactionsYesterday = new[]
@@ -544,7 +477,7 @@ namespace Lusid.Sdk.Tests
             var transactions = transactionsYesterday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add transactions
-            _transactionPortfoliosApi.UpsertTransactions(scope, portfolioCode, transactions.ToList());
+            _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioCode, transactions.ToList());
 
             //Book more transactions for today
             var transactionsToday = new[]
@@ -560,7 +493,7 @@ namespace Lusid.Sdk.Tests
             transactions = transactionsToday.Select(id => BuildTradeWithQuantity(id.Id, id.Price, id.Quantity, id.TradeDate));
 
             //    add transactions
-            var finalResult = _transactionPortfoliosApi.UpsertTransactions(scope, portfolioCode, transactions.ToList());
+            var finalResult = _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioCode, transactions.ToList());
 
             //Using the last result find out its AsAtDate (based on the servers clock at the time of the test)
             var finalAsAtTime = finalResult.Version.AsAtDate;
@@ -580,7 +513,7 @@ namespace Lusid.Sdk.Tests
                         finalAsAtTime),
                     new List<string>());
 
-            var listOfBreaks = _reconciliationsApi.ReconcileHoldings(reconcileRequest);
+            var listOfBreaks = _apiFactory.Api<IReconciliationsApi>().ReconcileHoldings(reconcileRequest);
 
             Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
             PrintBreaks(listOfBreaks.Values);
