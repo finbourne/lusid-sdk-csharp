@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Properties** | [**List&lt;Property&gt;**](Property.md) | Any requested instrument properties. If no property can be found for the instrument, then  a value of &#39;Unknown&#39; will be returned | [optional] 
 **LookthroughPortfolio** | [**ResourceId**](ResourceId.md) | The lookthrough portfolio of the instrument (if any). | [optional] 
 **InstrumentDefinition** | [**InstrumentEconomicDefinition**](InstrumentEconomicDefinition.md) | The economic definition of the instrument for an OTC or instrument where an expanded definition exists. | [optional] 
-**State** | **string** |  | [optional] 
+**State** | **string** |  | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

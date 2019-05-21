@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** |  | [optional] 
-**TypeValueRange** | **string** |  | [optional] 
-**Id** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**DisplayName** | **string** |  | [optional] 
-**Description** | **string** |  | [optional] 
-**ValueType** | **string** |  | [optional] 
+**TypeValueRange** | **string** |  | 
+**Id** | [**ResourceId**](ResourceId.md) |  | 
+**DisplayName** | **string** |  | 
+**Description** | **string** |  | 
+**ValueType** | **string** |  | 
 **AcceptableValues** | **List&lt;Object&gt;** |  | [optional] 
 **UnitSchema** | **string** |  | [optional] 
 **AcceptableUnits** | [**List&lt;IUnitDefinitionDto&gt;**](IUnitDefinitionDto.md) |  | [optional] 

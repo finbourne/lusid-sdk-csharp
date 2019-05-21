@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayName** | **string** |  | 
 **Description** | **string** |  | [optional] 
-**Code** | **string** |  | [optional] 
-**ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**Code** | **string** |  | 
+**ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **Created** | **DateTimeOffset?** |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingMethod** | **string** |  | [optional] 

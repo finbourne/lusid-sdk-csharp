@@ -5,12 +5,10 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | Delete instrument
-[**FindInstruments**](InstrumentsApi.md#findinstruments) | **POST** /api/instruments/$find | Search instrument definition
 [**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | Get instrument definition
 [**GetInstrumentIdentifiers**](InstrumentsApi.md#getinstrumentidentifiers) | **GET** /api/instruments/identifiers | Get allowable instrument identifiers
 [**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | Get instrument definition
 [**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | Get all of the currently mastered instruments in LUSID
-[**MatchInstruments**](InstrumentsApi.md#matchinstruments) | **POST** /api/instruments/$match | Find externally mastered instruments
 [**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | Update instrument identifier
 [**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | Upsert instruments
 [**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | Upsert instrument properties
@@ -78,76 +76,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="findinstruments"></a>
-# **FindInstruments**
-> ResourceListOfInstrument FindInstruments (List<Property> aliases = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
-
-Search instrument definition
-
-Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class FindInstrumentsExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new InstrumentsApi();
-            var aliases = new List<Property>(); // List<Property> | The list of market aliases (e.g ISIN, Ticker) to find instruments by. (optional) 
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the query (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the query (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
-
-            try
-            {
-                // Search instrument definition
-                ResourceListOfInstrument result = apiInstance.FindInstruments(aliases, effectiveAt, asAt, instrumentPropertyKeys);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling InstrumentsApi.FindInstruments: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **aliases** | [**List&lt;Property&gt;**](Property.md)| The list of market aliases (e.g ISIN, Ticker) to find instruments by. | [optional] 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the query | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the query | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
-
-### Return type
-
-[**ResourceListOfInstrument**](ResourceListOfInstrument.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -226,11 +154,11 @@ Name | Type | Description  | Notes
 
 <a name="getinstrumentidentifiers"></a>
 # **GetInstrumentIdentifiers**
-> ResourceListOfString GetInstrumentIdentifiers ()
+> ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifiers ()
 
 Get allowable instrument identifiers
 
-Gets the set of identifiers that have been configured as unique identifiers for instruments.     Only CodeTypes returned from this end point can be used as identifiers for instruments.
+Returns a collection of instrument identifier type descriptors. Each descriptor specifies the properties  of a particular instrument identifier - its name, its cardinality (whether or not multiple instruments can  share the same identifier value), and its corresponding PropertyKey.
 
 ### Example
 ```csharp
@@ -254,7 +182,7 @@ namespace Example
             try
             {
                 // Get allowable instrument identifiers
-                ResourceListOfString result = apiInstance.GetInstrumentIdentifiers();
+                ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifiers();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -271,7 +199,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourceListOfString**](ResourceListOfString.md)
+[**ResourceListOfInstrumentIdTypeDescriptor**](ResourceListOfInstrumentIdTypeDescriptor.md)
 
 ### Authorization
 
@@ -286,7 +214,7 @@ This endpoint does not need any parameter.
 
 <a name="getinstruments"></a>
 # **GetInstruments**
-> GetInstrumentsResponse GetInstruments (string identifierType = null, List<string> identifiers = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+> GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
 Get instrument definition
 
@@ -310,8 +238,8 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var identifierType = identifierType_example;  // string | The type of identifiers being supplied (optional) 
-            var identifiers = ;  // List<string> | The identifiers of the instruments to get (optional) 
+            var identifierType = identifierType_example;  // string | The type of identifiers being supplied
+            var identifiers = ;  // List<string> | The identifiers of the instruments to get
             var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the request (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The as at date of the request (optional) 
             var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
@@ -335,8 +263,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The type of identifiers being supplied | [optional] 
- **identifiers** | **List&lt;string&gt;**| The identifiers of the instruments to get | [optional] 
+ **identifierType** | **string**| The type of identifiers being supplied | 
+ **identifiers** | **List&lt;string&gt;**| The identifiers of the instruments to get | 
  **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the request | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The as at date of the request | [optional] 
  **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
@@ -351,14 +279,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listinstruments"></a>
 # **ListInstruments**
-> ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOffset? effectiveAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+> ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOffset? effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
 
 Get all of the currently mastered instruments in LUSID
 
@@ -384,6 +312,7 @@ namespace Example
             var apiInstance = new InstrumentsApi();
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt time (optional) 
             var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the query (optional) 
+            var page = page_example;  // string | Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many (optional) 
@@ -393,7 +322,7 @@ namespace Example
             try
             {
                 // Get all of the currently mastered instruments in LUSID
-                ResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, sortBy, start, limit, filter, instrumentPropertyKeys);
+                ResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -411,6 +340,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| Optional. The AsAt time | [optional] 
  **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the query | [optional] 
+ **page** | **string**| Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many | [optional] 
@@ -428,72 +358,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="matchinstruments"></a>
-# **MatchInstruments**
-> MatchInstrumentsResponse MatchInstruments (string identifierType = null, List<string> identifiers = null)
-
-Find externally mastered instruments
-
-Search for a set of instruments from an external instrument mastering service
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class MatchInstrumentsExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new InstrumentsApi();
-            var identifierType = identifierType_example;  // string | The type of identifiers being supplied (optional) 
-            var identifiers = ;  // List<string> | The identifiers of the instruments to get (optional) 
-
-            try
-            {
-                // Find externally mastered instruments
-                MatchInstrumentsResponse result = apiInstance.MatchInstruments(identifierType, identifiers);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling InstrumentsApi.MatchInstruments: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The type of identifiers being supplied | [optional] 
- **identifiers** | **List&lt;string&gt;**| The identifiers of the instruments to get | [optional] 
-
-### Return type
-
-[**MatchInstrumentsResponse**](MatchInstrumentsResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -561,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -625,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -689,7 +553,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

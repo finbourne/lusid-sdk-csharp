@@ -3,9 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ValueRequired** | **bool?** |  | [optional] 
 **DisplayName** | **string** |  | [optional] 
-**DataTypeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **LifeTime** | **string** |  | [optional] 
 **Type** | **string** |  | [optional] 
 

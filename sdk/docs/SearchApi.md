@@ -73,14 +73,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="portfoliogroupssearch"></a>
 # **PortfolioGroupsSearch**
-> ResourceListOfPortfolioGroup PortfolioGroupsSearch (string request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPortfolioGroup PortfolioGroupsSearch (Object request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Search portfolio groups
 
@@ -104,7 +104,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var request = request_example;  // string | A valid Elasticsearch 5.x request (optional) 
+            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
@@ -129,7 +129,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **string**| A valid Elasticsearch 5.x request | [optional] 
+ **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
@@ -145,14 +145,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="portfoliossearch"></a>
 # **PortfoliosSearch**
-> ResourceListOfPortfolioSearchResult PortfoliosSearch (string request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPortfolioSearchResult PortfoliosSearch (Object request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Search portfolios
 
@@ -176,7 +176,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var request = request_example;  // string | A valid Elasticsearch 5.x request (optional) 
+            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
@@ -201,7 +201,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **string**| A valid Elasticsearch 5.x request | [optional] 
+ **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
@@ -217,14 +217,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="propertiessearch"></a>
 # **PropertiesSearch**
-> ResourceListOfPropertyDefinition PropertiesSearch (string request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPropertyDefinition PropertiesSearch (Object request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Search property definitions
 
@@ -248,7 +248,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var request = request_example;  // string | A valid Elasticsearch 5.x request (optional) 
+            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
@@ -273,7 +273,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **string**| A valid Elasticsearch 5.x request | [optional] 
+ **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
