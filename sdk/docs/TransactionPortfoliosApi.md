@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -158,14 +158,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="buildtransactions"></a>
 # **BuildTransactions**
-> VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> instrumentPropertyKeys = null, string filter = null, TransactionQueryParameters parameters = null)
+> VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null, TransactionQueryParameters parameters = null)
 
 Build output transactions
 
@@ -195,14 +195,14 @@ namespace Example
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys for the instrument property values to be decorated onto the transactions (optional) 
+            var propertyKeys = new List<string>(); // List<string> | Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
             var parameters = new TransactionQueryParameters(); // TransactionQueryParameters | Optional. Transaction query parameters (optional) 
 
             try
             {
                 // Build output transactions
-                VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, asAt, sortBy, start, limit, instrumentPropertyKeys, filter, parameters);
+                VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, asAt, sortBy, start, limit, propertyKeys, filter, parameters);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys for the instrument property values to be decorated onto the transactions | [optional] 
+ **propertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
  **parameters** | [**TransactionQueryParameters**](TransactionQueryParameters.md)| Optional. Transaction query parameters | [optional] 
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 
 <a name="getholdings"></a>
 # **GetHoldings**
-> VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+> VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
 Get holdings
 
@@ -688,12 +688,12 @@ namespace Example
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys for the instrument property values to be decorated onto the holdings (optional) 
+            var propertyKeys = new List<string>(); // List<string> | Optional. Keys for the Holding or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified. (optional) 
 
             try
             {
                 // Get holdings
-                VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldings(scope, code, byTaxlots, effectiveAt, asAt, sortBy, start, limit, filter, instrumentPropertyKeys);
+                VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldings(scope, code, byTaxlots, effectiveAt, asAt, sortBy, start, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys for the instrument property values to be decorated onto the holdings | [optional] 
+ **propertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys for the Holding or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified. | [optional] 
 
 ### Return type
 
@@ -807,7 +807,7 @@ Name | Type | Description  | Notes
 
 <a name="gettransactions"></a>
 # **GetTransactions**
-> VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOffset? fromTransactionDate = null, DateTimeOffset? toTransactionDate = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> instrumentPropertyKeys = null, string filter = null)
+> VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOffset? fromTransactionDate = null, DateTimeOffset? toTransactionDate = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null)
 
 Get transactions
 
@@ -839,13 +839,13 @@ namespace Example
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys for the instrument property values that will be decorated onto the transactions (optional) 
+            var propertyKeys = new List<string>(); // List<string> | Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
             {
                 // Get transactions
-                VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, sortBy, start, limit, instrumentPropertyKeys, filter);
+                VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, sortBy, start, limit, propertyKeys, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys for the instrument property values that will be decorated onto the transactions | [optional] 
+ **propertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys for the transaction or instrument property values that will be decorated onto the transactions. No properties will be decorated if none are specified. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
 
 ### Return type
@@ -1024,7 +1024,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1092,7 +1092,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1162,7 +1162,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1230,7 +1230,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

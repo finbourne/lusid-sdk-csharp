@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **TransactionId** | **string** | Unique transaction identifier | 
 **Type** | **string** | LUSID transaction type code - Buy, Sell, StockIn, StockOut, etc | 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers. | 
-**TransactionDate** | **DateTimeOffset?** | Transaction date | 
-**SettlementDate** | **DateTimeOffset?** | Settlement date | 
+**TransactionDate** | **string** | Transaction date | 
+**SettlementDate** | **string** | Settlement date | 
 **Units** | **double?** | Quantity of transaction in units of the instrument | 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) | Execution price for the transaction | 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Total value of the transaction, in settlement currency | 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetExcelAddin**](ApplicationMetadataApi.md#getexceladdin) | **GET** /api/metadata/downloads/exceladdin | Download Excel Addin
 [**GetExcelDownloadUrl**](ApplicationMetadataApi.md#getexceldownloadurl) | **GET** /api/metadata/downloads/excel | Get Excel download url
 [**GetLusidVersions**](ApplicationMetadataApi.md#getlusidversions) | **GET** /api/metadata/versions | Get LUSID versions
+[**ListAccessControlledActions**](ApplicationMetadataApi.md#listaccesscontrolledactions) | **GET** /api/metadata/access/actions | Get resources available for access control
 
 
 <a name="getexceladdin"></a>
@@ -185,6 +186,66 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**VersionSummaryDto**](VersionSummaryDto.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listaccesscontrolledactions"></a>
+# **ListAccessControlledActions**
+> ICollection<AccessControlledAction> ListAccessControlledActions ()
+
+Get resources available for access control
+
+Get the comprehensive set of resources that are available for access control
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class ListAccessControlledActionsExample
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ApplicationMetadataApi();
+
+            try
+            {
+                // Get resources available for access control
+                ICollection&lt;AccessControlledAction&gt; result = apiInstance.ListAccessControlledActions();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ApplicationMetadataApi.ListAccessControlledActions: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ICollection<AccessControlledAction>**](AccessControlledAction.md)
 
 ### Authorization
 

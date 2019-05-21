@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | List portfolios
 [**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | List portfolios for scope
 [**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | Update portfolio definition
-[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert properties
+[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert portfolio properties
 
 
 <a name="deleteportfolio"></a>
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 <a name="getportfolio"></a>
 # **GetPortfolio**
-> Portfolio GetPortfolio (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
+> Portfolio GetPortfolio (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
 Get portfolio definition
 
@@ -181,7 +181,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
 
             try
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
 
 ### Return type
@@ -379,11 +379,11 @@ Name | Type | Description  | Notes
 
 <a name="listportfolios"></a>
 # **ListPortfolios**
-> ResourceListOfPortfolio ListPortfolios (DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
+> ResourceListOfPortfolio ListPortfolios (DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
 List portfolios
 
-List all portfolios matching the specified criteria.                Example query syntax for the query parameter:                - To see which portfolios have holdings in the specified instruments:                    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))                * Note that if a query is specified then it is executed for the current EffectiveAt and AsAt  Specifying EffectiveAt or AsAt in addition to the query is not supported  Also note that copy/pasting above examples results in incorrect single quote character
+List all portfolios matching the specified criteria.                Example query syntax for the query parameter:                - To see which portfolios have holdings in the specified instruments:                    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))                * Note that copy/pasting above examples results in incorrect single quote character
 
 ### Example
 ```csharp
@@ -405,6 +405,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var page = page_example;  // string | Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set. (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
@@ -414,7 +415,7 @@ namespace Example
             try
             {
                 // List portfolios
-                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, sortBy, start, limit, filter, query);
+                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, sortBy, start, limit, filter, query);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -432,6 +433,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
+ **page** | **string**| Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set. | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
@@ -594,18 +596,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="upsertportfolioproperties"></a>
 # **UpsertPortfolioProperties**
-> PortfolioProperties UpsertPortfolioProperties (string scope, string code, Object portfolioProperties = null, DateTimeOffset? effectiveAt = null)
+> PortfolioProperties UpsertPortfolioProperties (string scope, string code, Object portfolioProperties = null)
 
-Upsert properties
+Upsert portfolio properties
 
-Upsert one or more property values to a portfolio for the specified effectiveAt. All properties must be of the domain Portfolio.
+Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.
 
 ### Example
 ```csharp
@@ -627,13 +629,12 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var portfolioProperties = ;  // Object | The property values to be upserted to the portfolio (optional) 
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the change (optional) 
+            var portfolioProperties = ;  // Object | The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. (optional) 
 
             try
             {
-                // Upsert properties
-                PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, portfolioProperties, effectiveAt);
+                // Upsert portfolio properties
+                PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, portfolioProperties);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -651,8 +652,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **portfolioProperties** | **Object**| The property values to be upserted to the portfolio | [optional] 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the change | [optional] 
+ **portfolioProperties** | **Object**| The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. | [optional] 
 
 ### Return type
 
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

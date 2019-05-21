@@ -3,6 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Provider** | **string** |  | 
+**PriceSource** | **string** |  | 
 **InstrumentId** | **string** |  | 
 **InstrumentIdType** | **string** |  | 
 **QuoteType** | **string** |  | 

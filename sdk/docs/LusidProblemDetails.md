@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The name of the error | [optional] 
-**ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** | Any additional informational information available about the nature and detail of the problem | [optional] 
+**Name** | **string** |  | 
+**ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** |  | [optional] 
+**Code** | **int?** |  | 
 **Type** | **string** |  | [optional] 
 **Title** | **string** |  | [optional] 
 **Status** | **int?** |  | [optional] 

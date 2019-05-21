@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The LUSID type name for the error | [optional] 
-**ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** | Any additional informational information available about the nature and detail of the problem | [optional] 
+**Name** | **string** |  | 
+**ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** |  | [optional] 
+**Code** | **int?** |  | 
 **Errors** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 
 **Type** | **string** |  | [optional] 
 **Title** | **string** |  | [optional] 
