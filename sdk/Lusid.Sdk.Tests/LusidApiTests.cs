@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Tests
 
             //    add the portfolio property
             var properties = new Dictionary<string, PropertyValue> {[propertyDefinitionDto.Key] = new PropertyValue(propertyValue) };
-            var propertiesResult = _apiFactory.Api<IPortfoliosApi>().UpsertPortfolioProperties(scope, portfolioId, properties, portfolio?.Created);
+            var propertiesResult = _apiFactory.Api<IPortfoliosApi>().UpsertPortfolioProperties(scope, portfolioId, properties);
             
             Assert.That(propertiesResult.OriginPortfolioId.Code, Is.EqualTo(request.Code), "unable to add properties");
             Assert.That(propertiesResult.Properties[0].Value, Is.EqualTo(propertyValue));            
