@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceId** | [**ResourceId**](ResourceId.md) |  | 
 **CorporateActionCode** | **string** |  | 
 **AnnouncementDate** | **DateTimeOffset?** |  | [optional] 
 **ExDate** | **DateTimeOffset?** |  | [optional] 

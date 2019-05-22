@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="batchupsertcorporateactions"></a>
 # **BatchUpsertCorporateActions**
-> UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<CreateCorporateAction> actions = null)
+> UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<UpsertCorporateActionRequest> actions = null)
 
 Upsert corporate actions
 
@@ -39,7 +39,7 @@ namespace Example
             var apiInstance = new CorporateActionSourcesApi();
             var scope = scope_example;  // string | The scope of corporate action source
             var code = code_example;  // string | The code of the corporate action source
-            var actions = new List<CreateCorporateAction>(); // List<CreateCorporateAction> | The corporate action definitions (optional) 
+            var actions = new List<UpsertCorporateActionRequest>(); // List<UpsertCorporateActionRequest> | The corporate action definitions (optional) 
 
             try
             {
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of corporate action source | 
  **code** | **string**| The code of the corporate action source | 
- **actions** | [**List&lt;CreateCorporateAction&gt;**](CreateCorporateAction.md)| The corporate action definitions | [optional] 
+ **actions** | [**List&lt;UpsertCorporateActionRequest&gt;**](UpsertCorporateActionRequest.md)| The corporate action definitions | [optional] 
 
 ### Return type
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 <a name="deletecorporateactionsource"></a>
 # **DeleteCorporateActionSource**
-> DeletedEntityResponse DeleteCorporateActionSource (string scope, string code, DateTimeOffset? effectiveAt = null)
+> DeletedEntityResponse DeleteCorporateActionSource (string scope, string code)
 
 Delete a corporate action source
 
@@ -171,12 +171,11 @@ namespace Example
             var apiInstance = new CorporateActionSourcesApi();
             var scope = scope_example;  // string | The Scope of the Corporate Action Source to be deleted
             var code = code_example;  // string | The Code of the Corporate Action Source to be deleted
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The start effective date of the data (optional) 
 
             try
             {
                 // Delete a corporate action source
-                DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code, effectiveAt);
+                DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -194,7 +193,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The Scope of the Corporate Action Source to be deleted | 
  **code** | **string**| The Code of the Corporate Action Source to be deleted | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The start effective date of the data | [optional] 
 
 ### Return type
 
@@ -293,7 +291,7 @@ Name | Type | Description  | Notes
 
 <a name="listcorporateactionsources"></a>
 # **ListCorporateActionSources**
-> ResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get corporate action sources
 
@@ -317,7 +315,6 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi();
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The start effective date of the data range (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -327,7 +324,7 @@ namespace Example
             try
             {
                 // Get corporate action sources
-                ResourceListOfCorporateActionSource result = apiInstance.ListCorporateActionSources(effectiveAt, asAt, sortBy, start, limit, filter);
+                ResourceListOfCorporateActionSource result = apiInstance.ListCorporateActionSources(asAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -343,7 +340,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **effectiveAt** | **DateTimeOffset?**| Optional. The start effective date of the data range | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
