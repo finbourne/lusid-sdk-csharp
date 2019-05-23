@@ -23,64 +23,118 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfHoldingsAdjustmentHeader
+    /// UpsertCorporateActionRequest
     /// </summary>
     [DataContract]
-    public partial class ResourceListOfHoldingsAdjustmentHeader :  IEquatable<ResourceListOfHoldingsAdjustmentHeader>
+    public partial class UpsertCorporateActionRequest :  IEquatable<UpsertCorporateActionRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfHoldingsAdjustmentHeader" /> class.
+        /// Initializes a new instance of the <see cref="UpsertCorporateActionRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfHoldingsAdjustmentHeader() { }
+        protected UpsertCorporateActionRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfHoldingsAdjustmentHeader" /> class.
+        /// Initializes a new instance of the <see cref="UpsertCorporateActionRequest" /> class.
         /// </summary>
-        /// <param name="Values">Values (required).</param>
-        /// <param name="Href">The Uri that returns the same result as the original request,  but may include resolved as at time(s)..</param>
-        /// <param name="Count">The total number of items (when available).</param>
-        /// <param name="Links">Links.</param>
-        public ResourceListOfHoldingsAdjustmentHeader(List<HoldingsAdjustmentHeader> Values = default(List<HoldingsAdjustmentHeader>), string Href = default(string), int? Count = default(int?), List<Link> Links = default(List<Link>))
+        /// <param name="CorporateActionCode">CorporateActionCode (required).</param>
+        /// <param name="AnnouncementDate">AnnouncementDate (required).</param>
+        /// <param name="ExDate">ExDate (required).</param>
+        /// <param name="RecordDate">RecordDate (required).</param>
+        /// <param name="PaymentDate">PaymentDate (required).</param>
+        /// <param name="Transitions">Transitions (required).</param>
+        public UpsertCorporateActionRequest(string CorporateActionCode = default(string), DateTimeOffset? AnnouncementDate = default(DateTimeOffset?), DateTimeOffset? ExDate = default(DateTimeOffset?), DateTimeOffset? RecordDate = default(DateTimeOffset?), DateTimeOffset? PaymentDate = default(DateTimeOffset?), List<CorporateActionTransitionRequest> Transitions = default(List<CorporateActionTransitionRequest>))
         {
-            // to ensure "Values" is required (not null)
-            if (Values == null)
+            // to ensure "CorporateActionCode" is required (not null)
+            if (CorporateActionCode == null)
             {
-                throw new InvalidDataException("Values is a required property for ResourceListOfHoldingsAdjustmentHeader and cannot be null");
+                throw new InvalidDataException("CorporateActionCode is a required property for UpsertCorporateActionRequest and cannot be null");
             }
             else
             {
-                this.Values = Values;
+                this.CorporateActionCode = CorporateActionCode;
             }
-            this.Href = Href;
-            this.Count = Count;
-            this.Links = Links;
+            // to ensure "AnnouncementDate" is required (not null)
+            if (AnnouncementDate == null)
+            {
+                throw new InvalidDataException("AnnouncementDate is a required property for UpsertCorporateActionRequest and cannot be null");
+            }
+            else
+            {
+                this.AnnouncementDate = AnnouncementDate;
+            }
+            // to ensure "ExDate" is required (not null)
+            if (ExDate == null)
+            {
+                throw new InvalidDataException("ExDate is a required property for UpsertCorporateActionRequest and cannot be null");
+            }
+            else
+            {
+                this.ExDate = ExDate;
+            }
+            // to ensure "RecordDate" is required (not null)
+            if (RecordDate == null)
+            {
+                throw new InvalidDataException("RecordDate is a required property for UpsertCorporateActionRequest and cannot be null");
+            }
+            else
+            {
+                this.RecordDate = RecordDate;
+            }
+            // to ensure "PaymentDate" is required (not null)
+            if (PaymentDate == null)
+            {
+                throw new InvalidDataException("PaymentDate is a required property for UpsertCorporateActionRequest and cannot be null");
+            }
+            else
+            {
+                this.PaymentDate = PaymentDate;
+            }
+            // to ensure "Transitions" is required (not null)
+            if (Transitions == null)
+            {
+                throw new InvalidDataException("Transitions is a required property for UpsertCorporateActionRequest and cannot be null");
+            }
+            else
+            {
+                this.Transitions = Transitions;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Values
+        /// Gets or Sets CorporateActionCode
         /// </summary>
-        [DataMember(Name="values", EmitDefaultValue=false)]
-        public List<HoldingsAdjustmentHeader> Values { get; set; }
+        [DataMember(Name="corporateActionCode", EmitDefaultValue=false)]
+        public string CorporateActionCode { get; set; }
 
         /// <summary>
-        /// The Uri that returns the same result as the original request,  but may include resolved as at time(s).
+        /// Gets or Sets AnnouncementDate
         /// </summary>
-        /// <value>The Uri that returns the same result as the original request,  but may include resolved as at time(s).</value>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; set; }
+        [DataMember(Name="announcementDate", EmitDefaultValue=false)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// The total number of items (when available)
+        /// Gets or Sets ExDate
         /// </summary>
-        /// <value>The total number of items (when available)</value>
-        [DataMember(Name="count", EmitDefaultValue=false)]
-        public int? Count { get; set; }
+        [DataMember(Name="exDate", EmitDefaultValue=false)]
+        public DateTimeOffset? ExDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Links
+        /// Gets or Sets RecordDate
         /// </summary>
-        [DataMember(Name="links", EmitDefaultValue=false)]
-        public List<Link> Links { get; set; }
+        [DataMember(Name="recordDate", EmitDefaultValue=false)]
+        public DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDate
+        /// </summary>
+        [DataMember(Name="paymentDate", EmitDefaultValue=false)]
+        public DateTimeOffset? PaymentDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Transitions
+        /// </summary>
+        [DataMember(Name="transitions", EmitDefaultValue=false)]
+        public List<CorporateActionTransitionRequest> Transitions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,11 +143,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResourceListOfHoldingsAdjustmentHeader {\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("class UpsertCorporateActionRequest {\n");
+            sb.Append("  CorporateActionCode: ").Append(CorporateActionCode).Append("\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  Transitions: ").Append(Transitions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,39 +170,49 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfHoldingsAdjustmentHeader);
+            return this.Equals(input as UpsertCorporateActionRequest);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfHoldingsAdjustmentHeader instances are equal
+        /// Returns true if UpsertCorporateActionRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfHoldingsAdjustmentHeader to be compared</param>
+        /// <param name="input">Instance of UpsertCorporateActionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfHoldingsAdjustmentHeader input)
+        public bool Equals(UpsertCorporateActionRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
+                    this.CorporateActionCode == input.CorporateActionCode ||
+                    (this.CorporateActionCode != null &&
+                    this.CorporateActionCode.Equals(input.CorporateActionCode))
                 ) && 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
                 ) && 
                 (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    this.RecordDate == input.RecordDate ||
+                    (this.RecordDate != null &&
+                    this.RecordDate.Equals(input.RecordDate))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.Transitions == input.Transitions ||
+                    this.Transitions != null &&
+                    this.Transitions.SequenceEqual(input.Transitions)
                 );
         }
 
@@ -159,14 +225,18 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Values != null)
-                    hashCode = hashCode * 59 + this.Values.GetHashCode();
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
-                if (this.Count != null)
-                    hashCode = hashCode * 59 + this.Count.GetHashCode();
-                if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
+                if (this.CorporateActionCode != null)
+                    hashCode = hashCode * 59 + this.CorporateActionCode.GetHashCode();
+                if (this.AnnouncementDate != null)
+                    hashCode = hashCode * 59 + this.AnnouncementDate.GetHashCode();
+                if (this.ExDate != null)
+                    hashCode = hashCode * 59 + this.ExDate.GetHashCode();
+                if (this.RecordDate != null)
+                    hashCode = hashCode * 59 + this.RecordDate.GetHashCode();
+                if (this.PaymentDate != null)
+                    hashCode = hashCode * 59 + this.PaymentDate.GetHashCode();
+                if (this.Transitions != null)
+                    hashCode = hashCode * 59 + this.Transitions.GetHashCode();
                 return hashCode;
             }
         }
