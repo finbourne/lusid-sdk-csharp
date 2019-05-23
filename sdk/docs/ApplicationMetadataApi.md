@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**GetExcelAddin**](ApplicationMetadataApi.md#getexceladdin) | **GET** /api/metadata/downloads/exceladdin | Download Excel Addin
 [**GetExcelDownloadUrl**](ApplicationMetadataApi.md#getexceldownloadurl) | **GET** /api/metadata/downloads/excel | Get Excel download url
 [**GetLusidVersions**](ApplicationMetadataApi.md#getlusidversions) | **GET** /api/metadata/versions | Get LUSID versions
-[**ListAccessControlledResources**](ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | Get resources available for access control
+[**ListAccessControlledActions**](ApplicationMetadataApi.md#listaccesscontrolledactions) | **GET** /api/metadata/access/actions | Get resources available for access control
 
 
 <a name="getexceladdin"></a>
@@ -198,9 +198,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listaccesscontrolledresources"></a>
-# **ListAccessControlledResources**
-> ResourceListOfAccessControlledResource ListAccessControlledResources (string filter = null)
+<a name="listaccesscontrolledactions"></a>
+# **ListAccessControlledActions**
+> ICollection<AccessControlledAction> ListAccessControlledActions ()
 
 Get resources available for access control
 
@@ -216,7 +216,7 @@ using Lusid.Sdk.Model;
 
 namespace Example
 {
-    public class ListAccessControlledResourcesExample
+    public class ListAccessControlledActionsExample
     {
         public void main()
         {
@@ -224,17 +224,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationMetadataApi();
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
             {
                 // Get resources available for access control
-                ResourceListOfAccessControlledResource result = apiInstance.ListAccessControlledResources(filter);
+                ICollection&lt;AccessControlledAction&gt; result = apiInstance.ListAccessControlledActions();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ApplicationMetadataApi.ListAccessControlledResources: " + e.Message );
+                Debug.Print("Exception when calling ApplicationMetadataApi.ListAccessControlledActions: " + e.Message );
             }
         }
     }
@@ -242,14 +241,11 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourceListOfAccessControlledResource**](ResourceListOfAccessControlledResource.md)
+[**ICollection<AccessControlledAction>**](AccessControlledAction.md)
 
 ### Authorization
 

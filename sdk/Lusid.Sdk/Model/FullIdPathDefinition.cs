@@ -23,51 +23,36 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ProcessedCommand
+    /// FullIdPathDefinition
     /// </summary>
     [DataContract]
-    public partial class ProcessedCommand :  IEquatable<ProcessedCommand>
+    public partial class FullIdPathDefinition :  IEquatable<FullIdPathDefinition>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessedCommand" /> class.
+        /// Initializes a new instance of the <see cref="FullIdPathDefinition" /> class.
         /// </summary>
-        /// <param name="Description">Description.</param>
-        /// <param name="Path">Path.</param>
-        /// <param name="UserId">The user that issued the command..</param>
-        /// <param name="ProcessedTime">The as at time of the events published by the processing of  this command..</param>
-        public ProcessedCommand(string Description = default(string), string Path = default(string), User UserId = default(User), Object ProcessedTime = default(Object))
+        [JsonConstructorAttribute]
+        public FullIdPathDefinition()
         {
-            this.Description = Description;
-            this.Path = Path;
-            this.UserId = UserId;
-            this.ProcessedTime = ProcessedTime;
         }
         
         /// <summary>
-        /// Gets or Sets Description
+        /// Gets or Sets Scope
         /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
+        [DataMember(Name="scope", EmitDefaultValue=false)]
+        public string Scope { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name="path", EmitDefaultValue=false)]
-        public string Path { get; set; }
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; private set; }
 
         /// <summary>
-        /// The user that issued the command.
+        /// Gets or Sets Domain
         /// </summary>
-        /// <value>The user that issued the command.</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
-        public User UserId { get; set; }
-
-        /// <summary>
-        /// The as at time of the events published by the processing of  this command.
-        /// </summary>
-        /// <value>The as at time of the events published by the processing of  this command.</value>
-        [DataMember(Name="processedTime", EmitDefaultValue=false)]
-        public Object ProcessedTime { get; set; }
+        [DataMember(Name="domain", EmitDefaultValue=false)]
+        public string Domain { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,11 +61,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProcessedCommand {\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  ProcessedTime: ").Append(ProcessedTime).Append("\n");
+            sb.Append("class FullIdPathDefinition {\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,39 +85,34 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProcessedCommand);
+            return this.Equals(input as FullIdPathDefinition);
         }
 
         /// <summary>
-        /// Returns true if ProcessedCommand instances are equal
+        /// Returns true if FullIdPathDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProcessedCommand to be compared</param>
+        /// <param name="input">Instance of FullIdPathDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProcessedCommand input)
+        public bool Equals(FullIdPathDefinition input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 ) && 
                 (
-                    this.Path == input.Path ||
-                    (this.Path != null &&
-                    this.Path.Equals(input.Path))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.ProcessedTime == input.ProcessedTime ||
-                    (this.ProcessedTime != null &&
-                    this.ProcessedTime.Equals(input.ProcessedTime))
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
                 );
         }
 
@@ -146,14 +125,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
-                if (this.UserId != null)
-                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                if (this.ProcessedTime != null)
-                    hashCode = hashCode * 59 + this.ProcessedTime.GetHashCode();
+                if (this.Scope != null)
+                    hashCode = hashCode * 59 + this.Scope.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Domain != null)
+                    hashCode = hashCode * 59 + this.Domain.GetHashCode();
                 return hashCode;
             }
         }

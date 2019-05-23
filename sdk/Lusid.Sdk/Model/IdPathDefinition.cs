@@ -23,51 +23,107 @@ using SwaggerDateConverter = Lusid.Sdk.Client.SwaggerDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ProcessedCommand
+    /// IdPathDefinition
     /// </summary>
     [DataContract]
-    public partial class ProcessedCommand :  IEquatable<ProcessedCommand>
+    public partial class IdPathDefinition :  IEquatable<IdPathDefinition>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessedCommand" /> class.
+        /// Defines Category
         /// </summary>
-        /// <param name="Description">Description.</param>
-        /// <param name="Path">Path.</param>
-        /// <param name="UserId">The user that issued the command..</param>
-        /// <param name="ProcessedTime">The as at time of the events published by the processing of  this command..</param>
-        public ProcessedCommand(string Description = default(string), string Path = default(string), User UserId = default(User), Object ProcessedTime = default(Object))
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CategoryEnum
         {
-            this.Description = Description;
-            this.Path = Path;
-            this.UserId = UserId;
-            this.ProcessedTime = ProcessedTime;
+            
+            /// <summary>
+            /// Enum None for value: None
+            /// </summary>
+            [EnumMember(Value = "None")]
+            None = 1,
+            
+            /// <summary>
+            /// Enum Identifier for value: Identifier
+            /// </summary>
+            [EnumMember(Value = "Identifier")]
+            Identifier = 2,
+            
+            /// <summary>
+            /// Enum Quality for value: Quality
+            /// </summary>
+            [EnumMember(Value = "Quality")]
+            Quality = 3,
+            
+            /// <summary>
+            /// Enum Licence for value: Licence
+            /// </summary>
+            [EnumMember(Value = "Licence")]
+            Licence = 4
+        }
+
+        /// <summary>
+        /// Gets or Sets Category
+        /// </summary>
+        [DataMember(Name="category", EmitDefaultValue=false)]
+        public CategoryEnum? Category { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IdPathDefinition" /> class.
+        /// </summary>
+        /// <param name="CodeOnlyIdPathDefinition">CodeOnlyIdPathDefinition.</param>
+        /// <param name="FullIdPathDefinition">FullIdPathDefinition.</param>
+        /// <param name="ScopeAndCodeIdPathDefinition">ScopeAndCodeIdPathDefinition.</param>
+        /// <param name="ScopeIdPathDefinition">ScopeIdPathDefinition.</param>
+        /// <param name="Actions">Actions.</param>
+        public IdPathDefinition(CodeOnlyIdPathDefinition CodeOnlyIdPathDefinition = default(CodeOnlyIdPathDefinition), FullIdPathDefinition FullIdPathDefinition = default(FullIdPathDefinition), ScopeAndCodeIdPathDefinition ScopeAndCodeIdPathDefinition = default(ScopeAndCodeIdPathDefinition), ScopeIdPathDefinition ScopeIdPathDefinition = default(ScopeIdPathDefinition), List<ActionId> Actions = default(List<ActionId>))
+        {
+            this.CodeOnlyIdPathDefinition = CodeOnlyIdPathDefinition;
+            this.FullIdPathDefinition = FullIdPathDefinition;
+            this.ScopeAndCodeIdPathDefinition = ScopeAndCodeIdPathDefinition;
+            this.ScopeIdPathDefinition = ScopeIdPathDefinition;
+            this.Actions = Actions;
         }
         
+        /// <summary>
+        /// Gets or Sets CodeOnlyIdPathDefinition
+        /// </summary>
+        [DataMember(Name="codeOnlyIdPathDefinition", EmitDefaultValue=false)]
+        public CodeOnlyIdPathDefinition CodeOnlyIdPathDefinition { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FullIdPathDefinition
+        /// </summary>
+        [DataMember(Name="fullIdPathDefinition", EmitDefaultValue=false)]
+        public FullIdPathDefinition FullIdPathDefinition { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ScopeAndCodeIdPathDefinition
+        /// </summary>
+        [DataMember(Name="scopeAndCodeIdPathDefinition", EmitDefaultValue=false)]
+        public ScopeAndCodeIdPathDefinition ScopeAndCodeIdPathDefinition { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ScopeIdPathDefinition
+        /// </summary>
+        [DataMember(Name="scopeIdPathDefinition", EmitDefaultValue=false)]
+        public ScopeIdPathDefinition ScopeIdPathDefinition { get; set; }
+
+
+        /// <summary>
+        /// Gets or Sets Actions
+        /// </summary>
+        [DataMember(Name="actions", EmitDefaultValue=false)]
+        public List<ActionId> Actions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; private set; }
+
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Path
-        /// </summary>
-        [DataMember(Name="path", EmitDefaultValue=false)]
-        public string Path { get; set; }
-
-        /// <summary>
-        /// The user that issued the command.
-        /// </summary>
-        /// <value>The user that issued the command.</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
-        public User UserId { get; set; }
-
-        /// <summary>
-        /// The as at time of the events published by the processing of  this command.
-        /// </summary>
-        /// <value>The as at time of the events published by the processing of  this command.</value>
-        [DataMember(Name="processedTime", EmitDefaultValue=false)]
-        public Object ProcessedTime { get; set; }
+        public string Description { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,11 +132,15 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProcessedCommand {\n");
+            sb.Append("class IdPathDefinition {\n");
+            sb.Append("  CodeOnlyIdPathDefinition: ").Append(CodeOnlyIdPathDefinition).Append("\n");
+            sb.Append("  FullIdPathDefinition: ").Append(FullIdPathDefinition).Append("\n");
+            sb.Append("  ScopeAndCodeIdPathDefinition: ").Append(ScopeAndCodeIdPathDefinition).Append("\n");
+            sb.Append("  ScopeIdPathDefinition: ").Append(ScopeIdPathDefinition).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("  Actions: ").Append(Actions).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  ProcessedTime: ").Append(ProcessedTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,39 +161,59 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProcessedCommand);
+            return this.Equals(input as IdPathDefinition);
         }
 
         /// <summary>
-        /// Returns true if ProcessedCommand instances are equal
+        /// Returns true if IdPathDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProcessedCommand to be compared</param>
+        /// <param name="input">Instance of IdPathDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProcessedCommand input)
+        public bool Equals(IdPathDefinition input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.CodeOnlyIdPathDefinition == input.CodeOnlyIdPathDefinition ||
+                    (this.CodeOnlyIdPathDefinition != null &&
+                    this.CodeOnlyIdPathDefinition.Equals(input.CodeOnlyIdPathDefinition))
+                ) && 
+                (
+                    this.FullIdPathDefinition == input.FullIdPathDefinition ||
+                    (this.FullIdPathDefinition != null &&
+                    this.FullIdPathDefinition.Equals(input.FullIdPathDefinition))
+                ) && 
+                (
+                    this.ScopeAndCodeIdPathDefinition == input.ScopeAndCodeIdPathDefinition ||
+                    (this.ScopeAndCodeIdPathDefinition != null &&
+                    this.ScopeAndCodeIdPathDefinition.Equals(input.ScopeAndCodeIdPathDefinition))
+                ) && 
+                (
+                    this.ScopeIdPathDefinition == input.ScopeIdPathDefinition ||
+                    (this.ScopeIdPathDefinition != null &&
+                    this.ScopeIdPathDefinition.Equals(input.ScopeIdPathDefinition))
+                ) && 
+                (
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
+                ) && 
+                (
+                    this.Actions == input.Actions ||
+                    this.Actions != null &&
+                    this.Actions.SequenceEqual(input.Actions)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Path == input.Path ||
-                    (this.Path != null &&
-                    this.Path.Equals(input.Path))
-                ) && 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.ProcessedTime == input.ProcessedTime ||
-                    (this.ProcessedTime != null &&
-                    this.ProcessedTime.Equals(input.ProcessedTime))
                 );
         }
 
@@ -146,14 +226,22 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CodeOnlyIdPathDefinition != null)
+                    hashCode = hashCode * 59 + this.CodeOnlyIdPathDefinition.GetHashCode();
+                if (this.FullIdPathDefinition != null)
+                    hashCode = hashCode * 59 + this.FullIdPathDefinition.GetHashCode();
+                if (this.ScopeAndCodeIdPathDefinition != null)
+                    hashCode = hashCode * 59 + this.ScopeAndCodeIdPathDefinition.GetHashCode();
+                if (this.ScopeIdPathDefinition != null)
+                    hashCode = hashCode * 59 + this.ScopeIdPathDefinition.GetHashCode();
+                if (this.Category != null)
+                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                if (this.Actions != null)
+                    hashCode = hashCode * 59 + this.Actions.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
-                if (this.UserId != null)
-                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                if (this.ProcessedTime != null)
-                    hashCode = hashCode * 59 + this.ProcessedTime.GetHashCode();
                 return hashCode;
             }
         }
