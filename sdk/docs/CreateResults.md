@@ -1,4 +1,6 @@
+
 # Lusid.Sdk.Model.CreateResults
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,5 +13,7 @@ Name | Type | Description | Notes
 **Format** | **string** | The format in which the results are stored/structured. | [optional] 
 **Data** | **string** | The data that should be stored in the results cube. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

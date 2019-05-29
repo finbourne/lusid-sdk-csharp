@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.ApplicationMetadataApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**ListAccessControlledResources**](ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | Get resources available for access control
 
 
-<a name="getexceladdin"></a>
-# **GetExcelAddin**
+
+## GetExcelAddin
+
 > FileResponse GetExcelAddin (string version = null)
 
 Download Excel Addin
@@ -19,6 +20,7 @@ Download Excel Addin
 Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific value will return the latest version being returned
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -55,6 +57,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **string**| The requested version of the Excel plugin | [optional] 
@@ -69,13 +72,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getexceldownloadurl"></a>
-# **GetExcelDownloadUrl**
+
+## GetExcelDownloadUrl
+
 > string GetExcelDownloadUrl (string version = null)
 
 Get Excel download url
@@ -83,6 +90,7 @@ Get Excel download url
 Request an authorised url for an Excel client version
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -119,6 +127,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **string**| The requested version of the Excel plugin | [optional] 
@@ -133,13 +142,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getlusidversions"></a>
-# **GetLusidVersions**
+
+## GetLusidVersions
+
 > VersionSummaryDto GetLusidVersions ()
 
 Get LUSID versions
@@ -147,6 +160,7 @@ Get LUSID versions
 Get the semantic versions associated with LUSID and its ecosystem
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -181,6 +195,7 @@ namespace Example
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -193,13 +208,17 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listaccesscontrolledresources"></a>
-# **ListAccessControlledResources**
+
+## ListAccessControlledResources
+
 > ResourceListOfAccessControlledResource ListAccessControlledResources (string filter = null)
 
 Get resources available for access control
@@ -207,6 +226,7 @@ Get resources available for access control
 Get the comprehensive set of resources that are available for access control
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -243,6 +263,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
@@ -257,8 +278,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

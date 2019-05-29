@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.CorporateActionSourcesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,8 +11,9 @@ Method | HTTP request | Description
 [**ListCorporateActionSources**](CorporateActionSourcesApi.md#listcorporateactionsources) | **GET** /api/corporateactionsources | Get corporate action sources
 
 
-<a name="batchupsertcorporateactions"></a>
-# **BatchUpsertCorporateActions**
+
+## BatchUpsertCorporateActions
+
 > UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<UpsertCorporateActionRequest> actions = null)
 
 Upsert corporate actions
@@ -20,6 +21,7 @@ Upsert corporate actions
 Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -58,11 +60,12 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of corporate action source | 
  **code** | **string**| The code of the corporate action source | 
- **actions** | [**List&lt;UpsertCorporateActionRequest&gt;**](UpsertCorporateActionRequest.md)| The corporate action definitions | [optional] 
+ **actions** | [**List&lt;UpsertCorporateActionRequest&gt;**](List.md)| The corporate action definitions | [optional] 
 
 ### Return type
 
@@ -74,13 +77,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="createcorporateactionsource"></a>
-# **CreateCorporateActionSource**
+
+## CreateCorporateActionSource
+
 > CorporateActionSource CreateCorporateActionSource (CreateCorporateActionSourceRequest request)
 
 Create Corporate Action Source
@@ -88,6 +95,7 @@ Create Corporate Action Source
 Attempt to create a corporate action source.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -124,6 +132,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request** | [**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md)| The corporate action source definition | 
@@ -138,13 +147,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deletecorporateactionsource"></a>
-# **DeleteCorporateActionSource**
+
+## DeleteCorporateActionSource
+
 > DeletedEntityResponse DeleteCorporateActionSource (string scope, string code)
 
 Delete a corporate action source
@@ -152,6 +165,7 @@ Delete a corporate action source
 Deletes a single corporate action source
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -189,6 +203,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The Scope of the Corporate Action Source to be deleted | 
@@ -204,13 +219,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getcorporateactions"></a>
-# **GetCorporateActions**
+
+## GetCorporateActions
+
 > ResourceListOfCorporateAction GetCorporateActions (string scope, string code, DateTimeOffset? fromEffectiveAt = null, DateTimeOffset? toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get corporate actions
@@ -218,6 +237,7 @@ Get corporate actions
 Gets corporate actions from a specific corporate action source
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -262,6 +282,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the corporate action source | 
@@ -284,13 +305,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listcorporateactionsources"></a>
-# **ListCorporateActionSources**
+
+## ListCorporateActionSources
+
 > ResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get corporate action sources
@@ -298,6 +323,7 @@ Get corporate action sources
 Gets a list of all corporate action sources
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -338,6 +364,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
@@ -356,8 +383,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

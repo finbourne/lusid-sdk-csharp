@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.SchemasApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**ListEntities**](SchemasApi.md#listentities) | **GET** /api/schemas/entities | List entities
 
 
-<a name="getentityschema"></a>
-# **GetEntitySchema**
+
+## GetEntitySchema
+
 > Schema GetEntitySchema (string entity)
 
 Get schema
@@ -19,6 +20,7 @@ Get schema
 Gets the schema and meta-data for a given entity
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -55,6 +57,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity** | **string**| The name of a valid entity | 
@@ -69,13 +72,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getpropertyschema"></a>
-# **GetPropertySchema**
+
+## GetPropertySchema
+
 > PropertySchema GetPropertySchema (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
 
 Get property schema
@@ -83,6 +90,7 @@ Get property schema
 Get the schemas for the provided list of property keys.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -120,6 +128,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| One or more property keys for which the schema is requested | [optional] 
@@ -135,13 +144,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getvaluetypes"></a>
-# **GetValueTypes**
+
+## GetValueTypes
+
 > ResourceListOfValueType GetValueTypes (List<string> sortBy = null, int? start = null, int? limit = null)
 
 Get value types
@@ -149,6 +162,7 @@ Get value types
 Gets the available value types for which a schema is available.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -187,6 +201,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
@@ -203,13 +218,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listentities"></a>
-# **ListEntities**
+
+## ListEntities
+
 > ResourceListOfString ListEntities ()
 
 List entities
@@ -217,6 +236,7 @@ List entities
 List all available entities for which schema information is available.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -251,6 +271,7 @@ namespace Example
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -263,8 +284,11 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

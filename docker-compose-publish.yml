@@ -10,4 +10,6 @@ services:
     image: finbourne/lusid-sdk-csharp-publish
     volumes:
       - .:/usr/src
-    command: ${API_KEY}
+    command: 
+      - ${API_KEY}
+      - ${NUGET_REPO}

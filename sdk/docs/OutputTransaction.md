@@ -1,4 +1,6 @@
+
 # Lusid.Sdk.Model.OutputTransaction
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,8 +13,8 @@ Name | Type | Description | Notes
 **TransactionDate** | **DateTimeOffset?** | Transaction date | [optional] 
 **SettlementDate** | **DateTimeOffset?** | Settlement date | [optional] 
 **Units** | **double?** | Quantity of trade in units of the instrument | [optional] 
-**TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) | Execution price for the transaction | [optional] 
-**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Total value of the transaction in settlement currency | [optional] 
+**TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | [optional] 
+**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **ExchangeRate** | **double?** | Rate between transaction and settlement currency | [optional] 
 **TransactionToPortfolioRate** | **double?** | Rate between transaction and portfolio currency | [optional] 
 **TransactionCurrency** | **string** | Transaction currency | [optional] 
@@ -25,5 +27,7 @@ Name | Type | Description | Notes
 **CancelDateTime** | **DateTimeOffset?** | Date / time the cancellation was booked into LUSID | [optional] 
 **RealisedGainLoss** | [**List&lt;RealisedGainLoss&gt;**](RealisedGainLoss.md) | Collection of gains or losses | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

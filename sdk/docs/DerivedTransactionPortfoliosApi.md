@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | Delete portfolio details
 
 
-<a name="createderivedportfolio"></a>
-# **CreateDerivedPortfolio**
+
+## CreateDerivedPortfolio
+
 > Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest portfolio = null)
 
 Create derived transaction portfolio
@@ -17,6 +18,7 @@ Create derived transaction portfolio
 Creates a transaction portfolio that derives from an existing transaction portfolio. In a derived portfolio, parts of the portfolio can either be specific to this portfolio, or can be inherited from a \"parent\". Different parts of the portfolio (e.g. transactions or properties) are combined in different ways. The portfolio details are either overridden in entirety, or not at all. The same is true for properties. Transactions on a derived portfolio are merged with its parent portfolio's transactions. If the parent portfolio is itself a derived portfolio, transactions from that parent are also merged (and that parent's portfolio's, if it is also a derived portfolio, and so on).
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -54,6 +56,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope into which to create the new derived portfolio | 
@@ -69,13 +72,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deletederivedportfoliodetails"></a>
-# **DeleteDerivedPortfolioDetails**
+
+## DeleteDerivedPortfolioDetails
+
 > DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOffset? effectiveAt = null)
 
 Delete portfolio details
@@ -83,6 +90,7 @@ Delete portfolio details
 Deletes the portfolio details for the specified derived transaction portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -121,6 +129,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -137,8 +146,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

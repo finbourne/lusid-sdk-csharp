@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,8 +15,9 @@ Method | HTTP request | Description
 [**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert portfolio properties
 
 
-<a name="deleteportfolio"></a>
-# **DeletePortfolio**
+
+## DeletePortfolio
+
 > DeletedEntityResponse DeletePortfolio (string scope, string code, DateTimeOffset? effectiveAt = null)
 
 Delete portfolio
@@ -24,6 +25,7 @@ Delete portfolio
 Delete a portfolio at the specified effectiveAt
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -62,6 +64,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -78,13 +81,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deleteportfolioproperties"></a>
-# **DeletePortfolioProperties**
+
+## DeletePortfolioProperties
+
 > DeletedEntityResponse DeletePortfolioProperties (string scope, string code, DateTimeOffset? effectiveAt = null, List<string> portfolioPropertyKeys = null)
 
 Delete portfolio properties
@@ -92,6 +99,7 @@ Delete portfolio properties
 Delete one, many or all property values from a portfolio for the specified effectiveAt                Specifying no effectiveAt will delete all properties
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -131,6 +139,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -148,13 +157,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getportfolio"></a>
-# **GetPortfolio**
+
+## GetPortfolio
+
 > Portfolio GetPortfolio (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
 Get portfolio definition
@@ -162,6 +175,7 @@ Get portfolio definition
 Retrieves the basic set of information about a portfolio using the specified scope and code.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -201,6 +215,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -218,13 +233,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getportfoliocommands"></a>
-# **GetPortfolioCommands**
+
+## GetPortfolioCommands
+
 > ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get commands
@@ -232,6 +251,7 @@ Get commands
 Gets all commands that modified a specific portfolio, including any input transactions.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -275,6 +295,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -296,13 +317,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getportfolioproperties"></a>
-# **GetPortfolioProperties**
+
+## GetPortfolioProperties
+
 > PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
 
 Get portfolio properties
@@ -310,6 +335,7 @@ Get portfolio properties
 Get the properties of a portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -352,6 +378,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -372,13 +399,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listportfolios"></a>
-# **ListPortfolios**
+
+## ListPortfolios
+
 > ResourceListOfPortfolio ListPortfolios (DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
 List portfolios
@@ -386,6 +417,7 @@ List portfolios
 List all portfolios matching the specified criteria.                Example query syntax for the query parameter:                - To see which portfolios have holdings in the specified instruments:                    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))                * Note that copy/pasting above examples results in incorrect single quote character
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -429,6 +461,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
@@ -450,13 +483,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listportfoliosforscope"></a>
-# **ListPortfoliosForScope**
+
+## ListPortfoliosForScope
+
 > ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 List portfolios for scope
@@ -464,6 +501,7 @@ List portfolios for scope
 List all the portfolios in the specified scope
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -506,6 +544,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope | 
@@ -526,20 +565,25 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="updateportfolio"></a>
-# **UpdatePortfolio**
-> Portfolio UpdatePortfolio (string scope, string code, UpdatePortfolioRequest request = null, DateTimeOffset? effectiveAt = null)
+
+## UpdatePortfolio
+
+> Portfolio UpdatePortfolio (string scope, string code, DateTimeOffset? effectiveAt = null, UpdatePortfolioRequest request = null)
 
 Update portfolio definition
 
 Update the definition of a specific portfolio. Note, some parts of a portfolio definition are not available for modification after the initial creation.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -559,13 +603,13 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var request = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition (optional) 
             var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date for the change (optional) 
+            var request = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition (optional) 
 
             try
             {
                 // Update portfolio definition
-                Portfolio result = apiInstance.UpdatePortfolio(scope, code, request, effectiveAt);
+                Portfolio result = apiInstance.UpdatePortfolio(scope, code, effectiveAt, request);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -579,12 +623,13 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **request** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition | [optional] 
  **effectiveAt** | **DateTimeOffset?**| Optional. The effective date for the change | [optional] 
+ **request** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition | [optional] 
 
 ### Return type
 
@@ -596,20 +641,25 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="upsertportfolioproperties"></a>
-# **UpsertPortfolioProperties**
-> PortfolioProperties UpsertPortfolioProperties (string scope, string code, Object portfolioProperties = null)
+
+## UpsertPortfolioProperties
+
+> PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, PropertyValue> portfolioProperties = null)
 
 Upsert portfolio properties
 
 Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -629,7 +679,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var portfolioProperties = ;  // Object | The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. (optional) 
+            var portfolioProperties = new Dictionary<string, PropertyValue>(); // Dictionary<string, PropertyValue> | The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. (optional) 
 
             try
             {
@@ -648,11 +698,12 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **portfolioProperties** | **Object**| The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. | [optional] 
+ **portfolioProperties** | [**Dictionary&lt;string, PropertyValue&gt;**](PropertyValue.md)| The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. | [optional] 
 
 ### Return type
 
@@ -664,8 +715,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

@@ -1,4 +1,6 @@
+
 # Lusid.Sdk.Model.TransactionRequest
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,8 +11,8 @@ Name | Type | Description | Notes
 **TransactionDate** | **string** | Transaction date | 
 **SettlementDate** | **string** | Settlement date | 
 **Units** | **double?** | Quantity of trade in units of the instrument | 
-**TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) | Execution price for the transaction | 
-**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Total value of the transaction in settlement currency | 
+**TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | 
+**TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **ExchangeRate** | **double?** | Rate between transaction and settlement currency | [optional] 
 **TransactionCurrency** | **string** | Transaction currency | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md) |  | [optional] 
@@ -18,5 +20,7 @@ Name | Type | Description | Notes
 **Source** | **string** | Where this transaction came from | [optional] 
 **NettingSet** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

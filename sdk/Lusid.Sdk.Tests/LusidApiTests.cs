@@ -38,8 +38,8 @@ namespace Lusid.Sdk.Tests
             var upsertResponse = _apiFactory.Api<IInstrumentsApi>().UpsertInstruments(instruments.ToDictionary(
                 k => k.Figi,
                 v => new InstrumentDefinition(
-                    Name: v.Name,
-                    Identifiers: new Dictionary<string, InstrumentIdValue> {["Figi"] = new InstrumentIdValue(v.Figi) }
+                    name: v.Name,
+                    identifiers: new Dictionary<string, InstrumentIdValue> {["Figi"] = new InstrumentIdValue(v.Figi) }
                 )
             ));
             
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Tests
             const string scope = "finbourne";
             var code = $"id-{Guid.NewGuid()}";
 
-            var request = new CreateTransactionPortfolioRequest($"Portfolio-{code}", Code: code, BaseCurrency: "GBP");
+            var request = new CreateTransactionPortfolioRequest($"Portfolio-{code}", code: code, baseCurrency: "GBP");
 
             _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
@@ -105,11 +105,10 @@ namespace Lusid.Sdk.Tests
 
         [Test]
         public void Create_Portfolio()
-        {
-            
+        {            
             const string scope = "finbourne";
             var uuid = Guid.NewGuid().ToString();
-            var request = new CreateTransactionPortfolioRequest($"Portfolio-{uuid}", Code: $"id-{uuid}", BaseCurrency: "GBP");
+            var request = new CreateTransactionPortfolioRequest($"Portfolio-{uuid}", code: $"id-{uuid}", baseCurrency: "GBP");
 
             var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
@@ -138,7 +137,7 @@ namespace Lusid.Sdk.Tests
             var propertyDefinitionDto = _apiFactory.Api<IPropertyDefinitionsApi>().CreatePropertyDefinition(propertyDefinition);
                 
             //    create portfolio
-            var request = new CreateTransactionPortfolioRequest($"Portfolio-{uuid}", Code: $"id-{uuid}", BaseCurrency: "GBP");
+            var request = new CreateTransactionPortfolioRequest($"Portfolio-{uuid}", code: $"id-{uuid}", baseCurrency: "GBP");
             var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
             Assert.That(portfolio?.DisplayName, Is.EqualTo(request.DisplayName));
@@ -185,9 +184,9 @@ namespace Lusid.Sdk.Tests
             //    create portfolio
             var request = new CreateTransactionPortfolioRequest(
                 $"Portfolio-{uuid}", 
-                Code: $"id-{uuid}", 
-                BaseCurrency: "GBP", 
-                Created: effectiveDate
+                code: $"id-{uuid}", 
+                baseCurrency: "GBP", 
+                created: effectiveDate
             );
             var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
 
@@ -202,16 +201,16 @@ namespace Lusid.Sdk.Tests
             
             //    create the transactions       
             var transaction = new TransactionRequest(
-                TransactionId: Guid.NewGuid().ToString(),
-                Type: "Buy",
-                InstrumentIdentifiers: new Dictionary<string, string> { ["Instrument/default/LusidInstrumentId"] = _instrumentIds.First() },                
-                TransactionDate: effectiveDate.ToLUSIDDate(),
-                SettlementDate: effectiveDate.ToLUSIDDate(),
-                Units: 100,
-                TransactionPrice: new TransactionPrice(12.3, TransactionPrice.TypeEnum.Price),
-                TotalConsideration: new CurrencyAndAmount(1230, "GBP"),
-                Source: "Custodian",
-                Properties: new Dictionary<string, PerpetualPropertyValue>
+                transactionId: Guid.NewGuid().ToString(),
+                type: "Buy",
+                instrumentIdentifiers: new Dictionary<string, string> { ["Instrument/default/LusidInstrumentId"] = _instrumentIds.First() },                
+                transactionDate: effectiveDate.ToLUSIDDate(),
+                settlementDate: effectiveDate.ToLUSIDDate(),
+                units: 100,
+                transactionPrice: new TransactionPrice(12.3, TransactionPrice.TypeEnum.Price),
+                totalConsideration: new CurrencyAndAmount(1230, "GBP"),
+                source: "Custodian",
+                properties: new Dictionary<string, PerpetualPropertyValue>
                 {
                     [propertyDefinitionDto.Key] = new PerpetualPropertyValue(propertyValue)
                 }
@@ -238,9 +237,9 @@ namespace Lusid.Sdk.Tests
             //    create the portfolio
             var request = new CreateTransactionPortfolioRequest(
                 $"Portfolio-{uuid}", 
-                Code: $"id-{uuid}", 
-                BaseCurrency: "GBP", 
-                Created: new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero)
+                code: $"id-{uuid}", 
+                baseCurrency: "GBP", 
+                created: new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero)
             );            
 
             //    create portfolio
@@ -334,9 +333,9 @@ namespace Lusid.Sdk.Tests
             var effectiveDate = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
             var request = new CreateTransactionPortfolioRequest(
                 $"Portfolio-{uuid}", 
-                Code: $"id-{uuid}", 
-                BaseCurrency: "GBP", 
-                Created: effectiveDate
+                code: $"id-{uuid}", 
+                baseCurrency: "GBP", 
+                created: effectiveDate
             );            
 
             //    create portfolio
@@ -382,33 +381,33 @@ namespace Lusid.Sdk.Tests
             _apiFactory.Api<IAnalyticsStoresApi>().SetAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
                        
             var aggregationRequest = new AggregationRequest(
-                RecipeId: new ResourceId(scope, "default"),
-                Metrics: new List<AggregateSpec>
+                recipeId: new ResourceId(scope, "default"),
+                metrics: new List<AggregateSpec>
                 {
                     new AggregateSpec("Instrument/default/Name", AggregateSpec.OpEnum.Value),
                     new AggregateSpec("Holding/default/PV", AggregateSpec.OpEnum.Proportion),
                     new AggregateSpec("Holding/default/PV", AggregateSpec.OpEnum.Sum)
                 },
-                GroupBy: new List<string> {"Instrument/default/Name"},
-                EffectiveAt: effectiveDate
+                groupBy: new List<string> {"Instrument/default/Name"},
+                effectiveAt: effectiveDate
             );
 
             //    do the aggregation
-            _apiFactory.Api<IAggregationApi>().GetAggregationByPortfolio(scope, portfolioId, aggregationRequest);
+            _apiFactory.Api<IAggregationApi>().GetAggregationByPortfolio(scope, portfolioId, request: aggregationRequest);
         }
         
         private TransactionRequest BuildTransaction(string id, double price, DateTimeOffset tradeDate)
         {
             return new TransactionRequest(        
-                TransactionId: Guid.NewGuid().ToString(),
-                Type: "StockIn",
-                InstrumentIdentifiers: new Dictionary<string, string> { [LUSID_INSTRUMENT_IDENTIFIER] = id },
-                TransactionDate: tradeDate.ToLUSIDDate(),
-                SettlementDate: tradeDate.ToLUSIDDate(),
-                Units: 100,
-                TransactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
-                TotalConsideration: new CurrencyAndAmount(100 * price, "GBP"),
-                Source: "Custodian"
+                transactionId: Guid.NewGuid().ToString(),
+                type: "StockIn",
+                instrumentIdentifiers: new Dictionary<string, string> { [LUSID_INSTRUMENT_IDENTIFIER] = id },
+                transactionDate: tradeDate.ToLUSIDDate(),
+                settlementDate: tradeDate.ToLUSIDDate(),
+                units: 100,
+                transactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
+                totalConsideration: new CurrencyAndAmount(100 * price, "GBP"),
+                source: "Custodian"
             );
         }
 
@@ -431,15 +430,15 @@ namespace Lusid.Sdk.Tests
         {
             return new TransactionRequest
             (
-                TransactionId: Guid.NewGuid().ToString(),
-                Type: "StockIn",
-                InstrumentIdentifiers: new Dictionary<string, string> { [LUSID_INSTRUMENT_IDENTIFIER] = id },
-                TransactionDate: tradeDate.ToLUSIDDate(),
-                SettlementDate: tradeDate.ToLUSIDDate(),
-                Units: quantity,
-                TransactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
-                TotalConsideration: new CurrencyAndAmount(quantity * price, "GBP"),
-                Source: "Custodian"
+                transactionId: Guid.NewGuid().ToString(),
+                type: "StockIn",
+                instrumentIdentifiers: new Dictionary<string, string> { [LUSID_INSTRUMENT_IDENTIFIER] = id },
+                transactionDate: tradeDate.ToLUSIDDate(),
+                settlementDate: tradeDate.ToLUSIDDate(),
+                units: quantity,
+                transactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
+                totalConsideration: new CurrencyAndAmount(quantity * price, "GBP"),
+                source: "Custodian"
             );
         }
 
@@ -458,9 +457,9 @@ namespace Lusid.Sdk.Tests
             //Request creation for yesterday
             var requestPortfolio = new CreateTransactionPortfolioRequest(
                 portfolioName, 
-                Code: portfolioCode, 
-                BaseCurrency: "GBP", 
-                Created: yesterday
+                code: portfolioCode, 
+                baseCurrency: "GBP", 
+                created: yesterday
             );
             var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, requestPortfolio);
            
@@ -513,7 +512,7 @@ namespace Lusid.Sdk.Tests
                         finalAsAtTime),
                     new List<string>());
 
-            var listOfBreaks = _apiFactory.Api<IReconciliationsApi>().ReconcileHoldings(reconcileRequest);
+            var listOfBreaks = _apiFactory.Api<IReconciliationsApi>().ReconcileHoldings(request: reconcileRequest);
 
             Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
             PrintBreaks(listOfBreaks.Values);

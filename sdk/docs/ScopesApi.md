@@ -1,14 +1,15 @@
 # Lusid.Sdk.Api.ScopesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | List scopes
 
 
-<a name="listscopes"></a>
-# **ListScopes**
+
+## ListScopes
+
 > ResourceListOfScopeDefinition ListScopes (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
 List scopes
@@ -16,6 +17,7 @@ List scopes
 List all the scopes
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -56,6 +58,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
@@ -74,8 +77,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

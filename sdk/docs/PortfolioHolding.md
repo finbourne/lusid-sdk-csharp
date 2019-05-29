@@ -1,4 +1,6 @@
+
 # Lusid.Sdk.Model.PortfolioHolding
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,9 +11,11 @@ Name | Type | Description | Notes
 **HoldingType** | **string** | Type of holding, eg Position, Balance, CashCommitment, Receivable, ForwardFX | 
 **Units** | **double?** | Quantity of holding | 
 **SettledUnits** | **double?** | Settled quantity of holding | 
-**Cost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Book cost of holding in transaction currency | 
-**CostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | Book cost of holding in portfolio currency | 
-**Transaction** | [**Transaction**](Transaction.md) | If this is commitment-type holding, the transaction behind it | [optional] 
+**Cost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
+**CostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
+**Transaction** | [**Transaction**](Transaction.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

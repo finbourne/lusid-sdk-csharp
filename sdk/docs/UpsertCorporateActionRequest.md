@@ -1,4 +1,6 @@
+
 # Lusid.Sdk.Model.UpsertCorporateActionRequest
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,5 +12,7 @@ Name | Type | Description | Notes
 **PaymentDate** | **DateTimeOffset?** |  | 
 **Transitions** | [**List&lt;CorporateActionTransitionRequest&gt;**](CorporateActionTransitionRequest.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 
