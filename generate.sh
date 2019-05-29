@@ -8,6 +8,7 @@ fi
 
 gen_root=/usr/swagger
 sdk_output_folder=$gen_root/sdk
+swagger_file=$gen_root/$1
 
 #   remove all previously generated files
 shopt -s extglob 
@@ -21,13 +22,19 @@ cp /usr/src/.swagger-codegen-ignore $sdk_output_folder
 
 echo "generating sdk"
 
+# update project version
+sdk_version=$(cat $swagger_file | jq -r '.info.version')
+
+echo "setting sdk version=$sdk_version"
+sed -i 's/<Version>.*<\/Version>/<Version>'$sdk_version'<\/Version>/g' $sdk_output_folder/Lusid.Sdk/Lusid.Sdk.csproj
+
 #java -jar swagger-codegen-cli.jar swagger-codegen-cli help
 
 # Note that swagger-codegen doesn't currently support overriding of type mappings
 # for user defined types, so the --type-mappings parameter is redundant.  However,
 # leaving it here for if/when the capability is added
 java -jar swagger-codegen-cli.jar generate \
-    -i $gen_root/$1 \
+    -i $swagger_file \
     -l csharp \
     -o $sdk_output_folder \
     -c $gen_root/config.json \
