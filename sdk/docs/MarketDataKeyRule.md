@@ -1,4 +1,6 @@
+
 # Lusid.Sdk.Model.MarketDataKeyRule
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,5 +11,7 @@ Name | Type | Description | Notes
 **QuoteType** | **string** | Is the quote to be looked for a price, yield etc. | [optional] 
 **PriceSide** | **string** | The conceptual qualification for the field. Something like Bid, Ask or Mid. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

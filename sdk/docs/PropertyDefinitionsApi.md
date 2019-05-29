@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PropertyDefinitionsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,8 +11,9 @@ Method | HTTP request | Description
 [**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | Update the definition of the specified existing property
 
 
-<a name="createpropertydefinition"></a>
-# **CreatePropertyDefinition**
+
+## CreatePropertyDefinition
+
 > PropertyDefinition CreatePropertyDefinition (CreatePropertyDefinitionRequest definition = null)
 
 Define a new property
@@ -20,6 +21,7 @@ Define a new property
 Create a new property definition
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -56,6 +58,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **definition** | [**CreatePropertyDefinitionRequest**](CreatePropertyDefinitionRequest.md)| The definition of the new property | [optional] 
@@ -70,13 +73,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deletepropertydefinition"></a>
-# **DeletePropertyDefinition**
+
+## DeletePropertyDefinition
+
 > DeletedEntityResponse DeletePropertyDefinition (string domain, string scope, string code)
 
 Delete property definition
@@ -84,6 +91,7 @@ Delete property definition
 Delete the definition of the specified property
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -122,6 +130,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domain** | **string**| The Property Domain of the property to be deleted | 
@@ -138,13 +147,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getmultiplepropertydefinitions"></a>
-# **GetMultiplePropertyDefinitions**
+
+## GetMultiplePropertyDefinitions
+
 > ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get multiple property definitions
@@ -152,6 +165,7 @@ Get multiple property definitions
 Get one or more property definitions
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -193,6 +207,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| One or more keys for properties for which the schema should be returned | [optional] 
@@ -212,13 +227,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getpropertydefinition"></a>
-# **GetPropertyDefinition**
+
+## GetPropertyDefinition
+
 > PropertyDefinition GetPropertyDefinition (string domain, string scope, string code, DateTimeOffset? asAt = null)
 
 Get property definition
@@ -226,6 +245,7 @@ Get property definition
 Retrieve the definition for the identified property
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -265,6 +285,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domain** | **string**| The Property Domain of the requested property | 
@@ -282,13 +303,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="updatepropertydefinition"></a>
-# **UpdatePropertyDefinition**
+
+## UpdatePropertyDefinition
+
 > PropertyDefinition UpdatePropertyDefinition (string domain, string scope, string code, UpdatePropertyDefinitionRequest definition = null)
 
 Update the definition of the specified existing property
@@ -296,6 +321,7 @@ Update the definition of the specified existing property
 Not all elements within a property definition are modifiable due to the potential implications for data  already stored against these properties
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -335,6 +361,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domain** | **string**| The Property Domain of the property being updated | 
@@ -352,8 +379,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

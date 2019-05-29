@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.AnalyticsStoresApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,8 +11,9 @@ Method | HTTP request | Description
 [**SetAnalytics**](AnalyticsStoresApi.md#setanalytics) | **PUT** /api/analytics/{scope}/{year}/{month}/{day}/prices | Set analytic data
 
 
-<a name="createanalyticstore"></a>
-# **CreateAnalyticStore**
+
+## CreateAnalyticStore
+
 > AnalyticStore CreateAnalyticStore (CreateAnalyticStoreRequest request = null)
 
 Create analytic store
@@ -20,6 +21,7 @@ Create analytic store
 Create a new analytic store for the specified scope and date
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -56,6 +58,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request** | [**CreateAnalyticStoreRequest**](CreateAnalyticStoreRequest.md)| A populated analytic store definition | [optional] 
@@ -70,13 +73,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deleteanalyticstore"></a>
-# **DeleteAnalyticStore**
+
+## DeleteAnalyticStore
+
 > DeletedEntityResponse DeleteAnalyticStore (string scope, int? year, int? month, int? day)
 
 Delete analytic store
@@ -84,6 +91,7 @@ Delete analytic store
 Delete stored analytic data in the specified scope for the specified date
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -123,6 +131,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The analytics data scope | 
@@ -140,13 +149,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getanalyticstore"></a>
-# **GetAnalyticStore**
+
+## GetAnalyticStore
+
 > AnalyticStore GetAnalyticStore (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null)
 
 Get analytic store
@@ -154,6 +167,7 @@ Get analytic store
 Get the meta data associated with a specified scope and date combination (analytic store)
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -194,6 +208,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The analytics data scope | 
@@ -212,13 +227,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listanalyticstores"></a>
-# **ListAnalyticStores**
+
+## ListAnalyticStores
+
 > ResourceListOfAnalyticStoreKey ListAnalyticStores (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 List analytic stores
@@ -226,6 +245,7 @@ List analytic stores
 List all defined analytic stores
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -266,6 +286,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
@@ -284,13 +305,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="setanalytics"></a>
-# **SetAnalytics**
+
+## SetAnalytics
+
 > AnalyticStore SetAnalytics (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null)
 
 Set analytic data
@@ -298,6 +323,7 @@ Set analytic data
 Store the complete set of analytics for an existing analytic store for the specified scope and date
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -338,13 +364,14 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the data being stored | 
  **year** | **int?**| The year component of the date for the data | 
  **month** | **int?**| The month component of the date for the data | 
  **day** | **int?**| The day component of the date for the data | 
- **data** | [**List&lt;InstrumentAnalytic&gt;**](InstrumentAnalytic.md)| The analytic data being inserted | [optional] 
+ **data** | [**List&lt;InstrumentAnalytic&gt;**](List.md)| The analytic data being inserted | [optional] 
 
 ### Return type
 
@@ -356,8 +383,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

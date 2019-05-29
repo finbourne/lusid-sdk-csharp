@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.TransactionPortfoliosApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,15 +23,17 @@ Method | HTTP request | Description
 [**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | Upsert transactions into the specified transaction portfolio
 
 
-<a name="addtransactionproperty"></a>
-# **AddTransactionProperty**
-> AddTransactionPropertyResponse AddTransactionProperty (string scope, string code, string transactionId, Object transactionProperties = null)
+
+## AddTransactionProperty
+
+> AddTransactionPropertyResponse AddTransactionProperty (string scope, string code, string transactionId, Dictionary<string, PerpetualPropertyValue> transactionProperties = null)
 
 Add transaction properties
 
 Upsert one or more transaction properties to a single transaction in a portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -52,7 +54,7 @@ namespace Example
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
             var transactionId = transactionId_example;  // string | Id of transaction
-            var transactionProperties = ;  // Object | Transaction properties values (optional) 
+            var transactionProperties = new Dictionary<string, PerpetualPropertyValue>(); // Dictionary<string, PerpetualPropertyValue> | Transaction properties values (optional) 
 
             try
             {
@@ -71,12 +73,13 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
  **transactionId** | **string**| Id of transaction | 
- **transactionProperties** | **Object**| Transaction properties values | [optional] 
+ **transactionProperties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md)| Transaction properties values | [optional] 
 
 ### Return type
 
@@ -88,13 +91,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="adjustholdings"></a>
-# **AdjustHoldings**
+
+## AdjustHoldings
+
 > AdjustHolding AdjustHoldings (string scope, string code, DateTimeOffset? effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
 
 Adjust holdings
@@ -102,6 +109,7 @@ Adjust holdings
 Adjust one or more holdings in a transaction portfolio    Prompt the creation of transactions in a specific transaction portfolio to bring selected holdings to the specified targets
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -141,12 +149,13 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
  **effectiveAt** | **DateTimeOffset?**| The effective date of the change | 
- **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](AdjustHoldingRequest.md)| The selected set of holdings adjustments | [optional] 
+ **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](List.md)| The selected set of holdings adjustments | [optional] 
 
 ### Return type
 
@@ -158,13 +167,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="buildtransactions"></a>
-# **BuildTransactions**
+
+## BuildTransactions
+
 > VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null, TransactionQueryParameters parameters = null)
 
 Build output transactions
@@ -172,6 +185,7 @@ Build output transactions
 Builds and returns the collection of all types of transactions that affect the holdings of a portfolio in to a set of output transactions
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -216,6 +230,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -238,13 +253,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="canceladjustholdings"></a>
-# **CancelAdjustHoldings**
+
+## CancelAdjustHoldings
+
 > DeletedEntityResponse CancelAdjustHoldings (string scope, string code, DateTimeOffset? effectiveAt)
 
 Cancel holdings adjustments
@@ -252,6 +271,7 @@ Cancel holdings adjustments
 Cancel previous adjust-holdings for the portfolio for a specific date
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -290,6 +310,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -306,13 +327,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="createportfolio"></a>
-# **CreatePortfolio**
+
+## CreatePortfolio
+
 > Portfolio CreatePortfolio (string scope, CreateTransactionPortfolioRequest createRequest = null)
 
 Create transaction portfolio
@@ -320,6 +345,7 @@ Create transaction portfolio
 Create a transaction portfolio in a specific scope
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -357,6 +383,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope into which the transaction portfolio will be created | 
@@ -372,13 +399,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deleteexecutions"></a>
-# **DeleteExecutions**
+
+## DeleteExecutions
+
 > DeletedEntityResponse DeleteExecutions (string scope, string code, List<string> executionIds = null)
 
 Delete executions
@@ -386,6 +417,7 @@ Delete executions
 Delete one or more executions from a transaction portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -424,6 +456,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -440,13 +473,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deletepropertyfromtransaction"></a>
-# **DeletePropertyFromTransaction**
+
+## DeletePropertyFromTransaction
+
 > DeletedEntityResponse DeletePropertyFromTransaction (string scope, string code, string transactionId, string transactionPropertyKey = null)
 
 Delete transaction property
@@ -454,6 +491,7 @@ Delete transaction property
 Delete a property value from a single transaction in a portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -493,6 +531,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -510,13 +549,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deletetransactions"></a>
-# **DeleteTransactions**
+
+## DeleteTransactions
+
 > DeletedEntityResponse DeleteTransactions (string scope, string code, List<string> transactionIds = null)
 
 Delete transactions
@@ -524,6 +567,7 @@ Delete transactions
 Delete one or more transactions from a transaction portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -562,6 +606,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -578,13 +623,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getdetails"></a>
-# **GetDetails**
+
+## GetDetails
+
 > PortfolioDetails GetDetails (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
 
 Get portfolio details
@@ -592,6 +641,7 @@ Get portfolio details
 Get the details document associated with a transaction portfolio                When requesting details from a derived transaction portfolio, the returned set of details could come from a different transaction portfolio
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -631,6 +681,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -648,13 +699,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getholdings"></a>
-# **GetHoldings**
+
+## GetHoldings
+
 > VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
 Get holdings
@@ -662,6 +717,7 @@ Get holdings
 Get the aggregate holdings of a transaction portfolio.  If no effectiveAt or asAt  are supplied then values will be defaulted to the latest system time.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -707,6 +763,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -730,13 +787,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getholdingsadjustment"></a>
-# **GetHoldingsAdjustment**
+
+## GetHoldingsAdjustment
+
 > HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null)
 
 Get holding adjustment
@@ -744,6 +805,7 @@ Get holding adjustment
 Get a holdings adjustment for a transaction portfolio at a specific effective time.    A holdings adjustment definition will only be returned if one exists for the specified effective time
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -783,6 +845,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -800,13 +863,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="gettransactions"></a>
-# **GetTransactions**
+
+## GetTransactions
+
 > VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOffset? fromTransactionDate = null, DateTimeOffset? toTransactionDate = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null)
 
 Get transactions
@@ -814,6 +881,7 @@ Get transactions
 Get the transactions from a transaction portfolio    When the requested portfolio is a derived transaction portfolio, the returned set of transactions is the union set of all transactions of the parent (and ancestors) and the specified portfolio.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -859,6 +927,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -882,13 +951,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listholdingsadjustments"></a>
-# **ListHoldingsAdjustments**
+
+## ListHoldingsAdjustments
+
 > ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOffset? fromEffectiveAt = null, DateTimeOffset? toEffectiveAt = null, DateTimeOffset? asAt = null)
 
 List holdings adjustments
@@ -896,6 +969,7 @@ List holdings adjustments
 Get holdings adjustments from a transaction portfolio in an interval of effective time.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -936,6 +1010,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
@@ -954,13 +1029,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="setholdings"></a>
-# **SetHoldings**
+
+## SetHoldings
+
 > AdjustHolding SetHoldings (string scope, string code, DateTimeOffset? effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
 
 Set all holdings on a transaction portfolio
@@ -968,6 +1047,7 @@ Set all holdings on a transaction portfolio
 Prompt the creation of transactions in a specific transaction portfolio to bring all holdings to the specified targets
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -1007,12 +1087,13 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio | 
  **code** | **string**| The code of the transaction portfolio | 
  **effectiveAt** | **DateTimeOffset?**| The effective date of the change | 
- **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](AdjustHoldingRequest.md)| The complete set of holdings adjustments for the portfolio | [optional] 
+ **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](List.md)| The complete set of holdings adjustments for the portfolio | [optional] 
 
 ### Return type
 
@@ -1024,13 +1105,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="upsertexecutions"></a>
-# **UpsertExecutions**
+
+## UpsertExecutions
+
 > UpsertPortfolioExecutionsResponse UpsertExecutions (string scope, string code, List<ExecutionRequest> executions = null)
 
 Upsert executions
@@ -1038,6 +1123,7 @@ Upsert executions
 Inserts new executions, or updates those already present
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -1076,11 +1162,12 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **executions** | [**List&lt;ExecutionRequest&gt;**](ExecutionRequest.md)| The executions to be updated | [optional] 
+ **executions** | [**List&lt;ExecutionRequest&gt;**](List.md)| The executions to be updated | [optional] 
 
 ### Return type
 
@@ -1092,20 +1179,25 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="upsertportfoliodetails"></a>
-# **UpsertPortfolioDetails**
-> PortfolioDetails UpsertPortfolioDetails (string scope, string code, CreatePortfolioDetails details = null, DateTimeOffset? effectiveAt = null)
+
+## UpsertPortfolioDetails
+
+> PortfolioDetails UpsertPortfolioDetails (string scope, string code, DateTimeOffset? effectiveAt = null, CreatePortfolioDetails details = null)
 
 Upsert details
 
 Update the portfolio details for the specified transaction portfolios or add if it doesn't already exist (in the case of a derived transaction portfolio).
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -1125,13 +1217,13 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var details = new CreatePortfolioDetails(); // CreatePortfolioDetails | The set of details for the portfolio (optional) 
             var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the change (optional) 
+            var details = new CreatePortfolioDetails(); // CreatePortfolioDetails | The set of details for the portfolio (optional) 
 
             try
             {
                 // Upsert details
-                PortfolioDetails result = apiInstance.UpsertPortfolioDetails(scope, code, details, effectiveAt);
+                PortfolioDetails result = apiInstance.UpsertPortfolioDetails(scope, code, effectiveAt, details);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1145,12 +1237,13 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **details** | [**CreatePortfolioDetails**](CreatePortfolioDetails.md)| The set of details for the portfolio | [optional] 
  **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the change | [optional] 
+ **details** | [**CreatePortfolioDetails**](CreatePortfolioDetails.md)| The set of details for the portfolio | [optional] 
 
 ### Return type
 
@@ -1162,13 +1255,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="upserttransactions"></a>
-# **UpsertTransactions**
+
+## UpsertTransactions
+
 > UpsertPortfolioTransactionsResponse UpsertTransactions (string scope, string code, List<TransactionRequest> transactions = null)
 
 Upsert transactions into the specified transaction portfolio
@@ -1176,6 +1273,7 @@ Upsert transactions into the specified transaction portfolio
 Upsert transactions
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -1214,11 +1312,12 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code for the portfolio | 
- **transactions** | [**List&lt;TransactionRequest&gt;**](TransactionRequest.md)| The transactions to be upserted | [optional] 
+ **transactions** | [**List&lt;TransactionRequest&gt;**](List.md)| The transactions to be upserted | [optional] 
 
 ### Return type
 
@@ -1230,8 +1329,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

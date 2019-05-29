@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.CutLabelDefinitionsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,8 +11,9 @@ Method | HTTP request | Description
 [**UpdateCutLabelDefinition**](CutLabelDefinitionsApi.md#updatecutlabeldefinition) | **PUT** /api/systemconfiguration/cutlabels/{code} | Update a Cut Label
 
 
-<a name="createcutlabeldefinition"></a>
-# **CreateCutLabelDefinition**
+
+## CreateCutLabelDefinition
+
 > CutLabelDefinition CreateCutLabelDefinition (CreateCutLabelDefinitionRequest createRequest = null)
 
 Create a Cut Label
@@ -20,6 +21,7 @@ Create a Cut Label
 Create a Cut Label valid in all scopes
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -56,6 +58,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createRequest** | [**CreateCutLabelDefinitionRequest**](CreateCutLabelDefinitionRequest.md)| The cut label definition | [optional] 
@@ -70,13 +73,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="deletecutlabeldefinition"></a>
-# **DeleteCutLabelDefinition**
+
+## DeleteCutLabelDefinition
+
 > DateTimeOffset? DeleteCutLabelDefinition (string code)
 
 Delete a Cut Label
@@ -84,6 +91,7 @@ Delete a Cut Label
 Delete a specified cut label
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -120,6 +128,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The Code of the Cut Label that is being Deleted | 
@@ -134,13 +143,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getcutlabeldefinition"></a>
-# **GetCutLabelDefinition**
+
+## GetCutLabelDefinition
+
 > CutLabelDefinition GetCutLabelDefinition (string code, DateTimeOffset? asAt = null)
 
 Get a Cut Label
@@ -148,6 +161,7 @@ Get a Cut Label
 Get a specified cut label at a given time
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -185,6 +199,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The Code of the Cut Label that is being queried | 
@@ -200,13 +215,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listcutlabeldefinitions"></a>
-# **ListCutLabelDefinitions**
+
+## ListCutLabelDefinitions
+
 > ResourceListOfCutLabelDefinition ListCutLabelDefinitions (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
 List Existing Cut Labels
@@ -214,6 +233,7 @@ List Existing Cut Labels
 List all the Cut Label Definitions that are valid at the given AsAt time
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -255,6 +275,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| Optional. The As At time at which listed Cut Labels are valid | [optional] 
@@ -274,13 +295,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="updatecutlabeldefinition"></a>
-# **UpdateCutLabelDefinition**
+
+## UpdateCutLabelDefinition
+
 > CutLabelDefinition UpdateCutLabelDefinition (string code, UpdateCutLabelDefinitionRequest updateRequest = null)
 
 Update a Cut Label
@@ -288,6 +313,7 @@ Update a Cut Label
 Update a specified cut label
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -325,6 +351,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The Code of the Cut Label that is being updated | 
@@ -340,8 +367,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

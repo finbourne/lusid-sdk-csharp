@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.SearchApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,15 +10,17 @@ Method | HTTP request | Description
 [**PropertiesSearch**](SearchApi.md#propertiessearch) | **POST** /api/search/propertydefinitions | Search property definitions
 
 
-<a name="instrumentssearch"></a>
-# **InstrumentsSearch**
-> ICollection<InstrumentMatch> InstrumentsSearch (List<InstrumentSearchProperty> symbols = null, DateTimeOffset? masteredEffectiveAt = null, bool? masteredOnly = null)
+
+## InstrumentsSearch
+
+> ICollection<InstrumentMatch> InstrumentsSearch (DateTimeOffset? masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null)
 
 Search instruments
 
 Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -36,14 +38,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var symbols = new List<InstrumentSearchProperty>(); // List<InstrumentSearchProperty> | A collection of instrument symbols to search for (optional) 
             var masteredEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional) 
             var masteredOnly = true;  // bool? | Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional)  (default to false)
+            var symbols = new List<InstrumentSearchProperty>(); // List<InstrumentSearchProperty> | A collection of instrument symbols to search for (optional) 
 
             try
             {
                 // Search instruments
-                ICollection&lt;InstrumentMatch&gt; result = apiInstance.InstrumentsSearch(symbols, masteredEffectiveAt, masteredOnly);
+                ICollection&lt;InstrumentMatch&gt; result = apiInstance.InstrumentsSearch(masteredEffectiveAt, masteredOnly, symbols);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,11 +59,12 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | [**List&lt;InstrumentSearchProperty&gt;**](InstrumentSearchProperty.md)| A collection of instrument symbols to search for | [optional] 
  **masteredEffectiveAt** | **DateTimeOffset?**| Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. | [optional] 
  **masteredOnly** | **bool?**| Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false | [optional] [default to false]
+ **symbols** | [**List&lt;InstrumentSearchProperty&gt;**](List.md)| A collection of instrument symbols to search for | [optional] 
 
 ### Return type
 
@@ -73,20 +76,25 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="portfoliogroupssearch"></a>
-# **PortfolioGroupsSearch**
-> ResourceListOfPortfolioGroup PortfolioGroupsSearch (Object request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+
+## PortfolioGroupsSearch
+
+> ResourceListOfPortfolioGroup PortfolioGroupsSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
 
 Search portfolio groups
 
 Search through all portfolio groups
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -104,16 +112,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
 
             try
             {
                 // Search portfolio groups
-                ResourceListOfPortfolioGroup result = apiInstance.PortfolioGroupsSearch(request, sortBy, start, limit, filter);
+                ResourceListOfPortfolioGroup result = apiInstance.PortfolioGroupsSearch(sortBy, start, limit, filter, request);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -127,13 +135,14 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
 
 ### Return type
 
@@ -145,20 +154,25 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="portfoliossearch"></a>
-# **PortfoliosSearch**
-> ResourceListOfPortfolioSearchResult PortfoliosSearch (Object request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+
+## PortfoliosSearch
+
+> ResourceListOfPortfolioSearchResult PortfoliosSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
 
 Search portfolios
 
 Search through all portfolios
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -176,16 +190,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
 
             try
             {
                 // Search portfolios
-                ResourceListOfPortfolioSearchResult result = apiInstance.PortfoliosSearch(request, sortBy, start, limit, filter);
+                ResourceListOfPortfolioSearchResult result = apiInstance.PortfoliosSearch(sortBy, start, limit, filter, request);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -199,13 +213,14 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
 
 ### Return type
 
@@ -217,20 +232,25 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="propertiessearch"></a>
-# **PropertiesSearch**
-> ResourceListOfPropertyDefinition PropertiesSearch (Object request = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+
+## PropertiesSearch
+
+> ResourceListOfPropertyDefinition PropertiesSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
 
 Search property definitions
 
 Search through all property definitions
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -248,16 +268,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SearchApi();
-            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var request = ;  // Object | A valid Elasticsearch 5.x request (optional) 
 
             try
             {
                 // Search property definitions
-                ResourceListOfPropertyDefinition result = apiInstance.PropertiesSearch(request, sortBy, start, limit, filter);
+                ResourceListOfPropertyDefinition result = apiInstance.PropertiesSearch(sortBy, start, limit, filter, request);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -271,13 +291,14 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **request** | **Object**| A valid Elasticsearch 5.x request | [optional] 
 
 ### Return type
 
@@ -289,8 +310,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

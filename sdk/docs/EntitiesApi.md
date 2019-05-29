@@ -1,14 +1,15 @@
 # Lusid.Sdk.Api.EntitiesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | Get the next change to each portfolio in a scope.
 
 
-<a name="getportfoliochanges"></a>
-# **GetPortfolioChanges**
+
+## GetPortfolioChanges
+
 > ResourceListOfChange GetPortfolioChanges (string scope, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null)
 
 Get the next change to each portfolio in a scope.
@@ -16,6 +17,7 @@ Get the next change to each portfolio in a scope.
 Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -54,6 +56,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope | 
@@ -70,8 +73,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

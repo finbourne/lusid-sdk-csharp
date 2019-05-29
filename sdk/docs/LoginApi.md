@@ -1,14 +1,15 @@
 # Lusid.Sdk.Api.LoginApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetSamlIdentityProviderId**](LoginApi.md#getsamlidentityproviderid) | **GET** /api/login/saml/{domain} | Get SAML Identity Provider
 
 
-<a name="getsamlidentityproviderid"></a>
-# **GetSamlIdentityProviderId**
+
+## GetSamlIdentityProviderId
+
 > string GetSamlIdentityProviderId (string domain)
 
 Get SAML Identity Provider
@@ -16,6 +17,7 @@ Get SAML Identity Provider
 Get the unique identifier for the SAML 2.0 Identity Provider to be used for domain.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -52,6 +54,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domain** | **string**| The domain that the user will be logging in to | 
@@ -66,8 +69,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

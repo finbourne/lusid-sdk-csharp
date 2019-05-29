@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.ResultsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**UpsertResults**](ResultsApi.md#upsertresults) | **POST** /api/results | Upsert results
 
 
-<a name="getresults"></a>
-# **GetResults**
+
+## GetResults
+
 > Results GetResults (string entityScope, string entityCode, string calculationScope, string calculationCode, DateTimeOffset? effectiveAt)
 
 Retrieve a page of results all keyed by the provided parameters. The result store is not bi-temporal; a single date  addressed the market effectiveAt.
@@ -17,6 +18,7 @@ Retrieve a page of results all keyed by the provided parameters. The result stor
 Retrieve pre-calculated results that have been stored in LUSID.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -57,6 +59,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entityScope** | **string**| The scope of the data or entity being stored | 
@@ -75,13 +78,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="upsertresults"></a>
-# **UpsertResults**
+
+## UpsertResults
+
 > Results UpsertResults (CreateResults request = null)
 
 Upsert results
@@ -89,6 +96,7 @@ Upsert results
 Upsert pre-calculated results against a specified combination of key parameters defined in the CreateResults request.
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -125,6 +133,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request** | [**CreateResults**](CreateResults.md)| The details of what to upsert | [optional] 
@@ -139,8 +148,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
