@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | unique instrument identifiers. | 
-**InstrumentUid** | **string** | Unique instrument identifier | 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
+**InstrumentUid** | **string** | LUSID&#39;s internal unique instrument identifier, resolved from the instrument identifiers | 
 **UnitsFactor** | **double?** |  | 
 **CostFactor** | **double?** |  | 
 

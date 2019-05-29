@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers. | 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
 **Properties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md) |  | [optional] 
 **Weight** | **double?** |  | 
 **Currency** | **string** |  | [optional] 

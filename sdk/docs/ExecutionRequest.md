@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExecutionId** | **string** | FIX Field 17.  Unique execution identifier. | 
 **Side** | **string** | FIX Field 54. | 
-**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers. | 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
 **TransactionTime** | **DateTimeOffset?** | FIX field 60.  Time the transaction represented by this ExecutionReport occurred. | 
 **LastShares** | **double?** | FIX field 32. | 
 **LastPx** | **double?** | FIX field 31. | 
