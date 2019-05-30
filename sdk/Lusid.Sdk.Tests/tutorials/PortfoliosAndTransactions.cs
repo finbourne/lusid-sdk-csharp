@@ -168,7 +168,7 @@ namespace Lusid.Sdk.Tests.Tutorials
             _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(TutorialScope, portfolioId, transactions);
             
             //    Get the portfolio holdings on T+10
-            var holdings = _apiFactory.Api<ITransactionPortfoliosApi>().GetHoldings(TutorialScope, portfolioId, effectiveAt: dayTPlus10);
+            var holdings = _apiFactory.Api<ITransactionPortfoliosApi>().GetHoldings(TutorialScope, portfolioId, effectiveAt: dayTPlus10.ToString("o"));
             
             //    Ensure we have 5 holdings: 1 cash position and a position in 4 instruments that aggregates the 5 transactions
             Assert.That(holdings.Count, Is.EqualTo(5));
