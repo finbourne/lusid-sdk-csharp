@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **CutLocalTime** | [**CutLocalTime**](CutLocalTime.md) |  | 
 **TimeZone** | **string** |  | 
-**EffectiveAt** | **DateTimeOffset?** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

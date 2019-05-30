@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **CutLocalTime** | [**CutLocalTime**](CutLocalTime.md) |  | [optional] 
 **TimeZone** | **string** |  | [optional] 
-**EffectiveAt** | **DateTimeOffset?** |  | [optional] 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
