@@ -67,42 +67,6 @@ namespace Lusid.Sdk.Tests
             Assert.That(constituents, Is.Not.Null);
         }
 
-
-        [Test]
-        public void Get_Schema_For_Response()
-        {
-            // GIVEN an instance of the LUSID client, and a portfolio created in LUSID
-
-            const string scope = "finbourne";
-            var code = $"id-{Guid.NewGuid()}";
-
-            var request = new CreateTransactionPortfolioRequest($"Portfolio-{code}", code: code, baseCurrency: "GBP");
-
-            _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
-
-            // WHEN the portfolio is queried
-            var portfolioResponse = _apiFactory.Api<IPortfoliosApi>().GetPortfolioAsyncWithHttpInfo(scope, code).Result;
-
-            // THEN the result should include a schema Url
-            var schemaHeaderItem = portfolioResponse.Headers["lusid-schema-url"];
-
-            // AND which we we can use to query for the schema of the entity
-            // TODO: Too difficult to convert the returned Url into parameters for the call to GetSchema
-            Regex regex = new Regex(".+/(\\w+)");
-            var entityType = regex.Match(schemaHeaderItem);
-
-            var schema = _apiFactory.Api<ISchemasApi>().GetEntitySchema(entityType.Groups[1].Value);
-
-            Assert.That(schema, Is.Not.Null);
-            Assert.That(schema.Values, Is.Not.Empty);
-
-            var fields = typeof(Portfolio).GetProperties().Select(p => p.Name).ToImmutableHashSet();
-            foreach (var fieldSchema in schema.Values)
-            {
-                Assert.That(fields, Does.Contain(fieldSchema.Value.DisplayName));
-            }
-        }
-
         [Test]
         public void Create_Portfolio()
         {            
@@ -323,79 +287,6 @@ namespace Lusid.Sdk.Tests
             }
         }
 
-        [Test]
-        public void Portfolio_Aggregation()
-        {
-            const string scope = "finbourne";
-            var uuid = Guid.NewGuid().ToString();            
-
-            //    create the portfolio
-            var effectiveDate = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
-            var request = new CreateTransactionPortfolioRequest(
-                $"Portfolio-{uuid}", 
-                code: $"id-{uuid}", 
-                baseCurrency: "GBP", 
-                created: effectiveDate
-            );            
-
-            //    create portfolio
-            var portfolio = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(scope, request);
-
-            Assert.That(portfolio.DisplayName, Is.EqualTo(request.DisplayName));
-
-            var portfolioId = portfolio.Id.Code;
-            Assert.That(portfolioId, Is.Not.Null, "portfolioId null");
-
-            var transactionspecs = new[]
-                {
-                    (Id: _instrumentIds[0], Price: 101, TradeDate: effectiveDate),
-                    (Id: _instrumentIds[1], Price: 102, TradeDate: effectiveDate),
-                    (Id: _instrumentIds[2], Price: 103, TradeDate: effectiveDate)
-                }
-                .OrderBy(i => i.Id);
-
-            var newtransactions = transactionspecs.Select(id => BuildTransaction(id.Id, id.Price, id.TradeDate));
-
-            //    add transactions
-            _apiFactory.Api<ITransactionPortfoliosApi>().UpsertTransactions(scope, portfolioId, newtransactions.ToList());
-            
-            //    set up analytic store
-            var analyticStores = _apiFactory.Api<IAnalyticsStoresApi>().ListAnalyticStores();
-            var store = analyticStores.Values.Select(s => s.Date == effectiveDate);
-
-            if (!store.Any())
-            {
-                //    create the analytic store
-                var analyticStoreRequest = new CreateAnalyticStoreRequest(scope, effectiveDate);
-                _apiFactory.Api<IAnalyticsStoresApi>().CreateAnalyticStore(analyticStoreRequest);
-            }
-                        
-            var prices = new List<InstrumentAnalytic>
-            {
-                new InstrumentAnalytic(_instrumentIds[0], 100), 
-                new InstrumentAnalytic(_instrumentIds[1], 200),
-                new InstrumentAnalytic(_instrumentIds[2], 300)
-            };
-            
-            //    add prices
-            _apiFactory.Api<IAnalyticsStoresApi>().SetAnalytics(scope, effectiveDate.Year, effectiveDate.Month, effectiveDate.Day, prices);
-                       
-            var aggregationRequest = new AggregationRequest(
-                recipeId: new ResourceId(scope, "default"),
-                metrics: new List<AggregateSpec>
-                {
-                    new AggregateSpec("Instrument/default/Name", AggregateSpec.OpEnum.Value),
-                    new AggregateSpec("Holding/default/PV", AggregateSpec.OpEnum.Proportion),
-                    new AggregateSpec("Holding/default/PV", AggregateSpec.OpEnum.Sum)
-                },
-                groupBy: new List<string> {"Instrument/default/Name"},
-                effectiveAt: effectiveDate
-            );
-
-            //    do the aggregation
-            _apiFactory.Api<IAggregationApi>().GetAggregationByPortfolio(scope, portfolioId, request: aggregationRequest);
-        }
-        
         private TransactionRequest BuildTransaction(string id, double price, DateTimeOffset tradeDate)
         {
             return new TransactionRequest(        

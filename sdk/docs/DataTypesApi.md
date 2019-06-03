@@ -4,82 +4,10 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDataType**](DataTypesApi.md#createdatatype) | **POST** /api/datatypes | Create data type definition
 [**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | Get data type definition
 [**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | Get units from data type
 [**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | List data types
-[**UpdateDataType**](DataTypesApi.md#updatedatatype) | **PUT** /api/datatypes/{scope}/{code} | Update data type definition
 
-
-
-## CreateDataType
-
-> DataType CreateDataType (CreateDataTypeRequest request = null)
-
-Create data type definition
-
-Create a new data type definition    Data types cannot be created in either the \"default\" or \"system\" scopes.
-
-### Example
-
-```csharp
-using System;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class CreateDataTypeExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new DataTypesApi();
-            var request = new CreateDataTypeRequest(); // CreateDataTypeRequest | The definition of the new data type (optional) 
-
-            try
-            {
-                // Create data type definition
-                DataType result = apiInstance.CreateDataType(request);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DataTypesApi.CreateDataType: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request** | [**CreateDataTypeRequest**](CreateDataTypeRequest.md)| The definition of the new data type | [optional] 
-
-### Return type
-
-[**DataType**](DataType.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## GetDataType
@@ -296,80 +224,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ResourceListOfDataType**](ResourceListOfDataType.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateDataType
-
-> DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null)
-
-Update data type definition
-
-Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
-
-### Example
-
-```csharp
-using System;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class UpdateDataTypeExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new DataTypesApi();
-            var scope = scope_example;  // string | The scope of the data type
-            var code = code_example;  // string | The code of the data type
-            var request = new UpdateDataTypeRequest(); // UpdateDataTypeRequest | The updated definition of the data type (optional) 
-
-            try
-            {
-                // Update data type definition
-                DataType result = apiInstance.UpdateDataType(scope, code, request);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DataTypesApi.UpdateDataType: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the data type | 
- **code** | **string**| The code of the data type | 
- **request** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md)| The updated definition of the data type | [optional] 
-
-### Return type
-
-[**DataType**](DataType.md)
 
 ### Authorization
 
