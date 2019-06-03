@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 
 ## UpdatePortfolio
 
-> Portfolio UpdatePortfolio (string scope, string code, DateTimeOffset? effectiveAt = null, UpdatePortfolioRequest request = null)
+> Portfolio UpdatePortfolio (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
 
 Update portfolio definition
 
@@ -603,7 +603,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date for the change (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date for the change (optional) 
             var request = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition (optional) 
 
             try
@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date for the change | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date for the change | [optional] 
  **request** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition | [optional] 
 
 ### Return type
