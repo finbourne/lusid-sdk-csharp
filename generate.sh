@@ -37,6 +37,7 @@ java -jar openapi-generator-cli.jar generate \
     -g csharp \
     -o $sdk_output_folder \
     -c $gen_root/config.json \
+    -t $gen_root/templates \
 	--type-mappings cutlabel=CutLabel
 
 rm -rf $sdk_output_folder/.openapi-generator
