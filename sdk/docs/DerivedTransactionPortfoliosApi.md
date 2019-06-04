@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## DeleteDerivedPortfolioDetails
 
-> DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOffset? effectiveAt = null)
+> DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, string effectiveAt = null)
 
 Delete portfolio details
 
@@ -110,7 +110,7 @@ namespace Example
             var apiInstance = new DerivedTransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date of the change (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective date of the change (optional) 
 
             try
             {
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| The effective date of the change | [optional] 
+ **effectiveAt** | **string**| The effective date of the change | [optional] 
 
 ### Return type
 

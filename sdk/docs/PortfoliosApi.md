@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## DeletePortfolio
 
-> DeletedEntityResponse DeletePortfolio (string scope, string code, DateTimeOffset? effectiveAt = null)
+> DeletedEntityResponse DeletePortfolio (string scope, string code, string effectiveAt = null)
 
 Delete portfolio
 
@@ -45,7 +45,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the deletion (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the deletion (optional) 
 
             try
             {
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the deletion | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the deletion | [optional] 
 
 ### Return type
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## DeletePortfolioProperties
 
-> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, DateTimeOffset? effectiveAt = null, List<string> portfolioPropertyKeys = null)
+> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, string effectiveAt = null, List<string> portfolioPropertyKeys = null)
 
 Delete portfolio properties
 
@@ -119,7 +119,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | Code for the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the deletion (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the deletion (optional) 
             var portfolioPropertyKeys = new List<string>(); // List<string> | Optional. The keys of the properties to be deleted. None specified indicates the intention to delete all properties from the portfolio (optional) 
 
             try
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| Code for the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the deletion | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the deletion | [optional] 
  **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. The keys of the properties to be deleted. None specified indicates the intention to delete all properties from the portfolio | [optional] 
 
 ### Return type
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ## GetPortfolioProperties
 
-> PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
+> PortfolioProperties GetPortfolioProperties (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
 
 Get portfolio properties
 
@@ -355,7 +355,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ## ListPortfolios
 
-> ResourceListOfPortfolio ListPortfolios (DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
+> ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
 List portfolios
 
@@ -435,7 +435,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi();
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var page = page_example;  // string | Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set. (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
@@ -464,7 +464,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **page** | **string**| Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set. | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 ## ListPortfoliosForScope
 
-> ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 List portfolios for scope
 
@@ -520,7 +520,7 @@ namespace Example
 
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -548,7 +548,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 

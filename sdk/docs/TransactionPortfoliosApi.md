@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ## AdjustHoldings
 
-> AdjustHolding AdjustHoldings (string scope, string code, DateTimeOffset? effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+> AdjustHolding AdjustHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
 
 Adjust holdings
 
@@ -129,7 +129,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date of the change
+            var effectiveAt = effectiveAt_example;  // string | The effective date of the change
             var holdingAdjustments = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The selected set of holdings adjustments (optional) 
 
             try
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| The effective date of the change | 
+ **effectiveAt** | **string**| The effective date of the change | 
  **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](List.md)| The selected set of holdings adjustments | [optional] 
 
 ### Return type
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ## CancelAdjustHoldings
 
-> DeletedEntityResponse CancelAdjustHoldings (string scope, string code, DateTimeOffset? effectiveAt)
+> DeletedEntityResponse CancelAdjustHoldings (string scope, string code, string effectiveAt)
 
 Cancel holdings adjustments
 
@@ -291,7 +291,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date of the change
+            var effectiveAt = effectiveAt_example;  // string | The effective date of the change
 
             try
             {
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| The effective date of the change | 
+ **effectiveAt** | **string**| The effective date of the change | 
 
 ### Return type
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ## GetDetails
 
-> PortfolioDetails GetDetails (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
+> PortfolioDetails GetDetails (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
 Get portfolio details
 
@@ -661,7 +661,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
 
             try
@@ -686,7 +686,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
 
 ### Return type
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 
 ## GetHoldings
 
-> VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
+> VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
 Get holdings
 
@@ -738,7 +738,7 @@ namespace Example
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
             var byTaxlots = true;  // bool? | Option to expand holdings to return the underlying tax-lots (optional) 
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the portfolio (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the portfolio (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -769,7 +769,7 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
  **byTaxlots** | **bool?**| Option to expand holdings to return the underlying tax-lots | [optional] 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the portfolio | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the portfolio | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
@@ -798,7 +798,7 @@ Name | Type | Description  | Notes
 
 ## GetHoldingsAdjustment
 
-> HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null)
+> HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null)
 
 Get holding adjustment
 
@@ -825,7 +825,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective time of the holdings adjustment
+            var effectiveAt = effectiveAt_example;  // string | The effective time of the holdings adjustment
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
 
             try
@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| The effective time of the holdings adjustment | 
+ **effectiveAt** | **string**| The effective time of the holdings adjustment | 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
 
 ### Return type
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 ## GetTransactions
 
-> VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOffset? fromTransactionDate = null, DateTimeOffset? toTransactionDate = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null)
+> VersionedResourceListOfTransaction GetTransactions (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null)
 
 Get transactions
 
@@ -901,8 +901,8 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var fromTransactionDate = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Limit the returned transactions to those with a transaction date equal or later than this date (optional) 
-            var toTransactionDate = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Limit the returned transactions to those with a transaction date equal or before this date (optional) 
+            var fromTransactionDate = fromTransactionDate_example;  // string | Optional. Limit the returned transactions to those with a transaction date equal or later than this date (optional) 
+            var toTransactionDate = toTransactionDate_example;  // string | Optional. Limit the returned transactions to those with a transaction date equal or before this date (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -932,8 +932,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **fromTransactionDate** | **DateTimeOffset?**| Optional. Limit the returned transactions to those with a transaction date equal or later than this date | [optional] 
- **toTransactionDate** | **DateTimeOffset?**| Optional. Limit the returned transactions to those with a transaction date equal or before this date | [optional] 
+ **fromTransactionDate** | **string**| Optional. Limit the returned transactions to those with a transaction date equal or later than this date | [optional] 
+ **toTransactionDate** | **string**| Optional. Limit the returned transactions to those with a transaction date equal or before this date | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
@@ -962,7 +962,7 @@ Name | Type | Description  | Notes
 
 ## ListHoldingsAdjustments
 
-> ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOffset? fromEffectiveAt = null, DateTimeOffset? toEffectiveAt = null, DateTimeOffset? asAt = null)
+> ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null)
 
 List holdings adjustments
 
@@ -989,8 +989,8 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | Code for the portfolio
-            var fromEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Holdings adjustments between this time (inclusive) and the toEffectiveAt are returned. (optional) 
-            var toEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Holdings adjustments between this time (inclusive) and the fromEffectiveAt are returned. (optional) 
+            var fromEffectiveAt = fromEffectiveAt_example;  // string | Holdings adjustments between this time (inclusive) and the toEffectiveAt are returned. (optional) 
+            var toEffectiveAt = toEffectiveAt_example;  // string | Holdings adjustments between this time (inclusive) and the fromEffectiveAt are returned. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
 
             try
@@ -1015,8 +1015,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| Code for the portfolio | 
- **fromEffectiveAt** | **DateTimeOffset?**| Holdings adjustments between this time (inclusive) and the toEffectiveAt are returned. | [optional] 
- **toEffectiveAt** | **DateTimeOffset?**| Holdings adjustments between this time (inclusive) and the fromEffectiveAt are returned. | [optional] 
+ **fromEffectiveAt** | **string**| Holdings adjustments between this time (inclusive) and the toEffectiveAt are returned. | [optional] 
+ **toEffectiveAt** | **string**| Holdings adjustments between this time (inclusive) and the fromEffectiveAt are returned. | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
 
 ### Return type
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
 
 ## SetHoldings
 
-> AdjustHolding SetHoldings (string scope, string code, DateTimeOffset? effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+> AdjustHolding SetHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
 
 Set all holdings on a transaction portfolio
 
@@ -1067,7 +1067,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio
             var code = code_example;  // string | The code of the transaction portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date of the change
+            var effectiveAt = effectiveAt_example;  // string | The effective date of the change
             var holdingAdjustments = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The complete set of holdings adjustments for the portfolio (optional) 
 
             try
@@ -1092,7 +1092,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio | 
  **code** | **string**| The code of the transaction portfolio | 
- **effectiveAt** | **DateTimeOffset?**| The effective date of the change | 
+ **effectiveAt** | **string**| The effective date of the change | 
  **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](List.md)| The complete set of holdings adjustments for the portfolio | [optional] 
 
 ### Return type
@@ -1190,7 +1190,7 @@ Name | Type | Description  | Notes
 
 ## UpsertPortfolioDetails
 
-> PortfolioDetails UpsertPortfolioDetails (string scope, string code, DateTimeOffset? effectiveAt = null, CreatePortfolioDetails details = null)
+> PortfolioDetails UpsertPortfolioDetails (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null)
 
 Upsert details
 
@@ -1217,7 +1217,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the change (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the change (optional) 
             var details = new CreatePortfolioDetails(); // CreatePortfolioDetails | The set of details for the portfolio (optional) 
 
             try
@@ -1242,7 +1242,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the change | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the change | [optional] 
  **details** | [**CreatePortfolioDetails**](CreatePortfolioDetails.md)| The set of details for the portfolio | [optional] 
 
 ### Return type

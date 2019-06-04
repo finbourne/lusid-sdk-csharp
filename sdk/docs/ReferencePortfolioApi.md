@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## GetReferencePortfolioConstituents
 
-> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> instrumentPropertyKeys = null)
+> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> instrumentPropertyKeys = null)
 
 Get constituents
 
@@ -112,7 +112,7 @@ namespace Example
             var apiInstance = new ReferencePortfolioApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the constituents to retrieve (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the constituents to retrieve (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the constituents to retrieve | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the constituents to retrieve | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ## ListConstituentsAdjustments
 
-> ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, DateTimeOffset? fromEffectiveAt = null, DateTimeOffset? toEffectiveAt = null, DateTimeOffset? asAtTime = null)
+> ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
 
 Gets constituents adjustments in an interval of effective time.
 
@@ -196,8 +196,8 @@ namespace Example
             var apiInstance = new ReferencePortfolioApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | Code for the portfolio
-            var fromEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Events between this time (inclusive) and the toEffectiveAt are returned. (optional) 
-            var toEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Events between this time (inclusive) and the fromEffectiveAt are returned. (optional) 
+            var fromEffectiveAt = fromEffectiveAt_example;  // string | Events between this time (inclusive) and the toEffectiveAt are returned. (optional) 
+            var toEffectiveAt = toEffectiveAt_example;  // string | Events between this time (inclusive) and the fromEffectiveAt are returned. (optional) 
             var asAtTime = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The as-at time for which the result is valid. (optional) 
 
             try
@@ -222,8 +222,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| Code for the portfolio | 
- **fromEffectiveAt** | **DateTimeOffset?**| Events between this time (inclusive) and the toEffectiveAt are returned. | [optional] 
- **toEffectiveAt** | **DateTimeOffset?**| Events between this time (inclusive) and the fromEffectiveAt are returned. | [optional] 
+ **fromEffectiveAt** | **string**| Events between this time (inclusive) and the toEffectiveAt are returned. | [optional] 
+ **toEffectiveAt** | **string**| Events between this time (inclusive) and the fromEffectiveAt are returned. | [optional] 
  **asAtTime** | **DateTimeOffset?**| The as-at time for which the result is valid. | [optional] 
 
 ### Return type
