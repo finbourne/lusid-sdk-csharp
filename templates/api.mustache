@@ -434,8 +434,8 @@ namespace {{packageName}}.{{apiPackage}}
             {{/authMethods}}
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "{{packageVersion}}";
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "{{packageVersion}}";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
