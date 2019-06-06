@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetPortfolioChanges
 
-> ResourceListOfChange GetPortfolioChanges (string scope, DateTimeOffset? effectiveAt, DateTimeOffset? asAt = null)
+> ResourceListOfChange GetPortfolioChanges (string scope, string effectiveAt, DateTimeOffset? asAt = null)
 
 Get the next change to each portfolio in a scope.
 
@@ -36,7 +36,7 @@ namespace Example
 
             var apiInstance = new EntitiesApi();
             var scope = scope_example;  // string | The scope
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date of the origin.
+            var effectiveAt = effectiveAt_example;  // string | The effective date of the origin.
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The as-at date of the origin. (optional) 
 
             try
@@ -60,7 +60,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope | 
- **effectiveAt** | **DateTimeOffset?**| The effective date of the origin. | 
+ **effectiveAt** | **string**| The effective date of the origin. | 
  **asAt** | **DateTimeOffset?**| The as-at date of the origin. | [optional] 
 
 ### Return type

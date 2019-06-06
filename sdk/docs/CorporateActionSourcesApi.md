@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## GetCorporateActions
 
-> ResourceListOfCorporateAction GetCorporateActions (string scope, string code, DateTimeOffset? fromEffectiveAt = null, DateTimeOffset? toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfCorporateAction GetCorporateActions (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 Get corporate actions
 
@@ -257,8 +257,8 @@ namespace Example
             var apiInstance = new CorporateActionSourcesApi();
             var scope = scope_example;  // string | The scope of the corporate action source
             var code = code_example;  // string | The code of the corporate action source
-            var fromEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The start effective date of the data range (optional) 
-            var toEffectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The end effective date of the data range (optional) 
+            var fromEffectiveAt = fromEffectiveAt_example;  // string | Optional. The start effective date of the data range (optional) 
+            var toEffectiveAt = toEffectiveAt_example;  // string | Optional. The end effective date of the data range (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -287,8 +287,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the corporate action source | 
  **code** | **string**| The code of the corporate action source | 
- **fromEffectiveAt** | **DateTimeOffset?**| Optional. The start effective date of the data range | [optional] 
- **toEffectiveAt** | **DateTimeOffset?**| Optional. The end effective date of the data range | [optional] 
+ **fromEffectiveAt** | **string**| Optional. The start effective date of the data range | [optional] 
+ **toEffectiveAt** | **string**| Optional. The end effective date of the data range | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
