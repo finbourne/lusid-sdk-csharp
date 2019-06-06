@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
-**EffectiveAt** | **DateTimeOffset?** | The effective date of the portfolio | 
+**EffectiveAt** | **string** | The effective date of the portfolio | 
 **AsAt** | **DateTimeOffset?** | Optional. The AsAt date of the portfolio | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

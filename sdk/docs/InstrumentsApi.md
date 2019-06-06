@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## GetInstrument
 
-> Instrument GetInstrument (string identifierType, string identifier, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+> Instrument GetInstrument (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
 Get instrument definition
 
@@ -116,7 +116,7 @@ namespace Example
             var apiInstance = new InstrumentsApi();
             var identifierType = identifierType_example;  // string | The type of identifier being supplied
             var identifier = identifier_example;  // string | The identifier of the requested instrument
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the query (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the query (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the query (optional) 
             var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifierType** | **string**| The type of identifier being supplied | 
  **identifier** | **string**| The identifier of the requested instrument | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the query | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the query | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the query | [optional] 
  **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
 
@@ -233,7 +233,7 @@ This endpoint does not need any parameter.
 
 ## GetInstruments
 
-> GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+> GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
 Get instrument definition
 
@@ -260,7 +260,7 @@ namespace Example
             var apiInstance = new InstrumentsApi();
             var identifierType = identifierType_example;  // string | The type of identifiers being supplied
             var identifiers = new List<string>(); // List<string> | The identifiers of the instruments to get
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the request (optional) 
+            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the request (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The as at date of the request (optional) 
             var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifierType** | **string**| The type of identifiers being supplied | 
  **identifiers** | [**List&lt;string&gt;**](List.md)| The identifiers of the instruments to get | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the request | [optional] 
+ **effectiveAt** | **string**| Optional. The effective date of the request | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The as at date of the request | [optional] 
  **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
 
