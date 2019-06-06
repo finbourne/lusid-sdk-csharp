@@ -395,11 +395,11 @@ namespace Lusid.Sdk.Tests
                 new PortfoliosReconciliationRequest(
                     new PortfolioReconciliationRequest(
                         new ResourceId(scope, portfolio.Id.Code),
-                        yesterday.AddHours(20),
+                        yesterday.AddHours(20).ToString("o"),
                         finalAsAtTime),
                     new PortfolioReconciliationRequest(
                         new ResourceId(scope, portfolio.Id.Code),
-                        today.AddHours(16),
+                        today.AddHours(16).ToString("o"),
                         finalAsAtTime),
                     new List<string>());
 
