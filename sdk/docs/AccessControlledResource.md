@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Application** | **string** | The application to which this resource belongs | [optional] 
 **Name** | **string** | The display name of the resource | [optional] 
 **Description** | **string** | The description of the resource | 
 **Actions** | [**List&lt;AccessControlledAction&gt;**](AccessControlledAction.md) | The actions acceptable for this type of resource | 
