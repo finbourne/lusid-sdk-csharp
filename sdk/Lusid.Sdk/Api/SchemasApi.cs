@@ -21,142 +21,202 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IReconciliationsApi : IApiAccessor
+    public interface ISchemasApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Schema</returns>
+        Schema GetEntitySchema (string entity);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>ApiResponse of Schema</returns>
+        ApiResponse<Schema> GetEntitySchemaWithHttpInfo (string entity);
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get the schemas for the provided list of property keys.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>PropertySchema</returns>
+        PropertySchema GetPropertySchema (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get the schemas for the provided list of property keys.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>ApiResponse of PropertySchema</returns>
+        ApiResponse<PropertySchema> GetPropertySchemaWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
+        /// <summary>
+        /// Get value types
+        /// </summary>
+        /// <remarks>
+        /// Gets the available value types for which a schema is available.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <returns>ResourceListOfValueType</returns>
+        ResourceListOfValueType GetValueTypes (List<string> sortBy = null, int? start = null, int? limit = null);
+
+        /// <summary>
+        /// Get value types
+        /// </summary>
+        /// <remarks>
+        /// Gets the available value types for which a schema is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfValueType</returns>
+        ApiResponse<ResourceListOfValueType> GetValueTypesWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null);
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ResourceListOfString</returns>
+        ResourceListOfString ListEntities ();
+
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ResourceListOfString</returns>
+        ApiResponse<ResourceListOfString> ListEntitiesWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of Schema</returns>
+        System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync (string entity);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of ApiResponse (Schema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Schema>> GetEntitySchemaAsyncWithHttpInfo (string entity);
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get the schemas for the provided list of property keys.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of PropertySchema</returns>
+        System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get the schemas for the provided list of property keys.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of ApiResponse (PropertySchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PropertySchema>> GetPropertySchemaAsyncWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
+        /// <summary>
+        /// Get value types
+        /// </summary>
+        /// <remarks>
+        /// Gets the available value types for which a schema is available.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <returns>Task of ResourceListOfValueType</returns>
+        System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync (List<string> sortBy = null, int? start = null, int? limit = null);
+
+        /// <summary>
+        /// Get value types
+        /// </summary>
+        /// <remarks>
+        /// Gets the available value types for which a schema is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfValueType)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfValueType>> GetValueTypesAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null);
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ResourceListOfString</returns>
+        System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync ();
+
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ResourceListOfString)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfString>> ListEntitiesAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ReconciliationsApi : IReconciliationsApi
+    public partial class SchemasApi : ISchemasApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class.
+        /// Initializes a new instance of the <see cref="SchemasApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi(String basePath)
+        public SchemasApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -164,10 +224,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="SchemasApi"/> class
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi()
+        public SchemasApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -175,12 +235,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="SchemasApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ReconciliationsApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public SchemasApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -254,35 +314,30 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Schema</returns>
+        public Schema GetEntitySchema (string entity)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileHoldingsWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<Schema> localVarResponse = GetEntitySchemaWithHttpInfo(entity);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>ApiResponse of Schema</returns>
+        public ApiResponse< Schema > GetEntitySchemaWithHttpInfo (string entity)
         {
+            // verify the required parameter 'entity' is set
+            if (entity == null)
+                throw new ApiException(400, "Missing required parameter 'entity' when calling SchemasApi->GetEntitySchema");
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/schemas/entities/{entity}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -305,18 +360,7 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (entity != null) localVarPathParams.Add("entity", this.Configuration.ApiClient.ParameterToString(entity)); // path parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -331,53 +375,48 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("GetEntitySchema", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<Schema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (Schema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Schema)));
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of Schema</returns>
+        public async System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync (string entity)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileHoldingsAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<Schema> localVarResponse = await GetEntitySchemaAsyncWithHttpInfo(entity);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of ApiResponse (Schema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Schema>> GetEntitySchemaAsyncWithHttpInfo (string entity)
         {
+            // verify the required parameter 'entity' is set
+            if (entity == null)
+                throw new ApiException(400, "Missing required parameter 'entity' when calling SchemasApi->GetEntitySchema");
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/schemas/entities/{entity}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -400,18 +439,7 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (entity != null) localVarPathParams.Add("entity", this.Configuration.ApiClient.ParameterToString(entity)); // path parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -426,52 +454,46 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("GetEntitySchema", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<Schema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (Schema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Schema)));
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get property schema Get the schemas for the provided list of property keys.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>PropertySchema</returns>
+        public PropertySchema GetPropertySchema (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileValuationWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<PropertySchema> localVarResponse = GetPropertySchemaWithHttpInfo(propertyKeys, asAt);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get property schema Get the schemas for the provided list of property keys.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>ApiResponse of PropertySchema</returns>
+        public ApiResponse< PropertySchema > GetPropertySchemaWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
         {
 
-            var localVarPath = "./api/portfolios/$reconcileValuation";
+            var localVarPath = "./api/schemas/properties";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -494,18 +516,8 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (propertyKeys != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "propertyKeys", propertyKeys)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -520,53 +532,127 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
+                Exception exception = ExceptionFactory("GetPropertySchema", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<PropertySchema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (PropertySchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PropertySchema)));
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get property schema Get the schemas for the provided list of property keys.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of PropertySchema</returns>
+        public async System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileValuationAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<PropertySchema> localVarResponse = await GetPropertySchemaAsyncWithHttpInfo(propertyKeys, asAt);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get property schema Get the schemas for the provided list of property keys.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of ApiResponse (PropertySchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PropertySchema>> GetPropertySchemaAsyncWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
+        {
+
+            var localVarPath = "./api/schemas/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (propertyKeys != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "propertyKeys", propertyKeys)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.226";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPropertySchema", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PropertySchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (PropertySchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PropertySchema)));
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <returns>ResourceListOfValueType</returns>
+        public ResourceListOfValueType GetValueTypes (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+             ApiResponse<ResourceListOfValueType> localVarResponse = GetValueTypesWithHttpInfo(sortBy, start, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfValueType</returns>
+        public ApiResponse< ResourceListOfValueType > GetValueTypesWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null)
         {
 
-            var localVarPath = "./api/portfolios/$reconcileValuation";
+            var localVarPath = "./api/schemas/types";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -592,15 +678,88 @@ namespace Lusid.Sdk.Api
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
-            else
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.226";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
             {
-                localVarPostBody = request; // byte array
+                Exception exception = ExceptionFactory("GetValueTypes", localVarResponse);
+                if (exception != null) throw exception;
             }
+
+            return new ApiResponse<ResourceListOfValueType>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfValueType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfValueType)));
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ResourceListOfValueType</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+             ApiResponse<ResourceListOfValueType> localVarResponse = await GetValueTypesAsyncWithHttpInfo(sortBy, start, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfValueType)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfValueType>> GetValueTypesAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+
+            var localVarPath = "./api/schemas/types";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -615,20 +774,165 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
+                Exception exception = ExceptionFactory("GetValueTypes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfValueType>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfValueType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfValueType)));
+        }
+
+        /// <summary>
+        /// List entities List all available entities for which schema information is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ResourceListOfString</returns>
+        public ResourceListOfString ListEntities ()
+        {
+             ApiResponse<ResourceListOfString> localVarResponse = ListEntitiesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List entities List all available entities for which schema information is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ResourceListOfString</returns>
+        public ApiResponse< ResourceListOfString > ListEntitiesWithHttpInfo ()
+        {
+
+            var localVarPath = "./api/schemas/entities";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.226";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListEntities", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfString>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfString) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfString)));
+        }
+
+        /// <summary>
+        /// List entities List all available entities for which schema information is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ResourceListOfString</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync ()
+        {
+             ApiResponse<ResourceListOfString> localVarResponse = await ListEntitiesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List entities List all available entities for which schema information is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ResourceListOfString)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfString>> ListEntitiesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "./api/schemas/entities";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.226";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListEntities", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfString>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfString) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfString)));
         }
 
     }

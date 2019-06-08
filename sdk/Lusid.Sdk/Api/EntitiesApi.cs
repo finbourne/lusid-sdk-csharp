@@ -21,142 +21,76 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IReconciliationsApi : IApiAccessor
+    public interface IEntitiesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ResourceListOfChange</returns>
+        ResourceListOfChange GetPortfolioChanges (string scope, string effectiveAt, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-        /// </summary>
-        /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
-
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-        /// </summary>
-        /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfChange</returns>
+        ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ResourceListOfChange</returns>
+        System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync (string scope, string effectiveAt, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-        /// </summary>
-        /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
-
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-        /// </summary>
-        /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesAsyncWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ReconciliationsApi : IReconciliationsApi
+    public partial class EntitiesApi : IEntitiesApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class.
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi(String basePath)
+        public EntitiesApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -164,10 +98,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi()
+        public EntitiesApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -175,12 +109,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ReconciliationsApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public EntitiesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -254,35 +188,37 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ResourceListOfChange</returns>
+        public ResourceListOfChange GetPortfolioChanges (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileHoldingsWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<ResourceListOfChange> localVarResponse = GetPortfolioChangesWithHttpInfo(scope, effectiveAt, asAt);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfChange</returns>
+        public ApiResponse< ResourceListOfChange > GetPortfolioChangesWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling EntitiesApi->GetPortfolioChanges");
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+                throw new ApiException(400, "Missing required parameter 'effectiveAt' when calling EntitiesApi->GetPortfolioChanges");
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/entities/changes/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -305,18 +241,9 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -331,53 +258,55 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("GetPortfolioChanges", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfChange>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfChange) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfChange)));
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ResourceListOfChange</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileHoldingsAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<ResourceListOfChange> localVarResponse = await GetPortfolioChangesAsyncWithHttpInfo(scope, effectiveAt, asAt);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesAsyncWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling EntitiesApi->GetPortfolioChanges");
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+                throw new ApiException(400, "Missing required parameter 'effectiveAt' when calling EntitiesApi->GetPortfolioChanges");
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/entities/changes/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -400,18 +329,9 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -426,209 +346,20 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("GetPortfolioChanges", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfChange>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
-        }
-
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
-        {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileValuationWithHttpInfo(sortBy, start, limit, filter, request);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
-        {
-
-            var localVarPath = "./api/portfolios/$reconcileValuation";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.226";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
-        }
-
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
-        {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileValuationAsyncWithHttpInfo(sortBy, start, limit, filter, request);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
-        {
-
-            var localVarPath = "./api/portfolios/$reconcileValuation";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.226";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfChange) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfChange)));
         }
 
     }

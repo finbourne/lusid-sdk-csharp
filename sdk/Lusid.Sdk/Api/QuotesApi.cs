@@ -21,142 +21,184 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IReconciliationsApi : IApiAccessor
+    public interface IQuotesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>DeleteQuotesResponse</returns>
+        DeleteQuotesResponse DeleteQuotes (string scope, List<DeleteQuoteRequest> quotes = null);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>ApiResponse of DeleteQuotesResponse</returns>
+        ApiResponse<DeleteQuotesResponse> DeleteQuotesWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null);
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>GetQuotesResponse</returns>
+        GetQuotesResponse GetQuotes (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>ApiResponse of GetQuotesResponse</returns>
+        ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
+        /// <summary>
+        /// Upsert quotes
+        /// </summary>
+        /// <remarks>
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>UpsertQuotesResponse</returns>
+        UpsertQuotesResponse UpsertQuotes (string scope, List<UpsertQuoteRequest> quotes = null);
+
+        /// <summary>
+        /// Upsert quotes
+        /// </summary>
+        /// <remarks>
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>ApiResponse of UpsertQuotesResponse</returns>
+        ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of DeleteQuotesResponse</returns>
+        System.Threading.Tasks.Task<DeleteQuotesResponse> DeleteQuotesAsync (string scope, List<DeleteQuoteRequest> quotes = null);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of ApiResponse (DeleteQuotesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeleteQuotesResponse>> DeleteQuotesAsyncWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null);
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of GetQuotesResponse</returns>
+        System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
+        /// <summary>
+        /// Upsert quotes
+        /// </summary>
+        /// <remarks>
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of UpsertQuotesResponse</returns>
+        System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync (string scope, List<UpsertQuoteRequest> quotes = null);
+
+        /// <summary>
+        /// Upsert quotes
+        /// </summary>
+        /// <remarks>
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesAsyncWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ReconciliationsApi : IReconciliationsApi
+    public partial class QuotesApi : IQuotesApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class.
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi(String basePath)
+        public QuotesApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -164,10 +206,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi()
+        public QuotesApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -175,12 +217,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ReconciliationsApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public QuotesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -254,35 +296,32 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>DeleteQuotesResponse</returns>
+        public DeleteQuotesResponse DeleteQuotes (string scope, List<DeleteQuoteRequest> quotes = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileHoldingsWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<DeleteQuotesResponse> localVarResponse = DeleteQuotesWithHttpInfo(scope, quotes);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>ApiResponse of DeleteQuotesResponse</returns>
+        public ApiResponse< DeleteQuotesResponse > DeleteQuotesWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/quotes/{scope}/$delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -305,17 +344,14 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = quotes; // byte array
             }
 
             // authentication (oauth2) required
@@ -338,46 +374,43 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<DeleteQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (DeleteQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeleteQuotesResponse)));
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of DeleteQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<DeleteQuotesResponse> DeleteQuotesAsync (string scope, List<DeleteQuoteRequest> quotes = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileHoldingsAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<DeleteQuotesResponse> localVarResponse = await DeleteQuotesAsyncWithHttpInfo(scope, quotes);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of ApiResponse (DeleteQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeleteQuotesResponse>> DeleteQuotesAsyncWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/quotes/{scope}/$delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -400,17 +433,14 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = quotes; // byte array
             }
 
             // authentication (oauth2) required
@@ -433,45 +463,52 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<DeleteQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (DeleteQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeleteQuotesResponse)));
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>GetQuotesResponse</returns>
+        public GetQuotesResponse GetQuotes (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileValuationWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<GetQuotesResponse> localVarResponse = GetQuotesWithHttpInfo(scope, effectiveAt, asAt, maxAge, page, limit, quoteIds);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>ApiResponse of GetQuotesResponse</returns>
+        public ApiResponse< GetQuotesResponse > GetQuotesWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
 
-            var localVarPath = "./api/portfolios/$reconcileValuation";
+            var localVarPath = "./api/quotes/{scope}/$get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -494,17 +531,19 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (maxAge != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "maxAge", maxAge)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (quoteIds != null && quoteIds.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quoteIds); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = quoteIds; // byte array
             }
 
             // authentication (oauth2) required
@@ -527,46 +566,53 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
+                Exception exception = ExceptionFactory("GetQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<GetQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (GetQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetQuotesResponse)));
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of GetQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileValuationAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<GetQuotesResponse> localVarResponse = await GetQuotesAsyncWithHttpInfo(scope, effectiveAt, asAt, maxAge, page, limit, quoteIds);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
 
-            var localVarPath = "./api/portfolios/$reconcileValuation";
+            var localVarPath = "./api/quotes/{scope}/$get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -589,17 +635,19 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (maxAge != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "maxAge", maxAge)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (quoteIds != null && quoteIds.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quoteIds); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = quoteIds; // byte array
             }
 
             // authentication (oauth2) required
@@ -622,13 +670,190 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
+                Exception exception = ExceptionFactory("GetQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<GetQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (GetQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetQuotesResponse)));
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>UpsertQuotesResponse</returns>
+        public UpsertQuotesResponse UpsertQuotes (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+             ApiResponse<UpsertQuotesResponse> localVarResponse = UpsertQuotesWithHttpInfo(scope, quotes);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>ApiResponse of UpsertQuotesResponse</returns>
+        public ApiResponse< UpsertQuotesResponse > UpsertQuotesWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
+
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = quotes; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.226";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpsertQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertQuotesResponse)));
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of UpsertQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+             ApiResponse<UpsertQuotesResponse> localVarResponse = await UpsertQuotesAsyncWithHttpInfo(scope, quotes);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesAsyncWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
+
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = quotes; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.226";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpsertQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertQuotesResponse)));
         }
 
     }
