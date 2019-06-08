@@ -1,3 +1,6 @@
+master: [![Build Status](https://travis-ci.org/finbourne/lusid-sdk-csharp.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-csharp)
+develop: [![Build Status](https://travis-ci.org/finbourne/lusid-sdk-csharp.svg?branch=develop)](https://travis-ci.org/finbourne/lusid-sdk-csharp)
+
 # LUSID<sup>®</sup> C# SDK
 
 The NuGet package for the LUSID SDK can installed from https://www.nuget.org/packages/Lusid.Sdk using the following:
