@@ -1,0 +1,39 @@
+language: minimal
+services:
+- docker
+script:
+- |
+
+  if [ "$TRAVIS_BRANCH" = "master" ]; then
+    fbn_token_url="MASTER_FBN_TOKEN_URL"
+    fbn_username="MASTER_FBN_USERNAME"
+    fbn_password="MASTER_FBN_PASSWORD"
+    fbn_clientid="MASTER_FBN_CLIENT_ID"
+    fbn_client_secret="MASTER_FBN_CLIENT_SECRET"
+    fbn_lusid_api_url="MASTER_FBN_LUSID_API_URL"    
+  else
+    fbn_token_url="DEVELOP_FBN_TOKEN_URL"
+    fbn_username="DEVELOP_FBN_USERNAME"
+    fbn_password="DEVELOP_FBN_PASSWORD"
+    fbn_clientid="DEVELOP_FBN_CLIENT_ID"
+    fbn_client_secret="DEVELOP_FBN_CLIENT_SECRET"
+    fbn_lusid_api_url="DEVELOP_FBN_LUSID_API_URL"
+  fi
+
+  cd sdk
+  docker build -t finbourne/lusid-sdk-csharp-test .
+  docker run \
+    -e FBN_TOKEN_URL=${!fbn_token_url} \
+    -e FBN_USERNAME=${!fbn_username} \
+    -e FBN_PASSWORD=${!fbn_password} \
+    -e FBN_CLIENT_ID=${!fbn_clientid} \
+    -e FBN_CLIENT_SECRET=${!fbn_client_secret} \
+    -e FBN_LUSID_API_URL=${!fbn_lusid_api_url} \
+    -v $(pwd):/usr/src/ \
+    finbourne/lusid-sdk-csharp-test
+
+notifications:
+  slack:
+    rooms:
+      secure: "fZraDFkPVrATnL2ySr1Bdx5JwYzLwetkfKHFub8CjyhU8j0ItJfypti2+mwgyBFtRnEJslU2M0B2oLklTSxOcwpgC30uoLp8QhjfreomChDoF3jY+XCLsYx6fQZX2RZUdUhj32u8Yqdd4YS+1ockBx6A4ZWGBoBsgwx8WyzDvJNEFUPC+I0lioLi8p/ELXnPJufHmBdT+QoDJKjrVj31MoiLiMrInsn3QoJQbusdxxF01zuFtGQHwWgpQmcb5JlKMOMpafBOy3Ke6d0xsYBqq+hUow5xbNMS+jpTNvQCUFyydrqmKOaOYui1PZhBao4fYvckAgoU2Gvn8QYxKL27+A8K43BXFdHXfuoLh7JETvqLJuVR7C/aEyXahMrJQQ+ae610vWClkIZfyRApIKhLVAfk3kxscNRUeNxuIk9oq6prLFL6mhriC/eNdGp/k7ZQw55yP/FS7lHUsYoJXE1a+ZWGNCam4vOesvHsksQyRevGrgRs+xtPI3N4rU5b8TNu7BffocqR8oRqFJmR6lq0nB7AcTsaYZIi+Od3KdcpFIuIP8Xj/WuBWxWrHhtPAqzr4o0uUN0vhVGVKv8gmDyIywMrU/lz1AkhrV7uq/hQpahub3V9DhRtmmcyTbi6sT/FbxrVYmVIkxQQd0WwyPVVp/MHyg12IvYqm8YkDTuCkm8="
+    on_failure: always
