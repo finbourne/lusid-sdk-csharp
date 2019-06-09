@@ -21,280 +21,262 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDataTypesApi : IApiAccessor
+    public interface IAggregationApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create data type definition
+        /// Aggregate data in a portfolio group
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Aggregate data sourced from the specified portfolio group
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>DataType</returns>
-        DataType CreateDataType (CreateDataTypeRequest request = null);
-
-        /// <summary>
-        /// Create data type definition
-        /// </summary>
-        /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> CreateDataTypeWithHttpInfo (CreateDataTypeRequest request = null);
-        /// <summary>
-        /// Get data type definition
-        /// </summary>
-        /// <remarks>
-        /// Get the definition of a specified data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        DataType GetDataType (string scope, string code);
-
-        /// <summary>
-        /// Get data type definition
-        /// </summary>
-        /// <remarks>
-        /// Get the definition of a specified data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> GetDataTypeWithHttpInfo (string scope, string code);
-        /// <summary>
-        /// Get units from data type
-        /// </summary>
-        /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null);
-
-        /// <summary>
-        /// Get units from data type
-        /// </summary>
-        /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
-        /// <summary>
-        /// List data types
-        /// </summary>
-        /// <remarks>
-        /// List all data types in a specified scope
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ListAggregationResponse</returns>
+        ListAggregationResponse GetAggregationByGroup (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
 
         /// <summary>
-        /// List data types
+        /// Aggregate data in a portfolio group
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Aggregate data sourced from the specified portfolio group
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of ListAggregationResponse</returns>
+        ApiResponse<ListAggregationResponse> GetAggregationByGroupWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
         /// <summary>
-        /// Update data type definition
+        /// Aggregate data in a portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate data sourced from the specified portfolio
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>DataType</returns>
-        DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ListAggregationResponse</returns>
+        ListAggregationResponse GetAggregationByPortfolio (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
 
         /// <summary>
-        /// Update data type definition
+        /// Aggregate data in a portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate data sourced from the specified portfolio
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> UpdateDataTypeWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of ListAggregationResponse</returns>
+        ApiResponse<ListAggregationResponse> GetAggregationByPortfolioWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
+        /// <summary>
+        /// Aggregate using result data
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data from a previously-run Result data set into a flat row of results
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ListAggregationResponse</returns>
+        ListAggregationResponse GetAggregationByResultSet (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
+
+        /// <summary>
+        /// Aggregate using result data
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data from a previously-run Result data set into a flat row of results
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of ListAggregationResponse</returns>
+        ApiResponse<ListAggregationResponse> GetAggregationByResultSetWithHttpInfo (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested
+        /// </summary>
+        /// <remarks>
+        /// Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>NestedAggregationResponse</returns>
+        NestedAggregationResponse GetNestedAggregationByGroup (string scope, string code, AggregationRequest request = null);
+
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested
+        /// </summary>
+        /// <remarks>
+        /// Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of NestedAggregationResponse</returns>
+        ApiResponse<NestedAggregationResponse> GetNestedAggregationByGroupWithHttpInfo (string scope, string code, AggregationRequest request = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create data type definition
+        /// Aggregate data in a portfolio group
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Aggregate data sourced from the specified portfolio group
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> CreateDataTypeAsync (CreateDataTypeRequest request = null);
-
-        /// <summary>
-        /// Create data type definition
-        /// </summary>
-        /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeAsyncWithHttpInfo (CreateDataTypeRequest request = null);
-        /// <summary>
-        /// Get data type definition
-        /// </summary>
-        /// <remarks>
-        /// Get the definition of a specified data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code);
-
-        /// <summary>
-        /// Get data type definition
-        /// </summary>
-        /// <remarks>
-        /// Get the definition of a specified data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code);
-        /// <summary>
-        /// Get units from data type
-        /// </summary>
-        /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null);
-
-        /// <summary>
-        /// Get units from data type
-        /// </summary>
-        /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
-        /// <summary>
-        /// List data types
-        /// </summary>
-        /// <remarks>
-        /// List all data types in a specified scope
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ListAggregationResponse</returns>
+        System.Threading.Tasks.Task<ListAggregationResponse> GetAggregationByGroupAsync (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
 
         /// <summary>
-        /// List data types
+        /// Aggregate data in a portfolio group
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Aggregate data sourced from the specified portfolio group
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetAggregationByGroupAsyncWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
         /// <summary>
-        /// Update data type definition
+        /// Aggregate data in a portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate data sourced from the specified portfolio
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ListAggregationResponse</returns>
+        System.Threading.Tasks.Task<ListAggregationResponse> GetAggregationByPortfolioAsync (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
 
         /// <summary>
-        /// Update data type definition
+        /// Aggregate data in a portfolio
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate data sourced from the specified portfolio
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeAsyncWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetAggregationByPortfolioAsyncWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
+        /// <summary>
+        /// Aggregate using result data
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data from a previously-run Result data set into a flat row of results
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ListAggregationResponse</returns>
+        System.Threading.Tasks.Task<ListAggregationResponse> GetAggregationByResultSetAsync (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
+
+        /// <summary>
+        /// Aggregate using result data
+        /// </summary>
+        /// <remarks>
+        /// Aggregate data from a previously-run Result data set into a flat row of results
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetAggregationByResultSetAsyncWithHttpInfo (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null);
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested
+        /// </summary>
+        /// <remarks>
+        /// Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of NestedAggregationResponse</returns>
+        System.Threading.Tasks.Task<NestedAggregationResponse> GetNestedAggregationByGroupAsync (string scope, string code, AggregationRequest request = null);
+
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested
+        /// </summary>
+        /// <remarks>
+        /// Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (NestedAggregationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NestedAggregationResponse>> GetNestedAggregationByGroupAsyncWithHttpInfo (string scope, string code, AggregationRequest request = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DataTypesApi : IDataTypesApi
+    public partial class AggregationApi : IAggregationApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class.
+        /// Initializes a new instance of the <see cref="AggregationApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi(String basePath)
+        public AggregationApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -302,10 +284,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="AggregationApi"/> class
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi()
+        public AggregationApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -313,12 +295,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="AggregationApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DataTypesApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public AggregationApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -392,27 +374,43 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Aggregate data in a portfolio group Aggregate data sourced from the specified portfolio group
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>DataType</returns>
-        public DataType CreateDataType (CreateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ListAggregationResponse</returns>
+        public ListAggregationResponse GetAggregationByGroup (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
-             ApiResponse<DataType> localVarResponse = CreateDataTypeWithHttpInfo(request);
+             ApiResponse<ListAggregationResponse> localVarResponse = GetAggregationByGroupWithHttpInfo(scope, code, sortBy, start, limit, request);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Aggregate data in a portfolio group Aggregate data sourced from the specified portfolio group
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > CreateDataTypeWithHttpInfo (CreateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of ListAggregationResponse</returns>
+        public ApiResponse< ListAggregationResponse > GetAggregationByGroupWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetAggregationByGroup");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling AggregationApi->GetAggregationByGroup");
 
-            var localVarPath = "./api/datatypes";
+            var localVarPath = "./api/portfoliogroups/{scope}/{code}/$aggregate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -435,6 +433,11 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (request != null && request.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
@@ -464,38 +467,54 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("GetAggregationByGroup", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<ListAggregationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (ListAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ListAggregationResponse)));
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Aggregate data in a portfolio group Aggregate data sourced from the specified portfolio group
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> CreateDataTypeAsync (CreateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ListAggregationResponse</returns>
+        public async System.Threading.Tasks.Task<ListAggregationResponse> GetAggregationByGroupAsync (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
-             ApiResponse<DataType> localVarResponse = await CreateDataTypeAsyncWithHttpInfo(request);
+             ApiResponse<ListAggregationResponse> localVarResponse = await GetAggregationByGroupAsyncWithHttpInfo(scope, code, sortBy, start, limit, request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Aggregate data in a portfolio group Aggregate data sourced from the specified portfolio group
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeAsyncWithHttpInfo (CreateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetAggregationByGroupAsyncWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetAggregationByGroup");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling AggregationApi->GetAggregationByGroup");
 
-            var localVarPath = "./api/datatypes";
+            var localVarPath = "./api/portfoliogroups/{scope}/{code}/$aggregate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -518,6 +537,11 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (request != null && request.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
@@ -547,400 +571,53 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("GetAggregationByGroup", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<ListAggregationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (ListAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ListAggregationResponse)));
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Aggregate data in a portfolio Aggregate data sourced from the specified portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        public DataType GetDataType (string scope, string code)
-        {
-             ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get data type definition Get the definition of a specified data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > GetDataTypeWithHttpInfo (string scope, string code)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<DataType>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
-        }
-
-        /// <summary>
-        /// Get data type definition Get the definition of a specified data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code)
-        {
-             ApiResponse<DataType> localVarResponse = await GetDataTypeAsyncWithHttpInfo(scope, code);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get data type definition Get the definition of a specified data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<DataType>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
-        {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        public ApiResponse< ResourceListOfIUnitDefinitionDto > GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null)
-        {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeAsyncWithHttpInfo(scope, code, units, filter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
-        }
-
-        /// <summary>
-        /// List data types List all data types in a specified scope
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        public ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ListAggregationResponse</returns>
+        public ListAggregationResponse GetAggregationByPortfolio (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ListAggregationResponse> localVarResponse = GetAggregationByPortfolioWithHttpInfo(scope, code, sortBy, start, limit, request);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// Aggregate data in a portfolio Aggregate data sourced from the specified portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        public ApiResponse< ResourceListOfDataType > ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of ListAggregationResponse</returns>
+        public ApiResponse< ListAggregationResponse > GetAggregationByPortfolioWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetAggregationByPortfolio");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling AggregationApi->GetAggregationByPortfolio");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/portfolios/{scope}/{code}/$aggregate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -964,11 +641,18 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -983,58 +667,61 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetAggregationByPortfolio", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ListAggregationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ListAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ListAggregationResponse)));
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// Aggregate data in a portfolio Aggregate data sourced from the specified portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ListAggregationResponse</returns>
+        public async System.Threading.Tasks.Task<ListAggregationResponse> GetAggregationByPortfolioAsync (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesAsyncWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ListAggregationResponse> localVarResponse = await GetAggregationByPortfolioAsyncWithHttpInfo(scope, code, sortBy, start, limit, request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// Aggregate data in a portfolio Aggregate data sourced from the specified portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the portfolio</param>
+        /// <param name="code">The code of the portfolio</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetAggregationByPortfolioAsyncWithHttpInfo (string scope, string code, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetAggregationByPortfolio");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling AggregationApi->GetAggregationByPortfolio");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/portfolios/{scope}/{code}/$aggregate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1058,11 +745,18 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -1077,54 +771,261 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetAggregationByPortfolio", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ListAggregationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ListAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ListAggregationResponse)));
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate using result data Aggregate data from a previously-run Result data set into a flat row of results
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>DataType</returns>
-        public DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ListAggregationResponse</returns>
+        public ListAggregationResponse GetAggregationByResultSet (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
-             ApiResponse<DataType> localVarResponse = UpdateDataTypeWithHttpInfo(scope, code, request);
+             ApiResponse<ListAggregationResponse> localVarResponse = GetAggregationByResultSetWithHttpInfo(scope, resultsKey, sortBy, start, limit, request);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate using result data Aggregate data from a previously-run Result data set into a flat row of results
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > UpdateDataTypeWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of ListAggregationResponse</returns>
+        public ApiResponse< ListAggregationResponse > GetAggregationByResultSetWithHttpInfo (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->UpdateDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetAggregationByResultSet");
+            // verify the required parameter 'resultsKey' is set
+            if (resultsKey == null)
+                throw new ApiException(400, "Missing required parameter 'resultsKey' when calling AggregationApi->GetAggregationByResultSet");
+
+            var localVarPath = "./api/results/{scope}/{resultsKey}/$aggregate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (resultsKey != null) localVarPathParams.Add("resultsKey", this.Configuration.ApiClient.ParameterToString(resultsKey)); // path parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAggregationByResultSet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ListAggregationResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ListAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ListAggregationResponse)));
+        }
+
+        /// <summary>
+        /// Aggregate using result data Aggregate data from a previously-run Result data set into a flat row of results
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ListAggregationResponse</returns>
+        public async System.Threading.Tasks.Task<ListAggregationResponse> GetAggregationByResultSetAsync (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
+        {
+             ApiResponse<ListAggregationResponse> localVarResponse = await GetAggregationByResultSetAsyncWithHttpInfo(scope, resultsKey, sortBy, start, limit, request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Aggregate using result data Aggregate data from a previously-run Result data set into a flat row of results
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Result data set</param>
+        /// <param name="resultsKey">The key of the Result data set</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (ListAggregationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ListAggregationResponse>> GetAggregationByResultSetAsyncWithHttpInfo (string scope, string resultsKey, List<string> sortBy = null, int? start = null, int? limit = null, AggregationRequest request = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetAggregationByResultSet");
+            // verify the required parameter 'resultsKey' is set
+            if (resultsKey == null)
+                throw new ApiException(400, "Missing required parameter 'resultsKey' when calling AggregationApi->GetAggregationByResultSet");
+
+            var localVarPath = "./api/results/{scope}/{resultsKey}/$aggregate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (resultsKey != null) localVarPathParams.Add("resultsKey", this.Configuration.ApiClient.ParameterToString(resultsKey)); // path parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAggregationByResultSet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ListAggregationResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ListAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ListAggregationResponse)));
+        }
+
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>NestedAggregationResponse</returns>
+        public NestedAggregationResponse GetNestedAggregationByGroup (string scope, string code, AggregationRequest request = null)
+        {
+             ApiResponse<NestedAggregationResponse> localVarResponse = GetNestedAggregationByGroupWithHttpInfo(scope, code, request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Aggregate data in a portfolio group, as nested Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>ApiResponse of NestedAggregationResponse</returns>
+        public ApiResponse< NestedAggregationResponse > GetNestedAggregationByGroupWithHttpInfo (string scope, string code, AggregationRequest request = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetNestedAggregationByGroup");
             // verify the required parameter 'code' is set
             if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->UpdateDataType");
+                throw new ApiException(400, "Missing required parameter 'code' when calling AggregationApi->GetNestedAggregationByGroup");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/portfoliogroups/{scope}/{code}/$aggregatenested";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1171,55 +1072,55 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("GetNestedAggregationByGroup", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<NestedAggregationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (NestedAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NestedAggregationResponse)));
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate data in a portfolio group, as nested Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of NestedAggregationResponse</returns>
+        public async System.Threading.Tasks.Task<NestedAggregationResponse> GetNestedAggregationByGroupAsync (string scope, string code, AggregationRequest request = null)
         {
-             ApiResponse<DataType> localVarResponse = await UpdateDataTypeAsyncWithHttpInfo(scope, code, request);
+             ApiResponse<NestedAggregationResponse> localVarResponse = await GetNestedAggregationByGroupAsyncWithHttpInfo(scope, code, request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Aggregate data in a portfolio group, as nested Obsolete - Aggregate data sourced from the specified portfolio group into a nested structure. Data is nested following the group-by specifications.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeAsyncWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the portfolio group</param>
+        /// <param name="code">The code of the portfolio group</param>
+        /// <param name="request">The request specifying the parameters of the aggregation (optional)</param>
+        /// <returns>Task of ApiResponse (NestedAggregationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<NestedAggregationResponse>> GetNestedAggregationByGroupAsyncWithHttpInfo (string scope, string code, AggregationRequest request = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->UpdateDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AggregationApi->GetNestedAggregationByGroup");
             // verify the required parameter 'code' is set
             if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->UpdateDataType");
+                throw new ApiException(400, "Missing required parameter 'code' when calling AggregationApi->GetNestedAggregationByGroup");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/portfoliogroups/{scope}/{code}/$aggregatenested";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1266,20 +1167,20 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("GetNestedAggregationByGroup", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<NestedAggregationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (NestedAggregationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NestedAggregationResponse)));
         }
 
     }

@@ -21,148 +21,184 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISystemConfigurationApi : IApiAccessor
+    public interface IQuotesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create transaction type
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>DeleteQuotesResponse</returns>
+        DeleteQuotesResponse DeleteQuotes (string scope, List<DeleteQuoteRequest> quotes = null);
 
         /// <summary>
-        /// Create transaction type
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo (TransactionConfigurationDataRequest type = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>ApiResponse of DeleteQuotesResponse</returns>
+        ApiResponse<DeleteQuotesResponse> DeleteQuotesWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null);
         /// <summary>
-        /// List transaction types
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ();
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>GetQuotesResponse</returns>
+        GetQuotesResponse GetQuotes (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
 
         /// <summary>
-        /// List transaction types
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesWithHttpInfo ();
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>ApiResponse of GetQuotesResponse</returns>
+        ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
         /// <summary>
-        /// Set transaction types
+        /// Upsert quotes
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>UpsertQuotesResponse</returns>
+        UpsertQuotesResponse UpsertQuotes (string scope, List<UpsertQuoteRequest> quotes = null);
 
         /// <summary>
-        /// Set transaction types
+        /// Upsert quotes
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesWithHttpInfo (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>ApiResponse of UpsertQuotesResponse</returns>
+        ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create transaction type
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync (TransactionConfigurationDataRequest type = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of DeleteQuotesResponse</returns>
+        System.Threading.Tasks.Task<DeleteQuotesResponse> DeleteQuotesAsync (string scope, List<DeleteQuoteRequest> quotes = null);
 
         /// <summary>
-        /// Create transaction type
+        /// Delete a quote
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeAsyncWithHttpInfo (TransactionConfigurationDataRequest type = null);
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of ApiResponse (DeleteQuotesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeleteQuotesResponse>> DeleteQuotesAsyncWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null);
         /// <summary>
-        /// List transaction types
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync ();
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of GetQuotesResponse</returns>
+        System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
 
         /// <summary>
-        /// List transaction types
+        /// Get quotes
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> ListConfigurationTransactionTypesAsyncWithHttpInfo ();
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null);
         /// <summary>
-        /// Set transaction types
+        /// Upsert quotes
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of UpsertQuotesResponse</returns>
+        System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync (string scope, List<UpsertQuoteRequest> quotes = null);
 
         /// <summary>
-        /// Set transaction types
+        /// Upsert quotes
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> SetConfigurationTransactionTypesAsyncWithHttpInfo (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesAsyncWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SystemConfigurationApi : ISystemConfigurationApi
+    public partial class QuotesApi : IQuotesApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class.
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SystemConfigurationApi(String basePath)
+        public QuotesApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -170,10 +206,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
         /// </summary>
         /// <returns></returns>
-        public SystemConfigurationApi()
+        public QuotesApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -181,12 +217,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public SystemConfigurationApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public QuotesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -260,27 +296,32 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>DeleteQuotesResponse</returns>
+        public DeleteQuotesResponse DeleteQuotes (string scope, List<DeleteQuoteRequest> quotes = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = CreateConfigurationTransactionTypeWithHttpInfo(type);
+             ApiResponse<DeleteQuotesResponse> localVarResponse = DeleteQuotesWithHttpInfo(scope, quotes);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > CreateConfigurationTransactionTypeWithHttpInfo (TransactionConfigurationDataRequest type = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>ApiResponse of DeleteQuotesResponse</returns>
+        public ApiResponse< DeleteQuotesResponse > DeleteQuotesWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/quotes/{scope}/$delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -303,13 +344,14 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null && type.GetType() != typeof(byte[]))
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(type); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = type; // byte array
+                localVarPostBody = quotes; // byte array
             }
 
             // authentication (oauth2) required
@@ -332,38 +374,43 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateConfigurationTransactionType", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<DeleteQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (DeleteQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeleteQuotesResponse)));
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync (TransactionConfigurationDataRequest type = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of DeleteQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<DeleteQuotesResponse> DeleteQuotesAsync (string scope, List<DeleteQuoteRequest> quotes = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await CreateConfigurationTransactionTypeAsyncWithHttpInfo(type);
+             ApiResponse<DeleteQuotesResponse> localVarResponse = await DeleteQuotesAsyncWithHttpInfo(scope, quotes);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Delete a quote Delete the specified quotes. In order for a quote to be deleted the id and effectiveFrom date must exactly match.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeAsyncWithHttpInfo (TransactionConfigurationDataRequest type = null)
+        /// <param name="scope">The scope of the quote</param>
+        /// <param name="quotes">The quotes to delete (optional)</param>
+        /// <returns>Task of ApiResponse (DeleteQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeleteQuotesResponse>> DeleteQuotesAsyncWithHttpInfo (string scope, List<DeleteQuoteRequest> quotes = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/quotes/{scope}/$delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -386,13 +433,14 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null && type.GetType() != typeof(byte[]))
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(type); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = type; // byte array
+                localVarPostBody = quotes; // byte array
             }
 
             // authentication (oauth2) required
@@ -415,35 +463,52 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateConfigurationTransactionType", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<DeleteQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (DeleteQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeleteQuotesResponse)));
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ()
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>GetQuotesResponse</returns>
+        public GetQuotesResponse GetQuotes (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = ListConfigurationTransactionTypesWithHttpInfo();
+             ApiResponse<GetQuotesResponse> localVarResponse = GetQuotesWithHttpInfo(scope, effectiveAt, asAt, maxAge, page, limit, quoteIds);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > ListConfigurationTransactionTypesWithHttpInfo ()
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>ApiResponse of GetQuotesResponse</returns>
+        public ApiResponse< GetQuotesResponse > GetQuotesWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/quotes/{scope}/$get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -466,160 +531,19 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (maxAge != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "maxAge", maxAge)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (quoteIds != null && quoteIds.GetType() != typeof(byte[]))
             {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ListConfigurationTransactionTypes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// List transaction types Get the list of persisted transaction types
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync ()
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await ListConfigurationTransactionTypesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List transaction types Get the list of persisted transaction types
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> ListConfigurationTransactionTypesAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ListConfigurationTransactionTypes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null)
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = SetConfigurationTransactionTypesWithHttpInfo(types);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > SetConfigurationTransactionTypesWithHttpInfo (List<TransactionConfigurationDataRequest> types = null)
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (types != null && types.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(types); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quoteIds); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = types; // byte array
+                localVarPostBody = quoteIds; // byte array
             }
 
             // authentication (oauth2) required
@@ -635,45 +559,60 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SetConfigurationTransactionTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<GetQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (GetQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetQuotesResponse)));
         }
 
         /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync (List<TransactionConfigurationDataRequest> types = null)
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of GetQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await SetConfigurationTransactionTypesAsyncWithHttpInfo(types);
+             ApiResponse<GetQuotesResponse> localVarResponse = await GetQuotesAsyncWithHttpInfo(scope, effectiveAt, asAt, maxAge, page, limit, quoteIds);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Get quotes Get quotes effective at the specified date/time (if any). An optional maximum age of quotes can be specified, and is infinite by default.  Quotes which are older than this at the time of the effective date/time will not be returned.  MaxAge is a duration of time represented in an ISO8601 format, eg. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).  The results are paged, and by default the 1st page of results is returned with a limit of 100 results per page
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> SetConfigurationTransactionTypesAsyncWithHttpInfo (List<TransactionConfigurationDataRequest> types = null)
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="effectiveAt">Optional. The date/time from which the quotes are effective (optional)</param>
+        /// <param name="asAt">Optional. The &#39;AsAt&#39; date/time (optional)</param>
+        /// <param name="maxAge">Optional. The quote staleness tolerance (optional)</param>
+        /// <param name="page">Optional. The page of results to return (optional)</param>
+        /// <param name="limit">Optional. The number of results per page (optional)</param>
+        /// <param name="quoteIds">The ids of the quotes (optional)</param>
+        /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, int? page = null, int? limit = null, List<QuoteId> quoteIds = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/quotes/{scope}/$get";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -696,13 +635,19 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (types != null && types.GetType() != typeof(byte[]))
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (maxAge != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "maxAge", maxAge)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (quoteIds != null && quoteIds.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(types); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quoteIds); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = types; // byte array
+                localVarPostBody = quoteIds; // byte array
             }
 
             // authentication (oauth2) required
@@ -718,20 +663,197 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SetConfigurationTransactionTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetQuotes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<GetQuotesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (GetQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetQuotesResponse)));
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>UpsertQuotesResponse</returns>
+        public UpsertQuotesResponse UpsertQuotes (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+             ApiResponse<UpsertQuotesResponse> localVarResponse = UpsertQuotesWithHttpInfo(scope, quotes);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>ApiResponse of UpsertQuotesResponse</returns>
+        public ApiResponse< UpsertQuotesResponse > UpsertQuotesWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
+
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = quotes; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpsertQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertQuotesResponse)));
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of UpsertQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+             ApiResponse<UpsertQuotesResponse> localVarResponse = await UpsertQuotesAsyncWithHttpInfo(scope, quotes);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upsert quotes Upsert quotes effective at the specified time. If a quote is added with the same id (and is effective at the same time) as an existing quote, then the more recently added quote will be returned when queried
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes</param>
+        /// <param name="quotes">The quotes to upsert (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesAsyncWithHttpInfo (string scope, List<UpsertQuoteRequest> quotes = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
+
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (quotes != null && quotes.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(quotes); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = quotes; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpsertQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertQuotesResponse)));
         }
 
     }

@@ -21,148 +21,202 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISystemConfigurationApi : IApiAccessor
+    public interface ISchemasApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create transaction type
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Schema</returns>
+        Schema GetEntitySchema (string entity);
 
         /// <summary>
-        /// Create transaction type
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo (TransactionConfigurationDataRequest type = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>ApiResponse of Schema</returns>
+        ApiResponse<Schema> GetEntitySchemaWithHttpInfo (string entity);
         /// <summary>
-        /// List transaction types
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get the schemas for the provided list of property keys.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ();
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>PropertySchema</returns>
+        PropertySchema GetPropertySchema (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// List transaction types
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get the schemas for the provided list of property keys.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesWithHttpInfo ();
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>ApiResponse of PropertySchema</returns>
+        ApiResponse<PropertySchema> GetPropertySchemaWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
         /// <summary>
-        /// Set transaction types
+        /// Get value types
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Gets the available value types for which a schema is available.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>ResourceListOfValueType</returns>
+        ResourceListOfValueType GetValueTypes (List<string> sortBy = null, int? start = null, int? limit = null);
 
         /// <summary>
-        /// Set transaction types
+        /// Get value types
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Gets the available value types for which a schema is available.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesWithHttpInfo (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfValueType</returns>
+        ApiResponse<ResourceListOfValueType> GetValueTypesWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null);
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ResourceListOfString</returns>
+        ResourceListOfString ListEntities ();
+
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ResourceListOfString</returns>
+        ApiResponse<ResourceListOfString> ListEntitiesWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create transaction type
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync (TransactionConfigurationDataRequest type = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of Schema</returns>
+        System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync (string entity);
 
         /// <summary>
-        /// Create transaction type
+        /// Get schema
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the schema and meta-data for a given entity
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeAsyncWithHttpInfo (TransactionConfigurationDataRequest type = null);
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of ApiResponse (Schema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Schema>> GetEntitySchemaAsyncWithHttpInfo (string entity);
         /// <summary>
-        /// List transaction types
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get the schemas for the provided list of property keys.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync ();
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of PropertySchema</returns>
+        System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// List transaction types
+        /// Get property schema
         /// </summary>
         /// <remarks>
-        /// Get the list of persisted transaction types
+        /// Get the schemas for the provided list of property keys.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> ListConfigurationTransactionTypesAsyncWithHttpInfo ();
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of ApiResponse (PropertySchema)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PropertySchema>> GetPropertySchemaAsyncWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null);
         /// <summary>
-        /// Set transaction types
+        /// Get value types
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Gets the available value types for which a schema is available.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ResourceListOfValueType</returns>
+        System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync (List<string> sortBy = null, int? start = null, int? limit = null);
 
         /// <summary>
-        /// Set transaction types
+        /// Get value types
         /// </summary>
         /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
+        /// Gets the available value types for which a schema is available.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> SetConfigurationTransactionTypesAsyncWithHttpInfo (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfValueType)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfValueType>> GetValueTypesAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null);
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ResourceListOfString</returns>
+        System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync ();
+
+        /// <summary>
+        /// List entities
+        /// </summary>
+        /// <remarks>
+        /// List all available entities for which schema information is available.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ResourceListOfString)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfString>> ListEntitiesAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SystemConfigurationApi : ISystemConfigurationApi
+    public partial class SchemasApi : ISchemasApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class.
+        /// Initializes a new instance of the <see cref="SchemasApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SystemConfigurationApi(String basePath)
+        public SchemasApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -170,10 +224,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class
+        /// Initializes a new instance of the <see cref="SchemasApi"/> class
         /// </summary>
         /// <returns></returns>
-        public SystemConfigurationApi()
+        public SchemasApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -181,12 +235,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class
+        /// Initializes a new instance of the <see cref="SchemasApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public SystemConfigurationApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public SchemasApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -260,27 +314,30 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Schema</returns>
+        public Schema GetEntitySchema (string entity)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = CreateConfigurationTransactionTypeWithHttpInfo(type);
+             ApiResponse<Schema> localVarResponse = GetEntitySchemaWithHttpInfo(entity);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > CreateConfigurationTransactionTypeWithHttpInfo (TransactionConfigurationDataRequest type = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>ApiResponse of Schema</returns>
+        public ApiResponse< Schema > GetEntitySchemaWithHttpInfo (string entity)
         {
+            // verify the required parameter 'entity' is set
+            if (entity == null)
+                throw new ApiException(400, "Missing required parameter 'entity' when calling SchemasApi->GetEntitySchema");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/schemas/entities/{entity}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -303,14 +360,7 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null && type.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(type); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = type; // byte array
-            }
+            if (entity != null) localVarPathParams.Add("entity", this.Configuration.ApiClient.ParameterToString(entity)); // path parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -325,45 +375,48 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateConfigurationTransactionType", localVarResponse);
+                Exception exception = ExceptionFactory("GetEntitySchema", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<Schema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (Schema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Schema)));
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync (TransactionConfigurationDataRequest type = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of Schema</returns>
+        public async System.Threading.Tasks.Task<Schema> GetEntitySchemaAsync (string entity)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await CreateConfigurationTransactionTypeAsyncWithHttpInfo(type);
+             ApiResponse<Schema> localVarResponse = await GetEntitySchemaAsyncWithHttpInfo(entity);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Get schema Gets the schema and meta-data for a given entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeAsyncWithHttpInfo (TransactionConfigurationDataRequest type = null)
+        /// <param name="entity">The name of a valid entity</param>
+        /// <returns>Task of ApiResponse (Schema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Schema>> GetEntitySchemaAsyncWithHttpInfo (string entity)
         {
+            // verify the required parameter 'entity' is set
+            if (entity == null)
+                throw new ApiException(400, "Missing required parameter 'entity' when calling SchemasApi->GetEntitySchema");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/schemas/entities/{entity}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -386,14 +439,7 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null && type.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(type); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = type; // byte array
-            }
+            if (entity != null) localVarPathParams.Add("entity", this.Configuration.ApiClient.ParameterToString(entity)); // path parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -408,42 +454,362 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateConfigurationTransactionType", localVarResponse);
+                Exception exception = ExceptionFactory("GetEntitySchema", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<Schema>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (Schema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Schema)));
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// Get property schema Get the schemas for the provided list of property keys.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ()
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>PropertySchema</returns>
+        public PropertySchema GetPropertySchema (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = ListConfigurationTransactionTypesWithHttpInfo();
+             ApiResponse<PropertySchema> localVarResponse = GetPropertySchemaWithHttpInfo(propertyKeys, asAt);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// Get property schema Get the schemas for the provided list of property keys.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > ListConfigurationTransactionTypesWithHttpInfo ()
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>ApiResponse of PropertySchema</returns>
+        public ApiResponse< PropertySchema > GetPropertySchemaWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
         {
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/schemas/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (propertyKeys != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "propertyKeys", propertyKeys)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPropertySchema", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PropertySchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (PropertySchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PropertySchema)));
+        }
+
+        /// <summary>
+        /// Get property schema Get the schemas for the provided list of property keys.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of PropertySchema</returns>
+        public async System.Threading.Tasks.Task<PropertySchema> GetPropertySchemaAsync (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
+        {
+             ApiResponse<PropertySchema> localVarResponse = await GetPropertySchemaAsyncWithHttpInfo(propertyKeys, asAt);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get property schema Get the schemas for the provided list of property keys.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="propertyKeys">One or more property keys for which the schema is requested (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of ApiResponse (PropertySchema)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PropertySchema>> GetPropertySchemaAsyncWithHttpInfo (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
+        {
+
+            var localVarPath = "./api/schemas/properties";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (propertyKeys != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "propertyKeys", propertyKeys)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPropertySchema", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PropertySchema>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (PropertySchema) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PropertySchema)));
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>ResourceListOfValueType</returns>
+        public ResourceListOfValueType GetValueTypes (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+             ApiResponse<ResourceListOfValueType> localVarResponse = GetValueTypesWithHttpInfo(sortBy, start, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfValueType</returns>
+        public ApiResponse< ResourceListOfValueType > GetValueTypesWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+
+            var localVarPath = "./api/schemas/types";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetValueTypes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfValueType>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfValueType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfValueType)));
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ResourceListOfValueType</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfValueType> GetValueTypesAsync (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+             ApiResponse<ResourceListOfValueType> localVarResponse = await GetValueTypesAsyncWithHttpInfo(sortBy, start, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get value types Gets the available value types for which a schema is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfValueType)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfValueType>> GetValueTypesAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null)
+        {
+
+            var localVarPath = "./api/schemas/types";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetValueTypes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfValueType>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfValueType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfValueType)));
+        }
+
+        /// <summary>
+        /// List entities List all available entities for which schema information is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ResourceListOfString</returns>
+        public ResourceListOfString ListEntities ()
+        {
+             ApiResponse<ResourceListOfString> localVarResponse = ListEntitiesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List entities List all available entities for which schema information is available.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ResourceListOfString</returns>
+        public ApiResponse< ResourceListOfString > ListEntitiesWithHttpInfo ()
+        {
+
+            var localVarPath = "./api/schemas/entities";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -487,36 +853,36 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListConfigurationTransactionTypes", localVarResponse);
+                Exception exception = ExceptionFactory("ListEntities", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfString>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (ResourceListOfString) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfString)));
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// List entities List all available entities for which schema information is available.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync ()
+        /// <returns>Task of ResourceListOfString</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfString> ListEntitiesAsync ()
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await ListConfigurationTransactionTypesAsyncWithHttpInfo();
+             ApiResponse<ResourceListOfString> localVarResponse = await ListEntitiesAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// List entities List all available entities for which schema information is available.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> ListConfigurationTransactionTypesAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (ResourceListOfString)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfString>> ListEntitiesAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/schemas/entities";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -560,178 +926,13 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListConfigurationTransactionTypes", localVarResponse);
+                Exception exception = ExceptionFactory("ListEntities", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfString>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null)
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = SetConfigurationTransactionTypesWithHttpInfo(types);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > SetConfigurationTransactionTypesWithHttpInfo (List<TransactionConfigurationDataRequest> types = null)
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (types != null && types.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(types); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = types; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SetConfigurationTransactionTypes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync (List<TransactionConfigurationDataRequest> types = null)
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await SetConfigurationTransactionTypesAsyncWithHttpInfo(types);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> SetConfigurationTransactionTypesAsyncWithHttpInfo (List<TransactionConfigurationDataRequest> types = null)
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (types != null && types.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(types); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = types; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SetConfigurationTransactionTypes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (ResourceListOfString) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfString)));
         }
 
     }

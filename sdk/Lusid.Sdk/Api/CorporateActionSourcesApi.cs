@@ -21,280 +21,296 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDataTypesApi : IApiAccessor
+    public interface ICorporateActionSourcesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create data type definition
+        /// Upsert corporate actions
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>DataType</returns>
-        DataType CreateDataType (CreateDataTypeRequest request = null);
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>UpsertCorporateActionsResponse</returns>
+        UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<UpsertCorporateActionRequest> actions = null);
 
         /// <summary>
-        /// Create data type definition
+        /// Upsert corporate actions
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> CreateDataTypeWithHttpInfo (CreateDataTypeRequest request = null);
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>ApiResponse of UpsertCorporateActionsResponse</returns>
+        ApiResponse<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsWithHttpInfo (string scope, string code, List<UpsertCorporateActionRequest> actions = null);
         /// <summary>
-        /// Get data type definition
+        /// Create Corporate Action Source
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Attempt to create a corporate action source.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        DataType GetDataType (string scope, string code);
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>CorporateActionSource</returns>
+        CorporateActionSource CreateCorporateActionSource (CreateCorporateActionSourceRequest request);
 
         /// <summary>
-        /// Get data type definition
+        /// Create Corporate Action Source
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Attempt to create a corporate action source.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> GetDataTypeWithHttpInfo (string scope, string code);
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>ApiResponse of CorporateActionSource</returns>
+        ApiResponse<CorporateActionSource> CreateCorporateActionSourceWithHttpInfo (CreateCorporateActionSourceRequest request);
         /// <summary>
-        /// Get units from data type
+        /// Delete a corporate action source
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Deletes a single corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteCorporateActionSource (string scope, string code);
 
         /// <summary>
-        /// Get units from data type
+        /// Delete a corporate action source
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Deletes a single corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        ApiResponse<DeletedEntityResponse> DeleteCorporateActionSourceWithHttpInfo (string scope, string code);
         /// <summary>
-        /// List data types
+        /// Get corporate actions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Gets corporate actions from a specific corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>ResourceListOfCorporateAction</returns>
+        ResourceListOfCorporateAction GetCorporateActions (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// List data types
+        /// Get corporate actions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Gets corporate actions from a specific corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>ApiResponse of ResourceListOfCorporateAction</returns>
+        ApiResponse<ResourceListOfCorporateAction> GetCorporateActionsWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
-        /// Update data type definition
+        /// Get corporate action sources
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Gets a list of all corporate action sources
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>DataType</returns>
-        DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>ResourceListOfCorporateActionSource</returns>
+        ResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// Update data type definition
+        /// Get corporate action sources
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Gets a list of all corporate action sources
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> UpdateDataTypeWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfCorporateActionSource</returns>
+        ApiResponse<ResourceListOfCorporateActionSource> ListCorporateActionSourcesWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create data type definition
+        /// Upsert corporate actions
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> CreateDataTypeAsync (CreateDataTypeRequest request = null);
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>Task of UpsertCorporateActionsResponse</returns>
+        System.Threading.Tasks.Task<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsAsync (string scope, string code, List<UpsertCorporateActionRequest> actions = null);
 
         /// <summary>
-        /// Create data type definition
+        /// Upsert corporate actions
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeAsyncWithHttpInfo (CreateDataTypeRequest request = null);
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertCorporateActionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsAsyncWithHttpInfo (string scope, string code, List<UpsertCorporateActionRequest> actions = null);
         /// <summary>
-        /// Get data type definition
+        /// Create Corporate Action Source
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Attempt to create a corporate action source.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code);
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>Task of CorporateActionSource</returns>
+        System.Threading.Tasks.Task<CorporateActionSource> CreateCorporateActionSourceAsync (CreateCorporateActionSourceRequest request);
 
         /// <summary>
-        /// Get data type definition
+        /// Create Corporate Action Source
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Attempt to create a corporate action source.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code);
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>Task of ApiResponse (CorporateActionSource)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CorporateActionSource>> CreateCorporateActionSourceAsyncWithHttpInfo (CreateCorporateActionSourceRequest request);
         /// <summary>
-        /// Get units from data type
+        /// Delete a corporate action source
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Deletes a single corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync (string scope, string code);
 
         /// <summary>
-        /// Get units from data type
+        /// Delete a corporate action source
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Deletes a single corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceAsyncWithHttpInfo (string scope, string code);
         /// <summary>
-        /// List data types
+        /// Get corporate actions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Gets corporate actions from a specific corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>Task of ResourceListOfCorporateAction</returns>
+        System.Threading.Tasks.Task<ResourceListOfCorporateAction> GetCorporateActionsAsync (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// List data types
+        /// Get corporate actions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Gets corporate actions from a specific corporate action source
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>Task of ApiResponse (ResourceListOfCorporateAction)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfCorporateAction>> GetCorporateActionsAsyncWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
-        /// Update data type definition
+        /// Get corporate action sources
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Gets a list of all corporate action sources
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>Task of ResourceListOfCorporateActionSource</returns>
+        System.Threading.Tasks.Task<ResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// Update data type definition
+        /// Get corporate action sources
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Gets a list of all corporate action sources
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeAsyncWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfCorporateActionSource)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfCorporateActionSource>> ListCorporateActionSourcesAsyncWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DataTypesApi : IDataTypesApi
+    public partial class CorporateActionSourcesApi : ICorporateActionSourcesApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class.
+        /// Initializes a new instance of the <see cref="CorporateActionSourcesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi(String basePath)
+        public CorporateActionSourcesApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -302,10 +318,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="CorporateActionSourcesApi"/> class
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi()
+        public CorporateActionSourcesApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -313,12 +329,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="CorporateActionSourcesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DataTypesApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public CorporateActionSourcesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -392,27 +408,219 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Upsert corporate actions Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>DataType</returns>
-        public DataType CreateDataType (CreateDataTypeRequest request = null)
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>UpsertCorporateActionsResponse</returns>
+        public UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<UpsertCorporateActionRequest> actions = null)
         {
-             ApiResponse<DataType> localVarResponse = CreateDataTypeWithHttpInfo(request);
+             ApiResponse<UpsertCorporateActionsResponse> localVarResponse = BatchUpsertCorporateActionsWithHttpInfo(scope, code, actions);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Upsert corporate actions Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > CreateDataTypeWithHttpInfo (CreateDataTypeRequest request = null)
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>ApiResponse of UpsertCorporateActionsResponse</returns>
+        public ApiResponse< UpsertCorporateActionsResponse > BatchUpsertCorporateActionsWithHttpInfo (string scope, string code, List<UpsertCorporateActionRequest> actions = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling CorporateActionSourcesApi->BatchUpsertCorporateActions");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling CorporateActionSourcesApi->BatchUpsertCorporateActions");
 
-            var localVarPath = "./api/datatypes";
+            var localVarPath = "./api/corporateactionsources/{scope}/{code}/corporateactions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (actions != null && actions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(actions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = actions; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("BatchUpsertCorporateActions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertCorporateActionsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertCorporateActionsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertCorporateActionsResponse)));
+        }
+
+        /// <summary>
+        /// Upsert corporate actions Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>Task of UpsertCorporateActionsResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertCorporateActionsResponse> BatchUpsertCorporateActionsAsync (string scope, string code, List<UpsertCorporateActionRequest> actions = null)
+        {
+             ApiResponse<UpsertCorporateActionsResponse> localVarResponse = await BatchUpsertCorporateActionsAsyncWithHttpInfo(scope, code, actions);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Upsert corporate actions Attempt to create/update one or more corporate action in a specified corporate action source. Failed actions will be identified in the body of the response.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="actions">The corporate action definitions (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertCorporateActionsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpsertCorporateActionsResponse>> BatchUpsertCorporateActionsAsyncWithHttpInfo (string scope, string code, List<UpsertCorporateActionRequest> actions = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling CorporateActionSourcesApi->BatchUpsertCorporateActions");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling CorporateActionSourcesApi->BatchUpsertCorporateActions");
+
+            var localVarPath = "./api/corporateactionsources/{scope}/{code}/corporateactions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (actions != null && actions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(actions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = actions; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("BatchUpsertCorporateActions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertCorporateActionsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertCorporateActionsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertCorporateActionsResponse)));
+        }
+
+        /// <summary>
+        /// Create Corporate Action Source Attempt to create a corporate action source.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>CorporateActionSource</returns>
+        public CorporateActionSource CreateCorporateActionSource (CreateCorporateActionSourceRequest request)
+        {
+             ApiResponse<CorporateActionSource> localVarResponse = CreateCorporateActionSourceWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Corporate Action Source Attempt to create a corporate action source.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>ApiResponse of CorporateActionSource</returns>
+        public ApiResponse< CorporateActionSource > CreateCorporateActionSourceWithHttpInfo (CreateCorporateActionSourceRequest request)
+        {
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling CorporateActionSourcesApi->CreateCorporateActionSource");
+
+            var localVarPath = "./api/corporateactionsources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -464,38 +672,41 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("CreateCorporateActionSource", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<CorporateActionSource>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (CorporateActionSource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CorporateActionSource)));
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create Corporate Action Source Attempt to create a corporate action source.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> CreateDataTypeAsync (CreateDataTypeRequest request = null)
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>Task of CorporateActionSource</returns>
+        public async System.Threading.Tasks.Task<CorporateActionSource> CreateCorporateActionSourceAsync (CreateCorporateActionSourceRequest request)
         {
-             ApiResponse<DataType> localVarResponse = await CreateDataTypeAsyncWithHttpInfo(request);
+             ApiResponse<CorporateActionSource> localVarResponse = await CreateCorporateActionSourceAsyncWithHttpInfo(request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create Corporate Action Source Attempt to create a corporate action source.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeAsyncWithHttpInfo (CreateDataTypeRequest request = null)
+        /// <param name="request">The corporate action source definition</param>
+        /// <returns>Task of ApiResponse (CorporateActionSource)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CorporateActionSource>> CreateCorporateActionSourceAsyncWithHttpInfo (CreateCorporateActionSourceRequest request)
         {
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling CorporateActionSourcesApi->CreateCorporateActionSource");
 
-            var localVarPath = "./api/datatypes";
+            var localVarPath = "./api/corporateactionsources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -547,45 +758,45 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("CreateCorporateActionSource", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<CorporateActionSource>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (CorporateActionSource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CorporateActionSource)));
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        public DataType GetDataType (string scope, string code)
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteCorporateActionSource (string scope, string code)
         {
-             ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code);
+             ApiResponse<DeletedEntityResponse> localVarResponse = DeleteCorporateActionSourceWithHttpInfo(scope, code);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > GetDataTypeWithHttpInfo (string scope, string code)
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public ApiResponse< DeletedEntityResponse > DeleteCorporateActionSourceWithHttpInfo (string scope, string code)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling CorporateActionSourcesApi->DeleteCorporateActionSource");
             // verify the required parameter 'code' is set
             if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
+                throw new ApiException(400, "Missing required parameter 'code' when calling CorporateActionSourcesApi->DeleteCorporateActionSource");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/corporateactionsources/{scope}/{code}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -624,53 +835,53 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteCorporateActionSource", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<DeletedEntityResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (DeletedEntityResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletedEntityResponse)));
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code)
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteCorporateActionSourceAsync (string scope, string code)
         {
-             ApiResponse<DataType> localVarResponse = await GetDataTypeAsyncWithHttpInfo(scope, code);
+             ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteCorporateActionSourceAsyncWithHttpInfo(scope, code);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Delete a corporate action source Deletes a single corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code)
+        /// <param name="scope">The Scope of the Corporate Action Source to be deleted</param>
+        /// <param name="code">The Code of the Corporate Action Source to be deleted</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteCorporateActionSourceAsyncWithHttpInfo (string scope, string code)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling CorporateActionSourcesApi->DeleteCorporateActionSource");
             // verify the required parameter 'code' is set
             if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
+                throw new ApiException(400, "Missing required parameter 'code' when calling CorporateActionSourcesApi->DeleteCorporateActionSource");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/corporateactionsources/{scope}/{code}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -709,56 +920,66 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteCorporateActionSource", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<DeletedEntityResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (DeletedEntityResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletedEntityResponse)));
         }
 
         /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// Get corporate actions Gets corporate actions from a specific corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
+        /// <returns>ResourceListOfCorporateAction</returns>
+        public ResourceListOfCorporateAction GetCorporateActions (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter);
+             ApiResponse<ResourceListOfCorporateAction> localVarResponse = GetCorporateActionsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, start, limit, filter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// Get corporate actions Gets corporate actions from a specific corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        public ApiResponse< ResourceListOfIUnitDefinitionDto > GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
+        /// <returns>ApiResponse of ResourceListOfCorporateAction</returns>
+        public ApiResponse< ResourceListOfCorporateAction > GetCorporateActionsWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling CorporateActionSourcesApi->GetCorporateActions");
             // verify the required parameter 'code' is set
             if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
+                throw new ApiException(400, "Missing required parameter 'code' when calling CorporateActionSourcesApi->GetCorporateActions");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
+            var localVarPath = "./api/corporateactionsources/{scope}/{code}/corporateactions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -783,188 +1004,9 @@ namespace Lusid.Sdk.Api
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
             if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null)
-        {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeAsyncWithHttpInfo(scope, code, units, filter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
-        }
-
-        /// <summary>
-        /// List data types List all data types in a specified scope
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        public ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
-        {
-             ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List data types List all data types in a specified scope
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        public ApiResponse< ResourceListOfDataType > ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
-
-            var localVarPath = "./api/datatypes/{scope}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
+            if (fromEffectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromEffectiveAt", fromEffectiveAt)); // query parameter
+            if (toEffectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toEffectiveAt", toEffectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
@@ -990,51 +1032,60 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetCorporateActions", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfCorporateAction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ResourceListOfCorporateAction) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfCorporateAction)));
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// Get corporate actions Gets corporate actions from a specific corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <returns>Task of ResourceListOfCorporateAction</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfCorporateAction> GetCorporateActionsAsync (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesAsyncWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ResourceListOfCorporateAction> localVarResponse = await GetCorporateActionsAsyncWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, start, limit, filter);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// Get corporate actions Gets corporate actions from a specific corporate action source
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="scope">The scope of the corporate action source</param>
+        /// <param name="code">The code of the corporate action source</param>
+        /// <param name="fromEffectiveAt">Optional. The start effective date of the data range (optional)</param>
+        /// <param name="toEffectiveAt">Optional. The end effective date of the data range (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <returns>Task of ApiResponse (ResourceListOfCorporateAction)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfCorporateAction>> GetCorporateActionsAsyncWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling CorporateActionSourcesApi->GetCorporateActions");
+            // verify the required parameter 'code' is set
+            if (code == null)
+                throw new ApiException(400, "Missing required parameter 'code' when calling CorporateActionSourcesApi->GetCorporateActions");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/corporateactionsources/{scope}/{code}/corporateactions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1058,7 +1109,10 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
+            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (fromEffectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromEffectiveAt", fromEffectiveAt)); // query parameter
+            if (toEffectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toEffectiveAt", toEffectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
@@ -1084,47 +1138,45 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetCorporateActions", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfCorporateAction>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ResourceListOfCorporateAction) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfCorporateAction)));
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Get corporate action sources Gets a list of all corporate action sources
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>DataType</returns>
-        public DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>ResourceListOfCorporateActionSource</returns>
+        public ResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-             ApiResponse<DataType> localVarResponse = UpdateDataTypeWithHttpInfo(scope, code, request);
+             ApiResponse<ResourceListOfCorporateActionSource> localVarResponse = ListCorporateActionSourcesWithHttpInfo(asAt, sortBy, start, limit, filter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Get corporate action sources Gets a list of all corporate action sources
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > UpdateDataTypeWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfCorporateActionSource</returns>
+        public ApiResponse< ResourceListOfCorporateActionSource > ListCorporateActionSourcesWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->UpdateDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->UpdateDataType");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/corporateactionsources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1147,16 +1199,11 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -1171,55 +1218,53 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("ListCorporateActionSources", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfCorporateActionSource>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (ResourceListOfCorporateActionSource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfCorporateActionSource)));
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Get corporate action sources Gets a list of all corporate action sources
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>Task of ResourceListOfCorporateActionSource</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfCorporateActionSource> ListCorporateActionSourcesAsync (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-             ApiResponse<DataType> localVarResponse = await UpdateDataTypeAsyncWithHttpInfo(scope, code, request);
+             ApiResponse<ResourceListOfCorporateActionSource> localVarResponse = await ListCorporateActionSourcesAsyncWithHttpInfo(asAt, sortBy, start, limit, filter);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Get corporate action sources Gets a list of all corporate action sources
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeAsyncWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfCorporateActionSource)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfCorporateActionSource>> ListCorporateActionSourcesAsyncWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->UpdateDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->UpdateDataType");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/corporateactionsources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1242,16 +1287,11 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (request != null && request.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = request; // byte array
-            }
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -1266,20 +1306,20 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("ListCorporateActionSources", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfCorporateActionSource>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (ResourceListOfCorporateActionSource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfCorporateActionSource)));
         }
 
     }

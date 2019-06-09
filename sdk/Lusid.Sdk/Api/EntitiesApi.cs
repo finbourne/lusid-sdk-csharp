@@ -21,148 +21,76 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ISystemConfigurationApi : IApiAccessor
+    public interface IEntitiesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create transaction type
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ResourceListOfChange</returns>
+        ResourceListOfChange GetPortfolioChanges (string scope, string effectiveAt, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Create transaction type
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeWithHttpInfo (TransactionConfigurationDataRequest type = null);
-        /// <summary>
-        /// List transaction types
-        /// </summary>
-        /// <remarks>
-        /// Get the list of persisted transaction types
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ();
-
-        /// <summary>
-        /// List transaction types
-        /// </summary>
-        /// <remarks>
-        /// Get the list of persisted transaction types
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesWithHttpInfo ();
-        /// <summary>
-        /// Set transaction types
-        /// </summary>
-        /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null);
-
-        /// <summary>
-        /// Set transaction types
-        /// </summary>
-        /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        ApiResponse<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesWithHttpInfo (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfChange</returns>
+        ApiResponse<ResourceListOfChange> GetPortfolioChangesWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create transaction type
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync (TransactionConfigurationDataRequest type = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ResourceListOfChange</returns>
+        System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync (string scope, string effectiveAt, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Create transaction type
+        /// Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
-        /// Create a new transaction type by specifying a definition and the mappings to movements
+        /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeAsyncWithHttpInfo (TransactionConfigurationDataRequest type = null);
-        /// <summary>
-        /// List transaction types
-        /// </summary>
-        /// <remarks>
-        /// Get the list of persisted transaction types
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync ();
-
-        /// <summary>
-        /// List transaction types
-        /// </summary>
-        /// <remarks>
-        /// Get the list of persisted transaction types
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> ListConfigurationTransactionTypesAsyncWithHttpInfo ();
-        /// <summary>
-        /// Set transaction types
-        /// </summary>
-        /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync (List<TransactionConfigurationDataRequest> types = null);
-
-        /// <summary>
-        /// Set transaction types
-        /// </summary>
-        /// <remarks>
-        /// Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> SetConfigurationTransactionTypesAsyncWithHttpInfo (List<TransactionConfigurationDataRequest> types = null);
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesAsyncWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SystemConfigurationApi : ISystemConfigurationApi
+    public partial class EntitiesApi : IEntitiesApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class.
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SystemConfigurationApi(String basePath)
+        public EntitiesApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -170,10 +98,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class
         /// </summary>
         /// <returns></returns>
-        public SystemConfigurationApi()
+        public EntitiesApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -181,12 +109,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SystemConfigurationApi"/> class
+        /// Initializes a new instance of the <see cref="EntitiesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public SystemConfigurationApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public EntitiesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -260,27 +188,37 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ResourceListOfChange</returns>
+        public ResourceListOfChange GetPortfolioChanges (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = CreateConfigurationTransactionTypeWithHttpInfo(type);
+             ApiResponse<ResourceListOfChange> localVarResponse = GetPortfolioChangesWithHttpInfo(scope, effectiveAt, asAt);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > CreateConfigurationTransactionTypeWithHttpInfo (TransactionConfigurationDataRequest type = null)
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfChange</returns>
+        public ApiResponse< ResourceListOfChange > GetPortfolioChangesWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling EntitiesApi->GetPortfolioChanges");
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+                throw new ApiException(400, "Missing required parameter 'effectiveAt' when calling EntitiesApi->GetPortfolioChanges");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/entities/changes/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -303,169 +241,9 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null && type.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(type); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = type; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CreateConfigurationTransactionType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> CreateConfigurationTransactionTypeAsync (TransactionConfigurationDataRequest type = null)
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await CreateConfigurationTransactionTypeAsyncWithHttpInfo(type);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Create transaction type Create a new transaction type by specifying a definition and the mappings to movements
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">A transaction type definition (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> CreateConfigurationTransactionTypeAsyncWithHttpInfo (TransactionConfigurationDataRequest type = null)
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (type != null && type.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(type); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = type; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CreateConfigurationTransactionType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// List transaction types Get the list of persisted transaction types
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ()
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = ListConfigurationTransactionTypesWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List transaction types Get the list of persisted transaction types
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > ListConfigurationTransactionTypesWithHttpInfo ()
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -487,36 +265,48 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListConfigurationTransactionTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetPortfolioChanges", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfChange>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (ResourceListOfChange) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfChange)));
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> ListConfigurationTransactionTypesAsync ()
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ResourceListOfChange</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await ListConfigurationTransactionTypesAsyncWithHttpInfo();
+             ApiResponse<ResourceListOfChange> localVarResponse = await GetPortfolioChangesAsyncWithHttpInfo(scope, effectiveAt, asAt);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List transaction types Get the list of persisted transaction types
+        /// Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> ListConfigurationTransactionTypesAsyncWithHttpInfo ()
+        /// <param name="scope">The scope</param>
+        /// <param name="effectiveAt">The effective date of the origin.</param>
+        /// <param name="asAt">The as-at date of the origin. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfChange)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfChange>> GetPortfolioChangesAsyncWithHttpInfo (string scope, string effectiveAt, DateTimeOffset? asAt = null)
         {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling EntitiesApi->GetPortfolioChanges");
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+                throw new ApiException(400, "Missing required parameter 'effectiveAt' when calling EntitiesApi->GetPortfolioChanges");
 
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
+            var localVarPath = "./api/entities/changes/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -539,6 +329,9 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -560,178 +353,13 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListConfigurationTransactionTypes", localVarResponse);
+                Exception exception = ExceptionFactory("GetPortfolioChanges", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfChange>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ResourceListOfTransactionConfigurationData</returns>
-        public ResourceListOfTransactionConfigurationData SetConfigurationTransactionTypes (List<TransactionConfigurationDataRequest> types = null)
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = SetConfigurationTransactionTypesWithHttpInfo(types);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfTransactionConfigurationData</returns>
-        public ApiResponse< ResourceListOfTransactionConfigurationData > SetConfigurationTransactionTypesWithHttpInfo (List<TransactionConfigurationDataRequest> types = null)
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (types != null && types.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(types); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = types; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SetConfigurationTransactionTypes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ResourceListOfTransactionConfigurationData</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfTransactionConfigurationData> SetConfigurationTransactionTypesAsync (List<TransactionConfigurationDataRequest> types = null)
-        {
-             ApiResponse<ResourceListOfTransactionConfigurationData> localVarResponse = await SetConfigurationTransactionTypesAsyncWithHttpInfo(types);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Set transaction types Set all transaction types to be used by the movements engine, for the organisation                WARNING! Changing these mappings will have a material impact on how data, new and old, is processed and aggregated by LUSID. This will affect your whole organisation. Only change if you are fully aware of the implications of the change.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">The complete set of transaction type definitions (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfTransactionConfigurationData)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfTransactionConfigurationData>> SetConfigurationTransactionTypesAsyncWithHttpInfo (List<TransactionConfigurationDataRequest> types = null)
-        {
-
-            var localVarPath = "./api/systemconfiguration/transactiontypes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (types != null && types.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(types); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = types; // byte array
-            }
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SetConfigurationTransactionTypes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfTransactionConfigurationData>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfTransactionConfigurationData) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfTransactionConfigurationData)));
+                (ResourceListOfChange) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfChange)));
         }
 
     }

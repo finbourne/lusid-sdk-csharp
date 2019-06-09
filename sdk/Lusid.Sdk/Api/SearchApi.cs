@@ -21,142 +21,250 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IReconciliationsApi : IApiAccessor
+    public interface ISearchApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Search instruments
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>ICollection&lt;InstrumentMatch&gt;</returns>
+        ICollection<InstrumentMatch> InstrumentsSearch (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Search instruments
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>ApiResponse of ICollection&lt;InstrumentMatch&gt;</returns>
+        ApiResponse<ICollection<InstrumentMatch>> InstrumentsSearchWithHttpInfo (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null);
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Search portfolio groups
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search through all portfolio groups
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ResourceListOfPortfolioGroup</returns>
+        ResourceListOfPortfolioGroup PortfolioGroupsSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Search portfolio groups
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search through all portfolio groups
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        ApiResponse<ResourceListOfReconciliationBreak> ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioGroup</returns>
+        ApiResponse<ResourceListOfPortfolioGroup> PortfolioGroupsSearchWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
+        /// <remarks>
+        /// Search through all portfolios
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ResourceListOfPortfolioSearchResult</returns>
+        ResourceListOfPortfolioSearchResult PortfoliosSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
+        /// <remarks>
+        /// Search through all portfolios
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioSearchResult</returns>
+        ApiResponse<ResourceListOfPortfolioSearchResult> PortfoliosSearchWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+        /// <summary>
+        /// Search property definitions
+        /// </summary>
+        /// <remarks>
+        /// Search through all property definitions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ResourceListOfPropertyDefinition</returns>
+        ResourceListOfPropertyDefinition PropertiesSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+
+        /// <summary>
+        /// Search property definitions
+        /// </summary>
+        /// <remarks>
+        /// Search through all property definitions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
+        ApiResponse<ResourceListOfPropertyDefinition> PropertiesSearchWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Search instruments
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>Task of ICollection&lt;InstrumentMatch&gt;</returns>
+        System.Threading.Tasks.Task<ICollection<InstrumentMatch>> InstrumentsSearchAsync (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null);
 
         /// <summary>
-        /// Reconcile portfolio holdings
+        /// Search instruments
         /// </summary>
         /// <remarks>
-        /// Reconcile the holdings of two portfolios.
+        /// Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null);
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>Task of ApiResponse (ICollection&lt;InstrumentMatch&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ICollection<InstrumentMatch>>> InstrumentsSearchAsyncWithHttpInfo (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null);
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Search portfolio groups
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search through all portfolio groups
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioGroup</returns>
+        System.Threading.Tasks.Task<ResourceListOfPortfolioGroup> PortfolioGroupsSearchAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+        /// Search portfolio groups
         /// </summary>
         /// <remarks>
-        /// Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search through all portfolio groups
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null);
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioGroup)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
+        /// <remarks>
+        /// Search through all portfolios
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioSearchResult</returns>
+        System.Threading.Tasks.Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+
+        /// <summary>
+        /// Search portfolios
+        /// </summary>
+        /// <remarks>
+        /// Search through all portfolios
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioSearchResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+        /// <summary>
+        /// Search property definitions
+        /// </summary>
+        /// <remarks>
+        /// Search through all property definitions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ResourceListOfPropertyDefinition</returns>
+        System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> PropertiesSearchAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
+
+        /// <summary>
+        /// Search property definitions
+        /// </summary>
+        /// <remarks>
+        /// Search through all property definitions
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPropertyDefinition)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyDefinition>> PropertiesSearchAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ReconciliationsApi : IReconciliationsApi
+    public partial class SearchApi : ISearchApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class.
+        /// Initializes a new instance of the <see cref="SearchApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi(String basePath)
+        public SearchApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -164,10 +272,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="SearchApi"/> class
         /// </summary>
         /// <returns></returns>
-        public ReconciliationsApi()
+        public SearchApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -175,12 +283,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationsApi"/> class
+        /// Initializes a new instance of the <see cref="SearchApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ReconciliationsApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public SearchApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -254,35 +362,212 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Search instruments Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>ICollection&lt;InstrumentMatch&gt;</returns>
+        public ICollection<InstrumentMatch> InstrumentsSearch (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileHoldingsWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<ICollection<InstrumentMatch>> localVarResponse = InstrumentsSearchWithHttpInfo(masteredEffectiveAt, masteredOnly, symbols);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Search instruments Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>ApiResponse of ICollection&lt;InstrumentMatch&gt;</returns>
+        public ApiResponse< ICollection<InstrumentMatch> > InstrumentsSearchWithHttpInfo (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null)
+        {
+
+            var localVarPath = "./api/search/instruments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (masteredEffectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "masteredEffectiveAt", masteredEffectiveAt)); // query parameter
+            if (masteredOnly != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "masteredOnly", masteredOnly)); // query parameter
+            if (symbols != null && symbols.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(symbols); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = symbols; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InstrumentsSearch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ICollection<InstrumentMatch>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ICollection<InstrumentMatch>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InstrumentMatch>)));
+        }
+
+        /// <summary>
+        /// Search instruments Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>Task of ICollection&lt;InstrumentMatch&gt;</returns>
+        public async System.Threading.Tasks.Task<ICollection<InstrumentMatch>> InstrumentsSearchAsync (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null)
+        {
+             ApiResponse<ICollection<InstrumentMatch>> localVarResponse = await InstrumentsSearchAsyncWithHttpInfo(masteredEffectiveAt, masteredOnly, symbols);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search instruments Search through instruments that have been mastered in LUSID, and optionally augment results with instruments from a symbology service
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="masteredEffectiveAt">Optional. The effective date for searching mastered instruments. If this is not set, then the current date is taken.  This parameter has no effect on instruments that have not been mastered within LUSID. (optional)</param>
+        /// <param name="masteredOnly">Optional. If set to true, only search over instruments that have been mastered within LUSID. Default to false (optional, default to false)</param>
+        /// <param name="symbols">A collection of instrument symbols to search for (optional)</param>
+        /// <returns>Task of ApiResponse (ICollection&lt;InstrumentMatch&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ICollection<InstrumentMatch>>> InstrumentsSearchAsyncWithHttpInfo (string masteredEffectiveAt = null, bool? masteredOnly = null, List<InstrumentSearchProperty> symbols = null)
+        {
+
+            var localVarPath = "./api/search/instruments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (masteredEffectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "masteredEffectiveAt", masteredEffectiveAt)); // query parameter
+            if (masteredOnly != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "masteredOnly", masteredOnly)); // query parameter
+            if (symbols != null && symbols.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(symbols); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = symbols; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InstrumentsSearch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ICollection<InstrumentMatch>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ICollection<InstrumentMatch>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InstrumentMatch>)));
+        }
+
+        /// <summary>
+        /// Search portfolio groups Search through all portfolio groups
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileHoldingsWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ResourceListOfPortfolioGroup</returns>
+        public ResourceListOfPortfolioGroup PortfolioGroupsSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
+        {
+             ApiResponse<ResourceListOfPortfolioGroup> localVarResponse = PortfolioGroupsSearchWithHttpInfo(sortBy, start, limit, filter, request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search portfolio groups Search through all portfolio groups
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioGroup</returns>
+        public ApiResponse< ResourceListOfPortfolioGroup > PortfolioGroupsSearchWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/search/portfoliogroups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -338,46 +623,46 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("PortfolioGroupsSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioGroup>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfPortfolioGroup) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioGroup)));
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Search portfolio groups Search through all portfolio groups
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileHoldingsAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioGroup</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolioGroup> PortfolioGroupsSearchAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileHoldingsAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<ResourceListOfPortfolioGroup> localVarResponse = await PortfolioGroupsSearchAsyncWithHttpInfo(sortBy, start, limit, filter, request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile portfolio holdings Reconcile the holdings of two portfolios.
+        /// Search portfolio groups Search through all portfolio groups
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileHoldingsAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioGroup)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
 
-            var localVarPath = "./api/portfolios/$reconcileholdings";
+            var localVarPath = "./api/search/portfoliogroups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -433,45 +718,45 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileHoldings", localVarResponse);
+                Exception exception = ExceptionFactory("PortfolioGroupsSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioGroup>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfPortfolioGroup) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioGroup)));
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search portfolios Search through all portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ResourceListOfReconciliationBreak</returns>
-        public ResourceListOfReconciliationBreak ReconcileValuation (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ResourceListOfPortfolioSearchResult</returns>
+        public ResourceListOfPortfolioSearchResult PortfoliosSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = ReconcileValuationWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<ResourceListOfPortfolioSearchResult> localVarResponse = PortfoliosSearchWithHttpInfo(sortBy, start, limit, filter, request);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search portfolios Search through all portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfReconciliationBreak</returns>
-        public ApiResponse< ResourceListOfReconciliationBreak > ReconcileValuationWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioSearchResult</returns>
+        public ApiResponse< ResourceListOfPortfolioSearchResult > PortfoliosSearchWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
 
-            var localVarPath = "./api/portfolios/$reconcileValuation";
+            var localVarPath = "./api/search/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -527,46 +812,46 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
+                Exception exception = ExceptionFactory("PortfoliosSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioSearchResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfPortfolioSearchResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioSearchResult)));
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search portfolios Search through all portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ResourceListOfReconciliationBreak</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfReconciliationBreak> ReconcileValuationAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioSearchResult</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
-             ApiResponse<ResourceListOfReconciliationBreak> localVarResponse = await ReconcileValuationAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             ApiResponse<ResourceListOfPortfolioSearchResult> localVarResponse = await PortfoliosSearchAsyncWithHttpInfo(sortBy, start, limit, filter, request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes. Perform valuation of one or two set of holdings using different one or two configuration recipes. Produce a breakdown of the resulting differences in valuation.
+        /// Search portfolios Search through all portfolios
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <param name="request">The specifications of the inputs to the reconciliation (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfReconciliationBreak)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfReconciliationBreak>> ReconcileValuationAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, ValuationsReconciliationRequest request = null)
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioSearchResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
         {
 
-            var localVarPath = "./api/portfolios/$reconcileValuation";
+            var localVarPath = "./api/search/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -622,13 +907,202 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconcileValuation", localVarResponse);
+                Exception exception = ExceptionFactory("PortfoliosSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfReconciliationBreak>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioSearchResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfReconciliationBreak) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfReconciliationBreak)));
+                (ResourceListOfPortfolioSearchResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioSearchResult)));
+        }
+
+        /// <summary>
+        /// Search property definitions Search through all property definitions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ResourceListOfPropertyDefinition</returns>
+        public ResourceListOfPropertyDefinition PropertiesSearch (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
+        {
+             ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = PropertiesSearchWithHttpInfo(sortBy, start, limit, filter, request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search property definitions Search through all property definitions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
+        public ApiResponse< ResourceListOfPropertyDefinition > PropertiesSearchWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
+        {
+
+            var localVarPath = "./api/search/propertydefinitions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PropertiesSearch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfPropertyDefinition>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfPropertyDefinition) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPropertyDefinition)));
+        }
+
+        /// <summary>
+        /// Search property definitions Search through all property definitions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ResourceListOfPropertyDefinition</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> PropertiesSearchAsync (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
+        {
+             ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = await PropertiesSearchAsyncWithHttpInfo(sortBy, start, limit, filter, request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search property definitions Search through all property definitions
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
+        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
+        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
+        /// <param name="request">A valid Elasticsearch 5.x request (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPropertyDefinition)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyDefinition>> PropertiesSearchAsyncWithHttpInfo (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, Object request = null)
+        {
+
+            var localVarPath = "./api/search/propertydefinitions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PropertiesSearch", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfPropertyDefinition>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfPropertyDefinition) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPropertyDefinition)));
         }
 
     }

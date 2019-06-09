@@ -21,280 +21,296 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDataTypesApi : IApiAccessor
+    public interface IAnalyticsStoresApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create data type definition
+        /// Create analytic store
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>DataType</returns>
-        DataType CreateDataType (CreateDataTypeRequest request = null);
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>AnalyticStore</returns>
+        AnalyticStore CreateAnalyticStore (CreateAnalyticStoreRequest request = null);
 
         /// <summary>
-        /// Create data type definition
+        /// Create analytic store
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> CreateDataTypeWithHttpInfo (CreateDataTypeRequest request = null);
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>ApiResponse of AnalyticStore</returns>
+        ApiResponse<AnalyticStore> CreateAnalyticStoreWithHttpInfo (CreateAnalyticStoreRequest request = null);
         /// <summary>
-        /// Get data type definition
+        /// Delete analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Delete stored analytic data in the specified scope for the specified date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        DataType GetDataType (string scope, string code);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteAnalyticStore (string scope, int? year, int? month, int? day);
 
         /// <summary>
-        /// Get data type definition
+        /// Delete analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Delete stored analytic data in the specified scope for the specified date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> GetDataTypeWithHttpInfo (string scope, string code);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        ApiResponse<DeletedEntityResponse> DeleteAnalyticStoreWithHttpInfo (string scope, int? year, int? month, int? day);
         /// <summary>
-        /// Get units from data type
+        /// Get analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Get the meta data associated with a specified scope and date combination (analytic store)
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>AnalyticStore</returns>
+        AnalyticStore GetAnalyticStore (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Get units from data type
+        /// Get analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Get the meta data associated with a specified scope and date combination (analytic store)
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>ApiResponse of AnalyticStore</returns>
+        ApiResponse<AnalyticStore> GetAnalyticStoreWithHttpInfo (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null);
         /// <summary>
-        /// List data types
+        /// List analytic stores
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// List all defined analytic stores
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>ResourceListOfAnalyticStoreKey</returns>
+        ResourceListOfAnalyticStoreKey ListAnalyticStores (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// List data types
+        /// List analytic stores
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// List all defined analytic stores
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>ApiResponse of ResourceListOfAnalyticStoreKey</returns>
+        ApiResponse<ResourceListOfAnalyticStoreKey> ListAnalyticStoresWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
-        /// Update data type definition
+        /// Set analytic data
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>DataType</returns>
-        DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>AnalyticStore</returns>
+        AnalyticStore SetAnalytics (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null);
 
         /// <summary>
-        /// Update data type definition
+        /// Set analytic data
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> UpdateDataTypeWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>ApiResponse of AnalyticStore</returns>
+        ApiResponse<AnalyticStore> SetAnalyticsWithHttpInfo (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create data type definition
+        /// Create analytic store
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> CreateDataTypeAsync (CreateDataTypeRequest request = null);
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>Task of AnalyticStore</returns>
+        System.Threading.Tasks.Task<AnalyticStore> CreateAnalyticStoreAsync (CreateAnalyticStoreRequest request = null);
 
         /// <summary>
-        /// Create data type definition
+        /// Create analytic store
         /// </summary>
         /// <remarks>
-        /// Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create a new analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeAsyncWithHttpInfo (CreateDataTypeRequest request = null);
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>Task of ApiResponse (AnalyticStore)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticStore>> CreateAnalyticStoreAsyncWithHttpInfo (CreateAnalyticStoreRequest request = null);
         /// <summary>
-        /// Get data type definition
+        /// Delete analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Delete stored analytic data in the specified scope for the specified date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAnalyticStoreAsync (string scope, int? year, int? month, int? day);
 
         /// <summary>
-        /// Get data type definition
+        /// Delete analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Delete stored analytic data in the specified scope for the specified date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteAnalyticStoreAsyncWithHttpInfo (string scope, int? year, int? month, int? day);
         /// <summary>
-        /// Get units from data type
+        /// Get analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Get the meta data associated with a specified scope and date combination (analytic store)
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of AnalyticStore</returns>
+        System.Threading.Tasks.Task<AnalyticStore> GetAnalyticStoreAsync (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null);
 
         /// <summary>
-        /// Get units from data type
+        /// Get analytic store
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Get the meta data associated with a specified scope and date combination (analytic store)
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of ApiResponse (AnalyticStore)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticStore>> GetAnalyticStoreAsyncWithHttpInfo (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null);
         /// <summary>
-        /// List data types
+        /// List analytic stores
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// List all defined analytic stores
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>Task of ResourceListOfAnalyticStoreKey</returns>
+        System.Threading.Tasks.Task<ResourceListOfAnalyticStoreKey> ListAnalyticStoresAsync (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// List data types
+        /// List analytic stores
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// List all defined analytic stores
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <returns>Task of ApiResponse (ResourceListOfAnalyticStoreKey)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAnalyticStoreKey>> ListAnalyticStoresAsyncWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
-        /// Update data type definition
+        /// Set analytic data
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>Task of AnalyticStore</returns>
+        System.Threading.Tasks.Task<AnalyticStore> SetAnalyticsAsync (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null);
 
         /// <summary>
-        /// Update data type definition
+        /// Set analytic data
         /// </summary>
         /// <remarks>
-        /// Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeAsyncWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null);
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>Task of ApiResponse (AnalyticStore)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalyticStore>> SetAnalyticsAsyncWithHttpInfo (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DataTypesApi : IDataTypesApi
+    public partial class AnalyticsStoresApi : IAnalyticsStoresApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class.
+        /// Initializes a new instance of the <see cref="AnalyticsStoresApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi(String basePath)
+        public AnalyticsStoresApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -302,10 +318,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="AnalyticsStoresApi"/> class
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi()
+        public AnalyticsStoresApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -313,12 +329,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="AnalyticsStoresApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DataTypesApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public AnalyticsStoresApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -392,27 +408,27 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create analytic store Create a new analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>DataType</returns>
-        public DataType CreateDataType (CreateDataTypeRequest request = null)
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>AnalyticStore</returns>
+        public AnalyticStore CreateAnalyticStore (CreateAnalyticStoreRequest request = null)
         {
-             ApiResponse<DataType> localVarResponse = CreateDataTypeWithHttpInfo(request);
+             ApiResponse<AnalyticStore> localVarResponse = CreateAnalyticStoreWithHttpInfo(request);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create analytic store Create a new analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > CreateDataTypeWithHttpInfo (CreateDataTypeRequest request = null)
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>ApiResponse of AnalyticStore</returns>
+        public ApiResponse< AnalyticStore > CreateAnalyticStoreWithHttpInfo (CreateAnalyticStoreRequest request = null)
         {
 
-            var localVarPath = "./api/datatypes";
+            var localVarPath = "./api/analytics";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -464,38 +480,38 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("CreateAnalyticStore", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<AnalyticStore>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (AnalyticStore) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticStore)));
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create analytic store Create a new analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> CreateDataTypeAsync (CreateDataTypeRequest request = null)
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>Task of AnalyticStore</returns>
+        public async System.Threading.Tasks.Task<AnalyticStore> CreateAnalyticStoreAsync (CreateAnalyticStoreRequest request = null)
         {
-             ApiResponse<DataType> localVarResponse = await CreateDataTypeAsyncWithHttpInfo(request);
+             ApiResponse<AnalyticStore> localVarResponse = await CreateAnalyticStoreAsyncWithHttpInfo(request);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create data type definition Create a new data type definition    Data types cannot be created in either the \&quot;default\&quot; or \&quot;system\&quot; scopes.
+        /// Create analytic store Create a new analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request">The definition of the new data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> CreateDataTypeAsyncWithHttpInfo (CreateDataTypeRequest request = null)
+        /// <param name="request">A populated analytic store definition (optional)</param>
+        /// <returns>Task of ApiResponse (AnalyticStore)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticStore>> CreateAnalyticStoreAsyncWithHttpInfo (CreateAnalyticStoreRequest request = null)
         {
 
-            var localVarPath = "./api/datatypes";
+            var localVarPath = "./api/analytics";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -547,45 +563,55 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("CreateAnalyticStore", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<AnalyticStore>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (AnalyticStore) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticStore)));
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Delete analytic store Delete stored analytic data in the specified scope for the specified date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        public DataType GetDataType (string scope, string code)
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteAnalyticStore (string scope, int? year, int? month, int? day)
         {
-             ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code);
+             ApiResponse<DeletedEntityResponse> localVarResponse = DeleteAnalyticStoreWithHttpInfo(scope, year, month, day);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Delete analytic store Delete stored analytic data in the specified scope for the specified date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > GetDataTypeWithHttpInfo (string scope, string code)
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public ApiResponse< DeletedEntityResponse > DeleteAnalyticStoreWithHttpInfo (string scope, int? year, int? month, int? day)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+            // verify the required parameter 'year' is set
+            if (year == null)
+                throw new ApiException(400, "Missing required parameter 'year' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+            // verify the required parameter 'month' is set
+            if (month == null)
+                throw new ApiException(400, "Missing required parameter 'month' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+            // verify the required parameter 'day' is set
+            if (day == null)
+                throw new ApiException(400, "Missing required parameter 'day' when calling AnalyticsStoresApi->DeleteAnalyticStore");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/analytics/{scope}/{year}/{month}/{day}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -609,7 +635,205 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (year != null) localVarPathParams.Add("year", this.Configuration.ApiClient.ParameterToString(year)); // path parameter
+            if (month != null) localVarPathParams.Add("month", this.Configuration.ApiClient.ParameterToString(month)); // path parameter
+            if (day != null) localVarPathParams.Add("day", this.Configuration.ApiClient.ParameterToString(day)); // path parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAnalyticStore", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DeletedEntityResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (DeletedEntityResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletedEntityResponse)));
+        }
+
+        /// <summary>
+        /// Delete analytic store Delete stored analytic data in the specified scope for the specified date
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteAnalyticStoreAsync (string scope, int? year, int? month, int? day)
+        {
+             ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteAnalyticStoreAsyncWithHttpInfo(scope, year, month, day);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete analytic store Delete stored analytic data in the specified scope for the specified date
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date</param>
+        /// <param name="month">The month component of the date</param>
+        /// <param name="day">The day component of the date</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteAnalyticStoreAsyncWithHttpInfo (string scope, int? year, int? month, int? day)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+            // verify the required parameter 'year' is set
+            if (year == null)
+                throw new ApiException(400, "Missing required parameter 'year' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+            // verify the required parameter 'month' is set
+            if (month == null)
+                throw new ApiException(400, "Missing required parameter 'month' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+            // verify the required parameter 'day' is set
+            if (day == null)
+                throw new ApiException(400, "Missing required parameter 'day' when calling AnalyticsStoresApi->DeleteAnalyticStore");
+
+            var localVarPath = "./api/analytics/{scope}/{year}/{month}/{day}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (year != null) localVarPathParams.Add("year", this.Configuration.ApiClient.ParameterToString(year)); // path parameter
+            if (month != null) localVarPathParams.Add("month", this.Configuration.ApiClient.ParameterToString(month)); // path parameter
+            if (day != null) localVarPathParams.Add("day", this.Configuration.ApiClient.ParameterToString(day)); // path parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAnalyticStore", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DeletedEntityResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (DeletedEntityResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletedEntityResponse)));
+        }
+
+        /// <summary>
+        /// Get analytic store Get the meta data associated with a specified scope and date combination (analytic store)
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>AnalyticStore</returns>
+        public AnalyticStore GetAnalyticStore (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null)
+        {
+             ApiResponse<AnalyticStore> localVarResponse = GetAnalyticStoreWithHttpInfo(scope, year, month, day, asAt);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get analytic store Get the meta data associated with a specified scope and date combination (analytic store)
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>ApiResponse of AnalyticStore</returns>
+        public ApiResponse< AnalyticStore > GetAnalyticStoreWithHttpInfo (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AnalyticsStoresApi->GetAnalyticStore");
+            // verify the required parameter 'year' is set
+            if (year == null)
+                throw new ApiException(400, "Missing required parameter 'year' when calling AnalyticsStoresApi->GetAnalyticStore");
+            // verify the required parameter 'month' is set
+            if (month == null)
+                throw new ApiException(400, "Missing required parameter 'month' when calling AnalyticsStoresApi->GetAnalyticStore");
+            // verify the required parameter 'day' is set
+            if (day == null)
+                throw new ApiException(400, "Missing required parameter 'day' when calling AnalyticsStoresApi->GetAnalyticStore");
+
+            var localVarPath = "./api/analytics/{scope}/{year}/{month}/{day}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (year != null) localVarPathParams.Add("year", this.Configuration.ApiClient.ParameterToString(year)); // path parameter
+            if (month != null) localVarPathParams.Add("month", this.Configuration.ApiClient.ParameterToString(month)); // path parameter
+            if (day != null) localVarPathParams.Add("day", this.Configuration.ApiClient.ParameterToString(day)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -631,46 +855,58 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
+                Exception exception = ExceptionFactory("GetAnalyticStore", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<AnalyticStore>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (AnalyticStore) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticStore)));
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Get analytic store Get the meta data associated with a specified scope and date combination (analytic store)
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code)
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of AnalyticStore</returns>
+        public async System.Threading.Tasks.Task<AnalyticStore> GetAnalyticStoreAsync (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null)
         {
-             ApiResponse<DataType> localVarResponse = await GetDataTypeAsyncWithHttpInfo(scope, code);
+             ApiResponse<AnalyticStore> localVarResponse = await GetAnalyticStoreAsyncWithHttpInfo(scope, year, month, day, asAt);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get data type definition Get the definition of a specified data type
+        /// Get analytic store Get the meta data associated with a specified scope and date combination (analytic store)
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code)
+        /// <param name="scope">The analytics data scope</param>
+        /// <param name="year">The year component of the date for the data in the scope</param>
+        /// <param name="month">The month component of the date for the data in the scope</param>
+        /// <param name="day">The day component of the date for the data in the scope</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
+        /// <returns>Task of ApiResponse (AnalyticStore)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticStore>> GetAnalyticStoreAsyncWithHttpInfo (string scope, int? year, int? month, int? day, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AnalyticsStoresApi->GetAnalyticStore");
+            // verify the required parameter 'year' is set
+            if (year == null)
+                throw new ApiException(400, "Missing required parameter 'year' when calling AnalyticsStoresApi->GetAnalyticStore");
+            // verify the required parameter 'month' is set
+            if (month == null)
+                throw new ApiException(400, "Missing required parameter 'month' when calling AnalyticsStoresApi->GetAnalyticStore");
+            // verify the required parameter 'day' is set
+            if (day == null)
+                throw new ApiException(400, "Missing required parameter 'day' when calling AnalyticsStoresApi->GetAnalyticStore");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/analytics/{scope}/{year}/{month}/{day}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -694,7 +930,10 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (year != null) localVarPathParams.Add("year", this.Configuration.ApiClient.ParameterToString(year)); // path parameter
+            if (month != null) localVarPathParams.Add("month", this.Configuration.ApiClient.ParameterToString(month)); // path parameter
+            if (day != null) localVarPathParams.Add("day", this.Configuration.ApiClient.ParameterToString(day)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
@@ -716,231 +955,45 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
+                Exception exception = ExceptionFactory("GetAnalyticStore", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<AnalyticStore>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (AnalyticStore) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticStore)));
         }
 
         /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// List analytic stores List all defined analytic stores
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
-        {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        public ApiResponse< ResourceListOfIUnitDefinitionDto > GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null)
-        {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeAsyncWithHttpInfo(scope, code, units, filter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get units from data type Get the definitions of the specified units associated bound to a specific data type
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
-
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
-            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.227";
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
-        }
-
-        /// <summary>
-        /// List data types List all data types in a specified scope
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        public ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <returns>ResourceListOfAnalyticStoreKey</returns>
+        public ResourceListOfAnalyticStoreKey ListAnalyticStores (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ResourceListOfAnalyticStoreKey> localVarResponse = ListAnalyticStoresWithHttpInfo(asAt, sortBy, start, limit, filter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// List analytic stores List all defined analytic stores
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        public ApiResponse< ResourceListOfDataType > ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <returns>ApiResponse of ResourceListOfAnalyticStoreKey</returns>
+        public ApiResponse< ResourceListOfAnalyticStoreKey > ListAnalyticStoresWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/analytics";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -963,8 +1016,7 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
@@ -990,51 +1042,46 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("ListAnalyticStores", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfAnalyticStoreKey>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ResourceListOfAnalyticStoreKey) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfAnalyticStoreKey)));
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// List analytic stores List all defined analytic stores
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <returns>Task of ResourceListOfAnalyticStoreKey</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfAnalyticStoreKey> ListAnalyticStoresAsync (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesAsyncWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ResourceListOfAnalyticStoreKey> localVarResponse = await ListAnalyticStoresAsyncWithHttpInfo(asAt, sortBy, start, limit, filter);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List data types List all data types in a specified scope
+        /// List analytic stores List all defined analytic stores
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
+        /// <param name="asAt">Optional. The AsAt date of the data (optional)</param>
         /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
         /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
         /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <returns>Task of ApiResponse (ResourceListOfAnalyticStoreKey)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfAnalyticStoreKey>> ListAnalyticStoresAsyncWithHttpInfo (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/analytics";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1057,8 +1104,7 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
             if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
             if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
@@ -1084,47 +1130,57 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("ListAnalyticStores", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfAnalyticStoreKey>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ResourceListOfAnalyticStoreKey) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfAnalyticStoreKey)));
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Set analytic data Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>DataType</returns>
-        public DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>AnalyticStore</returns>
+        public AnalyticStore SetAnalytics (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null)
         {
-             ApiResponse<DataType> localVarResponse = UpdateDataTypeWithHttpInfo(scope, code, request);
+             ApiResponse<AnalyticStore> localVarResponse = SetAnalyticsWithHttpInfo(scope, year, month, day, data);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Set analytic data Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > UpdateDataTypeWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>ApiResponse of AnalyticStore</returns>
+        public ApiResponse< AnalyticStore > SetAnalyticsWithHttpInfo (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->UpdateDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->UpdateDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AnalyticsStoresApi->SetAnalytics");
+            // verify the required parameter 'year' is set
+            if (year == null)
+                throw new ApiException(400, "Missing required parameter 'year' when calling AnalyticsStoresApi->SetAnalytics");
+            // verify the required parameter 'month' is set
+            if (month == null)
+                throw new ApiException(400, "Missing required parameter 'month' when calling AnalyticsStoresApi->SetAnalytics");
+            // verify the required parameter 'day' is set
+            if (day == null)
+                throw new ApiException(400, "Missing required parameter 'day' when calling AnalyticsStoresApi->SetAnalytics");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/analytics/{scope}/{year}/{month}/{day}/prices";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1148,14 +1204,16 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (year != null) localVarPathParams.Add("year", this.Configuration.ApiClient.ParameterToString(year)); // path parameter
+            if (month != null) localVarPathParams.Add("month", this.Configuration.ApiClient.ParameterToString(month)); // path parameter
+            if (day != null) localVarPathParams.Add("day", this.Configuration.ApiClient.ParameterToString(day)); // path parameter
+            if (data != null && data.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(data); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = data; // byte array
             }
 
             // authentication (oauth2) required
@@ -1178,48 +1236,58 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("SetAnalytics", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<AnalyticStore>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (AnalyticStore) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticStore)));
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Set analytic data Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> UpdateDataTypeAsync (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>Task of AnalyticStore</returns>
+        public async System.Threading.Tasks.Task<AnalyticStore> SetAnalyticsAsync (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null)
         {
-             ApiResponse<DataType> localVarResponse = await UpdateDataTypeAsyncWithHttpInfo(scope, code, request);
+             ApiResponse<AnalyticStore> localVarResponse = await SetAnalyticsAsyncWithHttpInfo(scope, year, month, day, data);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update data type definition Update the definition of the specified existing data type    Not all elements within a data type definition are modifiable due to the potential implications for data  already stored against the types
+        /// Set analytic data Store the complete set of analytics for an existing analytic store for the specified scope and date
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="request">The updated definition of the data type (optional)</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> UpdateDataTypeAsyncWithHttpInfo (string scope, string code, UpdateDataTypeRequest request = null)
+        /// <param name="scope">The scope of the data being stored</param>
+        /// <param name="year">The year component of the date for the data</param>
+        /// <param name="month">The month component of the date for the data</param>
+        /// <param name="day">The day component of the date for the data</param>
+        /// <param name="data">The analytic data being inserted (optional)</param>
+        /// <returns>Task of ApiResponse (AnalyticStore)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnalyticStore>> SetAnalyticsAsyncWithHttpInfo (string scope, int? year, int? month, int? day, List<InstrumentAnalytic> data = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->UpdateDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->UpdateDataType");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling AnalyticsStoresApi->SetAnalytics");
+            // verify the required parameter 'year' is set
+            if (year == null)
+                throw new ApiException(400, "Missing required parameter 'year' when calling AnalyticsStoresApi->SetAnalytics");
+            // verify the required parameter 'month' is set
+            if (month == null)
+                throw new ApiException(400, "Missing required parameter 'month' when calling AnalyticsStoresApi->SetAnalytics");
+            // verify the required parameter 'day' is set
+            if (day == null)
+                throw new ApiException(400, "Missing required parameter 'day' when calling AnalyticsStoresApi->SetAnalytics");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/analytics/{scope}/{year}/{month}/{day}/prices";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1243,14 +1311,16 @@ namespace Lusid.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (year != null) localVarPathParams.Add("year", this.Configuration.ApiClient.ParameterToString(year)); // path parameter
+            if (month != null) localVarPathParams.Add("month", this.Configuration.ApiClient.ParameterToString(month)); // path parameter
+            if (day != null) localVarPathParams.Add("day", this.Configuration.ApiClient.ParameterToString(day)); // path parameter
+            if (data != null && data.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(data); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = data; // byte array
             }
 
             // authentication (oauth2) required
@@ -1273,13 +1343,13 @@ namespace Lusid.Sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateDataType", localVarResponse);
+                Exception exception = ExceptionFactory("SetAnalytics", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<AnalyticStore>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (AnalyticStore) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnalyticStore)));
         }
 
     }
