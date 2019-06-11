@@ -33,12 +33,6 @@ namespace Lusid.Sdk.Tests.Tutorials
             _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
         }
 
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            _instrumentLoader.DeleteInstruments();
-        }
-
         [Test]
         public void Create_Transaction_Portfolio()
         {
