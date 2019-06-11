@@ -256,7 +256,7 @@ namespace Example
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
-            var query = query_example;  // string | Optional. Expression specifying the criteria that the returned portfolios must meet (optional) 
+            var query = query_example;  // string | Optional. Expression specifying the criteria that the returned cut labels must meet (optional) 
 
             try
             {
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
- **query** | **string**| Optional. Expression specifying the criteria that the returned portfolios must meet | [optional] 
+ **query** | **string**| Optional. Expression specifying the criteria that the returned cut labels must meet | [optional] 
 
 ### Return type
 
