@@ -4,12 +4,15 @@ using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using NUnit.Framework;
 
-namespace Lusid.Sdk.Tests.Tutorials
+namespace Lusid.Sdk.Tests.Utilities
 {
     public class TestDataUtilities
     {
+        public const string TutorialScope = "Testdemo";
+        
         //    Specific key used to denote cash in LUSID
-        private const string LusidCashIdentifier = "Instrument/default/Currency";
+        public const string LusidCashIdentifier = "Instrument/default/Currency";
+        public const string LusidInstrumentIdentifier = "Instrument/default/LusidInstrumentId";
         
         private readonly ITransactionPortfoliosApi _transactionPortfoliosApi;
 
@@ -53,7 +56,7 @@ namespace Lusid.Sdk.Tests.Tutorials
         {
             return new TransactionRequest(
                 transactionId: Guid.NewGuid().ToString(),
-                type: "Buy",
+                type: transactionType,
                 instrumentIdentifiers: new Dictionary<string, string>
                 {
                     ["Instrument/default/LusidInstrumentId"] = instrumentId
