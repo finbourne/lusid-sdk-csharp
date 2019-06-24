@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **LeftCost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **RightCost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **DifferenceCost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
-**InstrumentProperties** | [**List&lt;Property&gt;**](Property.md) | Additional features relating to the security | 
+**InstrumentProperties** | [**List&lt;Property&gt;**](Property.md) | Additional features relating to the instrument | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
