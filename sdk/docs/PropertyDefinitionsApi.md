@@ -4,21 +4,21 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | Define a new property
+[**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | Create property definition
 [**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | Delete property definition
 [**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | Get multiple property definitions
 [**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | Get property definition
-[**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | Update the definition of the specified existing property
+[**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | Update property definition
 
 
 
 ## CreatePropertyDefinition
 
-> PropertyDefinition CreatePropertyDefinition (CreatePropertyDefinitionRequest definition = null)
+> PropertyDefinition CreatePropertyDefinition (CreatePropertyDefinitionRequest definition)
 
-Define a new property
+Create property definition
 
-Create a new property definition
+Define a new property.
 
 ### Example
 
@@ -39,11 +39,11 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PropertyDefinitionsApi();
-            var definition = new CreatePropertyDefinitionRequest(); // CreatePropertyDefinitionRequest | The definition of the new property (optional) 
+            var definition = new CreatePropertyDefinitionRequest(); // CreatePropertyDefinitionRequest | The definition of the new property.
 
             try
             {
-                // Define a new property
+                // Create property definition
                 PropertyDefinition result = apiInstance.CreatePropertyDefinition(definition);
                 Debug.WriteLine(result);
             }
@@ -61,7 +61,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **definition** | [**CreatePropertyDefinitionRequest**](CreatePropertyDefinitionRequest.md)| The definition of the new property | [optional] 
+ **definition** | [**CreatePropertyDefinitionRequest**](CreatePropertyDefinitionRequest.md)| The definition of the new property. | 
 
 ### Return type
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 Delete property definition
 
-Delete the definition of the specified property
+Delete the definition of the specified property.
 
 ### Example
 
@@ -109,9 +109,9 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PropertyDefinitionsApi();
-            var domain = domain_example;  // string | The Property Domain of the property to be deleted
-            var scope = scope_example;  // string | The scope of the property to be deleted
-            var code = code_example;  // string | The code of the property to be deleted
+            var domain = domain_example;  // string | The domain of the property to be deleted.
+            var scope = scope_example;  // string | The scope of the property to be deleted.
+            var code = code_example;  // string | The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property.
 
             try
             {
@@ -133,9 +133,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| The Property Domain of the property to be deleted | 
- **scope** | **string**| The scope of the property to be deleted | 
- **code** | **string**| The code of the property to be deleted | 
+ **domain** | **string**| The domain of the property to be deleted. | 
+ **scope** | **string**| The scope of the property to be deleted. | 
+ **code** | **string**| The code of the property to be deleted. Together with the domain and scope this uniquely              identifies the property. | 
 
 ### Return type
 
@@ -158,11 +158,11 @@ Name | Type | Description  | Notes
 
 ## GetMultiplePropertyDefinitions
 
-> ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys, DateTimeOffset? asAt = null, string filter = null)
 
 Get multiple property definitions
 
-Get one or more property definitions
+Retrieve the definition of one or more specified properties.
 
 ### Example
 
@@ -183,17 +183,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PropertyDefinitionsApi();
-            var propertyKeys = new List<string>(); // List<string> | One or more keys for properties for which the schema should be returned (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var propertyKeys = new List<string>(); // List<string> | One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. \"Instrument/system/Name\".
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the property definition/s. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. (optional) 
 
             try
             {
                 // Get multiple property definitions
-                ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, sortBy, start, limit, filter);
+                ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -210,12 +207,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| One or more keys for properties for which the schema should be returned | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **propertyKeys** | [**List&lt;string&gt;**](string.md)| One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. \&quot;Instrument/system/Name\&quot;. | 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the property definition/s. | [optional] 
+ **filter** | **string**| Expression to filter the result set. | [optional] 
 
 ### Return type
 
@@ -242,7 +236,7 @@ Name | Type | Description  | Notes
 
 Get property definition
 
-Retrieve the definition for the identified property
+Retrieve the definition of the specified property.
 
 ### Example
 
@@ -263,10 +257,10 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PropertyDefinitionsApi();
-            var domain = domain_example;  // string | The Property Domain of the requested property
-            var scope = scope_example;  // string | The scope of the requested property
-            var code = code_example;  // string | The code of the requested property
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var domain = domain_example;  // string | The domain of the specified property.
+            var scope = scope_example;  // string | The scope of the specified property.
+            var code = code_example;  // string | The code of the specified property. Together with the domain and scope this uniquely              identifies the property.
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the property definition. (optional) 
 
             try
             {
@@ -288,10 +282,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| The Property Domain of the requested property | 
- **scope** | **string**| The scope of the requested property | 
- **code** | **string**| The code of the requested property | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
+ **domain** | **string**| The domain of the specified property. | 
+ **scope** | **string**| The scope of the specified property. | 
+ **code** | **string**| The code of the specified property. Together with the domain and scope this uniquely              identifies the property. | 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the property definition. | [optional] 
 
 ### Return type
 
@@ -316,9 +310,9 @@ Name | Type | Description  | Notes
 
 > PropertyDefinition UpdatePropertyDefinition (string domain, string scope, string code, UpdatePropertyDefinitionRequest definition = null)
 
-Update the definition of the specified existing property
+Update property definition
 
-Not all elements within a property definition are modifiable due to the potential implications for data  already stored against these properties
+Update the definition of the specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for data already stored against the property.
 
 ### Example
 
@@ -339,14 +333,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PropertyDefinitionsApi();
-            var domain = domain_example;  // string | The Property Domain of the property being updated
-            var scope = scope_example;  // string | The scope of the property to be updated
-            var code = code_example;  // string | The code of the property to be updated
-            var definition = new UpdatePropertyDefinitionRequest(); // UpdatePropertyDefinitionRequest | The updated definition of the property (optional) 
+            var domain = domain_example;  // string | The domain of the property being updated.
+            var scope = scope_example;  // string | The scope of the property being updated.
+            var code = code_example;  // string | The code of the property being updated. Together with the domain and scope this uniquely              identifies the property.
+            var definition = new UpdatePropertyDefinitionRequest(); // UpdatePropertyDefinitionRequest | The updated definition of the property. (optional) 
 
             try
             {
-                // Update the definition of the specified existing property
+                // Update property definition
                 PropertyDefinition result = apiInstance.UpdatePropertyDefinition(domain, scope, code, definition);
                 Debug.WriteLine(result);
             }
@@ -364,10 +358,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **string**| The Property Domain of the property being updated | 
- **scope** | **string**| The scope of the property to be updated | 
- **code** | **string**| The code of the property to be updated | 
- **definition** | [**UpdatePropertyDefinitionRequest**](UpdatePropertyDefinitionRequest.md)| The updated definition of the property | [optional] 
+ **domain** | **string**| The domain of the property being updated. | 
+ **scope** | **string**| The scope of the property being updated. | 
+ **code** | **string**| The code of the property being updated. Together with the domain and scope this uniquely              identifies the property. | 
+ **definition** | [**UpdatePropertyDefinitionRequest**](UpdatePropertyDefinitionRequest.md)| The updated definition of the property. | [optional] 
 
 ### Return type
 
