@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
 **IsDerived** | **bool?** |  | [optional] 
+**Properties** | [**List&lt;Property&gt;**](Property.md) | Any requested portfolio properties | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

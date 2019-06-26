@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ## ListPortfolios
 
-> ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
+> ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
 
 List portfolios
 
@@ -443,11 +443,12 @@ namespace Example
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
             var query = query_example;  // string | Optional. Expression specifying the criteria that the returned portfolios must meet (optional) 
+            var portfolioPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the portfolio (optional) 
 
             try
             {
                 // List portfolios
-                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, sortBy, start, limit, filter, query);
+                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, sortBy, start, limit, filter, query, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -472,6 +473,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
  **query** | **string**| Optional. Expression specifying the criteria that the returned portfolios must meet | [optional] 
+ **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the portfolio | [optional] 
 
 ### Return type
 
@@ -494,7 +496,7 @@ Name | Type | Description  | Notes
 
 ## ListPortfoliosForScope
 
-> ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> portfolioPropertyKeys = null)
 
 List portfolios for scope
 
@@ -526,11 +528,12 @@ namespace Example
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var portfolioPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the portfolio (optional) 
 
             try
             {
                 // List portfolios for scope
-                ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, sortBy, start, limit, filter);
+                ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, sortBy, start, limit, filter, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -554,6 +557,7 @@ Name | Type | Description  | Notes
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the portfolio | [optional] 
 
 ### Return type
 

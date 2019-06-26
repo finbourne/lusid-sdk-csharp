@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Version** | [**Version**](Version.md) |  | [optional] 
 **Name** | **string** | The name of the instrument | [optional] 
 **Identifiers** | **Dictionary&lt;string, string&gt;** | The set of identifiers that can be used to uniquely identify the instrument | [optional] 
-**Properties** | [**List&lt;Property&gt;**](Property.md) | Any requested instrument properties. If no property can be found for the instrument, then  a value of &#39;Unknown&#39; will be returned | [optional] 
+**Properties** | [**List&lt;Property&gt;**](Property.md) | Any requested instrument properties | [optional] 
 **LookthroughPortfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentDefinition** | [**InstrumentEconomicDefinition**](InstrumentEconomicDefinition.md) |  | [optional] 
 **State** | **string** |  | 
