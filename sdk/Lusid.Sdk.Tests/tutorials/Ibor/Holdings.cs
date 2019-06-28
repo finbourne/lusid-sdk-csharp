@@ -66,7 +66,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var holdings = _transactionPortfoliosApi.GetHoldings(TestDataUtilities.TutorialScope, portfolioId, effectiveAt: dayTPlus10.ToLUSIDDate());
             
             //    Ensure we have 5 holdings: 1 cash position and a position in 4 instruments that aggregates the 5 transactions
-            Assert.That(holdings.Count, Is.EqualTo(5));
+            Assert.That(holdings.Values.Count(), Is.EqualTo(5));
             
             holdings.Values.Sort((h1, h2) => String.Compare(h1.InstrumentUid, h2.InstrumentUid, StringComparison.Ordinal));
             
