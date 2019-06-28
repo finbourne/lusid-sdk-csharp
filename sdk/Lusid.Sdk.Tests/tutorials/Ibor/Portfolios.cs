@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             //    Retrieve the list of portfolios from a given scope           
             var portfolios = _apiFactory.Api<IPortfoliosApi>().ListPortfoliosForScope(scope);
             
-            Assert.That(portfolios.Count, Is.EqualTo(10));
+            Assert.That(portfolios.Values.Count(), Is.EqualTo(10));
 
         }
 
@@ -261,7 +261,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             //    Get the list of scopes across all entities
             var scopes = _apiFactory.Api<IScopesApi>().ListScopes();
 
-            Assert.That(scopes.Count, Is.GreaterThan(0));
+            Assert.That(scopes.Values.Count(), Is.GreaterThan(0));
         }
 
     }
