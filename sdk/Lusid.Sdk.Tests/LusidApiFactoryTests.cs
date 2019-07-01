@@ -109,11 +109,11 @@ namespace Lusid.Sdk.Tests
                 {
                     //Should identify that there was a validation error with the code
                     Assert.That(errorResponse.Errors, Contains.Key("code"));
-                    Assert.That(errorResponse.Errors["code"].Single(), Is.EqualTo("The supplied text value contains one or more invalid characters."));
+                    Assert.That(errorResponse.Errors["code"].Single(), Is.EqualTo("Values for this field must be non-zero in length and be comprised of either alphanumeric characters, hyphens or underscores. For more information please consult the LUSID documentation."));
                     
                     //Should identify that there was a validation error with the scope
                     Assert.That(errorResponse.Errors, Contains.Key("scope"));
-                    Assert.That(errorResponse.Errors["scope"].Single(), Is.EqualTo("The supplied text value contains one or more invalid characters."));
+                    Assert.That(errorResponse.Errors["scope"].Single(), Is.EqualTo("Values for this field must be non-zero in length and be comprised of either alphanumeric characters, hyphens or underscores. For more information please consult the LUSID documentation."));
                 
                     Assert.That(errorResponse.Detail, Does.Match("One or more of the bits of input data provided were not valid.*"));
                     Assert.That(errorResponse.Name, Is.EqualTo("InvalidParameterValue"));
