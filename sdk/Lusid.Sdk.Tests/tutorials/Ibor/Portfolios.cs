@@ -113,7 +113,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var portfolioProperties = _apiFactory.Api<IPortfoliosApi>().GetPortfolioProperties(TestDataUtilities.TutorialScope, portfolioResult.Id.Code);
 
             Assert.That(portfolioProperties.Properties, Has.Count.EqualTo(1));
-            Assert.That(portfolioProperties.Properties[0].Value, Is.EqualTo("Active"));
+            Assert.That(portfolioProperties.Properties[propertyDefinitionResult.Key].Value, Is.EqualTo("Active"));
         }
 
         [Test]
