@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** |  | [optional] 
 **OriginPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**Properties** | [**List&lt;Property&gt;**](Property.md) |  | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) |  | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
