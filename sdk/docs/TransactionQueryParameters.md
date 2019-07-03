@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | **string** | The required set of transactions should begin from this date | [optional] 
-**EndDate** | **string** | The required set of transactions should end at this date | [optional] 
-**QueryMode** | **string** | The method for date selection. Trade date or Settlement date | [optional] 
-**ShowCancelledTransactions** | **bool?** | Option to include cancelled transactions in the results | [optional] 
+**StartDate** | **string** | The lower bound effectiveAt datetime (inclusive) from which to build the transactions. | 
+**EndDate** | **string** | The upper bound effectiveAt datetime (inclusive) from which to retrieve transactions. | 
+**QueryMode** | **string** | The date to compare against the upper and lower bounds for the effectiveAt datetime. Defaults to &#39;TradeDate&#39; if not specified. | [optional] 
+**ShowCancelledTransactions** | **bool?** | Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

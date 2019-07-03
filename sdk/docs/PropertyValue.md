@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LabelValue** | **string** |  | [optional] 
+**LabelValue** | **string** | The value of a property defined as having the \&quot;Label\&quot; type. | [optional] 
 **MetricValue** | [**MetricValue**](MetricValue.md) |  | [optional] 
 **EffectiveFrom** | **DateTimeOffset?** | Date for which the property is effective from | [optional] 
 
