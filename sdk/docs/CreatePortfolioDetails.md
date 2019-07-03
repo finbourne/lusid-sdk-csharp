@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BaseCurrency** | **string** |  | [optional] 
+**BaseCurrency** | **string** | The base currency of the transaction portfolio. | 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
