@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **double?** | The numerical value of the property. | [optional] 
+**Value** | **double?** |  | [optional] 
 **Unit** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

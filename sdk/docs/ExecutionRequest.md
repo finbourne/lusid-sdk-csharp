@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExecutionId** | **string** | The unique identifier of the Execution Report (8) message as assigned by sell-side. FIX field 17. | 
-**Side** | **string** | The side of the order. FIX field 54. | 
-**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers to use to resolve the execution to a unique instrument. | 
-**TransactionTime** | **DateTimeOffset?** | Time of execution/order creation. FIX field 60. | 
-**LastShares** | **double?** | Quantity (e.g. shares) bought/sold on this (last) fill. FIX field 32. | 
-**LastPx** | **double?** | Price of this (last) fill. FIX field 31. | 
-**Currency** | **string** | The currency used for the price. FIX field 15. | 
+**ExecutionId** | **string** | FIX Field 17.  Unique execution identifier. | 
+**Side** | **string** | FIX Field 54. | 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
+**TransactionTime** | **DateTimeOffset?** | FIX field 60.  Time the transaction represented by this ExecutionReport occurred. | 
+**LastShares** | **double?** | FIX field 32. | 
+**LastPx** | **double?** | FIX field 31. | 
+**Currency** | **string** | FIX field 15. | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
