@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **CounterpartyId** | **string** | Counterparty identifier | [optional] 
 **Source** | **string** | Where this transaction came from | 
-**NettingSet** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

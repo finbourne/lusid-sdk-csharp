@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md) | Set of unique transaction properties and associated values to store with the transaction. Each property must be from the &#39;Trade&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
-**NettingSet** | **string** | The netting set. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
