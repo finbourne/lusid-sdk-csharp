@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PropertyDefinitionsApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 Update property definition
 
-Update the definition of the specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for data already stored against the property.
+Update display name of specified existing property.
 
 ### Example
 
