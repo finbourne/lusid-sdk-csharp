@@ -53,13 +53,13 @@ namespace Lusid.Sdk.Client
         public ApiClient()
         {
             Configuration = Lusid.Sdk.Client.Configuration.Default;
-            RestClient = new RestClient("http://localhost");
+            RestClient = new RestClient("http://http:/api");
             RestClient.IgnoreResponseStatusCode = true;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (http://localhost).
+        /// with default base path (http://http:/api).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "http://localhost")
+        public ApiClient(String basePath = "http://http:/api")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
