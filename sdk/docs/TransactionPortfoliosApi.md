@@ -1,26 +1,26 @@
 # Lusid.Sdk.Api.TransactionPortfoliosApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddTransactionProperty**](TransactionPortfoliosApi.md#addtransactionproperty) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | Add transaction property
-[**AdjustHoldings**](TransactionPortfoliosApi.md#adjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/{effectiveAt} | Adjust holdings
-[**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | Build transactions
-[**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings/{effectiveAt} | Cancel adjust holdings
-[**CancelExecutions**](TransactionPortfoliosApi.md#cancelexecutions) | **DELETE** /api/transactionportfolios/{scope}/{code}/executions | Cancel executions
-[**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | Cancel transactions
-[**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | Create portfolio
-[**DeletePropertyFromTransaction**](TransactionPortfoliosApi.md#deletepropertyfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | Delete property from transaction
-[**GetDetails**](TransactionPortfoliosApi.md#getdetails) | **GET** /api/transactionportfolios/{scope}/{code}/details | Get details
-[**GetHoldings**](TransactionPortfoliosApi.md#getholdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings | Get holdings
-[**GetHoldingsAdjustment**](TransactionPortfoliosApi.md#getholdingsadjustment) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | Get holdings adjustment
-[**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | Get transactions
-[**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | List holdings adjustments
-[**SetHoldings**](TransactionPortfoliosApi.md#setholdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings/{effectiveAt} | Set holdings
-[**UpsertExecutions**](TransactionPortfoliosApi.md#upsertexecutions) | **POST** /api/transactionportfolios/{scope}/{code}/executions | Upsert executions
-[**UpsertPortfolioDetails**](TransactionPortfoliosApi.md#upsertportfoliodetails) | **POST** /api/transactionportfolios/{scope}/{code}/details | Upsert portfolio details
-[**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | Upsert transactions
+[**AddTransactionProperty**](TransactionPortfoliosApi.md#addtransactionproperty) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | [EARLY ACCESS] Add transaction property
+[**AdjustHoldings**](TransactionPortfoliosApi.md#adjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/{effectiveAt} | [EARLY ACCESS] Adjust holdings
+[**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | [EARLY ACCESS] Build transactions
+[**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings/{effectiveAt} | [EARLY ACCESS] Cancel adjust holdings
+[**CancelExecutions**](TransactionPortfoliosApi.md#cancelexecutions) | **DELETE** /api/transactionportfolios/{scope}/{code}/executions | [EARLY ACCESS] Cancel executions
+[**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | [EARLY ACCESS] Cancel transactions
+[**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | [EARLY ACCESS] Create portfolio
+[**DeletePropertyFromTransaction**](TransactionPortfoliosApi.md#deletepropertyfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | [EARLY ACCESS] Delete property from transaction
+[**GetDetails**](TransactionPortfoliosApi.md#getdetails) | **GET** /api/transactionportfolios/{scope}/{code}/details | [EARLY ACCESS] Get details
+[**GetHoldings**](TransactionPortfoliosApi.md#getholdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings | [EARLY ACCESS] Get holdings
+[**GetHoldingsAdjustment**](TransactionPortfoliosApi.md#getholdingsadjustment) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | [EARLY ACCESS] Get holdings adjustment
+[**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | [EARLY ACCESS] Get transactions
+[**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | [EARLY ACCESS] List holdings adjustments
+[**SetHoldings**](TransactionPortfoliosApi.md#setholdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings/{effectiveAt} | [EARLY ACCESS] Set holdings
+[**UpsertExecutions**](TransactionPortfoliosApi.md#upsertexecutions) | **POST** /api/transactionportfolios/{scope}/{code}/executions | [EARLY ACCESS] Upsert executions
+[**UpsertPortfolioDetails**](TransactionPortfoliosApi.md#upsertportfoliodetails) | **POST** /api/transactionportfolios/{scope}/{code}/details | [EARLY ACCESS] Upsert portfolio details
+[**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | [EARLY ACCESS] Upsert transactions
 
 
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 > AddTransactionPropertyResponse AddTransactionProperty (string scope, string code, string transactionId, Dictionary<string, PerpetualPropertyValue> transactionProperties)
 
-Add transaction property
+[EARLY ACCESS] Add transaction property
 
 Upsert one or more transaction properties to a single transaction in a transaction portfolio.
 
@@ -58,7 +58,7 @@ namespace Example
 
             try
             {
-                // Add transaction property
+                // [EARLY ACCESS] Add transaction property
                 AddTransactionPropertyResponse result = apiInstance.AddTransactionProperty(scope, code, transactionId, transactionProperties);
                 Debug.WriteLine(result);
             }
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 > AdjustHolding AdjustHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
 
-Adjust holdings
+[EARLY ACCESS] Adjust holdings
 
 Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the given effectiveAt datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
 
@@ -134,7 +134,7 @@ namespace Example
 
             try
             {
-                // Adjust holdings
+                // [EARLY ACCESS] Adjust holdings
                 AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, holdingAdjustments);
                 Debug.WriteLine(result);
             }
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 > VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, TransactionQueryParameters parameters, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
 
-Build transactions
+[EARLY ACCESS] Build transactions
 
 Builds and returns all transactions that affect the holdings of a portfolio over a given interval of  effectiveAt time into a set of output transactions. This includes transactions automatically generated by  LUSID such as holding adjustments.
 
@@ -212,7 +212,7 @@ namespace Example
 
             try
             {
-                // Build transactions
+                // [EARLY ACCESS] Build transactions
                 VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, parameters, asAt, propertyKeys, filter);
                 Debug.WriteLine(result);
             }
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse CancelAdjustHoldings (string scope, string code, string effectiveAt)
 
-Cancel adjust holdings
+[EARLY ACCESS] Cancel adjust holdings
 
 Cancel all previous holding adjustments made on the specified transaction portfolio for a given effectiveAt  datetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.
 
@@ -289,7 +289,7 @@ namespace Example
 
             try
             {
-                // Cancel adjust holdings
+                // [EARLY ACCESS] Cancel adjust holdings
                 DeletedEntityResponse result = apiInstance.CancelAdjustHoldings(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse CancelExecutions (string scope, string code, List<string> executionIds)
 
-Cancel executions
+[EARLY ACCESS] Cancel executions
 
 Cancel one or more executions from a transaction portfolio.
 
@@ -363,7 +363,7 @@ namespace Example
 
             try
             {
-                // Cancel executions
+                // [EARLY ACCESS] Cancel executions
                 DeletedEntityResponse result = apiInstance.CancelExecutions(scope, code, executionIds);
                 Debug.WriteLine(result);
             }
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse CancelTransactions (string scope, string code, List<string> transactionIds)
 
-Cancel transactions
+[EARLY ACCESS] Cancel transactions
 
 Cancel one or more transactions from the specified transaction portfolio.
 
@@ -437,7 +437,7 @@ namespace Example
 
             try
             {
-                // Cancel transactions
+                // [EARLY ACCESS] Cancel transactions
                 DeletedEntityResponse result = apiInstance.CancelTransactions(scope, code, transactionIds);
                 Debug.WriteLine(result);
             }
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 > Portfolio CreatePortfolio (string scope, CreateTransactionPortfolioRequest createRequest = null)
 
-Create portfolio
+[EARLY ACCESS] Create portfolio
 
 Create a transaction portfolio in a specific scope.
 
@@ -510,7 +510,7 @@ namespace Example
 
             try
             {
-                // Create portfolio
+                // [EARLY ACCESS] Create portfolio
                 Portfolio result = apiInstance.CreatePortfolio(scope, createRequest);
                 Debug.WriteLine(result);
             }
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeletePropertyFromTransaction (string scope, string code, string transactionId, string transactionPropertyKey)
 
-Delete property from transaction
+[EARLY ACCESS] Delete property from transaction
 
 Delete a single property value from a single transaction in a transaction portfolio.
 
@@ -584,7 +584,7 @@ namespace Example
 
             try
             {
-                // Delete property from transaction
+                // [EARLY ACCESS] Delete property from transaction
                 DeletedEntityResponse result = apiInstance.DeletePropertyFromTransaction(scope, code, transactionId, transactionPropertyKey);
                 Debug.WriteLine(result);
             }
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 > PortfolioDetails GetDetails (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
-Get details
+[EARLY ACCESS] Get details
 
 Get the details associated with a transaction portfolio.
 
@@ -660,7 +660,7 @@ namespace Example
 
             try
             {
-                // Get details
+                // [EARLY ACCESS] Get details
                 PortfolioDetails result = apiInstance.GetDetails(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -706,7 +706,7 @@ Name | Type | Description  | Notes
 
 > VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
 
-Get holdings
+[EARLY ACCESS] Get holdings
 
 Get the holdings of the specified transaction portfolio.
 
@@ -739,7 +739,7 @@ namespace Example
 
             try
             {
-                // Get holdings
+                // [EARLY ACCESS] Get holdings
                 VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldings(scope, code, byTaxlots, effectiveAt, asAt, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 
 > HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null)
 
-Get holdings adjustment
+[EARLY ACCESS] Get holdings adjustment
 
 Get a holdings adjustment made to a transaction portfolio at a specific effectiveAt datetime. Note that a  holdings adjustment will only be returned if one exists for the specified effectiveAt datetime.
 
@@ -818,7 +818,7 @@ namespace Example
 
             try
             {
-                // Get holdings adjustment
+                // [EARLY ACCESS] Get holdings adjustment
                 HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -864,7 +864,7 @@ Name | Type | Description  | Notes
 
 > VersionedResourceListOfTransaction GetTransactions (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
 
-Get transactions
+[EARLY ACCESS] Get transactions
 
 Get the transactions from the specified transaction portfolio over a given interval of effectiveAt time.     When the specified portfolio is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and ancestors) and the specified derived transaction portfolio.
 
@@ -897,7 +897,7 @@ namespace Example
 
             try
             {
-                // Get transactions
+                // [EARLY ACCESS] Get transactions
                 VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, propertyKeys, filter);
                 Debug.WriteLine(result);
             }
@@ -946,7 +946,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null)
 
-List holdings adjustments
+[EARLY ACCESS] List holdings adjustments
 
 List the holdings adjustments made to a transaction portfolio over a given interval of effectiveAt time.
 
@@ -977,7 +977,7 @@ namespace Example
 
             try
             {
-                // List holdings adjustments
+                // [EARLY ACCESS] List holdings adjustments
                 ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -1024,7 +1024,7 @@ Name | Type | Description  | Notes
 
 > AdjustHolding SetHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
 
-Set holdings
+[EARLY ACCESS] Set holdings
 
 Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the given effectiveAt datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
 
@@ -1054,7 +1054,7 @@ namespace Example
 
             try
             {
-                // Set holdings
+                // [EARLY ACCESS] Set holdings
                 AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, holdingAdjustments);
                 Debug.WriteLine(result);
             }
@@ -1100,7 +1100,7 @@ Name | Type | Description  | Notes
 
 > UpsertPortfolioExecutionsResponse UpsertExecutions (string scope, string code, List<ExecutionRequest> executions = null)
 
-Upsert executions
+[EARLY ACCESS] Upsert executions
 
 Upsert executions into the specified transaction portfolio.
 
@@ -1129,7 +1129,7 @@ namespace Example
 
             try
             {
-                // Upsert executions
+                // [EARLY ACCESS] Upsert executions
                 UpsertPortfolioExecutionsResponse result = apiInstance.UpsertExecutions(scope, code, executions);
                 Debug.WriteLine(result);
             }
@@ -1174,7 +1174,7 @@ Name | Type | Description  | Notes
 
 > PortfolioDetails UpsertPortfolioDetails (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null)
 
-Upsert portfolio details
+[EARLY ACCESS] Upsert portfolio details
 
 Upsert details for the specified transaction portfolio.
 
@@ -1204,7 +1204,7 @@ namespace Example
 
             try
             {
-                // Upsert portfolio details
+                // [EARLY ACCESS] Upsert portfolio details
                 PortfolioDetails result = apiInstance.UpsertPortfolioDetails(scope, code, effectiveAt, details);
                 Debug.WriteLine(result);
             }
@@ -1250,7 +1250,7 @@ Name | Type | Description  | Notes
 
 > UpsertPortfolioTransactionsResponse UpsertTransactions (string scope, string code, List<TransactionRequest> transactions = null)
 
-Upsert transactions
+[EARLY ACCESS] Upsert transactions
 
 Upsert transactions into the specified transaction portfolio.
 
@@ -1279,7 +1279,7 @@ namespace Example
 
             try
             {
-                // Upsert transactions
+                // [EARLY ACCESS] Upsert transactions
                 UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactions);
                 Debug.WriteLine(result);
             }

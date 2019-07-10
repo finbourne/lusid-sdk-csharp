@@ -1,18 +1,18 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | Delete portfolio
-[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | Delete portfolio properties
-[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | Get portfolio definition
-[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | Get commands
-[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | Get portfolio properties
-[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | List portfolios
-[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | List portfolios for scope
-[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | Update portfolio definition
-[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert portfolio properties
+[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Delete portfolio
+[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Delete portfolio properties
+[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Get portfolio definition
+[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] Get commands
+[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Get portfolio properties
+[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | [EARLY ACCESS] List portfolios
+[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | [EARLY ACCESS] List portfolios for scope
+[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Update portfolio definition
+[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Upsert portfolio properties
 
 
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > DeletedEntityResponse DeletePortfolio (string scope, string code, string effectiveAt = null)
 
-Delete portfolio
+[EARLY ACCESS] Delete portfolio
 
 Delete a portfolio at the specified effectiveAt
 
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Delete portfolio
+                // [EARLY ACCESS] Delete portfolio
                 DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeletePortfolioProperties (string scope, string code, string effectiveAt = null, List<string> portfolioPropertyKeys = null)
 
-Delete portfolio properties
+[EARLY ACCESS] Delete portfolio properties
 
 Delete one, many or all property values from a portfolio for the specified effectiveAt                Specifying no effectiveAt will delete all properties
 
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // Delete portfolio properties
+                // [EARLY ACCESS] Delete portfolio properties
                 DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, effectiveAt, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 > Portfolio GetPortfolio (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
-Get portfolio definition
+[EARLY ACCESS] Get portfolio definition
 
 Retrieves the basic set of information about a portfolio using the specified scope and code.
 
@@ -200,7 +200,7 @@ namespace Example
 
             try
             {
-                // Get portfolio definition
+                // [EARLY ACCESS] Get portfolio definition
                 Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-Get commands
+[EARLY ACCESS] Get commands
 
 Gets all commands that modified a specific portfolio, including any input transactions.
 
@@ -280,7 +280,7 @@ namespace Example
 
             try
             {
-                // Get commands
+                // [EARLY ACCESS] Get commands
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 > PortfolioProperties GetPortfolioProperties (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
 
-Get portfolio properties
+[EARLY ACCESS] Get portfolio properties
 
 Get the properties of a portfolio
 
@@ -363,7 +363,7 @@ namespace Example
 
             try
             {
-                // Get portfolio properties
+                // [EARLY ACCESS] Get portfolio properties
                 PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt, sortBy, start, limit);
                 Debug.WriteLine(result);
             }
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
 
-List portfolios
+[EARLY ACCESS] List portfolios
 
 List all portfolios matching the specified criteria.                Example query syntax for the query parameter:                - To see which portfolios have holdings in the specified instruments:                    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))                * Note that copy/pasting above examples results in incorrect single quote character
 
@@ -447,7 +447,7 @@ namespace Example
 
             try
             {
-                // List portfolios
+                // [EARLY ACCESS] List portfolios
                 ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, sortBy, start, limit, filter, query, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> portfolioPropertyKeys = null)
 
-List portfolios for scope
+[EARLY ACCESS] List portfolios for scope
 
 List all the portfolios in the specified scope
 
@@ -532,7 +532,7 @@ namespace Example
 
             try
             {
-                // List portfolios for scope
+                // [EARLY ACCESS] List portfolios for scope
                 ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, sortBy, start, limit, filter, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 > Portfolio UpdatePortfolio (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
 
-Update portfolio definition
+[EARLY ACCESS] Update portfolio definition
 
 Update the definition of a specific portfolio. Note, some parts of a portfolio definition are not available for modification after the initial creation.
 
@@ -612,7 +612,7 @@ namespace Example
 
             try
             {
-                // Update portfolio definition
+                // [EARLY ACCESS] Update portfolio definition
                 Portfolio result = apiInstance.UpdatePortfolio(scope, code, effectiveAt, request);
                 Debug.WriteLine(result);
             }
@@ -658,7 +658,7 @@ Name | Type | Description  | Notes
 
 > PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, PropertyValue> portfolioProperties = null)
 
-Upsert portfolio properties
+[EARLY ACCESS] Upsert portfolio properties
 
 Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.
 
@@ -687,7 +687,7 @@ namespace Example
 
             try
             {
-                // Upsert portfolio properties
+                // [EARLY ACCESS] Upsert portfolio properties
                 PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, portfolioProperties);
                 Debug.WriteLine(result);
             }

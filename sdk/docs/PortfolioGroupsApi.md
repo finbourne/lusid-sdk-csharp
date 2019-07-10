@@ -1,20 +1,20 @@
 # Lusid.Sdk.Api.PortfolioGroupsApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddPortfolioToGroup**](PortfolioGroupsApi.md#addportfoliotogroup) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | Add portfolio to group
-[**AddSubGroupToGroup**](PortfolioGroupsApi.md#addsubgrouptogroup) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | Add group to group
-[**CreatePortfolioGroup**](PortfolioGroupsApi.md#createportfoliogroup) | **POST** /api/portfoliogroups/{scope} | Create group
-[**DeletePortfolioFromGroup**](PortfolioGroupsApi.md#deleteportfoliofromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | Remove portfolio from group
-[**DeletePortfolioGroup**](PortfolioGroupsApi.md#deleteportfoliogroup) | **DELETE** /api/portfoliogroups/{scope}/{code} | Delete group
-[**DeleteSubGroupFromGroup**](PortfolioGroupsApi.md#deletesubgroupfromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | Remove group from group
-[**GetPortfolioGroup**](PortfolioGroupsApi.md#getportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code} | Get portfolio group
-[**GetPortfolioGroupCommands**](PortfolioGroupsApi.md#getportfoliogroupcommands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | Get commands
-[**GetPortfolioGroupExpansion**](PortfolioGroupsApi.md#getportfoliogroupexpansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | Get a full expansion of a portfolio group
-[**ListPortfolioGroups**](PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | List groups in scope
-[**UpdatePortfolioGroup**](PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | Update group
+[**AddPortfolioToGroup**](PortfolioGroupsApi.md#addportfoliotogroup) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] Add portfolio to group
+[**AddSubGroupToGroup**](PortfolioGroupsApi.md#addsubgrouptogroup) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] Add group to group
+[**CreatePortfolioGroup**](PortfolioGroupsApi.md#createportfoliogroup) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] Create group
+[**DeletePortfolioFromGroup**](PortfolioGroupsApi.md#deleteportfoliofromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] Remove portfolio from group
+[**DeletePortfolioGroup**](PortfolioGroupsApi.md#deleteportfoliogroup) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Delete group
+[**DeleteSubGroupFromGroup**](PortfolioGroupsApi.md#deletesubgroupfromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] Remove group from group
+[**GetPortfolioGroup**](PortfolioGroupsApi.md#getportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Get portfolio group
+[**GetPortfolioGroupCommands**](PortfolioGroupsApi.md#getportfoliogroupcommands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] Get commands
+[**GetPortfolioGroupExpansion**](PortfolioGroupsApi.md#getportfoliogroupexpansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] Get a full expansion of a portfolio group
+[**ListPortfolioGroups**](PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] List groups in scope
+[**UpdatePortfolioGroup**](PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Update group
 
 
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 > PortfolioGroup AddPortfolioToGroup (string scope, string code, ResourceId portfolioId = null)
 
-Add portfolio to group
+[EARLY ACCESS] Add portfolio to group
 
 Adds a portfolio to a previously defined portfolio group
 
@@ -51,7 +51,7 @@ namespace Example
 
             try
             {
-                // Add portfolio to group
+                // [EARLY ACCESS] Add portfolio to group
                 PortfolioGroup result = apiInstance.AddPortfolioToGroup(scope, code, portfolioId);
                 Debug.WriteLine(result);
             }
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup AddSubGroupToGroup (string scope, string code, ResourceId portfolioGroupId = null)
 
-Add group to group
+[EARLY ACCESS] Add group to group
 
 Adds a portfolio group, as a sub-group, to an existing portfolio group
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // Add group to group
+                // [EARLY ACCESS] Add group to group
                 PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, portfolioGroupId);
                 Debug.WriteLine(result);
             }
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup CreatePortfolioGroup (string scope, CreatePortfolioGroupRequest request = null)
 
-Create group
+[EARLY ACCESS] Create group
 
 Create a new portfolio group.
 
@@ -198,7 +198,7 @@ namespace Example
 
             try
             {
-                // Create group
+                // [EARLY ACCESS] Create group
                 PortfolioGroup result = apiInstance.CreatePortfolioGroup(scope, request);
                 Debug.WriteLine(result);
             }
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode)
 
-Remove portfolio from group
+[EARLY ACCESS] Remove portfolio from group
 
 Removes a portfolio from a portfolio group
 
@@ -272,7 +272,7 @@ namespace Example
 
             try
             {
-                // Remove portfolio from group
+                // [EARLY ACCESS] Remove portfolio from group
                 PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode);
                 Debug.WriteLine(result);
             }
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeletePortfolioGroup (string scope, string code)
 
-Delete group
+[EARLY ACCESS] Delete group
 
 Deletes the definition of the specified portfolio group
 
@@ -346,7 +346,7 @@ namespace Example
 
             try
             {
-                // Delete group
+                // [EARLY ACCESS] Delete group
                 DeletedEntityResponse result = apiInstance.DeletePortfolioGroup(scope, code);
                 Debug.WriteLine(result);
             }
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode)
 
-Remove group from group
+[EARLY ACCESS] Remove group from group
 
 Remove a portfolio group (sub-group) from a parent portfolio group
 
@@ -420,7 +420,7 @@ namespace Example
 
             try
             {
-                // Remove group from group
+                // [EARLY ACCESS] Remove group from group
                 PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode);
                 Debug.WriteLine(result);
             }
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup GetPortfolioGroup (string scope, string code, DateTimeOffset? asAt = null)
 
-Get portfolio group
+[EARLY ACCESS] Get portfolio group
 
 Get the definition of the specified portfolio group
 
@@ -495,7 +495,7 @@ namespace Example
 
             try
             {
-                // Get portfolio group
+                // [EARLY ACCESS] Get portfolio group
                 PortfolioGroup result = apiInstance.GetPortfolioGroup(scope, code, asAt);
                 Debug.WriteLine(result);
             }
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfProcessedCommand GetPortfolioGroupCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-Get commands
+[EARLY ACCESS] Get commands
 
 Gets all commands that modified a specific portfolio group
 
@@ -574,7 +574,7 @@ namespace Example
 
             try
             {
-                // Get commands
+                // [EARLY ACCESS] Get commands
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioGroupCommands(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 
 > ExpandedGroup GetPortfolioGroupExpansion (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyFilter = null)
 
-Get a full expansion of a portfolio group
+[EARLY ACCESS] Get a full expansion of a portfolio group
 
 Lists all portfolios in a group, and all sub groups. Portfolios are decorated with their properties.
 
@@ -655,7 +655,7 @@ namespace Example
 
             try
             {
-                // Get a full expansion of a portfolio group
+                // [EARLY ACCESS] Get a full expansion of a portfolio group
                 ExpandedGroup result = apiInstance.GetPortfolioGroupExpansion(scope, code, effectiveAt, asAt, propertyFilter);
                 Debug.WriteLine(result);
             }
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-List groups in scope
+[EARLY ACCESS] List groups in scope
 
 Lists all portfolio groups in a specified scope
 
@@ -734,7 +734,7 @@ namespace Example
 
             try
             {
-                // List groups in scope
+                // [EARLY ACCESS] List groups in scope
                 ResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, asAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup UpdatePortfolioGroup (string scope, string code, UpdatePortfolioGroupRequest request = null)
 
-Update group
+[EARLY ACCESS] Update group
 
 Update the definition of the specified existing portfolio group.    Not all elements within a portfolio group definition are modifiable after creation.
 
@@ -811,7 +811,7 @@ namespace Example
 
             try
             {
-                // Update group
+                // [EARLY ACCESS] Update group
                 PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, request);
                 Debug.WriteLine(result);
             }

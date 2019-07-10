@@ -1,14 +1,14 @@
 # Lusid.Sdk.Api.CutLabelDefinitionsApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCutLabelDefinition**](CutLabelDefinitionsApi.md#createcutlabeldefinition) | **POST** /api/systemconfiguration/cutlabels | Create a Cut Label
-[**DeleteCutLabelDefinition**](CutLabelDefinitionsApi.md#deletecutlabeldefinition) | **DELETE** /api/systemconfiguration/cutlabels/{code} | Delete a Cut Label
-[**GetCutLabelDefinition**](CutLabelDefinitionsApi.md#getcutlabeldefinition) | **GET** /api/systemconfiguration/cutlabels/{code} | Get a Cut Label
-[**ListCutLabelDefinitions**](CutLabelDefinitionsApi.md#listcutlabeldefinitions) | **GET** /api/systemconfiguration/cutlabels | List Existing Cut Labels
-[**UpdateCutLabelDefinition**](CutLabelDefinitionsApi.md#updatecutlabeldefinition) | **PUT** /api/systemconfiguration/cutlabels/{code} | Update a Cut Label
+[**CreateCutLabelDefinition**](CutLabelDefinitionsApi.md#createcutlabeldefinition) | **POST** /api/systemconfiguration/cutlabels | [EARLY ACCESS] Create a Cut Label
+[**DeleteCutLabelDefinition**](CutLabelDefinitionsApi.md#deletecutlabeldefinition) | **DELETE** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] Delete a Cut Label
+[**GetCutLabelDefinition**](CutLabelDefinitionsApi.md#getcutlabeldefinition) | **GET** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] Get a Cut Label
+[**ListCutLabelDefinitions**](CutLabelDefinitionsApi.md#listcutlabeldefinitions) | **GET** /api/systemconfiguration/cutlabels | [EARLY ACCESS] List Existing Cut Labels
+[**UpdateCutLabelDefinition**](CutLabelDefinitionsApi.md#updatecutlabeldefinition) | **PUT** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] Update a Cut Label
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > CutLabelDefinition CreateCutLabelDefinition (CreateCutLabelDefinitionRequest createRequest = null)
 
-Create a Cut Label
+[EARLY ACCESS] Create a Cut Label
 
 Create a Cut Label valid in all scopes
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // Create a Cut Label
+                // [EARLY ACCESS] Create a Cut Label
                 CutLabelDefinition result = apiInstance.CreateCutLabelDefinition(createRequest);
                 Debug.WriteLine(result);
             }
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 > DateTimeOffset? DeleteCutLabelDefinition (string code)
 
-Delete a Cut Label
+[EARLY ACCESS] Delete a Cut Label
 
 Delete a specified cut label
 
@@ -113,7 +113,7 @@ namespace Example
 
             try
             {
-                // Delete a Cut Label
+                // [EARLY ACCESS] Delete a Cut Label
                 DateTimeOffset? result = apiInstance.DeleteCutLabelDefinition(code);
                 Debug.WriteLine(result);
             }
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 > CutLabelDefinition GetCutLabelDefinition (string code, DateTimeOffset? asAt = null)
 
-Get a Cut Label
+[EARLY ACCESS] Get a Cut Label
 
 Get a specified cut label at a given time
 
@@ -184,7 +184,7 @@ namespace Example
 
             try
             {
-                // Get a Cut Label
+                // [EARLY ACCESS] Get a Cut Label
                 CutLabelDefinition result = apiInstance.GetCutLabelDefinition(code, asAt);
                 Debug.WriteLine(result);
             }
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfCutLabelDefinition ListCutLabelDefinitions (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
-List Existing Cut Labels
+[EARLY ACCESS] List Existing Cut Labels
 
 List all the Cut Label Definitions that are valid at the given AsAt time
 
@@ -260,7 +260,7 @@ namespace Example
 
             try
             {
-                // List Existing Cut Labels
+                // [EARLY ACCESS] List Existing Cut Labels
                 ResourceListOfCutLabelDefinition result = apiInstance.ListCutLabelDefinitions(asAt, sortBy, start, limit, filter, query);
                 Debug.WriteLine(result);
             }
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 > CutLabelDefinition UpdateCutLabelDefinition (string code, UpdateCutLabelDefinitionRequest updateRequest = null)
 
-Update a Cut Label
+[EARLY ACCESS] Update a Cut Label
 
 Update a specified cut label
 
@@ -336,7 +336,7 @@ namespace Example
 
             try
             {
-                // Update a Cut Label
+                // [EARLY ACCESS] Update a Cut Label
                 CutLabelDefinition result = apiInstance.UpdateCutLabelDefinition(code, updateRequest);
                 Debug.WriteLine(result);
             }

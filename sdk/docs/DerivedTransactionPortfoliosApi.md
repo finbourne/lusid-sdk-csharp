@@ -1,11 +1,11 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | Create derived transaction portfolio
-[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | Delete portfolio details
+[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] Create derived transaction portfolio
+[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] Delete portfolio details
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest portfolio = null)
 
-Create derived transaction portfolio
+[EARLY ACCESS] Create derived transaction portfolio
 
 Creates a transaction portfolio that derives from an existing transaction portfolio. In a derived portfolio, parts of the portfolio can either be specific to this portfolio, or can be inherited from a \"parent\". Different parts of the portfolio (e.g. transactions or properties) are combined in different ways. The portfolio details are either overridden in entirety, or not at all. The same is true for properties. Transactions on a derived portfolio are merged with its parent portfolio's transactions. If the parent portfolio is itself a derived portfolio, transactions from that parent are also merged (and that parent's portfolio's, if it is also a derived portfolio, and so on).
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // Create derived transaction portfolio
+                // [EARLY ACCESS] Create derived transaction portfolio
                 Portfolio result = apiInstance.CreateDerivedPortfolio(scope, portfolio);
                 Debug.WriteLine(result);
             }
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, string effectiveAt = null)
 
-Delete portfolio details
+[EARLY ACCESS] Delete portfolio details
 
 Deletes the portfolio details for the specified derived transaction portfolio
 
@@ -114,7 +114,7 @@ namespace Example
 
             try
             {
-                // Delete portfolio details
+                // [EARLY ACCESS] Delete portfolio details
                 DeletedEntityResponse result = apiInstance.DeleteDerivedPortfolioDetails(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }

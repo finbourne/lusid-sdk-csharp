@@ -1,11 +1,11 @@
 # Lusid.Sdk.Api.SystemConfigurationApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateConfigurationTransactionType**](SystemConfigurationApi.md#createconfigurationtransactiontype) | **POST** /api/systemconfiguration/transactiontypes | Create transaction type
-[**ListConfigurationTransactionTypes**](SystemConfigurationApi.md#listconfigurationtransactiontypes) | **GET** /api/systemconfiguration/transactiontypes | List transaction types
+[**CreateConfigurationTransactionType**](SystemConfigurationApi.md#createconfigurationtransactiontype) | **POST** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] Create transaction type
+[**ListConfigurationTransactionTypes**](SystemConfigurationApi.md#listconfigurationtransactiontypes) | **GET** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] List transaction types
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
 
-Create transaction type
+[EARLY ACCESS] Create transaction type
 
 Create a new transaction type by specifying a definition and the mappings to movements
 
@@ -40,7 +40,7 @@ namespace Example
 
             try
             {
-                // Create transaction type
+                // [EARLY ACCESS] Create transaction type
                 ResourceListOfTransactionConfigurationData result = apiInstance.CreateConfigurationTransactionType(type);
                 Debug.WriteLine(result);
             }
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ()
 
-List transaction types
+[EARLY ACCESS] List transaction types
 
 Get the list of persisted transaction types
 
@@ -109,7 +109,7 @@ namespace Example
 
             try
             {
-                // List transaction types
+                // [EARLY ACCESS] List transaction types
                 ResourceListOfTransactionConfigurationData result = apiInstance.ListConfigurationTransactionTypes();
                 Debug.WriteLine(result);
             }

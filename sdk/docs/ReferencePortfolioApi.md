@@ -1,13 +1,13 @@
 # Lusid.Sdk.Api.ReferencePortfolioApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | Create reference portfolio
-[**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | Get constituents
-[**ListConstituentsAdjustments**](ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | Gets constituents adjustments in an interval of effective time.
-[**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | Add constituents
+[**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | [EARLY ACCESS] Create reference portfolio
+[**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | [EARLY ACCESS] Get constituents
+[**ListConstituentsAdjustments**](ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
+[**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | [EARLY ACCESS] Add constituents
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > Portfolio CreateReferencePortfolio (string scope, CreateReferencePortfolioRequest referencePortfolio = null)
 
-Create reference portfolio
+[EARLY ACCESS] Create reference portfolio
 
 Create a new reference portfolio.
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // Create reference portfolio
+                // [EARLY ACCESS] Create reference portfolio
                 Portfolio result = apiInstance.CreateReferencePortfolio(scope, referencePortfolio);
                 Debug.WriteLine(result);
             }
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 > GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> instrumentPropertyKeys = null)
 
-Get constituents
+[EARLY ACCESS] Get constituents
 
 Get all the constituents in the specified reference portfolio
 
@@ -121,7 +121,7 @@ namespace Example
 
             try
             {
-                // Get constituents
+                // [EARLY ACCESS] Get constituents
                 GetReferencePortfolioConstituentsResponse result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, sortBy, start, limit, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
 
-Gets constituents adjustments in an interval of effective time.
+[EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
 
 Specify a time period in which you'd like to see the list of times that adjustments where made to this portfolio
 
@@ -202,7 +202,7 @@ namespace Example
 
             try
             {
-                // Gets constituents adjustments in an interval of effective time.
+                // [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
                 ResourceListOfConstituentsAdjustmentHeader result = apiInstance.ListConstituentsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime);
                 Debug.WriteLine(result);
             }
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 > UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents (string scope, string code, UpsertReferencePortfolioConstituentsRequest constituents = null)
 
-Add constituents
+[EARLY ACCESS] Add constituents
 
 Add constituents to the specified reference portfolio.
 
@@ -278,7 +278,7 @@ namespace Example
 
             try
             {
-                // Add constituents
+                // [EARLY ACCESS] Add constituents
                 UpsertReferencePortfolioConstituentsResponse result = apiInstance.UpsertReferencePortfolioConstituents(scope, code, constituents);
                 Debug.WriteLine(result);
             }

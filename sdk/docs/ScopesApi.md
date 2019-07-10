@@ -1,10 +1,10 @@
 # Lusid.Sdk.Api.ScopesApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | List scopes
+[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] List scopes
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > ResourceListOfScopeDefinition ListScopes (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
 
-List scopes
+[EARLY ACCESS] List scopes
 
 List all the scopes
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // List scopes
+                // [EARLY ACCESS] List scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListScopes(sortBy, start, limit, filter, query);
                 Debug.WriteLine(result);
             }

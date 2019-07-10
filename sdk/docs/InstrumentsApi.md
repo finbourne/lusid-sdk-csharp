@@ -1,17 +1,17 @@
 # Lusid.Sdk.Api.InstrumentsApi
 
-All URIs are relative to *http://http:/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | Delete instrument
-[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | Get instrument definition
-[**GetInstrumentIdentifiers**](InstrumentsApi.md#getinstrumentidentifiers) | **GET** /api/instruments/identifiers | Get allowable instrument identifiers
-[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | Get instrument definition
-[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | Get all of the currently mastered instruments in LUSID
-[**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | Update instrument identifier
-[**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | Upsert instruments
-[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | Upsert instrument properties
+[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Delete instrument
+[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Get instrument definition
+[**GetInstrumentIdentifiers**](InstrumentsApi.md#getinstrumentidentifiers) | **GET** /api/instruments/identifiers | [EARLY ACCESS] Get allowable instrument identifiers
+[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | [EARLY ACCESS] Get instrument definition
+[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | [EARLY ACCESS] Get all of the currently mastered instruments in LUSID
+[**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Update instrument identifier
+[**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | [EARLY ACCESS] Upsert instruments
+[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | [EARLY ACCESS] Upsert instrument properties
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > DeleteInstrumentResponse DeleteInstrument (string identifierType, string identifier)
 
-Delete instrument
+[EARLY ACCESS] Delete instrument
 
 Attempt to delete one or more \"client\" instruments.    The response will include those instruments that could not be deleted (as well as any available details).                It is important to always check the 'Failed' set for any unsuccessful results.
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Delete instrument
+                // [EARLY ACCESS] Delete instrument
                 DeleteInstrumentResponse result = apiInstance.DeleteInstrument(identifierType, identifier);
                 Debug.WriteLine(result);
             }
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 > Instrument GetInstrument (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
-Get instrument definition
+[EARLY ACCESS] Get instrument definition
 
 Get an individual instrument by the one of its unique instrument identifiers. Optionally, it is possible to decorate each instrument with specified property data.
 
@@ -122,7 +122,7 @@ namespace Example
 
             try
             {
-                // Get instrument definition
+                // [EARLY ACCESS] Get instrument definition
                 Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifiers ()
 
-Get allowable instrument identifiers
+[EARLY ACCESS] Get allowable instrument identifiers
 
 Returns a collection of instrument identifier type descriptors. Each descriptor specifies the properties  of a particular instrument identifier - its name, its cardinality (whether or not multiple instruments can  share the same identifier value), and its corresponding PropertyKey.
 
@@ -195,7 +195,7 @@ namespace Example
 
             try
             {
-                // Get allowable instrument identifiers
+                // [EARLY ACCESS] Get allowable instrument identifiers
                 ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifiers();
                 Debug.WriteLine(result);
             }
@@ -235,7 +235,7 @@ This endpoint does not need any parameter.
 
 > GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
-Get instrument definition
+[EARLY ACCESS] Get instrument definition
 
 Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.
 
@@ -266,7 +266,7 @@ namespace Example
 
             try
             {
-                // Get instrument definition
+                // [EARLY ACCESS] Get instrument definition
                 GetInstrumentsResponse result = apiInstance.GetInstruments(identifierType, identifiers, effectiveAt, asAt, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOffset? effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
 
-Get all of the currently mastered instruments in LUSID
+[EARLY ACCESS] Get all of the currently mastered instruments in LUSID
 
 Lists all instruments that have been mastered within LUSID.
 
@@ -347,7 +347,7 @@ namespace Example
 
             try
             {
-                // Get all of the currently mastered instruments in LUSID
+                // [EARLY ACCESS] Get all of the currently mastered instruments in LUSID
                 ResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 > Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest request = null)
 
-Update instrument identifier
+[EARLY ACCESS] Update instrument identifier
 
 Adds, updates, or removes an identifier on an instrument
 
@@ -426,7 +426,7 @@ namespace Example
 
             try
             {
-                // Update instrument identifier
+                // [EARLY ACCESS] Update instrument identifier
                 Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, request);
                 Debug.WriteLine(result);
             }
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 > UpsertInstrumentsResponse UpsertInstruments (Dictionary<string, InstrumentDefinition> requests = null)
 
-Upsert instruments
+[EARLY ACCESS] Upsert instruments
 
 Attempt to master one or more instruments in LUSID's instrument master. Each instrument is keyed by some unique key. This key is unimportant, and serves only as a method to identify created instruments in the response.    The response will return both the collection of successfully created instruments, as well as those that were rejected and why their creation failed. They will be keyed against the key supplied in the  request.                It is important to always check the 'Failed' set for any unsuccessful results.
 
@@ -498,7 +498,7 @@ namespace Example
 
             try
             {
-                // Upsert instruments
+                // [EARLY ACCESS] Upsert instruments
                 UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requests);
                 Debug.WriteLine(result);
             }
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 > UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> instrumentProperties = null)
 
-Upsert instrument properties
+[EARLY ACCESS] Upsert instrument properties
 
 Attempt to upsert property data for one or more instruments, properties, and effective dates.    The response will include the details of any failures that occurred during data storage.                It is important to always check the 'Failed' collection for any unsuccessful results.
 
@@ -568,7 +568,7 @@ namespace Example
 
             try
             {
-                // Upsert instrument properties
+                // [EARLY ACCESS] Upsert instrument properties
                 UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(instrumentProperties);
                 Debug.WriteLine(result);
             }
