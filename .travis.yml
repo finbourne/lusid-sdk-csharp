@@ -19,7 +19,7 @@ script:
     fbn_clientid="DEVELOP_FBN_CLIENT_ID"
     fbn_client_secret="DEVELOP_FBN_CLIENT_SECRET"
     fbn_lusid_api_url="DEVELOP_FBN_LUSID_API_URL"
-    fbn_app_name='DEVELOP_FBN_APP_NAME'
+    fbn_app_name="DEVELOP_FBN_APP_NAME"
   fi
 
   cd sdk
