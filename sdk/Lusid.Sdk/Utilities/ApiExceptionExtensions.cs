@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace Lusid.Sdk.Utilities
 {
+    /// <summary>
+    /// Utility functions
+    /// </summary>
     public static class ApiExceptionExtensions
     {
         /// <summary>
@@ -31,6 +34,9 @@ namespace Lusid.Sdk.Utilities
             return false;
         }
         
+        /// <summary>
+        /// Return the details of a validation problem
+        /// </summary>
         public static LusidValidationProblemDetails ValidationProblemDetails(this ApiException ex)
         {
             if (ex.ErrorContent == null)
@@ -42,6 +48,9 @@ namespace Lusid.Sdk.Utilities
             return JsonConvert.DeserializeObject<LusidValidationProblemDetails>(ex.ErrorContent);
         }
         
+        /// <summary>
+        /// Return the details of a problem
+        /// </summary>
         public static LusidProblemDetails ProblemDetails(this ApiException ex)
         {
             if (ex.ErrorContent == null)

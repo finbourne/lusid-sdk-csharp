@@ -15,29 +15,41 @@ namespace Lusid.Sdk
     {
         internal string Parameter { get; }
 
-        internal DateOrCutLabel(string parameter)
+        /// <summary>
+        /// Create a new DateOrCutLabel with the specified value.
+        /// </summary>
+        private DateOrCutLabel(string parameter)
         {
             Parameter = parameter;
         }
 
+        /// <summary>
+        /// Conversion from a DateTimeOffset to a DateOrCutLabel
+        /// </summary>
         public static implicit operator DateOrCutLabel(DateTimeOffset date)
         {
             return new DateOrCutLabel(date.ToString("o"));
         }
 
+        /// <summary>
+        /// Conversion from a string to a DateOrCutLabl.  This string is assumed 
+        /// </summary>
         public static implicit operator DateOrCutLabel(string cutLabel)
         {
             return new DateOrCutLabel(cutLabel);
         }
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return Parameter;
         }
     }
 
+    /// <inheritdoc />
     public class CutLabelJsonConverter : JsonConverter
     {
+        /// <inheritdoc />
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             DateOrCutLabel dateOrCutLabel = value as DateOrCutLabel;
@@ -45,11 +57,13 @@ namespace Lusid.Sdk
             writer.WriteValue(dateOrCutLabel.Parameter);
         }
 
+        /// <inheritdoc />
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }
 
+        /// <inheritdoc />
         public override bool CanConvert(Type objectType)
         {
             return objectType == typeof(DateOrCutLabel);
