@@ -10,12 +10,25 @@ using Newtonsoft.Json;
 
 namespace Lusid.Sdk.Utilities
 {
+    /// <summary>
+    /// Interface for an implementation to return access tokens
+    /// </summary>
     public interface ITokenProvider
     {
+        /// <summary>
+        /// Return an access token
+        /// </summary>
         Task<string> GetAuthenticationTokenAsync();
+
+        /// <summary>
+        /// Return an access token
+        /// </summary>
         Task<AuthenticationHeaderValue> GetAuthenticationHeaderAsync();
     }
 
+    /// <summary>
+    /// Implementation of a TokenProvider for the ClientCredentialsFlow - where the credentials are usually sourced from a "secrets.json" file 
+    /// </summary>
     public class ClientCredentialsFlowTokenProvider : ITokenProvider
     {
         private readonly ApiConfiguration _apiConfig;
@@ -36,11 +49,15 @@ namespace Lusid.Sdk.Utilities
         
         private AuthenticationToken _lastIssuedToken;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public ClientCredentialsFlowTokenProvider(ApiConfiguration configuration)
         {
             _apiConfig = configuration;
         }
 
+        /// <inheritdoc />
         public async Task<string> GetAuthenticationTokenAsync()
         {
             if (_lastIssuedToken == null || _lastIssuedToken.ExpiresOn < DateTimeOffset.UtcNow)
@@ -58,6 +75,7 @@ namespace Lusid.Sdk.Utilities
             return _lastIssuedToken.Token;
         }
 
+        /// <inheritdoc />
         public async Task<AuthenticationHeaderValue> GetAuthenticationHeaderAsync()
         {
             string token = await GetAuthenticationTokenAsync();

@@ -4,8 +4,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace Lusid.Sdk.Utilities
 {
+    /// <summary>
+    /// Builder class to build instances of ILusidApiFactory
+    /// </summary>
     public class LusidApiFactoryBuilder
     {
+        /// <summary>
+        /// Create an ILusidApiFactory using the specified secrets.json file
+        /// </summary>
         public static ILusidApiFactory Build(string apiConfiguration)
         {
             if (apiConfiguration == null) throw new ArgumentNullException(nameof(apiConfiguration));

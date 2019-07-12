@@ -11,6 +11,14 @@
     <RepositoryUrl>https://github.com/finbourne/lusid-sdk-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>NU1605;CS1591</WarningsAsErrors>
+  </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="FubarCoder.RestSharp.Portable.Core" Version="4.0.7" />
