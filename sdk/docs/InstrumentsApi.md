@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.InstrumentsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://http:/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## ListInstruments
 
-> ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+> ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOffset? effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
 
 [EARLY ACCESS] Get all of the currently mastered instruments in LUSID
 
@@ -337,7 +337,7 @@ namespace Example
 
             var apiInstance = new InstrumentsApi();
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt time (optional) 
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the query (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the query (optional) 
             var page = page_example;  // string | Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -366,7 +366,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| Optional. The AsAt time | [optional] 
- **effectiveAt** | **string**| Optional. The effective date of the query | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the query | [optional] 
  **page** | **string**| Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
