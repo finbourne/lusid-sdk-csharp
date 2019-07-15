@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace Lusid.Sdk.Utilities
 {
     /// <summary>
-    /// Utility functions
+    /// Extension to deserialise LUSID exceptions contained within the ApiException.ErrorContent
     /// </summary>
     public static class ApiExceptionExtensions
     {
