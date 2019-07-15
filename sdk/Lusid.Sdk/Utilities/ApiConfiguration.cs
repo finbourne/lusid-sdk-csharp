@@ -21,12 +21,12 @@ namespace Lusid.Sdk.Utilities
         public string Password { get; set; }
 
         /// <summary>
-        /// Client identifier
+        /// OAuth2 Client ID
         /// </summary>
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Client secret
+        /// OAuth2 Client Secret
         /// </summary>
         public string ClientSecret { get;  set; }
 
@@ -34,6 +34,10 @@ namespace Lusid.Sdk.Utilities
         /// LUSID Api Url
         /// </summary>
         public string ApiUrl { get; set; }
+
+        /// <summary>
+        /// Client Application name
+        /// </summary>
         public string ApplicationName { get; set; }
     }
 }
