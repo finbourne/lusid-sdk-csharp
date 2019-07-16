@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Version** | [**Version**](Version.md) |  | [optional] 
 **BaseCurrency** | **string** |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**SubHoldingKeys** | **List&lt;string&gt;** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
