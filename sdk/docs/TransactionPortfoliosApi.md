@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 [EARLY ACCESS] Add transaction property
 
-Upsert one or more transaction properties to a single transaction in a transaction portfolio.
+Update or insert one or more transaction properties to a single transaction in a transaction portfolio.  Each property will be updated if it already exists and inserted if it does not.
 
 ### Example
 
@@ -53,8 +53,8 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var transactionId = transactionId_example;  // string | The unique id of the transaction to upsert properties against.
-            var transactionProperties = new Dictionary<string, PerpetualPropertyValue>(); // Dictionary<string, PerpetualPropertyValue> | The properties with their associated values to upsert onto the              transaction.
+            var transactionId = transactionId_example;  // string | The unique id of the transaction to update or insert properties against.
+            var transactionProperties = new Dictionary<string, PerpetualPropertyValue>(); // Dictionary<string, PerpetualPropertyValue> | The properties with their associated values to update or insert onto the              transaction.
 
             try
             {
@@ -78,8 +78,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **transactionId** | **string**| The unique id of the transaction to upsert properties against. | 
- **transactionProperties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md)| The properties with their associated values to upsert onto the              transaction. | 
+ **transactionId** | **string**| The unique id of the transaction to update or insert properties against. | 
+ **transactionProperties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md)| The properties with their associated values to update or insert onto the              transaction. | 
 
 ### Return type
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Adjust holdings
 
-Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the given effectiveAt datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
+Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
 
 ### Example
 
@@ -127,9 +127,9 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransactionPortfoliosApi();
-            var scope = scope_example;  // string | The scope of the portfolio
+            var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which the holdings should be set to the provided targets.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which the holdings should be set to the provided targets.
             var holdingAdjustments = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional) 
 
             try
@@ -152,9 +152,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
+ **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **effectiveAt** | **string**| The effectiveAt datetime at which the holdings should be set to the provided targets. | 
+ **effectiveAt** | **string**| The effective datetime at which the holdings should be set to the provided targets. | 
  **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](List.md)| The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | [optional] 
 
 ### Return type
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Build transactions
 
-Builds and returns all transactions that affect the holdings of a portfolio over a given interval of  effectiveAt time into a set of output transactions. This includes transactions automatically generated by  LUSID such as holding adjustments.
+Builds and returns all transactions that affect the holdings of a portfolio over a given interval of  effective time into a set of output transactions. This includes transactions automatically generated by  LUSID such as holding adjustments.
 
 ### Example
 
@@ -206,7 +206,7 @@ namespace Example
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var parameters = new TransactionQueryParameters(); // TransactionQueryParameters | The query parameters which control how the output transactions are built.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to the current              datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. (optional) 
             var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" or \"Trade\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Trade/strategy/quantsignal\". (optional) 
             var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
  **parameters** | [**TransactionQueryParameters**](TransactionQueryParameters.md)| The query parameters which control how the output transactions are built. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to build the transactions. Defaults to the current              datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | [optional] 
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; or \&quot;Trade\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Trade/strategy/quantsignal\&quot;. | [optional] 
  **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Cancel adjust holdings
 
-Cancel all previous holding adjustments made on the specified transaction portfolio for a given effectiveAt  datetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.
+Cancel all previous holding adjustments made on the specified transaction portfolio for a specified effective  datetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.
 
 ### Example
 
@@ -285,7 +285,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which the holding adjustments should be undone.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which the holding adjustments should be undone.
 
             try
             {
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **effectiveAt** | **string**| The effectiveAt datetime at which the holding adjustments should be undone. | 
+ **effectiveAt** | **string**| The effective datetime at which the holding adjustments should be undone. | 
 
 ### Return type
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Cancel executions
 
-Cancel one or more executions from a transaction portfolio.
+Cancel one or more executions which exist in a specified transaction portfolio.
 
 ### Example
 
@@ -655,8 +655,8 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio to retrieve the details for.
             var code = code_example;  // string | The code of the transaction portfolio to retrieve the details for. Together with the              scope this uniquely identifies the transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which to retrieve the details of the transaction              portfolio. Defaults to the current datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to the current datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional) 
 
             try
             {
@@ -680,8 +680,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio to retrieve the details for. | 
  **code** | **string**| The code of the transaction portfolio to retrieve the details for. Together with the              scope this uniquely identifies the transaction portfolio. | 
- **effectiveAt** | **string**| The effectiveAt datetime at which to retrieve the details of the transaction              portfolio. Defaults to the current datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to the current datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. | [optional] 
 
 ### Return type
 
@@ -732,8 +732,8 @@ namespace Example
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var byTaxlots = true;  // bool? | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional) 
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which to retrieve the holdings of the transaction              portfolio. Defaults to the current datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to the current datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified. (optional) 
             var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\". (optional) 
 
@@ -760,8 +760,8 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
  **byTaxlots** | **bool?**| Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. | [optional] 
- **effectiveAt** | **string**| The effectiveAt datetime at which to retrieve the holdings of the transaction              portfolio. Defaults to the current datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to the current datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified. | [optional] 
  **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. | [optional] 
 
@@ -790,7 +790,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Get holdings adjustment
 
-Get a holdings adjustment made to a transaction portfolio at a specific effectiveAt datetime. Note that a  holdings adjustment will only be returned if one exists for the specified effectiveAt datetime.
+Get a holdings adjustment made to a transaction portfolio at a specific effective datetime. Note that a  holdings adjustment will only be returned if one exists for the specified effective datetime.
 
 ### Example
 
@@ -813,8 +813,8 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime of the holdings adjustment.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings adjustment. Defaults to the current              datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime of the holdings adjustment.
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional) 
 
             try
             {
@@ -838,8 +838,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **effectiveAt** | **string**| The effectiveAt datetime of the holdings adjustment. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the holdings adjustment. Defaults to the current              datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime of the holdings adjustment. | 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. | [optional] 
 
 ### Return type
 
@@ -866,7 +866,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Get transactions
 
-Get the transactions from the specified transaction portfolio over a given interval of effectiveAt time.     When the specified portfolio is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and ancestors) and the specified derived transaction portfolio.
+Get transactions from the specified transaction portfolio over a given interval of effective time.     When the specified portfolio is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.
 
 ### Example
 
@@ -889,9 +889,9 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var fromTransactionDate = fromTransactionDate_example;  // string | The lower bound effectiveAt datetime (inclusive) from which to retrieve the transactions.              There is no lower bound if this is not specified. (optional) 
-            var toTransactionDate = toTransactionDate_example;  // string | The upper bound effectiveAt datetime (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the transactions. Defaults to the current              datetime if not specified. (optional) 
+            var fromTransactionDate = fromTransactionDate_example;  // string | The lower bound effective datetime (inclusive) from which to retrieve the transactions.              There is no lower bound if this is not specified. (optional) 
+            var toTransactionDate = toTransactionDate_example;  // string | The upper bound effective datetime (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the transactions. Defaults to return the latest version              of each transaction if not specified. (optional) 
             var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" or \"Trade\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Trade/strategy/quantsignal\". (optional) 
             var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
@@ -917,9 +917,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **fromTransactionDate** | **string**| The lower bound effectiveAt datetime (inclusive) from which to retrieve the transactions.              There is no lower bound if this is not specified. | [optional] 
- **toTransactionDate** | **string**| The upper bound effectiveAt datetime (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the transactions. Defaults to the current              datetime if not specified. | [optional] 
+ **fromTransactionDate** | **string**| The lower bound effective datetime (inclusive) from which to retrieve the transactions.              There is no lower bound if this is not specified. | [optional] 
+ **toTransactionDate** | **string**| The upper bound effective datetime (inclusive) from which to retrieve transactions.              There is no upper bound if this is not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the transactions. Defaults to return the latest version              of each transaction if not specified. | [optional] 
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; or \&quot;Trade\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Trade/strategy/quantsignal\&quot;. | [optional] 
  **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
@@ -948,7 +948,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] List holdings adjustments
 
-List the holdings adjustments made to a transaction portfolio over a given interval of effectiveAt time.
+List the holdings adjustments made to the specified transaction portfolio over a specified interval of effective time.
 
 ### Example
 
@@ -971,9 +971,9 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var fromEffectiveAt = fromEffectiveAt_example;  // string | The lower bound effectiveAt datetime (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. (optional) 
-            var toEffectiveAt = toEffectiveAt_example;  // string | The upper bound effectiveAt datetime (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings adjustments. Defaults to the              current datetime if not specified. (optional) 
+            var fromEffectiveAt = fromEffectiveAt_example;  // string | The lower bound effective datetime (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. (optional) 
+            var toEffectiveAt = toEffectiveAt_example;  // string | The upper bound effective datetime (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional) 
 
             try
             {
@@ -997,9 +997,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **fromEffectiveAt** | **string**| The lower bound effectiveAt datetime (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. | [optional] 
- **toEffectiveAt** | **string**| The upper bound effectiveAt datetime (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the holdings adjustments. Defaults to the              current datetime if not specified. | [optional] 
+ **fromEffectiveAt** | **string**| The lower bound effective datetime (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. | [optional] 
+ **toEffectiveAt** | **string**| The upper bound effective datetime (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. | [optional] 
 
 ### Return type
 
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Set holdings
 
-Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the given effectiveAt datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
+Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
 
 ### Example
 
@@ -1049,7 +1049,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which the holdings should be set to the provided targets.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which the holdings should be set to the provided targets.
             var holdingAdjustments = new List<AdjustHoldingRequest>(); // List<AdjustHoldingRequest> | The complete set of target holdings for the transaction portfolio. (optional) 
 
             try
@@ -1074,7 +1074,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **effectiveAt** | **string**| The effectiveAt datetime at which the holdings should be set to the provided targets. | 
+ **effectiveAt** | **string**| The effective datetime at which the holdings should be set to the provided targets. | 
  **holdingAdjustments** | [**List&lt;AdjustHoldingRequest&gt;**](List.md)| The complete set of target holdings for the transaction portfolio. | [optional] 
 
 ### Return type
@@ -1102,7 +1102,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Upsert executions
 
-Upsert executions into the specified transaction portfolio.
+Update or insert executions into the specified transaction portfolio. An execution will be updated  if it already exists and inserted if it does not.
 
 ### Example
 
@@ -1125,7 +1125,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var executions = new List<ExecutionRequest>(); // List<ExecutionRequest> | The executions to be upserted. (optional) 
+            var executions = new List<ExecutionRequest>(); // List<ExecutionRequest> | The executions to update or insert. (optional) 
 
             try
             {
@@ -1149,7 +1149,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **executions** | [**List&lt;ExecutionRequest&gt;**](List.md)| The executions to be upserted. | [optional] 
+ **executions** | [**List&lt;ExecutionRequest&gt;**](List.md)| The executions to update or insert. | [optional] 
 
 ### Return type
 
@@ -1176,7 +1176,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Upsert portfolio details
 
-Upsert details for the specified transaction portfolio.
+Update or insert details for the specified transaction portfolio. The details will be updated  if they already exist and inserted if they do not.
 
 ### Example
 
@@ -1197,10 +1197,10 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransactionPortfoliosApi();
-            var scope = scope_example;  // string | The scope of the transaction portfolio to upsert details for.
-            var code = code_example;  // string | The code of the transaction portfolio to upsert details for. Together with the              scope this uniquely identifies the transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which the upserted details should take effect. Defaults              to the current datetime if not specified. (optional) 
-            var details = new CreatePortfolioDetails(); // CreatePortfolioDetails | The details to upsert to the specified transaction portfolio. (optional) 
+            var scope = scope_example;  // string | The scope of the transaction portfolio to update or insert details for.
+            var code = code_example;  // string | The code of the transaction portfolio to update or insert details for. Together with the              scope this uniquely identifies the transaction portfolio.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var details = new CreatePortfolioDetails(); // CreatePortfolioDetails | The details to update or insert for the specified transaction portfolio. (optional) 
 
             try
             {
@@ -1222,10 +1222,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the transaction portfolio to upsert details for. | 
- **code** | **string**| The code of the transaction portfolio to upsert details for. Together with the              scope this uniquely identifies the transaction portfolio. | 
- **effectiveAt** | **string**| The effectiveAt datetime at which the upserted details should take effect. Defaults              to the current datetime if not specified. | [optional] 
- **details** | [**CreatePortfolioDetails**](CreatePortfolioDetails.md)| The details to upsert to the specified transaction portfolio. | [optional] 
+ **scope** | **string**| The scope of the transaction portfolio to update or insert details for. | 
+ **code** | **string**| The code of the transaction portfolio to update or insert details for. Together with the              scope this uniquely identifies the transaction portfolio. | 
+ **effectiveAt** | **string**| The effective datetime at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **details** | [**CreatePortfolioDetails**](CreatePortfolioDetails.md)| The details to update or insert for the specified transaction portfolio. | [optional] 
 
 ### Return type
 
@@ -1252,7 +1252,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Upsert transactions
 
-Upsert transactions into the specified transaction portfolio.
+Update or insert transactions into the specified transaction portfolio. A transaction will be updated  if it already exists and inserted if it does not.
 
 ### Example
 
@@ -1275,7 +1275,7 @@ namespace Example
             var apiInstance = new TransactionPortfoliosApi();
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
-            var transactions = new List<TransactionRequest>(); // List<TransactionRequest> | The transactions to be upserted. (optional) 
+            var transactions = new List<TransactionRequest>(); // List<TransactionRequest> | The transactions to be updated or inserted. (optional) 
 
             try
             {
@@ -1299,7 +1299,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
- **transactions** | [**List&lt;TransactionRequest&gt;**](List.md)| The transactions to be upserted. | [optional] 
+ **transactions** | [**List&lt;TransactionRequest&gt;**](List.md)| The transactions to be updated or inserted. | [optional] 
 
 ### Return type
 

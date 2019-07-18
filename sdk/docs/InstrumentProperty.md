@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** | The property key of the property, e.g, &#39;Instrument/default/Isin&#39; | [optional] 
+**Key** | **string** | The key of the property. This takes the format {domain}/{scope}/{code} e.g. &#39;Instrument/CreditScope/CreditRating&#39;. | [optional] 
 **Value** | [**PropertyValue**](PropertyValue.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

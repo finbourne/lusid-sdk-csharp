@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AsAtDate** | **DateTimeOffset?** |  | 
+**AsAtDate** | **DateTimeOffset?** | The asAt datetime at which the properties were updated or inserted on the specified instruments. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

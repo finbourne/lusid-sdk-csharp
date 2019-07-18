@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The type of the identifier to upsert. This must be one of the code types marked as   allowable for instrument identifiers. | [optional] 
-**Value** | **string** | The value of the identifier. If set to &#x60;null&#x60;, this will remove the identifier completely.  Note that, if an instrument only has one identifier, it is an error to remove this. | [optional] 
-**EffectiveAt** | **string** | The date at which the identifier modification is to be effective from. If unset, will  default to &#x60;now&#x60;. | [optional] 
+**Type** | **string** | The allowable instrument identifier to update, insert or remove e.g. &#39;Figi&#39;. | 
+**Value** | **string** | The new value of the allowable instrument identifier. If unspecified the identifier will be removed from the instrument. | [optional] 
+**EffectiveAt** | **string** | The effective datetime from which the identifier should be updated, inserted or removed. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

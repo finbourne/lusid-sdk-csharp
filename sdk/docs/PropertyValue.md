@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LabelValue** | **string** | The value of a property defined as having the \&quot;Label\&quot; type. | [optional] 
+**LabelValue** | **string** | The text value of a property defined as having the &#39;Label&#39; type. | [optional] 
 **MetricValue** | [**MetricValue**](MetricValue.md) |  | [optional] 
-**EffectiveFrom** | **DateTimeOffset?** | Date for which the property is effective from | [optional] 
+**EffectiveFrom** | **DateTimeOffset?** | The effective datetime from which the property is valid. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

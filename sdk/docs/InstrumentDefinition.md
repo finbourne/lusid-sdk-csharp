@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Required. The name of the instrument | 
-**Identifiers** | [**Dictionary&lt;string, InstrumentIdValue&gt;**](InstrumentIdValue.md) | Required. A set of identifiers that identify this instrument (BBG123456)  with the key being the type of identifier (RIC, FIGI).  Must include atleast one unique identifier. | 
-**Properties** | [**List&lt;InstrumentProperty&gt;**](InstrumentProperty.md) | Optional. A collection of properties to upsert on the instrument. | [optional] 
+**Name** | **string** | The name of the instrument. | 
+**Identifiers** | [**Dictionary&lt;string, InstrumentIdValue&gt;**](InstrumentIdValue.md) | A set of identifiers that can be used to identify the instrument. At least one of these must be configured to be a unique identifier. | 
+**Properties** | [**List&lt;InstrumentProperty&gt;**](InstrumentProperty.md) | Set of unique instrument properties and associated values to store with the instrument. Each property must be from the &#39;Instrument&#39; domain. | [optional] 
 **LookThroughPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Definition** | [**InstrumentEconomicDefinition**](InstrumentEconomicDefinition.md) |  | [optional] 
 

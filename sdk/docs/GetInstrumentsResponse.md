@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** |  | [optional] 
-**Values** | [**Dictionary&lt;string, Instrument&gt;**](Instrument.md) | The instruments, keyed by their requested identifier. Only instruments that were found  will be contained in this collection. | [optional] 
-**Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) | If any instruments were not found, then they will be listed in as &#39;Failed&#39;, along with the nature  of their failure. | [optional] 
+**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**Values** | [**Dictionary&lt;string, Instrument&gt;**](Instrument.md) | The instrument definitions, keyed by the identifier used to retrieve them. Only instruments that were found will be contained in this collection. | [optional] 
+**Failed** | [**Dictionary&lt;string, ErrorDetail&gt;**](ErrorDetail.md) | The identifiers which did not resolve to an instrument along with the nature of the failure. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

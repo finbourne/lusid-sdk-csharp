@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** |  | [optional] 
-**AsAt** | **DateTimeOffset?** | The &#39;as at&#39; time that the instrument was deleted at. As at times preceding this can  still be used to query the instrument. | [optional] 
+**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**AsAt** | **DateTimeOffset?** | The asAt datetime at which the instrument was deleted. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

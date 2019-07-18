@@ -5,13 +5,13 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Delete instrument
-[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Get instrument definition
-[**GetInstrumentIdentifiers**](InstrumentsApi.md#getinstrumentidentifiers) | **GET** /api/instruments/identifiers | [EARLY ACCESS] Get allowable instrument identifiers
-[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | [EARLY ACCESS] Get instrument definition
-[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | [EARLY ACCESS] Get all of the currently mastered instruments in LUSID
+[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Get instrument
+[**GetInstrumentIdentifiers**](InstrumentsApi.md#getinstrumentidentifiers) | **GET** /api/instruments/identifiers | [EARLY ACCESS] Get instrument identifiers
+[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | [EARLY ACCESS] Get instruments
+[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | [EARLY ACCESS] List instruments
 [**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Update instrument identifier
 [**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | [EARLY ACCESS] Upsert instruments
-[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | [EARLY ACCESS] Upsert instrument properties
+[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | [EARLY ACCESS] Upsert instruments properties
 
 
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 [EARLY ACCESS] Delete instrument
 
-Attempt to delete one or more \"client\" instruments.    The response will include those instruments that could not be deleted (as well as any available details).                It is important to always check the 'Failed' set for any unsuccessful results.
+Delete a single instrument identified by a unique instrument identifier. Once an instrument has been  deleted it will be marked as 'inactive' and it can no longer be used when updating or inserting transactions or holdings.  You can still query existing transactions and holdings related to the deleted instrument.
 
 ### Example
 
@@ -42,8 +42,8 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var identifierType = identifierType_example;  // string | The type of identifier being supplied
-            var identifier = identifier_example;  // string | The instrument identifier
+            var identifierType = identifierType_example;  // string | The identifier being supplied e.g. \"Figi\".
+            var identifier = identifier_example;  // string | The value of the identifier that resolves to the instrument to delete.
 
             try
             {
@@ -65,8 +65,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The type of identifier being supplied | 
- **identifier** | **string**| The instrument identifier | 
+ **identifierType** | **string**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
+ **identifier** | **string**| The value of the identifier that resolves to the instrument to delete. | 
 
 ### Return type
 
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
 
 > Instrument GetInstrument (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
-[EARLY ACCESS] Get instrument definition
+[EARLY ACCESS] Get instrument
 
-Get an individual instrument by the one of its unique instrument identifiers. Optionally, it is possible to decorate each instrument with specified property data.
+Get the definition of a single instrument identified by a unique instrument identifier.
 
 ### Example
 
@@ -114,15 +114,15 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var identifierType = identifierType_example;  // string | The type of identifier being supplied
-            var identifier = identifier_example;  // string | The identifier of the requested instrument
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the query (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the query (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
+            var identifierType = identifierType_example;  // string | The identifier being supplied e.g. \"Figi\".
+            var identifier = identifier_example;  // string | The value of the identifier for the requested instrument.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
+            var instrumentPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get instrument definition
+                // [EARLY ACCESS] Get instrument
                 Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -140,11 +140,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The type of identifier being supplied | 
- **identifier** | **string**| The identifier of the requested instrument | 
- **effectiveAt** | **string**| Optional. The effective date of the query | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the query | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
+ **identifierType** | **string**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
+ **identifier** | **string**| The value of the identifier for the requested instrument. | 
+ **effectiveAt** | **string**| The effective datetime at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional] 
+ **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
 ### Return type
 
@@ -169,9 +169,9 @@ Name | Type | Description  | Notes
 
 > ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifiers ()
 
-[EARLY ACCESS] Get allowable instrument identifiers
+[EARLY ACCESS] Get instrument identifiers
 
-Returns a collection of instrument identifier type descriptors. Each descriptor specifies the properties  of a particular instrument identifier - its name, its cardinality (whether or not multiple instruments can  share the same identifier value), and its corresponding PropertyKey.
+Get the allowable instrument identifiers and their descriptions.
 
 ### Example
 
@@ -195,7 +195,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get allowable instrument identifiers
+                // [EARLY ACCESS] Get instrument identifiers
                 ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifiers();
                 Debug.WriteLine(result);
             }
@@ -235,9 +235,9 @@ This endpoint does not need any parameter.
 
 > GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
 
-[EARLY ACCESS] Get instrument definition
+[EARLY ACCESS] Get instruments
 
-Get a collection of instruments by a set of identifiers. Optionally, it is possible to decorate each instrument with specified property data.
+Get the definition of one or more instruments identified by a collection of unique instrument identifiers.
 
 ### Example
 
@@ -258,15 +258,15 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var identifierType = identifierType_example;  // string | The type of identifiers being supplied
-            var identifiers = new List<string>(); // List<string> | The identifiers of the instruments to get
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the request (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The as at date of the request (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
+            var identifierType = identifierType_example;  // string | The identifier being supplied e.g. \"Figi\".
+            var identifiers = new List<string>(); // List<string> | The values of the identifier for the requested instruments.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional) 
+            var instrumentPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get instrument definition
+                // [EARLY ACCESS] Get instruments
                 GetInstrumentsResponse result = apiInstance.GetInstruments(identifierType, identifiers, effectiveAt, asAt, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -284,11 +284,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The type of identifiers being supplied | 
- **identifiers** | [**List&lt;string&gt;**](List.md)| The identifiers of the instruments to get | 
- **effectiveAt** | **string**| Optional. The effective date of the request | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The as at date of the request | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
+ **identifierType** | **string**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
+ **identifiers** | [**List&lt;string&gt;**](List.md)| The values of the identifier for the requested instruments. | 
+ **effectiveAt** | **string**| The effective datetime at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. | [optional] 
+ **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
 ### Return type
 
@@ -313,9 +313,9 @@ Name | Type | Description  | Notes
 
 > ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
 
-[EARLY ACCESS] Get all of the currently mastered instruments in LUSID
+[EARLY ACCESS] List instruments
 
-Lists all instruments that have been mastered within LUSID.
+List all the instruments that have been mastered in the LUSID instrument master.
 
 ### Example
 
@@ -336,18 +336,18 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt time (optional) 
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the query (optional) 
-            var page = page_example;  // string | Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set - the default filter returns only instruments in the Active state (optional)  (default to "State eq 'Active'")
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the instrument (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var page = page_example;  // string | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var sortBy = new List<string>(); // List<string> | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional) 
+            var start = 56;  // int? | When paginating, skip this number of results. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)  (default to "State eq 'Active'")
+            var instrumentPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" domain to decorate onto the instrument. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get all of the currently mastered instruments in LUSID
+                // [EARLY ACCESS] List instruments
                 ResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -365,14 +365,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| Optional. The AsAt time | [optional] 
- **effectiveAt** | **string**| Optional. The effective date of the query | [optional] 
- **page** | **string**| Optional. The pagination token to continue listing instruments. This value is returned from a previous call to ListInstruments.  If this is set, then the sortBy, filter, effectiveAt, and asAt fields must not have changed. Also, if set, a start value cannot be set. | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set - the default filter returns only instruments in the Active state | [optional] [default to &quot;State eq &#39;Active&#39;&quot;]
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the instrument | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **page** | **string**| The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **sortBy** | [**List&lt;string&gt;**](string.md)| Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. | [optional] 
+ **start** | **int?**| When paginating, skip this number of results. | [optional] 
+ **limit** | **int?**| When paginating, limit the number of returned results to this many. | [optional] 
+ **filter** | **string**| Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] [default to &quot;State eq &#39;Active&#39;&quot;]
+ **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
 ### Return type
 
@@ -395,11 +395,11 @@ Name | Type | Description  | Notes
 
 ## UpdateInstrumentIdentifier
 
-> Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest request = null)
+> Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest request)
 
 [EARLY ACCESS] Update instrument identifier
 
-Adds, updates, or removes an identifier on an instrument
+Update, insert or delete a single instrument identifier for a single instrument. If it is not being deleted  the identifier will be updated if it already exists and inserted if it does not.
 
 ### Example
 
@@ -420,9 +420,9 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var identifierType = identifierType_example;  // string | The type of identifier being supplied
-            var identifier = identifier_example;  // string | The instrument identifier
-            var request = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | The identifier to add, update, or remove (optional) 
+            var identifierType = identifierType_example;  // string | The identifier to use to resolve the instrument e.g. \"Figi\".
+            var identifier = identifier_example;  // string | The original value of the identifier for the requested instrument.
+            var request = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | The identifier to update or remove. This may or may not be the same identifier used              to resolve the instrument.
 
             try
             {
@@ -444,9 +444,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The type of identifier being supplied | 
- **identifier** | **string**| The instrument identifier | 
- **request** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md)| The identifier to add, update, or remove | [optional] 
+ **identifierType** | **string**| The identifier to use to resolve the instrument e.g. \&quot;Figi\&quot;. | 
+ **identifier** | **string**| The original value of the identifier for the requested instrument. | 
+ **request** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md)| The identifier to update or remove. This may or may not be the same identifier used              to resolve the instrument. | 
 
 ### Return type
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Upsert instruments
 
-Attempt to master one or more instruments in LUSID's instrument master. Each instrument is keyed by some unique key. This key is unimportant, and serves only as a method to identify created instruments in the response.    The response will return both the collection of successfully created instruments, as well as those that were rejected and why their creation failed. They will be keyed against the key supplied in the  request.                It is important to always check the 'Failed' set for any unsuccessful results.
+Update or insert one or more instruments into the LUSID instrument master. An instrument will be updated  if it already exists and inserted if it does not.                In the request each instrument definition should be keyed by a unique correlation id. This id is ephemeral  and is not stored by LUSID. It serves only as a way to easily identify each instrument in the response.    The response will return both the collection of successfully updated or inserted instruments, as well as those that failed.  For the failures a reason will be provided explaining why the instrument could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.
 
 ### Example
 
@@ -494,7 +494,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var requests = new Dictionary<string, InstrumentDefinition>(); // Dictionary<string, InstrumentDefinition> | The instrument definitions (optional) 
+            var requests = new Dictionary<string, InstrumentDefinition>(); // Dictionary<string, InstrumentDefinition> | The definitions of the instruments to update or insert. (optional) 
 
             try
             {
@@ -516,7 +516,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requests** | [**Dictionary&lt;string, InstrumentDefinition&gt;**](InstrumentDefinition.md)| The instrument definitions | [optional] 
+ **requests** | [**Dictionary&lt;string, InstrumentDefinition&gt;**](InstrumentDefinition.md)| The definitions of the instruments to update or insert. | [optional] 
 
 ### Return type
 
@@ -539,11 +539,11 @@ Name | Type | Description  | Notes
 
 ## UpsertInstrumentsProperties
 
-> UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> instrumentProperties = null)
+> UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> instrumentProperties)
 
-[EARLY ACCESS] Upsert instrument properties
+[EARLY ACCESS] Upsert instruments properties
 
-Attempt to upsert property data for one or more instruments, properties, and effective dates.    The response will include the details of any failures that occurred during data storage.                It is important to always check the 'Failed' collection for any unsuccessful results.
+Update or insert one or more instrument properties for one or more instruments. Each instrument property will be updated  if it already exists and inserted if it does not. If any properties fail to be updated or inserted, none will be updated or inserted and  the reason for the failure will be returned.
 
 ### Example
 
@@ -564,11 +564,11 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi();
-            var instrumentProperties = new List<UpsertInstrumentPropertyRequest>(); // List<UpsertInstrumentPropertyRequest> | The instrument property data (optional) 
+            var instrumentProperties = new List<UpsertInstrumentPropertyRequest>(); // List<UpsertInstrumentPropertyRequest> | A collection of instruments and associated instrument properties to update or insert.
 
             try
             {
-                // [EARLY ACCESS] Upsert instrument properties
+                // [EARLY ACCESS] Upsert instruments properties
                 UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(instrumentProperties);
                 Debug.WriteLine(result);
             }
@@ -586,7 +586,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instrumentProperties** | [**List&lt;UpsertInstrumentPropertyRequest&gt;**](List.md)| The instrument property data | [optional] 
+ **instrumentProperties** | [**List&lt;UpsertInstrumentPropertyRequest&gt;**](List.md)| A collection of instruments and associated instrument properties to update or insert. | 
 
 ### Return type
 

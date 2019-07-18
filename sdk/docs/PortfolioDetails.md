@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** |  | [optional] 
-**OriginPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**Version** | [**Version**](Version.md) |  | [optional] 
-**BaseCurrency** | **string** |  | [optional] 
+**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**OriginPortfolioId** | [**ResourceId**](ResourceId.md) |  | 
+**Version** | [**Version**](Version.md) |  | 
+**BaseCurrency** | **string** | The base currency of the transaction portfolio. | 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **SubHoldingKeys** | **List&lt;string&gt;** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

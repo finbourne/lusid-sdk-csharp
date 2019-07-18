@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentPropertyKey** | **string** | The property key of the property to be removed from the instrument, e.g &#39;Instrument/default/Cusip&#x60; | [optional] 
-**EffectiveFrom** | **DateTimeOffset?** | The date at which the property removal should be effective from. If no value is set, then &#39;now&#39; is used. | [optional] 
+**InstrumentPropertyKey** | **string** | The key of the property to be removed from the instrument. This takes the format {domain}/{scope}/{code} e.g. &#39;Instrument/CreditScope/CreditRating&#39;. | [optional] 
+**EffectiveFrom** | **DateTimeOffset?** | The effective datetime from which the property should be removed. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
