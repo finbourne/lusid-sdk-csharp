@@ -99,9 +99,11 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 created: effectiveDate,
                 
                 //    Set the property value when creating the portfolio
-                properties: new Dictionary<string, PropertyValue>
+                properties: new Dictionary<string, Property>
                 {
-                    [propertyDefinitionResult.Key] = propertyValue
+                    [propertyDefinitionResult.Key] = new Property(
+                        propertyDefinitionResult.Key,
+                        propertyValue)
                 }
             );
 
