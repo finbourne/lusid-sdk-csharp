@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Provider** | **string** |  | 
-**PriceSource** | **string** |  | 
+**PriceSource** | **string** |  | [optional] 
 **InstrumentId** | **string** |  | 
 **InstrumentIdType** | **string** |  | 
 **QuoteType** | **string** |  | 

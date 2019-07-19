@@ -21,7 +21,7 @@ Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific val
 ### Example
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -31,12 +31,13 @@ namespace Example
 {
     public class GetExcelAddinExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new ApplicationMetadataApi();
+            var apiInstance = new ApplicationMetadataApi(Configuration.Default);
             var version = version_example;  // string | The requested version of the Excel plugin (optional) 
 
             try
@@ -45,9 +46,11 @@ namespace Example
                 FileResponse result = apiInstance.GetExcelAddin(version);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling ApplicationMetadataApi.GetExcelAddin: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -74,6 +77,13 @@ Name | Type | Description  | Notes
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -91,7 +101,7 @@ Get the semantic versions associated with LUSID and its ecosystem
 ### Example
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -101,12 +111,13 @@ namespace Example
 {
     public class GetLusidVersionsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new ApplicationMetadataApi();
+            var apiInstance = new ApplicationMetadataApi(Configuration.Default);
 
             try
             {
@@ -114,9 +125,11 @@ namespace Example
                 VersionSummaryDto result = apiInstance.GetLusidVersions();
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling ApplicationMetadataApi.GetLusidVersions: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -140,6 +153,12 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Collection of versions associated with LUSID |  -  |
+| **0** | Error response |  -  |
+
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -157,7 +176,7 @@ Get the comprehensive set of resources that are available for access control
 ### Example
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -167,12 +186,13 @@ namespace Example
 {
     public class ListAccessControlledResourcesExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new ApplicationMetadataApi();
+            var apiInstance = new ApplicationMetadataApi(Configuration.Default);
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
@@ -181,9 +201,11 @@ namespace Example
                 ResourceListOfAccessControlledResource result = apiInstance.ListAccessControlledResources(filter);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling ApplicationMetadataApi.ListAccessControlledResources: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -209,6 +231,13 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -20,7 +20,7 @@ Creates a transaction portfolio that derives from an existing transaction portfo
 ### Example
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -30,12 +30,13 @@ namespace Example
 {
     public class CreateDerivedPortfolioExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new DerivedTransactionPortfoliosApi();
+            var apiInstance = new DerivedTransactionPortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope into which to create the new derived portfolio
             var portfolio = new CreateDerivedTransactionPortfolioRequest(); // CreateDerivedTransactionPortfolioRequest | The root object of the new derived portfolio, containing a populated reference portfolio id and reference scope (optional) 
 
@@ -45,9 +46,11 @@ namespace Example
                 Portfolio result = apiInstance.CreateDerivedPortfolio(scope, portfolio);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.CreateDerivedPortfolio: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -75,6 +78,13 @@ Name | Type | Description  | Notes
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The created derived portfolio, with populated id |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -92,7 +102,7 @@ Deletes the portfolio details for the specified derived transaction portfolio
 ### Example
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -102,12 +112,13 @@ namespace Example
 {
     public class DeleteDerivedPortfolioDetailsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new DerivedTransactionPortfoliosApi();
+            var apiInstance = new DerivedTransactionPortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
             var effectiveAt = effectiveAt_example;  // string | The effective date of the change (optional) 
@@ -118,9 +129,11 @@ namespace Example
                 DeletedEntityResponse result = apiInstance.DeleteDerivedPortfolioDetails(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.DeleteDerivedPortfolioDetails: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -148,6 +161,13 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
