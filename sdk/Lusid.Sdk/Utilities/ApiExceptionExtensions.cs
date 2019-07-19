@@ -45,7 +45,10 @@ namespace Lusid.Sdk.Utilities
             }
             
             //    ApiException.ErrorContent contains a JSON serialized ValidationProblemDetails
-            return JsonConvert.DeserializeObject<LusidValidationProblemDetails>(ex.ErrorContent);
+            return JsonConvert.DeserializeObject<LusidValidationProblemDetails>(ex.ErrorContent, new JsonConverter[]
+            {
+                new PropertyBasedConverter(),
+            });
         }
         
         /// <summary>
@@ -59,7 +62,10 @@ namespace Lusid.Sdk.Utilities
             }
 
             //    ApiException.ErrorContent contains a JSON serialized ProblemDetails
-            return JsonConvert.DeserializeObject<LusidProblemDetails>(ex.ErrorContent);
+            return JsonConvert.DeserializeObject<LusidProblemDetails>(ex.ErrorContent, new JsonConverter[]
+            {
+                new PropertyBasedConverter(),
+            });
         }
     }
 }
