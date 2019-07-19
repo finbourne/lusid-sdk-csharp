@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 
 ## UpsertPortfolioProperties
 
-> PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, PropertyValue> portfolioProperties = null)
+> PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, Property> portfolioProperties = null)
 
 [EARLY ACCESS] Upsert portfolio properties
 
@@ -683,7 +683,7 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var portfolioProperties = new Dictionary<string, PropertyValue>(); // Dictionary<string, PropertyValue> | The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. (optional) 
+            var portfolioProperties = new Dictionary<string, Property>(); // Dictionary<string, Property> | The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. (optional) 
 
             try
             {
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **portfolioProperties** | [**Dictionary&lt;string, PropertyValue&gt;**](PropertyValue.md)| The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. | [optional] 
+ **portfolioProperties** | [**Dictionary&lt;string, Property&gt;**](Property.md)| The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. | [optional] 
 
 ### Return type
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Version** | [**Version**](Version.md) |  | 
 **IsDerived** | **bool?** | Whether or not this is a derived portfolio. | [optional] 
-**Properties** | [**List&lt;Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
