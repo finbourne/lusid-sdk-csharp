@@ -172,7 +172,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var propertyDefinition = new CreatePropertyDefinitionRequest(
                 
                 //    The domain the property is to be applied to
-                domain: CreatePropertyDefinitionRequest.DomainEnum.Trade,
+                domain: CreatePropertyDefinitionRequest.DomainEnum.Transaction,
                 
                 //    The scope the property will be created in
                 scope: TestDataUtilities.TutorialScope,
