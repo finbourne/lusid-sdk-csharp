@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **BaseCurrency** | **string** | The base currency of the transaction portfolio. | 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **AccountingMethod** | **string** | Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. | [optional] 
-**SubHoldingKeys** | **List&lt;string&gt;** | A set of unique transaction properties to group the transaction portfolio&#39;s holdings by. Each property must be from the &#39;Trade&#39; domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. &#39;Trade/strategies/quantsignal&#39;. | [optional] 
+**SubHoldingKeys** | **List&lt;string&gt;** | A set of unique transaction properties to group the transaction portfolio&#39;s holdings by. Each property must be from the &#39;Transaction&#39; domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. &#39;Transaction/strategies/quantsignal&#39;. | [optional] 
 **Properties** | [**Dictionary&lt;string, PropertyValue&gt;**](PropertyValue.md) | A set of unique portfolio properties to add to the transaction portfolio. Each property must be from the &#39;Portfolio&#39; domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;. These properties must be pre-defined. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
