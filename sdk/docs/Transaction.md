@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **ExchangeRate** | **double?** | The exchange rate between the transaction and settlement currency. For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate. | [optional] 
 **TransactionCurrency** | **string** | The transaction currency. | [optional] 
-**Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Trade&#39; domain. | [optional] 
+**Properties** | [**List&lt;PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | 
 
