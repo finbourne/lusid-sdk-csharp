@@ -18,11 +18,11 @@ Method | HTTP request | Description
 
 ## DeletePortfolio
 
-> DeletedEntityResponse DeletePortfolio (string scope, string code, string effectiveAt = null)
+> DeletedEntityResponse DeletePortfolio (string scope, string code)
 
 [EARLY ACCESS] Delete portfolio
 
-Delete a portfolio at the specified effectiveAt
+The deletion of the portfolio will be valid from portfolio's creation time. This implies the portfolio would no longer exist from the AsAt time of deletion.
 
 ### Example
 
@@ -45,12 +45,11 @@ namespace Example
             var apiInstance = new PortfoliosApi();
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the deletion (optional) 
 
             try
             {
                 // [EARLY ACCESS] Delete portfolio
-                DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code, effectiveAt);
+                DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -69,7 +68,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **string**| Optional. The effective date of the deletion | [optional] 
 
 ### Return type
 

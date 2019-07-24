@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **Code** | **string** |  | 
 **Created** | **DateTimeOffset?** |  | [optional] 
-**Properties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md) | Portfolio properties to add to the portfolio | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Portfolio properties to add to the portfolio | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
