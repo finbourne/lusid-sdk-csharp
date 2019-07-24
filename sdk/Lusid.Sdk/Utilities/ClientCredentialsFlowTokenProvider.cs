@@ -118,7 +118,8 @@ namespace Lusid.Sdk.Utilities
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new Exception("Failed to get a token: " + body);
+                    throw new HttpRequestException(
+                        $"Could not retrieve an authentication token from the specified identity provider. The request to {tokenRequest.RequestUri} returned an unsuccessful status code of {response.StatusCode} and the response body: {body}");
                 }
 
                 var parsed = JsonConvert.DeserializeObject<Dictionary<string, string>>(body);
@@ -177,7 +178,8 @@ namespace Lusid.Sdk.Utilities
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new Exception("Failed to get a token: " + body);
+                    throw new HttpRequestException(
+                        $"Could not refresh the authentication token from the specified identity provider. The request to {tokenRequest.RequestUri} returned an unsuccessful status code of {response.StatusCode} and the response body: {body}");
                 }
 
                 var parsed = JsonConvert.DeserializeObject<Dictionary<string, string>>(body);
