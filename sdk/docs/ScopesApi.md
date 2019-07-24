@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 ## ListScopes
 
-> ResourceListOfScopeDefinition ListScopes (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null)
+> ResourceListOfScopeDefinition ListScopes (string filter = null)
 
 [EARLY ACCESS] List scopes
 
-List all the scopes
+List all the scopes that contain data.
 
 ### Example
 
@@ -35,16 +35,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ScopesApi();
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
-            var query = query_example;  // string | Optional. Expression specifying the criteria that the returned portfolios must meet (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
                 // [EARLY ACCESS] List scopes
-                ResourceListOfScopeDefinition result = apiInstance.ListScopes(sortBy, start, limit, filter, query);
+                ResourceListOfScopeDefinition result = apiInstance.ListScopes(filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -61,11 +57,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
- **query** | **string**| Optional. Expression specifying the criteria that the returned portfolios must meet | [optional] 
+ **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
