@@ -193,7 +193,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var propertyDefinitionResult = _apiFactory.Api<IPropertyDefinitionsApi>().CreatePropertyDefinition(propertyDefinition);
             
             //    Create the property value
-            var propertyValue = new PerpetualPropertyValue(labelValue: labelValue);
+            var propertyValue = new PerpetualProperty(propertyDefinitionResult.Key, new PropertyValue(labelValue));
 
             //    Create a portfolio
             var portfolioId = _testDataUtilities.CreateTransactionPortfolio(TutorialScope);
@@ -214,7 +214,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 },  
                 
                 //    The properties to be added to the transaction
-                properties: new Dictionary<string, PerpetualPropertyValue>
+                properties: new Dictionary<string, PerpetualProperty>
                 {
                     [propertyDefinitionResult.Key] = propertyValue
                 },
@@ -235,7 +235,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             
             Assert.That(transactions.Values.Count, Is.EqualTo(1));
             Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentIdentifiers.First().Value));
-            Assert.That(transactions.Values[0].Properties[0].Value, Is.EqualTo(labelValue));
+            Assert.That(transactions.Values[0].Properties.First().Value.Value.LabelValue, Is.EqualTo(labelValue));
         }
 
         [Test]
