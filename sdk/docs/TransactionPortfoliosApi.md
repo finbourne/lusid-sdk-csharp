@@ -1172,7 +1172,7 @@ Name | Type | Description  | Notes
 
 ## UpsertTransactionProperties
 
-> UpsertTransactionPropertiesResponse UpsertTransactionProperties (string scope, string code, string transactionId, Dictionary<string, PerpetualPropertyValue> transactionProperties)
+> UpsertTransactionPropertiesResponse UpsertTransactionProperties (string scope, string code, string transactionId, Dictionary<string, PerpetualProperty> transactionProperties)
 
 [EARLY ACCESS] Update or insert transaction properties
 
@@ -1200,7 +1200,7 @@ namespace Example
             var scope = scope_example;  // string | The scope of the transaction portfolio.
             var code = code_example;  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var transactionId = transactionId_example;  // string | The unique id of the transaction to update or insert properties against.
-            var transactionProperties = new Dictionary<string, PerpetualPropertyValue>(); // Dictionary<string, PerpetualPropertyValue> | The properties with their associated values to update or insert onto the              transaction.
+            var transactionProperties = new Dictionary<string, PerpetualProperty>(); // Dictionary<string, PerpetualProperty> | The properties with their associated values to update or insert onto the              transaction.
 
             try
             {
@@ -1225,7 +1225,7 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the transaction portfolio. | 
  **code** | **string**| The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
  **transactionId** | **string**| The unique id of the transaction to update or insert properties against. | 
- **transactionProperties** | [**Dictionary&lt;string, PerpetualPropertyValue&gt;**](PerpetualPropertyValue.md)| The properties with their associated values to update or insert onto the              transaction. | 
+ **transactionProperties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md)| The properties with their associated values to update or insert onto the              transaction. | 
 
 ### Return type
 
