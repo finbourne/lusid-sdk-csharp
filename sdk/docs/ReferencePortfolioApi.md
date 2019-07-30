@@ -85,11 +85,11 @@ Name | Type | Description  | Notes
 
 ## GetReferencePortfolioConstituents
 
-> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, List<string> instrumentPropertyKeys = null)
+> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
 [EARLY ACCESS] Get constituents
 
-Get all the constituents in the specified reference portfolio
+Get constituents from the specified reference portfolio at an effective time.
 
 ### Example
 
@@ -110,19 +110,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ReferencePortfolioApi();
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the constituents to retrieve (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many (optional) 
-            var instrumentPropertyKeys = new List<string>(); // List<string> | Optional. The Properties of the constituents (optional) 
+            var scope = scope_example;  // string | The scope of the reference portfolio.
+            var code = code_example;  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
+            var effectiveAt = effectiveAt_example;  // string | The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional) 
+            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" or \"ReferenceHolding\" domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"ReferenceHolding/strategy/quantsignal\". Defaults to return all available instrument and reference holding properties if not specified. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Get constituents
-                GetReferencePortfolioConstituentsResponse result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, sortBy, start, limit, instrumentPropertyKeys);
+                GetReferencePortfolioConstituentsResponse result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -139,14 +136,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **string**| Optional. The effective date of the constituents to retrieve | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many | [optional] 
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. The Properties of the constituents | [optional] 
+ **scope** | **string**| The scope of the reference portfolio. | 
+ **code** | **string**| The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. | 
+ **effectiveAt** | **string**| The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. | [optional] 
+ **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. | [optional] 
 
 ### Return type
 
