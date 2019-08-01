@@ -3,7 +3,7 @@
 Build and run the container using `docker-compose`
 
 ```
-$ docker-compose up && docker-compose rm -f
+$ docker-compose up --build && docker-compose rm -f
 ```
 
 Alernatively run using `docker` commands
@@ -20,7 +20,7 @@ $ docker run --rm -it --name lusid-sdk-test-csharp -v `pwd`:/usr/src finbourne/l
 
 ## Test Configuration
 
-Create a file named `secrets.json` in the `tests` folder with the structure below and populated with the appropriate values.
+Create a file named `secrets.json` in the `Lusid.Sdk.Tests` folder with the structure below and populated with the appropriate values.
 
 ``` json
 {
