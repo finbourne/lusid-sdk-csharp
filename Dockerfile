@@ -5,7 +5,7 @@ RUN apt-get update && apt-get -y install jq
 RUN mkdir -p /usr/src/
 WORKDIR /usr/src/
 
-RUN wget http://central.maven.org/maven2/org/openapitools/openapi-generator-cli/4.0.0/openapi-generator-cli-4.0.0.jar -O openapi-generator-cli.jar
+RUN wget http://central.maven.org/maven2/org/openapitools/openapi-generator-cli/4.0.3/openapi-generator-cli-4.0.3.jar -O openapi-generator-cli.jar
 
 ADD generate.sh /usr/src/
 ADD .openapi-generator-ignore /usr/src/
