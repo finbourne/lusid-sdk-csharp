@@ -19,7 +19,7 @@ Get the unique identifier for the SAML 2.0 Identity Provider to be used for doma
 ### Example
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -29,12 +29,13 @@ namespace Example
 {
     public class GetSamlIdentityProviderIdExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new LoginApi();
+            var apiInstance = new LoginApi(Configuration.Default);
             var domain = domain_example;  // string | The domain that the user will be logging in to
 
             try
@@ -43,9 +44,11 @@ namespace Example
                 string result = apiInstance.GetSamlIdentityProviderId(domain);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling LoginApi.GetSamlIdentityProviderId: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -71,6 +74,13 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The ID of the SAML Identity Provider to be used (may be null) |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
