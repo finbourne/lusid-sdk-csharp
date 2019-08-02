@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
+using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
 using NUnit.Framework;
 
@@ -10,6 +13,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
     [TestFixture]
     public class InstrumentMaster
     {
+        private ILusidApiFactory _apiFactory;
         private IInstrumentsApi _instrumentsApi;
         
         private const string FigiScheme = "Figi";
@@ -24,9 +28,10 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
         [OneTimeSetUp]
         public void SetUp()
         {
-            var factory = LusidApiFactoryBuilder.Build("secrets.json");
-            _instrumentsApi = factory.Api<IInstrumentsApi>();
+            _apiFactory = LusidApiFactoryBuilder.Build("secrets.json");
+            _instrumentsApi = _apiFactory.Api<IInstrumentsApi>();
 
+            EnsurePropertyDefinition("CustomSector");
             SeedInstrumentMaster();
         }
 
@@ -116,7 +121,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             });
             
             Assert.That(upsertInstrumentsResponse.Values, Has.Count.EqualTo(5));
-        }
+        }        
 
         [Test]
         public void Lookup_Instrument_By_Unique_Id()
@@ -144,5 +149,139 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             Assert.That(identifiers[1].Key, Is.EqualTo(SedolPropertyKey));
             Assert.That(identifiers[1].Value.LabelValue, Is.EqualTo("BH4HKS3"));
         }
+        
+        private void EnsurePropertyDefinition(string code)
+        {
+            var propertyApi = _apiFactory.Api<IPropertyDefinitionsApi>();
+                
+            try
+            {
+                propertyApi.GetPropertyDefinition("Instrument", TestDataUtilities.TutorialScope, code);
+            }
+            catch (ApiException e)
+            {
+                //    Property definition doesn't exist (returns 404), so create one
+                //    Details of the property to be created
+                var propertyDefinition = new CreatePropertyDefinitionRequest(
+                    domain: CreatePropertyDefinitionRequest.DomainEnum.Instrument,
+                    scope: TestDataUtilities.TutorialScope,
+                    lifeTime: CreatePropertyDefinitionRequest.LifeTimeEnum.Perpetual,
+                    code: code,
+                    valueRequired: false,
+                    displayName: code,
+                    dataTypeId: new ResourceId("system", "string")
+                );
+
+                //    Create the property
+                propertyApi.CreatePropertyDefinition(propertyDefinition);
+            }
+        }
+
+        [Test]
+        public void List_Available_Identifiers()
+        {
+            //    Get the list of identifier schemes
+            ResourceListOfInstrumentIdTypeDescriptor identifiers = _instrumentsApi.GetInstrumentIdentifiers();
+
+            //    Schemes are returned as descriptors containing the name, property key and uniqueness constraint
+            foreach (InstrumentIdTypeDescriptor scheme in identifiers.Values)
+            {
+                Console.WriteLine($"name: {scheme.IdName}\nproperty key: {scheme.PropertyKeyValue}\nis unique: {scheme.IsUniqueIdentifier}\n");
+            }
+        }
+
+        [Test]
+        public void List_All_Instruments()
+        {
+            const int pageSize = 5;
+            
+            //    List the instruments restricting, the number that are returned
+            var instruments = _instrumentsApi.ListInstruments(limit: pageSize);
+            
+            Assert.That(instruments.Values.Count(), Is.LessThanOrEqualTo(pageSize));
+        }
+
+        [Test]
+        public void List_Instruments_By_Identifier_Type()
+        {
+            var figis = new List<string>
+            {
+                "BBG00M1BQWX0", "BBG00D1PBRL9", "BBG00BW1V2M4"
+            };
+            
+            //    Get a set of instruments querying by FIGIs
+            var instruments = _instrumentsApi.GetInstruments(identifierType: "Figi", identifiers: figis);
+
+            foreach (var figi in figis)
+            {
+                Assert.That(instruments.Values, Contains.Key(figi));
+            }
+        }
+
+        [Test]
+        public void Edit_Instrument_Property()
+        {
+            //    Create the property value
+            var propertyValue = new PropertyValue(labelValue: "Telecoms");
+            var propertyKey = $"Instrument/{TestDataUtilities.TutorialScope}/CustomSector";
+            
+            //    Get the LusidInstrumentId (LUID)
+            var instrument = _instrumentsApi.GetInstrument("Figi", "BBG00M1BQWX0");
+
+            //    Add it to the instrument
+            _instrumentsApi.UpsertInstrumentsProperties(new List<UpsertInstrumentPropertyRequest>
+            {
+                new UpsertInstrumentPropertyRequest(
+                    lusidInstrumentId: instrument.LusidInstrumentId,
+                    properties: new List<Property>
+                    {
+                        new Property(propertyKey, propertyValue)
+                    }
+                )
+            });
+            
+            //    Get the instrument with value
+            instrument = _instrumentsApi.GetInstrument(
+                identifierType: "LusidInstrumentId",
+                identifier: instrument.LusidInstrumentId,
+                instrumentPropertyKeys: new List<string> { propertyKey }
+            );
+
+            Assert.That(
+                instrument.Properties.FirstOrDefault(p => p.Key == propertyKey && p.Value.LabelValue.Equals("Telecoms")),
+                Is.Not.Null, $"Cannot find property {propertyKey} with value {propertyValue.LabelValue}");
+        }
+
+        [Test]
+        public void Create_Custom_Instrument()
+        {
+            //    Create a definition for the instrument
+            var swapDefinition = new InstrumentDefinition(
+                name: "10mm 5Y Fixed",
+                
+                //  The set of identifiers used for identifying the instrument
+                //  e.g. for uploading transactions
+                identifiers: new Dictionary<string, InstrumentIdValue>
+                {
+                    ["ClientInternal"] = new InstrumentIdValue(value: "SW-1")
+                },
+                
+                //  The details for valuing the instrument
+                definition: new InstrumentEconomicDefinition(
+                    
+                    //  Identifies which valuation engine to use
+                    instrumentFormat: "CustomFormat",
+                    content: "<customFormat>upload in custom xml or JSON format</customFormat>"
+                ));
+            
+            //    create the swap
+            var createSwapResponse = _instrumentsApi.UpsertInstruments(new Dictionary<string, InstrumentDefinition>
+            {
+                ["correlationId"] = swapDefinition
+            });
+            
+            Assert.That(createSwapResponse.Failed, Is.Empty);
+        }
+
     }
 }
