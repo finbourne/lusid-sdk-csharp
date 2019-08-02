@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ## DeletePortfolioProperties
 
-> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, string effectiveAt = null, List<string> portfolioPropertyKeys = null)
+> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys = null, string effectiveAt = null)
 
 [EARLY ACCESS] Delete portfolio properties
 
@@ -128,13 +128,13 @@ namespace Example
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | Code for the portfolio
+            var portfolioPropertyKeys = new List<string>(); // List<string> | The keys of the properties to be deleted. (optional) 
             var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the deletion (optional) 
-            var portfolioPropertyKeys = new List<string>(); // List<string> | Optional. The keys of the properties to be deleted. None specified indicates the intention to delete all properties from the portfolio (optional) 
 
             try
             {
                 // [EARLY ACCESS] Delete portfolio properties
-                DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, effectiveAt, portfolioPropertyKeys);
+                DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, portfolioPropertyKeys, effectiveAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -155,8 +155,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| Code for the portfolio | 
+ **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| The keys of the properties to be deleted. | [optional] 
  **effectiveAt** | **string**| Optional. The effective date of the deletion | [optional] 
- **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. The keys of the properties to be deleted. None specified indicates the intention to delete all properties from the portfolio | [optional] 
 
 ### Return type
 
