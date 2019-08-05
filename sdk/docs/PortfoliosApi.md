@@ -6,12 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Delete portfolio
 [**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Delete portfolio properties
-[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Get portfolio definition
-[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] Get commands
+[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Get portfolio
+[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio commands
 [**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Get portfolio properties
 [**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | [EARLY ACCESS] List portfolios
 [**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | [EARLY ACCESS] List portfolios for scope
-[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Update portfolio definition
+[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Update portfolio
 [**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Upsert portfolio properties
 
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 [EARLY ACCESS] Delete portfolio
 
-The deletion of the portfolio will be valid from portfolio's creation time. This implies the portfolio would no longer exist from the AsAt time of deletion.
+Delete a single portfolio. The deletion of the portfolio will be valid from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
 
@@ -44,8 +44,8 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
+            var scope = scope_example;  // string | The scope of the portfolio.
+            var code = code_example;  // string | The code of the portfolio.
 
             try
             {
@@ -69,8 +69,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
+ **scope** | **string**| The scope of the portfolio. | 
+ **code** | **string**| The code of the portfolio. | 
 
 ### Return type
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The datetime that the portfolio was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -100,11 +100,11 @@ Name | Type | Description  | Notes
 
 ## DeletePortfolioProperties
 
-> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys = null, string effectiveAt = null)
+> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null)
 
 [EARLY ACCESS] Delete portfolio properties
 
-Delete one, many or all property values from a portfolio for the specified effectiveAt                Specifying no effectiveAt will delete all properties
+Delete one or more properties from a single portfolio.
 
 ### Example
 
@@ -126,10 +126,10 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | Code for the portfolio
-            var portfolioPropertyKeys = new List<string>(); // List<string> | The keys of the properties to be deleted. (optional) 
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the deletion (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio to delete properties from.
+            var code = code_example;  // string | The code of the portfolio to delete properties from. Together with the scope this uniquely              identifies the portfolio.
+            var portfolioPropertyKeys = new List<string>(); // List<string> | The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". Each property must be from the \"Portfolio\" domain.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -153,10 +153,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| Code for the portfolio | 
- **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| The keys of the properties to be deleted. | [optional] 
- **effectiveAt** | **string**| Optional. The effective date of the deletion | [optional] 
+ **scope** | **string**| The scope of the portfolio to delete properties from. | 
+ **code** | **string**| The code of the portfolio to delete properties from. Together with the scope this uniquely              identifies the portfolio. | 
+ **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain. | 
+ **effectiveAt** | **string**| The effective datetime at which to delete the properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The datetime that the properties were deleted from the specified portfolio |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -188,9 +188,9 @@ Name | Type | Description  | Notes
 
 > Portfolio GetPortfolio (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get portfolio definition
+[EARLY ACCESS] Get portfolio
 
-Retrieves the basic set of information about a portfolio using the specified scope and code.
+Retrieve the definition of a single portfolio.
 
 ### Example
 
@@ -212,14 +212,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio to retrieve the definition for.
+            var code = code_example;  // string | The code of the portfolio to retrieve the definition for. Together with the scope this              uniquely identifies the portfolio.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get portfolio definition
+                // [EARLY ACCESS] Get portfolio
                 Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -239,10 +239,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
+ **scope** | **string**| The scope of the portfolio to retrieve the definition for. | 
+ **code** | **string**| The code of the portfolio to retrieve the definition for. Together with the scope this              uniquely identifies the portfolio. | 
+ **effectiveAt** | **string**| The effective datetime at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. | [optional] 
 
 ### Return type
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested portfolio |  -  |
+| **200** | The requested portfolio definition |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -272,11 +272,11 @@ Name | Type | Description  | Notes
 
 ## GetPortfolioCommands
 
-> ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string filter = null)
 
-[EARLY ACCESS] Get commands
+[EARLY ACCESS] Get portfolio commands
 
-Gets all commands that modified a specific portfolio, including any input transactions.
+Gets all the commands that modified a single portfolio, including any input transactions.
 
 ### Example
 
@@ -298,19 +298,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var fromAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Filters commands by those that were processed at or after this date and time (optional) 
-            var toAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Filters commands by those that were processed at or before this date and time (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio to retrieve the commands for.
+            var code = code_example;  // string | The code of the portfolio to retrieve the commands for. Together with the scope this uniquely identifies              the portfolio.
+            var fromAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional) 
+            var toAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get commands
-                ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter);
+                // [EARLY ACCESS] Get portfolio commands
+                ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -329,14 +326,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **fromAsAt** | **DateTimeOffset?**| Optional. Filters commands by those that were processed at or after this date and time | [optional] 
- **toAsAt** | **DateTimeOffset?**| Optional. Filters commands by those that were processed at or before this date and time | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **scope** | **string**| The scope of the portfolio to retrieve the commands for. | 
+ **code** | **string**| The code of the portfolio to retrieve the commands for. Together with the scope this uniquely identifies              the portfolio. | 
+ **fromAsAt** | **DateTimeOffset?**| The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. | [optional] 
+ **toAsAt** | **DateTimeOffset?**| The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. | [optional] 
+ **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
@@ -366,11 +360,11 @@ Name | Type | Description  | Notes
 
 ## GetPortfolioProperties
 
-> PortfolioProperties GetPortfolioProperties (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null)
+> PortfolioProperties GetPortfolioProperties (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] Get portfolio properties
 
-Get the properties of a portfolio
+List all the properties of a single portfolio.
 
 ### Example
 
@@ -392,18 +386,15 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio to list the properties for.
+            var code = code_example;  // string | The code of the portfolio to list the properties for. Together with the scope this uniquely              identifies the portfolio.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio's properties. Defaults to return the latest version of each property if not specified. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Get portfolio properties
-                PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt, sortBy, start, limit);
+                PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -422,13 +413,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
+ **scope** | **string**| The scope of the portfolio to list the properties for. | 
+ **code** | **string**| The code of the portfolio to list the properties for. Together with the scope this uniquely              identifies the portfolio. | 
+ **effectiveAt** | **string**| The effective datetime at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. | [optional] 
 
 ### Return type
 
@@ -446,7 +434,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The properties of the requested portfolio |  -  |
+| **200** | The properties of the specified portfolio |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -458,11 +446,11 @@ Name | Type | Description  | Notes
 
 ## ListPortfolios
 
-> ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
+> ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
 
 [EARLY ACCESS] List portfolios
 
-List all portfolios matching the specified criteria.                Example query syntax for the query parameter:                - To see which portfolios have holdings in the specified instruments:                    instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))                * Note that copy/pasting above examples results in incorrect single quote character
+List all the portfolios matching the specified criteria.
 
 ### Example
 
@@ -484,20 +472,19 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var page = page_example;  // string | Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set. (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
-            var query = query_example;  // string | Optional. Expression specifying the criteria that the returned portfolios must meet (optional) 
-            var portfolioPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the portfolio (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. (optional) 
+            var page = page_example;  // string | The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var start = 56;  // int? | When paginating, skip this number of results. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var query = query_example;  // string | Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6'              you would specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\". (optional) 
+            var portfolioPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Portfolio\" domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
 
             try
             {
                 // [EARLY ACCESS] List portfolios
-                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, sortBy, start, limit, filter, query, portfolioPropertyKeys);
+                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, start, limit, filter, query, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -516,15 +503,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **page** | **string**| Optional. The pagination token to continue listing portfolios. This value is returned from a previous call to ListPortfolios.  If this is set, then the sortBy, filter, query, effectiveAt, and asAt fields must not have changed. Also, if set, a start  value cannot be set. | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
- **query** | **string**| Optional. Expression specifying the criteria that the returned portfolios must meet | [optional] 
- **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the portfolio | [optional] 
+ **effectiveAt** | **string**| The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. | [optional] 
+ **page** | **string**| The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
+ **start** | **int?**| When paginating, skip this number of results. | [optional] 
+ **limit** | **int?**| When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified. | [optional] 
+ **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **query** | **string**| Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. | [optional] 
+ **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
 
 ### Return type
 
@@ -542,7 +528,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of portfolios |  -  |
+| **200** | The requested portfolios |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -554,11 +540,11 @@ Name | Type | Description  | Notes
 
 ## ListPortfoliosForScope
 
-> ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> portfolioPropertyKeys = null)
+> ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
 
 [EARLY ACCESS] List portfolios for scope
 
-List all the portfolios in the specified scope
+List all the portfolios in a single scope.
 
 ### Example
 
@@ -580,19 +566,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date of the data (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
-            var portfolioPropertyKeys = new List<string>(); // List<string> | Optional. Keys of the properties to be decorated on to the portfolio (optional) 
+            var scope = scope_example;  // string | The scope of the portfolios.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var portfolioPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Portfolio\" domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
 
             try
             {
                 // [EARLY ACCESS] List portfolios for scope
-                ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, sortBy, start, limit, filter, portfolioPropertyKeys);
+                ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, filter, portfolioPropertyKeys);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -611,14 +594,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope | 
- **effectiveAt** | **string**| Optional. The effective date of the data | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
- **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| Optional. Keys of the properties to be decorated on to the portfolio | [optional] 
+ **scope** | **string**| The scope of the portfolios. | 
+ **effectiveAt** | **string**| The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. | [optional] 
+ **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
 
 ### Return type
 
@@ -636,7 +616,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A list of portfolios in the requested scope |  -  |
+| **200** | The portfolios in the specified scope |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -650,9 +630,9 @@ Name | Type | Description  | Notes
 
 > Portfolio UpdatePortfolio (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
 
-[EARLY ACCESS] Update portfolio definition
+[EARLY ACCESS] Update portfolio
 
-Update the definition of a specific portfolio. Note, some parts of a portfolio definition are not available for modification after the initial creation.
+Update the definition of a single portfolio. Not all elements within a portfolio definition are  modifiable due to the potential implications for data already stored against the portfolio.
 
 ### Example
 
@@ -674,14 +654,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = effectiveAt_example;  // string | Optional. The effective date for the change (optional) 
-            var request = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio to update the definition for.
+            var code = code_example;  // string | The code of the portfolio to update the definition for. Together with the scope this uniquely              identifies the portfolio.
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional) 
+            var request = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Update portfolio definition
+                // [EARLY ACCESS] Update portfolio
                 Portfolio result = apiInstance.UpdatePortfolio(scope, code, effectiveAt, request);
                 Debug.WriteLine(result);
             }
@@ -701,10 +681,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **string**| Optional. The effective date for the change | [optional] 
- **request** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition | [optional] 
+ **scope** | **string**| The scope of the portfolio to update the definition for. | 
+ **code** | **string**| The code of the portfolio to update the definition for. Together with the scope this uniquely              identifies the portfolio. | 
+ **effectiveAt** | **string**| The effective datetime at which to update the definition. Defaults to the current              LUSID system datetime if not specified. | [optional] 
+ **request** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition. | [optional] 
 
 ### Return type
 
@@ -722,7 +702,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The updated definition of the portfolio. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -738,7 +718,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Upsert portfolio properties
 
-Upsert one or more property values to a portfolio. All properties must be of the domain Portfolio.
+Update or insert one or more properties onto a single portfolio. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Portfolio'.
 
 ### Example
 
@@ -760,9 +740,9 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var portfolioProperties = new Dictionary<string, Property>(); // Dictionary<string, Property> | The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio to update or insert the properties onto.
+            var code = code_example;  // string | The code of the portfolio to update or insert the properties onto. Together with the scope              this uniquely identifies the portfolio.
+            var portfolioProperties = new Dictionary<string, Property>(); // Dictionary<string, Property> | The properties to be updated or inserted onto the portfolio. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
 
             try
             {
@@ -786,9 +766,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **portfolioProperties** | [**Dictionary&lt;string, Property&gt;**](Property.md)| The property values to be upserted to the portfolio. Time variant properties must have an EffectiveFrom date. | [optional] 
+ **scope** | **string**| The scope of the portfolio to update or insert the properties onto. | 
+ **code** | **string**| The code of the portfolio to update or insert the properties onto. Together with the scope              this uniquely identifies the portfolio. | 
+ **portfolioProperties** | [**Dictionary&lt;string, Property&gt;**](Property.md)| The properties to be updated or inserted onto the portfolio. Each property in              the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
 
 ### Return type
 
@@ -806,7 +786,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The updated or inserted properties |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
