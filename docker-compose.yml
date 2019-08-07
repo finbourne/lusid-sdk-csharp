@@ -8,4 +8,4 @@ services:
     image: finbourne/lusid-sdk-csharp-gen
     volumes:
       - .:/usr/swagger
-    command: lusid.json
+    command: /usr/swagger/generate.sh lusid.json
