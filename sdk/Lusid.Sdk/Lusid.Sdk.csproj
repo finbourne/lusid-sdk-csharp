@@ -17,7 +17,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <WarningsAsErrors>NU1605;CS1591</WarningsAsErrors>
+    <WarningsAsErrors></WarningsAsErrors>
+    <NoWarn>1701;1702;CS0472;CS1573</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   
   <ItemGroup>
