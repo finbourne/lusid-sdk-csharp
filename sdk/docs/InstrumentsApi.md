@@ -127,7 +127,7 @@ namespace Example
             var apiInstance = new InstrumentsApi(Configuration.Default);
             var identifierType = identifierType_example;  // string | The identifier being supplied e.g. \"Figi\".
             var identifier = identifier_example;  // string | The value of the identifier for the requested instrument.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
             var instrumentPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifierType** | **string**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
  **identifier** | **string**| The value of the identifier for the requested instrument. | 
- **effectiveAt** | **string**| The effective datetime at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to retrieve the instrument definition.              Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional] 
  **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
@@ -251,7 +251,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The allowable instrument identifiers |  -  |
 | **0** | Error response |  -  |
 
 [[Back to top]](#)
@@ -290,7 +290,7 @@ namespace Example
             var apiInstance = new InstrumentsApi(Configuration.Default);
             var identifierType = identifierType_example;  // string | The identifier being supplied e.g. \"Figi\".
             var identifiers = new List<string>(); // List<string> | The values of the identifier for the requested instruments.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional) 
             var instrumentPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\". (optional) 
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifierType** | **string**| The identifier being supplied e.g. \&quot;Figi\&quot;. | 
  **identifiers** | [**List&lt;string&gt;**](string.md)| The values of the identifier for the requested instruments. | 
- **effectiveAt** | **string**| The effective datetime at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to retrieve the instrument definitions.              Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. | [optional] 
  **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | [optional] 
 
@@ -377,7 +377,7 @@ namespace Example
 
             var apiInstance = new InstrumentsApi(Configuration.Default);
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. (optional) 
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. (optional) 
             var page = page_example;  // string | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var sortBy = new List<string>(); // List<string> | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
@@ -408,7 +408,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the instruments. Defaults to return the latest              version of each instruments if not specified. | [optional] 
- **effectiveAt** | **string**| The effective datetime at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to list the instruments.              Defaults to the current LUSID system datetime if not specified. | [optional] 
  **page** | **string**| The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. | [optional] 
  **start** | **int?**| When paginating, skip this number of results. | [optional] 

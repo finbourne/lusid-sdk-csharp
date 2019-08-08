@@ -129,7 +129,7 @@ namespace Example
             var scope = scope_example;  // string | The scope of the portfolio to delete properties from.
             var code = code_example;  // string | The code of the portfolio to delete properties from. Together with the scope this uniquely              identifies the portfolio.
             var portfolioPropertyKeys = new List<string>(); // List<string> | The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". Each property must be from the \"Portfolio\" domain.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the portfolio to delete properties from. | 
  **code** | **string**| The code of the portfolio to delete properties from. Together with the scope this uniquely              identifies the portfolio. | 
  **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain. | 
- **effectiveAt** | **string**| The effective datetime at which to delete the properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
@@ -214,7 +214,7 @@ namespace Example
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to retrieve the definition for.
             var code = code_example;  // string | The code of the portfolio to retrieve the definition for. Together with the scope this              uniquely identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional) 
 
             try
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio to retrieve the definition for. | 
  **code** | **string**| The code of the portfolio to retrieve the definition for. Together with the scope this              uniquely identifies the portfolio. | 
- **effectiveAt** | **string**| The effective datetime at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. | [optional] 
 
 ### Return type
@@ -388,7 +388,7 @@ namespace Example
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to list the properties for.
             var code = code_example;  // string | The code of the portfolio to list the properties for. Together with the scope this uniquely              identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio's properties. Defaults to return the latest version of each property if not specified. (optional) 
 
             try
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio to list the properties for. | 
  **code** | **string**| The code of the portfolio to list the properties for. Together with the scope this uniquely              identifies the portfolio. | 
- **effectiveAt** | **string**| The effective datetime at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. | [optional] 
 
 ### Return type
@@ -472,7 +472,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. (optional) 
             var page = page_example;  // string | The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
@@ -503,7 +503,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **effectiveAt** | **string**| The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. | [optional] 
  **page** | **string**| The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **start** | **int?**| When paginating, skip this number of results. | [optional] 
@@ -567,7 +567,7 @@ namespace Example
 
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolios.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. (optional) 
             var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var portfolioPropertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Portfolio\" domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
@@ -595,7 +595,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolios. | 
- **effectiveAt** | **string**| The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. | [optional] 
  **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
  **portfolioPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
@@ -656,7 +656,7 @@ namespace Example
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to update the definition for.
             var code = code_example;  // string | The code of the portfolio to update the definition for. Together with the scope this uniquely              identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // string | The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional) 
             var request = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition. (optional) 
 
             try
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio to update the definition for. | 
  **code** | **string**| The code of the portfolio to update the definition for. Together with the scope this uniquely              identifies the portfolio. | 
- **effectiveAt** | **string**| The effective datetime at which to update the definition. Defaults to the current              LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **string**| The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. | [optional] 
  **request** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition. | [optional] 
 
 ### Return type
