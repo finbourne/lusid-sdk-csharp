@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,7 +39,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio.
@@ -75,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -118,7 +121,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to delete properties from.
             var code = code_example;  // string | The code of the portfolio to delete properties from. Together with the scope this uniquely              identifies the portfolio.
@@ -158,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -201,7 +207,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to retrieve the definition for.
             var code = code_example;  // string | The code of the portfolio to retrieve the definition for. Together with the scope this              uniquely identifies the portfolio.
@@ -241,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -284,7 +293,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to retrieve the commands for.
             var code = code_example;  // string | The code of the portfolio to retrieve the commands for. Together with the scope this uniquely identifies              the portfolio.
@@ -326,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -369,7 +381,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to list the properties for.
             var code = code_example;  // string | The code of the portfolio to list the properties for. Together with the scope this uniquely              identifies the portfolio.
@@ -409,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -452,7 +467,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to return the latest version              of each portfolio if not specified. (optional) 
@@ -500,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -543,7 +561,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolios.
             var effectiveAt = effectiveAt_example;  // string | The effective datetime at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
@@ -585,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -628,7 +649,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to update the definition for.
             var code = code_example;  // string | The code of the portfolio to update the definition for. Together with the scope this uniquely              identifies the portfolio.
@@ -668,7 +692,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -711,7 +735,10 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://localhost/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new PortfoliosApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio to update or insert the properties onto.
             var code = code_example;  // string | The code of the portfolio to update or insert the properties onto. Together with the scope              this uniquely identifies the portfolio.
@@ -749,7 +776,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
