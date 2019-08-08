@@ -32,9 +32,6 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost";
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
             var apiInstance = new LoginApi(Configuration.Default);
             var domain = domain_example;  // string | The domain that the user will be logging in to
 
@@ -68,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 

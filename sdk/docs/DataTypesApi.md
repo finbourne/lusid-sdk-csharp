@@ -34,9 +34,6 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost";
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
             var apiInstance = new DataTypesApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the data type
             var code = code_example;  // string | The code of the data type
@@ -72,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -116,9 +113,6 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost";
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
             var apiInstance = new DataTypesApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the data type
             var code = code_example;  // string | The code of the data type
@@ -158,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -202,9 +196,6 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost";
-            // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
             var apiInstance = new DataTypesApi(Configuration.Default);
             var scope = scope_example;  // string | The requested scope of the data types
             var includeSystem = true;  // bool? | Whether to additionally include those data types in the \"system\" scope (optional) 
@@ -248,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
