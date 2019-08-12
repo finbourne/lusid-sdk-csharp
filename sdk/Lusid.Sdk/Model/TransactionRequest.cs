@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique transaction properties and associated values to store with the transaction. Each property must be from the &#39;Transaction&#39; domain..</param>
         /// <param name="counterpartyId">The identifier for the counterparty of the transaction..</param>
         /// <param name="source">The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
-        public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string transactionDate = default(string), string settlementDate = default(string), double? units = default(double?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string))
+        public TransactionRequest(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOrCutLabel transactionDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel settlementDate = default(DateTimeOrCutLabel), double? units = default(double?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -164,14 +164,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The date of the transaction.</value>
         [DataMember(Name="transactionDate", EmitDefaultValue=false)]
-        public string TransactionDate { get; set; }
+        public DateTimeOrCutLabel TransactionDate { get; set; }
 
         /// <summary>
         /// The settlement date of the transaction.
         /// </summary>
         /// <value>The settlement date of the transaction.</value>
         [DataMember(Name="settlementDate", EmitDefaultValue=false)]
-        public string SettlementDate { get; set; }
+        public DateTimeOrCutLabel SettlementDate { get; set; }
 
         /// <summary>
         /// The number of units transacted in the associated instrument.

@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Instrument</returns>
-        Instrument GetInstrument (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get instrument
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ApiResponse of Instrument</returns>
-        ApiResponse<Instrument> GetInstrumentWithHttpInfo (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        ApiResponse<Instrument> GetInstrumentWithHttpInfo (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Get instrument identifiers
         /// </summary>
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>GetInstrumentsResponse</returns>
-        GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get instruments
@@ -123,7 +123,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
-        ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] List instruments
         /// </summary>
@@ -140,7 +140,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ResourceListOfInstrument</returns>
-        ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
+        ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] List instruments
@@ -158,7 +158,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfInstrument</returns>
-        ApiResponse<ResourceListOfInstrument> ListInstrumentsWithHttpInfo (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
+        ApiResponse<ResourceListOfInstrument> ListInstrumentsWithHttpInfo (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Update instrument identifier
         /// </summary>
@@ -264,7 +264,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of Instrument</returns>
-        System.Threading.Tasks.Task<Instrument> GetInstrumentAsync (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        System.Threading.Tasks.Task<Instrument> GetInstrumentAsync (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get instrument
@@ -279,7 +279,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (Instrument)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Instrument>> GetInstrumentAsyncWithHttpInfo (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<Instrument>> GetInstrumentAsyncWithHttpInfo (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Get instrument identifiers
         /// </summary>
@@ -312,7 +312,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of GetInstrumentsResponse</returns>
-        System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get instruments
@@ -327,7 +327,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (GetInstrumentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetInstrumentsResponse>> GetInstrumentsAsyncWithHttpInfo (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<GetInstrumentsResponse>> GetInstrumentsAsyncWithHttpInfo (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] List instruments
         /// </summary>
@@ -344,7 +344,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ResourceListOfInstrument</returns>
-        System.Threading.Tasks.Task<ResourceListOfInstrument> ListInstrumentsAsync (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
+        System.Threading.Tasks.Task<ResourceListOfInstrument> ListInstrumentsAsync (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] List instruments
@@ -362,7 +362,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrument)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrument>> ListInstrumentsAsyncWithHttpInfo (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrument>> ListInstrumentsAsyncWithHttpInfo (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Update instrument identifier
         /// </summary>
@@ -720,7 +720,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Instrument</returns>
-        public Instrument GetInstrument (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
              ApiResponse<Instrument> localVarResponse = GetInstrumentWithHttpInfo(identifierType, identifier, effectiveAt, asAt, instrumentPropertyKeys);
              return localVarResponse.Data;
@@ -736,7 +736,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ApiResponse of Instrument</returns>
-        public ApiResponse< Instrument > GetInstrumentWithHttpInfo (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public ApiResponse< Instrument > GetInstrumentWithHttpInfo (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
@@ -813,7 +813,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of Instrument</returns>
-        public async System.Threading.Tasks.Task<Instrument> GetInstrumentAsync (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public async System.Threading.Tasks.Task<Instrument> GetInstrumentAsync (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
              ApiResponse<Instrument> localVarResponse = await GetInstrumentAsyncWithHttpInfo(identifierType, identifier, effectiveAt, asAt, instrumentPropertyKeys);
              return localVarResponse.Data;
@@ -830,7 +830,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definition. Defaults to              return the latest version of the instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (Instrument)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Instrument>> GetInstrumentAsyncWithHttpInfo (string identifierType, string identifier, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Instrument>> GetInstrumentAsyncWithHttpInfo (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
@@ -1052,7 +1052,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>GetInstrumentsResponse</returns>
-        public GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public GetInstrumentsResponse GetInstruments (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
              ApiResponse<GetInstrumentsResponse> localVarResponse = GetInstrumentsWithHttpInfo(identifierType, identifiers, effectiveAt, asAt, instrumentPropertyKeys);
              return localVarResponse.Data;
@@ -1068,7 +1068,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
-        public ApiResponse< GetInstrumentsResponse > GetInstrumentsWithHttpInfo (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public ApiResponse< GetInstrumentsResponse > GetInstrumentsWithHttpInfo (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
@@ -1152,7 +1152,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of GetInstrumentsResponse</returns>
-        public async System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public async System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
              ApiResponse<GetInstrumentsResponse> localVarResponse = await GetInstrumentsAsyncWithHttpInfo(identifierType, identifiers, effectiveAt, asAt, instrumentPropertyKeys);
              return localVarResponse.Data;
@@ -1169,7 +1169,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the instrument definitions.              Defaults to return the latest version of each instrument definition if not specified. (optional)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto the instrument.              These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (GetInstrumentsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetInstrumentsResponse>> GetInstrumentsAsyncWithHttpInfo (string identifierType, List<string> identifiers, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetInstrumentsResponse>> GetInstrumentsAsyncWithHttpInfo (string identifierType, List<string> identifiers, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> instrumentPropertyKeys = null)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
@@ -1256,7 +1256,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ResourceListOfInstrument</returns>
-        public ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+        public ResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
         {
              ApiResponse<ResourceListOfInstrument> localVarResponse = ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys);
              return localVarResponse.Data;
@@ -1275,7 +1275,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfInstrument</returns>
-        public ApiResponse< ResourceListOfInstrument > ListInstrumentsWithHttpInfo (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+        public ApiResponse< ResourceListOfInstrument > ListInstrumentsWithHttpInfo (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
         {
 
             var localVarPath = "./api/instruments";
@@ -1352,7 +1352,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ResourceListOfInstrument</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfInstrument> ListInstrumentsAsync (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ResourceListOfInstrument> ListInstrumentsAsync (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
         {
              ApiResponse<ResourceListOfInstrument> localVarResponse = await ListInstrumentsAsyncWithHttpInfo(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys);
              return localVarResponse.Data;
@@ -1372,7 +1372,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Defaults to filter down to active instruments only, i.e. those              that have not been deleted. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional, default to &quot;State eq &#39;Active&#39;&quot;)</param>
         /// <param name="instrumentPropertyKeys">A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto each instrument. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrument)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrument>> ListInstrumentsAsyncWithHttpInfo (DateTimeOffset? asAt = null, string effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrument>> ListInstrumentsAsyncWithHttpInfo (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
         {
 
             var localVarPath = "./api/instruments";

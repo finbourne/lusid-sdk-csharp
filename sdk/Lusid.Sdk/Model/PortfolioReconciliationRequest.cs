@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="portfolioId">portfolioId (required).</param>
         /// <param name="effectiveAt">The effective date of the portfolio (required).</param>
         /// <param name="asAt">Optional. The AsAt date of the portfolio.</param>
-        public PortfolioReconciliationRequest(ResourceId portfolioId = default(ResourceId), string effectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?))
+        public PortfolioReconciliationRequest(ResourceId portfolioId = default(ResourceId), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?))
         {
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The effective date of the portfolio</value>
         [DataMember(Name="effectiveAt", EmitDefaultValue=false)]
-        public string EffectiveAt { get; set; }
+        public DateTimeOrCutLabel EffectiveAt { get; set; }
 
         /// <summary>
         /// Optional. The AsAt date of the portfolio
