@@ -158,7 +158,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             {
                 propertyApi.GetPropertyDefinition("Instrument", TestDataUtilities.TutorialScope, code);
             }
-            catch (ApiException e)
+            catch (ApiException)
             {
                 //    Property definition doesn't exist (returns 404), so create one
                 //    Details of the property to be created
