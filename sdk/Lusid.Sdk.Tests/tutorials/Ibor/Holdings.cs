@@ -6,7 +6,6 @@ using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
 {
@@ -63,7 +62,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _transactionPortfoliosApi.UpsertTransactions(TestDataUtilities.TutorialScope, portfolioId, transactions);
             
             //    Get the portfolio holdings on T+10
-            var holdings = _transactionPortfoliosApi.GetHoldings(TestDataUtilities.TutorialScope, portfolioId, effectiveAt: dayTPlus10.ToLUSIDDate());
+            var holdings = _transactionPortfoliosApi.GetHoldings(TestDataUtilities.TutorialScope, portfolioId, effectiveAt: dayTPlus10);
             
             //    Ensure we have 5 holdings: 1 cash position and a position in 4 instruments that aggregates the 5 transactions
             Assert.That(holdings.Values.Count(), Is.EqualTo(5));
@@ -158,7 +157,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             };
             
             //    set the initial holdings on day 1
-            _transactionPortfoliosApi.SetHoldings(TestDataUtilities.TutorialScope, portfolioCode, day1.ToLUSIDDate(), holdingAdjustments);
+            _transactionPortfoliosApi.SetHoldings(TestDataUtilities.TutorialScope, portfolioCode, day1, holdingAdjustments);
             
             //    add subsequent transactions on day 2
             _transactionPortfoliosApi.UpsertTransactions(TestDataUtilities.TutorialScope, portfolioCode,
@@ -169,7 +168,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 });
             
             //    get the holdings for day 2
-            var holdingsResult = _transactionPortfoliosApi.GetHoldings(TestDataUtilities.TutorialScope, portfolioCode, effectiveAt: day2.ToLUSIDDate());
+            var holdingsResult = _transactionPortfoliosApi.GetHoldings(TestDataUtilities.TutorialScope, portfolioCode, effectiveAt: day2);
             var holdings = holdingsResult.Values.OrderBy(h => h.InstrumentUid).ToList();
             
             //    cash balance + 3 holdings

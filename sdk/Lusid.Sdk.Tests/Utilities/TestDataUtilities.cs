@@ -61,8 +61,8 @@ namespace Lusid.Sdk.Tests.Utilities
                 {
                     ["Instrument/default/LusidInstrumentId"] = instrumentId
                 },
-                transactionDate: tradeDate.ToLUSIDDate(),
-                settlementDate: tradeDate.ToLUSIDDate(),
+                transactionDate: tradeDate,
+                settlementDate: tradeDate,
                 units: units,
                 transactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
                 totalConsideration: new CurrencyAndAmount(price*units, currency),
@@ -83,8 +83,8 @@ namespace Lusid.Sdk.Tests.Utilities
                 {
                     [LusidCashIdentifier] = currency
                 },
-                transactionDate: tradeDate.ToLUSIDDate(),
-                settlementDate: tradeDate.ToLUSIDDate(),
+                transactionDate: tradeDate,
+                settlementDate: tradeDate,
                 units: units,
                 totalConsideration: new CurrencyAndAmount(0, "GBP"),
                 transactionPrice: new TransactionPrice(0.0),
