@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="type">The allowable instrument identifier to update, insert or remove e.g. &#39;Figi&#39;. (required).</param>
         /// <param name="value">The new value of the allowable instrument identifier. If unspecified the identifier will be removed from the instrument..</param>
         /// <param name="effectiveAt">The effective datetime from which the identifier should be updated, inserted or removed. Defaults to the current LUSID system datetime if not specified..</param>
-        public UpdateInstrumentIdentifierRequest(string type = default(string), string value = default(string), string effectiveAt = default(string))
+        public UpdateInstrumentIdentifierRequest(string type = default(string), string value = default(string), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The effective datetime from which the identifier should be updated, inserted or removed. Defaults to the current LUSID system datetime if not specified.</value>
         [DataMember(Name="effectiveAt", EmitDefaultValue=false)]
-        public string EffectiveAt { get; set; }
+        public DateTimeOrCutLabel EffectiveAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

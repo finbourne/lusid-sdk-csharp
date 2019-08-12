@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null);
+        DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Delete portfolio properties
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeletePortfolioPropertiesWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null);
+        ApiResponse<DeletedEntityResponse> DeletePortfolioPropertiesWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get portfolio
         /// </summary>
@@ -86,7 +86,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>Portfolio</returns>
-        Portfolio GetPortfolio (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get portfolio
@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        ApiResponse<Portfolio> GetPortfolioWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        ApiResponse<Portfolio> GetPortfolioWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get portfolio commands
         /// </summary>
@@ -142,7 +142,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>PortfolioProperties</returns>
-        PortfolioProperties GetPortfolioProperties (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get portfolio properties
@@ -156,7 +156,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>ApiResponse of PortfolioProperties</returns>
-        ApiResponse<PortfolioProperties> GetPortfolioPropertiesWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        ApiResponse<PortfolioProperties> GetPortfolioPropertiesWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] List portfolios
         /// </summary>
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ResourceListOfPortfolio</returns>
-        ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
+        ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] List portfolios
@@ -191,7 +191,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
-        ApiResponse<ResourceListOfPortfolio> ListPortfoliosWithHttpInfo (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
+        ApiResponse<ResourceListOfPortfolio> ListPortfoliosWithHttpInfo (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] List portfolios for scope
         /// </summary>
@@ -205,7 +205,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ResourceListOfPortfolio</returns>
-        ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
+        ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] List portfolios for scope
@@ -220,7 +220,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
-        ApiResponse<ResourceListOfPortfolio> ListPortfoliosForScopeWithHttpInfo (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
+        ApiResponse<ResourceListOfPortfolio> ListPortfoliosForScopeWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Update portfolio
         /// </summary>
@@ -233,7 +233,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>Portfolio</returns>
-        Portfolio UpdatePortfolio (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null);
+        Portfolio UpdatePortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null);
 
         /// <summary>
         /// [EARLY ACCESS] Update portfolio
@@ -247,7 +247,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        ApiResponse<Portfolio> UpdatePortfolioWithHttpInfo (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null);
+        ApiResponse<Portfolio> UpdatePortfolioWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert portfolio properties
         /// </summary>
@@ -310,7 +310,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePortfolioPropertiesAsync (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeletePortfolioPropertiesAsync (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Delete portfolio properties
@@ -324,7 +324,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePortfolioPropertiesAsyncWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null);
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePortfolioPropertiesAsyncWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get portfolio
         /// </summary>
@@ -337,7 +337,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>Task of Portfolio</returns>
-        System.Threading.Tasks.Task<Portfolio> GetPortfolioAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<Portfolio> GetPortfolioAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get portfolio
@@ -351,7 +351,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Portfolio>> GetPortfolioAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<ApiResponse<Portfolio>> GetPortfolioAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get portfolio commands
         /// </summary>
@@ -393,7 +393,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>Task of PortfolioProperties</returns>
-        System.Threading.Tasks.Task<PortfolioProperties> GetPortfolioPropertiesAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<PortfolioProperties> GetPortfolioPropertiesAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get portfolio properties
@@ -407,7 +407,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (PortfolioProperties)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PortfolioProperties>> GetPortfolioPropertiesAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<ApiResponse<PortfolioProperties>> GetPortfolioPropertiesAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] List portfolios
         /// </summary>
@@ -424,7 +424,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ResourceListOfPortfolio</returns>
-        System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosAsync (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
+        System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosAsync (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] List portfolios
@@ -442,7 +442,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosAsyncWithHttpInfo (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosAsyncWithHttpInfo (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] List portfolios for scope
         /// </summary>
@@ -456,7 +456,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ResourceListOfPortfolio</returns>
-        System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosForScopeAsync (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
+        System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosForScopeAsync (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] List portfolios for scope
@@ -471,7 +471,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeAsyncWithHttpInfo (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeAsyncWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Update portfolio
         /// </summary>
@@ -484,7 +484,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>Task of Portfolio</returns>
-        System.Threading.Tasks.Task<Portfolio> UpdatePortfolioAsync (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null);
+        System.Threading.Tasks.Task<Portfolio> UpdatePortfolioAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null);
 
         /// <summary>
         /// [EARLY ACCESS] Update portfolio
@@ -498,7 +498,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Portfolio>> UpdatePortfolioAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null);
+        System.Threading.Tasks.Task<ApiResponse<Portfolio>> UpdatePortfolioAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert portfolio properties
         /// </summary>
@@ -813,7 +813,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null)
+        public DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null)
         {
              ApiResponse<DeletedEntityResponse> localVarResponse = DeletePortfolioPropertiesWithHttpInfo(scope, code, portfolioPropertyKeys, effectiveAt);
              return localVarResponse.Data;
@@ -828,7 +828,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public ApiResponse< DeletedEntityResponse > DeletePortfolioPropertiesWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null)
+        public ApiResponse< DeletedEntityResponse > DeletePortfolioPropertiesWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -906,7 +906,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePortfolioPropertiesAsync (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeletePortfolioPropertiesAsync (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null)
         {
              ApiResponse<DeletedEntityResponse> localVarResponse = await DeletePortfolioPropertiesAsyncWithHttpInfo(scope, code, portfolioPropertyKeys, effectiveAt);
              return localVarResponse.Data;
@@ -922,7 +922,7 @@ namespace Lusid.Sdk.Api
         /// <param name="portfolioPropertyKeys">The property keys of the properties to delete. These take the format              {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. Each property must be from the \&quot;Portfolio\&quot; domain.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete the properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePortfolioPropertiesAsyncWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, string effectiveAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeletePortfolioPropertiesAsyncWithHttpInfo (string scope, string code, List<string> portfolioPropertyKeys, DateTimeOrCutLabel effectiveAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1000,7 +1000,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>Portfolio</returns>
-        public Portfolio GetPortfolio (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<Portfolio> localVarResponse = GetPortfolioWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -1015,7 +1015,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        public ApiResponse< Portfolio > GetPortfolioWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public ApiResponse< Portfolio > GetPortfolioWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1090,7 +1090,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>Task of Portfolio</returns>
-        public async System.Threading.Tasks.Task<Portfolio> GetPortfolioAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<Portfolio> GetPortfolioAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<Portfolio> localVarResponse = await GetPortfolioAsyncWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -1106,7 +1106,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the portfolio definition. Defaults to return the latest version of the portfolio definition if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Portfolio>> GetPortfolioAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Portfolio>> GetPortfolioAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1368,7 +1368,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>PortfolioProperties</returns>
-        public PortfolioProperties GetPortfolioProperties (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<PortfolioProperties> localVarResponse = GetPortfolioPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -1383,7 +1383,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>ApiResponse of PortfolioProperties</returns>
-        public ApiResponse< PortfolioProperties > GetPortfolioPropertiesWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public ApiResponse< PortfolioProperties > GetPortfolioPropertiesWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1458,7 +1458,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>Task of PortfolioProperties</returns>
-        public async System.Threading.Tasks.Task<PortfolioProperties> GetPortfolioPropertiesAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<PortfolioProperties> GetPortfolioPropertiesAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<PortfolioProperties> localVarResponse = await GetPortfolioPropertiesAsyncWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -1474,7 +1474,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the portfolio&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (PortfolioProperties)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PortfolioProperties>> GetPortfolioPropertiesAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PortfolioProperties>> GetPortfolioPropertiesAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1553,7 +1553,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ResourceListOfPortfolio</returns>
-        public ResourceListOfPortfolio ListPortfolios (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
+        public ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
         {
              ApiResponse<ResourceListOfPortfolio> localVarResponse = ListPortfoliosWithHttpInfo(effectiveAt, asAt, page, start, limit, filter, query, portfolioPropertyKeys);
              return localVarResponse.Data;
@@ -1572,7 +1572,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
-        public ApiResponse< ResourceListOfPortfolio > ListPortfoliosWithHttpInfo (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
+        public ApiResponse< ResourceListOfPortfolio > ListPortfoliosWithHttpInfo (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
         {
 
             var localVarPath = "./api/portfolios";
@@ -1649,7 +1649,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ResourceListOfPortfolio</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosAsync (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosAsync (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
         {
              ApiResponse<ResourceListOfPortfolio> localVarResponse = await ListPortfoliosAsyncWithHttpInfo(effectiveAt, asAt, page, start, limit, filter, query, portfolioPropertyKeys);
              return localVarResponse.Data;
@@ -1669,7 +1669,7 @@ namespace Lusid.Sdk.Api
         /// <param name="query">Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolio)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosAsyncWithHttpInfo (string effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosAsyncWithHttpInfo (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> portfolioPropertyKeys = null)
         {
 
             var localVarPath = "./api/portfolios";
@@ -1743,7 +1743,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ResourceListOfPortfolio</returns>
-        public ResourceListOfPortfolio ListPortfoliosForScope (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
+        public ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
         {
              ApiResponse<ResourceListOfPortfolio> localVarResponse = ListPortfoliosForScopeWithHttpInfo(scope, effectiveAt, asAt, filter, portfolioPropertyKeys);
              return localVarResponse.Data;
@@ -1759,7 +1759,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
-        public ApiResponse< ResourceListOfPortfolio > ListPortfoliosForScopeWithHttpInfo (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
+        public ApiResponse< ResourceListOfPortfolio > ListPortfoliosForScopeWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1833,7 +1833,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ResourceListOfPortfolio</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosForScopeAsync (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolio> ListPortfoliosForScopeAsync (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
         {
              ApiResponse<ResourceListOfPortfolio> localVarResponse = await ListPortfoliosForScopeAsyncWithHttpInfo(scope, effectiveAt, asAt, filter, portfolioPropertyKeys);
              return localVarResponse.Data;
@@ -1850,7 +1850,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="portfolioPropertyKeys">A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfPortfolio)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeAsyncWithHttpInfo (string scope, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeAsyncWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> portfolioPropertyKeys = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1923,7 +1923,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>Portfolio</returns>
-        public Portfolio UpdatePortfolio (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
+        public Portfolio UpdatePortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null)
         {
              ApiResponse<Portfolio> localVarResponse = UpdatePortfolioWithHttpInfo(scope, code, effectiveAt, request);
              return localVarResponse.Data;
@@ -1938,7 +1938,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>ApiResponse of Portfolio</returns>
-        public ApiResponse< Portfolio > UpdatePortfolioWithHttpInfo (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
+        public ApiResponse< Portfolio > UpdatePortfolioWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2020,7 +2020,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>Task of Portfolio</returns>
-        public async System.Threading.Tasks.Task<Portfolio> UpdatePortfolioAsync (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
+        public async System.Threading.Tasks.Task<Portfolio> UpdatePortfolioAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null)
         {
              ApiResponse<Portfolio> localVarResponse = await UpdatePortfolioAsyncWithHttpInfo(scope, code, effectiveAt, request);
              return localVarResponse.Data;
@@ -2036,7 +2036,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to update the definition. Defaults to the current              LUSID system datetime if not specified. (optional)</param>
         /// <param name="request">The updated portfolio definition. (optional)</param>
         /// <returns>Task of ApiResponse (Portfolio)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Portfolio>> UpdatePortfolioAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, UpdatePortfolioRequest request = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Portfolio>> UpdatePortfolioAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioRequest request = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)

@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## GetReferencePortfolioConstituents
 
-> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
+> GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
 [EARLY ACCESS] Get constituents
 
@@ -123,7 +123,7 @@ namespace Example
             var apiInstance = new ReferencePortfolioApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the reference portfolio.
             var code = code_example;  // string | The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio.
-            var effectiveAt = effectiveAt_example;  // string | The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional) 
             var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Instrument\" or \"ReferenceHolding\" domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"ReferenceHolding/strategy/quantsignal\". Defaults to return all available instrument and reference holding properties if not specified. (optional) 
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the reference portfolio. | 
  **code** | **string**| The code of the reference portfolio. Together with the scope this uniquely identifies              the reference portfolio. | 
- **effectiveAt** | **string**| The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **DateTimeOrCutLabel**| The effective date of the constituents to retrieve. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. | [optional] 
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. | [optional] 
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ## ListConstituentsAdjustments
 
-> ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
+> ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null)
 
 [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
 
@@ -211,8 +211,8 @@ namespace Example
             var apiInstance = new ReferencePortfolioApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio
             var code = code_example;  // string | Code for the portfolio
-            var fromEffectiveAt = fromEffectiveAt_example;  // string | Events between this time (inclusive) and the toEffectiveAt are returned. (optional) 
-            var toEffectiveAt = toEffectiveAt_example;  // string | Events between this time (inclusive) and the fromEffectiveAt are returned. (optional) 
+            var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | Events between this time (inclusive) and the toEffectiveAt are returned. (optional) 
+            var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | Events between this time (inclusive) and the fromEffectiveAt are returned. (optional) 
             var asAtTime = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The as-at time for which the result is valid. (optional) 
 
             try
@@ -239,8 +239,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio | 
  **code** | **string**| Code for the portfolio | 
- **fromEffectiveAt** | **string**| Events between this time (inclusive) and the toEffectiveAt are returned. | [optional] 
- **toEffectiveAt** | **string**| Events between this time (inclusive) and the fromEffectiveAt are returned. | [optional] 
+ **fromEffectiveAt** | **DateTimeOrCutLabel**| Events between this time (inclusive) and the toEffectiveAt are returned. | [optional] 
+ **toEffectiveAt** | **DateTimeOrCutLabel**| Events between this time (inclusive) and the fromEffectiveAt are returned. | [optional] 
  **asAtTime** | **DateTimeOffset?**| The as-at time for which the result is valid. | [optional] 
 
 ### Return type

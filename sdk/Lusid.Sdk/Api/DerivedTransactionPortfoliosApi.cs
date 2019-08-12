@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, string effectiveAt = null);
+        DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Delete portfolio details
@@ -71,7 +71,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteDerivedPortfolioDetailsWithHttpInfo (string scope, string code, string effectiveAt = null);
+        ApiResponse<DeletedEntityResponse> DeleteDerivedPortfolioDetailsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync (string scope, string code, string effectiveAt = null);
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Delete portfolio details
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null);
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null);
         #endregion Asynchronous Operations
     }
 
@@ -418,7 +418,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, string effectiveAt = null)
+        public DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
         {
              ApiResponse<DeletedEntityResponse> localVarResponse = DeleteDerivedPortfolioDetailsWithHttpInfo(scope, code, effectiveAt);
              return localVarResponse.Data;
@@ -432,7 +432,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public ApiResponse< DeletedEntityResponse > DeleteDerivedPortfolioDetailsWithHttpInfo (string scope, string code, string effectiveAt = null)
+        public ApiResponse< DeletedEntityResponse > DeleteDerivedPortfolioDetailsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -505,7 +505,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync (string scope, string code, string effectiveAt = null)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteDerivedPortfolioDetailsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
         {
              ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteDerivedPortfolioDetailsAsyncWithHttpInfo(scope, code, effectiveAt);
              return localVarResponse.Data;
@@ -520,7 +520,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio</param>
         /// <param name="effectiveAt">The effective date of the change (optional)</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteDerivedPortfolioDetailsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)

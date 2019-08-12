@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>AdjustHolding</returns>
-        AdjustHolding AdjustHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        AdjustHolding AdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
 
         /// <summary>
         /// [EARLY ACCESS] Adjust holdings
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        ApiResponse<AdjustHolding> AdjustHoldingsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
         /// <summary>
         /// [EARLY ACCESS] Build transactions
         /// </summary>
@@ -93,7 +93,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse CancelAdjustHoldings (string scope, string code, string effectiveAt);
+        DeletedEntityResponse CancelAdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt);
 
         /// <summary>
         /// [EARLY ACCESS] Cancel adjust holdings
@@ -106,7 +106,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> CancelAdjustHoldingsWithHttpInfo (string scope, string code, string effectiveAt);
+        ApiResponse<DeletedEntityResponse> CancelAdjustHoldingsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt);
         /// <summary>
         /// [EARLY ACCESS] Cancel executions
         /// </summary>
@@ -219,7 +219,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>PortfolioDetails</returns>
-        PortfolioDetails GetDetails (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        PortfolioDetails GetDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get details
@@ -233,7 +233,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
-        ApiResponse<PortfolioDetails> GetDetailsWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        ApiResponse<PortfolioDetails> GetDetailsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get holdings
         /// </summary>
@@ -249,7 +249,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>VersionedResourceListOfPortfolioHolding</returns>
-        VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
+        VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get holdings
@@ -266,7 +266,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
-        ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsWithHttpInfo (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
+        ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsWithHttpInfo (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Get holdings adjustment
         /// </summary>
@@ -279,7 +279,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>HoldingsAdjustment</returns>
-        HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null);
+        HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get holdings adjustment
@@ -293,7 +293,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>ApiResponse of HoldingsAdjustment</returns>
-        ApiResponse<HoldingsAdjustment> GetHoldingsAdjustmentWithHttpInfo (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null);
+        ApiResponse<HoldingsAdjustment> GetHoldingsAdjustmentWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get transactions
         /// </summary>
@@ -309,7 +309,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
-        VersionedResourceListOfTransaction GetTransactions (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
+        VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get transactions
@@ -326,7 +326,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
-        ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
+        ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
         /// <summary>
         /// [EARLY ACCESS] List holdings adjustments
         /// </summary>
@@ -340,7 +340,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>ResourceListOfHoldingsAdjustmentHeader</returns>
-        ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null);
+        ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] List holdings adjustments
@@ -355,7 +355,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfHoldingsAdjustmentHeader</returns>
-        ApiResponse<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null);
+        ApiResponse<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Set holdings
         /// </summary>
@@ -368,7 +368,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>AdjustHolding</returns>
-        AdjustHolding SetHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        AdjustHolding SetHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
 
         /// <summary>
         /// [EARLY ACCESS] Set holdings
@@ -382,7 +382,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        ApiResponse<AdjustHolding> SetHoldingsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert executions
         /// </summary>
@@ -420,7 +420,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>PortfolioDetails</returns>
-        PortfolioDetails UpsertPortfolioDetails (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null);
+        PortfolioDetails UpsertPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null);
 
         /// <summary>
         /// [EARLY ACCESS] Upsert portfolio details
@@ -434,7 +434,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
-        ApiResponse<PortfolioDetails> UpsertPortfolioDetailsWithHttpInfo (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null);
+        ApiResponse<PortfolioDetails> UpsertPortfolioDetailsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert transaction properties
         /// </summary>
@@ -501,7 +501,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>Task of AdjustHolding</returns>
-        System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
 
         /// <summary>
         /// [EARLY ACCESS] Adjust holdings
@@ -515,7 +515,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> AdjustHoldingsAsyncWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> AdjustHoldingsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
         /// <summary>
         /// [EARLY ACCESS] Build transactions
         /// </summary>
@@ -558,7 +558,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> CancelAdjustHoldingsAsync (string scope, string code, string effectiveAt);
+        System.Threading.Tasks.Task<DeletedEntityResponse> CancelAdjustHoldingsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt);
 
         /// <summary>
         /// [EARLY ACCESS] Cancel adjust holdings
@@ -571,7 +571,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> CancelAdjustHoldingsAsyncWithHttpInfo (string scope, string code, string effectiveAt);
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> CancelAdjustHoldingsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt);
         /// <summary>
         /// [EARLY ACCESS] Cancel executions
         /// </summary>
@@ -684,7 +684,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>Task of PortfolioDetails</returns>
-        System.Threading.Tasks.Task<PortfolioDetails> GetDetailsAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<PortfolioDetails> GetDetailsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get details
@@ -698,7 +698,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> GetDetailsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> GetDetailsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get holdings
         /// </summary>
@@ -714,7 +714,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>Task of VersionedResourceListOfPortfolioHolding</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get holdings
@@ -731,7 +731,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsAsyncWithHttpInfo (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsAsyncWithHttpInfo (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Get holdings adjustment
         /// </summary>
@@ -744,7 +744,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>Task of HoldingsAdjustment</returns>
-        System.Threading.Tasks.Task<HoldingsAdjustment> GetHoldingsAdjustmentAsync (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<HoldingsAdjustment> GetHoldingsAdjustmentAsync (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get holdings adjustment
@@ -758,7 +758,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (HoldingsAdjustment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentAsyncWithHttpInfo (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Get transactions
         /// </summary>
@@ -774,7 +774,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>Task of VersionedResourceListOfTransaction</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
+        System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get transactions
@@ -791,7 +791,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsAsyncWithHttpInfo (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null);
         /// <summary>
         /// [EARLY ACCESS] List holdings adjustments
         /// </summary>
@@ -805,7 +805,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>Task of ResourceListOfHoldingsAdjustmentHeader</returns>
-        System.Threading.Tasks.Task<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsAsync (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsAsync (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null);
 
         /// <summary>
         /// [EARLY ACCESS] List holdings adjustments
@@ -820,7 +820,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfHoldingsAdjustmentHeader)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsAsyncWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null);
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null);
         /// <summary>
         /// [EARLY ACCESS] Set holdings
         /// </summary>
@@ -833,7 +833,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>Task of AdjustHolding</returns>
-        System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
 
         /// <summary>
         /// [EARLY ACCESS] Set holdings
@@ -847,7 +847,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> SetHoldingsAsyncWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
+        System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> SetHoldingsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert executions
         /// </summary>
@@ -885,7 +885,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>Task of PortfolioDetails</returns>
-        System.Threading.Tasks.Task<PortfolioDetails> UpsertPortfolioDetailsAsync (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null);
+        System.Threading.Tasks.Task<PortfolioDetails> UpsertPortfolioDetailsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null);
 
         /// <summary>
         /// [EARLY ACCESS] Upsert portfolio details
@@ -899,7 +899,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> UpsertPortfolioDetailsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null);
+        System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> UpsertPortfolioDetailsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert transaction properties
         /// </summary>
@@ -1072,7 +1072,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>AdjustHolding</returns>
-        public AdjustHolding AdjustHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public AdjustHolding AdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
              ApiResponse<AdjustHolding> localVarResponse = AdjustHoldingsWithHttpInfo(scope, code, effectiveAt, holdingAdjustments);
              return localVarResponse.Data;
@@ -1087,7 +1087,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        public ApiResponse< AdjustHolding > AdjustHoldingsWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public ApiResponse< AdjustHolding > AdjustHoldingsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1172,7 +1172,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>Task of AdjustHolding</returns>
-        public async System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public async System.Threading.Tasks.Task<AdjustHolding> AdjustHoldingsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
              ApiResponse<AdjustHolding> localVarResponse = await AdjustHoldingsAsyncWithHttpInfo(scope, code, effectiveAt, holdingAdjustments);
              return localVarResponse.Data;
@@ -1188,7 +1188,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The selected set of holdings to adjust to the provided targets for the              transaction portfolio. (optional)</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> AdjustHoldingsAsyncWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> AdjustHoldingsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1485,7 +1485,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse CancelAdjustHoldings (string scope, string code, string effectiveAt)
+        public DeletedEntityResponse CancelAdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt)
         {
              ApiResponse<DeletedEntityResponse> localVarResponse = CancelAdjustHoldingsWithHttpInfo(scope, code, effectiveAt);
              return localVarResponse.Data;
@@ -1499,7 +1499,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public ApiResponse< DeletedEntityResponse > CancelAdjustHoldingsWithHttpInfo (string scope, string code, string effectiveAt)
+        public ApiResponse< DeletedEntityResponse > CancelAdjustHoldingsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1575,7 +1575,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> CancelAdjustHoldingsAsync (string scope, string code, string effectiveAt)
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> CancelAdjustHoldingsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt)
         {
              ApiResponse<DeletedEntityResponse> localVarResponse = await CancelAdjustHoldingsAsyncWithHttpInfo(scope, code, effectiveAt);
              return localVarResponse.Data;
@@ -1590,7 +1590,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which the holding adjustments should be undone.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> CancelAdjustHoldingsAsyncWithHttpInfo (string scope, string code, string effectiveAt)
+        public async System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> CancelAdjustHoldingsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2399,7 +2399,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>PortfolioDetails</returns>
-        public PortfolioDetails GetDetails (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public PortfolioDetails GetDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<PortfolioDetails> localVarResponse = GetDetailsWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -2414,7 +2414,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
-        public ApiResponse< PortfolioDetails > GetDetailsWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public ApiResponse< PortfolioDetails > GetDetailsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2489,7 +2489,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>Task of PortfolioDetails</returns>
-        public async System.Threading.Tasks.Task<PortfolioDetails> GetDetailsAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<PortfolioDetails> GetDetailsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<PortfolioDetails> localVarResponse = await GetDetailsAsyncWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -2505,7 +2505,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to return the latest version of the details if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> GetDetailsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> GetDetailsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2583,7 +2583,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>VersionedResourceListOfPortfolioHolding</returns>
-        public VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
+        public VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
         {
              ApiResponse<VersionedResourceListOfPortfolioHolding> localVarResponse = GetHoldingsWithHttpInfo(scope, code, byTaxlots, effectiveAt, asAt, filter, propertyKeys);
              return localVarResponse.Data;
@@ -2601,7 +2601,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
-        public ApiResponse< VersionedResourceListOfPortfolioHolding > GetHoldingsWithHttpInfo (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
+        public ApiResponse< VersionedResourceListOfPortfolioHolding > GetHoldingsWithHttpInfo (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2682,7 +2682,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>Task of VersionedResourceListOfPortfolioHolding</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
         {
              ApiResponse<VersionedResourceListOfPortfolioHolding> localVarResponse = await GetHoldingsAsyncWithHttpInfo(scope, code, byTaxlots, effectiveAt, asAt, filter, propertyKeys);
              return localVarResponse.Data;
@@ -2701,7 +2701,7 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsAsyncWithHttpInfo (string scope, string code, bool? byTaxlots = null, string effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsAsyncWithHttpInfo (string scope, string code, bool? byTaxlots = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2779,7 +2779,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>HoldingsAdjustment</returns>
-        public HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null)
+        public HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null)
         {
              ApiResponse<HoldingsAdjustment> localVarResponse = GetHoldingsAdjustmentWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -2794,7 +2794,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>ApiResponse of HoldingsAdjustment</returns>
-        public ApiResponse< HoldingsAdjustment > GetHoldingsAdjustmentWithHttpInfo (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null)
+        public ApiResponse< HoldingsAdjustment > GetHoldingsAdjustmentWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2872,7 +2872,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>Task of HoldingsAdjustment</returns>
-        public async System.Threading.Tasks.Task<HoldingsAdjustment> GetHoldingsAdjustmentAsync (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<HoldingsAdjustment> GetHoldingsAdjustmentAsync (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null)
         {
              ApiResponse<HoldingsAdjustment> localVarResponse = await GetHoldingsAdjustmentAsyncWithHttpInfo(scope, code, effectiveAt, asAt);
              return localVarResponse.Data;
@@ -2888,7 +2888,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (HoldingsAdjustment)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentAsyncWithHttpInfo (string scope, string code, string effectiveAt, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -2969,7 +2969,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>VersionedResourceListOfTransaction</returns>
-        public VersionedResourceListOfTransaction GetTransactions (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
+        public VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
         {
              ApiResponse<VersionedResourceListOfTransaction> localVarResponse = GetTransactionsWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, propertyKeys, filter);
              return localVarResponse.Data;
@@ -2987,7 +2987,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
-        public ApiResponse< VersionedResourceListOfTransaction > GetTransactionsWithHttpInfo (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
+        public ApiResponse< VersionedResourceListOfTransaction > GetTransactionsWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3068,7 +3068,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>Task of VersionedResourceListOfTransaction</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
+        public async System.Threading.Tasks.Task<VersionedResourceListOfTransaction> GetTransactionsAsync (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
         {
              ApiResponse<VersionedResourceListOfTransaction> localVarResponse = await GetTransactionsAsyncWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, propertyKeys, filter);
              return localVarResponse.Data;
@@ -3087,7 +3087,7 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsAsyncWithHttpInfo (string scope, string code, string fromTransactionDate = null, string toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
+        public async System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3166,7 +3166,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>ResourceListOfHoldingsAdjustmentHeader</returns>
-        public ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null)
+        public ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<ResourceListOfHoldingsAdjustmentHeader> localVarResponse = ListHoldingsAdjustmentsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
              return localVarResponse.Data;
@@ -3182,7 +3182,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfHoldingsAdjustmentHeader</returns>
-        public ApiResponse< ResourceListOfHoldingsAdjustmentHeader > ListHoldingsAdjustmentsWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null)
+        public ApiResponse< ResourceListOfHoldingsAdjustmentHeader > ListHoldingsAdjustmentsWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3259,7 +3259,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>Task of ResourceListOfHoldingsAdjustmentHeader</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsAsync (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsAsync (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null)
         {
              ApiResponse<ResourceListOfHoldingsAdjustmentHeader> localVarResponse = await ListHoldingsAdjustmentsAsyncWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
              return localVarResponse.Data;
@@ -3276,7 +3276,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfHoldingsAdjustmentHeader)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsAsyncWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAt = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3352,7 +3352,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>AdjustHolding</returns>
-        public AdjustHolding SetHoldings (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public AdjustHolding SetHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
              ApiResponse<AdjustHolding> localVarResponse = SetHoldingsWithHttpInfo(scope, code, effectiveAt, holdingAdjustments);
              return localVarResponse.Data;
@@ -3367,7 +3367,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>ApiResponse of AdjustHolding</returns>
-        public ApiResponse< AdjustHolding > SetHoldingsWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public ApiResponse< AdjustHolding > SetHoldingsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3452,7 +3452,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>Task of AdjustHolding</returns>
-        public async System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public async System.Threading.Tasks.Task<AdjustHolding> SetHoldingsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
              ApiResponse<AdjustHolding> localVarResponse = await SetHoldingsAsyncWithHttpInfo(scope, code, effectiveAt, holdingAdjustments);
              return localVarResponse.Data;
@@ -3468,7 +3468,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the holdings should be set to the provided targets.</param>
         /// <param name="holdingAdjustments">The complete set of target holdings for the transaction portfolio. (optional)</param>
         /// <returns>Task of ApiResponse (AdjustHolding)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> SetHoldingsAsyncWithHttpInfo (string scope, string code, string effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AdjustHolding>> SetHoldingsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> holdingAdjustments = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3742,7 +3742,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>PortfolioDetails</returns>
-        public PortfolioDetails UpsertPortfolioDetails (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null)
+        public PortfolioDetails UpsertPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null)
         {
              ApiResponse<PortfolioDetails> localVarResponse = UpsertPortfolioDetailsWithHttpInfo(scope, code, effectiveAt, details);
              return localVarResponse.Data;
@@ -3757,7 +3757,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>ApiResponse of PortfolioDetails</returns>
-        public ApiResponse< PortfolioDetails > UpsertPortfolioDetailsWithHttpInfo (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null)
+        public ApiResponse< PortfolioDetails > UpsertPortfolioDetailsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3839,7 +3839,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>Task of PortfolioDetails</returns>
-        public async System.Threading.Tasks.Task<PortfolioDetails> UpsertPortfolioDetailsAsync (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null)
+        public async System.Threading.Tasks.Task<PortfolioDetails> UpsertPortfolioDetailsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null)
         {
              ApiResponse<PortfolioDetails> localVarResponse = await UpsertPortfolioDetailsAsyncWithHttpInfo(scope, code, effectiveAt, details);
              return localVarResponse.Data;
@@ -3855,7 +3855,7 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which the updated or inserted details should become valid.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="details">The details to update or insert for the specified transaction portfolio. (optional)</param>
         /// <returns>Task of ApiResponse (PortfolioDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> UpsertPortfolioDetailsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, CreatePortfolioDetails details = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PortfolioDetails>> UpsertPortfolioDetailsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, CreatePortfolioDetails details = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)

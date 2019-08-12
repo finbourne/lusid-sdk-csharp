@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>GetReferencePortfolioConstituentsResponse</returns>
-        GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
+        GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get constituents
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>ApiResponse of GetReferencePortfolioConstituentsResponse</returns>
-        ApiResponse<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
+        ApiResponse<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>ResourceListOfConstituentsAdjustmentHeader</returns>
-        ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null);
+        ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null);
 
         /// <summary>
         /// [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
@@ -104,7 +104,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfConstituentsAdjustmentHeader</returns>
-        ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null);
+        ApiResponse<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null);
         /// <summary>
         /// [EARLY ACCESS] Add constituents
         /// </summary>
@@ -168,7 +168,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>Task of GetReferencePortfolioConstituentsResponse</returns>
-        System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
+        System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get constituents
@@ -183,7 +183,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (GetReferencePortfolioConstituentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
+        System.Threading.Tasks.Task<ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null);
         /// <summary>
         /// [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
         /// </summary>
@@ -197,7 +197,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>Task of ResourceListOfConstituentsAdjustmentHeader</returns>
-        System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null);
+        System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null);
 
         /// <summary>
         /// [EARLY ACCESS] Gets constituents adjustments in an interval of effective time.
@@ -212,7 +212,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfConstituentsAdjustmentHeader)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsAsyncWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null);
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null);
         /// <summary>
         /// [EARLY ACCESS] Add constituents
         /// </summary>
@@ -536,7 +536,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>GetReferencePortfolioConstituentsResponse</returns>
-        public GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
+        public GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
         {
              ApiResponse<GetReferencePortfolioConstituentsResponse> localVarResponse = GetReferencePortfolioConstituentsWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
              return localVarResponse.Data;
@@ -552,7 +552,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>ApiResponse of GetReferencePortfolioConstituentsResponse</returns>
-        public ApiResponse< GetReferencePortfolioConstituentsResponse > GetReferencePortfolioConstituentsWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
+        public ApiResponse< GetReferencePortfolioConstituentsResponse > GetReferencePortfolioConstituentsWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -629,7 +629,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>Task of GetReferencePortfolioConstituentsResponse</returns>
-        public async System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
+        public async System.Threading.Tasks.Task<GetReferencePortfolioConstituentsResponse> GetReferencePortfolioConstituentsAsync (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
         {
              ApiResponse<GetReferencePortfolioConstituentsResponse> localVarResponse = await GetReferencePortfolioConstituentsAsyncWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys);
              return localVarResponse.Data;
@@ -646,7 +646,7 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve constituents. Defaults to return the latest version              of each constituent if not specified. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot; or \&quot;ReferenceHolding\&quot; domain to decorate onto              the constituents. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;ReferenceHolding/strategy/quantsignal\&quot;. Defaults to return all available instrument and reference holding properties if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (GetReferencePortfolioConstituentsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsAsyncWithHttpInfo (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetReferencePortfolioConstituentsResponse>> GetReferencePortfolioConstituentsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -723,7 +723,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>ResourceListOfConstituentsAdjustmentHeader</returns>
-        public ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
+        public ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null)
         {
              ApiResponse<ResourceListOfConstituentsAdjustmentHeader> localVarResponse = ListConstituentsAdjustmentsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime);
              return localVarResponse.Data;
@@ -739,7 +739,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfConstituentsAdjustmentHeader</returns>
-        public ApiResponse< ResourceListOfConstituentsAdjustmentHeader > ListConstituentsAdjustmentsWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
+        public ApiResponse< ResourceListOfConstituentsAdjustmentHeader > ListConstituentsAdjustmentsWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -816,7 +816,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>Task of ResourceListOfConstituentsAdjustmentHeader</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
+        public async System.Threading.Tasks.Task<ResourceListOfConstituentsAdjustmentHeader> ListConstituentsAdjustmentsAsync (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null)
         {
              ApiResponse<ResourceListOfConstituentsAdjustmentHeader> localVarResponse = await ListConstituentsAdjustmentsAsyncWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime);
              return localVarResponse.Data;
@@ -833,7 +833,7 @@ namespace Lusid.Sdk.Api
         /// <param name="toEffectiveAt">Events between this time (inclusive) and the fromEffectiveAt are returned. (optional)</param>
         /// <param name="asAtTime">The as-at time for which the result is valid. (optional)</param>
         /// <returns>Task of ApiResponse (ResourceListOfConstituentsAdjustmentHeader)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsAsyncWithHttpInfo (string scope, string code, string fromEffectiveAt = null, string toEffectiveAt = null, DateTimeOffset? asAtTime = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfConstituentsAdjustmentHeader>> ListConstituentsAdjustmentsAsyncWithHttpInfo (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAtTime = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)

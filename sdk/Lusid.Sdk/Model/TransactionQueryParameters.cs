@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Model
         /// <param name="endDate">The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions. (required).</param>
         /// <param name="queryMode">The date to compare against the upper and lower bounds for the effective datetime or cut label. Defaults to &#39;TradeDate&#39; if not specified..</param>
         /// <param name="showCancelledTransactions">Option to specify whether or not to include cancelled transactions in the output. Defaults to False if not specified..</param>
-        public TransactionQueryParameters(string startDate = default(string), string endDate = default(string), QueryModeEnum? queryMode = default(QueryModeEnum?), bool? showCancelledTransactions = default(bool?))
+        public TransactionQueryParameters(DateTimeOrCutLabel startDate = default(DateTimeOrCutLabel), DateTimeOrCutLabel endDate = default(DateTimeOrCutLabel), QueryModeEnum? queryMode = default(QueryModeEnum?), bool? showCancelledTransactions = default(bool?))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null)
@@ -104,14 +104,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The lower bound effective datetime or cut label (inclusive) from which to build the transactions.</value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
-        public string StartDate { get; set; }
+        public DateTimeOrCutLabel StartDate { get; set; }
 
         /// <summary>
         /// The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.
         /// </summary>
         /// <value>The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.</value>
         [DataMember(Name="endDate", EmitDefaultValue=false)]
-        public string EndDate { get; set; }
+        public DateTimeOrCutLabel EndDate { get; set; }
 
 
         /// <summary>

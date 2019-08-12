@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **TransactionId** | **string** | The unique identifier for the transaction. | 
 **Type** | **string** | The type of the transaction e.g. &#39;Buy&#39;, &#39;Sell&#39;. The transaction type should have been pre-configured via the System Configuration API endpoint. If it hasn&#39;t been pre-configured the transaction will still be updated or inserted however you will be unable to generate the resultant holdings for the portfolio that contains this transaction as LUSID does not know how to process it. | 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers to use to resolve the transaction to a unique instrument. | 
-**TransactionDate** | **string** | The date of the transaction. | 
-**SettlementDate** | **string** | The settlement date of the transaction. | 
+**TransactionDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The date of the transaction. | 
+**SettlementDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The settlement date of the transaction. | 
 **Units** | **double?** | The number of units transacted in the associated instrument. | 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
