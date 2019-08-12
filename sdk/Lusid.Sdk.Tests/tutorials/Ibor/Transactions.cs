@@ -53,8 +53,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 
                 type: "Buy",
                 totalConsideration: new CurrencyAndAmount(1230, "GBP"),
-                transactionDate: effectiveDate.ToLUSIDDate(),
-                settlementDate: effectiveDate.ToLUSIDDate(),
+                transactionDate: effectiveDate,
+                settlementDate: effectiveDate,
                 units: 100,
                 transactionPrice: new TransactionPrice(12.3),
                 source: "Custodian");
@@ -92,8 +92,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 type: "FundsIn",
                 totalConsideration: new CurrencyAndAmount(0.0, "GBP"),
                 transactionPrice: new TransactionPrice(0.0),
-                transactionDate: effectiveDate.ToLUSIDDate(),
-                settlementDate: effectiveDate.ToLUSIDDate(),
+                transactionDate: effectiveDate,
+                settlementDate: effectiveDate,
                 units: 100,
                 source: "Custodian");
             
@@ -150,8 +150,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 type: "Buy",
                 totalConsideration: new CurrencyAndAmount(0.0, "GBP"),
                 transactionPrice: new TransactionPrice(0.0),
-                transactionDate: effectiveDate.ToLUSIDDate(),
-                settlementDate: effectiveDate.ToLUSIDDate(),
+                transactionDate: effectiveDate,
+                settlementDate: effectiveDate,
                 units: 1,
                 source: "Custodian");
             
