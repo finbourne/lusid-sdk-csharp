@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
         {
             var figis = new List<string>
             {
-                "BBG00M1BQWX0", "BBG00D1PBRL9", "BBG00BW1V2M4"
+                "BBG000BF4KL1", "BBG000BF0KW3", "BBG000FV67Q4"
             };
             
             //    Get a set of instruments querying by FIGIs
@@ -222,11 +222,11 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
         public void Edit_Instrument_Property()
         {
             //    Create the property value
-            var propertyValue = new PropertyValue(labelValue: "Telecoms");
+            var propertyValue = new PropertyValue(labelValue: "Construction");
             var propertyKey = $"Instrument/{TestDataUtilities.TutorialScope}/CustomSector";
             
             //    Get the LusidInstrumentId (LUID)
-            var instrument = _instrumentsApi.GetInstrument("Figi", "BBG00M1BQWX0");
+            var instrument = _instrumentsApi.GetInstrument("Figi", "BBG000BF4KL1");
 
             //    Add it to the instrument
             _instrumentsApi.UpsertInstrumentsProperties(new List<UpsertInstrumentPropertyRequest>
@@ -248,7 +248,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             );
 
             Assert.That(
-                instrument.Properties.FirstOrDefault(p => p.Key == propertyKey && p.Value.LabelValue.Equals("Telecoms")),
+                instrument.Properties.FirstOrDefault(p => p.Key == propertyKey && p.Value.LabelValue.Equals("Construction")),
                 Is.Not.Null, $"Cannot find property {propertyKey} with value {propertyValue.LabelValue}");
         }
 
