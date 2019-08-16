@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
@@ -51,7 +52,7 @@ namespace Lusid.Sdk.Tests.Utilities
             double units, 
             double price,
             string currency,
-            DateTimeOffset tradeDate, 
+            DateTimeOrCutLabel tradeDate, 
             string transactionType)
         {
             return new TransactionRequest(
@@ -89,6 +90,67 @@ namespace Lusid.Sdk.Tests.Utilities
                 totalConsideration: new CurrencyAndAmount(0, "GBP"),
                 transactionPrice: new TransactionPrice(0.0),
                 source: "Client");
+        }
+
+        public AdjustHoldingRequest BuildAdjustHoldingsRequest(
+            string instrumentId,
+            double units,
+            double price,
+            string currency)
+        {
+            return new AdjustHoldingRequest(
+                instrumentIdentifiers: new Dictionary<string, string>
+                {
+                    [LusidInstrumentIdentifier] = instrumentId
+                },
+                taxLots: new List<TargetTaxLotRequest> {
+                    new TargetTaxLotRequest(
+                        units,
+                        new CurrencyAndAmount(
+                            price * units, currency),
+                        price * units,
+                        price,
+                        null,
+                        null)});
+        }
+
+        public AdjustHoldingRequest BuildCashFundsInAdjustHoldingsRequest(
+            double units,
+            string currency)
+        {
+            return new AdjustHoldingRequest(
+                instrumentIdentifiers: new Dictionary<string, string>
+                {
+                    [LusidCashIdentifier] = currency
+                },
+                taxLots: new List<TargetTaxLotRequest> {
+                    new TargetTaxLotRequest(
+                        units)});
+        }
+
+        [TestFixture]
+        public class TestDataUtilitiesTests
+        {
+            public void AssertHoldings(
+                VersionedResourceListOfPortfolioHolding holdings,
+                int index,
+                string instrumentId,
+                double units,
+                double costAmount)
+            {
+                Assert.That(holdings.Values[index].InstrumentUid, Is.EqualTo(instrumentId));
+                Assert.That(holdings.Values[index].Units, Is.EqualTo(units));
+                Assert.That(holdings.Values[index].Cost.Amount, Is.EqualTo(costAmount));
+            }
+            public void AssertCashHoldings(
+                VersionedResourceListOfPortfolioHolding holdings,
+                int index,
+                string instrumentId,
+                double units)
+            {
+                Assert.That(holdings.Values[index].InstrumentUid, Is.EqualTo(instrumentId));
+                Assert.That(holdings.Values[index].Units, Is.EqualTo(units));
+            }
         }
     }
 }
