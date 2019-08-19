@@ -5,16 +5,16 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddPortfolioToGroup**](PortfolioGroupsApi.md#addportfoliotogroup) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] Add portfolio to group
-[**AddSubGroupToGroup**](PortfolioGroupsApi.md#addsubgrouptogroup) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] Add group to group
-[**CreatePortfolioGroup**](PortfolioGroupsApi.md#createportfoliogroup) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] Create group
-[**DeletePortfolioFromGroup**](PortfolioGroupsApi.md#deleteportfoliofromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] Remove portfolio from group
-[**DeletePortfolioGroup**](PortfolioGroupsApi.md#deleteportfoliogroup) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Delete group
-[**DeleteSubGroupFromGroup**](PortfolioGroupsApi.md#deletesubgroupfromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] Remove group from group
+[**AddSubGroupToGroup**](PortfolioGroupsApi.md#addsubgrouptogroup) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] Add sub group to group
+[**CreatePortfolioGroup**](PortfolioGroupsApi.md#createportfoliogroup) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] Create portfolio group
+[**DeletePortfolioFromGroup**](PortfolioGroupsApi.md#deleteportfoliofromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] Delete portfolio from group
+[**DeletePortfolioGroup**](PortfolioGroupsApi.md#deleteportfoliogroup) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Delete portfolio group
+[**DeleteSubGroupFromGroup**](PortfolioGroupsApi.md#deletesubgroupfromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] Delete sub group from group
 [**GetPortfolioGroup**](PortfolioGroupsApi.md#getportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Get portfolio group
-[**GetPortfolioGroupCommands**](PortfolioGroupsApi.md#getportfoliogroupcommands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] Get commands
-[**GetPortfolioGroupExpansion**](PortfolioGroupsApi.md#getportfoliogroupexpansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] Get a full expansion of a portfolio group
-[**ListPortfolioGroups**](PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] List groups in scope
-[**UpdatePortfolioGroup**](PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Update group
+[**GetPortfolioGroupCommands**](PortfolioGroupsApi.md#getportfoliogroupcommands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio group commands
+[**GetPortfolioGroupExpansion**](PortfolioGroupsApi.md#getportfoliogroupexpansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] Get portfolio group expansion
+[**ListPortfolioGroups**](PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] List portfolio groups
+[**UpdatePortfolioGroup**](PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Update portfolio group
 
 
 
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 [EARLY ACCESS] Add portfolio to group
 
-Adds a portfolio to a previously defined portfolio group
+Add a single portfolio to a portfolio group.
 
 ### Example
 
@@ -46,9 +46,9 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group to which a portfolio is being added
-            var code = code_example;  // string | The code of the portfolio group to which a portfolio is being added
-            var portfolioId = new ResourceId(); // ResourceId | The id of the portfolio (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio group to add a portfolio to.
+            var code = code_example;  // string | The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group.
+            var portfolioId = new ResourceId(); // ResourceId | The resource identifier of the portfolio to add to the portfolio group. (optional) 
 
             try
             {
@@ -72,9 +72,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group to which a portfolio is being added | 
- **code** | **string**| The code of the portfolio group to which a portfolio is being added | 
- **portfolioId** | [**ResourceId**](ResourceId.md)| The id of the portfolio | [optional] 
+ **scope** | **string**| The scope of the portfolio group to add a portfolio to. | 
+ **code** | **string**| The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group. | 
+ **portfolioId** | [**ResourceId**](ResourceId.md)| The resource identifier of the portfolio to add to the portfolio group. | [optional] 
 
 ### Return type
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | The portfolio group containing the newly added portfolio |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -106,9 +106,9 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup AddSubGroupToGroup (string scope, string code, ResourceId portfolioGroupId = null)
 
-[EARLY ACCESS] Add group to group
+[EARLY ACCESS] Add sub group to group
 
-Adds a portfolio group, as a sub-group, to an existing portfolio group
+Add a portfolio group to a portfolio group as a sub group.
 
 ### Example
 
@@ -130,13 +130,13 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group to which a sub-group is being added
-            var code = code_example;  // string | The code of the portfolio group to which a sub-group is being added
-            var portfolioGroupId = new ResourceId(); // ResourceId | The id of the portfolio group being added as a sub-group (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio group to add a portfolio group to.
+            var code = code_example;  // string | The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group.
+            var portfolioGroupId = new ResourceId(); // ResourceId | The resource identifier of the portfolio group to add to the portfolio group as a sub group. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Add group to group
+                // [EARLY ACCESS] Add sub group to group
                 PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, portfolioGroupId);
                 Debug.WriteLine(result);
             }
@@ -156,9 +156,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group to which a sub-group is being added | 
- **code** | **string**| The code of the portfolio group to which a sub-group is being added | 
- **portfolioGroupId** | [**ResourceId**](ResourceId.md)| The id of the portfolio group being added as a sub-group | [optional] 
+ **scope** | **string**| The scope of the portfolio group to add a portfolio group to. | 
+ **code** | **string**| The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group. | 
+ **portfolioGroupId** | [**ResourceId**](ResourceId.md)| The resource identifier of the portfolio group to add to the portfolio group as a sub group. | [optional] 
 
 ### Return type
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | The portfolio group containing the newly added portfolio group as a sub group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -190,9 +190,9 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup CreatePortfolioGroup (string scope, CreatePortfolioGroupRequest request = null)
 
-[EARLY ACCESS] Create group
+[EARLY ACCESS] Create portfolio group
 
-Create a new portfolio group.
+Create a portfolio group in a specific scope.
 
 ### Example
 
@@ -214,12 +214,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope into which the portfolio group will be created
-            var request = new CreatePortfolioGroupRequest(); // CreatePortfolioGroupRequest | The definition of the new portfolio group (optional) 
+            var scope = scope_example;  // string | The scope that the portfolio group will be created in.
+            var request = new CreatePortfolioGroupRequest(); // CreatePortfolioGroupRequest | The definition and details of the portfolio group. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Create group
+                // [EARLY ACCESS] Create portfolio group
                 PortfolioGroup result = apiInstance.CreatePortfolioGroup(scope, request);
                 Debug.WriteLine(result);
             }
@@ -239,8 +239,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope into which the portfolio group will be created | 
- **request** | [**CreatePortfolioGroupRequest**](CreatePortfolioGroupRequest.md)| The definition of the new portfolio group | [optional] 
+ **scope** | **string**| The scope that the portfolio group will be created in. | 
+ **request** | [**CreatePortfolioGroupRequest**](CreatePortfolioGroupRequest.md)| The definition and details of the portfolio group. | [optional] 
 
 ### Return type
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | The newly created portfolio group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -272,9 +272,9 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode)
 
-[EARLY ACCESS] Remove portfolio from group
+[EARLY ACCESS] Delete portfolio from group
 
-Removes a portfolio from a portfolio group
+Remove a single portfolio from a portfolio group.
 
 ### Example
 
@@ -296,14 +296,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group
-            var code = code_example;  // string | The code of the portfolio group
-            var portfolioScope = portfolioScope_example;  // string | The scope of the portfolio being removed
-            var portfolioCode = portfolioCode_example;  // string | The code of the portfolio being removed
+            var scope = scope_example;  // string | The scope of the portfolio group to remove the portfolio from.
+            var code = code_example;  // string | The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group.
+            var portfolioScope = portfolioScope_example;  // string | The scope of the portfolio being removed from the portfolio group.
+            var portfolioCode = portfolioCode_example;  // string | The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove.
 
             try
             {
-                // [EARLY ACCESS] Remove portfolio from group
+                // [EARLY ACCESS] Delete portfolio from group
                 PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode);
                 Debug.WriteLine(result);
             }
@@ -323,10 +323,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group | 
- **code** | **string**| The code of the portfolio group | 
- **portfolioScope** | **string**| The scope of the portfolio being removed | 
- **portfolioCode** | **string**| The code of the portfolio being removed | 
+ **scope** | **string**| The scope of the portfolio group to remove the portfolio from. | 
+ **code** | **string**| The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group. | 
+ **portfolioScope** | **string**| The scope of the portfolio being removed from the portfolio group. | 
+ **portfolioCode** | **string**| The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove. | 
 
 ### Return type
 
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The portfolio group with the portfolio removed from the group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -358,9 +358,9 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeletePortfolioGroup (string scope, string code)
 
-[EARLY ACCESS] Delete group
+[EARLY ACCESS] Delete portfolio group
 
-Deletes the definition of the specified portfolio group
+Delete a single portfolio group. A portfolio group can be deleted while it still contains portfolios or sub groups.  In this case any portfolios or sub groups contained in this group will not be deleted however they will no longer be grouped together by this portfolio group.
 
 ### Example
 
@@ -382,12 +382,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group
-            var code = code_example;  // string | The code of the portfolio group
+            var scope = scope_example;  // string | The scope of the portfolio group to delete.
+            var code = code_example;  // string | The code of the portfolio group to delete. Together with the scope this uniquely identifies the portfolio group to delete.
 
             try
             {
-                // [EARLY ACCESS] Delete group
+                // [EARLY ACCESS] Delete portfolio group
                 DeletedEntityResponse result = apiInstance.DeletePortfolioGroup(scope, code);
                 Debug.WriteLine(result);
             }
@@ -407,8 +407,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group | 
- **code** | **string**| The code of the portfolio group | 
+ **scope** | **string**| The scope of the portfolio group to delete. | 
+ **code** | **string**| The code of the portfolio group to delete. Together with the scope this uniquely identifies the portfolio group to delete. | 
 
 ### Return type
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The datetime that the portfolio group was deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -440,9 +440,9 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode)
 
-[EARLY ACCESS] Remove group from group
+[EARLY ACCESS] Delete sub group from group
 
-Remove a portfolio group (sub-group) from a parent portfolio group
+Remove a single portfolio group (sub group) from a portfolio group.
 
 ### Example
 
@@ -464,14 +464,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group
-            var code = code_example;  // string | The code of the portfolio group
-            var subgroupScope = subgroupScope_example;  // string | The scope of the sub-group being removed
-            var subgroupCode = subgroupCode_example;  // string | The code of the sub-group being removed
+            var scope = scope_example;  // string | The scope of the portfolio group to remove the sub group from.
+            var code = code_example;  // string | The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group.
+            var subgroupScope = subgroupScope_example;  // string | The scope of the sub group to remove from the portfolio group.
+            var subgroupCode = subgroupCode_example;  // string | The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group.
 
             try
             {
-                // [EARLY ACCESS] Remove group from group
+                // [EARLY ACCESS] Delete sub group from group
                 PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode);
                 Debug.WriteLine(result);
             }
@@ -491,10 +491,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group | 
- **code** | **string**| The code of the portfolio group | 
- **subgroupScope** | **string**| The scope of the sub-group being removed | 
- **subgroupCode** | **string**| The code of the sub-group being removed | 
+ **scope** | **string**| The scope of the portfolio group to remove the sub group from. | 
+ **code** | **string**| The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group. | 
+ **subgroupScope** | **string**| The scope of the sub group to remove from the portfolio group. | 
+ **subgroupCode** | **string**| The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group. | 
 
 ### Return type
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The portfolio group with the sub group removed from the group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Get portfolio group
 
-Get the definition of the specified portfolio group
+Retrieve the definition of a single portfolio group.
 
 ### Example
 
@@ -550,9 +550,9 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group
-            var code = code_example;  // string | The code of the portfolio group
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio group to retrieve the definition for.
+            var code = code_example;  // string | The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group.
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional) 
 
             try
             {
@@ -576,9 +576,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group | 
- **code** | **string**| The code of the portfolio group | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
+ **scope** | **string**| The scope of the portfolio group to retrieve the definition for. | 
+ **code** | **string**| The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group. | 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. | [optional] 
 
 ### Return type
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The requested portfolio group definition |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -608,11 +608,11 @@ Name | Type | Description  | Notes
 
 ## GetPortfolioGroupCommands
 
-> ResourceListOfProcessedCommand GetPortfolioGroupCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfProcessedCommand GetPortfolioGroupCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string filter = null)
 
-[EARLY ACCESS] Get commands
+[EARLY ACCESS] Get portfolio group commands
 
-Gets all commands that modified a specific portfolio group
+Gets all the commands that modified a single portfolio group.
 
 ### Example
 
@@ -634,19 +634,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group
-            var code = code_example;  // string | The code of the portfolio group
-            var fromAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Filters commands by those that were processed at or after this date and time (optional) 
-            var toAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Filters commands by those that were processed at or before this date and time (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio group to retrieve the commands for.
+            var code = code_example;  // string | The code of the portfolio group to retrieve the commands for. Together with the scope this uniquely identifies the portfolio group.
+            var fromAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional) 
+            var toAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get commands
-                ResourceListOfProcessedCommand result = apiInstance.GetPortfolioGroupCommands(scope, code, fromAsAt, toAsAt, sortBy, start, limit, filter);
+                // [EARLY ACCESS] Get portfolio group commands
+                ResourceListOfProcessedCommand result = apiInstance.GetPortfolioGroupCommands(scope, code, fromAsAt, toAsAt, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -665,14 +662,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group | 
- **code** | **string**| The code of the portfolio group | 
- **fromAsAt** | **DateTimeOffset?**| Optional. Filters commands by those that were processed at or after this date and time | [optional] 
- **toAsAt** | **DateTimeOffset?**| Optional. Filters commands by those that were processed at or before this date and time | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **scope** | **string**| The scope of the portfolio group to retrieve the commands for. | 
+ **code** | **string**| The code of the portfolio group to retrieve the commands for. Together with the scope this uniquely identifies the portfolio group. | 
+ **fromAsAt** | **DateTimeOffset?**| The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. | [optional] 
+ **toAsAt** | **DateTimeOffset?**| The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. | [optional] 
+ **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
@@ -690,7 +684,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The commands that modified the specified portfolio group. |  -  |
+| **200** | The commands that modified the specified portfolio group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -704,9 +698,9 @@ Name | Type | Description  | Notes
 
 > ExpandedGroup GetPortfolioGroupExpansion (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyFilter = null)
 
-[EARLY ACCESS] Get a full expansion of a portfolio group
+[EARLY ACCESS] Get portfolio group expansion
 
-Lists all portfolios in a group, and all sub groups. Portfolios are decorated with their properties.
+List all the portfolios in a group, including all portfolios within sub groups in the group. Each portfolio will be decorated with all of its properties unless a property filter is specified.
 
 ### Example
 
@@ -728,15 +722,15 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The effective date of the data (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var propertyFilter = new List<string>(); // List<string> | Optional. The restricted set of properties that should be returned (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio group to expand.
+            var code = code_example;  // string | The code of the portfolio group to expand. Together with the scope this uniquely identifies the portfolio              group to expand.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to expand the portfolio group. Defaults to return the latest version of each portfolio in the group if not specified. (optional) 
+            var propertyFilter = new List<string>(); // List<string> | The restricted list of property keys from the \"Portfolio\" domain which will be decorated onto each portfolio. These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get a full expansion of a portfolio group
+                // [EARLY ACCESS] Get portfolio group expansion
                 ExpandedGroup result = apiInstance.GetPortfolioGroupExpansion(scope, code, effectiveAt, asAt, propertyFilter);
                 Debug.WriteLine(result);
             }
@@ -756,11 +750,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOffset?**| Optional. The effective date of the data | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **propertyFilter** | [**List&lt;string&gt;**](string.md)| Optional. The restricted set of properties that should be returned | [optional] 
+ **scope** | **string**| The scope of the portfolio group to expand. | 
+ **code** | **string**| The code of the portfolio group to expand. Together with the scope this uniquely identifies the portfolio              group to expand. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to expand the portfolio group. Defaults to return the latest version of each portfolio in the group if not specified. | [optional] 
+ **propertyFilter** | [**List&lt;string&gt;**](string.md)| The restricted list of property keys from the \&quot;Portfolio\&quot; domain which will be decorated onto each portfolio. These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
 
 ### Return type
 
@@ -778,7 +772,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The expanded portfolio group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -790,11 +784,11 @@ Name | Type | Description  | Notes
 
 ## ListPortfolioGroups
 
-> ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? asAt = null, string filter = null)
 
-[EARLY ACCESS] List groups in scope
+[EARLY ACCESS] List portfolio groups
 
-Lists all portfolio groups in a specified scope
+List all the portfolio groups in a single scope.
 
 ### Example
 
@@ -816,17 +810,14 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var scope = scope_example;  // string | The scope to list the portfolio groups in.
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
-                // [EARLY ACCESS] List groups in scope
-                ResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, asAt, sortBy, start, limit, filter);
+                // [EARLY ACCESS] List portfolio groups
+                ResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, asAt, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -845,12 +836,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **scope** | **string**| The scope to list the portfolio groups in. | 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. | [optional] 
+ **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
@@ -868,7 +856,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | The portfolio groups in the specified scope |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -882,9 +870,9 @@ Name | Type | Description  | Notes
 
 > PortfolioGroup UpdatePortfolioGroup (string scope, string code, UpdatePortfolioGroupRequest request = null)
 
-[EARLY ACCESS] Update group
+[EARLY ACCESS] Update portfolio group
 
-Update the definition of the specified existing portfolio group.    Not all elements within a portfolio group definition are modifiable after creation.
+Update the definition of a single portfolio group. Not all elements within a portfolio group definition are modifiable  due to the potential implications for data already stored against the portfolio group.
 
 ### Example
 
@@ -906,13 +894,13 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio group
-            var code = code_example;  // string | The code of the portfolio group
-            var request = new UpdatePortfolioGroupRequest(); // UpdatePortfolioGroupRequest | The updated definition of the portfolio group (optional) 
+            var scope = scope_example;  // string | The scope of the portfolio group to update the definition for.
+            var code = code_example;  // string | The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group.
+            var request = new UpdatePortfolioGroupRequest(); // UpdatePortfolioGroupRequest | The updated portfolio group definition. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Update group
+                // [EARLY ACCESS] Update portfolio group
                 PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, request);
                 Debug.WriteLine(result);
             }
@@ -932,9 +920,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio group | 
- **code** | **string**| The code of the portfolio group | 
- **request** | [**UpdatePortfolioGroupRequest**](UpdatePortfolioGroupRequest.md)| The updated definition of the portfolio group | [optional] 
+ **scope** | **string**| The scope of the portfolio group to update the definition for. | 
+ **code** | **string**| The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group. | 
+ **request** | [**UpdatePortfolioGroupRequest**](UpdatePortfolioGroupRequest.md)| The updated portfolio group definition. | [optional] 
 
 ### Return type
 
@@ -952,7 +940,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | The updated definition of the portfolio group |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

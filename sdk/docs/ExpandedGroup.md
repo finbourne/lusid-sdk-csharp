@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** |  | [optional] 
-**Id** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**Name** | **string** |  | [optional] 
-**Description** | **string** |  | [optional] 
-**Values** | [**List&lt;CompletePortfolio&gt;**](CompletePortfolio.md) |  | [optional] 
-**SubGroups** | [**List&lt;ExpandedGroup&gt;**](ExpandedGroup.md) |  | [optional] 
+**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**Id** | [**ResourceId**](ResourceId.md) |  | 
+**DisplayName** | **string** | The name of the portfolio group. | 
+**Description** | **string** | The long form description of the portfolio group. | [optional] 
+**Values** | [**List&lt;CompletePortfolio&gt;**](CompletePortfolio.md) | The collection of resource identifiers for the portfolios contained in the portfolio group. | [optional] 
+**SubGroups** | [**List&lt;ExpandedGroup&gt;**](ExpandedGroup.md) | The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups. | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

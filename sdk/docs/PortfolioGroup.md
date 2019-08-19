@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** |  | [optional] 
-**Id** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**DisplayName** | **string** |  | [optional] 
-**Description** | **string** |  | [optional] 
-**Portfolios** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | [optional] 
-**SubGroups** | [**List&lt;ResourceId&gt;**](ResourceId.md) |  | [optional] 
-**Version** | [**Version**](Version.md) |  | [optional] 
+**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**Id** | [**ResourceId**](ResourceId.md) |  | 
+**DisplayName** | **string** | The name of the portfolio group. | 
+**Description** | **string** | The long form description of the portfolio group. | [optional] 
+**Portfolios** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The collection of resource identifiers for the portfolios contained in the portfolio group. | [optional] 
+**SubGroups** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups. | [optional] 
+**Version** | [**Version**](Version.md) |  | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
