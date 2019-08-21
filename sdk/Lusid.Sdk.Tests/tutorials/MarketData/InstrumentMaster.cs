@@ -186,7 +186,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             //    Schemes are returned as descriptors containing the name, property key and uniqueness constraint
             foreach (InstrumentIdTypeDescriptor scheme in identifiers.Values)
             {
-                Console.WriteLine($"name: {scheme.identifierType}\nproperty key: {scheme.PropertyKey}\nis unique: {scheme.IsUniqueIdentifierType}\n");
+                Console.WriteLine($"name: {scheme.IdentifierType}\nproperty key: {scheme.PropertyKey}\nis unique: {scheme.IsUniqueIdentifierType}\n");
             }
         }
 
