@@ -181,12 +181,12 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
         public void List_Available_Identifiers()
         {
             //    Get the list of identifier schemes
-            ResourceListOfInstrumentIdTypeDescriptor identifiers = _instrumentsApi.GetInstrumentIdentifiers();
+            ResourceListOfInstrumentIdTypeDescriptor identifiers = _instrumentsApi.GetInstrumentIdentifierTypes();
 
             //    Schemes are returned as descriptors containing the name, property key and uniqueness constraint
             foreach (InstrumentIdTypeDescriptor scheme in identifiers.Values)
             {
-                Console.WriteLine($"name: {scheme.IdName}\nproperty key: {scheme.PropertyKeyValue}\nis unique: {scheme.IsUniqueIdentifier}\n");
+                Console.WriteLine($"name: {scheme.identifierType}\nproperty key: {scheme.PropertyKey}\nis unique: {scheme.IsUniqueIdentifierType}\n");
             }
         }
 
