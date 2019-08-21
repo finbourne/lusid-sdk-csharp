@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Delete instrument
 [**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Get instrument
-[**GetInstrumentIdentifiers**](InstrumentsApi.md#getinstrumentidentifiers) | **GET** /api/instruments/identifiers | [EARLY ACCESS] Get instrument identifiers
+[**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | [EARLY ACCESS] Get instrument identifier types
 [**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | [EARLY ACCESS] Get instruments
 [**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | [EARLY ACCESS] List instruments
 [**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Update instrument identifier
@@ -185,13 +185,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetInstrumentIdentifiers
+## GetInstrumentIdentifierTypes
 
-> ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifiers ()
+> ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes ()
 
-[EARLY ACCESS] Get instrument identifiers
+[EARLY ACCESS] Get instrument identifier types
 
-Get the allowable instrument identifiers and their descriptions.
+Get the allowable instrument identifier types and their descriptions.
 
 ### Example
 
@@ -204,7 +204,7 @@ using Lusid.Sdk.Model;
 
 namespace Example
 {
-    public class GetInstrumentIdentifiersExample
+    public class GetInstrumentIdentifierTypesExample
     {
         public static void Main()
         {
@@ -216,13 +216,13 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get instrument identifiers
-                ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifiers();
+                // [EARLY ACCESS] Get instrument identifier types
+                ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifierTypes();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentIdentifiers: " + e.Message );
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentIdentifierTypes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -251,7 +251,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The allowable instrument identifiers |  -  |
+| **200** | The allowable instrument identifier types |  -  |
 | **0** | Error response |  -  |
 
 [[Back to top]](#)
