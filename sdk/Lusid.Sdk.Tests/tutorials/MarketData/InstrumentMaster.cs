@@ -221,18 +221,19 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
         [Test]
         public void Edit_Instrument_Property()
         {
+            const string identifierType = "Figi";
+            const string identifier = "BBG000BF4KL1";
+            
             //    Create the property value
             var propertyValue = new PropertyValue(labelValue: "Construction");
             var propertyKey = $"Instrument/{TestDataUtilities.TutorialScope}/CustomSector";
-            
-            //    Get the LusidInstrumentId (LUID)
-            var instrument = _instrumentsApi.GetInstrument("Figi", "BBG000BF4KL1");
 
             //    Add it to the instrument
             _instrumentsApi.UpsertInstrumentsProperties(new List<UpsertInstrumentPropertyRequest>
             {
                 new UpsertInstrumentPropertyRequest(
-                    lusidInstrumentId: instrument.LusidInstrumentId,
+                    identifierType: identifierType,
+                    identifier: identifier,
                     properties: new List<Property>
                     {
                         new Property(propertyKey, propertyValue)
@@ -241,9 +242,9 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             });
             
             //    Get the instrument with value
-            instrument = _instrumentsApi.GetInstrument(
-                identifierType: "LusidInstrumentId",
-                identifier: instrument.LusidInstrumentId,
+            Instrument instrument = _instrumentsApi.GetInstrument(
+                identifierType: identifierType,
+                identifier: identifier,
                 instrumentPropertyKeys: new List<string> { propertyKey }
             );
 
