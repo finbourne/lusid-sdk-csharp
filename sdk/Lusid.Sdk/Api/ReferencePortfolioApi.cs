@@ -416,8 +416,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -505,8 +505,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -598,8 +598,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -692,8 +692,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -785,8 +785,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -879,8 +879,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -973,8 +973,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -1068,8 +1068,8 @@ namespace Lusid.Sdk.Api
             }
 
             //  set the LUSID header
-            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
-            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.10.677";
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.10.677";
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
