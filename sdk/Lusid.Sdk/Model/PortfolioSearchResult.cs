@@ -23,76 +23,131 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The description of an allowable instrument identifier.
+    /// A list of portfolios.
     /// </summary>
     [DataContract]
-    public partial class InstrumentIdTypeDescriptor :  IEquatable<InstrumentIdTypeDescriptor>
+    public partial class PortfolioSearchResult :  IEquatable<PortfolioSearchResult>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstrumentIdTypeDescriptor" /> class.
+        /// The type of the portfolio.
+        /// </summary>
+        /// <value>The type of the portfolio.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Transaction for value: Transaction
+            /// </summary>
+            [EnumMember(Value = "Transaction")]
+            Transaction = 1,
+
+            /// <summary>
+            /// Enum Reference for value: Reference
+            /// </summary>
+            [EnumMember(Value = "Reference")]
+            Reference = 2,
+
+            /// <summary>
+            /// Enum DerivedTransaction for value: DerivedTransaction
+            /// </summary>
+            [EnumMember(Value = "DerivedTransaction")]
+            DerivedTransaction = 3
+
+        }
+
+        /// <summary>
+        /// The type of the portfolio.
+        /// </summary>
+        /// <value>The type of the portfolio.</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PortfolioSearchResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InstrumentIdTypeDescriptor() { }
+        protected PortfolioSearchResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstrumentIdTypeDescriptor" /> class.
+        /// Initializes a new instance of the <see cref="PortfolioSearchResult" /> class.
         /// </summary>
-        /// <param name="identifierType">The name of the identifier type. (required).</param>
-        /// <param name="propertyKey">The property key that corresponds to the identifier type. (required).</param>
-        /// <param name="isUniqueIdentifierType">Whether or not the identifier type is enforced to be unique. (required).</param>
-        public InstrumentIdTypeDescriptor(string identifierType = default(string), string propertyKey = default(string), bool? isUniqueIdentifierType = default(bool?))
+        /// <param name="id">id (required).</param>
+        /// <param name="parentPortfolioId">parentPortfolioId.</param>
+        /// <param name="links">links.</param>
+        public PortfolioSearchResult(ResourceId id = default(ResourceId), ResourceId parentPortfolioId = default(ResourceId), List<Link> links = default(List<Link>))
         {
-            // to ensure "identifierType" is required (not null)
-            if (identifierType == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new InvalidDataException("identifierType is a required property for InstrumentIdTypeDescriptor and cannot be null");
+                throw new InvalidDataException("id is a required property for PortfolioSearchResult and cannot be null");
             }
             else
             {
-                this.IdentifierType = identifierType;
+                this.Id = id;
             }
             
-            // to ensure "propertyKey" is required (not null)
-            if (propertyKey == null)
-            {
-                throw new InvalidDataException("propertyKey is a required property for InstrumentIdTypeDescriptor and cannot be null");
-            }
-            else
-            {
-                this.PropertyKey = propertyKey;
-            }
-            
-            // to ensure "isUniqueIdentifierType" is required (not null)
-            if (isUniqueIdentifierType == null)
-            {
-                throw new InvalidDataException("isUniqueIdentifierType is a required property for InstrumentIdTypeDescriptor and cannot be null");
-            }
-            else
-            {
-                this.IsUniqueIdentifierType = isUniqueIdentifierType;
-            }
-            
+            this.ParentPortfolioId = parentPortfolioId;
+            this.Links = links;
         }
         
         /// <summary>
-        /// The name of the identifier type.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>The name of the identifier type.</value>
-        [DataMember(Name="identifierType", EmitDefaultValue=false)]
-        public string IdentifierType { get; set; }
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public ResourceId Id { get; set; }
+
 
         /// <summary>
-        /// The property key that corresponds to the identifier type.
+        /// The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
         /// </summary>
-        /// <value>The property key that corresponds to the identifier type.</value>
-        [DataMember(Name="propertyKey", EmitDefaultValue=false)]
-        public string PropertyKey { get; set; }
+        /// <value>The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
+        [DataMember(Name="href", EmitDefaultValue=false)]
+        public string Href { get; private set; }
 
         /// <summary>
-        /// Whether or not the identifier type is enforced to be unique.
+        /// The long form description of the portfolio.
         /// </summary>
-        /// <value>Whether or not the identifier type is enforced to be unique.</value>
-        [DataMember(Name="isUniqueIdentifierType", EmitDefaultValue=false)]
-        public bool? IsUniqueIdentifierType { get; set; }
+        /// <value>The long form description of the portfolio.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; private set; }
+
+        /// <summary>
+        /// The name of the portfolio.
+        /// </summary>
+        /// <value>The name of the portfolio.</value>
+        [DataMember(Name="displayName", EmitDefaultValue=false)]
+        public string DisplayName { get; private set; }
+
+        /// <summary>
+        /// Whether or not this is a derived portfolio.
+        /// </summary>
+        /// <value>Whether or not this is a derived portfolio.</value>
+        [DataMember(Name="isDerived", EmitDefaultValue=false)]
+        public bool? IsDerived { get; private set; }
+
+        /// <summary>
+        /// The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date.
+        /// </summary>
+        /// <value>The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date.</value>
+        [DataMember(Name="created", EmitDefaultValue=false)]
+        public DateTimeOffset? Created { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets ParentPortfolioId
+        /// </summary>
+        [DataMember(Name="parentPortfolioId", EmitDefaultValue=false)]
+        public ResourceId ParentPortfolioId { get; set; }
+
+        /// <summary>
+        /// The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain.
+        /// </summary>
+        /// <value>The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain.</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<Property> Properties { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name="links", EmitDefaultValue=false)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,10 +156,17 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InstrumentIdTypeDescriptor {\n");
-            sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
-            sb.Append("  PropertyKey: ").Append(PropertyKey).Append("\n");
-            sb.Append("  IsUniqueIdentifierType: ").Append(IsUniqueIdentifierType).Append("\n");
+            sb.Append("class PortfolioSearchResult {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  IsDerived: ").Append(IsDerived).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  ParentPortfolioId: ").Append(ParentPortfolioId).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,34 +187,71 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InstrumentIdTypeDescriptor);
+            return this.Equals(input as PortfolioSearchResult);
         }
 
         /// <summary>
-        /// Returns true if InstrumentIdTypeDescriptor instances are equal
+        /// Returns true if PortfolioSearchResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of InstrumentIdTypeDescriptor to be compared</param>
+        /// <param name="input">Instance of PortfolioSearchResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InstrumentIdTypeDescriptor input)
+        public bool Equals(PortfolioSearchResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IdentifierType == input.IdentifierType ||
-                    (this.IdentifierType != null &&
-                    this.IdentifierType.Equals(input.IdentifierType))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.PropertyKey == input.PropertyKey ||
-                    (this.PropertyKey != null &&
-                    this.PropertyKey.Equals(input.PropertyKey))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.IsUniqueIdentifierType == input.IsUniqueIdentifierType ||
-                    (this.IsUniqueIdentifierType != null &&
-                    this.IsUniqueIdentifierType.Equals(input.IsUniqueIdentifierType))
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.IsDerived == input.IsDerived ||
+                    (this.IsDerived != null &&
+                    this.IsDerived.Equals(input.IsDerived))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.ParentPortfolioId == input.ParentPortfolioId ||
+                    (this.ParentPortfolioId != null &&
+                    this.ParentPortfolioId.Equals(input.ParentPortfolioId))
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -165,12 +264,26 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdentifierType != null)
-                    hashCode = hashCode * 59 + this.IdentifierType.GetHashCode();
-                if (this.PropertyKey != null)
-                    hashCode = hashCode * 59 + this.PropertyKey.GetHashCode();
-                if (this.IsUniqueIdentifierType != null)
-                    hashCode = hashCode * 59 + this.IsUniqueIdentifierType.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Href != null)
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.DisplayName != null)
+                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                if (this.IsDerived != null)
+                    hashCode = hashCode * 59 + this.IsDerived.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.ParentPortfolioId != null)
+                    hashCode = hashCode * 59 + this.ParentPortfolioId.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }

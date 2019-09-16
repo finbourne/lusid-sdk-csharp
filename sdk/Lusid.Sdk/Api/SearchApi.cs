@@ -21,188 +21,164 @@ namespace Lusid.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IDataTypesApi : IApiAccessor
+    public interface ISearchApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Search across all portfolio groups across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        DataType GetDataType (string scope, string code);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfPortfolioGroup</returns>
+        ResourceListOfPortfolioGroup PortfolioGroupsSearch (Object request, string filter = null);
 
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Search across all portfolio groups across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        ApiResponse<DataType> GetDataTypeWithHttpInfo (string scope, string code);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioGroup</returns>
+        ApiResponse<ResourceListOfPortfolioGroup> PortfolioGroupsSearchWithHttpInfo (Object request, string filter = null);
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Search across all portfolios across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfPortfolioSearchResult</returns>
+        ResourceListOfPortfolioSearchResult PortfoliosSearch (Object request, string filter = null);
 
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Search across all portfolios across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        ApiResponse<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioSearchResult</returns>
+        ApiResponse<ResourceListOfPortfolioSearchResult> PortfoliosSearchWithHttpInfo (Object request, string filter = null);
         /// <summary>
-        /// [EARLY ACCESS] List data types
+        /// [DEPRECATED] [DEPRECATED] Search property definitions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Search across all user defined property definitions across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfPropertyDefinition</returns>
+        ResourceListOfPropertyDefinition PropertiesSearch (Object request, string filter = null);
 
         /// <summary>
-        /// [EARLY ACCESS] List data types
+        /// [DEPRECATED] [DEPRECATED] Search property definitions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Search across all user defined property definitions across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        ApiResponse<ResourceListOfDataType> ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
+        ApiResponse<ResourceListOfPropertyDefinition> PropertiesSearchWithHttpInfo (Object request, string filter = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Search across all portfolio groups across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioGroup</returns>
+        System.Threading.Tasks.Task<ResourceListOfPortfolioGroup> PortfolioGroupsSearchAsync (Object request, string filter = null);
 
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search
         /// </summary>
         /// <remarks>
-        /// Get the definition of a specified data type
+        /// Search across all portfolio groups across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioGroup)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchAsyncWithHttpInfo (Object request, string filter = null);
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Search across all portfolios across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioSearchResult</returns>
+        System.Threading.Tasks.Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync (Object request, string filter = null);
 
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search
         /// </summary>
         /// <remarks>
-        /// Get the definitions of the specified units associated bound to a specific data type
+        /// Search across all portfolios across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioSearchResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchAsyncWithHttpInfo (Object request, string filter = null);
         /// <summary>
-        /// [EARLY ACCESS] List data types
+        /// [DEPRECATED] [DEPRECATED] Search property definitions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Search across all user defined property definitions across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfPropertyDefinition</returns>
+        System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> PropertiesSearchAsync (Object request, string filter = null);
 
         /// <summary>
-        /// [EARLY ACCESS] List data types
+        /// [DEPRECATED] [DEPRECATED] Search property definitions
         /// </summary>
         /// <remarks>
-        /// List all data types in a specified scope
+        /// Search across all user defined property definitions across all scopes.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null);
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPropertyDefinition)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyDefinition>> PropertiesSearchAsyncWithHttpInfo (Object request, string filter = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class DataTypesApi : IDataTypesApi
+    public partial class SearchApi : ISearchApi
     {
         private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class.
+        /// Initializes a new instance of the <see cref="SearchApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi(String basePath)
+        public SearchApi(String basePath)
         {
             this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
@@ -210,10 +186,10 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="SearchApi"/> class
         /// </summary>
         /// <returns></returns>
-        public DataTypesApi()
+        public SearchApi()
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
@@ -221,12 +197,12 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataTypesApi"/> class
+        /// Initializes a new instance of the <see cref="SearchApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public DataTypesApi(Lusid.Sdk.Client.Configuration configuration = null)
+        public SearchApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Lusid.Sdk.Client.Configuration.Default;
@@ -300,35 +276,32 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition Get the definition of a specified data type
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search Search across all portfolio groups across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>DataType</returns>
-        public DataType GetDataType (string scope, string code)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfPortfolioGroup</returns>
+        public ResourceListOfPortfolioGroup PortfolioGroupsSearch (Object request, string filter = null)
         {
-             ApiResponse<DataType> localVarResponse = GetDataTypeWithHttpInfo(scope, code);
+             ApiResponse<ResourceListOfPortfolioGroup> localVarResponse = PortfolioGroupsSearchWithHttpInfo(request, filter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition Get the definition of a specified data type
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search Search across all portfolio groups across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>ApiResponse of DataType</returns>
-        public ApiResponse< DataType > GetDataTypeWithHttpInfo (string scope, string code)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioGroup</returns>
+        public ApiResponse< ResourceListOfPortfolioGroup > PortfolioGroupsSearchWithHttpInfo (Object request, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling SearchApi->PortfolioGroupsSearch");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/search/portfoliogroups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -351,8 +324,15 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -367,53 +347,50 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
+                Exception exception = ExceptionFactory("PortfolioGroupsSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioGroup>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (ResourceListOfPortfolioGroup) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioGroup)));
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition Get the definition of a specified data type
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search Search across all portfolio groups across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of DataType</returns>
-        public async System.Threading.Tasks.Task<DataType> GetDataTypeAsync (string scope, string code)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioGroup</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolioGroup> PortfolioGroupsSearchAsync (Object request, string filter = null)
         {
-             ApiResponse<DataType> localVarResponse = await GetDataTypeAsyncWithHttpInfo(scope, code);
+             ApiResponse<ResourceListOfPortfolioGroup> localVarResponse = await PortfolioGroupsSearchAsyncWithHttpInfo(request, filter);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get data type definition Get the definition of a specified data type
+        /// [DEPRECATED] [DEPRECATED] Portfolio groups search Search across all portfolio groups across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <returns>Task of ApiResponse (DataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DataType>> GetDataTypeAsyncWithHttpInfo (string scope, string code)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioGroup)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioGroup>> PortfolioGroupsSearchAsyncWithHttpInfo (Object request, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetDataType");
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling SearchApi->PortfolioGroupsSearch");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}";
+            var localVarPath = "./api/search/portfoliogroups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -436,8 +413,15 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -452,56 +436,49 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDataType", localVarResponse);
+                Exception exception = ExceptionFactory("PortfolioGroupsSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioGroup>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataType)));
+                (ResourceListOfPortfolioGroup) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioGroup)));
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search Search across all portfolios across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfIUnitDefinitionDto</returns>
-        public ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfPortfolioSearchResult</returns>
+        public ResourceListOfPortfolioSearchResult PortfoliosSearch (Object request, string filter = null)
         {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter);
+             ApiResponse<ResourceListOfPortfolioSearchResult> localVarResponse = PortfoliosSearchWithHttpInfo(request, filter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search Search across all portfolios across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfIUnitDefinitionDto</returns>
-        public ApiResponse< ResourceListOfIUnitDefinitionDto > GetUnitsFromDataTypeWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPortfolioSearchResult</returns>
+        public ApiResponse< ResourceListOfPortfolioSearchResult > PortfoliosSearchWithHttpInfo (Object request, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling SearchApi->PortfoliosSearch");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
+            var localVarPath = "./api/search/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -524,10 +501,15 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -542,57 +524,50 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
+                Exception exception = ExceptionFactory("PortfoliosSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioSearchResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
+                (ResourceListOfPortfolioSearchResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioSearchResult)));
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search Search across all portfolios across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfIUnitDefinitionDto</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfIUnitDefinitionDto> GetUnitsFromDataTypeAsync (string scope, string code, List<string> units = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfPortfolioSearchResult</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPortfolioSearchResult> PortfoliosSearchAsync (Object request, string filter = null)
         {
-             ApiResponse<ResourceListOfIUnitDefinitionDto> localVarResponse = await GetUnitsFromDataTypeAsyncWithHttpInfo(scope, code, units, filter);
+             ApiResponse<ResourceListOfPortfolioSearchResult> localVarResponse = await PortfoliosSearchAsyncWithHttpInfo(request, filter);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// [EARLY ACCESS] Get units from data type Get the definitions of the specified units associated bound to a specific data type
+        /// [DEPRECATED] [DEPRECATED] Portfolios search Search across all portfolios across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the data type</param>
-        /// <param name="code">The code of the data type</param>
-        /// <param name="units">One or more unit identifiers for which the definition is being requested (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfIUnitDefinitionDto)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfIUnitDefinitionDto>> GetUnitsFromDataTypeAsyncWithHttpInfo (string scope, string code, List<string> units = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPortfolioSearchResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolioSearchResult>> PortfoliosSearchAsyncWithHttpInfo (Object request, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->GetUnitsFromDataType");
-            // verify the required parameter 'code' is set
-            if (code == null)
-                throw new ApiException(400, "Missing required parameter 'code' when calling DataTypesApi->GetUnitsFromDataType");
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling SearchApi->PortfoliosSearch");
 
-            var localVarPath = "./api/datatypes/{scope}/{code}/units";
+            var localVarPath = "./api/search/portfolios";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -615,10 +590,15 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (code != null) localVarPathParams.Add("code", this.Configuration.ApiClient.ParameterToString(code)); // path parameter
-            if (units != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "units", units)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -633,57 +613,49 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetUnitsFromDataType", localVarResponse);
+                Exception exception = ExceptionFactory("PortfoliosSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfIUnitDefinitionDto>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPortfolioSearchResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfIUnitDefinitionDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfIUnitDefinitionDto)));
+                (ResourceListOfPortfolioSearchResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPortfolioSearchResult)));
         }
 
         /// <summary>
-        /// [EARLY ACCESS] List data types List all data types in a specified scope
+        /// [DEPRECATED] [DEPRECATED] Search property definitions Search across all user defined property definitions across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ResourceListOfDataType</returns>
-        public ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfPropertyDefinition</returns>
+        public ResourceListOfPropertyDefinition PropertiesSearch (Object request, string filter = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = ListDataTypesWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = PropertiesSearchWithHttpInfo(request, filter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] List data types List all data types in a specified scope
+        /// [DEPRECATED] [DEPRECATED] Search property definitions Search across all user defined property definitions across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>ApiResponse of ResourceListOfDataType</returns>
-        public ApiResponse< ResourceListOfDataType > ListDataTypesWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfPropertyDefinition</returns>
+        public ApiResponse< ResourceListOfPropertyDefinition > PropertiesSearchWithHttpInfo (Object request, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling SearchApi->PropertiesSearch");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/search/propertydefinitions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -706,12 +678,15 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -726,58 +701,50 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("PropertiesSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPropertyDefinition>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ResourceListOfPropertyDefinition) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPropertyDefinition)));
         }
 
         /// <summary>
-        /// [EARLY ACCESS] List data types List all data types in a specified scope
+        /// [DEPRECATED] [DEPRECATED] Search property definitions Search across all user defined property definitions across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ResourceListOfDataType</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfDataType> ListDataTypesAsync (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfPropertyDefinition</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPropertyDefinition> PropertiesSearchAsync (Object request, string filter = null)
         {
-             ApiResponse<ResourceListOfDataType> localVarResponse = await ListDataTypesAsyncWithHttpInfo(scope, includeSystem, sortBy, start, limit, filter);
+             ApiResponse<ResourceListOfPropertyDefinition> localVarResponse = await PropertiesSearchAsyncWithHttpInfo(request, filter);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// [EARLY ACCESS] List data types List all data types in a specified scope
+        /// [DEPRECATED] [DEPRECATED] Search property definitions Search across all user defined property definitions across all scopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The requested scope of the data types</param>
-        /// <param name="includeSystem">Whether to additionally include those data types in the \&quot;system\&quot; scope (optional)</param>
-        /// <param name="sortBy">Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName (optional)</param>
-        /// <param name="start">Optional. When paginating, skip this number of results (optional)</param>
-        /// <param name="limit">Optional. When paginating, limit the number of returned results to this many. (optional)</param>
-        /// <param name="filter">Optional. Expression to filter the result set (optional)</param>
-        /// <returns>Task of ApiResponse (ResourceListOfDataType)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfDataType>> ListDataTypesAsyncWithHttpInfo (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+        /// <param name="request">The search query to use. Read more about search queries in LUSID here https://support.lusid.com/constructing-a-search-request.</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPropertyDefinition)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyDefinition>> PropertiesSearchAsyncWithHttpInfo (Object request, string filter = null)
         {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new ApiException(400, "Missing required parameter 'scope' when calling DataTypesApi->ListDataTypes");
+            // verify the required parameter 'request' is set
+            if (request == null)
+                throw new ApiException(400, "Missing required parameter 'request' when calling SearchApi->PropertiesSearch");
 
-            var localVarPath = "./api/datatypes/{scope}";
+            var localVarPath = "./api/search/propertydefinitions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -800,12 +767,15 @@ namespace Lusid.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
-            if (includeSystem != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeSystem", includeSystem)); // query parameter
-            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "sortBy", sortBy)); // query parameter
-            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (request != null && request.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(request); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
@@ -820,20 +790,20 @@ namespace Lusid.Sdk.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ListDataTypes", localVarResponse);
+                Exception exception = ExceptionFactory("PropertiesSearch", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ResourceListOfDataType>(localVarStatusCode,
+            return new ApiResponse<ResourceListOfPropertyDefinition>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (ResourceListOfDataType) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfDataType)));
+                (ResourceListOfPropertyDefinition) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfPropertyDefinition)));
         }
 
     }

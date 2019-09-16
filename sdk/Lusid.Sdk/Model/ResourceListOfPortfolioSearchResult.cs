@@ -23,76 +23,55 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The description of an allowable instrument identifier.
+    /// ResourceListOfPortfolioSearchResult
     /// </summary>
     [DataContract]
-    public partial class InstrumentIdTypeDescriptor :  IEquatable<InstrumentIdTypeDescriptor>
+    public partial class ResourceListOfPortfolioSearchResult :  IEquatable<ResourceListOfPortfolioSearchResult>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstrumentIdTypeDescriptor" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfPortfolioSearchResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InstrumentIdTypeDescriptor() { }
+        protected ResourceListOfPortfolioSearchResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstrumentIdTypeDescriptor" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfPortfolioSearchResult" /> class.
         /// </summary>
-        /// <param name="identifierType">The name of the identifier type. (required).</param>
-        /// <param name="propertyKey">The property key that corresponds to the identifier type. (required).</param>
-        /// <param name="isUniqueIdentifierType">Whether or not the identifier type is enforced to be unique. (required).</param>
-        public InstrumentIdTypeDescriptor(string identifierType = default(string), string propertyKey = default(string), bool? isUniqueIdentifierType = default(bool?))
+        /// <param name="values">values (required).</param>
+        /// <param name="href">href.</param>
+        /// <param name="links">links.</param>
+        public ResourceListOfPortfolioSearchResult(List<PortfolioSearchResult> values = default(List<PortfolioSearchResult>), string href = default(string), List<Link> links = default(List<Link>))
         {
-            // to ensure "identifierType" is required (not null)
-            if (identifierType == null)
+            // to ensure "values" is required (not null)
+            if (values == null)
             {
-                throw new InvalidDataException("identifierType is a required property for InstrumentIdTypeDescriptor and cannot be null");
+                throw new InvalidDataException("values is a required property for ResourceListOfPortfolioSearchResult and cannot be null");
             }
             else
             {
-                this.IdentifierType = identifierType;
+                this.Values = values;
             }
             
-            // to ensure "propertyKey" is required (not null)
-            if (propertyKey == null)
-            {
-                throw new InvalidDataException("propertyKey is a required property for InstrumentIdTypeDescriptor and cannot be null");
-            }
-            else
-            {
-                this.PropertyKey = propertyKey;
-            }
-            
-            // to ensure "isUniqueIdentifierType" is required (not null)
-            if (isUniqueIdentifierType == null)
-            {
-                throw new InvalidDataException("isUniqueIdentifierType is a required property for InstrumentIdTypeDescriptor and cannot be null");
-            }
-            else
-            {
-                this.IsUniqueIdentifierType = isUniqueIdentifierType;
-            }
-            
+            this.Href = href;
+            this.Links = links;
         }
         
         /// <summary>
-        /// The name of the identifier type.
+        /// Gets or Sets Values
         /// </summary>
-        /// <value>The name of the identifier type.</value>
-        [DataMember(Name="identifierType", EmitDefaultValue=false)]
-        public string IdentifierType { get; set; }
+        [DataMember(Name="values", EmitDefaultValue=false)]
+        public List<PortfolioSearchResult> Values { get; set; }
 
         /// <summary>
-        /// The property key that corresponds to the identifier type.
+        /// Gets or Sets Href
         /// </summary>
-        /// <value>The property key that corresponds to the identifier type.</value>
-        [DataMember(Name="propertyKey", EmitDefaultValue=false)]
-        public string PropertyKey { get; set; }
+        [DataMember(Name="href", EmitDefaultValue=false)]
+        public string Href { get; set; }
 
         /// <summary>
-        /// Whether or not the identifier type is enforced to be unique.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Whether or not the identifier type is enforced to be unique.</value>
-        [DataMember(Name="isUniqueIdentifierType", EmitDefaultValue=false)]
-        public bool? IsUniqueIdentifierType { get; set; }
+        [DataMember(Name="links", EmitDefaultValue=false)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,10 +80,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InstrumentIdTypeDescriptor {\n");
-            sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
-            sb.Append("  PropertyKey: ").Append(PropertyKey).Append("\n");
-            sb.Append("  IsUniqueIdentifierType: ").Append(IsUniqueIdentifierType).Append("\n");
+            sb.Append("class ResourceListOfPortfolioSearchResult {\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,34 +104,36 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InstrumentIdTypeDescriptor);
+            return this.Equals(input as ResourceListOfPortfolioSearchResult);
         }
 
         /// <summary>
-        /// Returns true if InstrumentIdTypeDescriptor instances are equal
+        /// Returns true if ResourceListOfPortfolioSearchResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of InstrumentIdTypeDescriptor to be compared</param>
+        /// <param name="input">Instance of ResourceListOfPortfolioSearchResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InstrumentIdTypeDescriptor input)
+        public bool Equals(ResourceListOfPortfolioSearchResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IdentifierType == input.IdentifierType ||
-                    (this.IdentifierType != null &&
-                    this.IdentifierType.Equals(input.IdentifierType))
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
-                    this.PropertyKey == input.PropertyKey ||
-                    (this.PropertyKey != null &&
-                    this.PropertyKey.Equals(input.PropertyKey))
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.IsUniqueIdentifierType == input.IsUniqueIdentifierType ||
-                    (this.IsUniqueIdentifierType != null &&
-                    this.IsUniqueIdentifierType.Equals(input.IsUniqueIdentifierType))
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -165,12 +146,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IdentifierType != null)
-                    hashCode = hashCode * 59 + this.IdentifierType.GetHashCode();
-                if (this.PropertyKey != null)
-                    hashCode = hashCode * 59 + this.PropertyKey.GetHashCode();
-                if (this.IsUniqueIdentifierType != null)
-                    hashCode = hashCode * 59 + this.IsUniqueIdentifierType.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
+                if (this.Href != null)
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }
