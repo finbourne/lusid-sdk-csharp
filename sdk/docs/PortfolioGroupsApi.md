@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfolioGroupsApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## AddPortfolioToGroup
 
-> PortfolioGroup AddPortfolioToGroup (string scope, string code, ResourceId portfolioId = null)
+> PortfolioGroup AddPortfolioToGroup (string scope, string code, DateTimeOffset? effectiveAt = null, ResourceId portfolioId = null)
 
 [EARLY ACCESS] Add portfolio to group
 
@@ -41,19 +41,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio group to add a portfolio to.
             var code = code_example;  // string | The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the portfolio will be added to the group. (optional) 
             var portfolioId = new ResourceId(); // ResourceId | The resource identifier of the portfolio to add to the portfolio group. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Add portfolio to group
-                PortfolioGroup result = apiInstance.AddPortfolioToGroup(scope, code, portfolioId);
+                PortfolioGroup result = apiInstance.AddPortfolioToGroup(scope, code, effectiveAt, portfolioId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -74,6 +75,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to add a portfolio to. | 
  **code** | **string**| The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the portfolio will be added to the group. | [optional] 
  **portfolioId** | [**ResourceId**](ResourceId.md)| The resource identifier of the portfolio to add to the portfolio group. | [optional] 
 
 ### Return type
@@ -104,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## AddSubGroupToGroup
 
-> PortfolioGroup AddSubGroupToGroup (string scope, string code, ResourceId portfolioGroupId = null)
+> PortfolioGroup AddSubGroupToGroup (string scope, string code, DateTimeOffset? effectiveAt = null, ResourceId portfolioGroupId = null)
 
 [EARLY ACCESS] Add sub group to group
 
@@ -125,19 +127,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio group to add a portfolio group to.
             var code = code_example;  // string | The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the sub group will be added to the group. (optional) 
             var portfolioGroupId = new ResourceId(); // ResourceId | The resource identifier of the portfolio group to add to the portfolio group as a sub group. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Add sub group to group
-                PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, portfolioGroupId);
+                PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, effectiveAt, portfolioGroupId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -158,6 +161,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to add a portfolio group to. | 
  **code** | **string**| The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the sub group will be added to the group. | [optional] 
  **portfolioGroupId** | [**ResourceId**](ResourceId.md)| The resource identifier of the portfolio group to add to the portfolio group as a sub group. | [optional] 
 
 ### Return type
@@ -209,7 +213,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -270,7 +274,7 @@ Name | Type | Description  | Notes
 
 ## DeletePortfolioFromGroup
 
-> PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode)
+> PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode, DateTimeOffset? effectiveAt = null)
 
 [EARLY ACCESS] Delete portfolio from group
 
@@ -291,7 +295,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -300,11 +304,12 @@ namespace Example
             var code = code_example;  // string | The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group.
             var portfolioScope = portfolioScope_example;  // string | The scope of the portfolio being removed from the portfolio group.
             var portfolioCode = portfolioCode_example;  // string | The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the portfolio will be removed from the portfolio group. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Delete portfolio from group
-                PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode);
+                PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode, effectiveAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -327,6 +332,7 @@ Name | Type | Description  | Notes
  **code** | **string**| The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group. | 
  **portfolioScope** | **string**| The scope of the portfolio being removed from the portfolio group. | 
  **portfolioCode** | **string**| The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the portfolio will be removed from the portfolio group. | [optional] 
 
 ### Return type
 
@@ -360,7 +366,7 @@ Name | Type | Description  | Notes
 
 [EARLY ACCESS] Delete portfolio group
 
-Delete a single portfolio group. A portfolio group can be deleted while it still contains portfolios or sub groups.  In this case any portfolios or sub groups contained in this group will not be deleted however they will no longer be grouped together by this portfolio group.
+Delete a single portfolio group. A portfolio group can be deleted while it still contains portfolios or sub groups.  In this case any portfolios or sub groups contained in this group will not be deleted, however they will no longer be grouped together by this portfolio group.  The deletion will be valid from the portfolio group's creation datetime, ie. the portfolio group will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
 
@@ -377,7 +383,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -438,7 +444,7 @@ Name | Type | Description  | Notes
 
 ## DeleteSubGroupFromGroup
 
-> PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode)
+> PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode, DateTimeOffset? effectiveAt = null)
 
 [EARLY ACCESS] Delete sub group from group
 
@@ -459,7 +465,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -468,11 +474,12 @@ namespace Example
             var code = code_example;  // string | The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group.
             var subgroupScope = subgroupScope_example;  // string | The scope of the sub group to remove from the portfolio group.
             var subgroupCode = subgroupCode_example;  // string | The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the sub group will be removed from the portfolio group. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Delete sub group from group
-                PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode);
+                PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, effectiveAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -495,6 +502,7 @@ Name | Type | Description  | Notes
  **code** | **string**| The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group. | 
  **subgroupScope** | **string**| The scope of the sub group to remove from the portfolio group. | 
  **subgroupCode** | **string**| The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the sub group will be removed from the portfolio group. | [optional] 
 
 ### Return type
 
@@ -524,7 +532,7 @@ Name | Type | Description  | Notes
 
 ## GetPortfolioGroup
 
-> PortfolioGroup GetPortfolioGroup (string scope, string code, DateTimeOffset? asAt = null)
+> PortfolioGroup GetPortfolioGroup (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] Get portfolio group
 
@@ -545,19 +553,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio group to retrieve the definition for.
             var code = code_example;  // string | The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Get portfolio group
-                PortfolioGroup result = apiInstance.GetPortfolioGroup(scope, code, asAt);
+                PortfolioGroup result = apiInstance.GetPortfolioGroup(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -578,6 +587,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to retrieve the definition for. | 
  **code** | **string**| The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. | [optional] 
 
 ### Return type
@@ -629,7 +639,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -717,7 +727,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -784,7 +794,7 @@ Name | Type | Description  | Notes
 
 ## ListPortfolioGroups
 
-> ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? asAt = null, string filter = null)
+> ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string filter = null)
 
 [EARLY ACCESS] List portfolio groups
 
@@ -805,19 +815,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
             var scope = scope_example;  // string | The scope to list the portfolio groups in.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. (optional) 
             var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
                 // [EARLY ACCESS] List portfolio groups
-                ResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, asAt, filter);
+                ResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, effectiveAt, asAt, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -837,6 +848,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope to list the portfolio groups in. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. | [optional] 
  **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
@@ -868,7 +880,7 @@ Name | Type | Description  | Notes
 
 ## UpdatePortfolioGroup
 
-> PortfolioGroup UpdatePortfolioGroup (string scope, string code, UpdatePortfolioGroupRequest request = null)
+> PortfolioGroup UpdatePortfolioGroup (string scope, string code, DateTimeOffset? effectiveAt = null, UpdatePortfolioGroupRequest request = null)
 
 [EARLY ACCESS] Update portfolio group
 
@@ -889,19 +901,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the portfolio group to update the definition for.
             var code = code_example;  // string | The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group.
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to update the definition. (optional) 
             var request = new UpdatePortfolioGroupRequest(); // UpdatePortfolioGroupRequest | The updated portfolio group definition. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Update portfolio group
-                PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, request);
+                PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, effectiveAt, request);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -922,6 +935,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to update the definition for. | 
  **code** | **string**| The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group. | 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to update the definition. | [optional] 
  **request** | [**UpdatePortfolioGroupRequest**](UpdatePortfolioGroupRequest.md)| The updated portfolio group definition. | [optional] 
 
 ### Return type

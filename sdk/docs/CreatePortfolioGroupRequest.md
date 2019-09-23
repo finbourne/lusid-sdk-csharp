@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** | The code that the portfolio group will be created with. Together with the scope this uniquely identifies the portfolio group. | 
+**Created** | **DateTimeOffset?** | The effective datetime at which the portfolio group was created. Defaults to the current LUSID system datetime if not specified. | [optional] 
 **Values** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The resource identifiers of the portfolios to be contained within the portfolio group. | [optional] 
 **SubGroups** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The resource identifiers of the portfolio groups to be contained within the portfolio group as sub groups. | [optional] 
 **DisplayName** | **string** | The name of the portfolio group. | 
