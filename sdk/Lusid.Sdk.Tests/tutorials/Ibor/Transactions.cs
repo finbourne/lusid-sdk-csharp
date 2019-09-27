@@ -7,6 +7,8 @@ using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
 using NUnit.Framework;
 
+using static Lusid.Sdk.Model.TransactionConfigurationMovementDataRequest;
+
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
 {
     [TestFixture]
@@ -15,6 +17,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
         private IInstrumentsApi _instrumentsApi;
         private ITransactionPortfoliosApi _transactionPortfoliosApi;
         private IList<string> _instrumentIds;
+        private ISystemConfigurationApi _systemConfigurationApi;
         
         private TestDataUtilities _testDataUtilities;
 
@@ -29,8 +32,57 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var instrumentLoader = new InstrumentLoader(apiFactory);
             _instrumentIds = instrumentLoader.LoadInstruments();
             _testDataUtilities = new TestDataUtilities(apiFactory.Api<ITransactionPortfoliosApi>());
+
+            _systemConfigurationApi = apiFactory.Api<ISystemConfigurationApi>();
         }
 
+        [Test]
+        public void List_Set_And_Create_Transaction_Types()
+        {
+            //    first, let's try using the API to see what it already knows about transaction types
+            var @default = _systemConfigurationApi.ListConfigurationTransactionTypes();
+
+            //    it should know about a single, simple Buy transaction
+            var buy = @default.TransactionConfigs.Single(c => c.Aliases.Any(a => a.Type == "Buy"));
+            
+            //    now let's create an alternative Buy, and add it to the default configuration
+            //    (for reference -- this isn't a complete, sensible transaction definition)
+            var newBuy = new TransactionConfigurationDataRequest(
+                aliases: new List<TransactionConfigurationTypeAlias> 
+                    { new TransactionConfigurationTypeAlias("NewBuy", "Description", "Class", "Group", 0) },
+                movements: new List<TransactionConfigurationMovementDataRequest>()
+                    { new TransactionConfigurationMovementDataRequest(MovementTypesEnum.Commitment, SideEnum.Side1, 1, null, null) }
+            );
+
+            _systemConfigurationApi.CreateConfigurationTransactionType(newBuy);
+            
+            //    there should be one more entry in the updated configuration
+            var updated = _systemConfigurationApi.ListConfigurationTransactionTypes();
+            Assert.That(updated.TransactionConfigs.Count() - @default.TransactionConfigs.Count(), Is.EqualTo(1));
+            
+            //    now let's use our Buy, and replace the default configuration
+            //    REALISE THAT THIS IS A DESTRUCTIVE OPERATION -- you can't trivially recover the original defaults
+            //    unless you have them stored down -- we'll restore them afterwards
+            var request = new TransactionSetConfigurationDataRequest(new [] { newBuy }.ToList());
+            
+            _systemConfigurationApi.SetConfigurationTransactionTypes(request);
+            
+            updated = _systemConfigurationApi.ListConfigurationTransactionTypes();
+            
+            //    there should be one entry in the updated configuration
+            Assert.That(updated.TransactionConfigs.Count(), Is.EqualTo(1));
+            
+            //    finally, let's restore our original default configurations
+            var defaultRequest = @default.ConvertToRequest();
+            
+            _systemConfigurationApi.SetConfigurationTransactionTypes(defaultRequest);
+            
+            updated = _systemConfigurationApi.ListConfigurationTransactionTypes();
+            
+            //    and confirm that the count of transaction configurations is the same
+            Assert.That(updated.TransactionConfigs.Count(), Is.EqualTo(@default.TransactionConfigs.Count()));
+        }
+        
         [Test]
         public void Load_Listed_Instrument_Transaction()
         {
