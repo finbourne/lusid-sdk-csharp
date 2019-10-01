@@ -235,7 +235,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             
             Assert.That(transactions.Values.Count, Is.EqualTo(1));
             Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentIdentifiers.First().Value));
-            Assert.That(transactions.Values[0].Properties.First().Value.Value.LabelValue, Is.EqualTo(labelValue));
+            Assert.That(transactions.Values[0].Properties[propertyDefinitionResult.Key].Value.LabelValue, Is.EqualTo(labelValue));
         }
 
         [Test]
