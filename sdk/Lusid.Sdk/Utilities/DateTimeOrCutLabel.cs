@@ -65,6 +65,23 @@ namespace Lusid.Sdk
         {
             return Parameter;
         }
+
+        /// <inheritdoc />
+        public override bool Equals(object obj)
+        {
+            if (obj is DateTimeOrCutLabel rhsDateTimeOrCutLabel)
+            {
+                return Parameter.Equals(rhsDateTimeOrCutLabel.Parameter);
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode()
+        {
+            return Parameter.GetHashCode();
+        }
     }
 
     /// <inheritdoc />

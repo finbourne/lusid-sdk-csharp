@@ -49,5 +49,29 @@ namespace Lusid.Sdk.Tests.Utilities
 
             Assert.That(parameterUsingConversion.Parameter, Is.EqualTo(testValue));
         }
+
+        [Test]
+        public void Compare_DateOrCutLabels()
+        {
+            // GIVEN some example DateTimeOrCutLabels which share values
+            var testDate = new DateTimeOffset(2018, 3, 28, 0, 0, 0, 0, TimeSpan.Zero);
+            var testDateWithTime = new DateTimeOffset(2018, 3, 28, 12, 1, 2, 3, TimeSpan.Zero);
+            var testCutLabel = "TEST_CUTLABEL";
+
+            DateTimeOrCutLabel a = new DateTimeOrCutLabel(testDate, testCutLabel);
+            DateTimeOrCutLabel b = new DateTimeOrCutLabel(testDate, testCutLabel);
+            DateTimeOrCutLabel c = new DateTimeOrCutLabel(testDateWithTime);
+            DateTimeOrCutLabel d = new DateTimeOrCutLabel(testDateWithTime);
+
+            // WHEN they are compared
+            // THEN the expected results are returned
+            Assert.That(a, Is.Not.SameAs(b));
+            Assert.That(a, Is.EqualTo(b));
+
+            Assert.That(a, Is.Not.EqualTo(c));
+
+            Assert.That(c, Is.Not.SameAs(d));
+            Assert.That(c, Is.EqualTo(d));
+        }
     }
 }
