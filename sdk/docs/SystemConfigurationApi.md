@@ -1,17 +1,17 @@
 # Lusid.Sdk.Api.SystemConfigurationApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateConfigurationTransactionType**](SystemConfigurationApi.md#createconfigurationtransactiontype) | **POST** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] Create transaction type
-[**ListConfigurationTransactionTypes**](SystemConfigurationApi.md#listconfigurationtransactiontypes) | **GET** /api/systemconfiguration/transactiontypes | [EARLY ACCESS] List transaction types
+[**CreateConfigurationTransactionType**](SystemConfigurationApi.md#createconfigurationtransactiontype) | **POST** /api/systemconfiguration/transactions/type | [EARLY ACCESS] Create transaction type
+[**ListConfigurationTransactionTypes**](SystemConfigurationApi.md#listconfigurationtransactiontypes) | **GET** /api/systemconfiguration/transactions | [EARLY ACCESS] List transaction types
 
 
 
 ## CreateConfigurationTransactionType
 
-> ResourceListOfTransactionConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
+> TransactionSetConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest type = null)
 
 [EARLY ACCESS] Create transaction type
 
@@ -32,7 +32,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] Create transaction type
-                ResourceListOfTransactionConfigurationData result = apiInstance.CreateConfigurationTransactionType(type);
+                TransactionSetConfigurationData result = apiInstance.CreateConfigurationTransactionType(type);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
+[**TransactionSetConfigurationData**](TransactionSetConfigurationData.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## ListConfigurationTransactionTypes
 
-> ResourceListOfTransactionConfigurationData ListConfigurationTransactionTypes ()
+> TransactionSetConfigurationData ListConfigurationTransactionTypes ()
 
 [EARLY ACCESS] List transaction types
 
@@ -112,7 +112,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -121,7 +121,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] List transaction types
-                ResourceListOfTransactionConfigurationData result = apiInstance.ListConfigurationTransactionTypes();
+                TransactionSetConfigurationData result = apiInstance.ListConfigurationTransactionTypes();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -141,7 +141,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResourceListOfTransactionConfigurationData**](ResourceListOfTransactionConfigurationData.md)
+[**TransactionSetConfigurationData**](TransactionSetConfigurationData.md)
 
 ### Authorization
 
