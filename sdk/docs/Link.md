@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Relation** | **string** |  | 
 **Href** | **string** |  | 
 **Description** | **string** |  | [optional] 
-**Method** | [**HttpMethod**](HttpMethod.md) |  | 
+**Method** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
