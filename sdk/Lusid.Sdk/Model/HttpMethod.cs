@@ -23,33 +23,24 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An amount of a specific currency, specifying a value and an associated unit
+    /// HttpMethod
     /// </summary>
     [DataContract]
-    public partial class CurrencyAndAmount :  IEquatable<CurrencyAndAmount>
+    public partial class HttpMethod :  IEquatable<HttpMethod>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrencyAndAmount" /> class.
+        /// Initializes a new instance of the <see cref="HttpMethod" /> class.
         /// </summary>
-        /// <param name="amount">amount.</param>
-        /// <param name="currency">currency.</param>
-        public CurrencyAndAmount(double? amount = default(double?), string currency = default(string))
+        [JsonConstructorAttribute]
+        public HttpMethod()
         {
-            this.Amount = amount;
-            this.Currency = currency;
         }
         
         /// <summary>
-        /// Gets or Sets Amount
+        /// Gets or Sets Method
         /// </summary>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
-        public double? Amount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Currency
-        /// </summary>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
-        public string Currency { get; set; }
+        [DataMember(Name="method", EmitDefaultValue=false)]
+        public string Method { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +49,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrencyAndAmount {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("class HttpMethod {\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,29 +71,24 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CurrencyAndAmount);
+            return this.Equals(input as HttpMethod);
         }
 
         /// <summary>
-        /// Returns true if CurrencyAndAmount instances are equal
+        /// Returns true if HttpMethod instances are equal
         /// </summary>
-        /// <param name="input">Instance of CurrencyAndAmount to be compared</param>
+        /// <param name="input">Instance of HttpMethod to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrencyAndAmount input)
+        public bool Equals(HttpMethod input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Amount == input.Amount ||
-                    (this.Amount != null &&
-                    this.Amount.Equals(input.Amount))
-                ) && 
-                (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.Method == input.Method ||
+                    (this.Method != null &&
+                    this.Method.Equals(input.Method))
                 );
         }
 
@@ -116,10 +101,8 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Amount != null)
-                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.Method != null)
+                    hashCode = hashCode * 59 + this.Method.GetHashCode();
                 return hashCode;
             }
         }
