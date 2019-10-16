@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GetDataType
 
-> DataType GetDataType (string scope, string code)
+> DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] Get data type definition
 
@@ -40,11 +40,12 @@ namespace Example
             var apiInstance = new DataTypesApi(Configuration.Default);
             var scope = scope_example;  // string | The scope of the data type
             var code = code_example;  // string | The code of the data type
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
 
             try
             {
                 // [EARLY ACCESS] Get data type definition
-                DataType result = apiInstance.GetDataType(scope, code);
+                DataType result = apiInstance.GetDataType(scope, code, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the data type | 
  **code** | **string**| The code of the data type | 
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional] 
 
 ### Return type
 
@@ -94,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## GetUnitsFromDataType
 
-> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null)
+> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] Get units from data type
 
@@ -124,11 +126,12 @@ namespace Example
             var code = code_example;  // string | The code of the data type
             var units = new List<string>(); // List<string> | One or more unit identifiers for which the definition is being requested (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The as at of the requested data type (optional) 
 
             try
             {
                 // [EARLY ACCESS] Get units from data type
-                ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter);
+                ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -151,6 +154,7 @@ Name | Type | Description  | Notes
  **code** | **string**| The code of the data type | 
  **units** | [**List&lt;string&gt;**](string.md)| One or more unit identifiers for which the definition is being requested | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **asAt** | **DateTimeOffset?**| Optional. The as at of the requested data type | [optional] 
 
 ### Return type
 
@@ -180,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## ListDataTypes
 
-> ResourceListOfDataType ListDataTypes (string scope, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
 [EARLY ACCESS] List data types
 
@@ -207,6 +211,7 @@ namespace Example
 
             var apiInstance = new DataTypesApi(Configuration.Default);
             var scope = scope_example;  // string | The requested scope of the data types
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The as at of the requested data types (optional) 
             var includeSystem = true;  // bool? | Whether to additionally include those data types in the \"system\" scope (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -216,7 +221,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] List data types
-                ResourceListOfDataType result = apiInstance.ListDataTypes(scope, includeSystem, sortBy, start, limit, filter);
+                ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -236,6 +241,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The requested scope of the data types | 
+ **asAt** | **DateTimeOffset?**| The as at of the requested data types | [optional] 
  **includeSystem** | **bool?**| Whether to additionally include those data types in the \&quot;system\&quot; scope | [optional] 
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
