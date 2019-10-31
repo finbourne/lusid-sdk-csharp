@@ -134,7 +134,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             var lookedUpInstruments = _instrumentsApi.GetInstruments(
                 FigiScheme, 
                 new List<string> {"BBG000C6K6G9"},
-                instrumentPropertyKeys: new List<string> {IsinPropertyKey, SedolPropertyKey});
+                propertyKeys: new List<string> {IsinPropertyKey, SedolPropertyKey});
             
             Assert.That(lookedUpInstruments.Values, Contains.Key("BBG000C6K6G9"));
 
@@ -245,7 +245,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             Instrument instrument = _instrumentsApi.GetInstrument(
                 identifierType: identifierType,
                 identifier: identifier,
-                instrumentPropertyKeys: new List<string> { propertyKey }
+                propertyKeys: new List<string> { propertyKey }
             );
 
             Assert.That(
