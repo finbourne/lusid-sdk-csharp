@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** |  | 
 **Description** | **string** |  | 
 **ValueType** | **string** |  | 
-**AcceptableValues** | [**List&lt;PropertyValue&gt;**](PropertyValue.md) |  | [optional] 
+**AcceptableValues** | **List&lt;Object&gt;** |  | [optional] 
 **UnitSchema** | **string** |  | [optional] 
 **AcceptableUnits** | [**List&lt;IUnitDefinitionDto&gt;**](IUnitDefinitionDto.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
