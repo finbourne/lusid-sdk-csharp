@@ -23,49 +23,132 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfDataType
+    /// Configuration needed to define a side. Sides are referenced by Label. Beyond that, other properties  can be used to reference either transaction fields, or transaction properties.
     /// </summary>
     [DataContract]
-    public partial class ResourceListOfDataType :  IEquatable<ResourceListOfDataType>
+    public partial class SideConfigurationData :  IEquatable<SideConfigurationData>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfDataType" /> class.
+        /// Initializes a new instance of the <see cref="SideConfigurationData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfDataType() { }
+        protected SideConfigurationData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfDataType" /> class.
+        /// Initializes a new instance of the <see cref="SideConfigurationData" /> class.
         /// </summary>
-        /// <param name="values">values (required).</param>
-        /// <param name="href">href.</param>
+        /// <param name="side">The side&#39;s label. (required).</param>
+        /// <param name="security">The security, or instrument. (required).</param>
+        /// <param name="currency">The currency. (required).</param>
+        /// <param name="rate">The rate. (required).</param>
+        /// <param name="units">The units. (required).</param>
+        /// <param name="amount">The amount. (required).</param>
         /// <param name="links">links.</param>
-        public ResourceListOfDataType(List<DataType> values = default(List<DataType>), string href = default(string), List<Link> links = default(List<Link>))
+        public SideConfigurationData(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), List<Link> links = default(List<Link>))
         {
-            // to ensure "values" is required (not null)
-            if (values == null)
+            // to ensure "side" is required (not null)
+            if (side == null)
             {
-                throw new InvalidDataException("values is a required property for ResourceListOfDataType and cannot be null");
+                throw new InvalidDataException("side is a required property for SideConfigurationData and cannot be null");
             }
             else
             {
-                this.Values = values;
+                this.Side = side;
             }
             
-            this.Href = href;
+            // to ensure "security" is required (not null)
+            if (security == null)
+            {
+                throw new InvalidDataException("security is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Security = security;
+            }
+            
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new InvalidDataException("currency is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Currency = currency;
+            }
+            
+            // to ensure "rate" is required (not null)
+            if (rate == null)
+            {
+                throw new InvalidDataException("rate is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Rate = rate;
+            }
+            
+            // to ensure "units" is required (not null)
+            if (units == null)
+            {
+                throw new InvalidDataException("units is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Units = units;
+            }
+            
+            // to ensure "amount" is required (not null)
+            if (amount == null)
+            {
+                throw new InvalidDataException("amount is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Amount = amount;
+            }
+            
             this.Links = links;
         }
         
         /// <summary>
-        /// Gets or Sets Values
+        /// The side&#39;s label.
         /// </summary>
-        [DataMember(Name="values", EmitDefaultValue=false)]
-        public List<DataType> Values { get; set; }
+        /// <value>The side&#39;s label.</value>
+        [DataMember(Name="side", EmitDefaultValue=false)]
+        public string Side { get; set; }
 
         /// <summary>
-        /// Gets or Sets Href
+        /// The security, or instrument.
         /// </summary>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; set; }
+        /// <value>The security, or instrument.</value>
+        [DataMember(Name="security", EmitDefaultValue=false)]
+        public string Security { get; set; }
+
+        /// <summary>
+        /// The currency.
+        /// </summary>
+        /// <value>The currency.</value>
+        [DataMember(Name="currency", EmitDefaultValue=false)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// The rate.
+        /// </summary>
+        /// <value>The rate.</value>
+        [DataMember(Name="rate", EmitDefaultValue=false)]
+        public string Rate { get; set; }
+
+        /// <summary>
+        /// The units.
+        /// </summary>
+        /// <value>The units.</value>
+        [DataMember(Name="units", EmitDefaultValue=false)]
+        public string Units { get; set; }
+
+        /// <summary>
+        /// The amount.
+        /// </summary>
+        /// <value>The amount.</value>
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public string Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -80,9 +163,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResourceListOfDataType {\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("class SideConfigurationData {\n");
+            sb.Append("  Side: ").Append(Side).Append("\n");
+            sb.Append("  Security: ").Append(Security).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Rate: ").Append(Rate).Append("\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,30 +191,49 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfDataType);
+            return this.Equals(input as SideConfigurationData);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfDataType instances are equal
+        /// Returns true if SideConfigurationData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfDataType to be compared</param>
+        /// <param name="input">Instance of SideConfigurationData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfDataType input)
+        public bool Equals(SideConfigurationData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    input.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
+                    this.Side == input.Side ||
+                    (this.Side != null &&
+                    this.Side.Equals(input.Side))
                 ) && 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.Security == input.Security ||
+                    (this.Security != null &&
+                    this.Security.Equals(input.Security))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.Rate == input.Rate ||
+                    (this.Rate != null &&
+                    this.Rate.Equals(input.Rate))
+                ) && 
+                (
+                    this.Units == input.Units ||
+                    (this.Units != null &&
+                    this.Units.Equals(input.Units))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -146,10 +252,18 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Values != null)
-                    hashCode = hashCode * 59 + this.Values.GetHashCode();
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.Side != null)
+                    hashCode = hashCode * 59 + this.Side.GetHashCode();
+                if (this.Security != null)
+                    hashCode = hashCode * 59 + this.Security.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.Rate != null)
+                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
+                if (this.Units != null)
+                    hashCode = hashCode * 59 + this.Units.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;

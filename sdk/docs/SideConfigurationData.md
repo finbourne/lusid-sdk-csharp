@@ -1,12 +1,16 @@
 
-# Lusid.Sdk.Model.TransactionSetConfigurationData
+# Lusid.Sdk.Model.SideConfigurationData
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TransactionConfigs** | [**List&lt;TransactionConfigurationData&gt;**](TransactionConfigurationData.md) | Collection of transaction type models | 
-**SideDefinitions** | [**List&lt;SideConfigurationData&gt;**](SideConfigurationData.md) | Collection of side definitions | [optional] 
+**Side** | **string** | The side&#39;s label. | 
+**Security** | **string** | The security, or instrument. | 
+**Currency** | **string** | The currency. | 
+**Rate** | **string** | The rate. | 
+**Units** | **string** | The units. | 
+**Amount** | **string** | The amount. | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
