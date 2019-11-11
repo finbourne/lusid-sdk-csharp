@@ -1,14 +1,14 @@
 # Lusid.Sdk.Api.PropertyDefinitionsApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | [EARLY ACCESS] Create property definition
-[**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | [EARLY ACCESS] Delete property definition
-[**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | [EARLY ACCESS] Get multiple property definitions
-[**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | [EARLY ACCESS] Get property definition
-[**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | [EARLY ACCESS] Update property definition
+[**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | Create property definition
+[**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | Delete property definition
+[**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | Get multiple property definitions
+[**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | Get property definition
+[**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | Update property definition
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > PropertyDefinition CreatePropertyDefinition (CreatePropertyDefinitionRequest definition)
 
-[EARLY ACCESS] Create property definition
+Create property definition
 
 Define a new property.
 
@@ -35,7 +35,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Create property definition
+                // Create property definition
                 PropertyDefinition result = apiInstance.CreatePropertyDefinition(definition);
                 Debug.WriteLine(result);
             }
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeletePropertyDefinition (string domain, string scope, string code)
 
-[EARLY ACCESS] Delete property definition
+Delete property definition
 
 Delete the definition of the specified property.
 
@@ -115,7 +115,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -126,7 +126,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete property definition
+                // Delete property definition
                 DeletedEntityResponse result = apiInstance.DeletePropertyDefinition(domain, scope, code);
                 Debug.WriteLine(result);
             }
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys, DateTimeOffset? asAt = null, string filter = null)
 
-[EARLY ACCESS] Get multiple property definitions
+Get multiple property definitions
 
 Retrieve the definition of one or more specified properties.
 
@@ -199,7 +199,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -210,7 +210,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get multiple property definitions
+                // Get multiple property definitions
                 ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter);
                 Debug.WriteLine(result);
             }
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 > PropertyDefinition GetPropertyDefinition (string domain, string scope, string code, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get property definition
+Get property definition
 
 Retrieve the definition of a specified property.
 
@@ -283,7 +283,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -295,7 +295,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get property definition
+                // Get property definition
                 PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt);
                 Debug.WriteLine(result);
             }
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 > PropertyDefinition UpdatePropertyDefinition (string domain, string scope, string code, UpdatePropertyDefinitionRequest definition)
 
-[EARLY ACCESS] Update property definition
+Update property definition
 
 Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
 
@@ -369,7 +369,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -381,7 +381,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Update property definition
+                // Update property definition
                 PropertyDefinition result = apiInstance.UpdatePropertyDefinition(domain, scope, code, definition);
                 Debug.WriteLine(result);
             }

@@ -1,18 +1,18 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Delete portfolio
-[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Delete portfolio properties
-[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Get portfolio
+[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | Delete portfolio
+[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | Delete portfolio properties
+[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | Get portfolio
 [**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio commands
-[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Get portfolio properties
-[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | [EARLY ACCESS] List portfolios
-[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | [EARLY ACCESS] List portfolios for scope
-[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | [EARLY ACCESS] Update portfolio
-[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | [EARLY ACCESS] Upsert portfolio properties
+[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | Get portfolio properties
+[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | List portfolios
+[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | List portfolios for scope
+[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | Update portfolio
+[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert portfolio properties
 
 
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 > DeletedEntityResponse DeletePortfolio (string scope, string code)
 
-[EARLY ACCESS] Delete portfolio
+Delete portfolio
 
 Delete a single portfolio. The deletion of the portfolio will be valid from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -39,7 +39,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete portfolio
+                // Delete portfolio
                 DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code);
                 Debug.WriteLine(result);
             }
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> propertyKeys, DateTimeOrCutLabel effectiveAt = null)
 
-[EARLY ACCESS] Delete portfolio properties
+Delete portfolio properties
 
 Delete one or more properties from a single portfolio. If the properties are time variant then an effective date time from which the properties  will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
 
@@ -121,7 +121,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -133,7 +133,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete portfolio properties
+                // Delete portfolio properties
                 DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, propertyKeys, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 > Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] Get portfolio
+Get portfolio
 
 Retrieve the definition of a single portfolio.
 
@@ -207,7 +207,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -220,7 +220,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get portfolio
+                // Get portfolio
                 Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -295,7 +295,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 > PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get portfolio properties
+Get portfolio properties
 
 List all the properties of a single portfolio.
 
@@ -383,7 +383,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -395,7 +395,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get portfolio properties
+                // Get portfolio properties
                 PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] List portfolios
+List portfolios
 
 List all the portfolios matching the specified criteria.
 
@@ -469,7 +469,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -485,7 +485,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List portfolios
+                // List portfolios
                 ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, start, limit, filter, query, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 > ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] List portfolios for scope
+List portfolios for scope
 
 List all the portfolios in a single scope.
 
@@ -563,7 +563,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -576,7 +576,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List portfolios for scope
+                // List portfolios for scope
                 ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 
 > Portfolio UpdatePortfolio (string scope, string code, UpdatePortfolioRequest portfolioDefinition, DateTimeOrCutLabel effectiveAt = null)
 
-[EARLY ACCESS] Update portfolio
+Update portfolio
 
 Update the definition of a single portfolio. Not all elements within a portfolio definition are  modifiable due to the potential implications for data already stored against the portfolio.
 
@@ -651,7 +651,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -663,7 +663,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Update portfolio
+                // Update portfolio
                 Portfolio result = apiInstance.UpdatePortfolio(scope, code, portfolioDefinition, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
 
 > PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, Property> portfolioProperties)
 
-[EARLY ACCESS] Upsert portfolio properties
+Upsert portfolio properties
 
 Update or insert one or more properties onto a single portfolio. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'Portfolio'.
 
@@ -737,7 +737,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -748,7 +748,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Upsert portfolio properties
+                // Upsert portfolio properties
                 PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, portfolioProperties);
                 Debug.WriteLine(result);
             }
