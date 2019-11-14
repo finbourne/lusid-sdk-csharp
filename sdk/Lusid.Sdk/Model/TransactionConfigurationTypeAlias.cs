@@ -60,22 +60,22 @@ namespace Lusid.Sdk.Model
             ShortShorter = 4,
 
             /// <summary>
+            /// Enum Shorter for value: Shorter
+            /// </summary>
+            [EnumMember(Value = "Shorter")]
+            Shorter = 5,
+
+            /// <summary>
             /// Enum ShortLonger for value: ShortLonger
             /// </summary>
             [EnumMember(Value = "ShortLonger")]
-            ShortLonger = 5,
+            ShortLonger = 6,
 
             /// <summary>
             /// Enum Longer for value: Longer
             /// </summary>
             [EnumMember(Value = "Longer")]
-            Longer = 6,
-
-            /// <summary>
-            /// Enum Shorter for value: Shorter
-            /// </summary>
-            [EnumMember(Value = "Shorter")]
-            Shorter = 7,
+            Longer = 7,
 
             /// <summary>
             /// Enum AllRoles for value: AllRoles
