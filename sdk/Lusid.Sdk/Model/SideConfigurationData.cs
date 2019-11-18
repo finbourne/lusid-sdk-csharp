@@ -23,121 +23,132 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioGroup
+    /// Configuration needed to define a side. Sides are referenced by Label. Beyond that, other properties  can be used to reference either transaction fields, or transaction properties.
     /// </summary>
     [DataContract]
-    public partial class PortfolioGroup :  IEquatable<PortfolioGroup>
+    public partial class SideConfigurationData :  IEquatable<SideConfigurationData>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroup" /> class.
+        /// Initializes a new instance of the <see cref="SideConfigurationData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioGroup() { }
+        protected SideConfigurationData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroup" /> class.
+        /// Initializes a new instance of the <see cref="SideConfigurationData" /> class.
         /// </summary>
-        /// <param name="href">The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="displayName">The name of the portfolio group. (required).</param>
-        /// <param name="description">The long form description of the portfolio group..</param>
-        /// <param name="created">The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date..</param>
-        /// <param name="portfolios">The collection of resource identifiers for the portfolios contained in the portfolio group..</param>
-        /// <param name="subGroups">The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups..</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="side">The side&#39;s label. (required).</param>
+        /// <param name="security">The security, or instrument. (required).</param>
+        /// <param name="currency">The currency. (required).</param>
+        /// <param name="rate">The rate. (required).</param>
+        /// <param name="units">The units. (required).</param>
+        /// <param name="amount">The amount. (required).</param>
         /// <param name="links">links.</param>
-        public PortfolioGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), DateTimeOffset? created = default(DateTimeOffset?), List<ResourceId> portfolios = default(List<ResourceId>), List<ResourceId> subGroups = default(List<ResourceId>), Version version = default(Version), List<Link> links = default(List<Link>))
+        public SideConfigurationData(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), List<Link> links = default(List<Link>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "side" is required (not null)
+            if (side == null)
             {
-                throw new InvalidDataException("id is a required property for PortfolioGroup and cannot be null");
+                throw new InvalidDataException("side is a required property for SideConfigurationData and cannot be null");
             }
             else
             {
-                this.Id = id;
+                this.Side = side;
             }
             
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
+            // to ensure "security" is required (not null)
+            if (security == null)
             {
-                throw new InvalidDataException("displayName is a required property for PortfolioGroup and cannot be null");
+                throw new InvalidDataException("security is a required property for SideConfigurationData and cannot be null");
             }
             else
             {
-                this.DisplayName = displayName;
+                this.Security = security;
             }
             
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "currency" is required (not null)
+            if (currency == null)
             {
-                throw new InvalidDataException("version is a required property for PortfolioGroup and cannot be null");
+                throw new InvalidDataException("currency is a required property for SideConfigurationData and cannot be null");
             }
             else
             {
-                this.Version = version;
+                this.Currency = currency;
             }
             
-            this.Href = href;
-            this.Description = description;
-            this.Created = created;
-            this.Portfolios = portfolios;
-            this.SubGroups = subGroups;
+            // to ensure "rate" is required (not null)
+            if (rate == null)
+            {
+                throw new InvalidDataException("rate is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Rate = rate;
+            }
+            
+            // to ensure "units" is required (not null)
+            if (units == null)
+            {
+                throw new InvalidDataException("units is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Units = units;
+            }
+            
+            // to ensure "amount" is required (not null)
+            if (amount == null)
+            {
+                throw new InvalidDataException("amount is a required property for SideConfigurationData and cannot be null");
+            }
+            else
+            {
+                this.Amount = amount;
+            }
+            
             this.Links = links;
         }
         
         /// <summary>
-        /// The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// The side&#39;s label.
         /// </summary>
-        /// <value>The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
-        [DataMember(Name="href", EmitDefaultValue=false)]
-        public string Href { get; set; }
+        /// <value>The side&#39;s label.</value>
+        [DataMember(Name="side", EmitDefaultValue=false)]
+        public string Side { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The security, or instrument.
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public ResourceId Id { get; set; }
+        /// <value>The security, or instrument.</value>
+        [DataMember(Name="security", EmitDefaultValue=false)]
+        public string Security { get; set; }
 
         /// <summary>
-        /// The name of the portfolio group.
+        /// The currency.
         /// </summary>
-        /// <value>The name of the portfolio group.</value>
-        [DataMember(Name="displayName", EmitDefaultValue=false)]
-        public string DisplayName { get; set; }
+        /// <value>The currency.</value>
+        [DataMember(Name="currency", EmitDefaultValue=false)]
+        public string Currency { get; set; }
 
         /// <summary>
-        /// The long form description of the portfolio group.
+        /// The rate.
         /// </summary>
-        /// <value>The long form description of the portfolio group.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
+        /// <value>The rate.</value>
+        [DataMember(Name="rate", EmitDefaultValue=false)]
+        public string Rate { get; set; }
 
         /// <summary>
-        /// The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date.
+        /// The units.
         /// </summary>
-        /// <value>The effective datetime at which the portfolio group was created. No portfolios or sub groups can be added to the group before this date.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
-        public DateTimeOffset? Created { get; set; }
+        /// <value>The units.</value>
+        [DataMember(Name="units", EmitDefaultValue=false)]
+        public string Units { get; set; }
 
         /// <summary>
-        /// The collection of resource identifiers for the portfolios contained in the portfolio group.
+        /// The amount.
         /// </summary>
-        /// <value>The collection of resource identifiers for the portfolios contained in the portfolio group.</value>
-        [DataMember(Name="portfolios", EmitDefaultValue=false)]
-        public List<ResourceId> Portfolios { get; set; }
-
-        /// <summary>
-        /// The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.
-        /// </summary>
-        /// <value>The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.</value>
-        [DataMember(Name="subGroups", EmitDefaultValue=false)]
-        public List<ResourceId> SubGroups { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Version
-        /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public Version Version { get; set; }
+        /// <value>The amount.</value>
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public string Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -152,15 +163,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PortfolioGroup {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  Portfolios: ").Append(Portfolios).Append("\n");
-            sb.Append("  SubGroups: ").Append(SubGroups).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("class SideConfigurationData {\n");
+            sb.Append("  Side: ").Append(Side).Append("\n");
+            sb.Append("  Security: ").Append(Security).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Rate: ").Append(Rate).Append("\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -182,61 +191,49 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioGroup);
+            return this.Equals(input as SideConfigurationData);
         }
 
         /// <summary>
-        /// Returns true if PortfolioGroup instances are equal
+        /// Returns true if SideConfigurationData instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioGroup to be compared</param>
+        /// <param name="input">Instance of SideConfigurationData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioGroup input)
+        public bool Equals(SideConfigurationData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.Side == input.Side ||
+                    (this.Side != null &&
+                    this.Side.Equals(input.Side))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Security == input.Security ||
+                    (this.Security != null &&
+                    this.Security.Equals(input.Security))
                 ) && 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Rate == input.Rate ||
+                    (this.Rate != null &&
+                    this.Rate.Equals(input.Rate))
                 ) && 
                 (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
+                    this.Units == input.Units ||
+                    (this.Units != null &&
+                    this.Units.Equals(input.Units))
                 ) && 
                 (
-                    this.Portfolios == input.Portfolios ||
-                    this.Portfolios != null &&
-                    input.Portfolios != null &&
-                    this.Portfolios.SequenceEqual(input.Portfolios)
-                ) && 
-                (
-                    this.SubGroups == input.SubGroups ||
-                    this.SubGroups != null &&
-                    input.SubGroups != null &&
-                    this.SubGroups.SequenceEqual(input.SubGroups)
-                ) && 
-                (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -255,22 +252,18 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Created != null)
-                    hashCode = hashCode * 59 + this.Created.GetHashCode();
-                if (this.Portfolios != null)
-                    hashCode = hashCode * 59 + this.Portfolios.GetHashCode();
-                if (this.SubGroups != null)
-                    hashCode = hashCode * 59 + this.SubGroups.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this.Side != null)
+                    hashCode = hashCode * 59 + this.Side.GetHashCode();
+                if (this.Security != null)
+                    hashCode = hashCode * 59 + this.Security.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.Rate != null)
+                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
+                if (this.Units != null)
+                    hashCode = hashCode * 59 + this.Units.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
