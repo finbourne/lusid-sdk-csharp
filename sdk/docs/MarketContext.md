@@ -1,6 +1,5 @@
-
 # Lusid.Sdk.Model.MarketContext
-
+Market context node. This defines how LUSID processes parts of a request that require resolution of market data such as instrument prices or  Fx rates. It controls where the data is loaded from and which sources take precedence.
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,7 +8,5 @@ Name | Type | Description | Notes
 **Suppliers** | [**MarketContextSuppliers**](MarketContextSuppliers.md) |  | [optional] 
 **Options** | [**MarketOptions**](MarketOptions.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

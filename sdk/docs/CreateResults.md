@@ -1,11 +1,9 @@
-
 # Lusid.Sdk.Model.CreateResults
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EffectiveAt** | **DateTimeOffset?** | The effective market date for which results are calculated and are to be stored. | 
+**EffectiveAt** | **DateTimeOffset** | The effective market date for which results are calculated and are to be stored. | 
 **EntityScope** | **string** | Scope of the entity code | 
 **EntityCode** | **string** | The code of the entity for which the data has been calculated. | 
 **CalculationScope** | **string** | Scope of the calculation code. | 
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **Format** | **string** | The format in which the results are stored/structured. | [optional] 
 **Data** | **string** | The data that should be stored in the results cube. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
