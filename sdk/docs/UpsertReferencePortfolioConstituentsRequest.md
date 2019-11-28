@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EffectiveFrom** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The first date from which the weights will apply | 
+**EffectiveFrom** | **DateTimeOffset?** |  | 
 **WeightType** | **string** |  | 
 **PeriodType** | **string** |  | [optional] 
 **PeriodCount** | **int?** |  | [optional] 
