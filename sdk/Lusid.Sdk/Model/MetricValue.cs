@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="value">The numerical value of the property..</param>
         /// <param name="unit">unit.</param>
-        public MetricValue(double? value = default(double?), string unit = default(string))
+        public MetricValue(decimal? value = default(decimal?), string unit = default(string))
         {
             this.Value = value;
             this.Unit = unit;
@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The numerical value of the property.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public double? Value { get; set; }
+        public decimal? Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Unit

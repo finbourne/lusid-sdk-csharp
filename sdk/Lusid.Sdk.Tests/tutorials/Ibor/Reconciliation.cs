@@ -50,8 +50,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
 
             var todaysTransactions = new List<TransactionRequest>
             {
-                _testDataUtilities.BuildTransactionRequest(_instrumentIds[0], -3000, 101.78, "GBP", today.AddHours(8), "StockIn"),    // net long 300
-                _testDataUtilities.BuildTransactionRequest(_instrumentIds[0], 1500, 101.78, "GBP", today.AddHours(12), "StockIn"),    // net long 1800
+                _testDataUtilities.BuildTransactionRequest(_instrumentIds[0], -3000, 101.78M, "GBP", today.AddHours(8), "StockIn"),    // net long 300
+                _testDataUtilities.BuildTransactionRequest(_instrumentIds[0], 1500, 101.78M, "GBP", today.AddHours(12), "StockIn"),    // net long 1800
                 _testDataUtilities.BuildTransactionRequest(_instrumentIds[1], 1000, 102, "GBP", today.AddHours(12), "StockIn"),       // flat                
                 _testDataUtilities.BuildTransactionRequest(_instrumentIds[2], 1200, 103, "GBP", today.AddHours(16), "StockIn"),       // long 2400
                 _testDataUtilities.BuildTransactionRequest(_instrumentIds[3], 1000, 103, "GBP", today.AddHours(9), "StockIn"),        // long 3000

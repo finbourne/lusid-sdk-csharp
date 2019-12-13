@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="lastShares">Quantity (e.g. shares) bought/sold on this (last) fill. FIX field 32. (required).</param>
         /// <param name="lastPx">Price of this (last) fill. FIX field 31. (required).</param>
         /// <param name="currency">The currency used for the price. FIX field 15. (required).</param>
-        public ExecutionRequest(string executionId = default(string), string side = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? transactionTime = default(DateTimeOffset?), double? lastShares = default(double?), double? lastPx = default(double?), string currency = default(string))
+        public ExecutionRequest(string executionId = default(string), string side = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), DateTimeOffset? transactionTime = default(DateTimeOffset?), decimal? lastShares = default(decimal?), decimal? lastPx = default(decimal?), string currency = default(string))
         {
             // to ensure "executionId" is required (not null)
             if (executionId == null)
@@ -150,14 +150,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Quantity (e.g. shares) bought/sold on this (last) fill. FIX field 32.</value>
         [DataMember(Name="lastShares", EmitDefaultValue=false)]
-        public double? LastShares { get; set; }
+        public decimal? LastShares { get; set; }
 
         /// <summary>
         /// Price of this (last) fill. FIX field 31.
         /// </summary>
         /// <value>Price of this (last) fill. FIX field 31.</value>
         [DataMember(Name="lastPx", EmitDefaultValue=false)]
-        public double? LastPx { get; set; }
+        public decimal? LastPx { get; set; }
 
         /// <summary>
         /// The currency used for the price. FIX field 15.

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **double?** |  | [optional] 
+**Amount** | **decimal?** |  | [optional] 
 **Currency** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

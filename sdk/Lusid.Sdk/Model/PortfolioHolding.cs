@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cost">cost (required).</param>
         /// <param name="costPortfolioCcy">costPortfolioCcy (required).</param>
         /// <param name="transaction">transaction.</param>
-        public PortfolioHolding(string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), double? units = default(double?), double? settledUnits = default(double?), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction))
+        public PortfolioHolding(string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal? units = default(decimal?), decimal? settledUnits = default(decimal?), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -145,14 +145,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The total number of units of the holding.</value>
         [DataMember(Name="units", EmitDefaultValue=false)]
-        public double? Units { get; set; }
+        public decimal? Units { get; set; }
 
         /// <summary>
         /// The total number of settled units of the holding.
         /// </summary>
         /// <value>The total number of settled units of the holding.</value>
         [DataMember(Name="settledUnits", EmitDefaultValue=false)]
-        public double? SettledUnits { get; set; }
+        public decimal? SettledUnits { get; set; }
 
         /// <summary>
         /// Gets or Sets Cost

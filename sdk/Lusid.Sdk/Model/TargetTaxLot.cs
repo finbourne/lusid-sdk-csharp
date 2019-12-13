@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="price">The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots..</param>
         /// <param name="purchaseDate">The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots..</param>
         /// <param name="settlementDate">The settlement date of the tax-lot&#39;s opening transaction..</param>
-        public TargetTaxLot(double? units = default(double?), CurrencyAndAmount cost = default(CurrencyAndAmount), double? portfolioCost = default(double?), double? price = default(double?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?))
+        public TargetTaxLot(decimal? units = default(decimal?), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?))
         {
             // to ensure "units" is required (not null)
             if (units == null)
@@ -66,7 +66,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The number of units of the instrument in this tax-lot.</value>
         [DataMember(Name="units", EmitDefaultValue=false)]
-        public double? Units { get; set; }
+        public decimal? Units { get; set; }
 
         /// <summary>
         /// Gets or Sets Cost
@@ -79,14 +79,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The total cost of the tax-lot in the transaction portfolio&#39;s base currency.</value>
         [DataMember(Name="portfolioCost", EmitDefaultValue=false)]
-        public double? PortfolioCost { get; set; }
+        public decimal? PortfolioCost { get; set; }
 
         /// <summary>
         /// The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots.
         /// </summary>
         /// <value>The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots.</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots.

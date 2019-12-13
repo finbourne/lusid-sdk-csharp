@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="price">price.</param>
         /// <param name="type">type.</param>
-        public TransactionPrice(double? price = default(double?), TypeEnum? type = default(TypeEnum?))
+        public TransactionPrice(decimal? price = default(decimal?), TypeEnum? type = default(TypeEnum?))
         {
             this.Price = price;
             this.Type = type;
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name="price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
 
         /// <summary>

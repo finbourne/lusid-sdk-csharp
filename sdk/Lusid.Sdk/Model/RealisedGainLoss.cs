@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The number of units of the associated instrument against which the gain or loss has been realised.</value>
         [DataMember(Name="units", EmitDefaultValue=false)]
-        public double? Units { get; private set; }
+        public decimal? Units { get; private set; }
 
         /// <summary>
         /// The effective datetime that the units associated with this gain or loss where originally purchased.
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The purchase price of each unit associated with this gain or loss.</value>
         [DataMember(Name="purchasePrice", EmitDefaultValue=false)]
-        public double? PurchasePrice { get; private set; }
+        public decimal? PurchasePrice { get; private set; }
 
         /// <summary>
         /// Gets or Sets CostTradeCcy
