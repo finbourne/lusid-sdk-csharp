@@ -112,7 +112,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var instrument2 = _instrumentIds[1];
             var instrument3 = _instrumentIds[2];
 
-            var holdingAdjustments = new List<AdjustHoldingRequest>
+            var holdingAdjustmentsRequest = new List<AdjustHoldingRequest>
             {
                 //    cash balance
                 new AdjustHoldingRequest(
@@ -157,7 +157,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             };
             
             //    set the initial holdings on day 1
-            _transactionPortfoliosApi.SetHoldings(TestDataUtilities.TutorialScope, portfolioCode, day1, holdingAdjustments);
+            _transactionPortfoliosApi.SetHoldings(TestDataUtilities.TutorialScope, portfolioCode, day1, holdingAdjustmentsRequest);
             
             //    add subsequent transactions on day 2
             _transactionPortfoliosApi.UpsertTransactions(TestDataUtilities.TutorialScope, portfolioCode,
@@ -196,6 +196,12 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(holdings[3].InstrumentUid, Is.EqualTo(instrument3));
             Assert.That(holdings[3].Units, Is.EqualTo(100.0));
             Assert.That(holdings[3].Cost.Amount, Is.EqualTo(10300.0));
+
+            // Get all the holding adjustments in the portfolio
+            var holdingAdjustments = _transactionPortfoliosApi.ListHoldingsAdjustments(TestDataUtilities.TutorialScope, portfolioCode);
+
+            // The list should contain one record containing the effective date of the holding adjustment
+            Assert.That(holdingAdjustments.Values.Select(ha => ha.EffectiveAt), Is.EquivalentTo(new [] { day1 }));
         }
     }
 }
