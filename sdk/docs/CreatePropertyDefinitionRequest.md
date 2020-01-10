@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The display name of the property. | 
 **DataTypeId** | [**ResourceId**](ResourceId.md) |  | 
 **LifeTime** | **string** | Describes how the property&#39;s values can change over time. | [optional] 
+**ConstraintStyle** | **string** | Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \&quot;Property\&quot; if not specified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
