@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;InstrumentIdTypeDescriptor&gt;**](InstrumentIdTypeDescriptor.md) |  | 
+**Values** | [**List&lt;InstrumentIdTypeDescriptor&gt;**](InstrumentIdTypeDescriptor.md) |  | [optional] 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

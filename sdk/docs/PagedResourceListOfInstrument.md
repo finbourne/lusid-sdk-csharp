@@ -1,11 +1,13 @@
 
-# Lusid.Sdk.Model.ResourceListOfReconciliationBreak
+# Lusid.Sdk.Model.PagedResourceListOfInstrument
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;ReconciliationBreak&gt;**](ReconciliationBreak.md) |  | [optional] 
+**NextPage** | **string** |  | [optional] 
+**PreviousPage** | **string** |  | [optional] 
+**Values** | [**List&lt;Instrument&gt;**](Instrument.md) |  | [optional] 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;ProcessedCommand&gt;**](ProcessedCommand.md) |  | 
+**Values** | [**List&lt;ProcessedCommand&gt;**](ProcessedCommand.md) |  | [optional] 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

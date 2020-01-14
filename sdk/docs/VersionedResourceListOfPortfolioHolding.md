@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | [**Version**](Version.md) |  | 
-**Values** | [**List&lt;PortfolioHolding&gt;**](PortfolioHolding.md) |  | 
+**Values** | [**List&lt;PortfolioHolding&gt;**](PortfolioHolding.md) |  | [optional] 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
