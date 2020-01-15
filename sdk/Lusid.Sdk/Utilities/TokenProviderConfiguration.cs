@@ -6,7 +6,7 @@ namespace Lusid.Sdk.Utilities
     /// <summary>
     /// Custom class, derived from the auto-generated Configuration, which allows the access token to be pulled from an ITokenProvider when required
     /// </summary>
-    public class TokenProviderConfiguration : Configuration
+    internal class TokenProviderConfiguration : Configuration
     {
         private readonly ITokenProvider _tokenProvider;
 
