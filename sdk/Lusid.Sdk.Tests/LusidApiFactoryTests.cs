@@ -1,13 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Utilities;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests
@@ -170,6 +166,5 @@ namespace Lusid.Sdk.Tests
             
             Assert.That(errorResponse, Is.Null);
         }
-
     }
 }
