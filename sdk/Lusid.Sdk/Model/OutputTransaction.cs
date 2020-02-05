@@ -133,14 +133,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The number of units transacted in the associated instrument.</value>
         [DataMember(Name="units", EmitDefaultValue=false)]
-        public double? Units { get; private set; }
+        public decimal? Units { get; private set; }
 
         /// <summary>
         /// The total value of the transaction in the transaction currency.
         /// </summary>
         /// <value>The total value of the transaction in the transaction currency.</value>
         [DataMember(Name="transactionAmount", EmitDefaultValue=false)]
-        public double? TransactionAmount { get; private set; }
+        public decimal? TransactionAmount { get; private set; }
 
         /// <summary>
         /// Gets or Sets TransactionPrice
@@ -159,14 +159,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The exchange rate between the transaction and settlement currency. For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate.</value>
         [DataMember(Name="exchangeRate", EmitDefaultValue=false)]
-        public double? ExchangeRate { get; private set; }
+        public decimal? ExchangeRate { get; private set; }
 
         /// <summary>
         /// The exchange rate between the transaction and portfolio currency. For example if the transaction currency is in USD and the portfolio currency is in GBP this this the USD/GBP rate.
         /// </summary>
         /// <value>The exchange rate between the transaction and portfolio currency. For example if the transaction currency is in USD and the portfolio currency is in GBP this this the USD/GBP rate.</value>
         [DataMember(Name="transactionToPortfolioRate", EmitDefaultValue=false)]
-        public double? TransactionToPortfolioRate { get; private set; }
+        public decimal? TransactionToPortfolioRate { get; private set; }
 
         /// <summary>
         /// The transaction currency.

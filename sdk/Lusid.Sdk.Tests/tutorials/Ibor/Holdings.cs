@@ -50,13 +50,13 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             transactions.Add(_testDataUtilities.BuildCashFundsInTransactionRequest(100000, currency, dayT1));
             
             //    Add initial transactions on dayT1
-            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[0], 100.0, 101.0, currency, dayT1, "Buy"));
-            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[1], 100.0, 102.0, currency, dayT1, "Buy"));
-            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[2], 100.0, 103.0, currency, dayT1, "Buy"));
+            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[0], 100.0M, 101.0M, currency, dayT1, "Buy"));
+            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[1], 100.0M, 102.0M, currency, dayT1, "Buy"));
+            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[2], 100.0M, 103.0M, currency, dayT1, "Buy"));
             
             //    On T+5, add a transaction in another instrument and another to increase the amount of instrument 1
-            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[1], 100.0, 104.0, currency, dayTPlus5, "Buy"));
-            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[3], 100.0, 105.0, currency, dayTPlus5, "Buy"));
+            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[1], 100.0M, 104.0M, currency, dayTPlus5, "Buy"));
+            transactions.Add(_testDataUtilities.BuildTransactionRequest(_instrumentIds[3], 100.0M, 105.0M, currency, dayTPlus5, "Buy"));
             
             //    Upload the transactions to LUSID
             _transactionPortfoliosApi.UpsertTransactions(TestDataUtilities.TutorialScope, portfolioId, transactions);
@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                         instrumentIdentifiers: new Dictionary<string, string> { [TestDataUtilities.LusidCashIdentifier] = currency},
                         taxLots: new List<TargetTaxLotRequest>
                         {
-                            new TargetTaxLotRequest(units: 100000.0)
+                            new TargetTaxLotRequest(units: 100000.0M)
                         }
                     ),
                 
@@ -129,10 +129,10 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                         taxLots: new List<TargetTaxLotRequest>
                         {
                             new TargetTaxLotRequest(
-                                units: 100.0, 
-                                price: 101.0, 
-                                cost: new CurrencyAndAmount(10100.0, currency),
-                                portfolioCost: 10100.0,
+                                units: 100.0M, 
+                                price: 101.0M, 
+                                cost: new CurrencyAndAmount(10100.0M, currency),
+                                portfolioCost: 10100.0M,
                                 purchaseDate: day1,
                                 settlementDate: day1
                             )
@@ -145,10 +145,10 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                     taxLots: new List<TargetTaxLotRequest>
                     {
                         new TargetTaxLotRequest(
-                            units: 100.0, 
-                            price: 102.0, 
-                            cost: new CurrencyAndAmount(10200.0, currency),
-                            portfolioCost: 10200.0,
+                            units: 100.0M, 
+                            price: 102.0M, 
+                            cost: new CurrencyAndAmount(10200.0M, currency),
+                            portfolioCost: 10200.0M,
                             purchaseDate: day1,
                             settlementDate: day1
                         )
@@ -163,8 +163,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _transactionPortfoliosApi.UpsertTransactions(TestDataUtilities.TutorialScope, portfolioCode,
                 new List<TransactionRequest>
                 {
-                    _testDataUtilities.BuildTransactionRequest(instrument1, units: 100.0, price: 104.0, currency: currency, tradeDate: day2, transactionType: "Buy"),
-                    _testDataUtilities.BuildTransactionRequest(instrument3, units: 100.0, price: 103.0, currency: currency, tradeDate: day2, transactionType: "Buy")
+                    _testDataUtilities.BuildTransactionRequest(instrument1, units: 100.0M, price: 104.0M, currency: currency, tradeDate: day2, transactionType: "Buy"),
+                    _testDataUtilities.BuildTransactionRequest(instrument3, units: 100.0M, price: 103.0M, currency: currency, tradeDate: day2, transactionType: "Buy")
                 });
             
             //    get the holdings for day 2

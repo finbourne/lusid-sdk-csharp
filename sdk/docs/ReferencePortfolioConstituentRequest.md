@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | Unique instrument identifiers | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
-**Weight** | **double?** |  | 
+**Weight** | **decimal?** |  | 
 **Currency** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

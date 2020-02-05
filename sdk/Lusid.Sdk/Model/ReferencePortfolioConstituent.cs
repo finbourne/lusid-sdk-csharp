@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Properties associated with the constituent.</param>
         /// <param name="weight">weight (required).</param>
         /// <param name="floatingWeight">floatingWeight.</param>
-        public ReferencePortfolioConstituent(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentUid = default(string), string currency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), double? weight = default(double?), double? floatingWeight = default(double?))
+        public ReferencePortfolioConstituent(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentUid = default(string), string currency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal? weight = default(decimal?), decimal? floatingWeight = default(decimal?))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -110,13 +110,13 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Weight
         /// </summary>
         [DataMember(Name="weight", EmitDefaultValue=false)]
-        public double? Weight { get; set; }
+        public decimal? Weight { get; set; }
 
         /// <summary>
         /// Gets or Sets FloatingWeight
         /// </summary>
         [DataMember(Name="floatingWeight", EmitDefaultValue=false)]
-        public double? FloatingWeight { get; set; }
+        public decimal? FloatingWeight { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

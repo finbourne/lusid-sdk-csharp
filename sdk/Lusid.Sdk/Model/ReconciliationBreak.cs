@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="rightCost">rightCost (required).</param>
         /// <param name="differenceCost">differenceCost (required).</param>
         /// <param name="instrumentProperties">Additional features relating to the instrument (required).</param>
-        public ReconciliationBreak(string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), double? leftUnits = default(double?), double? rightUnits = default(double?), double? differenceUnits = default(double?), CurrencyAndAmount leftCost = default(CurrencyAndAmount), CurrencyAndAmount rightCost = default(CurrencyAndAmount), CurrencyAndAmount differenceCost = default(CurrencyAndAmount), List<Property> instrumentProperties = default(List<Property>))
+        public ReconciliationBreak(string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), decimal? leftUnits = default(decimal?), decimal? rightUnits = default(decimal?), decimal? differenceUnits = default(decimal?), CurrencyAndAmount leftCost = default(CurrencyAndAmount), CurrencyAndAmount rightCost = default(CurrencyAndAmount), CurrencyAndAmount differenceCost = default(CurrencyAndAmount), List<Property> instrumentProperties = default(List<Property>))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -158,21 +158,21 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Units from the left hand side</value>
         [DataMember(Name="leftUnits", EmitDefaultValue=false)]
-        public double? LeftUnits { get; set; }
+        public decimal? LeftUnits { get; set; }
 
         /// <summary>
         /// Units from the right hand side
         /// </summary>
         /// <value>Units from the right hand side</value>
         [DataMember(Name="rightUnits", EmitDefaultValue=false)]
-        public double? RightUnits { get; set; }
+        public decimal? RightUnits { get; set; }
 
         /// <summary>
         /// Difference in units
         /// </summary>
         /// <value>Difference in units</value>
         [DataMember(Name="differenceUnits", EmitDefaultValue=false)]
-        public double? DifferenceUnits { get; set; }
+        public decimal? DifferenceUnits { get; set; }
 
         /// <summary>
         /// Gets or Sets LeftCost

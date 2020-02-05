@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="amount">amount.</param>
         /// <param name="currency">currency.</param>
-        public CurrencyAndAmount(double? amount = default(double?), string currency = default(string))
+        public CurrencyAndAmount(decimal? amount = default(decimal?), string currency = default(string))
         {
             this.Amount = amount;
             this.Currency = currency;
@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public double? Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency

@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain..</param>
         /// <param name="counterpartyId">The identifier for the counterparty of the transaction..</param>
         /// <param name="source">The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration..</param>
-        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentUid = default(string), DateTimeOffset? transactionDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), double? units = default(double?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), double? exchangeRate = default(double?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string))
+        public Transaction(string transactionId = default(string), string type = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentUid = default(string), DateTimeOffset? transactionDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?), decimal? units = default(decimal?), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal? exchangeRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -187,7 +187,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The number of units transacted in the associated instrument.</value>
         [DataMember(Name="units", EmitDefaultValue=false)]
-        public double? Units { get; set; }
+        public decimal? Units { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionPrice
@@ -206,7 +206,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The exchange rate between the transaction and settlement currency. For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate.</value>
         [DataMember(Name="exchangeRate", EmitDefaultValue=false)]
-        public double? ExchangeRate { get; set; }
+        public decimal? ExchangeRate { get; set; }
 
         /// <summary>
         /// The transaction currency.

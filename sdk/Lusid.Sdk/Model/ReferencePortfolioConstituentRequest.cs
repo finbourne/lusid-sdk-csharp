@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="properties">properties.</param>
         /// <param name="weight">weight (required).</param>
         /// <param name="currency">currency.</param>
-        public ReferencePortfolioConstituentRequest(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), double? weight = default(double?), string currency = default(string))
+        public ReferencePortfolioConstituentRequest(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), decimal? weight = default(decimal?), string currency = default(string))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
             if (instrumentIdentifiers == null)
@@ -83,7 +83,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Weight
         /// </summary>
         [DataMember(Name="weight", EmitDefaultValue=false)]
-        public double? Weight { get; set; }
+        public decimal? Weight { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency

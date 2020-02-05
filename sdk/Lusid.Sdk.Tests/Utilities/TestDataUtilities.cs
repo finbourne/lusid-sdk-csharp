@@ -48,8 +48,8 @@ namespace Lusid.Sdk.Tests.Utilities
 
         public TransactionRequest BuildTransactionRequest(
             string instrumentId,
-            double units, 
-            double price,
+            decimal units, 
+            decimal price,
             string currency,
             DateTimeOffset tradeDate, 
             string transactionType)
@@ -70,7 +70,7 @@ namespace Lusid.Sdk.Tests.Utilities
         }
 
         public TransactionRequest BuildCashFundsInTransactionRequest(
-            double units,
+            decimal units,
             string currency,
             DateTimeOffset tradeDate)
         {
@@ -87,7 +87,7 @@ namespace Lusid.Sdk.Tests.Utilities
                 settlementDate: tradeDate,
                 units: units,
                 totalConsideration: new CurrencyAndAmount(0, "GBP"),
-                transactionPrice: new TransactionPrice(0.0),
+                transactionPrice: new TransactionPrice(0.0M),
                 source: "Client");
         }
     }
