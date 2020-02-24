@@ -20,7 +20,11 @@ namespace Lusid.Sdk.Utilities
     /// <inheritdoc />
     public class LusidApiFactory : ILusidApiFactory
     {
-        private Dictionary<Type, IApiAccessor> _apis;
+        private static readonly IEnumerable<Type> ApiTypes = Assembly.GetAssembly(typeof(ApiClient))
+            .GetTypes()
+            .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+
+        private readonly IReadOnlyDictionary<Type, IApiAccessor> _apis;
 
         /// <summary>
         /// Create a new factory using the specified configuration
@@ -49,7 +53,7 @@ namespace Lusid.Sdk.Utilities
             
             configuration.AddDefaultHeader("X-LUSID-Application", apiConfiguration.ApplicationName);
 
-            Init(configuration);
+            _apis = Init(configuration);
         }
                 
         /// <summary>
@@ -59,17 +63,13 @@ namespace Lusid.Sdk.Utilities
         {
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
             
-            Init(configuration);
+            _apis = Init(configuration);
         }
 
-        private void Init(Configuration configuration)
-        {   
-            IEnumerable<Type> apis = Assembly.GetAssembly(typeof(ApiClient))
-                .GetTypes()
-                .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
-
-            _apis = new Dictionary<Type, IApiAccessor>();
-            foreach (var api in apis)
+        private static Dictionary<Type, IApiAccessor> Init(Configuration configuration)
+        {
+            var dict = new Dictionary<Type, IApiAccessor>();
+            foreach (Type api in ApiTypes)
             {
                 if (!(Activator.CreateInstance(api, configuration) is IApiAccessor impl))
                 {
@@ -79,9 +79,11 @@ namespace Lusid.Sdk.Utilities
                 var @interface = api.GetInterfaces()
                     .First(i => typeof(IApiAccessor).IsAssignableFrom(i));
 
-                _apis[api] = impl;
-                _apis[@interface] = impl;
+                dict[api] = impl;
+                dict[@interface] = impl;
             }
+
+            return dict;
         }
 
         /// <inheritdoc />
@@ -93,6 +95,7 @@ namespace Lusid.Sdk.Utilities
             {
                 throw new InvalidOperationException($"Unable to find api: {typeof(TApi)}");
             }
+
             return api as TApi;
         }
     }
