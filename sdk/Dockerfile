@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.0-sdk
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 RUN mkdir -p /usr/src
 WORKDIR /usr/src
