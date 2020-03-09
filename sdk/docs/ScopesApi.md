@@ -1,10 +1,10 @@
 # Lusid.Sdk.Api.ScopesApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] List scopes
+[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] List Scopes
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > ResourceListOfScopeDefinition ListScopes (string filter = null)
 
-[EARLY ACCESS] List scopes
+[EARLY ACCESS] List Scopes
 
 List all the scopes that contain data.
 
@@ -31,16 +31,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ScopesApi(Configuration.Default);
-            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
-                // [EARLY ACCESS] List scopes
+                // [EARLY ACCESS] List Scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListScopes(filter);
                 Debug.WriteLine(result);
             }
@@ -60,7 +60,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **filter** | **string**| Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 

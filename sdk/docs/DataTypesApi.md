@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.DataTypesApi
 
-All URIs are relative to *http://localhost/api*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -117,7 +117,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -125,7 +125,7 @@ namespace Example
             var scope = scope_example;  // string | The scope of the data type
             var code = code_example;  // string | The code of the data type
             var units = new List<string>(); // List<string> | One or more unit identifiers for which the definition is being requested (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var filter = filter_example;  // string | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \"schema eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The as at of the requested data type (optional) 
 
             try
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the data type | 
  **code** | **string**| The code of the data type | 
  **units** | [**List&lt;string&gt;**](string.md)| One or more unit identifiers for which the definition is being requested | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **filter** | **string**| Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
  **asAt** | **DateTimeOffset?**| Optional. The as at of the requested data type | [optional] 
 
 ### Return type
@@ -205,7 +205,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost/api";
+            Configuration.Default.BasePath = "http://localhost";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -216,7 +216,7 @@ namespace Example
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var filter = filter_example;  // string | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
  **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **filter** | **string**| Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
 ### Return type
 
