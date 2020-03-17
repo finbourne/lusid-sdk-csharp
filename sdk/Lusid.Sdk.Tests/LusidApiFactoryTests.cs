@@ -166,5 +166,43 @@ namespace Lusid.Sdk.Tests
             
             Assert.That(errorResponse, Is.Null);
         }
+
+        [Test, Explicit("Only an issue on .NET Core 2.2 on Linux / MacOS")]
+        public void LinuxSocketLeakTest() // See DEV-7152
+        {
+            ApiConfiguration config = null; // config = ApiConfigurationBuilder.Build("secrets.json"); // ApiConfigurationBuilder is in Preview SDK only atm
+            var provider = new ClientCredentialsFlowTokenProvider(config);
+
+            var api = BuildApi();
+            api.CreatePortfolioGroup("sdktest", new CreatePortfolioGroupRequest("TestGroup", displayName: "TestGroup"));
+
+            // This loop should eventually throw a SocketException: "Address already in use" once all the sockets have been exhausted
+            for (int i = 0; i < 50_000; i++)
+            {
+                api = BuildApi();
+                PortfolioGroup result = api.GetPortfolioGroup("sdktest", "TestGroup");
+                Assert.That(result, Is.Not.Null);
+
+                // Option 1: force dispose of ApiClient
+                //api.Configuration.ApiClient.Dispose();
+
+                // Option 2: force all finalizers to run
+                if (i % 100 == 0)
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
+            }
+
+            /*** Local Functions ***/
+            IPortfolioGroupsApi BuildApi()
+            {
+                // An instance of HttpClient is created within LusidApiFactory.Configuration.ApiClient.RestClient
+                // which wasn't being disposed
+                ILusidApiFactory factory = LusidApiFactoryBuilder.Build(config.ApiUrl, provider);
+                IPortfolioGroupsApi api = factory.Api<IPortfolioGroupsApi>();
+                return api;
+            }
+        }
     }
 }

@@ -68,6 +68,24 @@ namespace Lusid.Sdk.Utilities
 
         private static Dictionary<Type, IApiAccessor> Init(Configuration configuration)
         {
+            // DEV-7152: we must explicitly Dispose an HttpClient in .NET Core 2.2 in order to avoid
+            // socket leaks on Linux / MacOS: https://github.com/dotnet/runtime/issues/29327
+            //
+            // RestSharp.Portable.RestClientBase implements a finalizer, which, when run, does 
+            // NOT dispose its HttpClient instance, but DOES set a flag which means thereafter 
+            // the HttpClient can NEVER be disposed.
+            //
+            // We are using a finalizer on ApiClient to ensure the HttpClient always gets disposed
+            // (see Utilities/ApiClient.Dispose.cs), but finalizers are not executed in a deterministic
+            // order, so there is a race condition: if ~RestClient() runs before ~ApiClient(), then
+            // RestClient ends up in a 'disposed=true' state and the HttpClient can then NEVER then be
+            // explicitly disposed.
+            //
+            // Calling SuppressFinalize ensures ~RestClient() never runs, so ApiClient.DisposeImpl can
+            // then call RestClient.Dispose, which does the correct cleanup.
+            GC.SuppressFinalize(configuration.ApiClient.RestClient);
+
+
             var dict = new Dictionary<Type, IApiAccessor>();
             foreach (Type api in ApiTypes)
             {
