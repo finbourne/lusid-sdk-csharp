@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | [**Version**](Version.md) |  | 
-**Values** | [**List&lt;OutputTransaction&gt;**](OutputTransaction.md) |  | [optional] 
+**Values** | [**List&lt;OutputTransaction&gt;**](OutputTransaction.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

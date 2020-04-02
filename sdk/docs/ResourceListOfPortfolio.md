@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;Portfolio&gt;**](Portfolio.md) |  | [optional] 
+**Values** | [**List&lt;Portfolio&gt;**](Portfolio.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;PropertyDefinition&gt;**](PropertyDefinition.md) |  | [optional] 
+**Values** | [**List&lt;PropertyDefinition&gt;**](PropertyDefinition.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

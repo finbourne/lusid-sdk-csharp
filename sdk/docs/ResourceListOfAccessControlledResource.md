@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;AccessControlledResource&gt;**](AccessControlledResource.md) |  | [optional] 
+**Values** | [**List&lt;AccessControlledResource&gt;**](AccessControlledResource.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

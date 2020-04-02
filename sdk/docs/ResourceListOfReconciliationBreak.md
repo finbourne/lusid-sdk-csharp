@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;ReconciliationBreak&gt;**](ReconciliationBreak.md) |  | [optional] 
+**Values** | [**List&lt;ReconciliationBreak&gt;**](ReconciliationBreak.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;CutLabelDefinition&gt;**](CutLabelDefinition.md) |  | [optional] 
+**Values** | [**List&lt;CutLabelDefinition&gt;**](CutLabelDefinition.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

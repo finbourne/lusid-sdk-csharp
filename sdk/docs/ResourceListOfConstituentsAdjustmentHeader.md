@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;ConstituentsAdjustmentHeader&gt;**](ConstituentsAdjustmentHeader.md) |  | [optional] 
+**Values** | [**List&lt;ConstituentsAdjustmentHeader&gt;**](ConstituentsAdjustmentHeader.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

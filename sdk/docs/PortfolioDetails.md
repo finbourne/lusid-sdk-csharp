@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **OriginPortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **Version** | [**Version**](Version.md) |  | 
 **BaseCurrency** | **string** | The base currency of the transaction portfolio. | 

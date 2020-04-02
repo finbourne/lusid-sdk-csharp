@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**List&lt;HoldingsAdjustmentHeader&gt;**](HoldingsAdjustmentHeader.md) |  | [optional] 
+**Values** | [**List&lt;HoldingsAdjustmentHeader&gt;**](HoldingsAdjustmentHeader.md) |  | 
 **Href** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

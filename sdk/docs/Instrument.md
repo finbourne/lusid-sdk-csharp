@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | **string** | The specifc Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **LusidInstrumentId** | **string** | The unique LUSID Instrument Identifier (LUID) of the instrument. | 
 **Version** | [**Version**](Version.md) |  | 
 **Name** | **string** | The name of the instrument. | 
