@@ -20,11 +20,7 @@ namespace Lusid.Sdk.Utilities
     /// <inheritdoc />
     public class LusidApiFactory : ILusidApiFactory
     {
-        private static readonly IEnumerable<Type> ApiTypes = Assembly.GetAssembly(typeof(ApiClient))
-            .GetTypes()
-            .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
-
-        private readonly IReadOnlyDictionary<Type, IApiAccessor> _apis;
+        private Dictionary<Type, IApiAccessor> _apis;
 
         /// <summary>
         /// Create a new factory using the specified configuration
@@ -32,7 +28,7 @@ namespace Lusid.Sdk.Utilities
         public LusidApiFactory(ApiConfiguration apiConfiguration)
         {
             if (apiConfiguration == null) throw new ArgumentNullException(nameof(apiConfiguration));
-
+            
             // Validate Uris
             if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
             {
@@ -51,25 +47,29 @@ namespace Lusid.Sdk.Utilities
                 BasePath = apiConfiguration.ApiUrl,
             };
             
-            // configuration.AddDefaultHeader("X-LUSID-Application", apiConfiguration.ApplicationName);
+            configuration.AddDefaultHeader("X-LUSID-Application", apiConfiguration.ApplicationName);
 
-            _apis = Init(configuration);
+            Init(configuration);
         }
-
+                
         /// <summary>
         /// Create a new factory using the specified configuration
         /// </summary>
         public LusidApiFactory(Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
-
-            _apis = Init(configuration);
+            
+            Init(configuration);
         }
 
-        private static Dictionary<Type, IApiAccessor> Init(Configuration configuration)
-        {
-            var dict = new Dictionary<Type, IApiAccessor>();
-            foreach (Type api in ApiTypes)
+        private void Init(Configuration configuration)
+        {   
+            IEnumerable<Type> apis = Assembly.GetAssembly(typeof(ApiClient))
+                .GetTypes()
+                .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+
+            _apis = new Dictionary<Type, IApiAccessor>();
+            foreach (var api in apis)
             {
                 if (!(Activator.CreateInstance(api, configuration) is IApiAccessor impl))
                 {
@@ -79,11 +79,9 @@ namespace Lusid.Sdk.Utilities
                 var @interface = api.GetInterfaces()
                     .First(i => typeof(IApiAccessor).IsAssignableFrom(i));
 
-                dict[api] = impl;
-                dict[@interface] = impl;
+                _apis[api] = impl;
+                _apis[@interface] = impl;
             }
-
-            return dict;
         }
 
         /// <inheritdoc />
@@ -95,7 +93,6 @@ namespace Lusid.Sdk.Utilities
             {
                 throw new InvalidOperationException($"Unable to find api: {typeof(TApi)}");
             }
-
             return api as TApi;
         }
     }

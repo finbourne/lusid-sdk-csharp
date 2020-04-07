@@ -1,7 +1,7 @@
 namespace Lusid.Sdk.Utilities
 {
     /// <summary>
-    /// Configuration for the ClientCredentialsFlowTokenProvider, usually sourced from a "secrets.json" file
+    /// Configuration for the ClientCredentialsFlowTokenProvider, usually sourced from a "secrets.json" file 
     /// </summary>
     public class ApiConfiguration
     {

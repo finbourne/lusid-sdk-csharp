@@ -39,16 +39,16 @@ namespace Lusid.Sdk.Utilities
         /// </summary>
         public static LusidValidationProblemDetails ValidationProblemDetails(this ApiException ex)
         {
-            if (ex.ErrorContent != null && ex.ErrorContent is string errorContent)
+            if (ex.ErrorContent == null)
             {
-                //    ApiException.ErrorContent contains a JSON serialized ValidationProblemDetails
-                return JsonConvert.DeserializeObject<LusidValidationProblemDetails>(errorContent, new JsonConverter[]
-                {
-                    new PropertyBasedConverter(),
-                });
+                return null;
             }
-
-            return null;
+            
+            //    ApiException.ErrorContent contains a JSON serialized ValidationProblemDetails
+            return JsonConvert.DeserializeObject<LusidValidationProblemDetails>(ex.ErrorContent, new JsonConverter[]
+            {
+                new PropertyBasedConverter(),
+            });
         }
         
         /// <summary>
@@ -56,16 +56,16 @@ namespace Lusid.Sdk.Utilities
         /// </summary>
         public static LusidProblemDetails ProblemDetails(this ApiException ex)
         {
-            if (ex.ErrorContent != null && ex.ErrorContent is string errorContent)
+            if (ex.ErrorContent == null)
             {
-                //    ApiException.ErrorContent contains a JSON serialized ProblemDetails
-                return JsonConvert.DeserializeObject<LusidProblemDetails>(errorContent, new JsonConverter[]
-                {
-                    new PropertyBasedConverter(),
-                });
+                return null;
             }
 
-            return null;
+            //    ApiException.ErrorContent contains a JSON serialized ProblemDetails
+            return JsonConvert.DeserializeObject<LusidProblemDetails>(ex.ErrorContent, new JsonConverter[]
+            {
+                new PropertyBasedConverter(),
+            });
         }
     }
 }
