@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Tests.Utilities
                 transactionDate: tradeDate,
                 settlementDate: tradeDate,
                 units: units,
-                transactionPrice: new TransactionPrice(price, TransactionPrice.TypeEnum.Price),
+                transactionPrice: new TransactionPrice(price, TransactionPriceType.Price),
                 totalConsideration: new CurrencyAndAmount(price*units, currency),
                 source: "Broker");
         }

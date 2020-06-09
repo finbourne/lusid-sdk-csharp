@@ -70,14 +70,14 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var propertyDefinition = new CreatePropertyDefinitionRequest(
                 
                 //    The domain the property is to be applied to
-                domain: CreatePropertyDefinitionRequest.DomainEnum.Portfolio,
+                domain: PropertyDomain.Portfolio,
                 
                 //    The scope the property will be created in
                 scope: TestDataUtilities.TutorialScope,
                 
                 //    When the property value is set it will be valid forever and cannot be changed.
                 //    Properties whose values can change over time should be created with LifeTimeEnum.TIMEVARIANT
-                lifeTime: CreatePropertyDefinitionRequest.LifeTimeEnum.Perpetual,
+                lifeTime: PropertyLifeTime.Perpetual,
                 
                 code: propertyName,
                 valueRequired: false,
@@ -145,7 +145,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 transactionDate: effectiveDate,
                 settlementDate: effectiveDate,
                 units: 100,
-                transactionPrice: new TransactionPrice(12.3M, TransactionPrice.TypeEnum.Price),
+                transactionPrice: new TransactionPrice(12.3M, TransactionPriceType.Price),
                 totalConsideration: new CurrencyAndAmount(1230, "GBP"),
                 source: "Broker"
             );
@@ -174,14 +174,14 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var propertyDefinition = new CreatePropertyDefinitionRequest(
                 
                 //    The domain the property is to be applied to
-                domain: CreatePropertyDefinitionRequest.DomainEnum.Transaction,
+                domain: PropertyDomain.Transaction,
                 
                 //    The scope the property will be created in
                 scope: TestDataUtilities.TutorialScope,
                 
                 //    When the property value is set it will be valid forever and cannot be changed.
                 //    Properties whose values can change over time should be created with LifeTimeEnum.TIMEVARIANT
-                lifeTime: CreatePropertyDefinitionRequest.LifeTimeEnum.Perpetual,
+                lifeTime: PropertyLifeTime.Perpetual,
                 
                 code: propertyName,
                 valueRequired: false,
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 transactionDate: effectiveDate,
                 settlementDate: effectiveDate,
                 units: 100,
-                transactionPrice: new TransactionPrice(12.3M, TransactionPrice.TypeEnum.Price),
+                transactionPrice: new TransactionPrice(12.3M, TransactionPriceType.Price),
                 totalConsideration: new CurrencyAndAmount(1230, "GBP"),
                 source: "Custodian"
             );

@@ -163,9 +163,9 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
                 //    Property definition doesn't exist (returns 404), so create one
                 //    Details of the property to be created
                 var propertyDefinition = new CreatePropertyDefinitionRequest(
-                    domain: CreatePropertyDefinitionRequest.DomainEnum.Instrument,
+                    domain: PropertyDomain.Instrument,
                     scope: TestDataUtilities.TutorialScope,
-                    lifeTime: CreatePropertyDefinitionRequest.LifeTimeEnum.Perpetual,
+                    lifeTime: PropertyLifeTime.Perpetual,
                     code: code,
                     valueRequired: false,
                     displayName: code,
@@ -210,7 +210,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             };
             
             //    Get a set of instruments querying by FIGIs
-            var instruments = _instrumentsApi.GetInstruments(identifierType: "Figi", identifiers: figis);
+            var instruments = _instrumentsApi.GetInstruments(identifierType: "Figi", requestBody: figis);
 
             foreach (var figi in figis)
             {
