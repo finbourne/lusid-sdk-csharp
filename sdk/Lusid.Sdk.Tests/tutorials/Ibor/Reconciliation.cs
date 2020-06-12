@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                         finalAsAtTime),
                     new List<string>());
 
-            var listOfBreaks = _apiFactory.Api<IReconciliationsApi>().ReconcileHoldings(request: reconcileRequest);
+            var listOfBreaks = _apiFactory.Api<IReconciliationsApi>().ReconcileHoldings(portfoliosReconciliationRequest: reconcileRequest);
 
             Console.WriteLine($"Breaks at {yesterday.AddHours(20)}");
             PrintBreaks(listOfBreaks.Values);
