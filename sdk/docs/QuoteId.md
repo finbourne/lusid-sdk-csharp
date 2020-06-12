@@ -5,12 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Provider** | **string** |  | 
-**PriceSource** | **string** |  | 
-**InstrumentId** | **string** |  | 
-**InstrumentIdType** | **string** |  | 
-**QuoteType** | **string** |  | 
-**PriceSide** | **string** |  | 
+**QuoteSeriesId** | [**QuoteSeriesId**](QuoteSeriesId.md) |  | 
+**EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The effective datetime or cut label at which the quote is valid from. | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

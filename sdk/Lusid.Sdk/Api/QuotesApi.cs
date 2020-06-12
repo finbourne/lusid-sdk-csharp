@@ -9,382 +9,183 @@
  */
 
 using System;
-using System.Reflection;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.IO;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
+using RestSharp.Portable;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
 
-namespace Lusid.Sdk.Client
+namespace Lusid.Sdk.Api
 {
     /// <summary>
-    /// Represents a set of configuration settings
+    /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public class Configuration : IReadableConfiguration
+    public interface IQuotesApi : IApiAccessor
     {
-        #region Constants
+        #region Synchronous Operations
+        /// <summary>
+        /// [DEPRECATED] List quotes
+        /// </summary>
+        /// <remarks>
+        /// List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfQuote</returns>
+        ResourceListOfQuote ListQuotes (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// Version of the package.
+        /// [DEPRECATED] List quotes
         /// </summary>
-        /// <value>Version of the package.</value>
-        public const string Version = "0.10.1482";
+        /// <remarks>
+        /// List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfQuote</returns>
+        ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
+        /// <summary>
+        /// [DEPRECATED] List quotes
+        /// </summary>
+        /// <remarks>
+        /// List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfQuote</returns>
+        System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesAsync (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
-        /// Identifier for ISO 8601 DateTime Format
+        /// [DEPRECATED] List quotes
         /// </summary>
-        /// <remarks>See https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8 for more information.</remarks>
-        // ReSharper disable once InconsistentNaming
-        public const string ISO8601_DATETIME_FORMAT = "o";
+        /// <remarks>
+        /// List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
+        #endregion Asynchronous Operations
+    }
 
-        #endregion Constants
-
-        #region Static Members
-
-        private static readonly object GlobalConfigSync = new { };
-        private static Configuration _globalConfiguration;
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public partial class QuotesApi : IQuotesApi
+    {
+        private Lusid.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Default creation of exceptions for a given method name and response object
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class.
         /// </summary>
-        public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
+        /// <returns></returns>
+        public QuotesApi(String basePath)
         {
-            var status = (int)response.StatusCode;
-            if (status >= 400)
-            {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.Content),
-                    response.Content);
-            }
-            
-            return null;
-        };
+            this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
 
-        /// <summary>
-        /// Gets or sets the default Configuration.
-        /// </summary>
-        /// <value>Configuration.</value>
-        public static Configuration Default
-        {
-            get { return _globalConfiguration; }
-            set
-            {
-                lock (GlobalConfigSync)
-                {
-                    _globalConfiguration = value;
-                }
-            }
-        }
-
-        #endregion Static Members
-
-        #region Private Members
-
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        private IDictionary<string, string> _apiKey = null;
-
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        private IDictionary<string, string> _apiKeyPrefix = null;
-
-        private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
-        private string _tempFolderPath = Path.GetTempPath();
-
-        #endregion Private Members
-
-        #region Constructors
-
-        static Configuration()
-        {
-            _globalConfiguration = new GlobalConfiguration();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class
-        /// </summary>
-        public Configuration()
-        {
-            UserAgent = "OpenAPI-Generator/0.10.1482/csharp";
-            BasePath = "http://localhost";
-            DefaultHeader = new ConcurrentDictionary<string, string>();
-            ApiKey = new ConcurrentDictionary<string, string>();
-            ApiKeyPrefix = new ConcurrentDictionary<string, string>();
-
-            // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = 100000;
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
         /// </summary>
-        public Configuration(
-            IDictionary<string, string> defaultHeader,
-            IDictionary<string, string> apiKey,
-            IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://localhost") : this()
+        /// <returns></returns>
+        public QuotesApi()
         {
-            if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
-            if (defaultHeader == null)
-                throw new ArgumentNullException("defaultHeader");
-            if (apiKey == null)
-                throw new ArgumentNullException("apiKey");
-            if (apiKeyPrefix == null)
-                throw new ArgumentNullException("apiKeyPrefix");
+            this.Configuration = Lusid.Sdk.Client.Configuration.Default;
 
-            BasePath = basePath;
-
-            foreach (var keyValuePair in defaultHeader)
-            {
-                DefaultHeader.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKey)
-            {
-                ApiKey.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKeyPrefix)
-            {
-                ApiKeyPrefix.Add(keyValuePair);
-            }
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class with different settings
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
+        /// using Configuration object
         /// </summary>
-        /// <param name="apiClient">Api client</param>
-        /// <param name="defaultHeader">Dictionary of default HTTP header</param>
-        /// <param name="username">Username</param>
-        /// <param name="password">Password</param>
-        /// <param name="accessToken">accessToken</param>
-        /// <param name="apiKey">Dictionary of API key</param>
-        /// <param name="apiKeyPrefix">Dictionary of API key prefix</param>
-        /// <param name="tempFolderPath">Temp folder path</param>
-        /// <param name="dateTimeFormat">DateTime format string</param>
-        /// <param name="timeout">HTTP connection timeout (in milliseconds)</param>
-        /// <param name="userAgent">HTTP user agent</param>
-        [Obsolete("Use explicit object construction and setting of properties.", true)]
-        public Configuration(
-            // ReSharper disable UnusedParameter.Local
-            ApiClient apiClient = null,
-            IDictionary<string, string> defaultHeader = null,
-            string username = null,
-            string password = null,
-            string accessToken = null,
-            IDictionary<string, string> apiKey = null,
-            IDictionary<string, string> apiKeyPrefix = null,
-            string tempFolderPath = null,
-            string dateTimeFormat = null,
-            int timeout = 100000,
-            string userAgent = "OpenAPI-Generator/0.10.1482/csharp"
-            // ReSharper restore UnusedParameter.Local
-            )
+        /// <param name="configuration">An instance of Configuration</param>
+        /// <returns></returns>
+        public QuotesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
+            if (configuration == null) // use the default one in Configuration
+                this.Configuration = Lusid.Sdk.Client.Configuration.Default;
+            else
+                this.Configuration = configuration;
 
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the Configuration class.
+        /// Gets the base path of the API client.
         /// </summary>
-        /// <param name="apiClient">Api client.</param>
-        [Obsolete("This constructor caused unexpected sharing of static data. It is no longer supported.", true)]
-        // ReSharper disable once UnusedParameter.Local
-        public Configuration(ApiClient apiClient)
+        /// <value>The base path</value>
+        public String GetBasePath()
         {
-
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
         }
 
-        #endregion Constructors
-
-
-        #region Properties
-
-        private ApiClient _apiClient = null;
         /// <summary>
-        /// Gets an instance of an ApiClient for this configuration
+        /// Sets the base path of the API client.
         /// </summary>
-        public virtual ApiClient ApiClient
+        /// <value>The base path</value>
+        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
+        public void SetBasePath(String basePath)
+        {
+            // do nothing
+        }
+
+        /// <summary>
+        /// Gets or sets the configuration object
+        /// </summary>
+        /// <value>An instance of the Configuration</value>
+        public Lusid.Sdk.Client.Configuration Configuration {get; set;}
+
+        /// <summary>
+        /// Provides a factory method hook for the creation of exceptions.
+        /// </summary>
+        public Lusid.Sdk.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
-                if (_apiClient == null) _apiClient = CreateApiClient();
-                return _apiClient;
+                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                {
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                }
+                return _exceptionFactory;
             }
-        }
-
-        private String _basePath = null;
-        /// <summary>
-        /// Gets or sets the base path for API access.
-        /// </summary>
-        public virtual string BasePath {
-            get { return _basePath; }
-            set {
-                _basePath = value;
-                // pass-through to ApiClient if it's set.
-                if(_apiClient != null) {
-                    _apiClient.RestClient.BaseUrl = new Uri(_basePath);
-                }
-            }
+            set { _exceptionFactory = value; }
         }
 
         /// <summary>
-        /// Gets or sets the default header.
+        /// Gets the default header.
         /// </summary>
-        public virtual IDictionary<string, string> DefaultHeader { get; set; }
-
-        /// <summary>
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
-        /// </summary>
-        public virtual int Timeout
+        /// <returns>Dictionary of HTTP header</returns>
+        [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
+        public IDictionary<String, String> DefaultHeader()
         {
-            get { return (int)ApiClient.RestClient.Timeout.GetValueOrDefault(TimeSpan.FromSeconds(0)).TotalMilliseconds; }
-            set { ApiClient.RestClient.Timeout = TimeSpan.FromMilliseconds(value); }
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
         }
-
-        /// <summary>
-        /// Gets or sets the HTTP user agent.
-        /// </summary>
-        /// <value>Http user agent.</value>
-        public virtual string UserAgent { get; set; }
-
-        /// <summary>
-        /// Gets or sets the username (HTTP basic authentication).
-        /// </summary>
-        /// <value>The username.</value>
-        public virtual string Username { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password (HTTP basic authentication).
-        /// </summary>
-        /// <value>The password.</value>
-        public virtual string Password { get; set; }
-
-        /// <summary>
-        /// Gets the API key with prefix.
-        /// </summary>
-        /// <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
-        /// <returns>API key with prefix.</returns>
-        public string GetApiKeyWithPrefix(string apiKeyIdentifier)
-        {
-            var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
-            var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
-                return apiKeyPrefix + " " + apiKeyValue;
-            else
-                return apiKeyValue;
-        }
-
-        /// <summary>
-        /// Gets or sets the access token for OAuth2 authentication.
-        /// </summary>
-        /// <value>The access token.</value>
-        public virtual string AccessToken { get; set; }
-
-        /// <summary>
-        /// Gets or sets the temporary folder path to store the files downloaded from the server.
-        /// </summary>
-        /// <value>Folder path.</value>
-        public virtual string TempFolderPath
-        {
-            get { return _tempFolderPath; }
-
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    _tempFolderPath = Path.GetTempPath();
-                    return;
-                }
-
-                // create the directory if it does not exist
-                if (!Directory.Exists(value))
-                {
-                    Directory.CreateDirectory(value);
-                }
-
-                // check if the path contains directory separator at the end
-                if (value[value.Length - 1] == Path.DirectorySeparatorChar)
-                {
-                    _tempFolderPath = value;
-                }
-                else
-                {
-                    _tempFolderPath = value + Path.DirectorySeparatorChar;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the date time format used when serializing in the ApiClient
-        /// By default, it's set to ISO 8601 - "o", for others see:
-        /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
-        /// and https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx
-        /// No validation is done to ensure that the string you're providing is valid
-        /// </summary>
-        /// <value>The DateTimeFormat string</value>
-        public virtual string DateTimeFormat
-        {
-            get { return _dateTimeFormat; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    // Never allow a blank or null string, go back to the default
-                    _dateTimeFormat = ISO8601_DATETIME_FORMAT;
-                    return;
-                }
-
-                // Caution, no validation when you choose date time format other than ISO 8601
-                // Take a look at the above links
-                _dateTimeFormat = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        public virtual IDictionary<string, string> ApiKeyPrefix
-        {
-            get { return _apiKeyPrefix; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
-                }
-                _apiKeyPrefix = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        public virtual IDictionary<string, string> ApiKey
-        {
-            get { return _apiKey; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKey collection may not be null.");
-                }
-                _apiKey = value;
-            }
-        }
-
-        #endregion Properties
-
-        #region Methods
 
         /// <summary>
         /// Add default header.
@@ -392,55 +193,190 @@ namespace Lusid.Sdk.Client
         /// <param name="key">Header field name.</param>
         /// <param name="value">Header field value.</param>
         /// <returns></returns>
+        [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
         public void AddDefaultHeader(string key, string value)
         {
-            DefaultHeader[key] = value;
+            this.Configuration.AddDefaultHeader(key, value);
         }
 
         /// <summary>
-        /// Creates a new <see cref="ApiClient" /> based on this <see cref="Configuration" /> instance.
+        /// [DEPRECATED] List quotes List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
         /// </summary>
-        /// <returns></returns>
-        public ApiClient CreateApiClient()
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ResourceListOfQuote</returns>
+        public ResourceListOfQuote ListQuotes (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            return new ApiClient(BasePath) { Configuration = this };
-        }
-
-
-        /// <summary>
-        /// Returns a string with essential information for debugging.
-        /// </summary>
-        public static String ToDebugReport()
-        {
-            String report = "C# SDK (Lusid.Sdk) Debug Report:\n";
-            report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
-            report += "    Version of the API: 0.10.1482\n";
-            report += "    SDK Package Version: 0.10.1482\n";
-
-            return report;
+             ApiResponse<ResourceListOfQuote> localVarResponse = ListQuotesWithHttpInfo(scope, asAt, page, start, limit, filter);
+             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Add Api Key Header.
+        /// [DEPRECATED] List quotes List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
         /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        /// <returns></returns>
-        public void AddApiKey(string key, string value)
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>ApiResponse of ResourceListOfQuote</returns>
+        public ApiResponse< ResourceListOfQuote > ListQuotesWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            ApiKey[key] = value;
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotes");
+
+            var localVarPath = "./api/quotes/{scope}/$deprecated";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfQuote>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfQuote) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfQuote)));
         }
 
         /// <summary>
-        /// Sets the API key prefix.
+        /// [DEPRECATED] List quotes List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
         /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        public void AddApiKeyPrefix(string key, string value)
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ResourceListOfQuote</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesAsync (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            ApiKeyPrefix[key] = value;
+             ApiResponse<ResourceListOfQuote> localVarResponse = await ListQuotesAsyncWithHttpInfo(scope, asAt, page, start, limit, filter);
+             return localVarResponse.Data;
+
         }
 
-        #endregion Methods
+        /// <summary>
+        /// [DEPRECATED] List quotes List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to list.</param>
+        /// <param name="asAt">The asAt datetime at which to list the quotes. Defaults to latest if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing quotes from a previous call to list quotes.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="start">When paginating, skip this number of results. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotes");
+
+            var localVarPath = "./api/quotes/{scope}/$deprecated";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ListQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ResourceListOfQuote>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfQuote) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfQuote)));
+        }
+
     }
 }

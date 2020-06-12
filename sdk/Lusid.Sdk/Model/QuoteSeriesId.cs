@@ -9,438 +9,342 @@
  */
 
 using System;
-using System.Reflection;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
-namespace Lusid.Sdk.Client
+namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Represents a set of configuration settings
+    /// The time invariant unique identifier of the quote. Combined with the effective datetime of the quote this  uniquely identifies the quote. This can be thought of as a unique identifier for a time series of quotes.
     /// </summary>
-    public class Configuration : IReadableConfiguration
+    [DataContract]
+    public partial class QuoteSeriesId :  IEquatable<QuoteSeriesId>
     {
-        #region Constants
-
         /// <summary>
-        /// Version of the package.
+        /// The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. &#39;Figi&#39;.
         /// </summary>
-        /// <value>Version of the package.</value>
-        public const string Version = "0.10.1482";
-
-        /// <summary>
-        /// Identifier for ISO 8601 DateTime Format
-        /// </summary>
-        /// <remarks>See https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8 for more information.</remarks>
-        // ReSharper disable once InconsistentNaming
-        public const string ISO8601_DATETIME_FORMAT = "o";
-
-        #endregion Constants
-
-        #region Static Members
-
-        private static readonly object GlobalConfigSync = new { };
-        private static Configuration _globalConfiguration;
-
-        /// <summary>
-        /// Default creation of exceptions for a given method name and response object
-        /// </summary>
-        public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
+        /// <value>The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. &#39;Figi&#39;.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum InstrumentIdTypeEnum
         {
-            var status = (int)response.StatusCode;
-            if (status >= 400)
+            /// <summary>
+            /// Enum LusidInstrumentId for value: LusidInstrumentId
+            /// </summary>
+            [EnumMember(Value = "LusidInstrumentId")]
+            LusidInstrumentId = 1,
+
+            /// <summary>
+            /// Enum Figi for value: Figi
+            /// </summary>
+            [EnumMember(Value = "Figi")]
+            Figi = 2,
+
+            /// <summary>
+            /// Enum RIC for value: RIC
+            /// </summary>
+            [EnumMember(Value = "RIC")]
+            RIC = 3,
+
+            /// <summary>
+            /// Enum QuotePermId for value: QuotePermId
+            /// </summary>
+            [EnumMember(Value = "QuotePermId")]
+            QuotePermId = 4,
+
+            /// <summary>
+            /// Enum Isin for value: Isin
+            /// </summary>
+            [EnumMember(Value = "Isin")]
+            Isin = 5,
+
+            /// <summary>
+            /// Enum CurrencyPair for value: CurrencyPair
+            /// </summary>
+            [EnumMember(Value = "CurrencyPair")]
+            CurrencyPair = 6
+
+        }
+
+        /// <summary>
+        /// The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. &#39;Figi&#39;.
+        /// </summary>
+        /// <value>The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. &#39;Figi&#39;.</value>
+        [DataMember(Name="instrumentIdType", EmitDefaultValue=false)]
+        public InstrumentIdTypeEnum InstrumentIdType { get; set; }
+        /// <summary>
+        /// The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used.
+        /// </summary>
+        /// <value>The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum QuoteTypeEnum
+        {
+            /// <summary>
+            /// Enum Price for value: Price
+            /// </summary>
+            [EnumMember(Value = "Price")]
+            Price = 1,
+
+            /// <summary>
+            /// Enum Spread for value: Spread
+            /// </summary>
+            [EnumMember(Value = "Spread")]
+            Spread = 2,
+
+            /// <summary>
+            /// Enum Rate for value: Rate
+            /// </summary>
+            [EnumMember(Value = "Rate")]
+            Rate = 3,
+
+            /// <summary>
+            /// Enum LogNormalVol for value: LogNormalVol
+            /// </summary>
+            [EnumMember(Value = "LogNormalVol")]
+            LogNormalVol = 4,
+
+            /// <summary>
+            /// Enum NormalVol for value: NormalVol
+            /// </summary>
+            [EnumMember(Value = "NormalVol")]
+            NormalVol = 5,
+
+            /// <summary>
+            /// Enum ParSpread for value: ParSpread
+            /// </summary>
+            [EnumMember(Value = "ParSpread")]
+            ParSpread = 6,
+
+            /// <summary>
+            /// Enum IsdaSpread for value: IsdaSpread
+            /// </summary>
+            [EnumMember(Value = "IsdaSpread")]
+            IsdaSpread = 7,
+
+            /// <summary>
+            /// Enum Upfront for value: Upfront
+            /// </summary>
+            [EnumMember(Value = "Upfront")]
+            Upfront = 8
+
+        }
+
+        /// <summary>
+        /// The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used.
+        /// </summary>
+        /// <value>The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used.</value>
+        [DataMember(Name="quoteType", EmitDefaultValue=false)]
+        public QuoteTypeEnum QuoteType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuoteSeriesId" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected QuoteSeriesId() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuoteSeriesId" /> class.
+        /// </summary>
+        /// <param name="provider">The platform or vendor that provided the quote, e.g. &#39;DataScope&#39;, &#39;LUSID&#39; etc. (required).</param>
+        /// <param name="priceSource">The source or originator of the quote, e.g. a bank or financial institution..</param>
+        /// <param name="instrumentId">The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. &#39;BBG00JX0P539&#39;. (required).</param>
+        /// <param name="instrumentIdType">The type of instrument identifier used to uniquely identify the instrument that the quote is for, e.g. &#39;Figi&#39;. (required).</param>
+        /// <param name="quoteType">The type of the quote. This allows for quotes other than prices e.g. rates or spreads to be used. (required).</param>
+        /// <param name="field">The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider. (required).</param>
+        public QuoteSeriesId(string provider = default(string), string priceSource = default(string), string instrumentId = default(string), InstrumentIdTypeEnum instrumentIdType = default(InstrumentIdTypeEnum), QuoteTypeEnum quoteType = default(QuoteTypeEnum), string field = default(string))
+        {
+            // to ensure "provider" is required (not null)
+            if (provider == null)
             {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.Content),
-                    response.Content);
+                throw new InvalidDataException("provider is a required property for QuoteSeriesId and cannot be null");
+            }
+            else
+            {
+                this.Provider = provider;
             }
             
-            return null;
-        };
-
-        /// <summary>
-        /// Gets or sets the default Configuration.
-        /// </summary>
-        /// <value>Configuration.</value>
-        public static Configuration Default
-        {
-            get { return _globalConfiguration; }
-            set
+            // to ensure "instrumentId" is required (not null)
+            if (instrumentId == null)
             {
-                lock (GlobalConfigSync)
-                {
-                    _globalConfiguration = value;
-                }
+                throw new InvalidDataException("instrumentId is a required property for QuoteSeriesId and cannot be null");
             }
-        }
-
-        #endregion Static Members
-
-        #region Private Members
-
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        private IDictionary<string, string> _apiKey = null;
-
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        private IDictionary<string, string> _apiKeyPrefix = null;
-
-        private string _dateTimeFormat = ISO8601_DATETIME_FORMAT;
-        private string _tempFolderPath = Path.GetTempPath();
-
-        #endregion Private Members
-
-        #region Constructors
-
-        static Configuration()
-        {
-            _globalConfiguration = new GlobalConfiguration();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class
-        /// </summary>
-        public Configuration()
-        {
-            UserAgent = "OpenAPI-Generator/0.10.1482/csharp";
-            BasePath = "http://localhost";
-            DefaultHeader = new ConcurrentDictionary<string, string>();
-            ApiKey = new ConcurrentDictionary<string, string>();
-            ApiKeyPrefix = new ConcurrentDictionary<string, string>();
-
-            // Setting Timeout has side effects (forces ApiClient creation).
-            Timeout = 100000;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class
-        /// </summary>
-        public Configuration(
-            IDictionary<string, string> defaultHeader,
-            IDictionary<string, string> apiKey,
-            IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://localhost") : this()
-        {
-            if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
-            if (defaultHeader == null)
-                throw new ArgumentNullException("defaultHeader");
-            if (apiKey == null)
-                throw new ArgumentNullException("apiKey");
-            if (apiKeyPrefix == null)
-                throw new ArgumentNullException("apiKeyPrefix");
-
-            BasePath = basePath;
-
-            foreach (var keyValuePair in defaultHeader)
-            {
-                DefaultHeader.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKey)
-            {
-                ApiKey.Add(keyValuePair);
-            }
-
-            foreach (var keyValuePair in apiKeyPrefix)
-            {
-                ApiKeyPrefix.Add(keyValuePair);
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class with different settings
-        /// </summary>
-        /// <param name="apiClient">Api client</param>
-        /// <param name="defaultHeader">Dictionary of default HTTP header</param>
-        /// <param name="username">Username</param>
-        /// <param name="password">Password</param>
-        /// <param name="accessToken">accessToken</param>
-        /// <param name="apiKey">Dictionary of API key</param>
-        /// <param name="apiKeyPrefix">Dictionary of API key prefix</param>
-        /// <param name="tempFolderPath">Temp folder path</param>
-        /// <param name="dateTimeFormat">DateTime format string</param>
-        /// <param name="timeout">HTTP connection timeout (in milliseconds)</param>
-        /// <param name="userAgent">HTTP user agent</param>
-        [Obsolete("Use explicit object construction and setting of properties.", true)]
-        public Configuration(
-            // ReSharper disable UnusedParameter.Local
-            ApiClient apiClient = null,
-            IDictionary<string, string> defaultHeader = null,
-            string username = null,
-            string password = null,
-            string accessToken = null,
-            IDictionary<string, string> apiKey = null,
-            IDictionary<string, string> apiKeyPrefix = null,
-            string tempFolderPath = null,
-            string dateTimeFormat = null,
-            int timeout = 100000,
-            string userAgent = "OpenAPI-Generator/0.10.1482/csharp"
-            // ReSharper restore UnusedParameter.Local
-            )
-        {
-
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the Configuration class.
-        /// </summary>
-        /// <param name="apiClient">Api client.</param>
-        [Obsolete("This constructor caused unexpected sharing of static data. It is no longer supported.", true)]
-        // ReSharper disable once UnusedParameter.Local
-        public Configuration(ApiClient apiClient)
-        {
-
-        }
-
-        #endregion Constructors
-
-
-        #region Properties
-
-        private ApiClient _apiClient = null;
-        /// <summary>
-        /// Gets an instance of an ApiClient for this configuration
-        /// </summary>
-        public virtual ApiClient ApiClient
-        {
-            get
-            {
-                if (_apiClient == null) _apiClient = CreateApiClient();
-                return _apiClient;
-            }
-        }
-
-        private String _basePath = null;
-        /// <summary>
-        /// Gets or sets the base path for API access.
-        /// </summary>
-        public virtual string BasePath {
-            get { return _basePath; }
-            set {
-                _basePath = value;
-                // pass-through to ApiClient if it's set.
-                if(_apiClient != null) {
-                    _apiClient.RestClient.BaseUrl = new Uri(_basePath);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the default header.
-        /// </summary>
-        public virtual IDictionary<string, string> DefaultHeader { get; set; }
-
-        /// <summary>
-        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
-        /// </summary>
-        public virtual int Timeout
-        {
-            get { return (int)ApiClient.RestClient.Timeout.GetValueOrDefault(TimeSpan.FromSeconds(0)).TotalMilliseconds; }
-            set { ApiClient.RestClient.Timeout = TimeSpan.FromMilliseconds(value); }
-        }
-
-        /// <summary>
-        /// Gets or sets the HTTP user agent.
-        /// </summary>
-        /// <value>Http user agent.</value>
-        public virtual string UserAgent { get; set; }
-
-        /// <summary>
-        /// Gets or sets the username (HTTP basic authentication).
-        /// </summary>
-        /// <value>The username.</value>
-        public virtual string Username { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password (HTTP basic authentication).
-        /// </summary>
-        /// <value>The password.</value>
-        public virtual string Password { get; set; }
-
-        /// <summary>
-        /// Gets the API key with prefix.
-        /// </summary>
-        /// <param name="apiKeyIdentifier">API key identifier (authentication scheme).</param>
-        /// <returns>API key with prefix.</returns>
-        public string GetApiKeyWithPrefix(string apiKeyIdentifier)
-        {
-            var apiKeyValue = "";
-            ApiKey.TryGetValue (apiKeyIdentifier, out apiKeyValue);
-            var apiKeyPrefix = "";
-            if (ApiKeyPrefix.TryGetValue (apiKeyIdentifier, out apiKeyPrefix))
-                return apiKeyPrefix + " " + apiKeyValue;
             else
-                return apiKeyValue;
+            {
+                this.InstrumentId = instrumentId;
+            }
+            
+            // to ensure "instrumentIdType" is required (not null)
+            if (instrumentIdType == null)
+            {
+                throw new InvalidDataException("instrumentIdType is a required property for QuoteSeriesId and cannot be null");
+            }
+            else
+            {
+                this.InstrumentIdType = instrumentIdType;
+            }
+            
+            // to ensure "quoteType" is required (not null)
+            if (quoteType == null)
+            {
+                throw new InvalidDataException("quoteType is a required property for QuoteSeriesId and cannot be null");
+            }
+            else
+            {
+                this.QuoteType = quoteType;
+            }
+            
+            // to ensure "field" is required (not null)
+            if (field == null)
+            {
+                throw new InvalidDataException("field is a required property for QuoteSeriesId and cannot be null");
+            }
+            else
+            {
+                this.Field = field;
+            }
+            
+            this.PriceSource = priceSource;
+        }
+        
+        /// <summary>
+        /// The platform or vendor that provided the quote, e.g. &#39;DataScope&#39;, &#39;LUSID&#39; etc.
+        /// </summary>
+        /// <value>The platform or vendor that provided the quote, e.g. &#39;DataScope&#39;, &#39;LUSID&#39; etc.</value>
+        [DataMember(Name="provider", EmitDefaultValue=false)]
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// The source or originator of the quote, e.g. a bank or financial institution.
+        /// </summary>
+        /// <value>The source or originator of the quote, e.g. a bank or financial institution.</value>
+        [DataMember(Name="priceSource", EmitDefaultValue=false)]
+        public string PriceSource { get; set; }
+
+        /// <summary>
+        /// The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. &#39;BBG00JX0P539&#39;.
+        /// </summary>
+        /// <value>The value of the instrument identifier that uniquely identifies the instrument that the quote is for, e.g. &#39;BBG00JX0P539&#39;.</value>
+        [DataMember(Name="instrumentId", EmitDefaultValue=false)]
+        public string InstrumentId { get; set; }
+
+
+
+        /// <summary>
+        /// The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider.
+        /// </summary>
+        /// <value>The field of the quote e.g. bid, mid, ask etc. This should be consistent across a time series of quotes. The allowed values are dependant on the specified Provider.</value>
+        [DataMember(Name="field", EmitDefaultValue=false)]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class QuoteSeriesId {\n");
+            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("  PriceSource: ").Append(PriceSource).Append("\n");
+            sb.Append("  InstrumentId: ").Append(InstrumentId).Append("\n");
+            sb.Append("  InstrumentIdType: ").Append(InstrumentIdType).Append("\n");
+            sb.Append("  QuoteType: ").Append(QuoteType).Append("\n");
+            sb.Append("  Field: ").Append(Field).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
 
         /// <summary>
-        /// Gets or sets the access token for OAuth2 authentication.
+        /// Returns true if objects are equal
         /// </summary>
-        /// <value>The access token.</value>
-        public virtual string AccessToken { get; set; }
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as QuoteSeriesId);
+        }
 
         /// <summary>
-        /// Gets or sets the temporary folder path to store the files downloaded from the server.
+        /// Returns true if QuoteSeriesId instances are equal
         /// </summary>
-        /// <value>Folder path.</value>
-        public virtual string TempFolderPath
+        /// <param name="input">Instance of QuoteSeriesId to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(QuoteSeriesId input)
         {
-            get { return _tempFolderPath; }
+            if (input == null)
+                return false;
 
-            set
+            return 
+                (
+                    this.Provider == input.Provider ||
+                    (this.Provider != null &&
+                    this.Provider.Equals(input.Provider))
+                ) && 
+                (
+                    this.PriceSource == input.PriceSource ||
+                    (this.PriceSource != null &&
+                    this.PriceSource.Equals(input.PriceSource))
+                ) && 
+                (
+                    this.InstrumentId == input.InstrumentId ||
+                    (this.InstrumentId != null &&
+                    this.InstrumentId.Equals(input.InstrumentId))
+                ) && 
+                (
+                    this.InstrumentIdType == input.InstrumentIdType ||
+                    (this.InstrumentIdType != null &&
+                    this.InstrumentIdType.Equals(input.InstrumentIdType))
+                ) && 
+                (
+                    this.QuoteType == input.QuoteType ||
+                    (this.QuoteType != null &&
+                    this.QuoteType.Equals(input.QuoteType))
+                ) && 
+                (
+                    this.Field == input.Field ||
+                    (this.Field != null &&
+                    this.Field.Equals(input.Field))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    _tempFolderPath = Path.GetTempPath();
-                    return;
-                }
-
-                // create the directory if it does not exist
-                if (!Directory.Exists(value))
-                {
-                    Directory.CreateDirectory(value);
-                }
-
-                // check if the path contains directory separator at the end
-                if (value[value.Length - 1] == Path.DirectorySeparatorChar)
-                {
-                    _tempFolderPath = value;
-                }
-                else
-                {
-                    _tempFolderPath = value + Path.DirectorySeparatorChar;
-                }
+                int hashCode = 41;
+                if (this.Provider != null)
+                    hashCode = hashCode * 59 + this.Provider.GetHashCode();
+                if (this.PriceSource != null)
+                    hashCode = hashCode * 59 + this.PriceSource.GetHashCode();
+                if (this.InstrumentId != null)
+                    hashCode = hashCode * 59 + this.InstrumentId.GetHashCode();
+                if (this.InstrumentIdType != null)
+                    hashCode = hashCode * 59 + this.InstrumentIdType.GetHashCode();
+                if (this.QuoteType != null)
+                    hashCode = hashCode * 59 + this.QuoteType.GetHashCode();
+                if (this.Field != null)
+                    hashCode = hashCode * 59 + this.Field.GetHashCode();
+                return hashCode;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the date time format used when serializing in the ApiClient
-        /// By default, it's set to ISO 8601 - "o", for others see:
-        /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
-        /// and https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx
-        /// No validation is done to ensure that the string you're providing is valid
-        /// </summary>
-        /// <value>The DateTimeFormat string</value>
-        public virtual string DateTimeFormat
-        {
-            get { return _dateTimeFormat; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    // Never allow a blank or null string, go back to the default
-                    _dateTimeFormat = ISO8601_DATETIME_FORMAT;
-                    return;
-                }
-
-                // Caution, no validation when you choose date time format other than ISO 8601
-                // Take a look at the above links
-                _dateTimeFormat = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the prefix (e.g. Token) of the API key based on the authentication name.
-        /// </summary>
-        /// <value>The prefix of the API key.</value>
-        public virtual IDictionary<string, string> ApiKeyPrefix
-        {
-            get { return _apiKeyPrefix; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKeyPrefix collection may not be null.");
-                }
-                _apiKeyPrefix = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the API key based on the authentication name.
-        /// </summary>
-        /// <value>The API key.</value>
-        public virtual IDictionary<string, string> ApiKey
-        {
-            get { return _apiKey; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new InvalidOperationException("ApiKey collection may not be null.");
-                }
-                _apiKey = value;
-            }
-        }
-
-        #endregion Properties
-
-        #region Methods
-
-        /// <summary>
-        /// Add default header.
-        /// </summary>
-        /// <param name="key">Header field name.</param>
-        /// <param name="value">Header field value.</param>
-        /// <returns></returns>
-        public void AddDefaultHeader(string key, string value)
-        {
-            DefaultHeader[key] = value;
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="ApiClient" /> based on this <see cref="Configuration" /> instance.
-        /// </summary>
-        /// <returns></returns>
-        public ApiClient CreateApiClient()
-        {
-            return new ApiClient(BasePath) { Configuration = this };
-        }
-
-
-        /// <summary>
-        /// Returns a string with essential information for debugging.
-        /// </summary>
-        public static String ToDebugReport()
-        {
-            String report = "C# SDK (Lusid.Sdk) Debug Report:\n";
-            report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
-            report += "    Version of the API: 0.10.1482\n";
-            report += "    SDK Package Version: 0.10.1482\n";
-
-            return report;
-        }
-
-        /// <summary>
-        /// Add Api Key Header.
-        /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        /// <returns></returns>
-        public void AddApiKey(string key, string value)
-        {
-            ApiKey[key] = value;
-        }
-
-        /// <summary>
-        /// Sets the API key prefix.
-        /// </summary>
-        /// <param name="key">Api Key name.</param>
-        /// <param name="value">Api Key value.</param>
-        public void AddApiKeyPrefix(string key, string value)
-        {
-            ApiKeyPrefix[key] = value;
-        }
-
-        #endregion Methods
     }
+
 }
