@@ -210,7 +210,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             };
             
             //    Get a set of instruments querying by FIGIs
-            var instruments = _instrumentsApi.GetInstruments(identifierType: "Figi", identifiers: figis);
+            var instruments = _instrumentsApi.GetInstruments(identifierType: "Figi", requestBody: figis);
 
             foreach (var figi in figis)
             {
