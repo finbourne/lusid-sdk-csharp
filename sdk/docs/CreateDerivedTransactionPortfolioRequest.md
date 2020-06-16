@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **Created** | **DateTimeOffset?** |  | [optional] 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**AccountingMethod** | **string** |  | [optional] 
+**AccountingMethod** | **string** | The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst | [optional] 
 **SubHoldingKeys** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

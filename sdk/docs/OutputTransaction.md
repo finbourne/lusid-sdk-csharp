@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
-**TransactionStatus** | **string** | The status of the transaction. | [optional] 
+**TransactionStatus** | **string** | The status of the transaction. The available values are: Active, Amended, Cancelled | [optional] 
 **EntryDateTime** | **DateTimeOffset?** | The asAt datetime that the transaction was added to LUSID. | [optional] 
 **CancelDateTime** | **DateTimeOffset?** | If the transaction has been cancelled, the asAt datetime that the transaction was cancelled. | [optional] 
 **RealisedGainLoss** | [**List&lt;RealisedGainLoss&gt;**](RealisedGainLoss.md) | The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created. | [optional] 

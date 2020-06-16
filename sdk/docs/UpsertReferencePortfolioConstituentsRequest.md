@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EffectiveFrom** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The first date from which the weights will apply | 
-**WeightType** | **string** |  | 
-**PeriodType** | **string** |  | [optional] 
+**WeightType** | **string** | The available values are: Static, Floating, Periodical | 
+**PeriodType** | **string** | The available values are: Daily, Weekly, Monthly, Quarterly, Annually | [optional] 
 **PeriodCount** | **int?** |  | [optional] 
 **Constituents** | [**List&lt;ReferencePortfolioConstituentRequest&gt;**](ReferencePortfolioConstituentRequest.md) | Set of constituents (instrument/weight pairings) | 
 

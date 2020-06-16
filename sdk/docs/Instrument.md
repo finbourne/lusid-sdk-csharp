@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Properties** | [**List&lt;Property&gt;**](Property.md) | The requested instrument properties. These will be from the &#39;Instrument&#39; domain. | [optional] 
 **LookthroughPortfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **InstrumentDefinition** | [**InstrumentEconomicDefinition**](InstrumentEconomicDefinition.md) |  | [optional] 
-**State** | **string** | The state of of the instrument at the asAt datetime of this version of the instrument definition. | 
+**State** | **string** | The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

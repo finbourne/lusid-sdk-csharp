@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Schema** | **string** |  | [optional] 
+**Schema** | **string** | The available values are: NoUnits, Basic, Iso4217Currency | [optional] 
 **Code** | **string** |  | [optional] 
 **DisplayName** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 

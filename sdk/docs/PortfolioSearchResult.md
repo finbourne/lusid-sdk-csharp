@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**Type** | **string** | The type of the portfolio. | 
+**Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction | 
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
 **DisplayName** | **string** | The name of the portfolio. | 

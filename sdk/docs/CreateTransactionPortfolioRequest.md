@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Created** | **DateTimeOffset?** | The effective datetime at which the transaction portfolio will be created. No transactions can be added to the transaction portfolio before this date. Defaults to the current LUSID system datetime if not specified. | [optional] 
 **BaseCurrency** | **string** | The base currency of the transaction portfolio. | 
 **CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**AccountingMethod** | **string** | Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. | [optional] 
+**AccountingMethod** | **string** | Determines the accounting treatment given to the transaction portfolio&#39;s tax lots. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst | [optional] 
 **SubHoldingKeys** | **List&lt;string&gt;** | A set of unique transaction properties to group the transaction portfolio&#39;s holdings by. Each property must be from the &#39;Transaction&#39; domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. &#39;Transaction/strategies/quantsignal&#39;. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of unique portfolio properties to add to the transaction portfolio. Each property must be from the &#39;Portfolio&#39; domain and should be identified by its key which has the format {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;. These properties must be pre-defined. | [optional] 
 

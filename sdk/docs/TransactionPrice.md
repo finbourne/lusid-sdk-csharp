@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Price** | **decimal?** |  | [optional] 
-**Type** | **string** |  | [optional] 
+**Type** | **string** | The available values are: Price, Yield, Spread | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
