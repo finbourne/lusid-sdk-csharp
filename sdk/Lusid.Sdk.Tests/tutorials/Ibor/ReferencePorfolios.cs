@@ -111,12 +111,10 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var constituentHoldings = _apiFactory.Api<IReferencePortfolioApi>().GetReferencePortfolioConstituents(TutorialScope, PorfolioCode, date);
 
             // Check the count of holdings
-
             Assert.That(constituentHoldings.Constituents.Count(), Is.EqualTo(4));
 
             // Check the instruments on the holdings
             constituentHoldings.Constituents.Sort((h1, h2) => String.Compare(h1.InstrumentUid, h2.InstrumentUid, StringComparison.Ordinal));
-
             Assert.That(constituentHoldings.Constituents[1].InstrumentUid, Is.EqualTo(_instrumentIds[0]));
             Assert.That(constituentHoldings.Constituents[2].InstrumentUid, Is.EqualTo(_instrumentIds[1]));
             Assert.That(constituentHoldings.Constituents[3].InstrumentUid, Is.EqualTo(_instrumentIds[2]));
