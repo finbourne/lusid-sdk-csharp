@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *http://localhost:60187*
+All URIs are relative to *http://localhost:49779*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:60187";
+            Configuration.Default.BasePath = "http://localhost:49779";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -114,7 +114,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:60187";
+            Configuration.Default.BasePath = "http://localhost:49779";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
