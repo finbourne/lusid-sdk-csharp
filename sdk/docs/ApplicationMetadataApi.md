@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.ApplicationMetadataApi
 
-All URIs are relative to *http://localhost:64677*
+All URIs are relative to *http://localhost:50510*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:64677";
+            Configuration.Default.BasePath = "http://localhost:50510";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -113,7 +113,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:64677";
+            Configuration.Default.BasePath = "http://localhost:50510";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -188,7 +188,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:64677";
+            Configuration.Default.BasePath = "http://localhost:50510";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
