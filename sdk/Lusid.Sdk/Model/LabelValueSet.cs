@@ -23,116 +23,26 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LusidProblemDetails
+    /// The set of string labels in a multi-value property.
     /// </summary>
     [DataContract]
-    public partial class LusidProblemDetails :  IEquatable<LusidProblemDetails>
+    public partial class LabelValueSet :  IEquatable<LabelValueSet>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LusidProblemDetails" /> class.
+        /// Initializes a new instance of the <see cref="LabelValueSet" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LusidProblemDetails() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LusidProblemDetails" /> class.
-        /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="errorDetails">errorDetails.</param>
-        /// <param name="code">code (required).</param>
-        /// <param name="type">type.</param>
-        /// <param name="title">title.</param>
-        /// <param name="status">status.</param>
-        /// <param name="detail">detail.</param>
-        /// <param name="instance">instance.</param>
-        public LusidProblemDetails(string name = default(string), List<Dictionary<string, string>> errorDetails = default(List<Dictionary<string, string>>), int? code = default(int?), string type = default(string), string title = default(string), int? status = default(int?), string detail = default(string), string instance = default(string))
+        /// <param name="values">values.</param>
+        public LabelValueSet(List<string> values = default(List<string>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for LusidProblemDetails and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-            
-            this.ErrorDetails = errorDetails;
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new InvalidDataException("code is a required property for LusidProblemDetails and cannot be null");
-            }
-            else
-            {
-                this.Code = code;
-            }
-            
-            this.Type = type;
-            this.Title = title;
-            this.Status = status;
-            this.Detail = detail;
-            this.Instance = instance;
-            this.ErrorDetails = errorDetails;
-            this.Type = type;
-            this.Title = title;
-            this.Status = status;
-            this.Detail = detail;
-            this.Instance = instance;
+            this.Values = values;
+            this.Values = values;
         }
         
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Values
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ErrorDetails
-        /// </summary>
-        [DataMember(Name="errorDetails", EmitDefaultValue=true)]
-        public List<Dictionary<string, string>> ErrorDetails { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Code
-        /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int? Code { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=true)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Title
-        /// </summary>
-        [DataMember(Name="title", EmitDefaultValue=true)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=true)]
-        public int? Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Detail
-        /// </summary>
-        [DataMember(Name="detail", EmitDefaultValue=true)]
-        public string Detail { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Instance
-        /// </summary>
-        [DataMember(Name="instance", EmitDefaultValue=true)]
-        public string Instance { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Extensions
-        /// </summary>
-        [DataMember(Name="extensions", EmitDefaultValue=true)]
-        public Dictionary<string, Object> Extensions { get; private set; }
+        [DataMember(Name="values", EmitDefaultValue=true)]
+        public List<string> Values { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -141,16 +51,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LusidProblemDetails {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ErrorDetails: ").Append(ErrorDetails).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Instance: ").Append(Instance).Append("\n");
-            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
+            sb.Append("class LabelValueSet {\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -171,66 +73,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LusidProblemDetails);
+            return this.Equals(input as LabelValueSet);
         }
 
         /// <summary>
-        /// Returns true if LusidProblemDetails instances are equal
+        /// Returns true if LabelValueSet instances are equal
         /// </summary>
-        /// <param name="input">Instance of LusidProblemDetails to be compared</param>
+        /// <param name="input">Instance of LabelValueSet to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LusidProblemDetails input)
+        public bool Equals(LabelValueSet input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.ErrorDetails == input.ErrorDetails ||
-                    this.ErrorDetails != null &&
-                    input.ErrorDetails != null &&
-                    this.ErrorDetails.SequenceEqual(input.ErrorDetails)
-                ) && 
-                (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Detail == input.Detail ||
-                    (this.Detail != null &&
-                    this.Detail.Equals(input.Detail))
-                ) && 
-                (
-                    this.Instance == input.Instance ||
-                    (this.Instance != null &&
-                    this.Instance.Equals(input.Instance))
-                ) && 
-                (
-                    this.Extensions == input.Extensions ||
-                    this.Extensions != null &&
-                    input.Extensions != null &&
-                    this.Extensions.SequenceEqual(input.Extensions)
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 );
         }
 
@@ -243,24 +104,8 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ErrorDetails != null)
-                    hashCode = hashCode * 59 + this.ErrorDetails.GetHashCode();
-                if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Detail != null)
-                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
-                if (this.Instance != null)
-                    hashCode = hashCode * 59 + this.Instance.GetHashCode();
-                if (this.Extensions != null)
-                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
                 return hashCode;
             }
         }
