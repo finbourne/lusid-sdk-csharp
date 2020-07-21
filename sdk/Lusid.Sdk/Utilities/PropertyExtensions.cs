@@ -39,25 +39,24 @@ namespace Lusid.Sdk.Utilities
             return new PropertyValue(labelValueSet: new LabelValueSet(values.ToList()));
         }
         
-        public static PropertyComparer PropertyEquality => new PropertyComparer();
+        public static PropertyValueComparer PropertyValueEquality => new PropertyValueComparer();
         public static LabelValueSetComparer LabelValueSetEquality => new LabelValueSetComparer();
 
         /// <summary>
         /// Compares LabelSetValues without ordering, unlike the default SDK behaviour.
         /// </summary>
-        public class PropertyComparer : IComparer<Property>
+        public class PropertyValueComparer : IComparer<PropertyValue>
         {
-            public int Compare(Property p1, Property p2)
+            public int Compare(PropertyValue pv1, PropertyValue pv2)
             {
-                return AreEqual(p1, p2, CompareNonNull) ? 0 : 1;
+                return AreEqual(pv1, pv2, CompareNonNull) ? 0 : 1;
             }
             
-            private static bool CompareNonNull(Property p1, Property p2)
+            private static bool CompareNonNull(PropertyValue pv1, PropertyValue pv2)
             {
-                return Equals(p1.Key, p2.Key) &&
-                       Equals(p1.Value.LabelValue, p2.Value.LabelValue) &&
-                       Equals(p1.Value.MetricValue, p2.Value.MetricValue) &&
-                       AreEqual(p1.Value.LabelValueSet, p2.Value.LabelValueSet, LabelValueSetComparer.CompareNonNull);
+                return Equals(pv1.LabelValue, pv2.LabelValue) &&
+                       Equals(pv1.MetricValue, pv2.MetricValue) &&
+                       AreEqual(pv1.LabelValueSet, pv2.LabelValueSet, LabelValueSetComparer.CompareNonNull);
             }
         }
 
