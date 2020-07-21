@@ -217,7 +217,7 @@ namespace Lusid.Sdk.Tests.tutorials.Ibor
             Assert.That(portfolioProperties.Keys, Is.EquivalentTo(new [] { propertyDefinitionResult.Key}));
 
             var returnedProperty = portfolioProperties[propertyDefinitionResult.Key];
-            Assert.That(returnedProperty.Value, Is.EqualTo(propertyValue).Using(PropertyEquality));
+            Assert.That(returnedProperty.Value, Is.EqualTo(propertyValue).Using(PropertyValueEquality));
         }
     }
 }
