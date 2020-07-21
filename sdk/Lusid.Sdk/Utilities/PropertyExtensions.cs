@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Utilities
             return new PropertyValue(labelValueSet: new LabelValueSet(values.ToList()));
         }
         
-        public static PropertyComparer Comparer => new PropertyComparer(); 
+        public static PropertyComparer PropertyEquality => new PropertyComparer();
+        public static LabelValueSetComparer LabelValueSetEquality => new LabelValueSetComparer();
 
         /// <summary>
         /// Compares LabelSetValues without ordering, unlike the default SDK behaviour.
@@ -48,28 +49,41 @@ namespace Lusid.Sdk.Utilities
         {
             public int Compare(Property p1, Property p2)
             {
-                return Equals(p1, p2, CompareNonNull) ? 0 : 1;
+                return AreEqual(p1, p2, CompareNonNull) ? 0 : 1;
             }
             
-            private bool CompareNonNull(Property p1, Property p2)
+            private static bool CompareNonNull(Property p1, Property p2)
             {
                 return Equals(p1.Key, p2.Key) &&
                        Equals(p1.Value.LabelValue, p2.Value.LabelValue) &&
                        Equals(p1.Value.MetricValue, p2.Value.MetricValue) &&
-                       Equals(p1.Value.LabelValueSet, p2.Value.LabelValueSet,
-                           (a,b) => a.Values.OrderBy(e => e).SequenceEqual(b.Values.OrderBy(e => e)));
+                       AreEqual(p1.Value.LabelValueSet, p2.Value.LabelValueSet, LabelValueSetComparer.CompareNonNull);
             }
-            
-            private bool Equals<T>(T a, T b, Func<T,T,bool> nonNullEquals)
-            {
-                if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
-                    return true;
-                
-                if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
-                    return false;
+        }
 
-                return nonNullEquals(a, b);
+        public class LabelValueSetComparer : IComparer<LabelValueSet>
+        {
+            public int Compare(LabelValueSet l1, LabelValueSet l2)
+            {
+                return AreEqual(l1, l2, CompareNonNull) ? 0 : 1;
             }
+
+            internal static bool CompareNonNull(LabelValueSet l1, LabelValueSet l2)
+            {
+                return l1.Values.OrderBy(e => e)
+                    .SequenceEqual(l2.Values.OrderBy(e => e));
+            }
+        }
+        
+        private static bool AreEqual<T>(T a, T b, Func<T,T,bool> nonNullEquals)
+        {
+            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+                return true;
+                
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+                return false;
+
+            return nonNullEquals(a, b);
         }
     }
 }

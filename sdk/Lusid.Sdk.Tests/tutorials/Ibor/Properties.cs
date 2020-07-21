@@ -210,14 +210,14 @@ namespace Lusid.Sdk.Tests.tutorials.Ibor
                             propertyValue)
                 }
             );
-            Assert.That(propertiesUpsertResult.Properties.Values.Single().Value.LabelValueSet, Is.EqualTo(propertyValue.LabelValueSet));
+            Assert.That(propertiesUpsertResult.Properties.Values.Single().Value.LabelValueSet, Is.EqualTo(propertyValue.LabelValueSet).Using(LabelValueSetEquality));
 
             var portfolioProperties = _apiFactory.Api<IPortfoliosApi>().GetPortfolioProperties(TestDataUtilities.TutorialScope, portfolioResult.Id.Code).Properties;
 
             Assert.That(portfolioProperties.Keys, Is.EquivalentTo(new [] { propertyDefinitionResult.Key}));
 
             var returnedProperty = portfolioProperties[propertyDefinitionResult.Key];
-            Assert.That(returnedProperty.Value, Is.EqualTo(propertyValue).Using(Comparer));
+            Assert.That(returnedProperty.Value, Is.EqualTo(propertyValue).Using(PropertyEquality));
         }
     }
 }
