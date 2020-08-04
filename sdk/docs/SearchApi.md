@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.SearchApi
 
-All URIs are relative to *http://localhost:32735*
+All URIs are relative to *http://localhost:59598*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:32735";
+            Configuration.Default.BasePath = "http://localhost:59598";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -115,7 +115,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:32735";
+            Configuration.Default.BasePath = "http://localhost:59598";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -197,7 +197,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:32735";
+            Configuration.Default.BasePath = "http://localhost:59598";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
