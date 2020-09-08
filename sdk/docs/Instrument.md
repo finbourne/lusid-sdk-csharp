@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Identifiers** | **Dictionary&lt;string, string&gt;** | The set of identifiers that can be used to identify the instrument. | 
 **Properties** | [**List&lt;Property&gt;**](Property.md) | The requested instrument properties. These will be from the &#39;Instrument&#39; domain. | [optional] 
 **LookthroughPortfolio** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**InstrumentDefinition** | [**InstrumentEconomicDefinition**](InstrumentEconomicDefinition.md) |  | [optional] 
+**InstrumentDefinition** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 **State** | **string** | The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
