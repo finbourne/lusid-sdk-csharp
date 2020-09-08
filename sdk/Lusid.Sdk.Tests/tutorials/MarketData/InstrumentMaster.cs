@@ -259,22 +259,22 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             //    Create a definition for the instrument
             var swapDefinition = new InstrumentDefinition(
                 name: "10mm 5Y Fixed",
-                
+
                 //  The set of identifiers used for identifying the instrument
                 //  e.g. for uploading transactions
                 identifiers: new Dictionary<string, InstrumentIdValue>
                 {
                     ["ClientInternal"] = new InstrumentIdValue(value: "SW-1")
                 },
-                
+
                 //  The details for valuing the instrument
-                definition: new InstrumentEconomicDefinition(
-                    
-                    //  Identifies which valuation engine to use
-                    instrumentFormat: "CustomFormat",
-                    content: "<customFormat>upload in custom xml or JSON format</customFormat>"
-                ));
-            
+                definition: new ExoticInstrument(
+                    instrumentFormat: new InstrumentDefinitionFormat("CustomSource", "CustomFormat", "0.1.2"),
+                    content: "<customFormat>the definition of the swap uploaded in custom Xml or Json format. One would expect that it should contain the full custom swap detail.</customFormat>",
+                    instrumentType: LusidInstrument.InstrumentTypeEnum.ExoticInstrument
+                )
+            );
+
             //    create the swap
             var createSwapResponse = _instrumentsApi.UpsertInstruments(new Dictionary<string, InstrumentDefinition>
             {
