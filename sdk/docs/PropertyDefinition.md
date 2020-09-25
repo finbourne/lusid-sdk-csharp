@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **ConstraintStyle** | **string** | Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. | [optional] 
 **PropertyDefinitionType** | **string** | The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition | [optional] 
 **PropertyDescription** | **string** | A brief description of what a property of this property definition contains. | [optional] 
+**DerivationFormula** | **string** | The rule that defines how data is composed for a derived property. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
