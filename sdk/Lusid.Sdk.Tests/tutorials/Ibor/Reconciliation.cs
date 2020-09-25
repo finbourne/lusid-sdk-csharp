@@ -5,6 +5,7 @@ using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
+using LusidFeatures;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
@@ -26,7 +27,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _instrumentIds = _instrumentLoader.LoadInstruments();
             _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
         }
-
+        
+        [LusidFeature("F16")]
         [Test]
         public void Reconcile_Portfolio()
         {

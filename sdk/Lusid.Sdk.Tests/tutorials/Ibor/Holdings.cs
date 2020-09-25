@@ -5,6 +5,7 @@ using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
+using LusidFeatures;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
@@ -27,7 +28,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var instrumentsLoader = new InstrumentLoader(apiFactory);
             _instrumentIds = instrumentsLoader.LoadInstruments().OrderBy(x => x).ToList();
         }
-
+        
+        [LusidFeature("F2")]
         [Test]
         public void Get_Holdings()
         {
@@ -97,7 +99,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(holdings.Values[4].Units, Is.EqualTo(100.0));
             Assert.That(holdings.Values[4].Cost.Amount, Is.EqualTo(10500.0));
         }
-
+        
+        [LusidFeature("F3")]
         [Test]
         public void Set_Target_Holdings()
         {

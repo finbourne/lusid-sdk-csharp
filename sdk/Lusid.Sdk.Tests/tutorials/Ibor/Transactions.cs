@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
+using LusidFeatures;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
@@ -30,7 +30,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _instrumentIds = instrumentLoader.LoadInstruments();
             _testDataUtilities = new TestDataUtilities(apiFactory.Api<ITransactionPortfoliosApi>());
         }
-
+        
+        [LusidFeature("F17")]
         [Test]
         public void Load_Listed_Instrument_Transaction()
         {
@@ -69,6 +70,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(transactions.Values[0].TransactionId, Is.EqualTo(transaction.TransactionId));
         }
         
+        [LusidFeature("F18")]
         [Test]
         public void Load_Cash_Transaction()
         {
