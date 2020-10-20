@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *http://localhost:47859*
+All URIs are relative to *http://localhost:32468*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,7 +39,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -121,7 +121,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -207,7 +207,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -295,7 +295,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -383,7 +383,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -469,7 +469,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -479,7 +479,7 @@ namespace Example
             var page = page_example;  // string | The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set.               For example, to filter on the Type, use \"type eq 'Transaction'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = filter_example;  // string | Expression to filter the result set.              For example, to filter on the Type, use \"type eq 'Transaction'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var query = query_example;  // string | Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6'              you would specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\". (optional) 
             var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Portfolio\" domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
  **page** | **string**| The pagination token to use to continue listing portfolios from a previous call to list portfolios. This  value is returned from the previous call. If a pagination token is provided the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
  **start** | **int?**| When paginating, skip this number of results. | [optional] 
  **limit** | **int?**| When paginating, limit the number of returned results to this many. Defaults to 65,535 if not specified. | [optional] 
- **filter** | **string**| Expression to filter the result set.               For example, to filter on the Type, use \&quot;type eq &#39;Transaction&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **filter** | **string**| Expression to filter the result set.              For example, to filter on the Type, use \&quot;type eq &#39;Transaction&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
  **query** | **string**| Expression specifying the criteria that the returned portfolios must meet e.g. to see which              portfolios have holdings in the instruments with a Lusid Instrument Id (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;              you would specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. | [optional] 
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Portfolio\&quot; domain to decorate onto each portfolio.              These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
 
@@ -563,7 +563,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -657,7 +657,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -743,7 +743,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:47859";
+            Configuration.Default.BasePath = "http://localhost:32468";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
