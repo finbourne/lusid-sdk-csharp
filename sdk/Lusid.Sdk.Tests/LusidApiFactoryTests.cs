@@ -139,7 +139,7 @@ namespace Lusid.Sdk.Tests
                     Assert.That(errorResponse.Errors, Contains.Key("scope"));
                     Assert.That(errorResponse.Errors["scope"].Single(), Is.EqualTo("Values for the field scope must be comprised of either alphanumeric characters, hyphens or underscores. For more information please consult the documentation."));
                 
-                    Assert.That(errorResponse.Detail, Does.Match("One or more of the bits of input data provided were not valid.*"));
+                    Assert.That(errorResponse.Detail, Does.Match("One or more elements of the request were invalid.*"));
                     Assert.That(errorResponse.Name, Is.EqualTo("InvalidRequestFailure"));
                 }
                 else
@@ -173,7 +173,7 @@ namespace Lusid.Sdk.Tests
                     Assert.That(errorResponse.Errors, Contains.Key("scope"));
                     Assert.That(errorResponse.Errors["scope"].Single(), Is.EqualTo("Values for the field scope must be non-zero in length and have no more than 64 characters. For more information please consult the documentation."));
                 
-                    Assert.That(errorResponse.Detail, Does.Match("One or more of the bits of input data provided were not valid.*"));
+                    Assert.That(errorResponse.Detail, Does.Match("One or more elements of the request were invalid.*"));
                     Assert.That(errorResponse.Name, Is.EqualTo("InvalidRequestFailure"));
                 }
                 else
