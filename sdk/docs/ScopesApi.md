@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.ScopesApi
 
-All URIs are relative to *http://localhost:36639*
+All URIs are relative to *http://localhost:52868*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:36639";
+            Configuration.Default.BasePath = "http://localhost:52868";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
