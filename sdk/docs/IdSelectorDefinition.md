@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identifier** | **Dictionary&lt;string, string&gt;** |  | [optional] 
-**Actions** | [**List&lt;ActionId&gt;**](ActionId.md) |  | [optional] 
+**Identifier** | **Dictionary&lt;string, string&gt;** |  | 
+**Actions** | [**List&lt;ActionId&gt;**](ActionId.md) |  | 
 **Name** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
 
