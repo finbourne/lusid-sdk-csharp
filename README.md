@@ -2,8 +2,8 @@
 
 | branch | status |
 | --- | --- |
-| `master` |  ![Nuget](https://img.shields.io/nuget/v/Lusid.Sdk?color=blue) [![Build Status](https://travis-ci.org/finbourne/lusid-sdk-csharp.svg?branch=master)](https://travis-ci.org/finbourne/lusid-sdk-csharp) |
-| `develop` | [![Build Status](https://travis-ci.org/finbourne/lusid-sdk-csharp.svg?branch=develop)](https://travis-ci.org/finbourne/lusid-sdk-csharp) |
+| `master` |  ![Nuget](https://img.shields.io/nuget/v/Lusid.Sdk?color=blue) ![run-sdk-tests](https://github.com/finbourne/lusid-sdk-csharp/workflows/run-sdk-tests/badge.svg?branch=master)|
+| `develop` | ![run-sdk-tests](https://github.com/finbourne/lusid-sdk-csharp/workflows/run-sdk-tests/badge.svg?branch=develop) |
 
 # LUSID<sup>®</sup> C# SDK
 
