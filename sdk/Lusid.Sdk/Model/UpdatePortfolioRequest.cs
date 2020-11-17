@@ -51,7 +51,6 @@ namespace Lusid.Sdk.Model
             }
             
             this.Description = description;
-            this.Description = description;
         }
         
         /// <summary>
