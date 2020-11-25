@@ -67,5 +67,16 @@ namespace Lusid.Sdk.Utilities
                 new PropertyBasedConverter(),
             });
         }
+        
+        /// <summary>
+        /// Extracts the requestId from an ApiException
+        /// </summary>
+        public static string GetRequestId(this ApiException ex)
+        {
+            // Extract requestId from Insights link contained in the Instance property
+            var instanceParts = ex.ProblemDetails().Instance.Split("/".ToCharArray());
+
+            return instanceParts.Length < 7 ? null : instanceParts[6];
+        }
     }
 }

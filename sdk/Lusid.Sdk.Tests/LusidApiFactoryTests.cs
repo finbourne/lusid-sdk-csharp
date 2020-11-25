@@ -4,6 +4,7 @@ using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Utilities;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests
@@ -12,6 +13,7 @@ namespace Lusid.Sdk.Tests
     public class LusidApiFactoryTests
     {
         private ILusidApiFactory _factory = new LusidApiFactory(new Configuration());
+        private const string RequestIdRegexPattern = "[a-zA-Z0-9]{13}:[0-9]{8}";
 
         [OneTimeSetUp]
         public void SetUp()
@@ -99,6 +101,61 @@ namespace Lusid.Sdk.Tests
                 Throws.InstanceOf<UriFormatException>().With.Message.EqualTo("Invalid LUSID Uri: xyz"));
         }
 
+        [Test]
+        public void ApiResponse_CanExtract_RequestId()
+        {
+            var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
+            var requestId = apiResponse.GetRequestId();
+            StringAssert.IsMatch(RequestIdRegexPattern, requestId);
+        }
+        
+        [Test]
+        public void ApiResponseMissingHeader_ReturnsNull_RequestId()
+        {
+            var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
+            // Remove header containing access token
+            apiResponse.Headers.Remove(ApiResponseExtensions.RequestIdHeader);
+            var requestId = apiResponse.GetRequestId();
+            Assert.That(requestId, Is.Null);
+        }
+        
+        [Test]
+        public void ApiException_CanExtract_RequestId()
+        {
+            try
+            {
+                var _ = _factory.Api<PortfoliosApi>().GetPortfolio("doesnt", "exist");
+            }
+            catch (ApiException e)
+            {
+                var requestId = e.GetRequestId();
+                StringAssert.IsMatch(RequestIdRegexPattern, requestId);
+            } 
+        }
+        
+        [Test]
+        public void ApiExceptionMalformedInsightsUrl_ReturnsNull_RequestId()
+        {
+            try
+            {
+                var _ = _factory.Api<PortfoliosApi>().GetPortfolio("doesnt", "exist");
+            }
+            catch (ApiException e)
+            {
+                var problemDetails = e.ProblemDetails();
+                
+                // Remove the InsightsURL which contains the requestId
+                problemDetails.Instance = "";
+                
+                var apiExceptionMalformed = new ApiException(
+                    errorCode: e.ErrorCode,
+                    message: e.Message,
+                    errorContent: JsonConvert.SerializeObject(problemDetails));
+
+                var requestId = apiExceptionMalformed.GetRequestId();
+                Assert.That(requestId, Is.Null);
+            } 
+        }
 
         [Test]
         public void ApiException_Converts_To_ProblemDetails()
