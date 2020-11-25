@@ -13,7 +13,7 @@ namespace Lusid.Sdk.Tests
     public class LusidApiFactoryTests
     {
         private ILusidApiFactory _factory = new LusidApiFactory(new Configuration());
-        private const string RequestIdRegexPattern = "[a-zA-Z0-9]{13}:[0-9]{8}";
+        private const string RequestIdRegexPattern = "[a-zA-Z0-9]{13}:[0-9a-fA-F]{8}";
 
         [OneTimeSetUp]
         public void SetUp()
