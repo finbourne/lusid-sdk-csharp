@@ -73,6 +73,8 @@ namespace Lusid.Sdk.Utilities
         /// </summary>
         public static string GetRequestId(this ApiException ex)
         {
+            if (ex.ProblemDetails() == null) return null;
+
             // Extract requestId from Insights link contained in the Instance property
             var instanceParts = ex.ProblemDetails().Instance.Split("/".ToCharArray());
 
