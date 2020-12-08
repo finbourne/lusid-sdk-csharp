@@ -5,6 +5,7 @@ using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
+using LusidFeatures;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
@@ -33,7 +34,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _instrumentIds = _instrumentLoader.LoadInstruments();
             _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
         }
-
+        
+        [LusidFeature("F8")]
         [Test]
         public void Create_Transaction_Portfolio()
         {
@@ -58,7 +60,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             //    a ApiException being thrown which contain the relevant response code and error message
             Assert.That(portfolio.Id.Code, Is.EqualTo(request.Code));
         }
-
+        
+        [LusidFeature("F9")]
         [Test]
         public void Create_Transaction_Portfolio_With_Property()
         {
@@ -117,7 +120,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(portfolioProperties.Properties, Has.Count.EqualTo(1));
             Assert.That(portfolioProperties.Properties[propertyDefinitionResult.Key].Value.LabelValue, Is.EqualTo("Active"));
         }
-
+        
+        [LusidFeature("F10")]
         [Test]
         public void Add_Transactions_To_Portfolio()
         {
@@ -160,6 +164,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentIdentifiers.First().Value));           
         }
         
+        [LusidFeature("F11")]
         [Test]
         public void Add_Transactions_To_Portfolio_With_Property()
         {
@@ -237,7 +242,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentIdentifiers.First().Value));
             Assert.That(transactions.Values[0].Properties[propertyDefinitionResult.Key].Value.LabelValue, Is.EqualTo(labelValue));
         }
-
+        
+        [LusidFeature("F13")]
         [Test]
         public void List_Portfolios()
         {
@@ -256,7 +262,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(portfolios.Values.Count(), Is.EqualTo(10));
 
         }
-
+        
+        [LusidFeature("F12")]
         [Test]
         public void List_Scopes()
         {

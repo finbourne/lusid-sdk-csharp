@@ -5,6 +5,7 @@ using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
+using LusidFeatures;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Tutorials.Ibor
@@ -30,7 +31,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var instrumentsLoader = new InstrumentLoader(_apiFactory);
             _instrumentIds = instrumentsLoader.LoadInstruments().OrderBy(x => x).ToList();
         }
-
+        
+        [LusidFeature("F39")]
         [Test]
         public void CreateReferencePortfolio()
         {
@@ -58,7 +60,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             //  a ApiException being thrown which contain the relevant response code and error message
             Assert.That(ReferencePortfolio.Id.Code, Is.EqualTo(request.Code));
         }
-
+        
+        [LusidFeature("F40")]
         [Test]
         public void SetConstituents()
         {

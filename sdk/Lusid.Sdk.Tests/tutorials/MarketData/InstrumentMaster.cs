@@ -6,6 +6,7 @@ using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
+using LusidFeatures;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Tutorials.MarketData
@@ -122,7 +123,8 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             
             Assert.That(upsertInstrumentsResponse.Values, Has.Count.EqualTo(5));
         }        
-
+        
+        [LusidFeature("F22")]
         [Test]
         public void Lookup_Instrument_By_Unique_Id()
         {
@@ -176,7 +178,8 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
                 propertyApi.CreatePropertyDefinition(propertyDefinition);
             }
         }
-
+        
+        [LusidFeature("F23")]
         [Test]
         public void List_Available_Identifiers()
         {
@@ -189,7 +192,8 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
                 Console.WriteLine($"name: {scheme.IdentifierType}\nproperty key: {scheme.PropertyKey}\nis unique: {scheme.IsUniqueIdentifierType}\n");
             }
         }
-
+        
+        [LusidFeature("F24")]
         [Test]
         public void List_All_Instruments()
         {
@@ -200,7 +204,8 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             
             Assert.That(instruments.Values.Count(), Is.LessThanOrEqualTo(pageSize));
         }
-
+        
+        [LusidFeature("F25")]
         [Test]
         public void List_Instruments_By_Identifier_Type()
         {
@@ -217,7 +222,8 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
                 Assert.That(instruments.Values, Contains.Key(figi));
             }
         }
-
+        
+        [LusidFeature("F26")]
         [Test]
         public void Edit_Instrument_Property()
         {
