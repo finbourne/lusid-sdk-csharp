@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Values** | [**List&lt;DataType&gt;**](DataType.md) |  | 
 **Href** | **string** |  | [optional] 
-**NextPage** | **string** |  | [optional] 
-**PreviousPage** | **string** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
