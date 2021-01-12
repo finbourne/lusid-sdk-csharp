@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **EntityId** | [**ResourceId**](ResourceId.md) |  | 
 **Corrected** | **bool?** |  | 
 **CorrectionEffectiveAt** | **DateTimeOffset?** |  | [optional] 
-**CorrectionAsAt** | [**Object**](.md) |  | [optional] 
+**CorrectionAsAt** | **DateTimeOffset?** |  | [optional] 
 **Amended** | **bool?** |  | 
 **AmendmentEffectiveAt** | **DateTimeOffset?** |  | [optional] 
-**AmendmentAsAt** | [**Object**](.md) |  | [optional] 
+**AmendmentAsAt** | **DateTimeOffset?** |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
