@@ -20,7 +20,11 @@ namespace Lusid.Sdk.Utilities
     /// <inheritdoc />
     public class LusidApiFactory : ILusidApiFactory
     {
-        private Dictionary<Type, IApiAccessor> _apis;
+        private static readonly IEnumerable<Type> ApiTypes = Assembly.GetAssembly(typeof(ApiClient))
+            .GetTypes()
+            .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+
+        private readonly IReadOnlyDictionary<Type, IApiAccessor> _apis;
 
         /// <summary>
         /// Create a new factory using the specified configuration
@@ -49,7 +53,7 @@ namespace Lusid.Sdk.Utilities
             
             configuration.AddDefaultHeader("X-LUSID-Application", apiConfiguration.ApplicationName);
 
-            Init(configuration);
+            _apis = Init(configuration);
         }
                 
         /// <summary>
@@ -59,17 +63,31 @@ namespace Lusid.Sdk.Utilities
         {
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
             
-            Init(configuration);
+            _apis = Init(configuration);
         }
 
-        private void Init(Configuration configuration)
-        {   
-            IEnumerable<Type> apis = Assembly.GetAssembly(typeof(ApiClient))
-                .GetTypes()
-                .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+        private static Dictionary<Type, IApiAccessor> Init(Configuration configuration)
+        {
+            // DEV-7152: we must explicitly Dispose an HttpClient in .NET Core 2.2 in order to avoid
+            // socket leaks on Linux / MacOS: https://github.com/dotnet/runtime/issues/29327
+            //
+            // RestSharp.Portable.RestClientBase implements a finalizer, which, when run, does 
+            // NOT dispose its HttpClient instance, but DOES set a flag which means thereafter 
+            // the HttpClient can NEVER be disposed.
+            //
+            // We are using a finalizer on ApiClient to ensure the HttpClient always gets disposed
+            // (see Utilities/ApiClient.Dispose.cs), but finalizers are not executed in a deterministic
+            // order, so there is a race condition: if ~RestClient() runs before ~ApiClient(), then
+            // RestClient ends up in a 'disposed=true' state and the HttpClient can then NEVER then be
+            // explicitly disposed.
+            //
+            // Calling SuppressFinalize ensures ~RestClient() never runs, so ApiClient.DisposeImpl can
+            // then call RestClient.Dispose, which does the correct cleanup.
+            GC.SuppressFinalize(configuration.ApiClient.RestClient);
 
-            _apis = new Dictionary<Type, IApiAccessor>();
-            foreach (var api in apis)
+
+            var dict = new Dictionary<Type, IApiAccessor>();
+            foreach (Type api in ApiTypes)
             {
                 if (!(Activator.CreateInstance(api, configuration) is IApiAccessor impl))
                 {
@@ -79,9 +97,11 @@ namespace Lusid.Sdk.Utilities
                 var @interface = api.GetInterfaces()
                     .First(i => typeof(IApiAccessor).IsAssignableFrom(i));
 
-                _apis[api] = impl;
-                _apis[@interface] = impl;
+                dict[api] = impl;
+                dict[@interface] = impl;
             }
+
+            return dict;
         }
 
         /// <inheritdoc />
@@ -93,6 +113,7 @@ namespace Lusid.Sdk.Utilities
             {
                 throw new InvalidOperationException($"Unable to find api: {typeof(TApi)}");
             }
+
             return api as TApi;
         }
     }
