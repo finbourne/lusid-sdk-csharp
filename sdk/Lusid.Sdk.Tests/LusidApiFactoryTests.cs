@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
@@ -265,6 +266,48 @@ namespace Lusid.Sdk.Tests
             var errorResponse = error.ProblemDetails();
             
             Assert.That(errorResponse, Is.Null);
+        }
+        
+        public void ApiResponse_CanExtract_DateHeader()
+        {
+            var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
+            var date = apiResponse.GetRequestDateTime();
+            Assert.IsNotNull(date);
+        }
+
+        [Test]
+        public void ApiResponse_CanExtractAndParseAccurately_DateHeader()
+        {
+            var apiResponse = new ApiResponse<VersionSummaryDto>(
+                statusCode: 200,
+                headers: new Dictionary<string, string>()
+                {
+                    {"Date", "Tue, 09 Feb 2021 05:18:41 GMT"},
+                },
+                data: new VersionSummaryDto()
+            );
+            var date = apiResponse.GetRequestDateTime();
+            Assert.That(date, Is.EqualTo(new DateTimeOffset(2021, 2, 9, 5, 18, 41, new TimeSpan())));
+        }
+
+        [Test]
+        public void ApiResponseMissingHeader_ReturnsNull_DateHeader()
+        {
+            var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
+            // Remove header containing access token
+            apiResponse.Headers.Remove(ApiResponseExtensions.DateHeader);
+            var date = apiResponse.GetRequestDateTime();
+            Assert.IsNull(date);
+        }
+
+        [Test]
+        public void ApiResponseInvalidDateHeader_ReturnsNull_DateHeader()
+        {
+            var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
+            // Invalidate header containing access token
+            apiResponse.Headers[ApiResponseExtensions.DateHeader] = "invalid";
+            var date = apiResponse.GetRequestDateTime();
+            Assert.IsNull(date);
         }
     }
 }
