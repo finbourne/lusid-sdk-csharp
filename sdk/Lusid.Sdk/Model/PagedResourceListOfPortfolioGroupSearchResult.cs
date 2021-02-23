@@ -23,30 +23,32 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfHoldingsAdjustmentHeader
+    /// PagedResourceListOfPortfolioGroupSearchResult
     /// </summary>
     [DataContract]
-    public partial class ResourceListOfHoldingsAdjustmentHeader :  IEquatable<ResourceListOfHoldingsAdjustmentHeader>
+    public partial class PagedResourceListOfPortfolioGroupSearchResult :  IEquatable<PagedResourceListOfPortfolioGroupSearchResult>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfHoldingsAdjustmentHeader" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPortfolioGroupSearchResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfHoldingsAdjustmentHeader() { }
+        protected PagedResourceListOfPortfolioGroupSearchResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfHoldingsAdjustmentHeader" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPortfolioGroupSearchResult" /> class.
         /// </summary>
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
-        /// <param name="nextPage">nextPage.</param>
-        /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfHoldingsAdjustmentHeader(List<HoldingsAdjustmentHeader> values = default(List<HoldingsAdjustmentHeader>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public PagedResourceListOfPortfolioGroupSearchResult(string nextPage = default(string), string previousPage = default(string), List<PortfolioGroupSearchResult> values = default(List<PortfolioGroupSearchResult>), string href = default(string), List<Link> links = default(List<Link>))
         {
+            this.NextPage = nextPage;
+            this.PreviousPage = previousPage;
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new InvalidDataException("values is a required property for ResourceListOfHoldingsAdjustmentHeader and cannot be null");
+                throw new InvalidDataException("values is a required property for PagedResourceListOfPortfolioGroupSearchResult and cannot be null");
             }
             else
             {
@@ -59,15 +61,25 @@ namespace Lusid.Sdk.Model
             this.PreviousPage = previousPage;
             this.Href = href;
             this.Links = links;
-            this.NextPage = nextPage;
-            this.PreviousPage = previousPage;
         }
         
+        /// <summary>
+        /// Gets or Sets NextPage
+        /// </summary>
+        [DataMember(Name="nextPage", EmitDefaultValue=true)]
+        public string NextPage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviousPage
+        /// </summary>
+        [DataMember(Name="previousPage", EmitDefaultValue=true)]
+        public string PreviousPage { get; set; }
+
         /// <summary>
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name="values", EmitDefaultValue=false)]
-        public List<HoldingsAdjustmentHeader> Values { get; set; }
+        public List<PortfolioGroupSearchResult> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -82,30 +94,18 @@ namespace Lusid.Sdk.Model
         public List<Link> Links { get; set; }
 
         /// <summary>
-        /// Gets or Sets NextPage
-        /// </summary>
-        [DataMember(Name="nextPage", EmitDefaultValue=true)]
-        public string NextPage { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PreviousPage
-        /// </summary>
-        [DataMember(Name="previousPage", EmitDefaultValue=true)]
-        public string PreviousPage { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResourceListOfHoldingsAdjustmentHeader {\n");
+            sb.Append("class PagedResourceListOfPortfolioGroupSearchResult {\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
-            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,20 +126,30 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfHoldingsAdjustmentHeader);
+            return this.Equals(input as PagedResourceListOfPortfolioGroupSearchResult);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfHoldingsAdjustmentHeader instances are equal
+        /// Returns true if PagedResourceListOfPortfolioGroupSearchResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfHoldingsAdjustmentHeader to be compared</param>
+        /// <param name="input">Instance of PagedResourceListOfPortfolioGroupSearchResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfHoldingsAdjustmentHeader input)
+        public bool Equals(PagedResourceListOfPortfolioGroupSearchResult input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.NextPage == input.NextPage ||
+                    (this.NextPage != null &&
+                    this.NextPage.Equals(input.NextPage))
+                ) && 
+                (
+                    this.PreviousPage == input.PreviousPage ||
+                    (this.PreviousPage != null &&
+                    this.PreviousPage.Equals(input.PreviousPage))
+                ) && 
                 (
                     this.Values == input.Values ||
                     this.Values != null &&
@@ -156,16 +166,6 @@ namespace Lusid.Sdk.Model
                     this.Links != null &&
                     input.Links != null &&
                     this.Links.SequenceEqual(input.Links)
-                ) && 
-                (
-                    this.NextPage == input.NextPage ||
-                    (this.NextPage != null &&
-                    this.NextPage.Equals(input.NextPage))
-                ) && 
-                (
-                    this.PreviousPage == input.PreviousPage ||
-                    (this.PreviousPage != null &&
-                    this.PreviousPage.Equals(input.PreviousPage))
                 );
         }
 
@@ -178,16 +178,16 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.NextPage != null)
+                    hashCode = hashCode * 59 + this.NextPage.GetHashCode();
+                if (this.PreviousPage != null)
+                    hashCode = hashCode * 59 + this.PreviousPage.GetHashCode();
                 if (this.Values != null)
                     hashCode = hashCode * 59 + this.Values.GetHashCode();
                 if (this.Href != null)
                     hashCode = hashCode * 59 + this.Href.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
-                if (this.NextPage != null)
-                    hashCode = hashCode * 59 + this.NextPage.GetHashCode();
-                if (this.PreviousPage != null)
-                    hashCode = hashCode * 59 + this.PreviousPage.GetHashCode();
                 return hashCode;
             }
         }
