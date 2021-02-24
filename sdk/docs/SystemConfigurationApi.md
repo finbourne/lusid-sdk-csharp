@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.SystemConfigurationApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62805*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62805";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## ListConfigurationTransactionTypes
 
-> TransactionSetConfigurationData ListConfigurationTransactionTypes ()
+> TransactionSetConfigurationData ListConfigurationTransactionTypes (DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] List transaction types
 
@@ -112,16 +112,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62805";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SystemConfigurationApi(Configuration.Default);
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Transaction configuration types. Defaults              to return the latest version of the holdings if not specified. (optional) 
 
             try
             {
                 // [EARLY ACCESS] List transaction types
-                TransactionSetConfigurationData result = apiInstance.ListConfigurationTransactionTypes();
+                TransactionSetConfigurationData result = apiInstance.ListConfigurationTransactionTypes(asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -137,7 +138,10 @@ namespace Example
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Transaction configuration types. Defaults              to return the latest version of the holdings if not specified. | [optional] 
 
 ### Return type
 
@@ -156,6 +160,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
 [[Back to top]](#)
