@@ -23,50 +23,67 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpsertPortfolioExecutionsResponse
+    /// PagedResourceListOfPortfolioSearchResult
     /// </summary>
     [DataContract]
-    public partial class UpsertPortfolioExecutionsResponse :  IEquatable<UpsertPortfolioExecutionsResponse>
+    public partial class PagedResourceListOfPortfolioSearchResult :  IEquatable<PagedResourceListOfPortfolioSearchResult>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertPortfolioExecutionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPortfolioSearchResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UpsertPortfolioExecutionsResponse() { }
+        protected PagedResourceListOfPortfolioSearchResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertPortfolioExecutionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPortfolioSearchResult" /> class.
         /// </summary>
-        /// <param name="version">version (required).</param>
-        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
+        /// <param name="values">values (required).</param>
+        /// <param name="href">href.</param>
         /// <param name="links">links.</param>
-        public UpsertPortfolioExecutionsResponse(Version version = default(Version), string href = default(string), List<Link> links = default(List<Link>))
+        public PagedResourceListOfPortfolioSearchResult(string nextPage = default(string), string previousPage = default(string), List<PortfolioSearchResult> values = default(List<PortfolioSearchResult>), string href = default(string), List<Link> links = default(List<Link>))
         {
-            // to ensure "version" is required (not null)
-            if (version == null)
+            this.NextPage = nextPage;
+            this.PreviousPage = previousPage;
+            // to ensure "values" is required (not null)
+            if (values == null)
             {
-                throw new InvalidDataException("version is a required property for UpsertPortfolioExecutionsResponse and cannot be null");
+                throw new InvalidDataException("values is a required property for PagedResourceListOfPortfolioSearchResult and cannot be null");
             }
             else
             {
-                this.Version = version;
+                this.Values = values;
             }
             
             this.Href = href;
             this.Links = links;
+            this.NextPage = nextPage;
+            this.PreviousPage = previousPage;
             this.Href = href;
             this.Links = links;
         }
         
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets NextPage
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public Version Version { get; set; }
+        [DataMember(Name="nextPage", EmitDefaultValue=true)]
+        public string NextPage { get; set; }
 
         /// <summary>
-        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// Gets or Sets PreviousPage
         /// </summary>
-        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
+        [DataMember(Name="previousPage", EmitDefaultValue=true)]
+        public string PreviousPage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Values
+        /// </summary>
+        [DataMember(Name="values", EmitDefaultValue=false)]
+        public List<PortfolioSearchResult> Values { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Href
+        /// </summary>
         [DataMember(Name="href", EmitDefaultValue=true)]
         public string Href { get; set; }
 
@@ -83,8 +100,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpsertPortfolioExecutionsResponse {\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("class PagedResourceListOfPortfolioSearchResult {\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -107,24 +126,35 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertPortfolioExecutionsResponse);
+            return this.Equals(input as PagedResourceListOfPortfolioSearchResult);
         }
 
         /// <summary>
-        /// Returns true if UpsertPortfolioExecutionsResponse instances are equal
+        /// Returns true if PagedResourceListOfPortfolioSearchResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertPortfolioExecutionsResponse to be compared</param>
+        /// <param name="input">Instance of PagedResourceListOfPortfolioSearchResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertPortfolioExecutionsResponse input)
+        public bool Equals(PagedResourceListOfPortfolioSearchResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this.NextPage == input.NextPage ||
+                    (this.NextPage != null &&
+                    this.NextPage.Equals(input.NextPage))
+                ) && 
+                (
+                    this.PreviousPage == input.PreviousPage ||
+                    (this.PreviousPage != null &&
+                    this.PreviousPage.Equals(input.PreviousPage))
+                ) && 
+                (
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
                     this.Href == input.Href ||
@@ -148,8 +178,12 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this.NextPage != null)
+                    hashCode = hashCode * 59 + this.NextPage.GetHashCode();
+                if (this.PreviousPage != null)
+                    hashCode = hashCode * 59 + this.PreviousPage.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
                 if (this.Href != null)
                     hashCode = hashCode * 59 + this.Href.GetHashCode();
                 if (this.Links != null)
