@@ -23,181 +23,75 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A reconciliation break
+    /// PagedResourceListOfPropertyDefinitionSearchResult
     /// </summary>
     [DataContract]
-    public partial class ReconciliationBreak :  IEquatable<ReconciliationBreak>
+    public partial class PagedResourceListOfPropertyDefinitionSearchResult :  IEquatable<PagedResourceListOfPropertyDefinitionSearchResult>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationBreak" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPropertyDefinitionSearchResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ReconciliationBreak() { }
+        protected PagedResourceListOfPropertyDefinitionSearchResult() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationBreak" /> class.
+        /// Initializes a new instance of the <see cref="PagedResourceListOfPropertyDefinitionSearchResult" /> class.
         /// </summary>
-        /// <param name="instrumentUid">Unique instrument identifier (required).</param>
-        /// <param name="subHoldingKeys">Any other properties that comprise the Sub-Holding Key (required).</param>
-        /// <param name="leftUnits">Units from the left hand side (required).</param>
-        /// <param name="rightUnits">Units from the right hand side (required).</param>
-        /// <param name="differenceUnits">Difference in units (required).</param>
-        /// <param name="leftCost">leftCost (required).</param>
-        /// <param name="rightCost">rightCost (required).</param>
-        /// <param name="differenceCost">differenceCost (required).</param>
-        /// <param name="instrumentProperties">Additional features relating to the instrument (required).</param>
-        public ReconciliationBreak(string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), decimal? leftUnits = default(decimal?), decimal? rightUnits = default(decimal?), decimal? differenceUnits = default(decimal?), CurrencyAndAmount leftCost = default(CurrencyAndAmount), CurrencyAndAmount rightCost = default(CurrencyAndAmount), CurrencyAndAmount differenceCost = default(CurrencyAndAmount), List<Property> instrumentProperties = default(List<Property>))
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
+        /// <param name="values">values (required).</param>
+        /// <param name="href">href.</param>
+        /// <param name="links">links.</param>
+        public PagedResourceListOfPropertyDefinitionSearchResult(string nextPage = default(string), string previousPage = default(string), List<PropertyDefinitionSearchResult> values = default(List<PropertyDefinitionSearchResult>), string href = default(string), List<Link> links = default(List<Link>))
         {
-            // to ensure "instrumentUid" is required (not null)
-            if (instrumentUid == null)
+            this.NextPage = nextPage;
+            this.PreviousPage = previousPage;
+            // to ensure "values" is required (not null)
+            if (values == null)
             {
-                throw new InvalidDataException("instrumentUid is a required property for ReconciliationBreak and cannot be null");
+                throw new InvalidDataException("values is a required property for PagedResourceListOfPropertyDefinitionSearchResult and cannot be null");
             }
             else
             {
-                this.InstrumentUid = instrumentUid;
+                this.Values = values;
             }
             
-            // to ensure "subHoldingKeys" is required (not null)
-            if (subHoldingKeys == null)
-            {
-                throw new InvalidDataException("subHoldingKeys is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.SubHoldingKeys = subHoldingKeys;
-            }
-            
-            // to ensure "leftUnits" is required (not null)
-            if (leftUnits == null)
-            {
-                throw new InvalidDataException("leftUnits is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.LeftUnits = leftUnits;
-            }
-            
-            // to ensure "rightUnits" is required (not null)
-            if (rightUnits == null)
-            {
-                throw new InvalidDataException("rightUnits is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.RightUnits = rightUnits;
-            }
-            
-            // to ensure "differenceUnits" is required (not null)
-            if (differenceUnits == null)
-            {
-                throw new InvalidDataException("differenceUnits is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.DifferenceUnits = differenceUnits;
-            }
-            
-            // to ensure "leftCost" is required (not null)
-            if (leftCost == null)
-            {
-                throw new InvalidDataException("leftCost is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.LeftCost = leftCost;
-            }
-            
-            // to ensure "rightCost" is required (not null)
-            if (rightCost == null)
-            {
-                throw new InvalidDataException("rightCost is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.RightCost = rightCost;
-            }
-            
-            // to ensure "differenceCost" is required (not null)
-            if (differenceCost == null)
-            {
-                throw new InvalidDataException("differenceCost is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.DifferenceCost = differenceCost;
-            }
-            
-            // to ensure "instrumentProperties" is required (not null)
-            if (instrumentProperties == null)
-            {
-                throw new InvalidDataException("instrumentProperties is a required property for ReconciliationBreak and cannot be null");
-            }
-            else
-            {
-                this.InstrumentProperties = instrumentProperties;
-            }
-            
+            this.Href = href;
+            this.Links = links;
+            this.NextPage = nextPage;
+            this.PreviousPage = previousPage;
+            this.Href = href;
+            this.Links = links;
         }
         
         /// <summary>
-        /// Unique instrument identifier
+        /// Gets or Sets NextPage
         /// </summary>
-        /// <value>Unique instrument identifier</value>
-        [DataMember(Name="instrumentUid", EmitDefaultValue=false)]
-        public string InstrumentUid { get; set; }
+        [DataMember(Name="nextPage", EmitDefaultValue=true)]
+        public string NextPage { get; set; }
 
         /// <summary>
-        /// Any other properties that comprise the Sub-Holding Key
+        /// Gets or Sets PreviousPage
         /// </summary>
-        /// <value>Any other properties that comprise the Sub-Holding Key</value>
-        [DataMember(Name="subHoldingKeys", EmitDefaultValue=false)]
-        public Dictionary<string, PerpetualProperty> SubHoldingKeys { get; set; }
+        [DataMember(Name="previousPage", EmitDefaultValue=true)]
+        public string PreviousPage { get; set; }
 
         /// <summary>
-        /// Units from the left hand side
+        /// Gets or Sets Values
         /// </summary>
-        /// <value>Units from the left hand side</value>
-        [DataMember(Name="leftUnits", EmitDefaultValue=false)]
-        public decimal? LeftUnits { get; set; }
+        [DataMember(Name="values", EmitDefaultValue=false)]
+        public List<PropertyDefinitionSearchResult> Values { get; set; }
 
         /// <summary>
-        /// Units from the right hand side
+        /// Gets or Sets Href
         /// </summary>
-        /// <value>Units from the right hand side</value>
-        [DataMember(Name="rightUnits", EmitDefaultValue=false)]
-        public decimal? RightUnits { get; set; }
+        [DataMember(Name="href", EmitDefaultValue=true)]
+        public string Href { get; set; }
 
         /// <summary>
-        /// Difference in units
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Difference in units</value>
-        [DataMember(Name="differenceUnits", EmitDefaultValue=false)]
-        public decimal? DifferenceUnits { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LeftCost
-        /// </summary>
-        [DataMember(Name="leftCost", EmitDefaultValue=false)]
-        public CurrencyAndAmount LeftCost { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RightCost
-        /// </summary>
-        [DataMember(Name="rightCost", EmitDefaultValue=false)]
-        public CurrencyAndAmount RightCost { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DifferenceCost
-        /// </summary>
-        [DataMember(Name="differenceCost", EmitDefaultValue=false)]
-        public CurrencyAndAmount DifferenceCost { get; set; }
-
-        /// <summary>
-        /// Additional features relating to the instrument
-        /// </summary>
-        /// <value>Additional features relating to the instrument</value>
-        [DataMember(Name="instrumentProperties", EmitDefaultValue=false)]
-        public List<Property> InstrumentProperties { get; set; }
+        [DataMember(Name="links", EmitDefaultValue=true)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -206,16 +100,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ReconciliationBreak {\n");
-            sb.Append("  InstrumentUid: ").Append(InstrumentUid).Append("\n");
-            sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
-            sb.Append("  LeftUnits: ").Append(LeftUnits).Append("\n");
-            sb.Append("  RightUnits: ").Append(RightUnits).Append("\n");
-            sb.Append("  DifferenceUnits: ").Append(DifferenceUnits).Append("\n");
-            sb.Append("  LeftCost: ").Append(LeftCost).Append("\n");
-            sb.Append("  RightCost: ").Append(RightCost).Append("\n");
-            sb.Append("  DifferenceCost: ").Append(DifferenceCost).Append("\n");
-            sb.Append("  InstrumentProperties: ").Append(InstrumentProperties).Append("\n");
+            sb.Append("class PagedResourceListOfPropertyDefinitionSearchResult {\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -236,66 +126,46 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ReconciliationBreak);
+            return this.Equals(input as PagedResourceListOfPropertyDefinitionSearchResult);
         }
 
         /// <summary>
-        /// Returns true if ReconciliationBreak instances are equal
+        /// Returns true if PagedResourceListOfPropertyDefinitionSearchResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of ReconciliationBreak to be compared</param>
+        /// <param name="input">Instance of PagedResourceListOfPropertyDefinitionSearchResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReconciliationBreak input)
+        public bool Equals(PagedResourceListOfPropertyDefinitionSearchResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InstrumentUid == input.InstrumentUid ||
-                    (this.InstrumentUid != null &&
-                    this.InstrumentUid.Equals(input.InstrumentUid))
+                    this.NextPage == input.NextPage ||
+                    (this.NextPage != null &&
+                    this.NextPage.Equals(input.NextPage))
                 ) && 
                 (
-                    this.SubHoldingKeys == input.SubHoldingKeys ||
-                    this.SubHoldingKeys != null &&
-                    input.SubHoldingKeys != null &&
-                    this.SubHoldingKeys.SequenceEqual(input.SubHoldingKeys)
+                    this.PreviousPage == input.PreviousPage ||
+                    (this.PreviousPage != null &&
+                    this.PreviousPage.Equals(input.PreviousPage))
                 ) && 
                 (
-                    this.LeftUnits == input.LeftUnits ||
-                    (this.LeftUnits != null &&
-                    this.LeftUnits.Equals(input.LeftUnits))
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
-                    this.RightUnits == input.RightUnits ||
-                    (this.RightUnits != null &&
-                    this.RightUnits.Equals(input.RightUnits))
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.DifferenceUnits == input.DifferenceUnits ||
-                    (this.DifferenceUnits != null &&
-                    this.DifferenceUnits.Equals(input.DifferenceUnits))
-                ) && 
-                (
-                    this.LeftCost == input.LeftCost ||
-                    (this.LeftCost != null &&
-                    this.LeftCost.Equals(input.LeftCost))
-                ) && 
-                (
-                    this.RightCost == input.RightCost ||
-                    (this.RightCost != null &&
-                    this.RightCost.Equals(input.RightCost))
-                ) && 
-                (
-                    this.DifferenceCost == input.DifferenceCost ||
-                    (this.DifferenceCost != null &&
-                    this.DifferenceCost.Equals(input.DifferenceCost))
-                ) && 
-                (
-                    this.InstrumentProperties == input.InstrumentProperties ||
-                    this.InstrumentProperties != null &&
-                    input.InstrumentProperties != null &&
-                    this.InstrumentProperties.SequenceEqual(input.InstrumentProperties)
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -308,24 +178,16 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InstrumentUid != null)
-                    hashCode = hashCode * 59 + this.InstrumentUid.GetHashCode();
-                if (this.SubHoldingKeys != null)
-                    hashCode = hashCode * 59 + this.SubHoldingKeys.GetHashCode();
-                if (this.LeftUnits != null)
-                    hashCode = hashCode * 59 + this.LeftUnits.GetHashCode();
-                if (this.RightUnits != null)
-                    hashCode = hashCode * 59 + this.RightUnits.GetHashCode();
-                if (this.DifferenceUnits != null)
-                    hashCode = hashCode * 59 + this.DifferenceUnits.GetHashCode();
-                if (this.LeftCost != null)
-                    hashCode = hashCode * 59 + this.LeftCost.GetHashCode();
-                if (this.RightCost != null)
-                    hashCode = hashCode * 59 + this.RightCost.GetHashCode();
-                if (this.DifferenceCost != null)
-                    hashCode = hashCode * 59 + this.DifferenceCost.GetHashCode();
-                if (this.InstrumentProperties != null)
-                    hashCode = hashCode * 59 + this.InstrumentProperties.GetHashCode();
+                if (this.NextPage != null)
+                    hashCode = hashCode * 59 + this.NextPage.GetHashCode();
+                if (this.PreviousPage != null)
+                    hashCode = hashCode * 59 + this.PreviousPage.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
+                if (this.Href != null)
+                    hashCode = hashCode * 59 + this.Href.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }
