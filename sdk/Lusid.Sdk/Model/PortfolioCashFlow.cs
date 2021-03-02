@@ -23,108 +23,244 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ExpandedGroup
+    /// The details for the cashflow for a given portfolio.
     /// </summary>
     [DataContract]
-    public partial class ExpandedGroup :  IEquatable<ExpandedGroup>
+    public partial class PortfolioCashFlow :  IEquatable<PortfolioCashFlow>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExpandedGroup" /> class.
+        /// Initializes a new instance of the <see cref="PortfolioCashFlow" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ExpandedGroup() { }
+        protected PortfolioCashFlow() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExpandedGroup" /> class.
+        /// Initializes a new instance of the <see cref="PortfolioCashFlow" /> class.
         /// </summary>
-        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="displayName">The name of the portfolio group. (required).</param>
-        /// <param name="description">The long form description of the portfolio group..</param>
-        /// <param name="values">The collection of resource identifiers for the portfolios contained in the portfolio group..</param>
-        /// <param name="subGroups">The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups..</param>
-        /// <param name="version">version.</param>
+        /// <param name="groupById">The groupBy subHoldings and currency. (required).</param>
+        /// <param name="sequenceNumber">Sequence number determining the order of the cash flow records. (required).</param>
+        /// <param name="effectiveDate">Indicates the date when the cash-flow settles..</param>
+        /// <param name="subHoldingKeys">The sub-holding properties which identify the holding. Each property will be from the &#39;Transaction&#39; domain. These are configured when a transaction portfolio is created..</param>
+        /// <param name="type">Indicates the record type (Closed, Open, Activity). (required).</param>
+        /// <param name="movementName">Indicates the specific movement of the transaction that generated this cash flow. (required).</param>
+        /// <param name="cashflow">cashflow (required).</param>
+        /// <param name="balance">balance (required).</param>
+        /// <param name="fxRate">Exchange rate between the currency of this cash flow and the reporting currency. (required).</param>
+        /// <param name="cashflowReportingCurrency">cashflowReportingCurrency (required).</param>
+        /// <param name="balanceReportingCurrency">balanceReportingCurrency (required).</param>
+        /// <param name="translationGainLoss">translationGainLoss (required).</param>
+        /// <param name="costBasisReportingCurrency">costBasisReportingCurrency (required).</param>
+        /// <param name="transaction">transaction.</param>
         /// <param name="links">links.</param>
-        public ExpandedGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<CompletePortfolio> values = default(List<CompletePortfolio>), List<ExpandedGroup> subGroups = default(List<ExpandedGroup>), Version version = default(Version), List<Link> links = default(List<Link>))
+        public PortfolioCashFlow(int? groupById = default(int?), int? sequenceNumber = default(int?), DateTimeOffset? effectiveDate = default(DateTimeOffset?), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string type = default(string), string movementName = default(string), CurrencyAndAmount cashflow = default(CurrencyAndAmount), CurrencyAndAmount balance = default(CurrencyAndAmount), decimal? fxRate = default(decimal?), CurrencyAndAmount cashflowReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount balanceReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount translationGainLoss = default(CurrencyAndAmount), CurrencyAndAmount costBasisReportingCurrency = default(CurrencyAndAmount), Transaction transaction = default(Transaction), List<Link> links = default(List<Link>))
         {
-            this.Href = href;
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "groupById" is required (not null)
+            if (groupById == null)
             {
-                throw new InvalidDataException("id is a required property for ExpandedGroup and cannot be null");
+                throw new InvalidDataException("groupById is a required property for PortfolioCashFlow and cannot be null");
             }
             else
             {
-                this.Id = id;
+                this.GroupById = groupById;
             }
             
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
+            // to ensure "sequenceNumber" is required (not null)
+            if (sequenceNumber == null)
             {
-                throw new InvalidDataException("displayName is a required property for ExpandedGroup and cannot be null");
+                throw new InvalidDataException("sequenceNumber is a required property for PortfolioCashFlow and cannot be null");
             }
             else
             {
-                this.DisplayName = displayName;
+                this.SequenceNumber = sequenceNumber;
             }
             
-            this.Description = description;
-            this.Values = values;
-            this.SubGroups = subGroups;
+            this.SubHoldingKeys = subHoldingKeys;
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new InvalidDataException("type is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.Type = type;
+            }
+            
+            // to ensure "movementName" is required (not null)
+            if (movementName == null)
+            {
+                throw new InvalidDataException("movementName is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.MovementName = movementName;
+            }
+            
+            // to ensure "cashflow" is required (not null)
+            if (cashflow == null)
+            {
+                throw new InvalidDataException("cashflow is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.Cashflow = cashflow;
+            }
+            
+            // to ensure "balance" is required (not null)
+            if (balance == null)
+            {
+                throw new InvalidDataException("balance is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.Balance = balance;
+            }
+            
+            // to ensure "fxRate" is required (not null)
+            if (fxRate == null)
+            {
+                throw new InvalidDataException("fxRate is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.FxRate = fxRate;
+            }
+            
+            // to ensure "cashflowReportingCurrency" is required (not null)
+            if (cashflowReportingCurrency == null)
+            {
+                throw new InvalidDataException("cashflowReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.CashflowReportingCurrency = cashflowReportingCurrency;
+            }
+            
+            // to ensure "balanceReportingCurrency" is required (not null)
+            if (balanceReportingCurrency == null)
+            {
+                throw new InvalidDataException("balanceReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.BalanceReportingCurrency = balanceReportingCurrency;
+            }
+            
+            // to ensure "translationGainLoss" is required (not null)
+            if (translationGainLoss == null)
+            {
+                throw new InvalidDataException("translationGainLoss is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.TranslationGainLoss = translationGainLoss;
+            }
+            
+            // to ensure "costBasisReportingCurrency" is required (not null)
+            if (costBasisReportingCurrency == null)
+            {
+                throw new InvalidDataException("costBasisReportingCurrency is a required property for PortfolioCashFlow and cannot be null");
+            }
+            else
+            {
+                this.CostBasisReportingCurrency = costBasisReportingCurrency;
+            }
+            
             this.Links = links;
-            this.Href = href;
-            this.Description = description;
-            this.Values = values;
-            this.SubGroups = subGroups;
-            this.Version = version;
+            this.EffectiveDate = effectiveDate;
+            this.SubHoldingKeys = subHoldingKeys;
+            this.Transaction = transaction;
             this.Links = links;
         }
         
         /// <summary>
-        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// The groupBy subHoldings and currency.
         /// </summary>
-        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
-        [DataMember(Name="href", EmitDefaultValue=true)]
-        public string Href { get; set; }
+        /// <value>The groupBy subHoldings and currency.</value>
+        [DataMember(Name="groupById", EmitDefaultValue=false)]
+        public int? GroupById { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Sequence number determining the order of the cash flow records.
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public ResourceId Id { get; set; }
+        /// <value>Sequence number determining the order of the cash flow records.</value>
+        [DataMember(Name="sequenceNumber", EmitDefaultValue=false)]
+        public int? SequenceNumber { get; set; }
 
         /// <summary>
-        /// The name of the portfolio group.
+        /// Indicates the date when the cash-flow settles.
         /// </summary>
-        /// <value>The name of the portfolio group.</value>
-        [DataMember(Name="displayName", EmitDefaultValue=false)]
-        public string DisplayName { get; set; }
+        /// <value>Indicates the date when the cash-flow settles.</value>
+        [DataMember(Name="effectiveDate", EmitDefaultValue=false)]
+        public DateTimeOffset? EffectiveDate { get; set; }
 
         /// <summary>
-        /// The long form description of the portfolio group.
+        /// The sub-holding properties which identify the holding. Each property will be from the &#39;Transaction&#39; domain. These are configured when a transaction portfolio is created.
         /// </summary>
-        /// <value>The long form description of the portfolio group.</value>
-        [DataMember(Name="description", EmitDefaultValue=true)]
-        public string Description { get; set; }
+        /// <value>The sub-holding properties which identify the holding. Each property will be from the &#39;Transaction&#39; domain. These are configured when a transaction portfolio is created.</value>
+        [DataMember(Name="subHoldingKeys", EmitDefaultValue=true)]
+        public Dictionary<string, PerpetualProperty> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// The collection of resource identifiers for the portfolios contained in the portfolio group.
+        /// Indicates the record type (Closed, Open, Activity).
         /// </summary>
-        /// <value>The collection of resource identifiers for the portfolios contained in the portfolio group.</value>
-        [DataMember(Name="values", EmitDefaultValue=true)]
-        public List<CompletePortfolio> Values { get; set; }
+        /// <value>Indicates the record type (Closed, Open, Activity).</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.
+        /// Indicates the specific movement of the transaction that generated this cash flow.
         /// </summary>
-        /// <value>The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups.</value>
-        [DataMember(Name="subGroups", EmitDefaultValue=true)]
-        public List<ExpandedGroup> SubGroups { get; set; }
+        /// <value>Indicates the specific movement of the transaction that generated this cash flow.</value>
+        [DataMember(Name="movementName", EmitDefaultValue=false)]
+        public string MovementName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets Cashflow
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public Version Version { get; set; }
+        [DataMember(Name="cashflow", EmitDefaultValue=false)]
+        public CurrencyAndAmount Cashflow { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Balance
+        /// </summary>
+        [DataMember(Name="balance", EmitDefaultValue=false)]
+        public CurrencyAndAmount Balance { get; set; }
+
+        /// <summary>
+        /// Exchange rate between the currency of this cash flow and the reporting currency.
+        /// </summary>
+        /// <value>Exchange rate between the currency of this cash flow and the reporting currency.</value>
+        [DataMember(Name="fxRate", EmitDefaultValue=false)]
+        public decimal? FxRate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CashflowReportingCurrency
+        /// </summary>
+        [DataMember(Name="cashflowReportingCurrency", EmitDefaultValue=false)]
+        public CurrencyAndAmount CashflowReportingCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BalanceReportingCurrency
+        /// </summary>
+        [DataMember(Name="balanceReportingCurrency", EmitDefaultValue=false)]
+        public CurrencyAndAmount BalanceReportingCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TranslationGainLoss
+        /// </summary>
+        [DataMember(Name="translationGainLoss", EmitDefaultValue=false)]
+        public CurrencyAndAmount TranslationGainLoss { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CostBasisReportingCurrency
+        /// </summary>
+        [DataMember(Name="costBasisReportingCurrency", EmitDefaultValue=false)]
+        public CurrencyAndAmount CostBasisReportingCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Transaction
+        /// </summary>
+        [DataMember(Name="transaction", EmitDefaultValue=false)]
+        public Transaction Transaction { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -139,14 +275,21 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ExpandedGroup {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  SubGroups: ").Append(SubGroups).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("class PortfolioCashFlow {\n");
+            sb.Append("  GroupById: ").Append(GroupById).Append("\n");
+            sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
+            sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  MovementName: ").Append(MovementName).Append("\n");
+            sb.Append("  Cashflow: ").Append(Cashflow).Append("\n");
+            sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  FxRate: ").Append(FxRate).Append("\n");
+            sb.Append("  CashflowReportingCurrency: ").Append(CashflowReportingCurrency).Append("\n");
+            sb.Append("  BalanceReportingCurrency: ").Append(BalanceReportingCurrency).Append("\n");
+            sb.Append("  TranslationGainLoss: ").Append(TranslationGainLoss).Append("\n");
+            sb.Append("  CostBasisReportingCurrency: ").Append(CostBasisReportingCurrency).Append("\n");
+            sb.Append("  Transaction: ").Append(Transaction).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -168,56 +311,90 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExpandedGroup);
+            return this.Equals(input as PortfolioCashFlow);
         }
 
         /// <summary>
-        /// Returns true if ExpandedGroup instances are equal
+        /// Returns true if PortfolioCashFlow instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExpandedGroup to be compared</param>
+        /// <param name="input">Instance of PortfolioCashFlow to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExpandedGroup input)
+        public bool Equals(PortfolioCashFlow input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.GroupById == input.GroupById ||
+                    (this.GroupById != null &&
+                    this.GroupById.Equals(input.GroupById))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.SequenceNumber == input.SequenceNumber ||
+                    (this.SequenceNumber != null &&
+                    this.SequenceNumber.Equals(input.SequenceNumber))
                 ) && 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.EffectiveDate == input.EffectiveDate ||
+                    (this.EffectiveDate != null &&
+                    this.EffectiveDate.Equals(input.EffectiveDate))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.SubHoldingKeys == input.SubHoldingKeys ||
+                    this.SubHoldingKeys != null &&
+                    input.SubHoldingKeys != null &&
+                    this.SubHoldingKeys.SequenceEqual(input.SubHoldingKeys)
                 ) && 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    input.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.SubGroups == input.SubGroups ||
-                    this.SubGroups != null &&
-                    input.SubGroups != null &&
-                    this.SubGroups.SequenceEqual(input.SubGroups)
+                    this.MovementName == input.MovementName ||
+                    (this.MovementName != null &&
+                    this.MovementName.Equals(input.MovementName))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this.Cashflow == input.Cashflow ||
+                    (this.Cashflow != null &&
+                    this.Cashflow.Equals(input.Cashflow))
+                ) && 
+                (
+                    this.Balance == input.Balance ||
+                    (this.Balance != null &&
+                    this.Balance.Equals(input.Balance))
+                ) && 
+                (
+                    this.FxRate == input.FxRate ||
+                    (this.FxRate != null &&
+                    this.FxRate.Equals(input.FxRate))
+                ) && 
+                (
+                    this.CashflowReportingCurrency == input.CashflowReportingCurrency ||
+                    (this.CashflowReportingCurrency != null &&
+                    this.CashflowReportingCurrency.Equals(input.CashflowReportingCurrency))
+                ) && 
+                (
+                    this.BalanceReportingCurrency == input.BalanceReportingCurrency ||
+                    (this.BalanceReportingCurrency != null &&
+                    this.BalanceReportingCurrency.Equals(input.BalanceReportingCurrency))
+                ) && 
+                (
+                    this.TranslationGainLoss == input.TranslationGainLoss ||
+                    (this.TranslationGainLoss != null &&
+                    this.TranslationGainLoss.Equals(input.TranslationGainLoss))
+                ) && 
+                (
+                    this.CostBasisReportingCurrency == input.CostBasisReportingCurrency ||
+                    (this.CostBasisReportingCurrency != null &&
+                    this.CostBasisReportingCurrency.Equals(input.CostBasisReportingCurrency))
+                ) && 
+                (
+                    this.Transaction == input.Transaction ||
+                    (this.Transaction != null &&
+                    this.Transaction.Equals(input.Transaction))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -236,20 +413,34 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Values != null)
-                    hashCode = hashCode * 59 + this.Values.GetHashCode();
-                if (this.SubGroups != null)
-                    hashCode = hashCode * 59 + this.SubGroups.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this.GroupById != null)
+                    hashCode = hashCode * 59 + this.GroupById.GetHashCode();
+                if (this.SequenceNumber != null)
+                    hashCode = hashCode * 59 + this.SequenceNumber.GetHashCode();
+                if (this.EffectiveDate != null)
+                    hashCode = hashCode * 59 + this.EffectiveDate.GetHashCode();
+                if (this.SubHoldingKeys != null)
+                    hashCode = hashCode * 59 + this.SubHoldingKeys.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.MovementName != null)
+                    hashCode = hashCode * 59 + this.MovementName.GetHashCode();
+                if (this.Cashflow != null)
+                    hashCode = hashCode * 59 + this.Cashflow.GetHashCode();
+                if (this.Balance != null)
+                    hashCode = hashCode * 59 + this.Balance.GetHashCode();
+                if (this.FxRate != null)
+                    hashCode = hashCode * 59 + this.FxRate.GetHashCode();
+                if (this.CashflowReportingCurrency != null)
+                    hashCode = hashCode * 59 + this.CashflowReportingCurrency.GetHashCode();
+                if (this.BalanceReportingCurrency != null)
+                    hashCode = hashCode * 59 + this.BalanceReportingCurrency.GetHashCode();
+                if (this.TranslationGainLoss != null)
+                    hashCode = hashCode * 59 + this.TranslationGainLoss.GetHashCode();
+                if (this.CostBasisReportingCurrency != null)
+                    hashCode = hashCode * 59 + this.CostBasisReportingCurrency.GetHashCode();
+                if (this.Transaction != null)
+                    hashCode = hashCode * 59 + this.Transaction.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
