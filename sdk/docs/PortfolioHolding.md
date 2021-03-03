@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Cost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **CostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **Transaction** | [**Transaction**](Transaction.md) |  | [optional] 
-**Currency** | **string** | The holding currency. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
