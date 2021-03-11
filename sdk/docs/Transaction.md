@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Units** | **decimal?** | The number of units transacted in the associated instrument. | 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | [optional] 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
-**ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency (settlement currency being represented by the TotalConsideration.Currency). For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate. | [optional] 
+**ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency. For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate. | [optional] 
 **TransactionCurrency** | **string** | The transaction currency. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 

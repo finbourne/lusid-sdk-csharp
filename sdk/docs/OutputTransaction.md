@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **TransactionAmount** | **decimal?** | The total value of the transaction in the transaction currency. | [optional] 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | [optional] 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
-**ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency (settlement currency being represented by the TotalConsideration.Currency). For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate. | [optional] 
+**ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency. For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate. | [optional] 
 **TransactionToPortfolioRate** | **decimal?** | The exchange rate between the transaction and portfolio currency. For example if the transaction currency is in USD and the portfolio currency is in GBP this this the USD/GBP rate. | [optional] 
 **TransactionCurrency** | **string** | The transaction currency. | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to stored with the transaction. Each property will be from the &#39;Transaction&#39; domain. | [optional] 
