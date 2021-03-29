@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
         [Test]
         public void CreateReferencePortfolio()
         {
-            var F39PorfolioCode = "F39ReferencePortfolioCode";
-            var F39PortfolioName = "F39 Reference Portfolio name";
+            var F39PorfolioCode = "F39C_ReferencePortfolioCode";
+            var F39PortfolioName = "F39C_Reference Portfolio name";
 
 
             //  Details of the new reference portfolio to be created
@@ -69,8 +69,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
         [Test]
         public void SetConstituents()
         {
-            var F40PorfolioCode = "F40TestReferencePortfolio";
-            var F40PortfolioName = "F40Test reference portfolio";
+            var F40PorfolioCode = "F40C_ReferencePortfolio";
+            var F40PortfolioName = "F40C_Test reference portfolio";
 
             //  First, create a new reference portfolio
             var request = new CreateReferencePortfolioRequest(
