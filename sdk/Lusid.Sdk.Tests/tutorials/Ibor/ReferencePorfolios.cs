@@ -18,8 +18,8 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
         private IList<string> _instrumentIds;
 
         //  This defines the scope that entities will be created in the test
-        private readonly string PorfolioCode = $"MyPort-{Guid.NewGuid().ToString()}";
         const string TutorialScope = "Testdemo1";
+        private readonly DateTimeOffset createDate = new DateTimeOffset(2000, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
         [OneTimeSetUp]
         public void SetUp()
@@ -36,17 +36,18 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
         [Test]
         public void CreateReferencePortfolio()
         {
-            //  Create date for the portfolio
-            var createDate = new DateTimeOffset(2000, 1, 1, 0, 0, 0, TimeSpan.Zero);
+            var F39PorfolioCode = "F39ReferencePortfolioCode";
+            var F39PortfolioName = "F39 Reference Portfolio name";
+
 
             //  Details of the new reference portfolio to be created
             var request = new CreateReferencePortfolioRequest(
 
                 //  Unique portfolio code, portfolio codes must be unique across scopes
-                code: PorfolioCode,
+                code: F39PorfolioCode,
 
                 //  Descriptive name for the portfolio
-                displayName: $"Portfolio-{PorfolioCode}",
+                displayName: F39PortfolioName,
 
                 //  Create date for the below. We can only upsert constituents after this date.
                 created: createDate
@@ -59,12 +60,35 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             //  Confirm that the portfolio was successfully created.  Any failures will result in
             //  a ApiException being thrown which contain the relevant response code and error message
             Assert.That(ReferencePortfolio.Id.Code, Is.EqualTo(request.Code));
+
+            // Delete the portfolio once the test is complete
+            var _delete_portfolio_result = _apiFactory.Api<IPortfoliosApi>().DeletePortfolio(TutorialScope, F39PorfolioCode);
         }
         
         [LusidFeature("F40")]
         [Test]
         public void SetConstituents()
         {
+            var F40PorfolioCode = "F40TestReferencePortfolio";
+            var F40PortfolioName = "F40Test reference portfolio";
+
+            //  First, create a new reference portfolio
+            var request = new CreateReferencePortfolioRequest(
+
+                //  Unique portfolio code, portfolio codes must be unique across scopes
+                code: F40PorfolioCode,
+
+                //  Descriptive name for the portfolio
+                displayName: F40PortfolioName,
+
+                //  Create date for the below. We can only upsert constituents after this date.
+                created: createDate
+
+            );
+
+            //  Create the reference portfolio in LUSID
+            var ReferencePortfolio = _apiFactory.Api<IReferencePortfolioApi>().CreateReferencePortfolio(TutorialScope, request);
+
             // Declare some instruments which we loaded earlier
             var instrument1 = _instrumentIds[0];
             var instrument2 = _instrumentIds[1];
@@ -109,9 +133,9 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
                 }
             );
             // Upsert the constituents into LUSID
-            var setConstituents = _apiFactory.Api<IReferencePortfolioApi>().UpsertReferencePortfolioConstituents(TutorialScope, PorfolioCode, upsertConstituentsRequest);
+            var setConstituents = _apiFactory.Api<IReferencePortfolioApi>().UpsertReferencePortfolioConstituents(TutorialScope, F40PorfolioCode, upsertConstituentsRequest);
 
-            var constituentHoldings = _apiFactory.Api<IReferencePortfolioApi>().GetReferencePortfolioConstituents(TutorialScope, PorfolioCode, date);
+            var constituentHoldings = _apiFactory.Api<IReferencePortfolioApi>().GetReferencePortfolioConstituents(TutorialScope, F40PorfolioCode, date);
 
             // Check the count of holdings
             Assert.That(constituentHoldings.Constituents.Count(), Is.EqualTo(4));
@@ -127,6 +151,9 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(constituentHoldings.Constituents[1].Weight, Is.EqualTo(20));
             Assert.That(constituentHoldings.Constituents[2].Weight, Is.EqualTo(30));
             Assert.That(constituentHoldings.Constituents[3].Weight, Is.EqualTo(40));
+
+            // Delete the portfolio once the test is complete
+            var _delete_portfolio_result = _apiFactory.Api<IPortfoliosApi>().DeletePortfolio(TutorialScope, F40PorfolioCode);
         }
     }
 }
