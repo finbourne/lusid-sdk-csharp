@@ -170,7 +170,7 @@ namespace Lusid.Sdk.Tests
                 //    ApiException.ErrorContent contains a JSON serialized ErrorResponse
                 LusidProblemDetails errorResponse = e.ProblemDetails();
                 
-                Assert.That(errorResponse.Detail, Does.Match("Portfolio with id exist in scope doesnt effective.*does not exist"));
+                Assert.That(errorResponse.Detail, Does.Match("Portfolio with id 'exist' in scope 'doesnt' effective.*not found"));
                 Assert.That(errorResponse.Name, Is.EqualTo("PortfolioNotFound"));
             }            
         }
