@@ -6,7 +6,9 @@ WORKDIR /usr/src
 COPY Lusid.Sdk.sln /usr/src/
 COPY Lusid.Sdk/Lusid.Sdk.csproj /usr/src/Lusid.Sdk/
 COPY Lusid.Sdk.Tests/Lusid.Sdk.Tests.csproj /usr/src/Lusid.Sdk.Tests/
+COPY Examples/Examples.csproj /usr/src/Examples/
 RUN dotnet restore Lusid.Sdk
+RUN dotnet restore Examples
 
 ENV FBN_LUSID_API_URL ${FBN_LUSID_API_URL}
 
