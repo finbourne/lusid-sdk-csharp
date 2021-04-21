@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lusid.Sdk.Tests", "Lusid.Sd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LusidFeatureReporter", "LusidFeatureReporter\LusidFeatureReporter.csproj", "{8D0AA52B-706C-462D-B522-D21734A6348E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{8D0AA52B-706C-462D-B522-D21734A6348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0AA52B-706C-462D-B522-D21734A6348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0AA52B-706C-462D-B522-D21734A6348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
