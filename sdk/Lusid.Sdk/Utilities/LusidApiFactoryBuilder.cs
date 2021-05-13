@@ -29,15 +29,21 @@ namespace Lusid.Sdk.Utilities
                 ClientSecret = Environment.GetEnvironmentVariable("FBN_CLIENT_SECRET") ?? Environment.GetEnvironmentVariable("fbn_client_secret"),
                 Username = Environment.GetEnvironmentVariable("FBN_USERNAME") ?? Environment.GetEnvironmentVariable("fbn_username"),
                 Password = Environment.GetEnvironmentVariable("FBN_PASSWORD") ?? Environment.GetEnvironmentVariable("fbn_password"),
-                ApplicationName = Environment.GetEnvironmentVariable("FBN_APP_NAME") ?? Environment.GetEnvironmentVariable("fbn_app_name")
+                ApplicationName = Environment.GetEnvironmentVariable("FBN_APP_NAME") ?? Environment.GetEnvironmentVariable("fbn_app_name"),
+                PersonalAccessToken = Environment.GetEnvironmentVariable("FBN_ACCESS_TOKEN") ?? Environment.GetEnvironmentVariable("fbn_access_token")
             };
 
-            if (string.IsNullOrEmpty(apiConfig.TokenUrl) ||
-                string.IsNullOrEmpty(apiConfig.Username) ||
-                string.IsNullOrEmpty(apiConfig.Password) ||
-                string.IsNullOrEmpty(apiConfig.ClientId) ||
-                string.IsNullOrEmpty(apiConfig.ClientSecret) ||
-                string.IsNullOrEmpty(apiConfig.ApiUrl))
+            var noPersonalAccessTokenVariablesPresent = string.IsNullOrEmpty(apiConfig.PersonalAccessToken) ||
+                                 string.IsNullOrEmpty(apiConfig.ApiUrl);
+            
+            var noEnvironmentVariablesPresent =  string.IsNullOrEmpty(apiConfig.TokenUrl) ||
+                                                 string.IsNullOrEmpty(apiConfig.Username) ||
+                                                 string.IsNullOrEmpty(apiConfig.Password) ||
+                                                 string.IsNullOrEmpty(apiConfig.ClientId) ||
+                                                 string.IsNullOrEmpty(apiConfig.ClientSecret) ||
+                                                 string.IsNullOrEmpty(apiConfig.ApiUrl);
+            
+            if (noPersonalAccessTokenVariablesPresent && noEnvironmentVariablesPresent)
             {
                 var config = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())

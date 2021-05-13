@@ -28,20 +28,29 @@ namespace Lusid.Sdk.Utilities
         public LusidApiFactory(ApiConfiguration apiConfiguration)
         {
             if (apiConfiguration == null) throw new ArgumentNullException(nameof(apiConfiguration));
-            
-            // Validate Uris
-            if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
-            {
-                throw new UriFormatException($"Invalid Token Uri: {apiConfiguration.TokenUrl}");
-            }
 
             if (!Uri.TryCreate(apiConfiguration.ApiUrl, UriKind.Absolute, out var _))
             {
                 throw new UriFormatException($"Invalid LUSID Uri: {apiConfiguration.ApiUrl}");
             }
 
+            // note: could employ a factory pattern here to create ITokenProvider in case more branching is required in the future:
+            ITokenProvider tokenProvider;
+            if (!string.IsNullOrEmpty(apiConfiguration.PersonalAccessToken)) // the personal access token takes precedence over other methods of authentication
+            {
+                tokenProvider = new PersonalAccessTokenProvider(apiConfiguration.PersonalAccessToken);
+            }
+            else
+            { 
+                // Validate Uris
+                if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
+                {
+                    throw new UriFormatException($"Invalid Token Uri: {apiConfiguration.TokenUrl}");
+                }
+                tokenProvider = new ClientCredentialsFlowTokenProvider(apiConfiguration);    
+            }
+            
             // Create configuration
-            var tokenProvider = new ClientCredentialsFlowTokenProvider(apiConfiguration);
             var configuration = new TokenProviderConfiguration(tokenProvider)
             {
                 BasePath = apiConfiguration.ApiUrl,
