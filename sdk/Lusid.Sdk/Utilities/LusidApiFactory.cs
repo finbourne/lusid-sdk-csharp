@@ -41,8 +41,7 @@ namespace Lusid.Sdk.Utilities
                 tokenProvider = new PersonalAccessTokenProvider(apiConfiguration.PersonalAccessToken);
             }
             else
-            { 
-                // Validate Uris
+            {                
                 if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
                 {
                     throw new UriFormatException($"Invalid Token Uri: {apiConfiguration.TokenUrl}");
