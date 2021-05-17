@@ -1,11 +1,11 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:41975*
+All URIs are relative to *http://local-unit-test-server.lusid.com:46029*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] Create derived transaction portfolio
-[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] Delete portfolio details
+[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] Create derived portfolio
+[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] Delete derived portfolio details
 
 
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 > Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequest = null)
 
-[EARLY ACCESS] Create derived transaction portfolio
+[EARLY ACCESS] Create derived portfolio
 
-Creates a transaction portfolio that derives from an existing transaction portfolio. In a derived portfolio, parts of the portfolio can either be specific to this portfolio, or can be inherited from a \"parent\". Different parts of the portfolio (e.g. transactions or properties) are combined in different ways. The portfolio details are either overridden in entirety, or not at all. The same is true for properties. Transactions on a derived portfolio are merged with its parent portfolio's transactions. If the parent portfolio is itself a derived portfolio, transactions from that parent are also merged (and that parent's portfolio's, if it is also a derived portfolio, and so on).
+Create a derived transaction portfolio from a parent transaction portfolio (which may itself be derived).
 
 ### Example
 
@@ -32,17 +32,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:41975";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:46029";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DerivedTransactionPortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope into which to create the new derived portfolio
-            var createDerivedTransactionPortfolioRequest = new CreateDerivedTransactionPortfolioRequest(); // CreateDerivedTransactionPortfolioRequest | The root object of the new derived portfolio, containing a populated reference portfolio id and reference scope (optional) 
+            var scope = scope_example;  // string | The scope in which to create the derived transaction portfolio.
+            var createDerivedTransactionPortfolioRequest = new CreateDerivedTransactionPortfolioRequest(); // CreateDerivedTransactionPortfolioRequest | The definition of the derived transaction portfolio. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Create derived transaction portfolio
+                // [EARLY ACCESS] Create derived portfolio
                 Portfolio result = apiInstance.CreateDerivedPortfolio(scope, createDerivedTransactionPortfolioRequest);
                 Debug.WriteLine(result);
             }
@@ -62,8 +62,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope into which to create the new derived portfolio | 
- **createDerivedTransactionPortfolioRequest** | [**CreateDerivedTransactionPortfolioRequest**](CreateDerivedTransactionPortfolioRequest.md)| The root object of the new derived portfolio, containing a populated reference portfolio id and reference scope | [optional] 
+ **scope** | **string**| The scope in which to create the derived transaction portfolio. | 
+ **createDerivedTransactionPortfolioRequest** | [**CreateDerivedTransactionPortfolioRequest**](CreateDerivedTransactionPortfolioRequest.md)| The definition of the derived transaction portfolio. | [optional] 
 
 ### Return type
 
@@ -95,9 +95,9 @@ Name | Type | Description  | Notes
 
 > DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
 
-[EARLY ACCESS] Delete portfolio details
+[EARLY ACCESS] Delete derived portfolio details
 
-Deletes the portfolio details for the specified derived transaction portfolio
+Delete all the portfolio details for a derived transaction portfolio.
 
 ### Example
 
@@ -114,18 +114,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:41975";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:46029";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DerivedTransactionPortfoliosApi(Configuration.Default);
-            var scope = scope_example;  // string | The scope of the portfolio
-            var code = code_example;  // string | The code of the portfolio
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective date of the change (optional) 
+            var scope = scope_example;  // string | The scope of the derived transaction portfolio.
+            var code = code_example;  // string | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.
+            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective date of the change. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Delete portfolio details
+                // [EARLY ACCESS] Delete derived portfolio details
                 DeletedEntityResponse result = apiInstance.DeleteDerivedPortfolioDetails(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -145,9 +145,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio | 
- **code** | **string**| The code of the portfolio | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective date of the change | [optional] 
+ **scope** | **string**| The scope of the derived transaction portfolio. | 
+ **code** | **string**| The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio. | 
+ **effectiveAt** | **DateTimeOrCutLabel**| The effective date of the change. | [optional] 
 
 ### Return type
 
