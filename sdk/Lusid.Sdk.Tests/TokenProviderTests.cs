@@ -37,20 +37,6 @@ namespace Lusid.Sdk.Tests
             Assert.That(token, Is.Not.Empty);
         }
 
-
-        [Test]
-        public async Task CanGetPACToken()
-        {
-            // GIVEN a token provider initialised with required secrets
-            var provider = new PersonalAccessTokenProvider(GetConfig().PersonalAccessToken);
-
-            // WHEN the token is requested
-            var token = await provider.GetAuthenticationTokenAsync();
-
-            // THEN it is populated
-            Assert.That(token, Is.Not.Empty);
-        }
-
         [Test, Explicit("Needs to have secrets.json file containing user with offline-access enabled")]
         public async Task CanRefreshWithRefreshToken()
         {
