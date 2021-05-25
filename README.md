@@ -14,3 +14,6 @@ $ dotnet add package Lusid.Sdk
 ```
 
 For further documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-csharp/wiki).
+
+Documentation for namespaces, interfaces, classes, functions and other members of the 
+SDK is [available to view online](https://lusid-sdk-csharp.readthedocs.io/en/latest/>.
