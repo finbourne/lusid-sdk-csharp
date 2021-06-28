@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** |  | [optional] 
-**Code** | **int?** |  | 
+**Name** | **string** | The name of the error | 
+**ErrorDetails** | **List&lt;Dictionary&lt;string, string&gt;&gt;** | Any additional informational information available about the nature and detail of the problem | [optional] 
+**Code** | **int?** | Get the error code of the response | 
 **Errors** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 
 **Type** | **string** |  | [optional] 
 **Title** | **string** |  | [optional] 
