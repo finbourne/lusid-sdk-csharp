@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Identifiers of an entity
+    /// ResourceId
     /// </summary>
     [DataContract]
     public partial class ResourceId :  IEquatable<ResourceId>
@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResourceId" /> class.
         /// </summary>
-        /// <param name="scope">The scope used to identify an entity (required).</param>
-        /// <param name="code">The code used to identify an entity (required).</param>
+        /// <param name="scope">scope (required).</param>
+        /// <param name="code">code (required).</param>
         public ResourceId(string scope = default(string), string code = default(string))
         {
             // to ensure "scope" is required (not null)
@@ -63,16 +63,14 @@ namespace Lusid.Sdk.Model
         }
         
         /// <summary>
-        /// The scope used to identify an entity
+        /// Gets or Sets Scope
         /// </summary>
-        /// <value>The scope used to identify an entity</value>
         [DataMember(Name="scope", EmitDefaultValue=false)]
         public string Scope { get; set; }
 
         /// <summary>
-        /// The code used to identify an entity
+        /// Gets or Sets Code
         /// </summary>
-        /// <value>The code used to identify an entity</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
