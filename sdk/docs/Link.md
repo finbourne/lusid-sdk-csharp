@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Relation** | **string** | Relation of link. | 
-**Href** | **string** | Href of link. | 
-**Description** | **string** | Description of link. | [optional] 
-**Method** | **string** | Http method of link. | 
+**Relation** | **string** |  | 
+**Href** | **string** |  | 
+**Description** | **string** |  | [optional] 
+**Method** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
