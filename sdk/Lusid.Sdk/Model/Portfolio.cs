@@ -80,7 +80,7 @@ namespace Lusid.Sdk.Model
         /// <param name="isDerived">Whether or not this is a derived portfolio..</param>
         /// <param name="baseCurrency">The base currency of the portfolio. This will be an empty string for reference portfolios..</param>
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset? created = default(DateTimeOffset?), ResourceId parentPortfolioId = default(ResourceId), Version version = default(Version), bool? isDerived = default(bool?), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -207,9 +207,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 
