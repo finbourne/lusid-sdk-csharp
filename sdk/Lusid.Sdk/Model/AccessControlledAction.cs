@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An action that can be access controlled
+    /// AccessControlledAction
     /// </summary>
     [DataContract]
     public partial class AccessControlledAction :  IEquatable<AccessControlledAction>
@@ -36,10 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccessControlledAction" /> class.
         /// </summary>
-        /// <param name="description">The description of the action (required).</param>
+        /// <param name="description">description (required).</param>
         /// <param name="action">action (required).</param>
-        /// <param name="limitedSet">When populated, the provided values are the limited set of resources that are allowed to be specified for  access control for this action.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="limitedSet">limitedSet.</param>
+        /// <param name="links">links.</param>
         public AccessControlledAction(string description = default(string), ActionId action = default(ActionId), List<IdSelectorDefinition> limitedSet = default(List<IdSelectorDefinition>), List<Link> links = default(List<Link>))
         {
             // to ensure "description" is required (not null)
@@ -69,9 +69,8 @@ namespace Lusid.Sdk.Model
         }
         
         /// <summary>
-        /// The description of the action
+        /// Gets or Sets Description
         /// </summary>
-        /// <value>The description of the action</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
@@ -82,16 +81,14 @@ namespace Lusid.Sdk.Model
         public ActionId Action { get; set; }
 
         /// <summary>
-        /// When populated, the provided values are the limited set of resources that are allowed to be specified for  access control for this action
+        /// Gets or Sets LimitedSet
         /// </summary>
-        /// <value>When populated, the provided values are the limited set of resources that are allowed to be specified for  access control for this action</value>
         [DataMember(Name="limitedSet", EmitDefaultValue=true)]
         public List<IdSelectorDefinition> LimitedSet { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 

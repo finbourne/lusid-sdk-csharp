@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="baseCurrency">The base currency of the transaction portfolio. (required).</param>
         /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
         /// <param name="subHoldingKeys">subHoldingKeys.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), Version version = default(Version), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -123,9 +123,8 @@ namespace Lusid.Sdk.Model
         public List<string> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 

@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// <param name="lookthroughPortfolio">lookthroughPortfolio.</param>
         /// <param name="instrumentDefinition">instrumentDefinition.</param>
         /// <param name="state">The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Instrument(string href = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -190,9 +190,8 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 

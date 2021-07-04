@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="values">The collection of resource identifiers for the portfolios contained in the portfolio group..</param>
         /// <param name="subGroups">The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups..</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public ExpandedGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<CompletePortfolio> values = default(List<CompletePortfolio>), List<ExpandedGroup> subGroups = default(List<ExpandedGroup>), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -127,9 +127,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 
