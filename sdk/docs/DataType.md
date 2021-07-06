@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **AcceptableValues** | **List&lt;string&gt;** |  | [optional] 
 **UnitSchema** | **string** | The available values are: NoUnits, Basic, Iso4217Currency | [optional] 
 **AcceptableUnits** | [**List&lt;IUnitDefinitionDto&gt;**](IUnitDefinitionDto.md) |  | [optional] 
-**Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
+**Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
