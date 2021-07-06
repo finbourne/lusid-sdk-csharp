@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Link class.
+    /// Link
     /// </summary>
     [DataContract]
     public partial class Link :  IEquatable<Link>
@@ -36,10 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Link" /> class.
         /// </summary>
-        /// <param name="relation">Relation of link. (required).</param>
-        /// <param name="href">Href of link. (required).</param>
-        /// <param name="description">Description of link..</param>
-        /// <param name="method">Http method of link. (required).</param>
+        /// <param name="relation">relation (required).</param>
+        /// <param name="href">href (required).</param>
+        /// <param name="description">description.</param>
+        /// <param name="method">method (required).</param>
         public Link(string relation = default(string), string href = default(string), string description = default(string), string method = default(string))
         {
             // to ensure "relation" is required (not null)
@@ -77,30 +77,26 @@ namespace Lusid.Sdk.Model
         }
         
         /// <summary>
-        /// Relation of link.
+        /// Gets or Sets Relation
         /// </summary>
-        /// <value>Relation of link.</value>
         [DataMember(Name="relation", EmitDefaultValue=false)]
         public string Relation { get; set; }
 
         /// <summary>
-        /// Href of link.
+        /// Gets or Sets Href
         /// </summary>
-        /// <value>Href of link.</value>
         [DataMember(Name="href", EmitDefaultValue=false)]
         public string Href { get; set; }
 
         /// <summary>
-        /// Description of link.
+        /// Gets or Sets Description
         /// </summary>
-        /// <value>Description of link.</value>
         [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Http method of link.
+        /// Gets or Sets Method
         /// </summary>
-        /// <value>Http method of link.</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public string Method { get; set; }
 

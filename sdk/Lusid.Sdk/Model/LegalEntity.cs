@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">Unique client-defined identifiers of the Legal Entity..</param>
         /// <param name="properties">A set of properties associated to the Legal Entity..</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public LegalEntity(string displayName = default(string), string description = default(string), string href = default(string), string lusidLegalEntityId = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             this.DisplayName = displayName;
@@ -107,9 +107,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 
