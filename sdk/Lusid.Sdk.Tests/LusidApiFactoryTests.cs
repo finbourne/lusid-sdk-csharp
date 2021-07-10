@@ -80,7 +80,8 @@ namespace Lusid.Sdk.Tests
         {
             ApiConfiguration apiConfig = new ApiConfiguration
             {
-                TokenUrl = "xyz"
+                TokenUrl = "xyz",
+                ApiUrl = "http://abc" // api uri is checked first and must pass
             };
 
             Assert.That(
