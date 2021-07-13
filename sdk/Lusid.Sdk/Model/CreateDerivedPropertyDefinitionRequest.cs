@@ -23,98 +23,290 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The target holdings.
+    /// CreateDerivedPropertyDefinitionRequest
     /// </summary>
     [DataContract]
-    public partial class HoldingAdjustment :  IEquatable<HoldingAdjustment>
+    public partial class CreateDerivedPropertyDefinitionRequest :  IEquatable<CreateDerivedPropertyDefinitionRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HoldingAdjustment" /> class.
+        /// The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction
+        /// </summary>
+        /// <value>The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DomainEnum
+        {
+            /// <summary>
+            /// Enum NotDefined for value: NotDefined
+            /// </summary>
+            [EnumMember(Value = "NotDefined")]
+            NotDefined = 1,
+
+            /// <summary>
+            /// Enum Transaction for value: Transaction
+            /// </summary>
+            [EnumMember(Value = "Transaction")]
+            Transaction = 2,
+
+            /// <summary>
+            /// Enum Portfolio for value: Portfolio
+            /// </summary>
+            [EnumMember(Value = "Portfolio")]
+            Portfolio = 3,
+
+            /// <summary>
+            /// Enum Holding for value: Holding
+            /// </summary>
+            [EnumMember(Value = "Holding")]
+            Holding = 4,
+
+            /// <summary>
+            /// Enum ReferenceHolding for value: ReferenceHolding
+            /// </summary>
+            [EnumMember(Value = "ReferenceHolding")]
+            ReferenceHolding = 5,
+
+            /// <summary>
+            /// Enum TransactionConfiguration for value: TransactionConfiguration
+            /// </summary>
+            [EnumMember(Value = "TransactionConfiguration")]
+            TransactionConfiguration = 6,
+
+            /// <summary>
+            /// Enum Instrument for value: Instrument
+            /// </summary>
+            [EnumMember(Value = "Instrument")]
+            Instrument = 7,
+
+            /// <summary>
+            /// Enum CutLabelDefinition for value: CutLabelDefinition
+            /// </summary>
+            [EnumMember(Value = "CutLabelDefinition")]
+            CutLabelDefinition = 8,
+
+            /// <summary>
+            /// Enum Analytic for value: Analytic
+            /// </summary>
+            [EnumMember(Value = "Analytic")]
+            Analytic = 9,
+
+            /// <summary>
+            /// Enum PortfolioGroup for value: PortfolioGroup
+            /// </summary>
+            [EnumMember(Value = "PortfolioGroup")]
+            PortfolioGroup = 10,
+
+            /// <summary>
+            /// Enum Person for value: Person
+            /// </summary>
+            [EnumMember(Value = "Person")]
+            Person = 11,
+
+            /// <summary>
+            /// Enum AccessMetadata for value: AccessMetadata
+            /// </summary>
+            [EnumMember(Value = "AccessMetadata")]
+            AccessMetadata = 12,
+
+            /// <summary>
+            /// Enum Order for value: Order
+            /// </summary>
+            [EnumMember(Value = "Order")]
+            Order = 13,
+
+            /// <summary>
+            /// Enum UnitResult for value: UnitResult
+            /// </summary>
+            [EnumMember(Value = "UnitResult")]
+            UnitResult = 14,
+
+            /// <summary>
+            /// Enum MarketData for value: MarketData
+            /// </summary>
+            [EnumMember(Value = "MarketData")]
+            MarketData = 15,
+
+            /// <summary>
+            /// Enum ConfigurationRecipe for value: ConfigurationRecipe
+            /// </summary>
+            [EnumMember(Value = "ConfigurationRecipe")]
+            ConfigurationRecipe = 16,
+
+            /// <summary>
+            /// Enum Allocation for value: Allocation
+            /// </summary>
+            [EnumMember(Value = "Allocation")]
+            Allocation = 17,
+
+            /// <summary>
+            /// Enum Calendar for value: Calendar
+            /// </summary>
+            [EnumMember(Value = "Calendar")]
+            Calendar = 18,
+
+            /// <summary>
+            /// Enum LegalEntity for value: LegalEntity
+            /// </summary>
+            [EnumMember(Value = "LegalEntity")]
+            LegalEntity = 19,
+
+            /// <summary>
+            /// Enum Placement for value: Placement
+            /// </summary>
+            [EnumMember(Value = "Placement")]
+            Placement = 20,
+
+            /// <summary>
+            /// Enum Execution for value: Execution
+            /// </summary>
+            [EnumMember(Value = "Execution")]
+            Execution = 21,
+
+            /// <summary>
+            /// Enum Block for value: Block
+            /// </summary>
+            [EnumMember(Value = "Block")]
+            Block = 22,
+
+            /// <summary>
+            /// Enum Participation for value: Participation
+            /// </summary>
+            [EnumMember(Value = "Participation")]
+            Participation = 23,
+
+            /// <summary>
+            /// Enum Package for value: Package
+            /// </summary>
+            [EnumMember(Value = "Package")]
+            Package = 24,
+
+            /// <summary>
+            /// Enum OrderInstruction for value: OrderInstruction
+            /// </summary>
+            [EnumMember(Value = "OrderInstruction")]
+            OrderInstruction = 25
+
+        }
+
+        /// <summary>
+        /// The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction
+        /// </summary>
+        /// <value>The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction</value>
+        [DataMember(Name="domain", EmitDefaultValue=false)]
+        public DomainEnum Domain { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateDerivedPropertyDefinitionRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected HoldingAdjustment() { }
+        protected CreateDerivedPropertyDefinitionRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="HoldingAdjustment" /> class.
+        /// Initializes a new instance of the <see cref="CreateDerivedPropertyDefinitionRequest" /> class.
         /// </summary>
-        /// <param name="instrumentIdentifiers">A set of instrument identifiers that can resolve the holding adjustment to a unique instrument..</param>
-        /// <param name="instrumentUid">The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in. (required).</param>
-        /// <param name="subHoldingKeys">The set of unique transaction properties and associated values stored with the holding adjustment transactions automatically created by LUSID. Each property will be from the &#39;Transaction&#39; domain..</param>
-        /// <param name="properties">The set of unique holding properties and associated values stored with the target holding. Each property will be from the &#39;Holding&#39; domain..</param>
-        /// <param name="taxLots">The tax-lots that together make up the target holding. (required).</param>
-        /// <param name="currency">The Holding currency..</param>
-        public HoldingAdjustment(Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TargetTaxLot> taxLots = default(List<TargetTaxLot>), string currency = default(string))
+        /// <param name="domain">The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction (required).</param>
+        /// <param name="scope">The scope that the property exists in. (required).</param>
+        /// <param name="code">The code of the property. Together with the domain and scope this uniquely identifies the property. (required).</param>
+        /// <param name="displayName">The display name of the property. (required).</param>
+        /// <param name="dataTypeId">dataTypeId (required).</param>
+        /// <param name="propertyDescription">Describes the property.</param>
+        /// <param name="derivationFormula">The rule that defines how data is composed for a derived property..</param>
+        public CreateDerivedPropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string propertyDescription = default(string), string derivationFormula = default(string))
         {
-            this.InstrumentIdentifiers = instrumentIdentifiers;
-            // to ensure "instrumentUid" is required (not null)
-            if (instrumentUid == null)
+            // to ensure "domain" is required (not null)
+            if (domain == null)
             {
-                throw new InvalidDataException("instrumentUid is a required property for HoldingAdjustment and cannot be null");
+                throw new InvalidDataException("domain is a required property for CreateDerivedPropertyDefinitionRequest and cannot be null");
             }
             else
             {
-                this.InstrumentUid = instrumentUid;
+                this.Domain = domain;
             }
             
-            this.SubHoldingKeys = subHoldingKeys;
-            this.Properties = properties;
-            // to ensure "taxLots" is required (not null)
-            if (taxLots == null)
+            // to ensure "scope" is required (not null)
+            if (scope == null)
             {
-                throw new InvalidDataException("taxLots is a required property for HoldingAdjustment and cannot be null");
+                throw new InvalidDataException("scope is a required property for CreateDerivedPropertyDefinitionRequest and cannot be null");
             }
             else
             {
-                this.TaxLots = taxLots;
+                this.Scope = scope;
             }
             
-            this.Currency = currency;
-            this.InstrumentIdentifiers = instrumentIdentifiers;
-            this.SubHoldingKeys = subHoldingKeys;
-            this.Properties = properties;
-            this.Currency = currency;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new InvalidDataException("code is a required property for CreateDerivedPropertyDefinitionRequest and cannot be null");
+            }
+            else
+            {
+                this.Code = code;
+            }
+            
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
+            {
+                throw new InvalidDataException("displayName is a required property for CreateDerivedPropertyDefinitionRequest and cannot be null");
+            }
+            else
+            {
+                this.DisplayName = displayName;
+            }
+            
+            // to ensure "dataTypeId" is required (not null)
+            if (dataTypeId == null)
+            {
+                throw new InvalidDataException("dataTypeId is a required property for CreateDerivedPropertyDefinitionRequest and cannot be null");
+            }
+            else
+            {
+                this.DataTypeId = dataTypeId;
+            }
+            
+            this.PropertyDescription = propertyDescription;
+            this.DerivationFormula = derivationFormula;
+            this.PropertyDescription = propertyDescription;
+            this.DerivationFormula = derivationFormula;
         }
         
-        /// <summary>
-        /// A set of instrument identifiers that can resolve the holding adjustment to a unique instrument.
-        /// </summary>
-        /// <value>A set of instrument identifiers that can resolve the holding adjustment to a unique instrument.</value>
-        [DataMember(Name="instrumentIdentifiers", EmitDefaultValue=true)]
-        public Dictionary<string, string> InstrumentIdentifiers { get; set; }
 
         /// <summary>
-        /// The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.
+        /// The scope that the property exists in.
         /// </summary>
-        /// <value>The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.</value>
-        [DataMember(Name="instrumentUid", EmitDefaultValue=false)]
-        public string InstrumentUid { get; set; }
+        /// <value>The scope that the property exists in.</value>
+        [DataMember(Name="scope", EmitDefaultValue=false)]
+        public string Scope { get; set; }
 
         /// <summary>
-        /// The set of unique transaction properties and associated values stored with the holding adjustment transactions automatically created by LUSID. Each property will be from the &#39;Transaction&#39; domain.
+        /// The code of the property. Together with the domain and scope this uniquely identifies the property.
         /// </summary>
-        /// <value>The set of unique transaction properties and associated values stored with the holding adjustment transactions automatically created by LUSID. Each property will be from the &#39;Transaction&#39; domain.</value>
-        [DataMember(Name="subHoldingKeys", EmitDefaultValue=true)]
-        public Dictionary<string, PerpetualProperty> SubHoldingKeys { get; set; }
+        /// <value>The code of the property. Together with the domain and scope this uniquely identifies the property.</value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; set; }
 
         /// <summary>
-        /// The set of unique holding properties and associated values stored with the target holding. Each property will be from the &#39;Holding&#39; domain.
+        /// The display name of the property.
         /// </summary>
-        /// <value>The set of unique holding properties and associated values stored with the target holding. Each property will be from the &#39;Holding&#39; domain.</value>
-        [DataMember(Name="properties", EmitDefaultValue=true)]
-        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+        /// <value>The display name of the property.</value>
+        [DataMember(Name="displayName", EmitDefaultValue=false)]
+        public string DisplayName { get; set; }
 
         /// <summary>
-        /// The tax-lots that together make up the target holding.
+        /// Gets or Sets DataTypeId
         /// </summary>
-        /// <value>The tax-lots that together make up the target holding.</value>
-        [DataMember(Name="taxLots", EmitDefaultValue=false)]
-        public List<TargetTaxLot> TaxLots { get; set; }
+        [DataMember(Name="dataTypeId", EmitDefaultValue=false)]
+        public ResourceId DataTypeId { get; set; }
 
         /// <summary>
-        /// The Holding currency.
+        /// Describes the property
         /// </summary>
-        /// <value>The Holding currency.</value>
-        [DataMember(Name="currency", EmitDefaultValue=true)]
-        public string Currency { get; set; }
+        /// <value>Describes the property</value>
+        [DataMember(Name="propertyDescription", EmitDefaultValue=true)]
+        public string PropertyDescription { get; set; }
+
+        /// <summary>
+        /// The rule that defines how data is composed for a derived property.
+        /// </summary>
+        /// <value>The rule that defines how data is composed for a derived property.</value>
+        [DataMember(Name="derivationFormula", EmitDefaultValue=true)]
+        public string DerivationFormula { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,13 +315,14 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class HoldingAdjustment {\n");
-            sb.Append("  InstrumentIdentifiers: ").Append(InstrumentIdentifiers).Append("\n");
-            sb.Append("  InstrumentUid: ").Append(InstrumentUid).Append("\n");
-            sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
-            sb.Append("  Properties: ").Append(Properties).Append("\n");
-            sb.Append("  TaxLots: ").Append(TaxLots).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("class CreateDerivedPropertyDefinitionRequest {\n");
+            sb.Append("  Domain: ").Append(Domain).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  DataTypeId: ").Append(DataTypeId).Append("\n");
+            sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
+            sb.Append("  DerivationFormula: ").Append(DerivationFormula).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,53 +343,54 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HoldingAdjustment);
+            return this.Equals(input as CreateDerivedPropertyDefinitionRequest);
         }
 
         /// <summary>
-        /// Returns true if HoldingAdjustment instances are equal
+        /// Returns true if CreateDerivedPropertyDefinitionRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of HoldingAdjustment to be compared</param>
+        /// <param name="input">Instance of CreateDerivedPropertyDefinitionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HoldingAdjustment input)
+        public bool Equals(CreateDerivedPropertyDefinitionRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InstrumentIdentifiers == input.InstrumentIdentifiers ||
-                    this.InstrumentIdentifiers != null &&
-                    input.InstrumentIdentifiers != null &&
-                    this.InstrumentIdentifiers.SequenceEqual(input.InstrumentIdentifiers)
+                    this.Domain == input.Domain ||
+                    (this.Domain != null &&
+                    this.Domain.Equals(input.Domain))
                 ) && 
                 (
-                    this.InstrumentUid == input.InstrumentUid ||
-                    (this.InstrumentUid != null &&
-                    this.InstrumentUid.Equals(input.InstrumentUid))
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 ) && 
                 (
-                    this.SubHoldingKeys == input.SubHoldingKeys ||
-                    this.SubHoldingKeys != null &&
-                    input.SubHoldingKeys != null &&
-                    this.SubHoldingKeys.SequenceEqual(input.SubHoldingKeys)
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.Properties == input.Properties ||
-                    this.Properties != null &&
-                    input.Properties != null &&
-                    this.Properties.SequenceEqual(input.Properties)
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
-                    this.TaxLots == input.TaxLots ||
-                    this.TaxLots != null &&
-                    input.TaxLots != null &&
-                    this.TaxLots.SequenceEqual(input.TaxLots)
+                    this.DataTypeId == input.DataTypeId ||
+                    (this.DataTypeId != null &&
+                    this.DataTypeId.Equals(input.DataTypeId))
                 ) && 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.PropertyDescription == input.PropertyDescription ||
+                    (this.PropertyDescription != null &&
+                    this.PropertyDescription.Equals(input.PropertyDescription))
+                ) && 
+                (
+                    this.DerivationFormula == input.DerivationFormula ||
+                    (this.DerivationFormula != null &&
+                    this.DerivationFormula.Equals(input.DerivationFormula))
                 );
         }
 
@@ -209,18 +403,20 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InstrumentIdentifiers != null)
-                    hashCode = hashCode * 59 + this.InstrumentIdentifiers.GetHashCode();
-                if (this.InstrumentUid != null)
-                    hashCode = hashCode * 59 + this.InstrumentUid.GetHashCode();
-                if (this.SubHoldingKeys != null)
-                    hashCode = hashCode * 59 + this.SubHoldingKeys.GetHashCode();
-                if (this.Properties != null)
-                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
-                if (this.TaxLots != null)
-                    hashCode = hashCode * 59 + this.TaxLots.GetHashCode();
-                if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.Domain != null)
+                    hashCode = hashCode * 59 + this.Domain.GetHashCode();
+                if (this.Scope != null)
+                    hashCode = hashCode * 59 + this.Scope.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.DisplayName != null)
+                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                if (this.DataTypeId != null)
+                    hashCode = hashCode * 59 + this.DataTypeId.GetHashCode();
+                if (this.PropertyDescription != null)
+                    hashCode = hashCode * 59 + this.PropertyDescription.GetHashCode();
+                if (this.DerivationFormula != null)
+                    hashCode = hashCode * 59 + this.DerivationFormula.GetHashCode();
                 return hashCode;
             }
         }
