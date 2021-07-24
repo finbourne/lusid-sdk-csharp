@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Utilities
         public static DateTimeOffset? GetRequestDateTime <T>(this ApiResponse<T> apiResponse)
         {
             if (!apiResponse.Headers.ContainsKey(DateHeader) ||
-                !DateTimeOffset.TryParse(apiResponse.Headers[DateHeader], out var headerDateValue))
+                !DateTimeOffset.TryParse(apiResponse.Headers[DateHeader][0], out var headerDateValue))
             {
                 return null;
             }
