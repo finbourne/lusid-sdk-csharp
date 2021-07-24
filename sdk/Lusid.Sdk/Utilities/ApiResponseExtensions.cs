@@ -24,7 +24,7 @@ namespace Lusid.Sdk.Utilities
         public static string GetRequestId<T>(this ApiResponse<T> apiResponse)
         {
             // Extract requestId from Insights link contained in the Instance property
-            return apiResponse.Headers.ContainsKey(RequestIdHeader) ? apiResponse.Headers[RequestIdHeader] : null;
+            return apiResponse.Headers.ContainsKey(RequestIdHeader) ? apiResponse.Headers[RequestIdHeader][0] : null;
         }
         
         /// <summary>
