@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Client
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
 
-        /// <summary>
+        /// <summary>sdk/Lusid.Sdk.Tests/LusidApiFactoryTests.cs
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
         /// </summary>
         /// <param name="request">The RestSharp request object</param>
