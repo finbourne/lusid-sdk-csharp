@@ -1,5 +1,5 @@
+
 # Lusid.Sdk.Model.Portfolio
-A list of portfolios.
 
 ## Properties
 
@@ -10,13 +10,15 @@ Name | Type | Description | Notes
 **Type** | **string** | The type of the portfolio. The available values are: Transaction, Reference, DerivedTransaction | 
 **DisplayName** | **string** | The name of the portfolio. | 
 **Description** | **string** | The long form description of the portfolio. | [optional] 
-**Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
+**Created** | **DateTimeOffset?** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
-**IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] 
+**IsDerived** | **bool?** | Whether or not this is a derived portfolio. | [optional] 
 **BaseCurrency** | **string** | The base currency of the portfolio. This will be an empty string for reference portfolios. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

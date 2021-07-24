@@ -1,3 +1,4 @@
+
 # Lusid.Sdk.Model.CreateDerivedPropertyDefinitionRequest
 
 ## Properties
@@ -12,5 +13,7 @@ Name | Type | Description | Notes
 **PropertyDescription** | **string** | Describes the property | [optional] 
 **DerivationFormula** | **string** | The rule that defines how data is composed for a derived property. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 
