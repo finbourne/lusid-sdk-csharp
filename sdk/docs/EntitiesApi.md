@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.EntitiesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:56917*
+All URIs are relative to *http://local-unit-test-server.lusid.com:49973*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:56917";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:49973";
             // Configure OAuth2 access token for authorization: oauth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
