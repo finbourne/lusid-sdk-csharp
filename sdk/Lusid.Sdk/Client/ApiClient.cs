@@ -53,13 +53,13 @@ namespace Lusid.Sdk.Client
         public ApiClient()
         {
             Configuration = Lusid.Sdk.Client.Configuration.Default;
-            RestClient = new RestClient("https://fbn-prd.lusid.com/api");
+            RestClient = new RestClient("http://local-unit-test-server.lusid.com:39653");
             RestClient.IgnoreResponseStatusCode = true;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://fbn-prd.lusid.com/api).
+        /// with default base path (http://local-unit-test-server.lusid.com:39653).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://fbn-prd.lusid.com/api")
+        public ApiClient(String basePath = "http://local-unit-test-server.lusid.com:39653")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
