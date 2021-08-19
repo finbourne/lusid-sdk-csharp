@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Lusid.Sdk.Tests.tutorials.HelloWorld
+namespace Lusid.Sdk.Tests.Tutorials.HelloWorld
 {
     [TestFixture]
     public class HelloWorldTest
