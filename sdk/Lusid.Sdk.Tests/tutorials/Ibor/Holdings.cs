@@ -23,7 +23,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             var apiFactory = LusidApiFactoryBuilder.Build("secrets.json");
             _transactionPortfoliosApi = apiFactory.Api<ITransactionPortfoliosApi>();
             
-            _testDataUtilities = new TestDataUtilities(_transactionPortfoliosApi);
+            _testDataUtilities = new TestDataUtilities(_transactionPortfoliosApi, apiFactory.Api<IPortfoliosApi>());
 
             var instrumentsLoader = new InstrumentLoader(apiFactory);
             _instrumentIds = instrumentsLoader.LoadInstruments().OrderBy(x => x).ToList();

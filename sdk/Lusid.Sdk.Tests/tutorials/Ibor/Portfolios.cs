@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             
             _instrumentLoader = new InstrumentLoader(_apiFactory);
             _instrumentIds = _instrumentLoader.LoadInstruments();
-            _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
+            _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>(), _apiFactory.Api<IPortfoliosApi>());
         }
         
         [LusidFeature("F8")]
@@ -248,12 +248,12 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
         public void List_Portfolios()
         {
             //    This defines the scope that the portfolios will be retrieved from
-            var scope = $"{TutorialScope}-{Guid.NewGuid().ToString()}";
+            var scope = $"{TutorialScope}-ListPortfoliosTestScope";
             
             //    Set up some sample portfolios
             for (var i = 0; i < 10; i++)
             {
-                _testDataUtilities.CreateTransactionPortfolio(scope);
+                _testDataUtilities.GetOrCreateTransactionPortfolios(scope, $"code_{i}");
             }
             
             //    Retrieve the list of portfolios from a given scope           

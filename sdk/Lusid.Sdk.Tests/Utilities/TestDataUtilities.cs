@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
 using NUnit.Framework;
 
@@ -15,13 +16,15 @@ namespace Lusid.Sdk.Tests.Utilities
         public const string LusidInstrumentIdentifier = "Instrument/default/LusidInstrumentId";
         
         private readonly ITransactionPortfoliosApi _transactionPortfoliosApi;
+        private readonly IPortfoliosApi _portfoliosApi;
 
-        public TestDataUtilities(ITransactionPortfoliosApi transactionPortfoliosApi)
+        public TestDataUtilities(ITransactionPortfoliosApi transactionPortfoliosApi, IPortfoliosApi portfoliosApi)
         {
             _transactionPortfoliosApi = transactionPortfoliosApi;
+            _portfoliosApi = portfoliosApi;
         }
 
-        public string CreateTransactionPortfolio(string scope)
+        public string CreateTransactionPortfolio(string scope, string code = null)
         {
             var uuid = Guid.NewGuid().ToString();
             
@@ -31,7 +34,7 @@ namespace Lusid.Sdk.Tests.Utilities
             
             //    Details of the new portfolio to be created, created here with the minimum set of mandatory fields
             var request = new CreateTransactionPortfolioRequest(
-                code: $"id-{uuid}",
+                code: code ?? $"id-{uuid}",
                 displayName: $"Portfolio-{uuid}",                 
                 baseCurrency: "GBP",
                 created: effectiveDate
@@ -45,6 +48,19 @@ namespace Lusid.Sdk.Tests.Utilities
             return portfolio.Id.Code;
         }
 
+        public void GetOrCreateTransactionPortfolios(string scope, string code)
+        {
+            try
+            {
+                var portfolio = _portfoliosApi.GetPortfolio(scope, code);
+                Assert.That(portfolio?.Id.Code, Is.EqualTo(code));
+            }
+            catch (ApiException apiException) when (apiException.ErrorCode == 404)
+            {
+                string portfolioCode = CreateTransactionPortfolio(scope, code);
+                Assert.That(portfolioCode, Is.EqualTo(code));
+            }
+        }
 
         public TransactionRequest BuildTransactionRequest(
             string instrumentId,

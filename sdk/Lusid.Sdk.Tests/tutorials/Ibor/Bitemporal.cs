@@ -24,7 +24,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             
             var instrumentLoader = new InstrumentLoader(_apiFactory);
             _instrumentIds = instrumentLoader.LoadInstruments();
-            _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
+            _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>(), _apiFactory.Api<IPortfoliosApi>());
         }
         
         [Test]
