@@ -1,185 +1,36 @@
-/*
+/* 
  * LUSID API
  *
  * # Introduction  This page documents the [LUSID APIs](https://www.lusid.com/api/swagger), which allows authorised clients to query and update their data within the LUSID platform.  SDKs to interact with the LUSID APIs are available in the following languages and frameworks:  * [C#](https://github.com/finbourne/lusid-sdk-csharp) * [Java](https://github.com/finbourne/lusid-sdk-java) * [JavaScript](https://github.com/finbourne/lusid-sdk-js) * [Python](https://github.com/finbourne/lusid-sdk-python) * [Angular](https://github.com/finbourne/lusid-sdk-angular)  The LUSID platform is made up of a number of sub-applications. You can find the API / swagger documentation by following the links in the table below.   | Application | Description | API / Swagger Documentation | | - -- -- | - -- -- | - -- - | | LUSID | Open, API-first, developer-friendly investment data platform. | [Swagger](https://www.lusid.com/api/swagger/index.html) | | Web app | User-facing front end for LUSID. | [Swagger](https://www.lusid.com/app/swagger/index.html) | | Scheduler | Automated job scheduler. | [Swagger](https://www.lusid.com/scheduler2/swagger/index.html) | | Insights |Monitoring and troubleshooting service. | [Swagger](https://www.lusid.com/insights/swagger/index.html) | | Identity | Identity management for LUSID (in conjuction with Access) | [Swagger](https://www.lusid.com/identity/swagger/index.html) | | Access | Access control for LUSID (in conjunction with Identity) | [Swagger](https://www.lusid.com/access/swagger/index.html) | | Drive | Secure file repository and manager for collaboration. | [Swagger](https://www.lusid.com/drive/swagger/index.html) | | Luminesce | Data virtualisation service (query data from multiple providers, including LUSID) | [Swagger](https://www.lusid.com/honeycomb/swagger/index.html) | | Notification | Notification service. | [Swagger](https://www.lusid.com/notifications/swagger/index.html) | | Configuration | File store for secrets and other sensitive information. | [Swagger](https://www.lusid.com/configuration/swagger/index.html) |   # Error Codes  | Code|Name|Description | | - --|- --|- -- | | <a name=\"-10\">-10</a>|Server Configuration Error|  | | <a name=\"-1\">-1</a>|Unknown error|An unexpected error was encountered on our side. | | <a name=\"102\">102</a>|Version Not Found|  | | <a name=\"103\">103</a>|Api Rate Limit Violation|  | | <a name=\"104\">104</a>|Instrument Not Found|  | | <a name=\"105\">105</a>|Property Not Found|  | | <a name=\"106\">106</a>|Portfolio Recursion Depth|  | | <a name=\"108\">108</a>|Group Not Found|  | | <a name=\"109\">109</a>|Portfolio Not Found|  | | <a name=\"110\">110</a>|Property Schema Not Found|  | | <a name=\"111\">111</a>|Portfolio Ancestry Not Found|  | | <a name=\"112\">112</a>|Portfolio With Id Already Exists|  | | <a name=\"113\">113</a>|Orphaned Portfolio|  | | <a name=\"119\">119</a>|Missing Base Claims|  | | <a name=\"121\">121</a>|Property Not Defined|  | | <a name=\"122\">122</a>|Cannot Delete System Property|  | | <a name=\"123\">123</a>|Cannot Modify Immutable Property Field|  | | <a name=\"124\">124</a>|Property Already Exists|  | | <a name=\"125\">125</a>|Invalid Property Life Time|  | | <a name=\"126\">126</a>|Property Constraint Style Excludes Properties|  | | <a name=\"127\">127</a>|Cannot Modify Default Data Type|  | | <a name=\"128\">128</a>|Group Already Exists|  | | <a name=\"129\">129</a>|No Such Data Type|  | | <a name=\"130\">130</a>|Undefined Value For Data Type|  | | <a name=\"131\">131</a>|Unsupported Value Type Defined On Data Type|  | | <a name=\"132\">132</a>|Validation Error|  | | <a name=\"133\">133</a>|Loop Detected In Group Hierarchy|  | | <a name=\"134\">134</a>|Undefined Acceptable Values|  | | <a name=\"135\">135</a>|Sub Group Already Exists|  | | <a name=\"138\">138</a>|Price Source Not Found|  | | <a name=\"139\">139</a>|Analytic Store Not Found|  | | <a name=\"141\">141</a>|Analytic Store Already Exists|  | | <a name=\"143\">143</a>|Client Instrument Already Exists|  | | <a name=\"144\">144</a>|Duplicate In Parameter Set|  | | <a name=\"147\">147</a>|Results Not Found|  | | <a name=\"148\">148</a>|Order Field Not In Result Set|  | | <a name=\"149\">149</a>|Operation Failed|  | | <a name=\"150\">150</a>|Elastic Search Error|  | | <a name=\"151\">151</a>|Invalid Parameter Value|  | | <a name=\"153\">153</a>|Command Processing Failure|  | | <a name=\"154\">154</a>|Entity State Construction Failure|  | | <a name=\"155\">155</a>|Entity Timeline Does Not Exist|  | | <a name=\"156\">156</a>|Concurrency Conflict Failure|  | | <a name=\"157\">157</a>|Invalid Request|  | | <a name=\"158\">158</a>|Event Publish Unknown|  | | <a name=\"159\">159</a>|Event Query Failure|  | | <a name=\"160\">160</a>|Blob Did Not Exist|  | | <a name=\"162\">162</a>|Sub System Request Failure|  | | <a name=\"163\">163</a>|Sub System Configuration Failure|  | | <a name=\"165\">165</a>|Failed To Delete|  | | <a name=\"166\">166</a>|Upsert Client Instrument Failure|  | | <a name=\"167\">167</a>|Illegal As At Interval|  | | <a name=\"168\">168</a>|Illegal Bitemporal Query|  | | <a name=\"169\">169</a>|Invalid Alternate Id|  | | <a name=\"170\">170</a>|Cannot Add Source Portfolio Property Explicitly|  | | <a name=\"171\">171</a>|Entity Already Exists In Group|  | | <a name=\"173\">173</a>|Entity With Id Already Exists|  | | <a name=\"174\">174</a>|Derived Portfolio Details Do Not Exist|  | | <a name=\"176\">176</a>|Portfolio With Name Already Exists|  | | <a name=\"177\">177</a>|Invalid Transactions|  | | <a name=\"178\">178</a>|Reference Portfolio Not Found|  | | <a name=\"179\">179</a>|Duplicate Id|  | | <a name=\"180\">180</a>|Command Retrieval Failure|  | | <a name=\"181\">181</a>|Data Filter Application Failure|  | | <a name=\"182\">182</a>|Search Failed|  | | <a name=\"183\">183</a>|Movements Engine Configuration Key Failure|  | | <a name=\"184\">184</a>|Fx Rate Source Not Found|  | | <a name=\"185\">185</a>|Accrual Source Not Found|  | | <a name=\"186\">186</a>|Access Denied|  | | <a name=\"187\">187</a>|Invalid Identity Token|  | | <a name=\"188\">188</a>|Invalid Request Headers|  | | <a name=\"189\">189</a>|Price Not Found|  | | <a name=\"190\">190</a>|Invalid Sub Holding Keys Provided|  | | <a name=\"191\">191</a>|Duplicate Sub Holding Keys Provided|  | | <a name=\"192\">192</a>|Cut Definition Not Found|  | | <a name=\"193\">193</a>|Cut Definition Invalid|  | | <a name=\"194\">194</a>|Time Variant Property Deletion Date Unspecified|  | | <a name=\"195\">195</a>|Perpetual Property Deletion Date Specified|  | | <a name=\"196\">196</a>|Time Variant Property Upsert Date Unspecified|  | | <a name=\"197\">197</a>|Perpetual Property Upsert Date Specified|  | | <a name=\"200\">200</a>|Invalid Unit For Data Type|  | | <a name=\"201\">201</a>|Invalid Type For Data Type|  | | <a name=\"202\">202</a>|Invalid Value For Data Type|  | | <a name=\"203\">203</a>|Unit Not Defined For Data Type|  | | <a name=\"204\">204</a>|Units Not Supported On Data Type|  | | <a name=\"205\">205</a>|Cannot Specify Units On Data Type|  | | <a name=\"206\">206</a>|Unit Schema Inconsistent With Data Type|  | | <a name=\"207\">207</a>|Unit Definition Not Specified|  | | <a name=\"208\">208</a>|Duplicate Unit Definitions Specified|  | | <a name=\"209\">209</a>|Invalid Units Definition|  | | <a name=\"210\">210</a>|Invalid Instrument Identifier Unit|  | | <a name=\"211\">211</a>|Holdings Adjustment Does Not Exist|  | | <a name=\"212\">212</a>|Could Not Build Excel Url|  | | <a name=\"213\">213</a>|Could Not Get Excel Version|  | | <a name=\"214\">214</a>|Instrument By Code Not Found|  | | <a name=\"215\">215</a>|Entity Schema Does Not Exist|  | | <a name=\"216\">216</a>|Feature Not Supported On Portfolio Type|  | | <a name=\"217\">217</a>|Quote Not Found|  | | <a name=\"218\">218</a>|Invalid Quote Identifier|  | | <a name=\"219\">219</a>|Invalid Metric For Data Type|  | | <a name=\"220\">220</a>|Invalid Instrument Definition|  | | <a name=\"221\">221</a>|Instrument Upsert Failure|  | | <a name=\"222\">222</a>|Reference Portfolio Request Not Supported|  | | <a name=\"223\">223</a>|Transaction Portfolio Request Not Supported|  | | <a name=\"224\">224</a>|Invalid Property Value Assignment|  | | <a name=\"230\">230</a>|Transaction Type Not Found|  | | <a name=\"231\">231</a>|Transaction Type Duplication|  | | <a name=\"232\">232</a>|Portfolio Does Not Exist At Given Date|  | | <a name=\"233\">233</a>|Query Parser Failure|  | | <a name=\"234\">234</a>|Duplicate Constituent|  | | <a name=\"235\">235</a>|Unresolved Instrument Constituent|  | | <a name=\"236\">236</a>|Unresolved Instrument In Transition|  | | <a name=\"237\">237</a>|Missing Side Definitions|  | | <a name=\"299\">299</a>|Invalid Recipe|  | | <a name=\"300\">300</a>|Missing Recipe|  | | <a name=\"301\">301</a>|Dependencies|  | | <a name=\"304\">304</a>|Portfolio Preprocess Failure|  | | <a name=\"310\">310</a>|Valuation Engine Failure|  | | <a name=\"311\">311</a>|Task Factory Failure|  | | <a name=\"312\">312</a>|Task Evaluation Failure|  | | <a name=\"313\">313</a>|Task Generation Failure|  | | <a name=\"314\">314</a>|Engine Configuration Failure|  | | <a name=\"315\">315</a>|Model Specification Failure|  | | <a name=\"320\">320</a>|Market Data Key Failure|  | | <a name=\"321\">321</a>|Market Resolver Failure|  | | <a name=\"322\">322</a>|Market Data Failure|  | | <a name=\"330\">330</a>|Curve Failure|  | | <a name=\"331\">331</a>|Volatility Surface Failure|  | | <a name=\"332\">332</a>|Volatility Cube Failure|  | | <a name=\"350\">350</a>|Instrument Failure|  | | <a name=\"351\">351</a>|Cash Flows Failure|  | | <a name=\"352\">352</a>|Reference Data Failure|  | | <a name=\"360\">360</a>|Aggregation Failure|  | | <a name=\"361\">361</a>|Aggregation Measure Failure|  | | <a name=\"370\">370</a>|Result Retrieval Failure|  | | <a name=\"371\">371</a>|Result Processing Failure|  | | <a name=\"372\">372</a>|Vendor Result Processing Failure|  | | <a name=\"373\">373</a>|Vendor Result Mapping Failure|  | | <a name=\"374\">374</a>|Vendor Library Unauthorised|  | | <a name=\"375\">375</a>|Vendor Connectivity Error|  | | <a name=\"376\">376</a>|Vendor Interface Error|  | | <a name=\"377\">377</a>|Vendor Pricing Failure|  | | <a name=\"378\">378</a>|Vendor Translation Failure|  | | <a name=\"379\">379</a>|Vendor Key Mapping Failure|  | | <a name=\"380\">380</a>|Vendor Reflection Failure|  | | <a name=\"381\">381</a>|Vendor Process Failure|  | | <a name=\"382\">382</a>|Vendor System Failure|  | | <a name=\"390\">390</a>|Attempt To Upsert Duplicate Quotes|  | | <a name=\"391\">391</a>|Corporate Action Source Does Not Exist|  | | <a name=\"392\">392</a>|Corporate Action Source Already Exists|  | | <a name=\"393\">393</a>|Instrument Identifier Already In Use|  | | <a name=\"394\">394</a>|Properties Not Found|  | | <a name=\"395\">395</a>|Batch Operation Aborted|  | | <a name=\"400\">400</a>|Invalid Iso4217 Currency Code|  | | <a name=\"401\">401</a>|Cannot Assign Instrument Identifier To Currency|  | | <a name=\"402\">402</a>|Cannot Assign Currency Identifier To Non Currency|  | | <a name=\"403\">403</a>|Currency Instrument Cannot Be Deleted|  | | <a name=\"404\">404</a>|Currency Instrument Cannot Have Economic Definition|  | | <a name=\"405\">405</a>|Currency Instrument Cannot Have Lookthrough Portfolio|  | | <a name=\"406\">406</a>|Cannot Create Currency Instrument With Multiple Identifiers|  | | <a name=\"407\">407</a>|Specified Currency Is Undefined|  | | <a name=\"410\">410</a>|Index Does Not Exist|  | | <a name=\"411\">411</a>|Sort Field Does Not Exist|  | | <a name=\"413\">413</a>|Negative Pagination Parameters|  | | <a name=\"414\">414</a>|Invalid Search Syntax|  | | <a name=\"415\">415</a>|Filter Execution Timeout|  | | <a name=\"420\">420</a>|Side Definition Inconsistent|  | | <a name=\"450\">450</a>|Invalid Quote Access Metadata Rule|  | | <a name=\"451\">451</a>|Access Metadata Not Found|  | | <a name=\"452\">452</a>|Invalid Access Metadata Identifier|  | | <a name=\"460\">460</a>|Standard Resource Not Found|  | | <a name=\"461\">461</a>|Standard Resource Conflict|  | | <a name=\"462\">462</a>|Calendar Not Found|  | | <a name=\"463\">463</a>|Date In A Calendar Not Found|  | | <a name=\"464\">464</a>|Invalid Date Source Data|  | | <a name=\"465\">465</a>|Invalid Timezone|  | | <a name=\"601\">601</a>|Person Identifier Already In Use|  | | <a name=\"602\">602</a>|Person Not Found|  | | <a name=\"603\">603</a>|Cannot Set Identifier|  | | <a name=\"617\">617</a>|Invalid Recipe Specification In Request|  | | <a name=\"618\">618</a>|Inline Recipe Deserialisation Failure|  | | <a name=\"619\">619</a>|Identifier Types Not Set For Entity|  | | <a name=\"620\">620</a>|Cannot Delete All Client Defined Identifiers|  | | <a name=\"650\">650</a>|The Order requested was not found.|  | | <a name=\"654\">654</a>|The Allocation requested was not found.|  | | <a name=\"655\">655</a>|Cannot build the fx forward target with the given holdings.|  | | <a name=\"656\">656</a>|Group does not contain expected entities.|  | | <a name=\"667\">667</a>|Relation definition already exists|  | | <a name=\"673\">673</a>|Missing entitlements for entities in Group|  | | <a name=\"674\">674</a>|Next Best Action not found|  | | <a name=\"676\">676</a>|Relation definition not defined|  | | <a name=\"677\">677</a>|Invalid entity identifier for relation|  | | <a name=\"681\">681</a>|Sorting by specified field not supported|One or more of the provided fields to order by were either invalid or not supported. | | <a name=\"682\">682</a>|Too many fields to sort by|The number of fields to sort the data by exceeds the number allowed by the endpoint | | <a name=\"684\">684</a>|Sequence Not Found|  | | <a name=\"685\">685</a>|Sequence Already Exists|  | | <a name=\"686\">686</a>|Non-cycling sequence has been exhausted|  | | <a name=\"687\">687</a>|Legal Entity Identifier Already In Use|  | | <a name=\"688\">688</a>|Legal Entity Not Found|  | | <a name=\"689\">689</a>|The supplied pagination token is invalid|  | | <a name=\"690\">690</a>|Property Type Is Not Supported|  | | <a name=\"691\">691</a>|Multiple Tax-lots For Currency Type Is Not Supported|  | | <a name=\"692\">692</a>|This endpoint does not support impersonation|  | | <a name=\"693\">693</a>|Entity type is not supported for Relationship|  | | <a name=\"694\">694</a>|Relationship Validation Failure|  | | <a name=\"695\">695</a>|Relationship Not Found|  | | <a name=\"697\">697</a>|Derived Property Formula No Longer Valid|  | | <a name=\"698\">698</a>|Story is not available|  | | <a name=\"703\">703</a>|Corporate Action Does Not Exist|  | | <a name=\"720\">720</a>|The provided sort and filter combination is not valid|  | | <a name=\"721\">721</a>|A2B generation failed|  | | <a name=\"722\">722</a>|Aggregated Return Calculation Failure|  | | <a name=\"723\">723</a>|Custom Entity Definition Identifier Already In Use|  | | <a name=\"724\">724</a>|Custom Entity Definition Not Found|  | | <a name=\"725\">725</a>|The Placement requested was not found.|  | | <a name=\"726\">726</a>|The Execution requested was not found.|  | | <a name=\"727\">727</a>|The Block requested was not found.|  | | <a name=\"728\">728</a>|The Participation requested was not found.|  | | <a name=\"729\">729</a>|The Package requested was not found.|  | | <a name=\"730\">730</a>|The OrderInstruction requested was not found.|  | | <a name=\"732\">732</a>|Custom Entity not found.|  | | <a name=\"733\">733</a>|Custom Entity Identifier already in use.|  | | <a name=\"735\">735</a>|Calculation Failed.|  | | <a name=\"736\">736</a>|An expected key on HttpResponse is missing.|  | | <a name=\"737\">737</a>|A required fee detail is missing.|  | | <a name=\"738\">738</a>|Zero rows were returned from Luminesce|  | | <a name=\"739\">739</a>|Provided Weekend Mask was invalid|  | | <a name=\"742\">742</a>|Custom Entity fields do not match the definition|  | | <a name=\"746\">746</a>|The provided sequence is not valid.|  | 
  *
- * The version of the OpenAPI document: 0.11.3413
+ * The version of the OpenAPI document: 0.11.3414
  * Contact: info@finbourne.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
-
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters;
 using System.Text;
-using System.Threading;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using ErrorEventArgs = Newtonsoft.Json.Serialization.ErrorEventArgs;
-using RestSharp;
-using RestSharp.Deserializers;
-using RestSharpMethod = RestSharp.Method;
-using Polly;
+using RestSharp.Portable;
+using RestSharp.Portable.HttpClient;
 
 namespace Lusid.Sdk.Client
 {
     /// <summary>
-    /// Allows RestSharp to Serialize/Deserialize JSON using our custom logic, but only when ContentType is JSON.
+    /// API client is mainly responsible for making the HTTP call to the API backend.
     /// </summary>
-    internal class CustomJsonCodec : RestSharp.Serializers.ISerializer, RestSharp.Deserializers.IDeserializer
+    public partial class ApiClient
     {
-        private readonly IReadableConfiguration _configuration;
-        private static readonly string _contentType = "application/json";
-        private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
+        private JsonSerializerSettings serializerSettings = new JsonSerializerSettings
         {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            ContractResolver = new DefaultContractResolver
-            {
-                NamingStrategy = new CamelCaseNamingStrategy
-                {
-                    OverrideSpecifiedNames = false
-                }
-            }
-        };
-
-        public CustomJsonCodec(IReadableConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
-        public CustomJsonCodec(JsonSerializerSettings serializerSettings, IReadableConfiguration configuration)
-        {
-            _serializerSettings = serializerSettings;
-            _configuration = configuration;
-        }
-
-        /// <summary>
-        /// Serialize the object into a JSON string.
-        /// </summary>
-        /// <param name="obj">Object to be serialized.</param>
-        /// <returns>A JSON string.</returns>
-        public string Serialize(object obj)
-        {
-            if (obj != null && obj is Lusid.Sdk.Model.AbstractOpenAPISchema)
-            {
-                // the object to be serialized is an oneOf/anyOf schema
-                return ((Lusid.Sdk.Model.AbstractOpenAPISchema)obj).ToJson();
-            }
-            else
-            {
-                return JsonConvert.SerializeObject(obj, _serializerSettings);
-            }
-        }
-
-        public T Deserialize<T>(IRestResponse response)
-        {
-            var result = (T)Deserialize(response, typeof(T));
-            return result;
-        }
-
-        /// <summary>
-        /// Deserialize the JSON string into a proper object.
-        /// </summary>
-        /// <param name="response">The HTTP response.</param>
-        /// <param name="type">Object type.</param>
-        /// <returns>Object representation of the JSON string.</returns>
-        internal object Deserialize(IRestResponse response, Type type)
-        {
-            if (type == typeof(byte[])) // return byte array
-            {
-                return response.RawBytes;
-            }
-
-            // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
-            if (type == typeof(Stream))
-            {
-                var bytes = response.RawBytes;
-                if (response.Headers != null)
-                {
-                    var filePath = String.IsNullOrEmpty(_configuration.TempFolderPath)
-                        ? Path.GetTempPath()
-                        : _configuration.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
-                    foreach (var header in response.Headers)
-                    {
-                        var match = regex.Match(header.ToString());
-                        if (match.Success)
-                        {
-                            string fileName = filePath + ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
-                            File.WriteAllBytes(fileName, bytes);
-                            return new FileStream(fileName, FileMode.Open);
-                        }
-                    }
-                }
-                var stream = new MemoryStream(bytes);
-                return stream;
-            }
-
-            if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
-            {
-                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
-            }
-
-            if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
-            {
-                return Convert.ChangeType(response.Content, type);
-            }
-
-            // at this point, it must be a model (json)
-            try
-            {
-                return JsonConvert.DeserializeObject(response.Content, type, _serializerSettings);
-            }
-            catch (Exception e)
-            {
-                throw new ApiException(500, e.Message);
-            }
-        }
-
-        public string RootElement { get; set; }
-        public string Namespace { get; set; }
-        public string DateFormat { get; set; }
-
-        public string ContentType
-        {
-            get { return _contentType; }
-            set { throw new InvalidOperationException("Not allowed to set content type."); }
-        }
-    }
-    /// <summary>
-    /// Provides a default implementation of an Api client (both synchronous and asynchronous implementatios),
-    /// encapsulating general REST accessor use cases.
-    /// </summary>
-    public partial class ApiClient : ISynchronousClient, IAsynchronousClient
-    {
-        private readonly String _baseUrl;
-
-        /// <summary>
-        /// Specifies the settings on a <see cref="JsonSerializer" /> object.
-        /// These settings can be adjusted to accomodate custom serialization rules.
-        /// </summary>
-        public JsonSerializerSettings SerializerSettings { get; set; } = new JsonSerializerSettings
-        {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            ContractResolver = new DefaultContractResolver
-            {
-                NamingStrategy = new CamelCaseNamingStrategy
-                {
-                    OverrideSpecifiedNames = false
-                }
-            }
+            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
         };
 
         /// <summary>
@@ -196,666 +47,489 @@ namespace Lusid.Sdk.Client
         partial void InterceptResponse(IRestRequest request, IRestResponse response);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
+        /// Initializes a new instance of the <see cref="ApiClient" /> class
+        /// with default configuration.
         /// </summary>
         public ApiClient()
         {
-            _baseUrl = Lusid.Sdk.Client.GlobalConfiguration.Instance.BasePath;
+            Configuration = Lusid.Sdk.Client.Configuration.Default;
+            RestClient = new RestClient("http://local-unit-test-server.lusid.com:62039");
+            RestClient.IgnoreResponseStatusCode = true;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" />
+        /// Initializes a new instance of the <see cref="ApiClient" /> class
+        /// with default base path (http://local-unit-test-server.lusid.com:62039).
         /// </summary>
-        /// <param name="basePath">The target service's base path in URL format.</param>
-        /// <exception cref="ArgumentException"></exception>
-        public ApiClient(String basePath)
+        /// <param name="config">An instance of Configuration.</param>
+        public ApiClient(Configuration config)
         {
-            if (string.IsNullOrEmpty(basePath))
+            Configuration = config ?? Lusid.Sdk.Client.Configuration.Default;
+
+            RestClient = new RestClient(Configuration.BasePath);
+            RestClient.IgnoreResponseStatusCode = true;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiClient" /> class
+        /// with default configuration.
+        /// </summary>
+        /// <param name="basePath">The base path.</param>
+        public ApiClient(String basePath = "http://local-unit-test-server.lusid.com:62039")
+        {
+           if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
 
-            _baseUrl = basePath;
+            RestClient = new RestClient(basePath);
+            RestClient.IgnoreResponseStatusCode = true;
+            Configuration = Client.Configuration.Default;
         }
 
         /// <summary>
-        /// Constructs the RestSharp version of an http method
+        /// Gets or sets the default API client for making HTTP calls.
         /// </summary>
-        /// <param name="method">Swagger Client Custom HttpMethod</param>
-        /// <returns>RestSharp's HttpMethod instance.</returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private RestSharpMethod Method(HttpMethod method)
-        {
-            RestSharpMethod other;
-            switch (method)
-            {
-                case HttpMethod.Get:
-                    other = RestSharpMethod.GET;
-                    break;
-                case HttpMethod.Post:
-                    other = RestSharpMethod.POST;
-                    break;
-                case HttpMethod.Put:
-                    other = RestSharpMethod.PUT;
-                    break;
-                case HttpMethod.Delete:
-                    other = RestSharpMethod.DELETE;
-                    break;
-                case HttpMethod.Head:
-                    other = RestSharpMethod.HEAD;
-                    break;
-                case HttpMethod.Options:
-                    other = RestSharpMethod.OPTIONS;
-                    break;
-                case HttpMethod.Patch:
-                    other = RestSharpMethod.PATCH;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException("method", method, null);
-            }
-
-            return other;
-        }
+        /// <value>The default API client.</value>
+        [Obsolete("ApiClient.Default is deprecated, please use 'Configuration.Default.ApiClient' instead.")]
+        public static ApiClient Default;
 
         /// <summary>
-        /// Provides all logic for constructing a new RestSharp <see cref="RestRequest"/>.
-        /// At this point, all information for querying the service is known. Here, it is simply
-        /// mapped into the RestSharp request.
+        /// Gets or sets an instance of the IReadableConfiguration.
         /// </summary>
-        /// <param name="method">The http verb.</param>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>[private] A new RestRequest instance.</returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        private RestRequest NewRequest(
-            HttpMethod method,
-            String path,
-            RequestOptions options,
-            IReadableConfiguration configuration)
+        /// <value>An instance of the IReadableConfiguration.</value>
+        /// <remarks>
+        /// <see cref="IReadableConfiguration"/> helps us to avoid modifying possibly global
+        /// configuration values from within a given client. It does not guarantee thread-safety
+        /// of the <see cref="Configuration"/> instance in any way.
+        /// </remarks>
+        public IReadableConfiguration Configuration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the RestClient.
+        /// </summary>
+        /// <value>An instance of the RestClient</value>
+        public RestClient RestClient { get; set; }
+
+        // Creates and sets up a RestRequest prior to a call.
+        private RestRequest PrepareRequest(
+            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            String contentType)
         {
-            if (path == null) throw new ArgumentNullException("path");
-            if (options == null) throw new ArgumentNullException("options");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            var request = new RestRequest(path, method);
+            // disable ResetSharp.Portable built-in serialization
+            request.Serializer = null;
 
-            RestRequest request = new RestRequest(Method(method))
-            {
-                Resource = path,
-                JsonSerializer = new CustomJsonCodec(SerializerSettings, configuration)
-            };
+            // add path parameter, if any
+            foreach(var param in pathParams)
+                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
 
-            if (options.PathParameters != null)
+            // add header parameter, if any
+            foreach(var param in headerParams)
+                request.AddHeader(param.Key, param.Value);
+
+            // add query parameter, if any
+            foreach(var param in queryParams)
+                request.AddQueryParameter(param.Key, param.Value);
+
+            // add form parameter, if any
+            foreach(var param in formParams)
+                request.AddParameter(param.Key, param.Value);
+
+            // add file parameter, if any
+            foreach(var param in fileParams)
             {
-                foreach (var pathParam in options.PathParameters)
-                {
-                    request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment);
-                }
+                request.AddFile(param.Value);
             }
 
-            if (options.QueryParameters != null)
+            if (postBody != null) // http body (model or byte[]) parameter
             {
-                foreach (var queryParam in options.QueryParameters)
-                {
-                    foreach (var value in queryParam.Value)
-                    {
-                        request.AddQueryParameter(queryParam.Key, value);
-                    }
-                }
-            }
-
-            if (configuration.DefaultHeaders != null)
-            {
-                foreach (var headerParam in configuration.DefaultHeaders)
-                {
-                    request.AddHeader(headerParam.Key, headerParam.Value);
-                }
-            }
-
-            if (options.HeaderParameters != null)
-            {
-                foreach (var headerParam in options.HeaderParameters)
-                {
-                    foreach (var value in headerParam.Value)
-                    {
-                        request.AddHeader(headerParam.Key, value);
-                    }
-                }
-            }
-
-            if (options.FormParameters != null)
-            {
-                foreach (var formParam in options.FormParameters)
-                {
-                    request.AddParameter(formParam.Key, formParam.Value);
-                }
-            }
-
-            if (options.Data != null)
-            {
-                if (options.Data is Stream stream)
-                {
-                    var contentType = "application/octet-stream";
-                    if (options.HeaderParameters != null)
-                    {
-                        var contentTypes = options.HeaderParameters["Content-Type"];
-                        contentType = contentTypes[0];
-                    }
-
-                    var bytes = ClientUtils.ReadAsBytes(stream);
-                    request.AddParameter(contentType, bytes, ParameterType.RequestBody);
-                }
-                else
-                {
-                    if (options.HeaderParameters != null)
-                    {
-                        var contentTypes = options.HeaderParameters["Content-Type"];
-                        if (contentTypes == null || contentTypes.Any(header => header.Contains("application/json")))
-                        {
-                            request.RequestFormat = DataFormat.Json;
-                        }
-                        else
-                        {
-                            // TODO: Generated client user should add additional handlers. RestSharp only supports XML and JSON, with XML as default.
-                        }
-                    }
-                    else
-                    {
-                        // Here, we'll assume JSON APIs are more common. XML can be forced by adding produces/consumes to openapi spec explicitly.
-                        request.RequestFormat = DataFormat.Json;
-                    }
-
-                    request.AddJsonBody(options.Data);
-                }
-            }
-
-            if (options.FileParameters != null)
-            {
-                foreach (var fileParam in options.FileParameters)
-                {
-                    var bytes = ClientUtils.ReadAsBytes(fileParam.Value);
-                    var fileStream = fileParam.Value as FileStream;
-                    if (fileStream != null)
-                        request.Files.Add(FileParameter.Create(fileParam.Key, bytes, System.IO.Path.GetFileName(fileStream.Name)));
-                    else
-                        request.Files.Add(FileParameter.Create(fileParam.Key, bytes, "no_file_name_provided"));
-                }
-            }
-
-            if (options.Cookies != null && options.Cookies.Count > 0)
-            {
-                foreach (var cookie in options.Cookies)
-                {
-                    request.AddCookie(cookie.Name, cookie.Value);
-                }
+                request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = contentType });
             }
 
             return request;
         }
 
-        private ApiResponse<T> ToApiResponse<T>(IRestResponse<T> response)
+        /// <summary>
+        /// Makes the HTTP request (Sync).
+        /// </summary>
+        /// <param name="path">URL path.</param>
+        /// <param name="method">HTTP method.</param>
+        /// <param name="queryParams">Query parameters.</param>
+        /// <param name="postBody">HTTP body (POST request).</param>
+        /// <param name="headerParams">Header parameters.</param>
+        /// <param name="formParams">Form parameters.</param>
+        /// <param name="fileParams">File parameters.</param>
+        /// <param name="pathParams">Path parameters.</param>
+        /// <param name="contentType">Content Type of the request</param>
+        /// <returns>Object</returns>
+        public Object CallApi(
+            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            String contentType)
         {
-            T result = response.Data;
-            string rawContent = response.Content;
+            var request = PrepareRequest(
+                path, method, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, contentType);
 
-            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
-            {
-                ErrorText = response.ErrorMessage,
-                Cookies = new List<Cookie>()
-            };
+            // set timeout
+            RestClient.Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout);
+            
+            // set user agent
+            RestClient.UserAgent = Configuration.UserAgent;
 
-            if (response.Headers != null)
-            {
-                foreach (var responseHeader in response.Headers)
-                {
-                    transformed.Headers.Add(responseHeader.Name, ClientUtils.ParameterToString(responseHeader.Value));
-                }
-            }
+            InterceptRequest(request);
+            var response = RestClient.Execute(request).Result;
+            InterceptResponse(request, response);
 
-            if (response.Cookies != null)
-            {
-                foreach (var responseCookies in response.Cookies)
-                {
-                    transformed.Cookies.Add(
-                        new Cookie(
-                            responseCookies.Name,
-                            responseCookies.Value,
-                            responseCookies.Path,
-                            responseCookies.Domain)
-                        );
-                }
-            }
-
-            return transformed;
+            return (Object) response;
+        }
+        /// <summary>
+        /// Makes the asynchronous HTTP request.
+        /// </summary>
+        /// <param name="path">URL path.</param>
+        /// <param name="method">HTTP method.</param>
+        /// <param name="queryParams">Query parameters.</param>
+        /// <param name="postBody">HTTP body (POST request).</param>
+        /// <param name="headerParams">Header parameters.</param>
+        /// <param name="formParams">Form parameters.</param>
+        /// <param name="fileParams">File parameters.</param>
+        /// <param name="pathParams">Path parameters.</param>
+        /// <param name="contentType">Content type.</param>
+        /// <returns>The Task instance.</returns>
+        public async System.Threading.Tasks.Task<Object> CallApiAsync(
+            String path, Method method, List<KeyValuePair<String, String>> queryParams, Object postBody,
+            Dictionary<String, String> headerParams, Dictionary<String, String> formParams,
+            Dictionary<String, FileParameter> fileParams, Dictionary<String, String> pathParams,
+            String contentType)
+        {
+            var request = PrepareRequest(
+                path, method, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, contentType);
+            InterceptRequest(request);
+            var response = await RestClient.Execute(request);
+            InterceptResponse(request, response);
+            return (Object)response;
         }
 
-        private ApiResponse<T> Exec<T>(RestRequest req, IReadableConfiguration configuration)
+        /// <summary>
+        /// Escape string (url-encoded).
+        /// </summary>
+        /// <param name="str">String to be escaped.</param>
+        /// <returns>Escaped string.</returns>
+        public string EscapeString(string str)
         {
-            RestClient client = new RestClient(_baseUrl);
+            return UrlEncode(str);
+        }
 
-            client.ClearHandlers();
-            var existingDeserializer = req.JsonSerializer as IDeserializer;
-            if (existingDeserializer != null)
+        /// <summary>
+        /// Create FileParameter based on Stream.
+        /// </summary>
+        /// <param name="name">Parameter name.</param>
+        /// <param name="stream">Input stream.</param>
+        /// <returns>FileParameter.</returns>
+        public FileParameter ParameterToFile(string name, Stream stream)
+        {
+            if (stream is FileStream)
+                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
+            else
+                return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
+        }
+
+        /// <summary>
+        /// If parameter is DateTime, output in a formatted string (default ISO 8601), customizable with Configuration.DateTime.
+        /// If parameter is a list, join the list with ",".
+        /// Otherwise just return the string.
+        /// </summary>
+        /// <param name="obj">The parameter (header, path, query, form).</param>
+        /// <returns>Formatted string.</returns>
+        public string ParameterToString(object obj)
+        {
+            if (obj is DateTime)
+                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
+                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
+                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
+                // For example: 2009-06-15T13:45:30.0000000
+                return ((DateTime)obj).ToString (Configuration.DateTimeFormat);
+            else if (obj is DateTimeOffset)
+                // Return a formatted date string - Can be customized with Configuration.DateTimeFormat
+                // Defaults to an ISO 8601, using the known as a Round-trip date/time pattern ("o")
+                // https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx#Anchor_8
+                // For example: 2009-06-15T13:45:30.0000000
+                return ((DateTimeOffset)obj).ToString (Configuration.DateTimeFormat);
+            else if (obj is IList)
             {
-                client.AddHandler("application/json", () => existingDeserializer);
-                client.AddHandler("text/json", () => existingDeserializer);
-                client.AddHandler("text/x-json", () => existingDeserializer);
-                client.AddHandler("text/javascript", () => existingDeserializer);
-                client.AddHandler("*+json", () => existingDeserializer);
+                var flattenedString = new StringBuilder();
+                foreach (var param in (IList)obj)
+                {
+                    if (flattenedString.Length > 0)
+                        flattenedString.Append(",");
+                    flattenedString.Append(param);
+                }
+                return flattenedString.ToString();
             }
             else
+                return Convert.ToString (obj);
+        }
+
+        /// <summary>
+        /// Deserialize the JSON string into a proper object.
+        /// </summary>
+        /// <param name="response">The HTTP response.</param>
+        /// <param name="type">Object type.</param>
+        /// <returns>Object representation of the JSON string.</returns>
+        public object Deserialize(IRestResponse response, Type type)
+        {
+            IHttpHeaders headers = response.Headers;
+            if (type == typeof(byte[])) // return byte array
             {
-                var customDeserializer = new CustomJsonCodec(SerializerSettings, configuration);
-                client.AddHandler("application/json", () => customDeserializer);
-                client.AddHandler("text/json", () => customDeserializer);
-                client.AddHandler("text/x-json", () => customDeserializer);
-                client.AddHandler("text/javascript", () => customDeserializer);
-                client.AddHandler("*+json", () => customDeserializer);
+                return response.RawBytes;
             }
 
-            var xmlDeserializer = new XmlDeserializer();
-            client.AddHandler("application/xml", () => xmlDeserializer);
-            client.AddHandler("text/xml", () => xmlDeserializer);
-            client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
-
-            client.Timeout = configuration.Timeout;
-
-            if (configuration.Proxy != null)
+            // TODO: ? if (type.IsAssignableFrom(typeof(Stream)))
+            if (type == typeof(Stream))
             {
-                client.Proxy = configuration.Proxy;
-            }
-
-            if (configuration.UserAgent != null)
-            {
-                client.UserAgent = configuration.UserAgent;
-            }
-
-            if (configuration.ClientCertificates != null)
-            {
-                client.ClientCertificates = configuration.ClientCertificates;
-            }
-
-            InterceptRequest(req);
-
-            IRestResponse<T> response;
-            if (RetryConfiguration.RetryPolicy != null)
-            {
-                var policy = RetryConfiguration.RetryPolicy;
-                var policyResult = policy.ExecuteAndCapture(() => client.Execute(req));
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
+                if (headers != null)
                 {
-                    Request = req,
-                    ErrorException = policyResult.FinalException
-                };
-            }
-            else
-            {
-                response = client.Execute<T>(req);
-            }
-
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Lusid.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
-            {
-                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-
-            InterceptResponse(req, response);
-
-            var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
-            if (response.Cookies != null && response.Cookies.Count > 0)
-            {
-                if (result.Cookies == null) result.Cookies = new List<Cookie>();
-                foreach (var restResponseCookie in response.Cookies)
-                {
-                    var cookie = new Cookie(
-                        restResponseCookie.Name,
-                        restResponseCookie.Value,
-                        restResponseCookie.Path,
-                        restResponseCookie.Domain
-                    )
+                    var filePath = String.IsNullOrEmpty(Configuration.TempFolderPath)
+                        ? Path.GetTempPath()
+                        : Configuration.TempFolderPath;
+                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
+                    foreach (var header in headers)
                     {
-                        Comment = restResponseCookie.Comment,
-                        CommentUri = restResponseCookie.CommentUri,
-                        Discard = restResponseCookie.Discard,
-                        Expired = restResponseCookie.Expired,
-                        Expires = restResponseCookie.Expires,
-                        HttpOnly = restResponseCookie.HttpOnly,
-                        Port = restResponseCookie.Port,
-                        Secure = restResponseCookie.Secure,
-                        Version = restResponseCookie.Version
-                    };
-
-                    result.Cookies.Add(cookie);
+                        var match = regex.Match(header.ToString());
+                        if (match.Success)
+                        {
+                            string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                            File.WriteAllBytes(fileName, response.RawBytes);
+                            return new FileStream(fileName, FileMode.Open);
+                        }
+                    }
                 }
+                var stream = new MemoryStream(response.RawBytes);
+                return stream;
             }
-            return result;
+
+            if (type.Name.StartsWith("System.Nullable`1[[System.DateTime")) // return a datetime object
+            {
+                return DateTime.Parse(response.Content,  null, System.Globalization.DateTimeStyles.RoundtripKind);
+            }
+
+            if (type == typeof(String) || type.Name.StartsWith("System.Nullable")) // return primitive type
+            {
+                return ConvertType(response.Content, type);
+            }
+
+            // at this point, it must be a model (json)
+            try
+            {
+                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+            }
+            catch (Exception e)
+            {
+                throw new ApiException(500, e.Message);
+            }
         }
 
-        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <summary>
+        /// Serialize an input (model) into JSON string
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>JSON string.</returns>
+        public String Serialize(object obj)
         {
-            RestClient client = new RestClient(_baseUrl);
-
-            client.ClearHandlers();
-            var existingDeserializer = req.JsonSerializer as IDeserializer;
-            if (existingDeserializer != null)
+            try
             {
-                client.AddHandler("application/json", () => existingDeserializer);
-                client.AddHandler("text/json", () => existingDeserializer);
-                client.AddHandler("text/x-json", () => existingDeserializer);
-                client.AddHandler("text/javascript", () => existingDeserializer);
-                client.AddHandler("*+json", () => existingDeserializer);
+                return obj != null ? JsonConvert.SerializeObject(obj) : null;
+            }
+            catch (Exception e)
+            {
+                throw new ApiException(500, e.Message);
+            }
+        }
+
+        /// <summary>
+        ///Check if the given MIME is a JSON MIME.
+        ///JSON MIME examples:
+        ///    application/json
+        ///    application/json; charset=UTF8
+        ///    APPLICATION/JSON
+        ///    application/vnd.company+json
+        /// </summary>
+        /// <param name="mime">MIME</param>
+        /// <returns>Returns True if MIME type is json.</returns>
+        public bool IsJsonMime(String mime)
+        {
+            var jsonRegex = new Regex("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
+            return mime != null && (jsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json"));
+        }
+
+        /// <summary>
+        /// Select the Content-Type header's value from the given content-type array:
+        /// if JSON type exists in the given array, use it;
+        /// otherwise use the first one defined in 'consumes'
+        /// </summary>
+        /// <param name="contentTypes">The Content-Type array to select from.</param>
+        /// <returns>The Content-Type header to use.</returns>
+        public String SelectHeaderContentType(String[] contentTypes)
+        {
+            if (contentTypes.Length == 0)
+                return "application/json";
+
+            foreach (var contentType in contentTypes)
+            {
+                if (IsJsonMime(contentType.ToLower()))
+                    return contentType;
+            }
+
+            return contentTypes[0]; // use the first content type specified in 'consumes'
+        }
+
+        /// <summary>
+        /// Select the Accept header's value from the given accepts array:
+        /// if JSON exists in the given array, use it;
+        /// otherwise use all of them (joining into a string)
+        /// </summary>
+        /// <param name="accepts">The accepts array to select from.</param>
+        /// <returns>The Accept header to use.</returns>
+        public String SelectHeaderAccept(String[] accepts)
+        {
+            if (accepts.Length == 0)
+                return null;
+
+            if (accepts.Contains("application/json", StringComparer.OrdinalIgnoreCase))
+                return "application/json";
+
+            return String.Join(",", accepts);
+        }
+
+        /// <summary>
+        /// Encode string in base64 format.
+        /// </summary>
+        /// <param name="text">String to be encoded.</param>
+        /// <returns>Encoded string.</returns>
+        public static string Base64Encode(string text)
+        {
+            return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
+        }
+
+        /// <summary>
+        /// Dynamically cast the object into target type.
+        /// </summary>
+        /// <param name="fromObject">Object to be casted</param>
+        /// <param name="toObject">Target type</param>
+        /// <returns>Casted object</returns>
+        public static dynamic ConvertType(dynamic fromObject, Type toObject)
+        {
+            return Convert.ChangeType(fromObject, toObject);
+        }
+
+        /// <summary>
+        /// Convert stream to byte array
+        /// </summary>
+        /// <param name="inputStream">Input stream to be converted</param>
+        /// <returns>Byte array</returns>
+        public static byte[] ReadAsBytes(Stream inputStream)
+        {
+            byte[] buf = new byte[16*1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int count;
+                while ((count = inputStream.Read(buf, 0, buf.Length)) > 0)
+                {
+                    ms.Write(buf, 0, count);
+                }
+                return ms.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// URL encode a string
+        /// Credit/Ref: https://github.com/restsharp/RestSharp/blob/master/RestSharp/Extensions/StringExtensions.cs#L50
+        /// </summary>
+        /// <param name="input">String to be URL encoded</param>
+        /// <returns>Byte array</returns>
+        public static string UrlEncode(string input)
+        {
+            const int maxLength = 32766;
+
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+
+            if (input.Length <= maxLength)
+            {
+                return Uri.EscapeDataString(input);
+            }
+
+            StringBuilder sb = new StringBuilder(input.Length * 2);
+            int index = 0;
+
+            while (index < input.Length)
+            {
+                int length = Math.Min(input.Length - index, maxLength);
+                string subString = input.Substring(index, length);
+
+                sb.Append(Uri.EscapeDataString(subString));
+                index += subString.Length;
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Sanitize filename by removing the path
+        /// </summary>
+        /// <param name="filename">Filename</param>
+        /// <returns>Filename</returns>
+        public static string SanitizeFilename(string filename)
+        {
+            Match match = Regex.Match(filename, @".*[/\\](.*)$");
+
+            if (match.Success)
+            {
+                return match.Groups[1].Value;
             }
             else
             {
-                var customDeserializer = new CustomJsonCodec(SerializerSettings, configuration);
-                client.AddHandler("application/json", () => customDeserializer);
-                client.AddHandler("text/json", () => customDeserializer);
-                client.AddHandler("text/x-json", () => customDeserializer);
-                client.AddHandler("text/javascript", () => customDeserializer);
-                client.AddHandler("*+json", () => customDeserializer);
+                return filename;
             }
+        }
 
-            var xmlDeserializer = new XmlDeserializer();
-            client.AddHandler("application/xml", () => xmlDeserializer);
-            client.AddHandler("text/xml", () => xmlDeserializer);
-            client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
+        /// <summary>
+        /// Convert params to key/value pairs. 
+        /// Use collectionFormat to properly format lists and collections.
+        /// </summary>
+        /// <param name="name">Key name.</param>
+        /// <param name="value">Value object.</param>
+        /// <returns>A list of KeyValuePairs</returns>
+        public IEnumerable<KeyValuePair<string, string>> ParameterToKeyValuePairs(string collectionFormat, string name, object value)
+        {
+            var parameters = new List<KeyValuePair<string, string>>();
 
-            client.Timeout = configuration.Timeout;
-
-            if (configuration.Proxy != null)
+            if (IsCollection(value) && collectionFormat == "multi")
             {
-                client.Proxy = configuration.Proxy;
-            }
-
-            if (configuration.UserAgent != null)
-            {
-                client.UserAgent = configuration.UserAgent;
-            }
-
-            if (configuration.ClientCertificates != null)
-            {
-                client.ClientCertificates = configuration.ClientCertificates;
-            }
-
-            InterceptRequest(req);
-
-            IRestResponse<T> response;
-            if (RetryConfiguration.AsyncRetryPolicy != null)
-            {
-                var policy = RetryConfiguration.AsyncRetryPolicy;
-                var policyResult = await policy.ExecuteAndCaptureAsync(() => client.ExecuteAsync(req, cancellationToken)).ConfigureAwait(false);
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
-                {
-                    Request = req,
-                    ErrorException = policyResult.FinalException
-                };
+                var valueCollection = value as IEnumerable;
+                parameters.AddRange(from object item in valueCollection select new KeyValuePair<string, string>(name, ParameterToString(item)));
             }
             else
             {
-                response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
+                parameters.Add(new KeyValuePair<string, string>(name, ParameterToString(value)));
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(Lusid.Sdk.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
-            {
-                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
-            }
-
-            InterceptResponse(req, response);
-
-            var result = ToApiResponse(response);
-            if (response.ErrorMessage != null)
-            {
-                result.ErrorText = response.ErrorMessage;
-            }
-
-            if (response.Cookies != null && response.Cookies.Count > 0)
-            {
-                if (result.Cookies == null) result.Cookies = new List<Cookie>();
-                foreach (var restResponseCookie in response.Cookies)
-                {
-                    var cookie = new Cookie(
-                        restResponseCookie.Name,
-                        restResponseCookie.Value,
-                        restResponseCookie.Path,
-                        restResponseCookie.Domain
-                    )
-                    {
-                        Comment = restResponseCookie.Comment,
-                        CommentUri = restResponseCookie.CommentUri,
-                        Discard = restResponseCookie.Discard,
-                        Expired = restResponseCookie.Expired,
-                        Expires = restResponseCookie.Expires,
-                        HttpOnly = restResponseCookie.HttpOnly,
-                        Port = restResponseCookie.Port,
-                        Secure = restResponseCookie.Secure,
-                        Version = restResponseCookie.Version
-                    };
-
-                    result.Cookies.Add(cookie);
-                }
-            }
-            return result;
-        }
-
-        #region IAsynchronousClient
-        /// <summary>
-        /// Make a HTTP GET request (async).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), config, cancellationToken);
+            return parameters;
         }
 
         /// <summary>
-        /// Make a HTTP POST request (async).
+        /// Check if generic object is a collection.
         /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <param name="value"></param>
+        /// <returns>True if object is a collection type</returns>
+        private static bool IsCollection(object value)
         {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options, config), config, cancellationToken);
+            return value is IList || value is ICollection;
         }
-
-        /// <summary>
-        /// Make a HTTP PUT request (async).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options, config), config, cancellationToken);
-        }
-
-        /// <summary>
-        /// Make a HTTP DELETE request (async).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options, config), config, cancellationToken);
-        }
-
-        /// <summary>
-        /// Make a HTTP HEAD request (async).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options, config), config, cancellationToken);
-        }
-
-        /// <summary>
-        /// Make a HTTP OPTION request (async).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options, config), config, cancellationToken);
-        }
-
-        /// <summary>
-        /// Make a HTTP PATCH request (async).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <param name="cancellationToken">Token that enables callers to cancel the request.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Patch, path, options, config), config, cancellationToken);
-        }
-        #endregion IAsynchronousClient
-
-        #region ISynchronousClient
-        /// <summary>
-        /// Make a HTTP GET request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Get<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Get, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP POST request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Post<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Post, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP PUT request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Put<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Put, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP DELETE request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Delete<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Delete, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP HEAD request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Head<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Head, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP OPTION request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Options<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Options, path, options, config), config);
-        }
-
-        /// <summary>
-        /// Make a HTTP PATCH request (synchronous).
-        /// </summary>
-        /// <param name="path">The target path (or resource).</param>
-        /// <param name="options">The additional request options.</param>
-        /// <param name="configuration">A per-request configuration object. It is assumed that any merge with
-        /// GlobalConfiguration has been done before calling this method.</param>
-        /// <returns>A Task containing ApiResponse</returns>
-        public ApiResponse<T> Patch<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
-        {
-            var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Patch, path, options, config), config);
-        }
-        #endregion ISynchronousClient
     }
 }

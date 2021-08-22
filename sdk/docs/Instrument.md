@@ -1,5 +1,5 @@
+
 # Lusid.Sdk.Model.Instrument
-A list of instruments.
 
 ## Properties
 
@@ -16,5 +16,7 @@ Name | Type | Description | Notes
 **State** | **string** | The state of of the instrument at the asAt datetime of this version of the instrument definition. The available values are: Active, Inactive | 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

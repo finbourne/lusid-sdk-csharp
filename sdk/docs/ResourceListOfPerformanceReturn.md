@@ -1,5 +1,5 @@
+
 # Lusid.Sdk.Model.ResourceListOfPerformanceReturn
-A collection of resources that can be returned from requests.
 
 ## Properties
 
@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **NextPage** | **string** | The next page of results. | [optional] 
 **PreviousPage** | **string** | The previous page of results. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

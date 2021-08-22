@@ -1,5 +1,5 @@
+
 # Lusid.Sdk.Model.AdjustHoldingRequest
-This request specifies target holdings. i.e. holding data that the  system should match. When processed by the movement  engine, it will create 'true-up' adjustments on the fly.
 
 ## Properties
 
@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **TaxLots** | [**List&lt;TargetTaxLotRequest&gt;**](TargetTaxLotRequest.md) | The tax-lots that together make up the target holding. | 
 **Currency** | **string** | The Holding currency. This needs to be equal with the one on the TaxLot -&gt; cost if one is specified | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

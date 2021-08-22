@@ -1,14 +1,15 @@
 # Lusid.Sdk.Api.LoginApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:39646*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62039*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetSamlIdentityProviderId**](LoginApi.md#getsamlidentityproviderid) | **GET** /api/login/saml/{domain} | Get SAML Identity Provider
 
 
-<a name="getsamlidentityproviderid"></a>
-# **GetSamlIdentityProviderId**
+
+## GetSamlIdentityProviderId
+
 > string GetSamlIdentityProviderId (string domain)
 
 Get SAML Identity Provider
@@ -16,6 +17,7 @@ Get SAML Identity Provider
 Get the unique identifier for the SAML 2.0 Identity Provider to be used for domain.
 
 ### Example
+
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,12 +31,11 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39646";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62039";
             // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new LoginApi(config);
+            var apiInstance = new LoginApi(Configuration.Default);
             var domain = domain_example;  // string | The domain that the user will be logging in to
 
             try
@@ -43,7 +44,7 @@ namespace Example
                 string result = apiInstance.GetSamlIdentityProviderId(domain);
                 Debug.WriteLine(result);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling LoginApi.GetSamlIdentityProviderId: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -55,6 +56,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -70,9 +72,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -81,5 +82,8 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

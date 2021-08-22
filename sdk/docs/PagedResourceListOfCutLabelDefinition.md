@@ -1,5 +1,5 @@
+
 # Lusid.Sdk.Model.PagedResourceListOfCutLabelDefinition
-A paginated list of resource that can be returned from a request.
 
 ## Properties
 
@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **Href** | **string** | The URI of the resource list. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

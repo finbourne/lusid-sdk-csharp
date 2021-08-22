@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.OrdersApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:39646*
+All URIs are relative to *http://local-unit-test-server.lusid.com:62039*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**UpsertOrders**](OrdersApi.md#upsertorders) | **POST** /api/orders | [EARLY ACCESS] Upsert Order
 
 
-<a name="deleteorder"></a>
-# **DeleteOrder**
+
+## DeleteOrder
+
 > DeletedEntityResponse DeleteOrder (string scope, string code)
 
 [EARLY ACCESS] Delete order
@@ -19,6 +20,7 @@ Method | HTTP request | Description
 Delete an order. Deletion will be valid from the order's creation datetime.  This means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.
 
 ### Example
+
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,12 +34,11 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39646";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62039";
             // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new OrdersApi(config);
+            var apiInstance = new OrdersApi(Configuration.Default);
             var scope = scope_example;  // string | The order scope.
             var code = code_example;  // string | The order's code. This, together with the scope uniquely identifies the order to delete.
 
@@ -47,7 +48,7 @@ namespace Example
                 DeletedEntityResponse result = apiInstance.DeleteOrder(scope, code);
                 Debug.WriteLine(result);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrdersApi.DeleteOrder: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -59,6 +60,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -75,9 +77,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -86,10 +87,14 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="getorder"></a>
-# **GetOrder**
+
+## GetOrder
+
 > Order GetOrder (string scope, string code, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
 [EARLY ACCESS] Get Order
@@ -97,6 +102,7 @@ Name | Type | Description  | Notes
 Fetch an Order that matches the specified identifier
 
 ### Example
+
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -110,12 +116,11 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39646";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62039";
             // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new OrdersApi(config);
+            var apiInstance = new OrdersApi(Configuration.Default);
             var scope = scope_example;  // string | The scope to which the order belongs.
             var code = code_example;  // string | The order's unique identifier.
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional) 
@@ -127,7 +132,7 @@ namespace Example
                 Order result = apiInstance.GetOrder(scope, code, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrdersApi.GetOrder: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -139,6 +144,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -157,9 +163,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -168,10 +173,14 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="listorders"></a>
-# **ListOrders**
+
+## ListOrders
+
 > PagedResourceListOfOrder ListOrders (DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
 [EARLY ACCESS] List Orders
@@ -179,6 +188,7 @@ Name | Type | Description  | Notes
 Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
 
 ### Example
+
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -192,12 +202,11 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39646";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62039";
             // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new OrdersApi(config);
+            var apiInstance = new OrdersApi(Configuration.Default);
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional) 
             var page = page_example;  // string | The pagination token to use to continue listing orders from a previous call to list orders.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var sortBy = new List<string>(); // List<string> | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional) 
@@ -212,7 +221,7 @@ namespace Example
                 PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, start, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrdersApi.ListOrders: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -224,6 +233,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -245,9 +255,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -256,10 +265,14 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="upsertorders"></a>
-# **UpsertOrders**
+
+## UpsertOrders
+
 > ResourceListOfOrder UpsertOrders (OrderSetRequest orderSetRequest = null)
 
 [EARLY ACCESS] Upsert Order
@@ -267,6 +280,7 @@ Name | Type | Description  | Notes
 Upsert; update existing orders with given ids, or create new orders otherwise.
 
 ### Example
+
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -280,12 +294,11 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39646";
+            Configuration.Default.BasePath = "http://local-unit-test-server.lusid.com:62039";
             // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new OrdersApi(config);
+            var apiInstance = new OrdersApi(Configuration.Default);
             var orderSetRequest = new OrderSetRequest(); // OrderSetRequest | The collection of order requests. (optional) 
 
             try
@@ -294,7 +307,7 @@ namespace Example
                 ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling OrdersApi.UpsertOrders: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -306,6 +319,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -321,9 +335,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
- - **Accept**: text/plain, application/json, text/json
-
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -332,5 +345,8 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

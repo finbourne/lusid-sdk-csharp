@@ -1,30 +1,27 @@
-/*
+/* 
  * LUSID API
  *
  * # Introduction  This page documents the [LUSID APIs](https://www.lusid.com/api/swagger), which allows authorised clients to query and update their data within the LUSID platform.  SDKs to interact with the LUSID APIs are available in the following languages and frameworks:  * [C#](https://github.com/finbourne/lusid-sdk-csharp) * [Java](https://github.com/finbourne/lusid-sdk-java) * [JavaScript](https://github.com/finbourne/lusid-sdk-js) * [Python](https://github.com/finbourne/lusid-sdk-python) * [Angular](https://github.com/finbourne/lusid-sdk-angular)  The LUSID platform is made up of a number of sub-applications. You can find the API / swagger documentation by following the links in the table below.   | Application | Description | API / Swagger Documentation | | - -- -- | - -- -- | - -- - | | LUSID | Open, API-first, developer-friendly investment data platform. | [Swagger](https://www.lusid.com/api/swagger/index.html) | | Web app | User-facing front end for LUSID. | [Swagger](https://www.lusid.com/app/swagger/index.html) | | Scheduler | Automated job scheduler. | [Swagger](https://www.lusid.com/scheduler2/swagger/index.html) | | Insights |Monitoring and troubleshooting service. | [Swagger](https://www.lusid.com/insights/swagger/index.html) | | Identity | Identity management for LUSID (in conjuction with Access) | [Swagger](https://www.lusid.com/identity/swagger/index.html) | | Access | Access control for LUSID (in conjunction with Identity) | [Swagger](https://www.lusid.com/access/swagger/index.html) | | Drive | Secure file repository and manager for collaboration. | [Swagger](https://www.lusid.com/drive/swagger/index.html) | | Luminesce | Data virtualisation service (query data from multiple providers, including LUSID) | [Swagger](https://www.lusid.com/honeycomb/swagger/index.html) | | Notification | Notification service. | [Swagger](https://www.lusid.com/notifications/swagger/index.html) | | Configuration | File store for secrets and other sensitive information. | [Swagger](https://www.lusid.com/configuration/swagger/index.html) |   # Error Codes  | Code|Name|Description | | - --|- --|- -- | | <a name=\"-10\">-10</a>|Server Configuration Error|  | | <a name=\"-1\">-1</a>|Unknown error|An unexpected error was encountered on our side. | | <a name=\"102\">102</a>|Version Not Found|  | | <a name=\"103\">103</a>|Api Rate Limit Violation|  | | <a name=\"104\">104</a>|Instrument Not Found|  | | <a name=\"105\">105</a>|Property Not Found|  | | <a name=\"106\">106</a>|Portfolio Recursion Depth|  | | <a name=\"108\">108</a>|Group Not Found|  | | <a name=\"109\">109</a>|Portfolio Not Found|  | | <a name=\"110\">110</a>|Property Schema Not Found|  | | <a name=\"111\">111</a>|Portfolio Ancestry Not Found|  | | <a name=\"112\">112</a>|Portfolio With Id Already Exists|  | | <a name=\"113\">113</a>|Orphaned Portfolio|  | | <a name=\"119\">119</a>|Missing Base Claims|  | | <a name=\"121\">121</a>|Property Not Defined|  | | <a name=\"122\">122</a>|Cannot Delete System Property|  | | <a name=\"123\">123</a>|Cannot Modify Immutable Property Field|  | | <a name=\"124\">124</a>|Property Already Exists|  | | <a name=\"125\">125</a>|Invalid Property Life Time|  | | <a name=\"126\">126</a>|Property Constraint Style Excludes Properties|  | | <a name=\"127\">127</a>|Cannot Modify Default Data Type|  | | <a name=\"128\">128</a>|Group Already Exists|  | | <a name=\"129\">129</a>|No Such Data Type|  | | <a name=\"130\">130</a>|Undefined Value For Data Type|  | | <a name=\"131\">131</a>|Unsupported Value Type Defined On Data Type|  | | <a name=\"132\">132</a>|Validation Error|  | | <a name=\"133\">133</a>|Loop Detected In Group Hierarchy|  | | <a name=\"134\">134</a>|Undefined Acceptable Values|  | | <a name=\"135\">135</a>|Sub Group Already Exists|  | | <a name=\"138\">138</a>|Price Source Not Found|  | | <a name=\"139\">139</a>|Analytic Store Not Found|  | | <a name=\"141\">141</a>|Analytic Store Already Exists|  | | <a name=\"143\">143</a>|Client Instrument Already Exists|  | | <a name=\"144\">144</a>|Duplicate In Parameter Set|  | | <a name=\"147\">147</a>|Results Not Found|  | | <a name=\"148\">148</a>|Order Field Not In Result Set|  | | <a name=\"149\">149</a>|Operation Failed|  | | <a name=\"150\">150</a>|Elastic Search Error|  | | <a name=\"151\">151</a>|Invalid Parameter Value|  | | <a name=\"153\">153</a>|Command Processing Failure|  | | <a name=\"154\">154</a>|Entity State Construction Failure|  | | <a name=\"155\">155</a>|Entity Timeline Does Not Exist|  | | <a name=\"156\">156</a>|Concurrency Conflict Failure|  | | <a name=\"157\">157</a>|Invalid Request|  | | <a name=\"158\">158</a>|Event Publish Unknown|  | | <a name=\"159\">159</a>|Event Query Failure|  | | <a name=\"160\">160</a>|Blob Did Not Exist|  | | <a name=\"162\">162</a>|Sub System Request Failure|  | | <a name=\"163\">163</a>|Sub System Configuration Failure|  | | <a name=\"165\">165</a>|Failed To Delete|  | | <a name=\"166\">166</a>|Upsert Client Instrument Failure|  | | <a name=\"167\">167</a>|Illegal As At Interval|  | | <a name=\"168\">168</a>|Illegal Bitemporal Query|  | | <a name=\"169\">169</a>|Invalid Alternate Id|  | | <a name=\"170\">170</a>|Cannot Add Source Portfolio Property Explicitly|  | | <a name=\"171\">171</a>|Entity Already Exists In Group|  | | <a name=\"173\">173</a>|Entity With Id Already Exists|  | | <a name=\"174\">174</a>|Derived Portfolio Details Do Not Exist|  | | <a name=\"176\">176</a>|Portfolio With Name Already Exists|  | | <a name=\"177\">177</a>|Invalid Transactions|  | | <a name=\"178\">178</a>|Reference Portfolio Not Found|  | | <a name=\"179\">179</a>|Duplicate Id|  | | <a name=\"180\">180</a>|Command Retrieval Failure|  | | <a name=\"181\">181</a>|Data Filter Application Failure|  | | <a name=\"182\">182</a>|Search Failed|  | | <a name=\"183\">183</a>|Movements Engine Configuration Key Failure|  | | <a name=\"184\">184</a>|Fx Rate Source Not Found|  | | <a name=\"185\">185</a>|Accrual Source Not Found|  | | <a name=\"186\">186</a>|Access Denied|  | | <a name=\"187\">187</a>|Invalid Identity Token|  | | <a name=\"188\">188</a>|Invalid Request Headers|  | | <a name=\"189\">189</a>|Price Not Found|  | | <a name=\"190\">190</a>|Invalid Sub Holding Keys Provided|  | | <a name=\"191\">191</a>|Duplicate Sub Holding Keys Provided|  | | <a name=\"192\">192</a>|Cut Definition Not Found|  | | <a name=\"193\">193</a>|Cut Definition Invalid|  | | <a name=\"194\">194</a>|Time Variant Property Deletion Date Unspecified|  | | <a name=\"195\">195</a>|Perpetual Property Deletion Date Specified|  | | <a name=\"196\">196</a>|Time Variant Property Upsert Date Unspecified|  | | <a name=\"197\">197</a>|Perpetual Property Upsert Date Specified|  | | <a name=\"200\">200</a>|Invalid Unit For Data Type|  | | <a name=\"201\">201</a>|Invalid Type For Data Type|  | | <a name=\"202\">202</a>|Invalid Value For Data Type|  | | <a name=\"203\">203</a>|Unit Not Defined For Data Type|  | | <a name=\"204\">204</a>|Units Not Supported On Data Type|  | | <a name=\"205\">205</a>|Cannot Specify Units On Data Type|  | | <a name=\"206\">206</a>|Unit Schema Inconsistent With Data Type|  | | <a name=\"207\">207</a>|Unit Definition Not Specified|  | | <a name=\"208\">208</a>|Duplicate Unit Definitions Specified|  | | <a name=\"209\">209</a>|Invalid Units Definition|  | | <a name=\"210\">210</a>|Invalid Instrument Identifier Unit|  | | <a name=\"211\">211</a>|Holdings Adjustment Does Not Exist|  | | <a name=\"212\">212</a>|Could Not Build Excel Url|  | | <a name=\"213\">213</a>|Could Not Get Excel Version|  | | <a name=\"214\">214</a>|Instrument By Code Not Found|  | | <a name=\"215\">215</a>|Entity Schema Does Not Exist|  | | <a name=\"216\">216</a>|Feature Not Supported On Portfolio Type|  | | <a name=\"217\">217</a>|Quote Not Found|  | | <a name=\"218\">218</a>|Invalid Quote Identifier|  | | <a name=\"219\">219</a>|Invalid Metric For Data Type|  | | <a name=\"220\">220</a>|Invalid Instrument Definition|  | | <a name=\"221\">221</a>|Instrument Upsert Failure|  | | <a name=\"222\">222</a>|Reference Portfolio Request Not Supported|  | | <a name=\"223\">223</a>|Transaction Portfolio Request Not Supported|  | | <a name=\"224\">224</a>|Invalid Property Value Assignment|  | | <a name=\"230\">230</a>|Transaction Type Not Found|  | | <a name=\"231\">231</a>|Transaction Type Duplication|  | | <a name=\"232\">232</a>|Portfolio Does Not Exist At Given Date|  | | <a name=\"233\">233</a>|Query Parser Failure|  | | <a name=\"234\">234</a>|Duplicate Constituent|  | | <a name=\"235\">235</a>|Unresolved Instrument Constituent|  | | <a name=\"236\">236</a>|Unresolved Instrument In Transition|  | | <a name=\"237\">237</a>|Missing Side Definitions|  | | <a name=\"299\">299</a>|Invalid Recipe|  | | <a name=\"300\">300</a>|Missing Recipe|  | | <a name=\"301\">301</a>|Dependencies|  | | <a name=\"304\">304</a>|Portfolio Preprocess Failure|  | | <a name=\"310\">310</a>|Valuation Engine Failure|  | | <a name=\"311\">311</a>|Task Factory Failure|  | | <a name=\"312\">312</a>|Task Evaluation Failure|  | | <a name=\"313\">313</a>|Task Generation Failure|  | | <a name=\"314\">314</a>|Engine Configuration Failure|  | | <a name=\"315\">315</a>|Model Specification Failure|  | | <a name=\"320\">320</a>|Market Data Key Failure|  | | <a name=\"321\">321</a>|Market Resolver Failure|  | | <a name=\"322\">322</a>|Market Data Failure|  | | <a name=\"330\">330</a>|Curve Failure|  | | <a name=\"331\">331</a>|Volatility Surface Failure|  | | <a name=\"332\">332</a>|Volatility Cube Failure|  | | <a name=\"350\">350</a>|Instrument Failure|  | | <a name=\"351\">351</a>|Cash Flows Failure|  | | <a name=\"352\">352</a>|Reference Data Failure|  | | <a name=\"360\">360</a>|Aggregation Failure|  | | <a name=\"361\">361</a>|Aggregation Measure Failure|  | | <a name=\"370\">370</a>|Result Retrieval Failure|  | | <a name=\"371\">371</a>|Result Processing Failure|  | | <a name=\"372\">372</a>|Vendor Result Processing Failure|  | | <a name=\"373\">373</a>|Vendor Result Mapping Failure|  | | <a name=\"374\">374</a>|Vendor Library Unauthorised|  | | <a name=\"375\">375</a>|Vendor Connectivity Error|  | | <a name=\"376\">376</a>|Vendor Interface Error|  | | <a name=\"377\">377</a>|Vendor Pricing Failure|  | | <a name=\"378\">378</a>|Vendor Translation Failure|  | | <a name=\"379\">379</a>|Vendor Key Mapping Failure|  | | <a name=\"380\">380</a>|Vendor Reflection Failure|  | | <a name=\"381\">381</a>|Vendor Process Failure|  | | <a name=\"382\">382</a>|Vendor System Failure|  | | <a name=\"390\">390</a>|Attempt To Upsert Duplicate Quotes|  | | <a name=\"391\">391</a>|Corporate Action Source Does Not Exist|  | | <a name=\"392\">392</a>|Corporate Action Source Already Exists|  | | <a name=\"393\">393</a>|Instrument Identifier Already In Use|  | | <a name=\"394\">394</a>|Properties Not Found|  | | <a name=\"395\">395</a>|Batch Operation Aborted|  | | <a name=\"400\">400</a>|Invalid Iso4217 Currency Code|  | | <a name=\"401\">401</a>|Cannot Assign Instrument Identifier To Currency|  | | <a name=\"402\">402</a>|Cannot Assign Currency Identifier To Non Currency|  | | <a name=\"403\">403</a>|Currency Instrument Cannot Be Deleted|  | | <a name=\"404\">404</a>|Currency Instrument Cannot Have Economic Definition|  | | <a name=\"405\">405</a>|Currency Instrument Cannot Have Lookthrough Portfolio|  | | <a name=\"406\">406</a>|Cannot Create Currency Instrument With Multiple Identifiers|  | | <a name=\"407\">407</a>|Specified Currency Is Undefined|  | | <a name=\"410\">410</a>|Index Does Not Exist|  | | <a name=\"411\">411</a>|Sort Field Does Not Exist|  | | <a name=\"413\">413</a>|Negative Pagination Parameters|  | | <a name=\"414\">414</a>|Invalid Search Syntax|  | | <a name=\"415\">415</a>|Filter Execution Timeout|  | | <a name=\"420\">420</a>|Side Definition Inconsistent|  | | <a name=\"450\">450</a>|Invalid Quote Access Metadata Rule|  | | <a name=\"451\">451</a>|Access Metadata Not Found|  | | <a name=\"452\">452</a>|Invalid Access Metadata Identifier|  | | <a name=\"460\">460</a>|Standard Resource Not Found|  | | <a name=\"461\">461</a>|Standard Resource Conflict|  | | <a name=\"462\">462</a>|Calendar Not Found|  | | <a name=\"463\">463</a>|Date In A Calendar Not Found|  | | <a name=\"464\">464</a>|Invalid Date Source Data|  | | <a name=\"465\">465</a>|Invalid Timezone|  | | <a name=\"601\">601</a>|Person Identifier Already In Use|  | | <a name=\"602\">602</a>|Person Not Found|  | | <a name=\"603\">603</a>|Cannot Set Identifier|  | | <a name=\"617\">617</a>|Invalid Recipe Specification In Request|  | | <a name=\"618\">618</a>|Inline Recipe Deserialisation Failure|  | | <a name=\"619\">619</a>|Identifier Types Not Set For Entity|  | | <a name=\"620\">620</a>|Cannot Delete All Client Defined Identifiers|  | | <a name=\"650\">650</a>|The Order requested was not found.|  | | <a name=\"654\">654</a>|The Allocation requested was not found.|  | | <a name=\"655\">655</a>|Cannot build the fx forward target with the given holdings.|  | | <a name=\"656\">656</a>|Group does not contain expected entities.|  | | <a name=\"667\">667</a>|Relation definition already exists|  | | <a name=\"673\">673</a>|Missing entitlements for entities in Group|  | | <a name=\"674\">674</a>|Next Best Action not found|  | | <a name=\"676\">676</a>|Relation definition not defined|  | | <a name=\"677\">677</a>|Invalid entity identifier for relation|  | | <a name=\"681\">681</a>|Sorting by specified field not supported|One or more of the provided fields to order by were either invalid or not supported. | | <a name=\"682\">682</a>|Too many fields to sort by|The number of fields to sort the data by exceeds the number allowed by the endpoint | | <a name=\"684\">684</a>|Sequence Not Found|  | | <a name=\"685\">685</a>|Sequence Already Exists|  | | <a name=\"686\">686</a>|Non-cycling sequence has been exhausted|  | | <a name=\"687\">687</a>|Legal Entity Identifier Already In Use|  | | <a name=\"688\">688</a>|Legal Entity Not Found|  | | <a name=\"689\">689</a>|The supplied pagination token is invalid|  | | <a name=\"690\">690</a>|Property Type Is Not Supported|  | | <a name=\"691\">691</a>|Multiple Tax-lots For Currency Type Is Not Supported|  | | <a name=\"692\">692</a>|This endpoint does not support impersonation|  | | <a name=\"693\">693</a>|Entity type is not supported for Relationship|  | | <a name=\"694\">694</a>|Relationship Validation Failure|  | | <a name=\"695\">695</a>|Relationship Not Found|  | | <a name=\"697\">697</a>|Derived Property Formula No Longer Valid|  | | <a name=\"698\">698</a>|Story is not available|  | | <a name=\"703\">703</a>|Corporate Action Does Not Exist|  | | <a name=\"720\">720</a>|The provided sort and filter combination is not valid|  | | <a name=\"721\">721</a>|A2B generation failed|  | | <a name=\"722\">722</a>|Aggregated Return Calculation Failure|  | | <a name=\"723\">723</a>|Custom Entity Definition Identifier Already In Use|  | | <a name=\"724\">724</a>|Custom Entity Definition Not Found|  | | <a name=\"725\">725</a>|The Placement requested was not found.|  | | <a name=\"726\">726</a>|The Execution requested was not found.|  | | <a name=\"727\">727</a>|The Block requested was not found.|  | | <a name=\"728\">728</a>|The Participation requested was not found.|  | | <a name=\"729\">729</a>|The Package requested was not found.|  | | <a name=\"730\">730</a>|The OrderInstruction requested was not found.|  | | <a name=\"732\">732</a>|Custom Entity not found.|  | | <a name=\"733\">733</a>|Custom Entity Identifier already in use.|  | | <a name=\"735\">735</a>|Calculation Failed.|  | | <a name=\"736\">736</a>|An expected key on HttpResponse is missing.|  | | <a name=\"737\">737</a>|A required fee detail is missing.|  | | <a name=\"738\">738</a>|Zero rows were returned from Luminesce|  | | <a name=\"739\">739</a>|Provided Weekend Mask was invalid|  | | <a name=\"742\">742</a>|Custom Entity fields do not match the definition|  | | <a name=\"746\">746</a>|The provided sequence is not valid.|  | 
  *
- * The version of the OpenAPI document: 0.11.3413
+ * The version of the OpenAPI document: 0.11.3414
  * Contact: info@finbourne.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
-
 
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
-using System.Net.Mime;
+using RestSharp.Portable;
 using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
 
 namespace Lusid.Sdk.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IQuotesApiSync : IApiAccessor
+    public interface IQuotesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -37,7 +34,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the quotes to delete.</param>
         /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
         /// <returns>AnnulQuotesResponse</returns>
-        AnnulQuotesResponse DeleteQuotes(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>));
+        AnnulQuotesResponse DeleteQuotes (string scope, Dictionary<string, QuoteId> requestBody = null);
 
         /// <summary>
         /// [EARLY ACCESS] Delete quotes
@@ -49,7 +46,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the quotes to delete.</param>
         /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
         /// <returns>ApiResponse of AnnulQuotesResponse</returns>
-        ApiResponse<AnnulQuotesResponse> DeleteQuotesWithHttpInfo(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>));
+        ApiResponse<AnnulQuotesResponse> DeleteQuotesWithHttpInfo (string scope, Dictionary<string, QuoteId> requestBody = null);
         /// <summary>
         /// [EARLY ACCESS] Get quotes
         /// </summary>
@@ -63,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
         /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
         /// <returns>GetQuotesResponse</returns>
-        GetQuotesResponse GetQuotes(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>));
+        GetQuotesResponse GetQuotes (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get quotes
@@ -78,7 +75,7 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
         /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
         /// <returns>ApiResponse of GetQuotesResponse</returns>
-        ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>));
+        ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null);
         /// <summary>
         /// [DEPRECATED] List quotes
         /// </summary>
@@ -93,7 +90,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ResourceListOfQuote</returns>
-        ResourceListOfQuote ListQuotes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string));
+        ResourceListOfQuote ListQuotes (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
         /// [DEPRECATED] List quotes
@@ -109,7 +106,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
-        ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string));
+        ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
         /// [EARLY ACCESS] List quotes for scope
         /// </summary>
@@ -124,7 +121,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ResourceListOfQuote</returns>
-        ResourceListOfQuote ListQuotesForScope(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string));
+        ResourceListOfQuote ListQuotesForScope (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
         /// [EARLY ACCESS] List quotes for scope
@@ -140,7 +137,7 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
-        ApiResponse<ResourceListOfQuote> ListQuotesForScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string));
+        ApiResponse<ResourceListOfQuote> ListQuotesForScopeWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert quotes
         /// </summary>
@@ -151,7 +148,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
         /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
         /// <returns>UpsertQuotesResponse</returns>
-        UpsertQuotesResponse UpsertQuotes(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>));
+        UpsertQuotesResponse UpsertQuotes (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null);
 
         /// <summary>
         /// [EARLY ACCESS] Upsert quotes
@@ -163,15 +160,8 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
         /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
         /// <returns>ApiResponse of UpsertQuotesResponse</returns>
-        ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>));
+        ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null);
         #endregion Synchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IQuotesApiAsync : IApiAccessor
-    {
         #region Asynchronous Operations
         /// <summary>
         /// [EARLY ACCESS] Delete quotes
@@ -182,9 +172,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the quotes to delete.</param>
         /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AnnulQuotesResponse</returns>
-        System.Threading.Tasks.Task<AnnulQuotesResponse> DeleteQuotesAsync(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AnnulQuotesResponse> DeleteQuotesAsync (string scope, Dictionary<string, QuoteId> requestBody = null);
 
         /// <summary>
         /// [EARLY ACCESS] Delete quotes
@@ -195,9 +184,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the quotes to delete.</param>
         /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AnnulQuotesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AnnulQuotesResponse>> DeleteQuotesWithHttpInfoAsync(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AnnulQuotesResponse>> DeleteQuotesAsyncWithHttpInfo (string scope, Dictionary<string, QuoteId> requestBody = null);
         /// <summary>
         /// [EARLY ACCESS] Get quotes
         /// </summary>
@@ -210,9 +198,8 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
         /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetQuotesResponse</returns>
-        System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null);
 
         /// <summary>
         /// [EARLY ACCESS] Get quotes
@@ -226,9 +213,8 @@ namespace Lusid.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)</param>
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
         /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesWithHttpInfoAsync(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesAsyncWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null);
         /// <summary>
         /// [DEPRECATED] List quotes
         /// </summary>
@@ -242,9 +228,8 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfQuote</returns>
-        System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesAsync (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
         /// [DEPRECATED] List quotes
@@ -259,9 +244,8 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
         /// [EARLY ACCESS] List quotes for scope
         /// </summary>
@@ -275,9 +259,8 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfQuote</returns>
-        System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesForScopeAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesForScopeAsync (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
 
         /// <summary>
         /// [EARLY ACCESS] List quotes for scope
@@ -292,9 +275,8 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesForScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesForScopeAsyncWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null);
         /// <summary>
         /// [EARLY ACCESS] Upsert quotes
         /// </summary>
@@ -304,9 +286,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
         /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertQuotesResponse</returns>
-        System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null);
 
         /// <summary>
         /// [EARLY ACCESS] Upsert quotes
@@ -317,18 +298,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
         /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesWithHttpInfoAsync(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesAsyncWithHttpInfo (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null);
         #endregion Asynchronous Operations
-    }
-
-    /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
-    /// </summary>
-    public interface IQuotesApi : IQuotesApiSync, IQuotesApiAsync
-    {
-
     }
 
     /// <summary>
@@ -342,23 +314,22 @@ namespace Lusid.Sdk.Api
         /// Initializes a new instance of the <see cref="QuotesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public QuotesApi() : this((string)null)
+        public QuotesApi(String basePath)
         {
+            this.Configuration = new Lusid.Sdk.Client.Configuration { BasePath = basePath };
+
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuotesApi"/> class.
+        /// Initializes a new instance of the <see cref="QuotesApi"/> class
         /// </summary>
         /// <returns></returns>
-        public QuotesApi(String basePath)
+        public QuotesApi()
         {
-            this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                new Lusid.Sdk.Client.Configuration { BasePath = basePath }
-            );
-            this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
+            this.Configuration = Lusid.Sdk.Client.Configuration.Default;
+
+            ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
@@ -367,47 +338,15 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public QuotesApi(Lusid.Sdk.Client.Configuration configuration)
+        public QuotesApi(Lusid.Sdk.Client.Configuration configuration = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (configuration == null) // use the default one in Configuration
+                this.Configuration = Lusid.Sdk.Client.Configuration.Default;
+            else
+                this.Configuration = configuration;
 
-            this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
-                Lusid.Sdk.Client.GlobalConfiguration.Instance,
-                configuration
-            );
-            this.Client = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Lusid.Sdk.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="QuotesApi"/> class
-        /// using a Configuration object and client instance.
-        /// </summary>
-        /// <param name="client">The client interface for synchronous API access.</param>
-        /// <param name="asyncClient">The client interface for asynchronous API access.</param>
-        /// <param name="configuration">The configuration object.</param>
-        public QuotesApi(Lusid.Sdk.Client.ISynchronousClient client, Lusid.Sdk.Client.IAsynchronousClient asyncClient, Lusid.Sdk.Client.IReadableConfiguration configuration)
-        {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
-
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = Lusid.Sdk.Client.Configuration.DefaultExceptionFactory;
-        }
-
-        /// <summary>
-        /// The client for accessing this underlying API asynchronously.
-        /// </summary>
-        public Lusid.Sdk.Client.IAsynchronousClient AsynchronousClient { get; set; }
-
-        /// <summary>
-        /// The client for accessing this underlying API synchronously.
-        /// </summary>
-        public Lusid.Sdk.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -415,14 +354,24 @@ namespace Lusid.Sdk.Api
         /// <value>The base path</value>
         public String GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+        }
+
+        /// <summary>
+        /// Sets the base path of the API client.
+        /// </summary>
+        /// <value>The base path</value>
+        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
+        public void SetBasePath(String basePath)
+        {
+            // do nothing
         }
 
         /// <summary>
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Lusid.Sdk.Client.IReadableConfiguration Configuration { get; set; }
+        public Lusid.Sdk.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -441,16 +390,38 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// Gets the default header.
+        /// </summary>
+        /// <returns>Dictionary of HTTP header</returns>
+        [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
+        public IDictionary<String, String> DefaultHeader()
+        {
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
+        }
+
+        /// <summary>
+        /// Add default header.
+        /// </summary>
+        /// <param name="key">Header field name.</param>
+        /// <param name="value">Header field value.</param>
+        /// <returns></returns>
+        [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
+        public void AddDefaultHeader(string key, string value)
+        {
+            this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] Delete quotes Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the quotes to delete.</param>
         /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
         /// <returns>AnnulQuotesResponse</returns>
-        public AnnulQuotesResponse DeleteQuotes(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>))
+        public AnnulQuotesResponse DeleteQuotes (string scope, Dictionary<string, QuoteId> requestBody = null)
         {
-            Lusid.Sdk.Client.ApiResponse<AnnulQuotesResponse> localVarResponse = DeleteQuotesWithHttpInfo(scope, requestBody);
-            return localVarResponse.Data;
+             ApiResponse<AnnulQuotesResponse> localVarResponse = DeleteQuotesWithHttpInfo(scope, requestBody);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -460,137 +431,169 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the quotes to delete.</param>
         /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
         /// <returns>ApiResponse of AnnulQuotesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<AnnulQuotesResponse> DeleteQuotesWithHttpInfo(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>))
+        public ApiResponse< AnnulQuotesResponse > DeleteQuotesWithHttpInfo (string scope, Dictionary<string, QuoteId> requestBody = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+            var localVarPath = "./api/quotes/{scope}/$delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            String[] _contentTypes = new String[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/_*+json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            localVarRequestOptions.Data = requestBody;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<AnnulQuotesResponse>("/api/quotes/{scope}/$delete", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] Delete quotes Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the quotes to delete.</param>
-        /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AnnulQuotesResponse</returns>
-        public async System.Threading.Tasks.Task<AnnulQuotesResponse> DeleteQuotesAsync(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Lusid.Sdk.Client.ApiResponse<AnnulQuotesResponse> localVarResponse = await DeleteQuotesWithHttpInfoAsync(scope, requestBody, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] Delete quotes Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the quotes to delete.</param>
-        /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (AnnulQuotesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AnnulQuotesResponse>> DeleteQuotesWithHttpInfoAsync(string scope, Dictionary<string, QuoteId> requestBody = default(Dictionary<string, QuoteId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/_*+json"
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            localVarRequestOptions.Data = requestBody;
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestBody; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.11.3414";
 
             // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<AnnulQuotesResponse>("/api/quotes/{scope}/$delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("DeleteQuotes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<AnnulQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (AnnulQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnnulQuotesResponse)));
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] Delete quotes Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to delete.</param>
+        /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
+        /// <returns>Task of AnnulQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<AnnulQuotesResponse> DeleteQuotesAsync (string scope, Dictionary<string, QuoteId> requestBody = null)
+        {
+             ApiResponse<AnnulQuotesResponse> localVarResponse = await DeleteQuotesAsyncWithHttpInfo(scope, requestBody);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] Delete quotes Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to delete.</param>
+        /// <param name="requestBody">The quotes to delete keyed by a unique correlation id. (optional)</param>
+        /// <returns>Task of ApiResponse (AnnulQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AnnulQuotesResponse>> DeleteQuotesAsyncWithHttpInfo (string scope, Dictionary<string, QuoteId> requestBody = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->DeleteQuotes");
+
+            var localVarPath = "./api/quotes/{scope}/$delete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestBody; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.11.3414";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AnnulQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (AnnulQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AnnulQuotesResponse)));
         }
 
         /// <summary>
@@ -603,10 +606,10 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
         /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
         /// <returns>GetQuotesResponse</returns>
-        public GetQuotesResponse GetQuotes(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>))
+        public GetQuotesResponse GetQuotes (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null)
         {
-            Lusid.Sdk.Client.ApiResponse<GetQuotesResponse> localVarResponse = GetQuotesWithHttpInfo(scope, effectiveAt, asAt, maxAge, requestBody);
-            return localVarResponse.Data;
+             ApiResponse<GetQuotesResponse> localVarResponse = GetQuotesWithHttpInfo(scope, effectiveAt, asAt, maxAge, requestBody);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -619,167 +622,181 @@ namespace Lusid.Sdk.Api
         /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
         /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
         /// <returns>ApiResponse of GetQuotesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetQuotesResponse> GetQuotesWithHttpInfo(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>))
+        public ApiResponse< GetQuotesResponse > GetQuotesWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+            var localVarPath = "./api/quotes/{scope}/$get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            String[] _contentTypes = new String[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/_*+json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (effectiveAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
-            }
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (maxAge != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "maxAge", maxAge));
-            }
-            localVarRequestOptions.Data = requestBody;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<GetQuotesResponse>("/api/quotes/{scope}/$get", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] Get quotes Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the quotes to retrieve.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)</param>
-        /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
-        /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetQuotesResponse</returns>
-        public async System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Lusid.Sdk.Client.ApiResponse<GetQuotesResponse> localVarResponse = await GetQuotesWithHttpInfoAsync(scope, effectiveAt, asAt, maxAge, requestBody, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] Get quotes Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the quotes to retrieve.</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified. (optional)</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)</param>
-        /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
-        /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetQuotesResponse>> GetQuotesWithHttpInfoAsync(string scope, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string maxAge = default(string), Dictionary<string, QuoteSeriesId> requestBody = default(Dictionary<string, QuoteSeriesId>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/_*+json"
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (effectiveAt != null)
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (maxAge != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "maxAge", maxAge)); // query parameter
+            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
             {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
             }
-            if (asAt != null)
+            else
             {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+                localVarPostBody = requestBody; // byte array
             }
-            if (maxAge != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "maxAge", maxAge));
-            }
-            localVarRequestOptions.Data = requestBody;
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.11.3414";
 
             // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GetQuotesResponse>("/api/quotes/{scope}/$get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("GetQuotes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<GetQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (GetQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetQuotesResponse)));
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] Get quotes Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to retrieve.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)</param>
+        /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
+        /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
+        /// <returns>Task of GetQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<GetQuotesResponse> GetQuotesAsync (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null)
+        {
+             ApiResponse<GetQuotesResponse> localVarResponse = await GetQuotesAsyncWithHttpInfo(scope, effectiveAt, asAt, maxAge, requestBody);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] Get quotes Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the quotes to retrieve.</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the quotes. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the quotes. Defaults to return the latest version of each quote if not specified. (optional)</param>
+        /// <param name="maxAge">The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime or cut label to generate a effective datetime window inside which a quote must exist to be retrieved. (optional)</param>
+        /// <param name="requestBody">The time invariant quote series ids of the quotes to retrieve. These need to be               keyed by a unique correlation id allowing the retrieved quote to be identified in the response. (optional)</param>
+        /// <returns>Task of ApiResponse (GetQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetQuotesResponse>> GetQuotesAsyncWithHttpInfo (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->GetQuotes");
+
+            var localVarPath = "./api/quotes/{scope}/$get";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (effectiveAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "effectiveAt", effectiveAt)); // query parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (maxAge != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "maxAge", maxAge)); // query parameter
+            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestBody; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.11.3414";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (GetQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetQuotesResponse)));
         }
 
         /// <summary>
@@ -793,10 +810,10 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ResourceListOfQuote</returns>
-        public ResourceListOfQuote ListQuotes(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+        public ResourceListOfQuote ListQuotes (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> localVarResponse = ListQuotesWithHttpInfo(scope, asAt, page, start, limit, filter);
-            return localVarResponse.Data;
+             ApiResponse<ResourceListOfQuote> localVarResponse = ListQuotesWithHttpInfo(scope, asAt, page, start, limit, filter);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -810,73 +827,69 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> ListQuotesWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+        public ApiResponse< ResourceListOfQuote > ListQuotesWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotes");
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+            var localVarPath = "./api/quotes/{scope}/$deprecated";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (start != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "start", start));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.11.3414";
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ResourceListOfQuote>("/api/quotes/{scope}/$deprecated", localVarRequestOptions, this.Configuration);
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            if (this.ExceptionFactory != null)
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("ListQuotes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<ResourceListOfQuote>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfQuote) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfQuote)));
         }
 
         /// <summary>
@@ -889,12 +902,12 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfQuote</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesAsync (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> localVarResponse = await ListQuotesWithHttpInfoAsync(scope, asAt, page, start, limit, filter, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+             ApiResponse<ResourceListOfQuote> localVarResponse = await ListQuotesAsyncWithHttpInfo(scope, asAt, page, start, limit, filter);
+             return localVarResponse.Data;
+
         }
 
         /// <summary>
@@ -907,78 +920,70 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote>> ListQuotesWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesAsyncWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotes");
 
+            var localVarPath = "./api/quotes/{scope}/$deprecated";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (start != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "start", start));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.11.3414";
 
             // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfQuote>("/api/quotes/{scope}/$deprecated", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("ListQuotes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<ResourceListOfQuote>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfQuote) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfQuote)));
         }
 
         /// <summary>
@@ -992,10 +997,10 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ResourceListOfQuote</returns>
-        public ResourceListOfQuote ListQuotesForScope(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+        public ResourceListOfQuote ListQuotesForScope (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> localVarResponse = ListQuotesForScopeWithHttpInfo(scope, asAt, page, start, limit, filter);
-            return localVarResponse.Data;
+             ApiResponse<ResourceListOfQuote> localVarResponse = ListQuotesForScopeWithHttpInfo(scope, asAt, page, start, limit, filter);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1009,73 +1014,69 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <returns>ApiResponse of ResourceListOfQuote</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> ListQuotesForScopeWithHttpInfo(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string))
+        public ApiResponse< ResourceListOfQuote > ListQuotesForScopeWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotesForScope");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotesForScope");
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (start != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "start", start));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.11.3414";
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ResourceListOfQuote>("/api/quotes/{scope}", localVarRequestOptions, this.Configuration);
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            if (this.ExceptionFactory != null)
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListQuotesForScope", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("ListQuotesForScope", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<ResourceListOfQuote>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfQuote) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfQuote)));
         }
 
         /// <summary>
@@ -1088,12 +1089,12 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfQuote</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesForScopeAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfQuote> ListQuotesForScopeAsync (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote> localVarResponse = await ListQuotesForScopeWithHttpInfoAsync(scope, asAt, page, start, limit, filter, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+             ApiResponse<ResourceListOfQuote> localVarResponse = await ListQuotesForScopeAsyncWithHttpInfo(scope, asAt, page, start, limit, filter);
+             return localVarResponse.Data;
+
         }
 
         /// <summary>
@@ -1106,78 +1107,70 @@ namespace Lusid.Sdk.Api
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
         /// <param name="filter">Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfQuote)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfQuote>> ListQuotesForScopeWithHttpInfoAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? start = default(int?), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceListOfQuote>> ListQuotesForScopeAsyncWithHttpInfo (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotesForScope");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->ListQuotesForScope");
 
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (start != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "start", start));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (asAt != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "asAt", asAt)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (start != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "start", start)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.11.3414";
 
             // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfQuote>("/api/quotes/{scope}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListQuotesForScope", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("ListQuotesForScope", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<ResourceListOfQuote>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (ResourceListOfQuote) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceListOfQuote)));
         }
 
         /// <summary>
@@ -1187,10 +1180,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
         /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
         /// <returns>UpsertQuotesResponse</returns>
-        public UpsertQuotesResponse UpsertQuotes(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>))
+        public UpsertQuotesResponse UpsertQuotes (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertQuotesResponse> localVarResponse = UpsertQuotesWithHttpInfo(scope, requestBody);
-            return localVarResponse.Data;
+             ApiResponse<UpsertQuotesResponse> localVarResponse = UpsertQuotesWithHttpInfo(scope, requestBody);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1200,137 +1193,169 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
         /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
         /// <returns>ApiResponse of UpsertQuotesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertQuotesResponse> UpsertQuotesWithHttpInfo(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>))
+        public ApiResponse< UpsertQuotesResponse > UpsertQuotesWithHttpInfo (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
 
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
 
-            String[] _contentTypes = new String[] {
-                "application/json-patch+json",
-                "application/json",
-                "text/json",
-                "application/_*+json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            localVarRequestOptions.Data = requestBody;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<UpsertQuotesResponse>("/api/quotes/{scope}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpsertQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] Upsert quotes Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
-        /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UpsertQuotesResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Lusid.Sdk.Client.ApiResponse<UpsertQuotesResponse> localVarResponse = await UpsertQuotesWithHttpInfoAsync(scope, requestBody, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] Upsert quotes Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
-        /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertQuotesResponse>> UpsertQuotesWithHttpInfoAsync(string scope, Dictionary<string, UpsertQuoteRequest> requestBody = default(Dictionary<string, UpsertQuoteRequest>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'scope' is set
-            if (scope == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
                 "application/_*+json"
             };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            String[] localVarHttpHeaderAccepts = new String[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
-            localVarRequestOptions.Data = requestBody;
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestBody; // byte array
+            }
 
             // authentication (oauth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "0.11.3413");
+            localVarHeaderParams["X-LUSID-SDK-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-SDK-Version"] = "0.11.3414";
 
             // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertQuotesResponse>("/api/quotes/{scope}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpsertQuotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception exception = ExceptionFactory("UpsertQuotes", localVarResponse);
+                if (exception != null) throw exception;
             }
 
-            return localVarResponse;
+            return new ApiResponse<UpsertQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertQuotesResponse)));
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] Upsert quotes Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
+        /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
+        /// <returns>Task of UpsertQuotesResponse</returns>
+        public async System.Threading.Tasks.Task<UpsertQuotesResponse> UpsertQuotesAsync (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null)
+        {
+             ApiResponse<UpsertQuotesResponse> localVarResponse = await UpsertQuotesAsyncWithHttpInfo(scope, requestBody);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] Upsert quotes Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope to use when updating or inserting the quotes.</param>
+        /// <param name="requestBody">The quotes to update or insert keyed by a unique correlation id. (optional)</param>
+        /// <returns>Task of ApiResponse (UpsertQuotesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpsertQuotesResponse>> UpsertQuotesAsyncWithHttpInfo (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+                throw new ApiException(400, "Missing required parameter 'scope' when calling QuotesApi->UpsertQuotes");
+
+            var localVarPath = "./api/quotes/{scope}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (scope != null) localVarPathParams.Add("scope", this.Configuration.ApiClient.ParameterToString(scope)); // path parameter
+            if (requestBody != null && requestBody.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestBody; // byte array
+            }
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            //  set the LUSID header
+            localVarHeaderParams["X-LUSID-Sdk-Language"] = "C#";
+            localVarHeaderParams["X-LUSID-Sdk-Version"] = "0.11.3414";
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpsertQuotes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpsertQuotesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (UpsertQuotesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertQuotesResponse)));
         }
 
     }
