@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Utilities
                 BasePath = apiConfiguration.ApiUrl,
             };
             
-            configuration.DefaultHeaders.Add("X-LUSID-Application", apiConfiguration.ApplicationName);
+            configuration.AddDefaultHeader("X-LUSID-Application", apiConfiguration.ApplicationName);
 
             Init(configuration);
         }
