@@ -1,4 +1,3 @@
-
 # Lusid.Sdk.Model.TransactionConfigurationDataRequest
 
 ## Properties
@@ -9,7 +8,5 @@ Name | Type | Description | Notes
 **Movements** | [**List&lt;TransactionConfigurationMovementDataRequest&gt;**](TransactionConfigurationMovementDataRequest.md) | Movement data for the transaction code | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties attached to the underlying holding. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

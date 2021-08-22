@@ -1,4 +1,3 @@
-
 # Lusid.Sdk.Model.TransactionRequest
 
 ## Properties
@@ -10,7 +9,7 @@ Name | Type | Description | Notes
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that can resolve the transaction to a unique instrument. | 
 **TransactionDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The date of the transaction. | 
 **SettlementDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The settlement date of the transaction. | 
-**Units** | **decimal?** | The number of units of the transacted instrument. | 
+**Units** | **decimal** | The number of units of the transacted instrument. | 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | [optional] 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency (settlement currency being represented by TotalConsideration.Currency). For example, if the transaction currency is USD and the settlement currency is GBP, this would be the appropriate USD/GBP rate. | [optional] 
@@ -19,7 +18,5 @@ Name | Type | Description | Notes
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
