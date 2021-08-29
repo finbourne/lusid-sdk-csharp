@@ -1,5 +1,5 @@
-
 # Lusid.Sdk.Model.CounterpartyRiskInformation
+In the event that the legal entity is a counterparty to an OTC transaction  (as signatory to a counterparty agreement such as an ISDA 2002 Master Agreement),  this information would be needed for calculations  such as Credit-Valuation-Adjustments and Debit-Valuation-Adjustments (CVA, DVA, XVA etc).
 
 ## Properties
 
@@ -9,7 +9,5 @@ Name | Type | Description | Notes
 **CreditRatings** | [**List&lt;CreditRating&gt;**](CreditRating.md) |  | 
 **IndustryClassifiers** | [**List&lt;IndustryClassifier&gt;**](IndustryClassifier.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

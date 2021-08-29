@@ -1,5 +1,5 @@
-
 # Lusid.Sdk.Model.HoldingAdjustment
+The target holdings.
 
 ## Properties
 
@@ -12,7 +12,5 @@ Name | Type | Description | Notes
 **TaxLots** | [**List&lt;TargetTaxLot&gt;**](TargetTaxLot.md) | The tax-lots that together make up the target holding. | 
 **Currency** | **string** | The Holding currency. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

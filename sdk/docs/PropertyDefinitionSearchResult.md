@@ -1,5 +1,5 @@
-
 # Lusid.Sdk.Model.PropertyDefinitionSearchResult
+A property definition search result
 
 ## Properties
 
@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **Type** | **string** | The type of the property. The available values are: Label, Metric, Information | [optional] 
 **UnitSchema** | **string** | The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency | [optional] 
 **Domain** | **string** | The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction | [optional] 
-**Scope** | **string** | The scope that the property exists in. | [optional] 
-**Code** | **string** | The code of the property. Together with the domain and scope this uniquely identifies the property. | [optional] 
-**ValueRequired** | **bool?** | Whether or not a value is always required for this property. | [optional] 
+**Scope** | **string** | The scope that the property exists in. | [optional] [readonly] 
+**Code** | **string** | The code of the property. Together with the domain and scope this uniquely identifies the property. | [optional] [readonly] 
+**ValueRequired** | **bool** | Whether or not a value is always required for this property. | [optional] 
 **LifeTime** | **string** | Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant | [optional] 
 **ConstraintStyle** | **string** | Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. | [optional] 
 **PropertyDefinitionType** | **string** | The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition | [optional] 
@@ -23,7 +23,5 @@ Name | Type | Description | Notes
 **DerivationFormula** | **string** | The rule that defines how data is composed for a derived property. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
