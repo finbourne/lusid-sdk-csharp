@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:53397*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,9 +17,8 @@ Method | HTTP request | Description
 [**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] Upsert Returns
 
 
-
-## DeletePortfolio
-
+<a name="deleteportfolio"></a>
+# **DeletePortfolio**
 > DeletedEntityResponse DeletePortfolio (string scope, string code)
 
 Delete portfolio
@@ -27,7 +26,6 @@ Delete portfolio
 Delete a particular portfolio.                The deletion will take effect from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -41,11 +39,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
 
@@ -55,7 +54,7 @@ namespace Example
                 DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.DeletePortfolio: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -67,7 +66,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -84,8 +82,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -94,14 +93,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeletePortfolioProperties
-
+<a name="deleteportfolioproperties"></a>
+# **DeletePortfolioProperties**
 > DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> propertyKeys, DateTimeOrCutLabel effectiveAt = null)
 
 Delete portfolio properties
@@ -109,7 +104,6 @@ Delete portfolio properties
 Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -123,11 +117,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var propertyKeys = new List<string>(); // List<string> | The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. Each property must be from the 'Portfolio' domain.
@@ -139,7 +134,7 @@ namespace Example
                 DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, propertyKeys, effectiveAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioProperties: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -151,7 +146,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -170,8 +164,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -180,14 +175,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetPortfolio
-
+<a name="getportfolio"></a>
+# **GetPortfolio**
 > Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
 Get portfolio
@@ -195,7 +186,6 @@ Get portfolio
 Retrieve the definition of a particular portfolio.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -209,11 +199,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -226,7 +217,7 @@ namespace Example
                 Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.GetPortfolio: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -238,7 +229,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -258,8 +248,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -268,14 +259,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetPortfolioCommands
-
+<a name="getportfoliocommands"></a>
+# **GetPortfolioCommands**
 > ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string filter = null, string page = null, int? limit = null)
 
 [EARLY ACCESS] Get portfolio commands
@@ -283,7 +270,6 @@ Name | Type | Description  | Notes
 Get all the commands that modified a particular portfolio, including any input transactions.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -297,11 +283,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var fromAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional) 
@@ -316,7 +303,7 @@ namespace Example
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, filter, page, limit);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.GetPortfolioCommands: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -328,7 +315,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -350,8 +336,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -360,14 +347,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetPortfolioProperties
-
+<a name="getportfolioproperties"></a>
+# **GetPortfolioProperties**
 > PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
 
 Get portfolio properties
@@ -375,7 +358,6 @@ Get portfolio properties
 List all the properties of a particular portfolio.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -389,11 +371,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
@@ -405,7 +388,7 @@ namespace Example
                 PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.GetPortfolioProperties: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -417,7 +400,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -436,8 +418,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -446,14 +429,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetPortfolioReturns
-
+<a name="getportfolioreturns"></a>
+# **GetPortfolioReturns**
 > ResourceListOfPerformanceReturn GetPortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, string period = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] Get Returns
@@ -461,7 +440,6 @@ Name | Type | Description  | Notes
 Get Returns which are on the specified portfolio.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -475,11 +453,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the Portfolio.
             var code = code_example;  // string | The code of the  Portfolio.
             var returnScope = returnScope_example;  // string | The scope of the Returns.
@@ -495,7 +474,7 @@ namespace Example
                 ResourceListOfPerformanceReturn result = apiInstance.GetPortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.GetPortfolioReturns: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -507,7 +486,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -530,8 +508,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -540,14 +519,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListPortfolios
-
+<a name="listportfolios"></a>
+# **ListPortfolios**
 > ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> propertyKeys = null)
 
 List portfolios
@@ -555,7 +530,6 @@ List portfolios
 List all the portfolios matching particular criteria.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -569,11 +543,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
             var page = page_example;  // string | The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
@@ -589,7 +564,7 @@ namespace Example
                 ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, start, limit, filter, query, propertyKeys);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.ListPortfolios: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -601,7 +576,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -624,8 +598,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -634,14 +609,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListPortfoliosForScope
-
+<a name="listportfoliosforscope"></a>
+# **ListPortfoliosForScope**
 > ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
 List portfolios for scope
@@ -649,7 +620,6 @@ List portfolios for scope
 List all the portfolios in a particular scope.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -663,11 +633,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope whose portfolios to list.
             var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
@@ -683,7 +654,7 @@ namespace Example
                 ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, page, start, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.ListPortfoliosForScope: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -695,7 +666,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -718,8 +688,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -728,14 +699,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdatePortfolio
-
+<a name="updateportfolio"></a>
+# **UpdatePortfolio**
 > Portfolio UpdatePortfolio (string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel effectiveAt = null)
 
 Update portfolio
@@ -743,7 +710,6 @@ Update portfolio
 Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -757,11 +723,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var updatePortfolioRequest = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition.
@@ -773,7 +740,7 @@ namespace Example
                 Portfolio result = apiInstance.UpdatePortfolio(scope, code, updatePortfolioRequest, effectiveAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.UpdatePortfolio: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -785,7 +752,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -804,8 +770,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -814,14 +781,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpsertPortfolioProperties
-
+<a name="upsertportfolioproperties"></a>
+# **UpsertPortfolioProperties**
 > PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, Property> requestBody)
 
 Upsert portfolio properties
@@ -829,7 +792,6 @@ Upsert portfolio properties
 Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the 'Portfolio' domain.                Properties have an <i>effectiveFrom</i> datetime from which the property is valid, and an <i>effectiveUntil</i>  datetime until which it is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -843,11 +805,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the portfolio.
             var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var requestBody = new Dictionary<string, Property>(); // Dictionary<string, Property> | The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               'Portfolio/Manager/Id'.
@@ -858,7 +821,7 @@ namespace Example
                 PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, requestBody);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioProperties: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -870,7 +833,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -888,8 +850,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -898,14 +861,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpsertPortfolioReturns
-
+<a name="upsertportfolioreturns"></a>
+# **UpsertPortfolioReturns**
 > UpsertReturnsResponse UpsertPortfolioReturns (string scope, string code, string returnScope, string returnCode, List<PerformanceReturn> performanceReturn)
 
 [EARLY ACCESS] Upsert Returns
@@ -913,7 +872,6 @@ Name | Type | Description  | Notes
 Update or insert returns into the specified portfolio.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -927,11 +885,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new PortfoliosApi(Configuration.Default);
+            var apiInstance = new PortfoliosApi(config);
             var scope = scope_example;  // string | The scope of the Portfolio.
             var code = code_example;  // string | The code of the  Portfolio.
             var returnScope = returnScope_example;  // string | The scope of the Returns.
@@ -944,7 +903,7 @@ namespace Example
                 UpsertReturnsResponse result = apiInstance.UpsertPortfolioReturns(scope, code, returnScope, returnCode, performanceReturn);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioReturns: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -956,7 +915,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -976,8 +934,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -986,8 +945,5 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

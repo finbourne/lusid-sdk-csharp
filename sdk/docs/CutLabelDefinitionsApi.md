@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.CutLabelDefinitionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:53397*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**UpdateCutLabelDefinition**](CutLabelDefinitionsApi.md#updatecutlabeldefinition) | **PUT** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] Update a Cut Label
 
 
-
-## CreateCutLabelDefinition
-
+<a name="createcutlabeldefinition"></a>
+# **CreateCutLabelDefinition**
 > CutLabelDefinition CreateCutLabelDefinition (CreateCutLabelDefinitionRequest createCutLabelDefinitionRequest = null)
 
 [EARLY ACCESS] Create a Cut Label
@@ -21,7 +20,6 @@ Method | HTTP request | Description
 Create a Cut Label valid in all scopes
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,11 +33,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CutLabelDefinitionsApi(Configuration.Default);
+            var apiInstance = new CutLabelDefinitionsApi(config);
             var createCutLabelDefinitionRequest = new CreateCutLabelDefinitionRequest(); // CreateCutLabelDefinitionRequest | The cut label definition (optional) 
 
             try
@@ -48,7 +47,7 @@ namespace Example
                 CutLabelDefinition result = apiInstance.CreateCutLabelDefinition(createCutLabelDefinitionRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling CutLabelDefinitionsApi.CreateCutLabelDefinition: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -60,7 +59,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -76,8 +74,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -86,22 +85,17 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteCutLabelDefinition
-
-> DateTimeOffset? DeleteCutLabelDefinition (string code)
+<a name="deletecutlabeldefinition"></a>
+# **DeleteCutLabelDefinition**
+> DateTimeOffset DeleteCutLabelDefinition (string code)
 
 [EARLY ACCESS] Delete a Cut Label
 
 Delete a specified cut label
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -115,20 +109,21 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CutLabelDefinitionsApi(Configuration.Default);
+            var apiInstance = new CutLabelDefinitionsApi(config);
             var code = code_example;  // string | The Code of the Cut Label that is being Deleted
 
             try
             {
                 // [EARLY ACCESS] Delete a Cut Label
-                DateTimeOffset? result = apiInstance.DeleteCutLabelDefinition(code);
+                DateTimeOffset result = apiInstance.DeleteCutLabelDefinition(code);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling CutLabelDefinitionsApi.DeleteCutLabelDefinition: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -141,14 +136,13 @@ namespace Example
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The Code of the Cut Label that is being Deleted | 
 
 ### Return type
 
-**DateTimeOffset?**
+**DateTimeOffset**
 
 ### Authorization
 
@@ -156,8 +150,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -166,14 +161,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetCutLabelDefinition
-
+<a name="getcutlabeldefinition"></a>
+# **GetCutLabelDefinition**
 > CutLabelDefinition GetCutLabelDefinition (string code, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] Get a Cut Label
@@ -181,7 +172,6 @@ Name | Type | Description  | Notes
 Get a specified cut label at a given time
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -195,11 +185,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CutLabelDefinitionsApi(Configuration.Default);
+            var apiInstance = new CutLabelDefinitionsApi(config);
             var code = code_example;  // string | The Code of the Cut Label that is being queried
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The time at which to get the Cut Label (optional) 
 
@@ -209,7 +200,7 @@ namespace Example
                 CutLabelDefinition result = apiInstance.GetCutLabelDefinition(code, asAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling CutLabelDefinitionsApi.GetCutLabelDefinition: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -221,7 +212,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -238,8 +228,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -248,14 +239,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListCutLabelDefinitions
-
+<a name="listcutlabeldefinitions"></a>
+# **ListCutLabelDefinitions**
 > PagedResourceListOfCutLabelDefinition ListCutLabelDefinitions (DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, string page = null)
 
 [EARLY ACCESS] List Existing Cut Labels
@@ -263,7 +250,6 @@ Name | Type | Description  | Notes
 List all the Cut Label Definitions that are valid at the given AsAt time
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -277,11 +263,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CutLabelDefinitionsApi(Configuration.Default);
+            var apiInstance = new CutLabelDefinitionsApi(config);
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The As At time at which listed Cut Labels are valid (optional) 
             var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
@@ -295,7 +282,7 @@ namespace Example
                 PagedResourceListOfCutLabelDefinition result = apiInstance.ListCutLabelDefinitions(asAt, sortBy, start, limit, filter, page);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling CutLabelDefinitionsApi.ListCutLabelDefinitions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -307,7 +294,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -328,8 +314,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -338,14 +325,10 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateCutLabelDefinition
-
+<a name="updatecutlabeldefinition"></a>
+# **UpdateCutLabelDefinition**
 > CutLabelDefinition UpdateCutLabelDefinition (string code, UpdateCutLabelDefinitionRequest updateCutLabelDefinitionRequest = null)
 
 [EARLY ACCESS] Update a Cut Label
@@ -353,7 +336,6 @@ Name | Type | Description  | Notes
 Update a specified cut label
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -367,11 +349,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "http://local-unit-test-server.lusid.com:53397";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new CutLabelDefinitionsApi(Configuration.Default);
+            var apiInstance = new CutLabelDefinitionsApi(config);
             var code = code_example;  // string | The Code of the Cut Label that is being updated
             var updateCutLabelDefinitionRequest = new UpdateCutLabelDefinitionRequest(); // UpdateCutLabelDefinitionRequest | The cut label update definition (optional) 
 
@@ -381,7 +364,7 @@ namespace Example
                 CutLabelDefinition result = apiInstance.UpdateCutLabelDefinition(code, updateCutLabelDefinitionRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling CutLabelDefinitionsApi.UpdateCutLabelDefinition: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -393,7 +376,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -410,8 +392,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -420,8 +403,5 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

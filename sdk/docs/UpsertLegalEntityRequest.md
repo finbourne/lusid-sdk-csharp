@@ -1,5 +1,5 @@
-
 # Lusid.Sdk.Model.UpsertLegalEntityRequest
+Request to create or update an legal entity
 
 ## Properties
 
@@ -11,7 +11,5 @@ Name | Type | Description | Notes
 **Description** | **string** | The description of the Legal Entity | [optional] 
 **CounterpartyRiskInformation** | [**CounterpartyRiskInformation**](CounterpartyRiskInformation.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
