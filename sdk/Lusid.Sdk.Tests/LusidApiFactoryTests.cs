@@ -1,17 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Client;
 using Lusid.Sdk.Model;
-using Lusid.Sdk.Tests.Utilities;
 using Lusid.Sdk.Utilities;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using System.Net;
 
 namespace Lusid.Sdk.Tests
 {
@@ -20,7 +15,6 @@ namespace Lusid.Sdk.Tests
     {
         private ILusidApiFactory _factory = new LusidApiFactory(new Configuration());
         private const string RequestIdRegexPattern = "[a-zA-Z0-9]{13}:[0-9a-fA-F]{8}";
-        
 
         [OneTimeSetUp]
         public void SetUp()
@@ -48,7 +42,7 @@ namespace Lusid.Sdk.Tests
 
         class InvalidApi : IApiAccessor
         {
-            public IReadableConfiguration Configuration { get; set; }
+            public Configuration Configuration { get; set; }
             public string GetBasePath()
             {
                 throw new NotImplementedException();
@@ -80,7 +74,7 @@ namespace Lusid.Sdk.Tests
             Assert.That(api, Is.Not.Null);
             Assert.That(api, Is.InstanceOf<TransactionPortfoliosApi>());
         }
-
+        
         [Test]
         public void InvalidTokenUrl_ThrowsException()
         {
@@ -107,7 +101,7 @@ namespace Lusid.Sdk.Tests
                 () => new LusidApiFactory(apiConfig),
                 Throws.InstanceOf<UriFormatException>().With.Message.EqualTo("Invalid LUSID Uri: xyz"));
         }
-        
+
         [Test]
         public void ApiResponse_CanExtract_RequestId()
         {
@@ -163,7 +157,7 @@ namespace Lusid.Sdk.Tests
                 Assert.That(requestId, Is.Null);
             } 
         }
-        
+
         [Test]
         public void ApiException_Converts_To_ProblemDetails()
         {
@@ -280,13 +274,13 @@ namespace Lusid.Sdk.Tests
             var date = apiResponse.GetRequestDateTime();
             Assert.IsNotNull(date);
         }
-        
+
         [Test]
         public void ApiResponse_CanExtractAndParseAccurately_DateHeader()
         {
             var apiResponse = new ApiResponse<VersionSummaryDto>(
-                statusCode: HttpStatusCode.OK,
-                headers: new Multimap<string, string>()
+                statusCode: 200,
+                headers: new Dictionary<string, string>()
                 {
                     {"Date", "Tue, 09 Feb 2021 05:18:41 GMT"},
                 },
@@ -305,13 +299,13 @@ namespace Lusid.Sdk.Tests
             var date = apiResponse.GetRequestDateTime();
             Assert.IsNull(date);
         }
-        
+
         [Test]
         public void ApiResponseInvalidDateHeader_ReturnsNull_DateHeader()
         {
             var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
             // Invalidate header containing access token
-            apiResponse.Headers[ApiResponseExtensions.DateHeader] = new[] {"invalid"};
+            apiResponse.Headers[ApiResponseExtensions.DateHeader] = "invalid";
             var date = apiResponse.GetRequestDateTime();
             Assert.IsNull(date);
         }
