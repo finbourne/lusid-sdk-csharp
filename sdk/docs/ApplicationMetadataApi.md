@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.ApplicationMetadataApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:64002*
+All URIs are relative to *http://local-unit-test-server.lusid.com:53190*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:64002";
+            config.BasePath = "http://local-unit-test-server.lusid.com:53190";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -108,7 +108,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:64002";
+            config.BasePath = "http://local-unit-test-server.lusid.com:53190";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -179,7 +179,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:64002";
+            config.BasePath = "http://local-unit-test-server.lusid.com:53190";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
