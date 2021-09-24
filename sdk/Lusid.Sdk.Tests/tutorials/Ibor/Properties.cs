@@ -154,6 +154,78 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(metricProperty.Value.MetricValue.Unit, Is.EqualTo(metricPropertyValueRequest.MetricValue.Unit));
         }
         
+        [LusidFeature("F15")]
+        [Test]
+        public void Create_Portfolio_With_Metric_Property_Check_Decimal_Accuracy()
+        {
+            var uuid = Guid.NewGuid().ToString();
+            var metricPropertyName = $"test-{uuid}";
+            var effectiveDate = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
+            
+            //    Details of the property to be created
+            var metricPropertyDefinition = new CreatePropertyDefinitionRequest(
+                
+                //    The domain the property is to be applied to
+                domain: CreatePropertyDefinitionRequest.DomainEnum.Portfolio,
+                
+                //    The scope the property will be created in
+                scope: TestDataUtilities.TutorialScope,
+                
+                //    When the property value is set it will be valid forever and cannot be changed.
+                //    Properties whose values can change over time should be created with LifeTimeEnum.TIMEVARIANT
+                lifeTime: CreatePropertyDefinitionRequest.LifeTimeEnum.Perpetual,
+                
+                code: metricPropertyName,
+                valueRequired: false,
+                displayName: "test",
+                dataTypeId: new ResourceId("system", "number")
+            );
+            
+            //    Create the property definitions
+            var metricPropertyDefinitionResult = _apiFactory.Api<IPropertyDefinitionsApi>().CreatePropertyDefinition(metricPropertyDefinition);
+            
+            //    Create the property values
+            var metricPropertyValueRequest = new PropertyValue(metricValue: new MetricValue(289884350.173235074209m));
+            
+            //    Details of the new portfolio to be created, created here with the minimum set of mandatory fields 
+            var createPortfolioRequest = new CreateTransactionPortfolioRequest(
+                code: $"id-{uuid}",
+                displayName: $"Portfolio-{uuid}",
+                baseCurrency: "GBP",
+                created: effectiveDate
+            );
+
+            //    Create the portfolio
+            var portfolioResult = _apiFactory.Api<ITransactionPortfoliosApi>().CreatePortfolio(TestDataUtilities.TutorialScope, createPortfolioRequest);
+            
+            Assert.That(portfolioResult.Id.Code, Is.EqualTo(createPortfolioRequest.Code));
+
+            var upsertResponse = _apiFactory.Api<IPortfoliosApi>().UpsertPortfolioProperties(
+                TestDataUtilities.TutorialScope,
+                createPortfolioRequest.Code,
+                new Dictionary<string, Property>
+                {
+                    [metricPropertyDefinitionResult.Key] =
+                        new Property(
+                            metricPropertyDefinitionResult.Key,
+                            metricPropertyValueRequest)
+                }
+            );
+            
+            Assert.That(upsertResponse.Properties.Values.Single().Value.MetricValue.Value, Is.EqualTo(metricPropertyValueRequest.MetricValue.Value));
+
+
+            var portfolioProperties = _apiFactory.Api<IPortfoliosApi>().GetPortfolioProperties(TestDataUtilities.TutorialScope, portfolioResult.Id.Code).Properties;
+
+            Assert.That(portfolioProperties.Keys, Is.EquivalentTo(new [] { metricPropertyDefinitionResult.Key}));
+
+            // metricProperty.Value is just the value from the metric property, metricProperty.Unit is the units
+            var metricProperty = portfolioProperties[metricPropertyDefinitionResult.Key];
+            Assert.That(metricProperty.Value.MetricValue.Value, Is.EqualTo(metricPropertyValueRequest.MetricValue.Value));
+            Assert.That(metricProperty.Value.MetricValue.Unit, Is.EqualTo(metricPropertyValueRequest.MetricValue.Unit));
+        }
+        
+        
         [LusidFeature("F35")]
         [Test]
         public void Create_Portfolio_With_MultiValue_Property()
