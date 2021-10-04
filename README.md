@@ -29,7 +29,7 @@ For further documentation on building the SDK, running the tutorials and using t
 Documentation for namespaces, interfaces, classes, functions and other members of the 
 SDK is [available to view online](https://lusid-sdk-csharp.readthedocs.io/en/latest/).
 
-## Build Status
+## Build Status 
 
 | branch | status |
 | --- | --- |
