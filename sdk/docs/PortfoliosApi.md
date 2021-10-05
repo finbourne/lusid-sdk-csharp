@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:39300*
+All URIs are relative to *http://local-unit-test-server.lusid.com:32792*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,7 +40,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -118,7 +118,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -284,7 +284,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -372,7 +372,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -454,7 +454,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -465,7 +465,7 @@ namespace Example
             var returnCode = returnCode_example;  // string | The code of the Returns.
             var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | The start date from which to get the Returns. (optional) 
             var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | The end date from which to get the Returns. (optional) 
-            var period = period_example;  // string | Show the Returns on a Daily or Monthly period. (optional) 
+            var period = period_example;  // string | Show the Returns on a Daily or Monthly period. Defaults to Daily. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
 
             try
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
  **returnCode** | **string**| The code of the Returns. | 
  **fromEffectiveAt** | **DateTimeOrCutLabel**| The start date from which to get the Returns. | [optional] 
  **toEffectiveAt** | **DateTimeOrCutLabel**| The end date from which to get the Returns. | [optional] 
- **period** | **string**| Show the Returns on a Daily or Monthly period. | [optional] 
+ **period** | **string**| Show the Returns on a Daily or Monthly period. Defaults to Daily. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional] 
 
 ### Return type
@@ -544,7 +544,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -634,7 +634,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -724,7 +724,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -806,7 +806,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -886,7 +886,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:39300";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32792";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
