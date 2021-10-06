@@ -4,14 +4,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | [EARLY ACCESS] Get the next change to each portfolio in a scope.
+[**GetPortfolioChanges**](EntitiesApi.md#getportfoliochanges) | **GET** /api/entities/changes/portfolios | [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
 
 
 <a name="getportfoliochanges"></a>
 # **GetPortfolioChanges**
 > ResourceListOfChange GetPortfolioChanges (string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get the next change to each portfolio in a scope.
+[EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
 
 Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subcriptions (e.g corporate actions).
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get the next change to each portfolio in a scope.
+                // [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
                 ResourceListOfChange result = apiInstance.GetPortfolioChanges(scope, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }

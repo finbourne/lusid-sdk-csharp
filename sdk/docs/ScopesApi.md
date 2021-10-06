@@ -4,14 +4,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] List Scopes
+[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] ListScopes: List Scopes
 
 
 <a name="listscopes"></a>
 # **ListScopes**
 > ResourceListOfScopeDefinition ListScopes (string filter = null)
 
-[EARLY ACCESS] List Scopes
+[EARLY ACCESS] ListScopes: List Scopes
 
 List all the scopes that contain data.
 
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List Scopes
+                // [EARLY ACCESS] ListScopes: List Scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListScopes(filter);
                 Debug.WriteLine(result);
             }

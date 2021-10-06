@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteOrder**](OrdersApi.md#deleteorder) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] Delete order
-[**GetOrder**](OrdersApi.md#getorder) | **GET** /api/orders/{scope}/{code} | [EARLY ACCESS] Get Order
-[**ListOrders**](OrdersApi.md#listorders) | **GET** /api/orders | [EARLY ACCESS] List Orders
-[**UpsertOrders**](OrdersApi.md#upsertorders) | **POST** /api/orders | [EARLY ACCESS] Upsert Order
+[**DeleteOrder**](OrdersApi.md#deleteorder) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] DeleteOrder: Delete order
+[**GetOrder**](OrdersApi.md#getorder) | **GET** /api/orders/{scope}/{code} | [EARLY ACCESS] GetOrder: Get Order
+[**ListOrders**](OrdersApi.md#listorders) | **GET** /api/orders | [EARLY ACCESS] ListOrders: List Orders
+[**UpsertOrders**](OrdersApi.md#upsertorders) | **POST** /api/orders | [EARLY ACCESS] UpsertOrders: Upsert Order
 
 
 <a name="deleteorder"></a>
 # **DeleteOrder**
 > DeletedEntityResponse DeleteOrder (string scope, string code)
 
-[EARLY ACCESS] Delete order
+[EARLY ACCESS] DeleteOrder: Delete order
 
 Delete an order. Deletion will be valid from the order's creation datetime.  This means that the order will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete order
+                // [EARLY ACCESS] DeleteOrder: Delete order
                 DeletedEntityResponse result = apiInstance.DeleteOrder(scope, code);
                 Debug.WriteLine(result);
             }
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 # **GetOrder**
 > Order GetOrder (string scope, string code, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] Get Order
+[EARLY ACCESS] GetOrder: Get Order
 
 Fetch an Order that matches the specified identifier
 
@@ -123,7 +123,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get Order
+                // [EARLY ACCESS] GetOrder: Get Order
                 Order result = apiInstance.GetOrder(scope, code, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 # **ListOrders**
 > PagedResourceListOfOrder ListOrders (DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] List Orders
+[EARLY ACCESS] ListOrders: List Orders
 
 Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
 
@@ -208,7 +208,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List Orders
+                // [EARLY ACCESS] ListOrders: List Orders
                 PagedResourceListOfOrder result = apiInstance.ListOrders(asAt, page, sortBy, start, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 # **UpsertOrders**
 > ResourceListOfOrder UpsertOrders (OrderSetRequest orderSetRequest = null)
 
-[EARLY ACCESS] Upsert Order
+[EARLY ACCESS] UpsertOrders: Upsert Order
 
 Upsert; update existing orders with given ids, or create new orders otherwise.
 
@@ -290,7 +290,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Upsert Order
+                // [EARLY ACCESS] UpsertOrders: Upsert Order
                 ResourceListOfOrder result = apiInstance.UpsertOrders(orderSetRequest);
                 Debug.WriteLine(result);
             }

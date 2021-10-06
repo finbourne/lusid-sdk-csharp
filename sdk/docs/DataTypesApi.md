@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] Get data type definition
-[**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] Get units from data type
-[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] List data types
+[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
+[**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
+[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
 
 
 <a name="getdatatype"></a>
 # **GetDataType**
 > DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get data type definition
+[EARLY ACCESS] GetDataType: Get data type definition
 
 Get the definition of a specified data type
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get data type definition
+                // [EARLY ACCESS] GetDataType: Get data type definition
                 DataType result = apiInstance.GetDataType(scope, code, asAt);
                 Debug.WriteLine(result);
             }
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 # **GetUnitsFromDataType**
 > ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get units from data type
+[EARLY ACCESS] GetUnitsFromDataType: Get units from data type
 
 Get the definitions of the specified units associated bound to a specific data type
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get units from data type
+                // [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
                 ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt);
                 Debug.WriteLine(result);
             }
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **ListDataTypes**
 > ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-[EARLY ACCESS] List data types
+[EARLY ACCESS] ListDataTypes: List data types
 
 List all data types in a specified scope
 
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List data types
+                // [EARLY ACCESS] ListDataTypes: List data types
                 ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }

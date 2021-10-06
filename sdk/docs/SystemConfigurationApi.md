@@ -4,15 +4,15 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateConfigurationTransactionType**](SystemConfigurationApi.md#createconfigurationtransactiontype) | **POST** /api/systemconfiguration/transactions/type | [EARLY ACCESS] Create transaction type
-[**ListConfigurationTransactionTypes**](SystemConfigurationApi.md#listconfigurationtransactiontypes) | **GET** /api/systemconfiguration/transactions | [EARLY ACCESS] List transaction types
+[**CreateConfigurationTransactionType**](SystemConfigurationApi.md#createconfigurationtransactiontype) | **POST** /api/systemconfiguration/transactions/type | [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
+[**ListConfigurationTransactionTypes**](SystemConfigurationApi.md#listconfigurationtransactiontypes) | **GET** /api/systemconfiguration/transactions | [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
 
 
 <a name="createconfigurationtransactiontype"></a>
 # **CreateConfigurationTransactionType**
 > TransactionSetConfigurationData CreateConfigurationTransactionType (TransactionConfigurationDataRequest transactionConfigurationDataRequest = null)
 
-[EARLY ACCESS] Create transaction type
+[EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
 
 Create a new transaction type by specifying a definition and mappings to movements.
 
@@ -40,7 +40,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Create transaction type
+                // [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
                 TransactionSetConfigurationData result = apiInstance.CreateConfigurationTransactionType(transactionConfigurationDataRequest);
                 Debug.WriteLine(result);
             }
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 # **ListConfigurationTransactionTypes**
 > TransactionSetConfigurationData ListConfigurationTransactionTypes (DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] List transaction types
+[EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
 
 Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
 
@@ -116,7 +116,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List transaction types
+                // [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
                 TransactionSetConfigurationData result = apiInstance.ListConfigurationTransactionTypes(asAt);
                 Debug.WriteLine(result);
             }

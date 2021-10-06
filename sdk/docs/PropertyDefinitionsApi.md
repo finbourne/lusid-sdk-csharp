@@ -4,19 +4,19 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDerivedPropertyDefinition**](PropertyDefinitionsApi.md#createderivedpropertydefinition) | **POST** /api/propertydefinitions/derived | [EARLY ACCESS] Create derived property definition
-[**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | Create property definition
-[**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | Delete property definition
-[**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | Get multiple property definitions
-[**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | Get property definition
-[**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | Update property definition
+[**CreateDerivedPropertyDefinition**](PropertyDefinitionsApi.md#createderivedpropertydefinition) | **POST** /api/propertydefinitions/derived | [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
+[**CreatePropertyDefinition**](PropertyDefinitionsApi.md#createpropertydefinition) | **POST** /api/propertydefinitions | CreatePropertyDefinition: Create property definition
+[**DeletePropertyDefinition**](PropertyDefinitionsApi.md#deletepropertydefinition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | DeletePropertyDefinition: Delete property definition
+[**GetMultiplePropertyDefinitions**](PropertyDefinitionsApi.md#getmultiplepropertydefinitions) | **GET** /api/propertydefinitions | GetMultiplePropertyDefinitions: Get multiple property definitions
+[**GetPropertyDefinition**](PropertyDefinitionsApi.md#getpropertydefinition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | GetPropertyDefinition: Get property definition
+[**UpdatePropertyDefinition**](PropertyDefinitionsApi.md#updatepropertydefinition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | UpdatePropertyDefinition: Update property definition
 
 
 <a name="createderivedpropertydefinition"></a>
 # **CreateDerivedPropertyDefinition**
 > PropertyDefinition CreateDerivedPropertyDefinition (CreateDerivedPropertyDefinitionRequest createDerivedPropertyDefinitionRequest)
 
-[EARLY ACCESS] Create derived property definition
+[EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
 
 Define a new derived property.
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Create derived property definition
+                // [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
                 PropertyDefinition result = apiInstance.CreateDerivedPropertyDefinition(createDerivedPropertyDefinitionRequest);
                 Debug.WriteLine(result);
             }
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 # **CreatePropertyDefinition**
 > PropertyDefinition CreatePropertyDefinition (CreatePropertyDefinitionRequest createPropertyDefinitionRequest)
 
-Create property definition
+CreatePropertyDefinition: Create property definition
 
 Define a new property.
 
@@ -120,7 +120,7 @@ namespace Example
 
             try
             {
-                // Create property definition
+                // CreatePropertyDefinition: Create property definition
                 PropertyDefinition result = apiInstance.CreatePropertyDefinition(createPropertyDefinitionRequest);
                 Debug.WriteLine(result);
             }
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 # **DeletePropertyDefinition**
 > DeletedEntityResponse DeletePropertyDefinition (string domain, string scope, string code)
 
-Delete property definition
+DeletePropertyDefinition: Delete property definition
 
 Delete the definition of the specified property.
 
@@ -198,7 +198,7 @@ namespace Example
 
             try
             {
-                // Delete property definition
+                // DeletePropertyDefinition: Delete property definition
                 DeletedEntityResponse result = apiInstance.DeletePropertyDefinition(domain, scope, code);
                 Debug.WriteLine(result);
             }
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 # **GetMultiplePropertyDefinitions**
 > ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys, DateTimeOffset? asAt = null, string filter = null)
 
-Get multiple property definitions
+GetMultiplePropertyDefinitions: Get multiple property definitions
 
 Retrieve the definition of one or more specified properties.
 
@@ -278,7 +278,7 @@ namespace Example
 
             try
             {
-                // Get multiple property definitions
+                // GetMultiplePropertyDefinitions: Get multiple property definitions
                 ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter);
                 Debug.WriteLine(result);
             }
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 # **GetPropertyDefinition**
 > PropertyDefinition GetPropertyDefinition (string domain, string scope, string code, DateTimeOffset? asAt = null)
 
-Get property definition
+GetPropertyDefinition: Get property definition
 
 Retrieve the definition of a specified property.
 
@@ -359,7 +359,7 @@ namespace Example
 
             try
             {
-                // Get property definition
+                // GetPropertyDefinition: Get property definition
                 PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt);
                 Debug.WriteLine(result);
             }
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 # **UpdatePropertyDefinition**
 > PropertyDefinition UpdatePropertyDefinition (string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest)
 
-Update property definition
+UpdatePropertyDefinition: Update property definition
 
 Update the definition of a specified existing property. Not all elements within a property definition  are modifiable due to the potential implications for values already stored against the property.
 
@@ -441,7 +441,7 @@ namespace Example
 
             try
             {
-                // Update property definition
+                // UpdatePropertyDefinition: Update property definition
                 PropertyDefinition result = apiInstance.UpdatePropertyDefinition(domain, scope, code, updatePropertyDefinitionRequest);
                 Debug.WriteLine(result);
             }

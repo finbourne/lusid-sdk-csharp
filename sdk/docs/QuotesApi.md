@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteQuotes**](QuotesApi.md#deletequotes) | **POST** /api/quotes/{scope}/$delete | [EARLY ACCESS] Delete quotes
-[**GetQuotes**](QuotesApi.md#getquotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] Get quotes
-[**ListQuotes**](QuotesApi.md#listquotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] List quotes
-[**ListQuotesForScope**](QuotesApi.md#listquotesforscope) | **GET** /api/quotes/{scope} | [EARLY ACCESS] List quotes for scope
-[**UpsertQuotes**](QuotesApi.md#upsertquotes) | **POST** /api/quotes/{scope} | [EARLY ACCESS] Upsert quotes
+[**DeleteQuotes**](QuotesApi.md#deletequotes) | **POST** /api/quotes/{scope}/$delete | [EARLY ACCESS] DeleteQuotes: Delete quotes
+[**GetQuotes**](QuotesApi.md#getquotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] GetQuotes: Get quotes
+[**ListQuotes**](QuotesApi.md#listquotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] ListQuotes: List quotes
+[**ListQuotesForScope**](QuotesApi.md#listquotesforscope) | **GET** /api/quotes/{scope} | [EARLY ACCESS] ListQuotesForScope: List quotes for scope
+[**UpsertQuotes**](QuotesApi.md#upsertquotes) | **POST** /api/quotes/{scope} | [EARLY ACCESS] UpsertQuotes: Upsert quotes
 
 
 <a name="deletequotes"></a>
 # **DeleteQuotes**
 > AnnulQuotesResponse DeleteQuotes (string scope, Dictionary<string, QuoteId> requestBody = null)
 
-[EARLY ACCESS] Delete quotes
+[EARLY ACCESS] DeleteQuotes: Delete quotes
 
 Delete one or more specified quotes from a single scope. A quote is identified by its unique id which includes information about  the type of quote as well as the exact effective datetime (to the microsecond) from which it became valid.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully deleted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be deleted.                It is important to always check the failed set for any unsuccessful results.
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete quotes
+                // [EARLY ACCESS] DeleteQuotes: Delete quotes
                 AnnulQuotesResponse result = apiInstance.DeleteQuotes(scope, requestBody);
                 Debug.WriteLine(result);
             }
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 # **GetQuotes**
 > GetQuotesResponse GetQuotes (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string maxAge = null, Dictionary<string, QuoteSeriesId> requestBody = null)
 
-[EARLY ACCESS] Get quotes
+[EARLY ACCESS] GetQuotes: Get quotes
 
 Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get quotes
+                // [EARLY ACCESS] GetQuotes: Get quotes
                 GetQuotesResponse result = apiInstance.GetQuotes(scope, effectiveAt, asAt, maxAge, requestBody);
                 Debug.WriteLine(result);
             }
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **ListQuotes**
 > ResourceListOfQuote ListQuotes (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
 
-[DEPRECATED] List quotes
+[DEPRECATED] ListQuotes: List quotes
 
 List all the quotes from a single scope at the specified date/time  Please use M:Finbourne.WebApi.Controllers.QuotesController.ListQuotesForScope(System.String,System.Nullable{System.DateTimeOffset},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String) - the signature and behaviour of this endpoint will be changing to omit scope
 
@@ -210,7 +210,7 @@ namespace Example
 
             try
             {
-                // [DEPRECATED] List quotes
+                // [DEPRECATED] ListQuotes: List quotes
                 ResourceListOfQuote result = apiInstance.ListQuotes(scope, asAt, page, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 # **ListQuotesForScope**
 > ResourceListOfQuote ListQuotesForScope (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null)
 
-[EARLY ACCESS] List quotes for scope
+[EARLY ACCESS] ListQuotesForScope: List quotes for scope
 
 List all the quotes from a single scope at the specified date/time
 
@@ -296,7 +296,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List quotes for scope
+                // [EARLY ACCESS] ListQuotesForScope: List quotes for scope
                 ResourceListOfQuote result = apiInstance.ListQuotesForScope(scope, asAt, page, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 # **UpsertQuotes**
 > UpsertQuotesResponse UpsertQuotes (string scope, Dictionary<string, UpsertQuoteRequest> requestBody = null)
 
-[EARLY ACCESS] Upsert quotes
+[EARLY ACCESS] UpsertQuotes: Upsert quotes
 
 Update or insert one or more quotes in a single scope. A quote will be updated if it already exists  and inserted if it does not.                In the request each quote must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return both the collection of successfully updated or inserted quotes, as well as those that failed.  For the failures a reason will be provided explaining why the quote could not be updated or inserted.                It is important to always check the failed set for any unsuccessful results.  The maximum number of quotes that this method can upsert per request is 2,000.
 
@@ -378,7 +378,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Upsert quotes
+                // [EARLY ACCESS] UpsertQuotes: Upsert quotes
                 UpsertQuotesResponse result = apiInstance.UpsertQuotes(scope, requestBody);
                 Debug.WriteLine(result);
             }

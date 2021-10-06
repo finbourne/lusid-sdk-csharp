@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SearchPortfolioGroups**](SearchApi.md#searchportfoliogroups) | **GET** /api/search/portfoliogroups | [EARLY ACCESS] Search Portfolio Groups
-[**SearchPortfolios**](SearchApi.md#searchportfolios) | **GET** /api/search/portfolios | [EARLY ACCESS] Search Portfolios
-[**SearchProperties**](SearchApi.md#searchproperties) | **GET** /api/search/propertydefinitions | [EARLY ACCESS] Search Property Definitions
+[**SearchPortfolioGroups**](SearchApi.md#searchportfoliogroups) | **GET** /api/search/portfoliogroups | [EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
+[**SearchPortfolios**](SearchApi.md#searchportfolios) | **GET** /api/search/portfolios | [EARLY ACCESS] SearchPortfolios: Search Portfolios
+[**SearchProperties**](SearchApi.md#searchproperties) | **GET** /api/search/propertydefinitions | [EARLY ACCESS] SearchProperties: Search Property Definitions
 
 
 <a name="searchportfoliogroups"></a>
 # **SearchPortfolioGroups**
 > PagedResourceListOfPortfolioGroupSearchResult SearchPortfolioGroups (string search = null, string filter = null, string sortBy = null, int? limit = null, string page = null)
 
-[EARLY ACCESS] Search Portfolio Groups
+[EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
 
 Search through all portfolio groups
 
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Search Portfolio Groups
+                // [EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
                 PagedResourceListOfPortfolioGroupSearchResult result = apiInstance.SearchPortfolioGroups(search, filter, sortBy, limit, page);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **SearchPortfolios**
 > PagedResourceListOfPortfolioSearchResult SearchPortfolios (string search = null, string filter = null, string sortBy = null, int? limit = null, string page = null)
 
-[EARLY ACCESS] Search Portfolios
+[EARLY ACCESS] SearchPortfolios: Search Portfolios
 
 Search through all portfolios
 
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Search Portfolios
+                // [EARLY ACCESS] SearchPortfolios: Search Portfolios
                 PagedResourceListOfPortfolioSearchResult result = apiInstance.SearchPortfolios(search, filter, sortBy, limit, page);
                 Debug.WriteLine(result);
             }
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 # **SearchProperties**
 > PagedResourceListOfPropertyDefinitionSearchResult SearchProperties (string search = null, string filter = null, string sortBy = null, int? limit = null, string page = null)
 
-[EARLY ACCESS] Search Property Definitions
+[EARLY ACCESS] SearchProperties: Search Property Definitions
 
 Search through all Property Definitions
 
@@ -213,7 +213,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Search Property Definitions
+                // [EARLY ACCESS] SearchProperties: Search Property Definitions
                 PagedResourceListOfPropertyDefinitionSearchResult result = apiInstance.SearchProperties(search, filter, sortBy, limit, page);
                 Debug.WriteLine(result);
             }

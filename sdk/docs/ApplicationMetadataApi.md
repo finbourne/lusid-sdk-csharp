@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetExcelAddin**](ApplicationMetadataApi.md#getexceladdin) | **GET** /api/metadata/downloads/exceladdin | [EARLY ACCESS] Download Excel Addin
-[**GetLusidVersions**](ApplicationMetadataApi.md#getlusidversions) | **GET** /api/metadata/versions | [EARLY ACCESS] Get LUSID versions
-[**ListAccessControlledResources**](ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | [EARLY ACCESS] Get resources available for access control
+[**GetExcelAddin**](ApplicationMetadataApi.md#getexceladdin) | **GET** /api/metadata/downloads/exceladdin | [EARLY ACCESS] GetExcelAddin: Download Excel Addin
+[**GetLusidVersions**](ApplicationMetadataApi.md#getlusidversions) | **GET** /api/metadata/versions | [EARLY ACCESS] GetLusidVersions: Get LUSID versions
+[**ListAccessControlledResources**](ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
 
 
 <a name="getexceladdin"></a>
 # **GetExcelAddin**
 > FileResponse GetExcelAddin (string version = null)
 
-[EARLY ACCESS] Download Excel Addin
+[EARLY ACCESS] GetExcelAddin: Download Excel Addin
 
 Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific value will return the latest version being returned
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Download Excel Addin
+                // [EARLY ACCESS] GetExcelAddin: Download Excel Addin
                 FileResponse result = apiInstance.GetExcelAddin(version);
                 Debug.WriteLine(result);
             }
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **GetLusidVersions**
 > VersionSummaryDto GetLusidVersions ()
 
-[EARLY ACCESS] Get LUSID versions
+[EARLY ACCESS] GetLusidVersions: Get LUSID versions
 
 Get the semantic versions associated with LUSID and its ecosystem
 
@@ -116,7 +116,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get LUSID versions
+                // [EARLY ACCESS] GetLusidVersions: Get LUSID versions
                 VersionSummaryDto result = apiInstance.GetLusidVersions();
                 Debug.WriteLine(result);
             }
@@ -160,7 +160,7 @@ This endpoint does not need any parameter.
 # **ListAccessControlledResources**
 > ResourceListOfAccessControlledResource ListAccessControlledResources (string filter = null)
 
-[EARLY ACCESS] Get resources available for access control
+[EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
 
 Get the comprehensive set of resources that are available for access control
 
@@ -188,7 +188,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get resources available for access control
+                // [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
                 ResourceListOfAccessControlledResource result = apiInstance.ListAccessControlledResources(filter);
                 Debug.WriteLine(result);
             }

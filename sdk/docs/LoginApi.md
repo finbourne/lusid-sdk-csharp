@@ -4,14 +4,14 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSamlIdentityProviderId**](LoginApi.md#getsamlidentityproviderid) | **GET** /api/login/saml/{domain} | Get SAML Identity Provider
+[**GetSamlIdentityProviderId**](LoginApi.md#getsamlidentityproviderid) | **GET** /api/login/saml/{domain} | GetSamlIdentityProviderId: Get SAML Identity Provider
 
 
 <a name="getsamlidentityproviderid"></a>
 # **GetSamlIdentityProviderId**
 > string GetSamlIdentityProviderId (string domain)
 
-Get SAML Identity Provider
+GetSamlIdentityProviderId: Get SAML Identity Provider
 
 Get the unique identifier for the SAML 2.0 Identity Provider to be used for domain.
 
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // Get SAML Identity Provider
+                // GetSamlIdentityProviderId: Get SAML Identity Provider
                 string result = apiInstance.GetSamlIdentityProviderId(domain);
                 Debug.WriteLine(result);
             }

@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteAllocation**](AllocationsApi.md#deleteallocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] Delete allocation
-[**GetAllocation**](AllocationsApi.md#getallocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] Get Allocation
-[**ListAllocations**](AllocationsApi.md#listallocations) | **GET** /api/allocations | [EARLY ACCESS] List Allocations
-[**UpsertAllocations**](AllocationsApi.md#upsertallocations) | **POST** /api/allocations | [EARLY ACCESS] Upsert Allocations
+[**DeleteAllocation**](AllocationsApi.md#deleteallocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation
+[**GetAllocation**](AllocationsApi.md#getallocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation
+[**ListAllocations**](AllocationsApi.md#listallocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations
+[**UpsertAllocations**](AllocationsApi.md#upsertallocations) | **POST** /api/allocations | [EARLY ACCESS] UpsertAllocations: Upsert Allocations
 
 
 <a name="deleteallocation"></a>
 # **DeleteAllocation**
 > DeletedEntityResponse DeleteAllocation (string scope, string code)
 
-[EARLY ACCESS] Delete allocation
+[EARLY ACCESS] DeleteAllocation: Delete allocation
 
 Delete an allocation. Deletion will be valid from the allocation's creation datetime.  This means that the allocation will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete allocation
+                // [EARLY ACCESS] DeleteAllocation: Delete allocation
                 DeletedEntityResponse result = apiInstance.DeleteAllocation(scope, code);
                 Debug.WriteLine(result);
             }
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 # **GetAllocation**
 > Allocation GetAllocation (string scope, string code, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] Get Allocation
+[EARLY ACCESS] GetAllocation: Get Allocation
 
 Fetch an Allocation matching the provided identifier
 
@@ -123,7 +123,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get Allocation
+                // [EARLY ACCESS] GetAllocation: Get Allocation
                 Allocation result = apiInstance.GetAllocation(scope, code, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 # **ListAllocations**
 > PagedResourceListOfAllocation ListAllocations (DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] List Allocations
+[EARLY ACCESS] ListAllocations: List Allocations
 
 Fetch the last pre-AsAt date version of each allocation in scope (does not fetch the entire history).
 
@@ -208,7 +208,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List Allocations
+                // [EARLY ACCESS] ListAllocations: List Allocations
                 PagedResourceListOfAllocation result = apiInstance.ListAllocations(asAt, page, sortBy, start, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 # **UpsertAllocations**
 > ResourceListOfAllocation UpsertAllocations (AllocationSetRequest allocationSetRequest = null)
 
-[EARLY ACCESS] Upsert Allocations
+[EARLY ACCESS] UpsertAllocations: Upsert Allocations
 
 Upsert; update existing allocations with given ids, or create new allocations otherwise.
 
@@ -290,7 +290,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Upsert Allocations
+                // [EARLY ACCESS] UpsertAllocations: Upsert Allocations
                 ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest);
                 Debug.WriteLine(result);
             }
