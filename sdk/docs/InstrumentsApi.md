@@ -1,25 +1,25 @@
 # Lusid.Sdk.Api.InstrumentsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Delete instrument
-[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | Get instrument
-[**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | [EARLY ACCESS] Get instrument identifier types
-[**GetInstrumentPropertyTimeSeries**](InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] Get instrument property time series
-[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | Get instruments
-[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | [EARLY ACCESS] List instruments
-[**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] Update instrument identifier
-[**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | Upsert instruments
-[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | Upsert instruments properties
+[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Delete instrument
+[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
+[**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | [EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types
+[**GetInstrumentPropertyTimeSeries**](InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments
+[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | [EARLY ACCESS] ListInstruments: List instruments
+[**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] UpdateInstrumentIdentifier: Update instrument identifier
+[**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments
+[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties
 
 
 <a name="deleteinstrument"></a>
 # **DeleteInstrument**
 > DeleteInstrumentResponse DeleteInstrument (string identifierType, string identifier)
 
-[EARLY ACCESS] Delete instrument
+[EARLY ACCESS] DeleteInstrument: Delete instrument
 
 Delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
 
@@ -38,7 +38,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete instrument
+                // [EARLY ACCESS] DeleteInstrument: Delete instrument
                 DeleteInstrumentResponse result = apiInstance.DeleteInstrument(identifierType, identifier);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **GetInstrument**
 > Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-Get instrument
+GetInstrument: Get instrument
 
 Retrieve the definition of a particular instrument, as identified by a particular unique identifier.
 
@@ -116,7 +116,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // Get instrument
+                // GetInstrument: Get instrument
                 Instrument result = apiInstance.GetInstrument(identifierType, identifier, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 # **GetInstrumentIdentifierTypes**
 > ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes ()
 
-[EARLY ACCESS] Get instrument identifier types
+[EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types
 
 Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -208,7 +208,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get instrument identifier types
+                // [EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types
                 ResourceListOfInstrumentIdTypeDescriptor result = apiInstance.GetInstrumentIdentifierTypes();
                 Debug.WriteLine(result);
             }
@@ -252,7 +252,7 @@ This endpoint does not need any parameter.
 # **GetInstrumentPropertyTimeSeries**
 > ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries (string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = null, DateTimeOffset? asAt = null, string filter = null, string page = null, int? limit = null)
 
-[EARLY ACCESS] Get instrument property time series
+[EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
 
 Retrieve the complete time series (history) for a particular property of an instrument.
 
@@ -271,7 +271,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -287,7 +287,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get instrument property time series
+                // [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
                 ResourceListOfPropertyInterval result = apiInstance.GetInstrumentPropertyTimeSeries(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit);
                 Debug.WriteLine(result);
             }
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 # **GetInstruments**
 > GetInstrumentsResponse GetInstruments (string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-Get instruments
+GetInstruments: Get instruments
 
 Retrieve the definition of one or more instruments, as identified by a collection of unique identifiers.                Note that to retrieve all the instruments in the instrument master, use the List instruments endpoint instead.
 
@@ -361,7 +361,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -374,7 +374,7 @@ namespace Example
 
             try
             {
-                // Get instruments
+                // GetInstruments: Get instruments
                 GetInstrumentsResponse result = apiInstance.GetInstruments(identifierType, requestBody, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 # **ListInstruments**
 > PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null)
 
-[EARLY ACCESS] List instruments
+[EARLY ACCESS] ListInstruments: List instruments
 
 List all the instruments in the instrument master.                To retrieve a particular set of instruments instead, use the Get instruments endpoint.  The maximum number of instruments that this method can list per request is 2,000.
 
@@ -445,7 +445,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -461,7 +461,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List instruments
+                // [EARLY ACCESS] ListInstruments: List instruments
                 PagedResourceListOfInstrument result = apiInstance.ListInstruments(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys);
                 Debug.WriteLine(result);
             }
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 # **UpdateInstrumentIdentifier**
 > Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest)
 
-[EARLY ACCESS] Update instrument identifier
+[EARLY ACCESS] UpdateInstrumentIdentifier: Update instrument identifier
 
 Create, update or delete a particular instrument identifier for an instrument.                To delete the identifier, leave the value unspecified in the request. If not being deleted, the  identifier is updated if it exists and created if it does not.
 
@@ -535,7 +535,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -546,7 +546,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Update instrument identifier
+                // [EARLY ACCESS] UpdateInstrumentIdentifier: Update instrument identifier
                 Instrument result = apiInstance.UpdateInstrumentIdentifier(identifierType, identifier, updateInstrumentIdentifierRequest);
                 Debug.WriteLine(result);
             }
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 # **UpsertInstruments**
 > UpsertInstrumentsResponse UpsertInstruments (Dictionary<string, InstrumentDefinition> requestBody)
 
-Upsert instruments
+UpsertInstruments: Upsert instruments
 
 Create or update one or more instruments in the instrument master. An instrument is updated  if it already exists and created if it does not.                In the request, each instrument definition should be keyed by a unique correlation ID. This ID is ephemeral  and not stored by LUSID. It serves only to easily identify each instrument in the response.                Note that an instrument must have at least one unique identifier, which is a combination of a type  (such as 'Figi') and a value (such as 'BBG000BS1N49'). In addition, a random value is automatically  generated for a LUSID Instrument ID (LUID) unique type by the system. For more information, see  https://support.lusid.com/knowledgebase/article/KA-01862.                The response returns both the collection of successfully created or updated instruments, as well as those  that failed. For each failure, a reason is provided. It is important to check the failed set for  unsuccessful results.  The maximum number of instruments that this method can upsert per request is 2,000.
 
@@ -615,7 +615,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -624,7 +624,7 @@ namespace Example
 
             try
             {
-                // Upsert instruments
+                // UpsertInstruments: Upsert instruments
                 UpsertInstrumentsResponse result = apiInstance.UpsertInstruments(requestBody);
                 Debug.WriteLine(result);
             }
@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 # **UpsertInstrumentsProperties**
 > UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest)
 
-Upsert instruments properties
+UpsertInstrumentsProperties: Upsert instruments properties
 
 Create or update one or more properties for particular instruments.                Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.                Properties have an <i>effectiveFrom</i> datetime from which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -691,7 +691,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -700,7 +700,7 @@ namespace Example
 
             try
             {
-                // Upsert instruments properties
+                // UpsertInstrumentsProperties: Upsert instruments properties
                 UpsertInstrumentPropertiesResponse result = apiInstance.UpsertInstrumentsProperties(upsertInstrumentPropertyRequest);
                 Debug.WriteLine(result);
             }

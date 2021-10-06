@@ -1,34 +1,34 @@
 # Lusid.Sdk.Api.PortfolioGroupsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddPortfolioToGroup**](PortfolioGroupsApi.md#addportfoliotogroup) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] Add portfolio to group
-[**AddSubGroupToGroup**](PortfolioGroupsApi.md#addsubgrouptogroup) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] Add sub group to group
-[**BuildTransactionsForPortfolioGroup**](PortfolioGroupsApi.md#buildtransactionsforportfoliogroup) | **POST** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group
-[**CreatePortfolioGroup**](PortfolioGroupsApi.md#createportfoliogroup) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] Create portfolio group
-[**DeleteGroupProperties**](PortfolioGroupsApi.md#deletegroupproperties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] Delete group properties
-[**DeletePortfolioFromGroup**](PortfolioGroupsApi.md#deleteportfoliofromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] Delete portfolio from group
-[**DeletePortfolioGroup**](PortfolioGroupsApi.md#deleteportfoliogroup) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Delete portfolio group
-[**DeleteSubGroupFromGroup**](PortfolioGroupsApi.md#deletesubgroupfromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] Delete sub group from group
-[**GetGroupProperties**](PortfolioGroupsApi.md#getgroupproperties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] Get group properties
-[**GetHoldingsForPortfolioGroup**](PortfolioGroupsApi.md#getholdingsforportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] Get holdings for transaction portfolios in portfolio group
-[**GetPortfolioGroup**](PortfolioGroupsApi.md#getportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Get portfolio group
-[**GetPortfolioGroupCommands**](PortfolioGroupsApi.md#getportfoliogroupcommands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio group commands
-[**GetPortfolioGroupExpansion**](PortfolioGroupsApi.md#getportfoliogroupexpansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] Get portfolio group expansion
-[**GetPortfolioGroupPropertyTimeSeries**](PortfolioGroupsApi.md#getportfoliogrouppropertytimeseries) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] Get the time series of a portfolio group property
-[**GetTransactionsForPortfolioGroup**](PortfolioGroupsApi.md#gettransactionsforportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | [EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group
-[**ListPortfolioGroups**](PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] List portfolio groups
-[**UpdatePortfolioGroup**](PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] Update portfolio group
-[**UpsertGroupProperties**](PortfolioGroupsApi.md#upsertgroupproperties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] Upsert group properties
+[**AddPortfolioToGroup**](PortfolioGroupsApi.md#addportfoliotogroup) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
+[**AddSubGroupToGroup**](PortfolioGroupsApi.md#addsubgrouptogroup) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
+[**BuildTransactionsForPortfolioGroup**](PortfolioGroupsApi.md#buildtransactionsforportfoliogroup) | **POST** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
+[**CreatePortfolioGroup**](PortfolioGroupsApi.md#createportfoliogroup) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
+[**DeleteGroupProperties**](PortfolioGroupsApi.md#deletegroupproperties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeleteGroupProperties: Delete group properties
+[**DeletePortfolioFromGroup**](PortfolioGroupsApi.md#deleteportfoliofromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
+[**DeletePortfolioGroup**](PortfolioGroupsApi.md#deleteportfoliogroup) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
+[**DeleteSubGroupFromGroup**](PortfolioGroupsApi.md#deletesubgroupfromgroup) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
+[**GetGroupProperties**](PortfolioGroupsApi.md#getgroupproperties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] GetGroupProperties: Get group properties
+[**GetHoldingsForPortfolioGroup**](PortfolioGroupsApi.md#getholdingsforportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
+[**GetPortfolioGroup**](PortfolioGroupsApi.md#getportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
+[**GetPortfolioGroupCommands**](PortfolioGroupsApi.md#getportfoliogroupcommands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
+[**GetPortfolioGroupExpansion**](PortfolioGroupsApi.md#getportfoliogroupexpansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
+[**GetPortfolioGroupPropertyTimeSeries**](PortfolioGroupsApi.md#getportfoliogrouppropertytimeseries) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
+[**GetTransactionsForPortfolioGroup**](PortfolioGroupsApi.md#gettransactionsforportfoliogroup) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | [EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
+[**ListPortfolioGroups**](PortfolioGroupsApi.md#listportfoliogroups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+[**UpdatePortfolioGroup**](PortfolioGroupsApi.md#updateportfoliogroup) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
+[**UpsertGroupProperties**](PortfolioGroupsApi.md#upsertgroupproperties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
 
 
 <a name="addportfoliotogroup"></a>
 # **AddPortfolioToGroup**
 > PortfolioGroup AddPortfolioToGroup (string scope, string code, DateTimeOffset? effectiveAt = null, ResourceId resourceId = null)
 
-[EARLY ACCESS] Add portfolio to group
+[EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
 
 Add a single portfolio to a portfolio group.
 
@@ -47,7 +47,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -59,7 +59,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Add portfolio to group
+                // [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
                 PortfolioGroup result = apiInstance.AddPortfolioToGroup(scope, code, effectiveAt, resourceId);
                 Debug.WriteLine(result);
             }
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 # **AddSubGroupToGroup**
 > PortfolioGroup AddSubGroupToGroup (string scope, string code, DateTimeOffset? effectiveAt = null, ResourceId resourceId = null)
 
-[EARLY ACCESS] Add sub group to group
+[EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
 
 Add a portfolio group to a portfolio group as a sub group.
 
@@ -129,7 +129,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -141,7 +141,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Add sub group to group
+                // [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
                 PortfolioGroup result = apiInstance.AddSubGroupToGroup(scope, code, effectiveAt, resourceId);
                 Debug.WriteLine(result);
             }
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 # **BuildTransactionsForPortfolioGroup**
 > VersionedResourceListOfOutputTransaction BuildTransactionsForPortfolioGroup (string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null, int? limit = null, string page = null)
 
-[EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group
+[EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
 
 Build transactions for transaction portfolios in a portfolio group over a given interval of effective time.     When the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.
 
@@ -211,7 +211,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -227,7 +227,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Build transactions for transaction portfolios in a portfolio group
+                // [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
                 VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactionsForPortfolioGroup(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page);
                 Debug.WriteLine(result);
             }
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 # **CreatePortfolioGroup**
 > PortfolioGroup CreatePortfolioGroup (string scope, CreatePortfolioGroupRequest createPortfolioGroupRequest = null)
 
-[EARLY ACCESS] Create portfolio group
+[EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
 
 Create a portfolio group in a specific scope.
 
@@ -301,7 +301,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -311,7 +311,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Create portfolio group
+                // [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
                 PortfolioGroup result = apiInstance.CreatePortfolioGroup(scope, createPortfolioGroupRequest);
                 Debug.WriteLine(result);
             }
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 # **DeleteGroupProperties**
 > DeletedEntityResponse DeleteGroupProperties (string scope, string code, List<string> requestBody, DateTimeOrCutLabel effectiveAt = null)
 
-[EARLY ACCESS] Delete group properties
+[EARLY ACCESS] DeleteGroupProperties: Delete group properties
 
 Delete one or more properties from a single portfolio group. If the properties are time variant then an effective date time from which the properties  will be deleted must be specified. If the properties are perpetual then it is invalid to specify an effective date time for deletion.
 
@@ -379,7 +379,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -391,7 +391,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete group properties
+                // [EARLY ACCESS] DeleteGroupProperties: Delete group properties
                 DeletedEntityResponse result = apiInstance.DeleteGroupProperties(scope, code, requestBody, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 # **DeletePortfolioFromGroup**
 > PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode, DateTimeOffset? effectiveAt = null)
 
-[EARLY ACCESS] Delete portfolio from group
+[EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
 
 Remove a single portfolio from a portfolio group.
 
@@ -461,7 +461,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -474,7 +474,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete portfolio from group
+                // [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
                 PortfolioGroup result = apiInstance.DeletePortfolioFromGroup(scope, code, portfolioScope, portfolioCode, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 # **DeletePortfolioGroup**
 > DeletedEntityResponse DeletePortfolioGroup (string scope, string code)
 
-[EARLY ACCESS] Delete portfolio group
+[EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
 
 Delete a single portfolio group. A portfolio group can be deleted while it still contains portfolios or sub groups.  In this case any portfolios or sub groups contained in this group will not be deleted, however they will no longer be grouped together by this portfolio group.  The deletion will be valid from the portfolio group's creation datetime, ie. the portfolio group will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -545,7 +545,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -555,7 +555,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete portfolio group
+                // [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
                 DeletedEntityResponse result = apiInstance.DeletePortfolioGroup(scope, code);
                 Debug.WriteLine(result);
             }
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 # **DeleteSubGroupFromGroup**
 > PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode, DateTimeOffset? effectiveAt = null)
 
-[EARLY ACCESS] Delete sub group from group
+[EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
 
 Remove a single portfolio group (sub group) from a portfolio group.
 
@@ -623,7 +623,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -636,7 +636,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Delete sub group from group
+                // [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
                 PortfolioGroup result = apiInstance.DeleteSubGroupFromGroup(scope, code, subgroupScope, subgroupCode, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 # **GetGroupProperties**
 > PortfolioGroupProperties GetGroupProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get group properties
+[EARLY ACCESS] GetGroupProperties: Get group properties
 
 List all the properties of a single portfolio group.
 
@@ -707,7 +707,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -719,7 +719,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get group properties
+                // [EARLY ACCESS] GetGroupProperties: Get group properties
                 PortfolioGroupProperties result = apiInstance.GetGroupProperties(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -770,7 +770,7 @@ Name | Type | Description  | Notes
 # **GetHoldingsForPortfolioGroup**
 > VersionedResourceListOfPortfolioHolding GetHoldingsForPortfolioGroup (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null, bool? byTaxlots = null)
 
-[EARLY ACCESS] Get holdings for transaction portfolios in portfolio group
+[EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
 
 Get the holdings of transaction portfolios in specified portfolio group.
 
@@ -789,7 +789,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -804,7 +804,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get holdings for transaction portfolios in portfolio group
+                // [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
                 VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldingsForPortfolioGroup(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots);
                 Debug.WriteLine(result);
             }
@@ -858,7 +858,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioGroup**
 > PortfolioGroup GetPortfolioGroup (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get portfolio group
+[EARLY ACCESS] GetPortfolioGroup: Get portfolio group
 
 Retrieve the definition of a single portfolio group.
 
@@ -877,7 +877,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -889,7 +889,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get portfolio group
+                // [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
                 PortfolioGroup result = apiInstance.GetPortfolioGroup(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -940,7 +940,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioGroupCommands**
 > ResourceListOfProcessedCommand GetPortfolioGroupCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string filter = null)
 
-[EARLY ACCESS] Get portfolio group commands
+[EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
 
 Gets all the commands that modified a single portfolio group.
 
@@ -959,7 +959,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -972,7 +972,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get portfolio group commands
+                // [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioGroupCommands(scope, code, fromAsAt, toAsAt, filter);
                 Debug.WriteLine(result);
             }
@@ -1024,7 +1024,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioGroupExpansion**
 > ExpandedGroup GetPortfolioGroupExpansion (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyFilter = null)
 
-[EARLY ACCESS] Get portfolio group expansion
+[EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
 
 List all the portfolios in a group, including all portfolios within sub groups in the group. Each portfolio will be decorated with all of its properties unless a property filter is specified.
 
@@ -1043,7 +1043,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1056,7 +1056,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get portfolio group expansion
+                // [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
                 ExpandedGroup result = apiInstance.GetPortfolioGroupExpansion(scope, code, effectiveAt, asAt, propertyFilter);
                 Debug.WriteLine(result);
             }
@@ -1108,7 +1108,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioGroupPropertyTimeSeries**
 > ResourceListOfPropertyInterval GetPortfolioGroupPropertyTimeSeries (string scope, string code, string propertyKey, string portfolioGroupEffectiveAt = null, DateTimeOffset? asAt = null, string filter = null, string page = null, int? limit = null)
 
-[EARLY ACCESS] Get the time series of a portfolio group property
+[EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
 
 List the complete time series of a portfolio group property.
 
@@ -1127,7 +1127,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1143,7 +1143,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get the time series of a portfolio group property
+                // [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
                 ResourceListOfPropertyInterval result = apiInstance.GetPortfolioGroupPropertyTimeSeries(scope, code, propertyKey, portfolioGroupEffectiveAt, asAt, filter, page, limit);
                 Debug.WriteLine(result);
             }
@@ -1198,7 +1198,7 @@ Name | Type | Description  | Notes
 # **GetTransactionsForPortfolioGroup**
 > VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null, int? limit = null, string page = null)
 
-[EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group
+[EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
 
 Get transactions for transaction portfolios in a portfolio group over a given interval of effective time.     When the specified portfolio in a portfolio group is a derived transaction portfolio, the returned set of transactions is the  union set of all transactions of the parent (and any grandparents etc.) and the specified derived transaction portfolio itself.
 
@@ -1217,7 +1217,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1234,7 +1234,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get transactions for transaction portfolios in a portfolio group
+                // [EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
                 VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page);
                 Debug.WriteLine(result);
             }
@@ -1290,7 +1290,7 @@ Name | Type | Description  | Notes
 # **ListPortfolioGroups**
 > ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string filter = null)
 
-[EARLY ACCESS] List portfolio groups
+[EARLY ACCESS] ListPortfolioGroups: List portfolio groups
 
 List all the portfolio groups in a single scope.
 
@@ -1309,7 +1309,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1321,7 +1321,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List portfolio groups
+                // [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
                 ResourceListOfPortfolioGroup result = apiInstance.ListPortfolioGroups(scope, effectiveAt, asAt, filter);
                 Debug.WriteLine(result);
             }
@@ -1372,7 +1372,7 @@ Name | Type | Description  | Notes
 # **UpdatePortfolioGroup**
 > PortfolioGroup UpdatePortfolioGroup (string scope, string code, DateTimeOffset? effectiveAt = null, UpdatePortfolioGroupRequest updatePortfolioGroupRequest = null)
 
-[EARLY ACCESS] Update portfolio group
+[EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
 
 Update the definition of a single portfolio group. Not all elements within a portfolio group definition are modifiable  due to the potential implications for data already stored against the portfolio group.
 
@@ -1391,7 +1391,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1403,7 +1403,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Update portfolio group
+                // [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
                 PortfolioGroup result = apiInstance.UpdatePortfolioGroup(scope, code, effectiveAt, updatePortfolioGroupRequest);
                 Debug.WriteLine(result);
             }
@@ -1454,7 +1454,7 @@ Name | Type | Description  | Notes
 # **UpsertGroupProperties**
 > PortfolioGroupProperties UpsertGroupProperties (string scope, string code, Dictionary<string, Property> requestBody = null)
 
-[EARLY ACCESS] Upsert group properties
+[EARLY ACCESS] UpsertGroupProperties: Upsert group properties
 
 Update or insert one or more properties onto a single group. A property will be updated if it  already exists and inserted if it does not. All properties must be of the domain 'PortfolioGroup'.                Upserting a property that exists for a group, with a null value, will delete the instance of the property for that group.    Properties have an <i>effectiveFrom</i> datetime for which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -1473,7 +1473,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1484,7 +1484,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Upsert group properties
+                // [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
                 PortfolioGroupProperties result = apiInstance.UpsertGroupProperties(scope, code, requestBody);
                 Debug.WriteLine(result);
             }

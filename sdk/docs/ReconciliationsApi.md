@@ -1,17 +1,17 @@
 # Lusid.Sdk.Api.ReconciliationsApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:37599*
+All URIs are relative to *http://local-unit-test-server.lusid.com:57003*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ReconcileHoldings**](ReconciliationsApi.md#reconcileholdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] Reconcile portfolio holdings
+[**ReconcileHoldings**](ReconciliationsApi.md#reconcileholdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
 
 
 <a name="reconcileholdings"></a>
 # **ReconcileHoldings**
 > ResourceListOfReconciliationBreak ReconcileHoldings (List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, PortfoliosReconciliationRequest portfoliosReconciliationRequest = null)
 
-[EARLY ACCESS] Reconcile portfolio holdings
+[EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
 
 Reconcile the holdings of two portfolios.
 
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:37599";
+            config.BasePath = "http://local-unit-test-server.lusid.com:57003";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Reconcile portfolio holdings
+                // [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
                 ResourceListOfReconciliationBreak result = apiInstance.ReconcileHoldings(sortBy, start, limit, filter, portfoliosReconciliationRequest);
                 Debug.WriteLine(result);
             }
