@@ -1,18 +1,18 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
-[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] Create derived portfolio
+[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] Delete derived portfolio details
 
 
 <a name="createderivedportfolio"></a>
 # **CreateDerivedPortfolio**
 > Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequest = null)
 
-[EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
+[EARLY ACCESS] Create derived portfolio
 
 Create a derived transaction portfolio from a parent transaction portfolio (which may itself be derived).
 
@@ -31,7 +31,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
+                // [EARLY ACCESS] Create derived portfolio
                 Portfolio result = apiInstance.CreateDerivedPortfolio(scope, createDerivedTransactionPortfolioRequest);
                 Debug.WriteLine(result);
             }
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **DeleteDerivedPortfolioDetails**
 > DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
 
-[EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+[EARLY ACCESS] Delete derived portfolio details
 
 Delete all the portfolio details for a derived transaction portfolio.
 
@@ -109,7 +109,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -120,7 +120,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+                // [EARLY ACCESS] Delete derived portfolio details
                 DeletedEntityResponse result = apiInstance.DeleteDerivedPortfolioDetails(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }

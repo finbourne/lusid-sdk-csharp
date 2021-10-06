@@ -1,17 +1,17 @@
 # Lusid.Sdk.Api.ScopesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] ListScopes: List Scopes
+[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | [EARLY ACCESS] List Scopes
 
 
 <a name="listscopes"></a>
 # **ListScopes**
 > ResourceListOfScopeDefinition ListScopes (string filter = null)
 
-[EARLY ACCESS] ListScopes: List Scopes
+[EARLY ACCESS] List Scopes
 
 List all the scopes that contain data.
 
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListScopes: List Scopes
+                // [EARLY ACCESS] List Scopes
                 ResourceListOfScopeDefinition result = apiInstance.ListScopes(filter);
                 Debug.WriteLine(result);
             }

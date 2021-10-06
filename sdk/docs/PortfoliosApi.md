@@ -1,27 +1,27 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
-[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | DeletePortfolioProperties: Delete portfolio properties
-[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio
-[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioCommands: Get portfolio commands
-[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties
-[**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns
-[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios
-[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope
-[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio
-[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties
-[**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | Delete portfolio
+[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | Delete portfolio properties
+[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | Get portfolio
+[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] Get portfolio commands
+[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | Get portfolio properties
+[**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] Get Returns
+[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | List portfolios
+[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | List portfolios for scope
+[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | Update portfolio
+[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | Upsert portfolio properties
+[**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] Upsert Returns
 
 
 <a name="deleteportfolio"></a>
 # **DeletePortfolio**
 > DeletedEntityResponse DeletePortfolio (string scope, string code)
 
-DeletePortfolio: Delete portfolio
+Delete portfolio
 
 Delete a particular portfolio.                The deletion will take effect from the portfolio's creation datetime. This means that the portfolio will no longer exist at any effective datetime, as per the asAt datetime of deletion.
 
@@ -40,7 +40,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -50,7 +50,7 @@ namespace Example
 
             try
             {
-                // DeletePortfolio: Delete portfolio
+                // Delete portfolio
                 DeletedEntityResponse result = apiInstance.DeletePortfolio(scope, code);
                 Debug.WriteLine(result);
             }
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 # **DeletePortfolioProperties**
 > DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> propertyKeys, DateTimeOrCutLabel effectiveAt = null)
 
-DeletePortfolioProperties: Delete portfolio properties
+Delete portfolio properties
 
 Delete one or more properties from a particular portfolio. If the properties are time-variant then an effective datetime from which  to delete properties must be specified. If the properties are perpetual then it is invalid to specify an effective datetime for deletion.
 
@@ -118,7 +118,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // DeletePortfolioProperties: Delete portfolio properties
+                // Delete portfolio properties
                 DeletedEntityResponse result = apiInstance.DeletePortfolioProperties(scope, code, propertyKeys, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 # **GetPortfolio**
 > Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-GetPortfolio: Get portfolio
+Get portfolio
 
 Retrieve the definition of a particular portfolio.
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -213,7 +213,7 @@ namespace Example
 
             try
             {
-                // GetPortfolio: Get portfolio
+                // Get portfolio
                 Portfolio result = apiInstance.GetPortfolio(scope, code, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioCommands**
 > ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string filter = null, string page = null, int? limit = null)
 
-[EARLY ACCESS] GetPortfolioCommands: Get portfolio commands
+[EARLY ACCESS] Get portfolio commands
 
 Get all the commands that modified a particular portfolio, including any input transactions.
 
@@ -284,7 +284,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -299,7 +299,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioCommands: Get portfolio commands
+                // [EARLY ACCESS] Get portfolio commands
                 ResourceListOfProcessedCommand result = apiInstance.GetPortfolioCommands(scope, code, fromAsAt, toAsAt, filter, page, limit);
                 Debug.WriteLine(result);
             }
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioProperties**
 > PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
 
-GetPortfolioProperties: Get portfolio properties
+Get portfolio properties
 
 List all the properties of a particular portfolio.
 
@@ -372,7 +372,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -384,7 +384,7 @@ namespace Example
 
             try
             {
-                // GetPortfolioProperties: Get portfolio properties
+                // Get portfolio properties
                 PortfolioProperties result = apiInstance.GetPortfolioProperties(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioReturns**
 > ResourceListOfPerformanceReturn GetPortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, string period = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetPortfolioReturns: Get Returns
+[EARLY ACCESS] Get Returns
 
 Get Returns which are on the specified portfolio.
 
@@ -454,7 +454,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -470,7 +470,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioReturns: Get Returns
+                // [EARLY ACCESS] Get Returns
                 ResourceListOfPerformanceReturn result = apiInstance.GetPortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt);
                 Debug.WriteLine(result);
             }
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 # **ListPortfolios**
 > ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> propertyKeys = null)
 
-ListPortfolios: List portfolios
+List portfolios
 
 List all the portfolios matching particular criteria.
 
@@ -544,7 +544,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -560,7 +560,7 @@ namespace Example
 
             try
             {
-                // ListPortfolios: List portfolios
+                // List portfolios
                 ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, start, limit, filter, query, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 # **ListPortfoliosForScope**
 > ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
-ListPortfoliosForScope: List portfolios for scope
+List portfolios for scope
 
 List all the portfolios in a particular scope.
 
@@ -634,7 +634,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -650,7 +650,7 @@ namespace Example
 
             try
             {
-                // ListPortfoliosForScope: List portfolios for scope
+                // List portfolios for scope
                 ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, page, start, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 # **UpdatePortfolio**
 > Portfolio UpdatePortfolio (string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel effectiveAt = null)
 
-UpdatePortfolio: Update portfolio
+Update portfolio
 
 Update the definition of a particular portfolio.                Note that not all elements of a portfolio definition are  modifiable due to the potential implications for data already stored.
 
@@ -724,7 +724,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -736,7 +736,7 @@ namespace Example
 
             try
             {
-                // UpdatePortfolio: Update portfolio
+                // Update portfolio
                 Portfolio result = apiInstance.UpdatePortfolio(scope, code, updatePortfolioRequest, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 # **UpsertPortfolioProperties**
 > PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, Property> requestBody)
 
-UpsertPortfolioProperties: Upsert portfolio properties
+Upsert portfolio properties
 
 Create or update one or more properties for a particular portfolio. A property is updated if it  already exists and created if it does not. All properties must be from the 'Portfolio' domain.                Properties have an <i>effectiveFrom</i> datetime from which the property is valid, and an <i>effectiveUntil</i>  datetime until which it is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
 
@@ -806,7 +806,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -817,7 +817,7 @@ namespace Example
 
             try
             {
-                // UpsertPortfolioProperties: Upsert portfolio properties
+                // Upsert portfolio properties
                 PortfolioProperties result = apiInstance.UpsertPortfolioProperties(scope, code, requestBody);
                 Debug.WriteLine(result);
             }
@@ -867,7 +867,7 @@ Name | Type | Description  | Notes
 # **UpsertPortfolioReturns**
 > UpsertReturnsResponse UpsertPortfolioReturns (string scope, string code, string returnScope, string returnCode, List<PerformanceReturn> performanceReturn)
 
-[EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+[EARLY ACCESS] Upsert Returns
 
 Update or insert returns into the specified portfolio.
 
@@ -886,7 +886,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -899,7 +899,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+                // [EARLY ACCESS] Upsert Returns
                 UpsertReturnsResponse result = apiInstance.UpsertPortfolioReturns(scope, code, returnScope, returnCode, performanceReturn);
                 Debug.WriteLine(result);
             }

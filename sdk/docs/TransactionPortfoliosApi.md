@@ -1,33 +1,33 @@
 # Lusid.Sdk.Api.TransactionPortfoliosApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AdjustHoldings**](TransactionPortfoliosApi.md#adjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings | AdjustHoldings: Adjust holdings
-[**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions
-[**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings
-[**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | CancelTransactions: Cancel transactions
-[**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | CreatePortfolio: Create portfolio
-[**DeletePropertiesFromTransaction**](TransactionPortfoliosApi.md#deletepropertiesfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | DeletePropertiesFromTransaction: Delete properties from transaction
-[**GetDetails**](TransactionPortfoliosApi.md#getdetails) | **GET** /api/transactionportfolios/{scope}/{code}/details | GetDetails: Get details
-[**GetHoldings**](TransactionPortfoliosApi.md#getholdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings | GetHoldings: Get holdings
-[**GetHoldingsAdjustment**](TransactionPortfoliosApi.md#getholdingsadjustment) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | GetHoldingsAdjustment: Get holdings adjustment
-[**GetPortfolioCashStatement**](TransactionPortfoliosApi.md#getportfoliocashstatement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | [EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement
-[**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions
-[**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments
-[**ResolveInstrument**](TransactionPortfoliosApi.md#resolveinstrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | [EARLY ACCESS] ResolveInstrument: Resolve instrument
-[**SetHoldings**](TransactionPortfoliosApi.md#setholdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings | SetHoldings: Set holdings
-[**UpsertPortfolioDetails**](TransactionPortfoliosApi.md#upsertportfoliodetails) | **POST** /api/transactionportfolios/{scope}/{code}/details | UpsertPortfolioDetails: Upsert portfolio details
-[**UpsertTransactionProperties**](TransactionPortfoliosApi.md#upserttransactionproperties) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | UpsertTransactionProperties: Upsert transaction properties
-[**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | UpsertTransactions: Upsert transactions
+[**AdjustHoldings**](TransactionPortfoliosApi.md#adjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings | Adjust holdings
+[**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | Build transactions
+[**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | Cancel adjust holdings
+[**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | Cancel transactions
+[**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | Create portfolio
+[**DeletePropertiesFromTransaction**](TransactionPortfoliosApi.md#deletepropertiesfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | Delete properties from transaction
+[**GetDetails**](TransactionPortfoliosApi.md#getdetails) | **GET** /api/transactionportfolios/{scope}/{code}/details | Get details
+[**GetHoldings**](TransactionPortfoliosApi.md#getholdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings | Get holdings
+[**GetHoldingsAdjustment**](TransactionPortfoliosApi.md#getholdingsadjustment) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | Get holdings adjustment
+[**GetPortfolioCashStatement**](TransactionPortfoliosApi.md#getportfoliocashstatement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | [EARLY ACCESS] Get portfolio cash statement
+[**GetTransactions**](TransactionPortfoliosApi.md#gettransactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | Get transactions
+[**ListHoldingsAdjustments**](TransactionPortfoliosApi.md#listholdingsadjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | List holdings adjustments
+[**ResolveInstrument**](TransactionPortfoliosApi.md#resolveinstrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | [EARLY ACCESS] Resolve instrument
+[**SetHoldings**](TransactionPortfoliosApi.md#setholdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings | Set holdings
+[**UpsertPortfolioDetails**](TransactionPortfoliosApi.md#upsertportfoliodetails) | **POST** /api/transactionportfolios/{scope}/{code}/details | Upsert portfolio details
+[**UpsertTransactionProperties**](TransactionPortfoliosApi.md#upserttransactionproperties) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | Upsert transaction properties
+[**UpsertTransactions**](TransactionPortfoliosApi.md#upserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | Upsert transactions
 
 
 <a name="adjustholdings"></a>
 # **AdjustHoldings**
 > AdjustHolding AdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string> reconciliationMethods = null)
 
-AdjustHoldings: Adjust holdings
+Adjust holdings
 
 Adjust one or more holdings of the specified transaction portfolio to the provided targets. LUSID will  automatically construct adjustment transactions to ensure that the holdings which have been adjusted are  always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
 
@@ -46,7 +46,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -59,7 +59,7 @@ namespace Example
 
             try
             {
-                // AdjustHoldings: Adjust holdings
+                // Adjust holdings
                 AdjustHolding result = apiInstance.AdjustHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
                 Debug.WriteLine(result);
             }
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 # **BuildTransactions**
 > VersionedResourceListOfOutputTransaction BuildTransactions (string scope, string code, TransactionQueryParameters transactionQueryParameters, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null, int? limit = null, string page = null)
 
-BuildTransactions: Build transactions
+Build transactions
 
 Builds and returns all transactions that affect the holdings of a portfolio over a given interval of  effective time into a set of output transactions. This includes transactions automatically generated by  LUSID such as holding adjustments.
 
@@ -130,7 +130,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -146,7 +146,7 @@ namespace Example
 
             try
             {
-                // BuildTransactions: Build transactions
+                // Build transactions
                 VersionedResourceListOfOutputTransaction result = apiInstance.BuildTransactions(scope, code, transactionQueryParameters, asAt, filter, propertyKeys, limit, page);
                 Debug.WriteLine(result);
             }
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 # **CancelAdjustHoldings**
 > DeletedEntityResponse CancelAdjustHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt)
 
-CancelAdjustHoldings: Cancel adjust holdings
+Cancel adjust holdings
 
 Cancel all previous holding adjustments made on the specified transaction portfolio for a specified effective  datetime. This should be used to undo holding adjustments made via set holdings or adjust holdings.
 
@@ -220,7 +220,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -231,7 +231,7 @@ namespace Example
 
             try
             {
-                // CancelAdjustHoldings: Cancel adjust holdings
+                // Cancel adjust holdings
                 DeletedEntityResponse result = apiInstance.CancelAdjustHoldings(scope, code, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 # **CancelTransactions**
 > DeletedEntityResponse CancelTransactions (string scope, string code, List<string> transactionIds)
 
-CancelTransactions: Cancel transactions
+Cancel transactions
 
 Cancel one or more transactions from the transaction portfolio.
 
@@ -300,7 +300,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -311,7 +311,7 @@ namespace Example
 
             try
             {
-                // CancelTransactions: Cancel transactions
+                // Cancel transactions
                 DeletedEntityResponse result = apiInstance.CancelTransactions(scope, code, transactionIds);
                 Debug.WriteLine(result);
             }
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 # **CreatePortfolio**
 > Portfolio CreatePortfolio (string scope, CreateTransactionPortfolioRequest createTransactionPortfolioRequest)
 
-CreatePortfolio: Create portfolio
+Create portfolio
 
 Create a transaction portfolio in a particular scope.
 
@@ -380,7 +380,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -390,7 +390,7 @@ namespace Example
 
             try
             {
-                // CreatePortfolio: Create portfolio
+                // Create portfolio
                 Portfolio result = apiInstance.CreatePortfolio(scope, createTransactionPortfolioRequest);
                 Debug.WriteLine(result);
             }
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 # **DeletePropertiesFromTransaction**
 > DeletedEntityResponse DeletePropertiesFromTransaction (string scope, string code, string transactionId, List<string> propertyKeys)
 
-DeletePropertiesFromTransaction: Delete properties from transaction
+Delete properties from transaction
 
 Delete one or more properties from a single transaction in a transaction portfolio.
 
@@ -458,7 +458,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -470,7 +470,7 @@ namespace Example
 
             try
             {
-                // DeletePropertiesFromTransaction: Delete properties from transaction
+                // Delete properties from transaction
                 DeletedEntityResponse result = apiInstance.DeletePropertiesFromTransaction(scope, code, transactionId, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 # **GetDetails**
 > PortfolioDetails GetDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
 
-GetDetails: Get details
+Get details
 
 Get certain details associated with a transaction portfolio.
 
@@ -540,7 +540,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -552,7 +552,7 @@ namespace Example
 
             try
             {
-                // GetDetails: Get details
+                // Get details
                 PortfolioDetails result = apiInstance.GetDetails(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 # **GetHoldings**
 > VersionedResourceListOfPortfolioHolding GetHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null, bool? byTaxlots = null)
 
-GetHoldings: Get holdings
+Get holdings
 
 Calculate holdings for a transaction portfolio.
 
@@ -622,7 +622,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -637,7 +637,7 @@ namespace Example
 
             try
             {
-                // GetHoldings: Get holdings
+                // Get holdings
                 VersionedResourceListOfPortfolioHolding result = apiInstance.GetHoldings(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots);
                 Debug.WriteLine(result);
             }
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 # **GetHoldingsAdjustment**
 > HoldingsAdjustment GetHoldingsAdjustment (string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null)
 
-GetHoldingsAdjustment: Get holdings adjustment
+Get holdings adjustment
 
 Get a holdings adjustment made to a transaction portfolio at a specific effective datetime. Note that a  holdings adjustment will only be returned if one exists for the specified effective datetime.
 
@@ -710,7 +710,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -722,7 +722,7 @@ namespace Example
 
             try
             {
-                // GetHoldingsAdjustment: Get holdings adjustment
+                // Get holdings adjustment
                 HoldingsAdjustment result = apiInstance.GetHoldingsAdjustment(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 # **GetPortfolioCashStatement**
 > ResourceListOfPortfolioCashFlow GetPortfolioCashStatement (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAt = null, string filter = null, string recipeIdScope = null, string recipeIdCode = null)
 
-[EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement
+[EARLY ACCESS] Get portfolio cash statement
 
 Get a cash statement for a transaction portfolio.
 
@@ -792,7 +792,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -808,7 +808,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement
+                // [EARLY ACCESS] Get portfolio cash statement
                 ResourceListOfPortfolioCashFlow result = apiInstance.GetPortfolioCashStatement(scope, code, fromEffectiveAt, toEffectiveAt, asAt, filter, recipeIdScope, recipeIdCode);
                 Debug.WriteLine(result);
             }
@@ -863,7 +863,7 @@ Name | Type | Description  | Notes
 # **GetTransactions**
 > VersionedResourceListOfTransaction GetTransactions (string scope, string code, DateTimeOrCutLabel fromTransactionDate = null, DateTimeOrCutLabel toTransactionDate = null, DateTimeOffset? asAt = null, string filter = null, List<string> propertyKeys = null, string page = null, int? limit = null)
 
-GetTransactions: Get transactions
+Get transactions
 
 Retrieve all the transactions that occurred during a particular time interval.     If the portfolio is a derived transaction portfolio, the transactions returned are the  union set of all transactions of the parent (and any grandparents, etc.) as well as  those of the derived transaction portfolio itself.
 
@@ -882,7 +882,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -899,7 +899,7 @@ namespace Example
 
             try
             {
-                // GetTransactions: Get transactions
+                // Get transactions
                 VersionedResourceListOfTransaction result = apiInstance.GetTransactions(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, page, limit);
                 Debug.WriteLine(result);
             }
@@ -955,7 +955,7 @@ Name | Type | Description  | Notes
 # **ListHoldingsAdjustments**
 > ResourceListOfHoldingsAdjustmentHeader ListHoldingsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null)
 
-ListHoldingsAdjustments: List holdings adjustments
+List holdings adjustments
 
 List the holdings adjustments made to the specified transaction portfolio over a specified interval of effective time.
 
@@ -974,7 +974,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -987,7 +987,7 @@ namespace Example
 
             try
             {
-                // ListHoldingsAdjustments: List holdings adjustments
+                // List holdings adjustments
                 ResourceListOfHoldingsAdjustmentHeader result = apiInstance.ListHoldingsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -1039,7 +1039,7 @@ Name | Type | Description  | Notes
 # **ResolveInstrument**
 > UpsertPortfolioTransactionsResponse ResolveInstrument (string scope, string code, string instrumentIdentifierType, string instrumentIdentifierValue, DateTimeOrCutLabel fromEffectiveAt = null, Dictionary<string, string> requestBody = null)
 
-[EARLY ACCESS] ResolveInstrument: Resolve instrument
+[EARLY ACCESS] Resolve instrument
 
 Try to resolve the instrument for transaction and holdings for a given instrument identifier and a specified    period of time. Also update the instrument identifiers with the given instrument identifiers collection.
 
@@ -1058,7 +1058,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1072,7 +1072,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ResolveInstrument: Resolve instrument
+                // [EARLY ACCESS] Resolve instrument
                 UpsertPortfolioTransactionsResponse result = apiInstance.ResolveInstrument(scope, code, instrumentIdentifierType, instrumentIdentifierValue, fromEffectiveAt, requestBody);
                 Debug.WriteLine(result);
             }
@@ -1125,7 +1125,7 @@ Name | Type | Description  | Notes
 # **SetHoldings**
 > AdjustHolding SetHoldings (string scope, string code, DateTimeOrCutLabel effectiveAt, List<AdjustHoldingRequest> adjustHoldingRequest, List<string> reconciliationMethods = null)
 
-SetHoldings: Set holdings
+Set holdings
 
 Set the holdings of the specified transaction portfolio to the provided targets. LUSID will automatically  construct adjustment transactions to ensure that the entire set of holdings for the transaction portfolio  are always set to the provided targets for the specified effective datetime. Read more about the difference between  adjusting and setting holdings here https://support.lusid.com/how-do-i-adjust-my-holdings.
 
@@ -1144,7 +1144,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1157,7 +1157,7 @@ namespace Example
 
             try
             {
-                // SetHoldings: Set holdings
+                // Set holdings
                 AdjustHolding result = apiInstance.SetHoldings(scope, code, effectiveAt, adjustHoldingRequest, reconciliationMethods);
                 Debug.WriteLine(result);
             }
@@ -1209,7 +1209,7 @@ Name | Type | Description  | Notes
 # **UpsertPortfolioDetails**
 > PortfolioDetails UpsertPortfolioDetails (string scope, string code, CreatePortfolioDetails createPortfolioDetails, DateTimeOrCutLabel effectiveAt = null)
 
-UpsertPortfolioDetails: Upsert portfolio details
+Upsert portfolio details
 
 Create or update certain details for a particular transaction portfolio. The details are updated if they already exist, and inserted if they do not.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.
 
@@ -1228,7 +1228,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1240,7 +1240,7 @@ namespace Example
 
             try
             {
-                // UpsertPortfolioDetails: Upsert portfolio details
+                // Upsert portfolio details
                 PortfolioDetails result = apiInstance.UpsertPortfolioDetails(scope, code, createPortfolioDetails, effectiveAt);
                 Debug.WriteLine(result);
             }
@@ -1291,7 +1291,7 @@ Name | Type | Description  | Notes
 # **UpsertTransactionProperties**
 > UpsertTransactionPropertiesResponse UpsertTransactionProperties (string scope, string code, string transactionId, Dictionary<string, PerpetualProperty> requestBody)
 
-UpsertTransactionProperties: Upsert transaction properties
+Upsert transaction properties
 
 Create or update one or more transaction properties for a single transaction in the transaction portfolio.  Each property will be updated if it already exists and created if it does not.  Both transaction and portfolio must exist at the time when properties are created or updated.
 
@@ -1310,7 +1310,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1322,7 +1322,7 @@ namespace Example
 
             try
             {
-                // UpsertTransactionProperties: Upsert transaction properties
+                // Upsert transaction properties
                 UpsertTransactionPropertiesResponse result = apiInstance.UpsertTransactionProperties(scope, code, transactionId, requestBody);
                 Debug.WriteLine(result);
             }
@@ -1373,7 +1373,7 @@ Name | Type | Description  | Notes
 # **UpsertTransactions**
 > UpsertPortfolioTransactionsResponse UpsertTransactions (string scope, string code, List<TransactionRequest> transactionRequest)
 
-UpsertTransactions: Upsert transactions
+Upsert transactions
 
 Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.  The maximum number of transactions that this method can upsert per request is 10,000.
 
@@ -1392,7 +1392,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1403,7 +1403,7 @@ namespace Example
 
             try
             {
-                // UpsertTransactions: Upsert transactions
+                // Upsert transactions
                 UpsertPortfolioTransactionsResponse result = apiInstance.UpsertTransactions(scope, code, transactionRequest);
                 Debug.WriteLine(result);
             }

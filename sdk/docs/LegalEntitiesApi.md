@@ -1,20 +1,20 @@
 # Lusid.Sdk.Api.LegalEntitiesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteLegalEntity**](LegalEntitiesApi.md#deletelegalentity) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
-[**GetLegalEntity**](LegalEntitiesApi.md#getlegalentity) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetLegalEntity: Get Legal Entity
-[**ListLegalEntities**](LegalEntitiesApi.md#listlegalentities) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode} | [EARLY ACCESS] ListLegalEntities: List Legal Entities
-[**UpsertLegalEntity**](LegalEntitiesApi.md#upsertlegalentity) | **POST** /api/legalentities | [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+[**DeleteLegalEntity**](LegalEntitiesApi.md#deletelegalentity) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] Delete Legal Entity
+[**GetLegalEntity**](LegalEntitiesApi.md#getlegalentity) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] Get Legal Entity
+[**ListLegalEntities**](LegalEntitiesApi.md#listlegalentities) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode} | [EARLY ACCESS] List Legal Entities
+[**UpsertLegalEntity**](LegalEntitiesApi.md#upsertlegalentity) | **POST** /api/legalentities | [EARLY ACCESS] Upsert Legal Entity
 
 
 <a name="deletelegalentity"></a>
 # **DeleteLegalEntity**
 > DeletedEntityResponse DeleteLegalEntity (string idTypeScope, string idTypeCode, string code)
 
-[EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+[EARLY ACCESS] Delete Legal Entity
 
 Delete a legal entity. Deletion will be valid from the legal entity's creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
 
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+                // [EARLY ACCESS] Delete Legal Entity
                 DeletedEntityResponse result = apiInstance.DeleteLegalEntity(idTypeScope, idTypeCode, code);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **GetLegalEntity**
 > LegalEntity GetLegalEntity (string idTypeScope, string idTypeCode, string code, List<string> propertyKeys = null, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetLegalEntity: Get Legal Entity
+[EARLY ACCESS] Get Legal Entity
 
 Retrieve the definition of a legal entity.
 
@@ -113,7 +113,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -127,7 +127,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetLegalEntity: Get Legal Entity
+                // [EARLY ACCESS] Get Legal Entity
                 LegalEntity result = apiInstance.GetLegalEntity(idTypeScope, idTypeCode, code, propertyKeys, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **ListLegalEntities**
 > PagedResourceListOfLegalEntity ListLegalEntities (string idTypeScope, string idTypeCode, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
 
-[EARLY ACCESS] ListLegalEntities: List Legal Entities
+[EARLY ACCESS] List Legal Entities
 
 List legal entities which has identifier of specific identifier type's scope and code, and satisfies filter criteria.
 
@@ -199,7 +199,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -215,7 +215,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListLegalEntities: List Legal Entities
+                // [EARLY ACCESS] List Legal Entities
                 PagedResourceListOfLegalEntity result = apiInstance.ListLegalEntities(idTypeScope, idTypeCode, effectiveAt, asAt, page, limit, filter, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 # **UpsertLegalEntity**
 > LegalEntity UpsertLegalEntity (UpsertLegalEntityRequest upsertLegalEntityRequest)
 
-[EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+[EARLY ACCESS] Upsert Legal Entity
 
 Create or update a legal entity
 
@@ -289,7 +289,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -298,7 +298,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+                // [EARLY ACCESS] Upsert Legal Entity
                 LegalEntity result = apiInstance.UpsertLegalEntity(upsertLegalEntityRequest);
                 Debug.WriteLine(result);
             }

@@ -1,20 +1,20 @@
 # Lusid.Sdk.Api.ReferencePortfolioApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | CreateReferencePortfolio: Create reference portfolio
-[**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | GetReferencePortfolioConstituents: Get reference portfolio constituents
-[**ListConstituentsAdjustments**](ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | ListConstituentsAdjustments: List constituents adjustments
-[**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
+[**CreateReferencePortfolio**](ReferencePortfolioApi.md#createreferenceportfolio) | **POST** /api/referenceportfolios/{scope} | Create reference portfolio
+[**GetReferencePortfolioConstituents**](ReferencePortfolioApi.md#getreferenceportfolioconstituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | Get reference portfolio constituents
+[**ListConstituentsAdjustments**](ReferencePortfolioApi.md#listconstituentsadjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | List constituents adjustments
+[**UpsertReferencePortfolioConstituents**](ReferencePortfolioApi.md#upsertreferenceportfolioconstituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | Upsert reference portfolio constituents
 
 
 <a name="createreferenceportfolio"></a>
 # **CreateReferencePortfolio**
 > Portfolio CreateReferencePortfolio (string scope, CreateReferencePortfolioRequest createReferencePortfolioRequest)
 
-CreateReferencePortfolio: Create reference portfolio
+Create reference portfolio
 
 Create a reference portfolio in a particular scope.
 
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // CreateReferencePortfolio: Create reference portfolio
+                // Create reference portfolio
                 Portfolio result = apiInstance.CreateReferencePortfolio(scope, createReferencePortfolioRequest);
                 Debug.WriteLine(result);
             }
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 # **GetReferencePortfolioConstituents**
 > GetReferencePortfolioConstituentsResponse GetReferencePortfolioConstituents (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
 
-GetReferencePortfolioConstituents: Get reference portfolio constituents
+Get reference portfolio constituents
 
 Get constituents from a reference portfolio at a particular effective time.
 
@@ -111,7 +111,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -124,7 +124,7 @@ namespace Example
 
             try
             {
-                // GetReferencePortfolioConstituents: Get reference portfolio constituents
+                // Get reference portfolio constituents
                 GetReferencePortfolioConstituentsResponse result = apiInstance.GetReferencePortfolioConstituents(scope, code, effectiveAt, asAt, propertyKeys);
                 Debug.WriteLine(result);
             }
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 # **ListConstituentsAdjustments**
 > ResourceListOfConstituentsAdjustmentHeader ListConstituentsAdjustments (string scope, string code, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, DateTimeOffset? asAtTime = null)
 
-ListConstituentsAdjustments: List constituents adjustments
+List constituents adjustments
 
 List adjustments made to constituents in a reference portfolio.
 
@@ -195,7 +195,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -208,7 +208,7 @@ namespace Example
 
             try
             {
-                // ListConstituentsAdjustments: List constituents adjustments
+                // List constituents adjustments
                 ResourceListOfConstituentsAdjustmentHeader result = apiInstance.ListConstituentsAdjustments(scope, code, fromEffectiveAt, toEffectiveAt, asAtTime);
                 Debug.WriteLine(result);
             }
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 # **UpsertReferencePortfolioConstituents**
 > UpsertReferencePortfolioConstituentsResponse UpsertReferencePortfolioConstituents (string scope, string code, UpsertReferencePortfolioConstituentsRequest upsertReferencePortfolioConstituentsRequest)
 
-UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
+Upsert reference portfolio constituents
 
 Add constituents to a reference portfolio.
 
@@ -279,7 +279,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -290,7 +290,7 @@ namespace Example
 
             try
             {
-                // UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
+                // Upsert reference portfolio constituents
                 UpsertReferencePortfolioConstituentsResponse result = apiInstance.UpsertReferencePortfolioConstituents(scope, code, upsertReferencePortfolioConstituentsRequest);
                 Debug.WriteLine(result);
             }

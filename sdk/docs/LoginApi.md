@@ -1,17 +1,17 @@
 # Lusid.Sdk.Api.LoginApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:55238*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSamlIdentityProviderId**](LoginApi.md#getsamlidentityproviderid) | **GET** /api/login/saml/{domain} | GetSamlIdentityProviderId: Get SAML Identity Provider
+[**GetSamlIdentityProviderId**](LoginApi.md#getsamlidentityproviderid) | **GET** /api/login/saml/{domain} | Get SAML Identity Provider
 
 
 <a name="getsamlidentityproviderid"></a>
 # **GetSamlIdentityProviderId**
 > string GetSamlIdentityProviderId (string domain)
 
-GetSamlIdentityProviderId: Get SAML Identity Provider
+Get SAML Identity Provider
 
 Get the unique identifier for the SAML 2.0 Identity Provider to be used for domain.
 
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:55238";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // GetSamlIdentityProviderId: Get SAML Identity Provider
+                // Get SAML Identity Provider
                 string result = apiInstance.GetSamlIdentityProviderId(domain);
                 Debug.WriteLine(result);
             }
