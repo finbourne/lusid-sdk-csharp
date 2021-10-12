@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Lusid.Sdk.Api;
 using Lusid.Sdk.Model;
 using Lusid.Sdk.Tests.Utilities;
@@ -255,6 +256,9 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             {
                 _testDataUtilities.CreateTransactionPortfolio(scope);
             }
+            
+            //    Wait for the scope of the portfolio to be indexed and for the portfolio to be retrievable
+            Thread.Sleep(2000);
             
             //    Retrieve the list of portfolios from a given scope           
             var portfolios = _apiFactory.Api<IPortfoliosApi>().ListPortfoliosForScope(scope);
