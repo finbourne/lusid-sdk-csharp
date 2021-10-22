@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **AllowPartial** | **bool** | Bool if the metric is allowed partial results. Deafult to false. | [optional] 
 **Annualised** | **bool** | Bool if the metric is annualized. Default to false. | [optional] 
 **WithFee** | **bool** | Bool if the metric should consider the fees when is calculated. Default to false. | [optional] 
-**SeedAmount** | **decimal?** | The given seed amount for the calculation of the indicative amount metrics. | [optional] 
+**SeedAmount** | **string** | The given seed amount for the calculation of the indicative amount metrics. | [optional] 
 **Alias** | **string** | The alias for the metric. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
