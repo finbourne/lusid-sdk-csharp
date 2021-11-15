@@ -27,89 +27,26 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Full content of a holdings adjustment for a single portfolio and effective date.
+    /// For the storage of any information pertinent to the confirmation of an OTC trade. e.g the Counterparty Agreement Code
     /// </summary>
-    [DataContract(Name = "HoldingsAdjustment")]
-    public partial class HoldingsAdjustment : IEquatable<HoldingsAdjustment>
+    [DataContract(Name = "OtcConfirmation")]
+    public partial class OtcConfirmation : IEquatable<OtcConfirmation>
     {
         /// <summary>
-        /// Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame
+        /// Initializes a new instance of the <see cref="OtcConfirmation" /> class.
         /// </summary>
-        /// <value>Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UnmatchedHoldingMethodEnum
+        /// <param name="counterpartyAgreementCode">The counterparty party agreement code used to identify and retrieve the specific Counterparty Agreement that governs a transaction.</param>
+        public OtcConfirmation(string counterpartyAgreementCode = default(string))
         {
-            /// <summary>
-            /// Enum PositionToZero for value: PositionToZero
-            /// </summary>
-            [EnumMember(Value = "PositionToZero")]
-            PositionToZero = 1,
-
-            /// <summary>
-            /// Enum KeepTheSame for value: KeepTheSame
-            /// </summary>
-            [EnumMember(Value = "KeepTheSame")]
-            KeepTheSame = 2
-
-        }
-
-
-        /// <summary>
-        /// Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame
-        /// </summary>
-        /// <value>Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame</value>
-        [DataMember(Name = "unmatchedHoldingMethod", IsRequired = true, EmitDefaultValue = false)]
-        public UnmatchedHoldingMethodEnum UnmatchedHoldingMethod { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HoldingsAdjustment" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected HoldingsAdjustment() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HoldingsAdjustment" /> class.
-        /// </summary>
-        /// <param name="effectiveAt">The effective datetime from which the adjustment is valid. There can only be one holdings adjustment for a transaction portfolio at a specific effective datetime, so this uniquely identifies the adjustment. (required).</param>
-        /// <param name="version">version (required).</param>
-        /// <param name="unmatchedHoldingMethod">Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame (required).</param>
-        /// <param name="adjustments">The holding adjustments. (required).</param>
-        /// <param name="links">Collection of links..</param>
-        public HoldingsAdjustment(DateTimeOffset effectiveAt = default(DateTimeOffset), Version version = default(Version), UnmatchedHoldingMethodEnum unmatchedHoldingMethod = default(UnmatchedHoldingMethodEnum), List<HoldingAdjustment> adjustments = default(List<HoldingAdjustment>), List<Link> links = default(List<Link>))
-        {
-            this.EffectiveAt = effectiveAt;
-            // to ensure "version" is required (not null)
-            this.Version = version ?? throw new ArgumentNullException("version is a required property for HoldingsAdjustment and cannot be null");
-            this.UnmatchedHoldingMethod = unmatchedHoldingMethod;
-            // to ensure "adjustments" is required (not null)
-            this.Adjustments = adjustments ?? throw new ArgumentNullException("adjustments is a required property for HoldingsAdjustment and cannot be null");
-            this.Links = links;
+            this.CounterpartyAgreementCode = counterpartyAgreementCode;
         }
 
         /// <summary>
-        /// The effective datetime from which the adjustment is valid. There can only be one holdings adjustment for a transaction portfolio at a specific effective datetime, so this uniquely identifies the adjustment.
+        /// The counterparty party agreement code used to identify and retrieve the specific Counterparty Agreement that governs a transaction
         /// </summary>
-        /// <value>The effective datetime from which the adjustment is valid. There can only be one holdings adjustment for a transaction portfolio at a specific effective datetime, so this uniquely identifies the adjustment.</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset EffectiveAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Version
-        /// </summary>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
-        public Version Version { get; set; }
-
-        /// <summary>
-        /// The holding adjustments.
-        /// </summary>
-        /// <value>The holding adjustments.</value>
-        [DataMember(Name = "adjustments", IsRequired = true, EmitDefaultValue = false)]
-        public List<HoldingAdjustment> Adjustments { get; set; }
-
-        /// <summary>
-        /// Collection of links.
-        /// </summary>
-        /// <value>Collection of links.</value>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
-        public List<Link> Links { get; set; }
+        /// <value>The counterparty party agreement code used to identify and retrieve the specific Counterparty Agreement that governs a transaction</value>
+        [DataMember(Name = "counterpartyAgreementCode", EmitDefaultValue = true)]
+        public string CounterpartyAgreementCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,12 +55,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class HoldingsAdjustment {\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  UnmatchedHoldingMethod: ").Append(UnmatchedHoldingMethod).Append("\n");
-            sb.Append("  Adjustments: ").Append(Adjustments).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("class OtcConfirmation {\n");
+            sb.Append("  CounterpartyAgreementCode: ").Append(CounterpartyAgreementCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,45 +77,24 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HoldingsAdjustment);
+            return this.Equals(input as OtcConfirmation);
         }
 
         /// <summary>
-        /// Returns true if HoldingsAdjustment instances are equal
+        /// Returns true if OtcConfirmation instances are equal
         /// </summary>
-        /// <param name="input">Instance of HoldingsAdjustment to be compared</param>
+        /// <param name="input">Instance of OtcConfirmation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HoldingsAdjustment input)
+        public bool Equals(OtcConfirmation input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
-                ) && 
-                (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
-                ) && 
-                (
-                    this.UnmatchedHoldingMethod == input.UnmatchedHoldingMethod ||
-                    this.UnmatchedHoldingMethod.Equals(input.UnmatchedHoldingMethod)
-                ) && 
-                (
-                    this.Adjustments == input.Adjustments ||
-                    this.Adjustments != null &&
-                    input.Adjustments != null &&
-                    this.Adjustments.SequenceEqual(input.Adjustments)
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    this.CounterpartyAgreementCode == input.CounterpartyAgreementCode ||
+                    (this.CounterpartyAgreementCode != null &&
+                    this.CounterpartyAgreementCode.Equals(input.CounterpartyAgreementCode))
                 );
         }
 
@@ -195,15 +107,8 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EffectiveAt != null)
-                    hashCode = hashCode * 59 + this.EffectiveAt.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
-                hashCode = hashCode * 59 + this.UnmatchedHoldingMethod.GetHashCode();
-                if (this.Adjustments != null)
-                    hashCode = hashCode * 59 + this.Adjustments.GetHashCode();
-                if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
+                if (this.CounterpartyAgreementCode != null)
+                    hashCode = hashCode * 59 + this.CounterpartyAgreementCode.GetHashCode();
                 return hashCode;
             }
         }

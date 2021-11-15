@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
 **EntryDateTime** | **DateTimeOffset** | The asAt datetime that the transaction was added to LUSID. | [optional] 
+**OtcConfirmation** | [**OtcConfirmation**](OtcConfirmation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
