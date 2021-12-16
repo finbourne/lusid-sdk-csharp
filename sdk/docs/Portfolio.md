@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] 
 **BaseCurrency** | **string** | The base currency of the portfolio. This will be an empty string for reference portfolios. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
+**InstrumentScopes** | **List&lt;string&gt;** | The instrument scope resolution strategy of this portfolio. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

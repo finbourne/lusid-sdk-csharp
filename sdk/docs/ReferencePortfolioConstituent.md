@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties associated with the constituent | [optional] 
 **Weight** | **decimal** |  | 
 **FloatingWeight** | **decimal?** |  | [optional] 
+**InstrumentScope** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
