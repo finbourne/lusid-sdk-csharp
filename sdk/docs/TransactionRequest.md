@@ -1,25 +1,22 @@
-
 # Lusid.Sdk.Model.TransactionRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TransactionId** | **string** | The unique identifier for the transaction. | 
-**Type** | **string** | The type of the transaction e.g. &#39;Buy&#39;, &#39;Sell&#39;. The transaction type should have been pre-configured via the System Configuration API endpoint. If it hasn&#39;t been pre-configured the transaction will still be updated or inserted however you will be unable to generate the resultant holdings for the portfolio that contains this transaction as LUSID does not know how to process it. | 
-**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers to use to resolve the transaction to a unique instrument. | 
+**TransactionId** | **string** | The unique identifier of the transaction. | 
+**Type** | **string** | The type of the transaction, for example &#39;Buy&#39; or &#39;Sell&#39;. The transaction type must have been pre-configured using the System Configuration API. If not, this operation will succeed but you are not able to calculate holdings for the portfolio that include this transaction. | 
+**InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | A set of instrument identifiers that can resolve the transaction to a unique instrument. | 
 **TransactionDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The date of the transaction. | 
 **SettlementDate** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The settlement date of the transaction. | 
-**Units** | **decimal?** | The number of units transacted in the associated instrument. | 
+**Units** | **decimal** | The number of units of the transacted instrument. | 
 **TransactionPrice** | [**TransactionPrice**](TransactionPrice.md) |  | [optional] 
 **TotalConsideration** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
-**ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency (settlement currency being represented by the TotalConsideration.Currency). For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate. | [optional] 
+**ExchangeRate** | **decimal?** | The exchange rate between the transaction and settlement currency (settlement currency being represented by TotalConsideration.Currency). For example, if the transaction currency is USD and the settlement currency is GBP, this would be the appropriate USD/GBP rate. | [optional] 
 **TransactionCurrency** | **string** | The transaction currency. | [optional] 
-**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Set of unique transaction properties and associated values to store with the transaction. Each property must be from the &#39;Transaction&#39; domain. | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | A list of unique transaction properties and associated values to store for the transaction. Each property must be from the &#39;Transaction&#39; domain. | [optional] 
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

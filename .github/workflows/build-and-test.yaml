@@ -43,6 +43,7 @@ jobs:
           FBN_LUSID_API_URL: ${{ secrets.DEVELOP_FBN_LUSID_API_URL }}
           FBN_APP_NAME: ${{ secrets.DEVELOP_FBN_CLIENT_ID }}
           FBN_ACCESS_TOKEN: ${{ secrets.DEVELOP_FBN_ACCESS_TOKEN }}
+
         run: |
           echo "env variables for DEVELOP have been set"
           echo "Changing directory into sdk directory"
@@ -62,6 +63,7 @@ jobs:
           FBN_LUSID_API_URL: ${{ secrets.MASTER_FBN_LUSID_API_URL }}
           FBN_APP_NAME: ${{ secrets.MASTER_FBN_CLIENT_ID }}
           FBN_ACCESS_TOKEN: ${{ secrets.MASTER_FBN_ACCESS_TOKEN }}
+
         run: | 
           echo "env variables for MASTER have been set"
           echo "Changing directory into sdk directory"

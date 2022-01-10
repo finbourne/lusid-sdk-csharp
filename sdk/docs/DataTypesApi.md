@@ -4,22 +4,20 @@ All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] Get data type definition
-[**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] Get units from data type
-[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] List data types
+[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
+[**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
+[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
 
 
-
-## GetDataType
-
+<a name="getdatatype"></a>
+# **GetDataType**
 > DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get data type definition
+[EARLY ACCESS] GetDataType: Get data type definition
 
 Get the definition of a specified data type
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,22 +31,23 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new DataTypesApi(Configuration.Default);
+            var apiInstance = new DataTypesApi(config);
             var scope = scope_example;  // string | The scope of the data type
             var code = code_example;  // string | The code of the data type
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
 
             try
             {
-                // [EARLY ACCESS] Get data type definition
+                // [EARLY ACCESS] GetDataType: Get data type definition
                 DataType result = apiInstance.GetDataType(scope, code, asAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DataTypesApi.GetDataType: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -60,7 +59,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -78,8 +76,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -88,22 +87,17 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetUnitsFromDataType
-
+<a name="getunitsfromdatatype"></a>
+# **GetUnitsFromDataType**
 > ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] Get units from data type
+[EARLY ACCESS] GetUnitsFromDataType: Get units from data type
 
 Get the definitions of the specified units associated bound to a specific data type
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -117,11 +111,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new DataTypesApi(Configuration.Default);
+            var apiInstance = new DataTypesApi(config);
             var scope = scope_example;  // string | The scope of the data type
             var code = code_example;  // string | The code of the data type
             var units = new List<string>(); // List<string> | One or more unit identifiers for which the definition is being requested (optional) 
@@ -130,11 +125,11 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] Get units from data type
+                // [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
                 ResourceListOfIUnitDefinitionDto result = apiInstance.GetUnitsFromDataType(scope, code, units, filter, asAt);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DataTypesApi.GetUnitsFromDataType: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -146,7 +141,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -166,8 +160,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -176,22 +171,17 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## ListDataTypes
-
+<a name="listdatatypes"></a>
+# **ListDataTypes**
 > ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-[EARLY ACCESS] List data types
+[EARLY ACCESS] ListDataTypes: List data types
 
 List all data types in a specified scope
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -205,11 +195,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://fbn-prd.lusid.com/api";
+            Configuration config = new Configuration();
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new DataTypesApi(Configuration.Default);
+            var apiInstance = new DataTypesApi(config);
             var scope = scope_example;  // string | The requested scope of the data types
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The as at of the requested data types (optional) 
             var includeSystem = true;  // bool? | Whether to additionally include those data types in the \"system\" scope (optional) 
@@ -220,11 +211,11 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] List data types
+                // [EARLY ACCESS] ListDataTypes: List data types
                 ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DataTypesApi.ListDataTypes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -236,7 +227,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -258,8 +248,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -268,8 +259,5 @@ Name | Type | Description  | Notes
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
