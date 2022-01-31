@@ -103,7 +103,7 @@ namespace Lusid.Sdk.Client
         {
             Proxy = null;
             UserAgent = "OpenAPI-Generator/0.11.3923/csharp";
-            BasePath = "https://fbn-prd.lusid.com/api";
+            BasePath = "http://local-unit-test-server.lusid.com:55194";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://fbn-prd.lusid.com/api"},
+                        {"url", "http://local-unit-test-server.lusid.com:55194"},
                         {"description", "No description provided"},
                     }
                 }
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://fbn-prd.lusid.com/api") : this()
+            string basePath = "http://local-unit-test-server.lusid.com:55194") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
