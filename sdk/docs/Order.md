@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **OrderBookId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
+**InstrumentScope** | **string** | The scope in which the instrument lies | [optional] 
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument ordered. | 
 **State** | **string** | The order&#39;s state (examples: New, PartiallyFilled, ...) | [optional] 
 **Type** | **string** | The order&#39;s type (examples: Limit, Market, ...) | [optional] 
