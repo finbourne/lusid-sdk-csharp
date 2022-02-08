@@ -26,7 +26,7 @@ namespace Lusid.Sdk.Tests.tutorials.Ibor
             _apiFactory = LusidApiFactoryBuilder.Build("secrets.json");
         }
         
-        [LusidFeature("F14")]
+        [LusidFeature("F1-5")]
         [Test]
         public void Create_Portfolio_With_Label_Property()
         {
@@ -89,7 +89,7 @@ namespace Lusid.Sdk.Tests.tutorials.Ibor
             Assert.That(labelProperty.Value.LabelValue, Is.EqualTo(labelPropertyValueRequest.LabelValue));
         }
         
-        [LusidFeature("F15")]
+        [LusidFeature("F1-6")]
         [Test]
         public void Create_Portfolio_With_Metric_Property()
         {
@@ -154,7 +154,7 @@ namespace Lusid.Sdk.Tests.tutorials.Ibor
             Assert.That(metricProperty.Value.MetricValue.Unit, Is.EqualTo(metricPropertyValueRequest.MetricValue.Unit));
         }
         
-        [LusidFeature("F35")]
+        [LusidFeature("F1-7")]
         [Test]
         public void Create_Portfolio_With_MultiValue_Property()
         {

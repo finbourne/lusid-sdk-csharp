@@ -28,7 +28,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
         }
         
-        [LusidFeature("F16")]
+        [LusidFeature("F20-1")]
         [Test]
         public void Reconcile_Portfolio()
         {

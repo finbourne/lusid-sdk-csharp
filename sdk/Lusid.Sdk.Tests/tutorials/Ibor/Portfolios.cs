@@ -35,7 +35,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _testDataUtilities = new TestDataUtilities(_apiFactory.Api<ITransactionPortfoliosApi>());
         }
         
-        [LusidFeature("F8")]
+        [LusidFeature("F1-4")]
         [Test]
         public void Create_Transaction_Portfolio()
         {
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(portfolio.Id.Code, Is.EqualTo(request.Code));
         }
         
-        [LusidFeature("F9")]
+        [LusidFeature("F1-1")]
         [Test]
         public void Create_Transaction_Portfolio_With_Property()
         {
@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(portfolioProperties.Properties[propertyDefinitionResult.Key].Value.LabelValue, Is.EqualTo("Active"));
         }
         
-        [LusidFeature("F10")]
+        [LusidFeature("F13-1")]
         [Test]
         public void Add_Transactions_To_Portfolio()
         {
@@ -164,7 +164,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(transactions.Values[0].InstrumentUid, Is.EqualTo(transaction.InstrumentIdentifiers.First().Value));           
         }
         
-        [LusidFeature("F11")]
+        [LusidFeature("F13-4")]
         [Test]
         public void Add_Transactions_To_Portfolio_With_Property()
         {
@@ -243,7 +243,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(transactions.Values[0].Properties[propertyDefinitionResult.Key].Value.LabelValue, Is.EqualTo(labelValue));
         }
         
-        [LusidFeature("F13")]
+        [LusidFeature("F2-4")]
         [Test]
         public void List_Portfolios()
         {
@@ -263,7 +263,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
 
         }
         
-        [LusidFeature("F12")]
+        [LusidFeature("F19-1")]
         [Test]
         public void List_Scopes()
         {
