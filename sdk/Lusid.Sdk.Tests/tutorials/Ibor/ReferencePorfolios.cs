@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _instrumentIds = instrumentsLoader.LoadInstruments().OrderBy(x => x).ToList();
         }
         
-        [LusidFeature("F39")]
+        [LusidFeature("F6-1")]
         [Test]
         public void CreateReferencePortfolio()
         {
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _apiFactory.Api<IPortfoliosApi>().DeletePortfolio(TutorialScope, F39PortfolioCode);
         }
         
-        [LusidFeature("F40")]
+        [LusidFeature("F6-2")]
         [Test]
         public void SetConstituents()
         {
