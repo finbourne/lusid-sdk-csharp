@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **IsDerived** | **bool** | Whether or not this is a derived portfolio. | [optional] [readonly] 
 **Created** | **DateTimeOffset** | The effective datetime at which the portfolio was created. No transactions or constituents can be added to the portfolio before this date. | 
 **ParentPortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**BaseCurrency** | **string** | The base currency of the portfolio. This will be an empty string for reference portfolios. | [optional] 
+**BaseCurrency** | **string** | The base currency of the portfolio. | [optional] 
 **Properties** | [**List&lt;Property&gt;**](Property.md) | The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
