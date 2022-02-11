@@ -124,7 +124,7 @@ namespace Lusid.Sdk.Tests.Tutorials.MarketData
             Assert.That(upsertInstrumentsResponse.Values, Has.Count.EqualTo(5));
         }        
         
-        [LusidFeature("F20-1")]
+        [LusidFeature("F21-1")]
         [Test]
         public void Lookup_Instrument_By_Unique_Id()
         {
