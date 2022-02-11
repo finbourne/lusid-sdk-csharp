@@ -27,40 +27,26 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The version metadata.
+    /// SetLegalEntityIdentifiersRequest
     /// </summary>
-    [DataContract(Name = "Version")]
-    public partial class Version : IEquatable<Version>
+    [DataContract(Name = "SetLegalEntityIdentifiersRequest")]
+    public partial class SetLegalEntityIdentifiersRequest : IEquatable<SetLegalEntityIdentifiersRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Version" /> class.
+        /// Initializes a new instance of the <see cref="SetLegalEntityIdentifiersRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Version() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Version" /> class.
-        /// </summary>
-        /// <param name="effectiveFrom">The effective datetime at which this version became valid. Only applies when a single entity is being interacted with. (required).</param>
-        /// <param name="asAtDate">The asAt datetime at which the data was committed to LUSID. (required).</param>
-        public Version(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset))
+        /// <param name="identifiers">Identifiers to set for a Legal Entity. Identifiers not included in the request will not be amended..</param>
+        public SetLegalEntityIdentifiersRequest(Dictionary<string, Property> identifiers = default(Dictionary<string, Property>))
         {
-            this.EffectiveFrom = effectiveFrom;
-            this.AsAtDate = asAtDate;
+            this.Identifiers = identifiers;
         }
 
         /// <summary>
-        /// The effective datetime at which this version became valid. Only applies when a single entity is being interacted with.
+        /// Identifiers to set for a Legal Entity. Identifiers not included in the request will not be amended.
         /// </summary>
-        /// <value>The effective datetime at which this version became valid. Only applies when a single entity is being interacted with.</value>
-        [DataMember(Name = "effectiveFrom", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset EffectiveFrom { get; set; }
-
-        /// <summary>
-        /// The asAt datetime at which the data was committed to LUSID.
-        /// </summary>
-        /// <value>The asAt datetime at which the data was committed to LUSID.</value>
-        [DataMember(Name = "asAtDate", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset AsAtDate { get; set; }
+        /// <value>Identifiers to set for a Legal Entity. Identifiers not included in the request will not be amended.</value>
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Identifiers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +55,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Version {\n");
-            sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
-            sb.Append("  AsAtDate: ").Append(AsAtDate).Append("\n");
+            sb.Append("class SetLegalEntityIdentifiersRequest {\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +77,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Version);
+            return this.Equals(input as SetLegalEntityIdentifiersRequest);
         }
 
         /// <summary>
-        /// Returns true if Version instances are equal
+        /// Returns true if SetLegalEntityIdentifiersRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of Version to be compared</param>
+        /// <param name="input">Instance of SetLegalEntityIdentifiersRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Version input)
+        public bool Equals(SetLegalEntityIdentifiersRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.EffectiveFrom == input.EffectiveFrom ||
-                    (this.EffectiveFrom != null &&
-                    this.EffectiveFrom.Equals(input.EffectiveFrom))
-                ) && 
-                (
-                    this.AsAtDate == input.AsAtDate ||
-                    (this.AsAtDate != null &&
-                    this.AsAtDate.Equals(input.AsAtDate))
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 );
         }
 
@@ -127,10 +108,8 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EffectiveFrom != null)
-                    hashCode = hashCode * 59 + this.EffectiveFrom.GetHashCode();
-                if (this.AsAtDate != null)
-                    hashCode = hashCode * 59 + this.AsAtDate.GetHashCode();
+                if (this.Identifiers != null)
+                    hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
                 return hashCode;
             }
         }
