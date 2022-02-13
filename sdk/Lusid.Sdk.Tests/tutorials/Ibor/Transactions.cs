@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             _testDataUtilities = new TestDataUtilities(apiFactory.Api<ITransactionPortfoliosApi>());
         }
         
-        [LusidFeature("F13-1")]
+        [LusidFeature("F13-9")]
         [Test]
         public void Load_Listed_Instrument_Transaction()
         {

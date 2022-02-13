@@ -121,7 +121,7 @@ namespace Lusid.Sdk.Tests.Tutorials.Ibor
             Assert.That(portfolioProperties.Properties[propertyDefinitionResult.Key].Value.LabelValue, Is.EqualTo("Active"));
         }
         
-        [LusidFeature("F13-1")]
+        [LusidFeature("F13-8")]
         [Test]
         public void Add_Transactions_To_Portfolio()
         {
