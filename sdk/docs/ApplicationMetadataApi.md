@@ -1,19 +1,19 @@
 # Lusid.Sdk.Api.ApplicationMetadataApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:64878*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetExcelAddin**](ApplicationMetadataApi.md#getexceladdin) | **GET** /api/metadata/downloads/exceladdin | [EARLY ACCESS] GetExcelAddin: Download Excel Addin
-[**GetLusidVersions**](ApplicationMetadataApi.md#getlusidversions) | **GET** /api/metadata/versions | [EARLY ACCESS] GetLusidVersions: Get LUSID versions
-[**ListAccessControlledResources**](ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+[**GetExcelAddin**](ApplicationMetadataApi.md#getexceladdin) | **GET** /api/metadata/downloads/exceladdin | GetExcelAddin: Download Excel Addin
+[**GetLusidVersions**](ApplicationMetadataApi.md#getlusidversions) | **GET** /api/metadata/versions | GetLusidVersions: Get LUSID versions
+[**ListAccessControlledResources**](ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
 
 
 <a name="getexceladdin"></a>
 # **GetExcelAddin**
 > FileResponse GetExcelAddin (string version = null)
 
-[EARLY ACCESS] GetExcelAddin: Download Excel Addin
+GetExcelAddin: Download Excel Addin
 
 Download the LUSID Excel Addin for Microsoft Excel. Not providing a specific value will return the latest version being returned
 
@@ -32,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "http://local-unit-test-server.lusid.com:64878";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetExcelAddin: Download Excel Addin
+                // GetExcelAddin: Download Excel Addin
                 FileResponse result = apiInstance.GetExcelAddin(version);
                 Debug.WriteLine(result);
             }
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 # **GetLusidVersions**
 > VersionSummaryDto GetLusidVersions ()
 
-[EARLY ACCESS] GetLusidVersions: Get LUSID versions
+GetLusidVersions: Get LUSID versions
 
 Get the semantic versions associated with LUSID and its ecosystem
 
@@ -108,7 +108,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "http://local-unit-test-server.lusid.com:64878";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -116,7 +116,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetLusidVersions: Get LUSID versions
+                // GetLusidVersions: Get LUSID versions
                 VersionSummaryDto result = apiInstance.GetLusidVersions();
                 Debug.WriteLine(result);
             }
@@ -160,7 +160,7 @@ This endpoint does not need any parameter.
 # **ListAccessControlledResources**
 > ResourceListOfAccessControlledResource ListAccessControlledResources (string filter = null)
 
-[EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+ListAccessControlledResources: Get resources available for access control
 
 Get the comprehensive set of resources that are available for access control
 
@@ -179,7 +179,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "http://local-unit-test-server.lusid.com:64878";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -188,7 +188,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+                // ListAccessControlledResources: Get resources available for access control
                 ResourceListOfAccessControlledResource result = apiInstance.ListAccessControlledResources(filter);
                 Debug.WriteLine(result);
             }
