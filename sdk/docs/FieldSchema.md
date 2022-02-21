@@ -1,19 +1,14 @@
-
 # Lusid.Sdk.Model.FieldSchema
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Scope** | **string** |  | [optional] 
-**Name** | **string** |  | [optional] 
+**Id** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **DisplayName** | **string** |  | [optional] 
-**Type** | **string** |  | [optional] 
-**IsMetric** | **bool?** |  | [optional] 
-**DisplayOrder** | **int?** |  | [optional] 
-**PropertySchema** | [**Dictionary&lt;string, FieldSchema&gt;**](FieldSchema.md) |  | [optional] 
+**Description** | **string** |  | [optional] 
+**Type** | **string** | The available values are: String, Int, Decimal, DateTime, Boolean, Map, List, PropertyArray, Percentage, Code, Id, Uri, CurrencyAndAmount, TradePrice, Currency, MetricValue, ResourceId, ResultValue, CutLocalTime, DateOrCutLabel | [optional] 
+**DisplayOrder** | **int** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
