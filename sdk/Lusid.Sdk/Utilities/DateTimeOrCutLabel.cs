@@ -106,7 +106,7 @@ namespace Lusid.Sdk
             switch (o)
             {
                 case DateTime dt:
-                    return new DateTimeOrCutLabel(dt);
+                    return new DateTimeOrCutLabel(dt.ToUniversalTime());
 
                 case DateTimeOffset dto:
                     return new DateTimeOrCutLabel(dto);
