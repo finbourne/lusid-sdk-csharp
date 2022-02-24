@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Lusid.Sdk.Tests.Utilities
@@ -72,6 +73,25 @@ namespace Lusid.Sdk.Tests.Utilities
 
             Assert.That(c, Is.Not.SameAs(d));
             Assert.That(c, Is.EqualTo(d));
+        }
+
+        class JsonCutLabel
+        {
+            public JsonCutLabel()
+            {
+            }
+
+            public DateTimeOrCutLabel dt { get; set; }
+        }
+
+        [TestCase("{'dt': '2021-10-29T00:00:00.0000000+00:00'}")]
+        [TestCase("{'dt': '2021-10-29T01:00:00.0000000+01:00'}")]
+        [TestCase("{'dt': '2021-10-29T00:00:00.0000000Z'}")]
+        public void Deserialize_CutLabelJsonConverter(string json)
+        {
+            var jcl = JsonConvert.DeserializeObject<JsonCutLabel>(json, converters: new JsonConverter[] { new CutLabelJsonConverter() });
+
+            Assert.That(jcl.dt.Parameter, Is.EqualTo("2021-10-29T00:00:00.0000000+00:00"));
         }
     }
 }
