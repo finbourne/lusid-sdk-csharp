@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.QuotesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:30880*
+All URIs are relative to *http://local-unit-test-server.lusid.com:47055*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:30880";
+            config.BasePath = "http://local-unit-test-server.lusid.com:47055";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -112,7 +112,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:30880";
+            config.BasePath = "http://local-unit-test-server.lusid.com:47055";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -196,7 +196,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:30880";
+            config.BasePath = "http://local-unit-test-server.lusid.com:47055";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -282,7 +282,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:30880";
+            config.BasePath = "http://local-unit-test-server.lusid.com:47055";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -368,7 +368,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:30880";
+            config.BasePath = "http://local-unit-test-server.lusid.com:47055";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
