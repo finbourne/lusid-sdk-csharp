@@ -1,10 +1,10 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *http://local-unit-test-server.lusid.com:32160*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
+[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | CreateDerivedPortfolio: Create derived portfolio
 [**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **CreateDerivedPortfolio**
 > Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequest = null)
 
-[EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
+CreateDerivedPortfolio: Create derived portfolio
 
 Create a derived transaction portfolio from a parent transaction portfolio (which may itself be derived).
 
@@ -31,7 +31,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32160";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
+                // CreateDerivedPortfolio: Create derived portfolio
                 Portfolio result = apiInstance.CreateDerivedPortfolio(scope, createDerivedTransactionPortfolioRequest);
                 Debug.WriteLine(result);
             }
@@ -109,7 +109,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "http://local-unit-test-server.lusid.com:32160";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
