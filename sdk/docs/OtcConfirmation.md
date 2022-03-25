@@ -5,7 +5,7 @@ For the storage of any information pertinent to the confirmation of an OTC trade
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CounterpartyAgreementCode** | **string** | The counterparty party agreement code used to identify and retrieve the specific Counterparty Agreement that governs a transaction | [optional] 
+**CounterpartyAgreementId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
