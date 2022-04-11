@@ -1,19 +1,19 @@
 # Lusid.Sdk.Api.DataTypesApi
 
-All URIs are relative to *http://local-unit-test-server.lusid.com:44032*
+All URIs are relative to *http://local-unit-test-server.lusid.com:42036*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
+[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | GetDataType: Get data type definition
 [**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
-[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
+[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | ListDataTypes: List data types
 
 
 <a name="getdatatype"></a>
 # **GetDataType**
 > DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetDataType: Get data type definition
+GetDataType: Get data type definition
 
 Get the definition of a specified data type
 
@@ -32,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:44032";
+            config.BasePath = "http://local-unit-test-server.lusid.com:42036";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetDataType: Get data type definition
+                // GetDataType: Get data type definition
                 DataType result = apiInstance.GetDataType(scope, code, asAt);
                 Debug.WriteLine(result);
             }
@@ -112,7 +112,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:44032";
+            config.BasePath = "http://local-unit-test-server.lusid.com:42036";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **ListDataTypes**
 > ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-[EARLY ACCESS] ListDataTypes: List data types
+ListDataTypes: List data types
 
 List all data types in a specified scope
 
@@ -196,7 +196,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://local-unit-test-server.lusid.com:44032";
+            config.BasePath = "http://local-unit-test-server.lusid.com:42036";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListDataTypes: List data types
+                // ListDataTypes: List data types
                 ResourceListOfDataType result = apiInstance.ListDataTypes(scope, asAt, includeSystem, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
