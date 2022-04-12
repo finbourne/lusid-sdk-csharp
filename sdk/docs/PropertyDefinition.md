@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Domain** | **string** | The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity | [optional] 
 **Scope** | **string** | The scope that the property exists in. | [optional] [readonly] 
 **Code** | **string** | The code of the property. Together with the domain and scope this uniquely identifies the property. | [optional] [readonly] 
-**ValueRequired** | **bool** | This field is not implemented and should be disregarded. | [optional] 
+**ValueRequired** | **bool** | Whether or not a value is always required for this property. | [optional] 
 **LifeTime** | **string** | Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant | [optional] 
 **ConstraintStyle** | **string** | Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. | [optional] 
 **PropertyDefinitionType** | **string** | The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition | [optional] 
