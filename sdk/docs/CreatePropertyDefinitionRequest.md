@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Domain** | **string** | The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity | 
 **Scope** | **string** | The scope that the property exists in. | 
 **Code** | **string** | The code of the property. Together with the domain and scope this uniquely identifies the property. | 
-**ValueRequired** | **bool** | Whether or not a value is always required for this property. | [optional] 
+**ValueRequired** | **bool** | This field is not implemented and should be disregarded. | [optional] 
 **DisplayName** | **string** | The display name of the property. | 
 **DataTypeId** | [**ResourceId**](ResourceId.md) |  | 
 **LifeTime** | **string** | Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant | [optional] 
