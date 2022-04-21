@@ -61,6 +61,21 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
+        /// Gets or Sets CanWrite
+        /// </summary>
+        [DataMember(Name = "canWrite", EmitDefaultValue = true)]
+        public bool CanWrite { get; private set; }
+
+        /// <summary>
+        /// Returns false as CanWrite should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCanWrite()
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Gets or Sets CanSeek
         /// </summary>
         [DataMember(Name = "canSeek", EmitDefaultValue = true)]
@@ -86,21 +101,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <returns>false (boolean)</returns>
         public bool ShouldSerializeCanTimeout()
-        {
-            return false;
-        }
-
-        /// <summary>
-        /// Gets or Sets CanWrite
-        /// </summary>
-        [DataMember(Name = "canWrite", EmitDefaultValue = true)]
-        public bool CanWrite { get; private set; }
-
-        /// <summary>
-        /// Returns false as CanWrite should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCanWrite()
         {
             return false;
         }
@@ -147,9 +147,9 @@ namespace Lusid.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Stream {\n");
             sb.Append("  CanRead: ").Append(CanRead).Append("\n");
+            sb.Append("  CanWrite: ").Append(CanWrite).Append("\n");
             sb.Append("  CanSeek: ").Append(CanSeek).Append("\n");
             sb.Append("  CanTimeout: ").Append(CanTimeout).Append("\n");
-            sb.Append("  CanWrite: ").Append(CanWrite).Append("\n");
             sb.Append("  Length: ").Append(Length).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("  ReadTimeout: ").Append(ReadTimeout).Append("\n");
@@ -193,16 +193,16 @@ namespace Lusid.Sdk.Model
                     this.CanRead.Equals(input.CanRead)
                 ) && 
                 (
+                    this.CanWrite == input.CanWrite ||
+                    this.CanWrite.Equals(input.CanWrite)
+                ) && 
+                (
                     this.CanSeek == input.CanSeek ||
                     this.CanSeek.Equals(input.CanSeek)
                 ) && 
                 (
                     this.CanTimeout == input.CanTimeout ||
                     this.CanTimeout.Equals(input.CanTimeout)
-                ) && 
-                (
-                    this.CanWrite == input.CanWrite ||
-                    this.CanWrite.Equals(input.CanWrite)
                 ) && 
                 (
                     this.Length == input.Length ||
@@ -232,9 +232,9 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.CanRead.GetHashCode();
+                hashCode = hashCode * 59 + this.CanWrite.GetHashCode();
                 hashCode = hashCode * 59 + this.CanSeek.GetHashCode();
                 hashCode = hashCode * 59 + this.CanTimeout.GetHashCode();
-                hashCode = hashCode * 59 + this.CanWrite.GetHashCode();
                 hashCode = hashCode * 59 + this.Length.GetHashCode();
                 hashCode = hashCode * 59 + this.Position.GetHashCode();
                 hashCode = hashCode * 59 + this.ReadTimeout.GetHashCode();
