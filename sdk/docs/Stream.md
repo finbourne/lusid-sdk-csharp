@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CanRead** | **bool** |  | [optional] [readonly] 
+**CanWrite** | **bool** |  | [optional] [readonly] 
 **CanSeek** | **bool** |  | [optional] [readonly] 
 **CanTimeout** | **bool** |  | [optional] [readonly] 
-**CanWrite** | **bool** |  | [optional] [readonly] 
 **Length** | **long** |  | [optional] [readonly] 
 **Position** | **long** |  | [optional] 
 **ReadTimeout** | **int** |  | [optional] 
