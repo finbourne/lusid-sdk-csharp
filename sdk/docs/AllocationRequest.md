@@ -15,11 +15,11 @@ Name | Type | Description | Notes
 **State** | **string** | The state of this allocation. | [optional] 
 **Side** | **string** | The side of this allocation (examples: Buy, Sell, ...). | [optional] 
 **Type** | **string** | The type of order associated with this allocation (examples: Limit, Market, ...). | [optional] 
-**SettlementDate** | **DateTimeOffset?** | The settlement date for this allocation. | [optional] 
+**SettlementDate** | **DateTimeOffset** | The settlement date for this allocation. | [optional] 
 **Date** | **DateTimeOffset** | The date of this allocation. | [optional] 
 **Price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **SettlementCurrency** | **string** | The settlement currency of this allocation. | [optional] 
-**SettlementCurrencyFxRate** | **decimal?** | The settlement currency to allocation currency FX rate. | [optional] 
+**SettlementCurrencyFxRate** | **decimal** | The settlement currency to allocation currency FX rate. | [optional] 
 **Counterparty** | **string** | The counterparty for this allocation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
