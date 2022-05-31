@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **AllocatedOrderId** | [**ResourceId**](ResourceId.md) |  | 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
-**Quantity** | **int** | The quantity of given instrument allocated. | 
+**Quantity** | **decimal** | The quantity of given instrument allocated. | 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument allocated. | 
 **Version** | [**Version**](Version.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this allocation. | [optional] 
