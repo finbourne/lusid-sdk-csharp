@@ -4,7 +4,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Delete instrument
+[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
 [**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
 [**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types
 [**GetInstrumentPropertyTimeSeries**](InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 # **DeleteInstrument**
 > DeleteInstrumentResponse DeleteInstrument (string identifierType, string identifier, string scope = null)
 
-[EARLY ACCESS] DeleteInstrument: Delete instrument
+[EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
 
-Delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
 
 ### Example
 ```csharp
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteInstrument: Delete instrument
+                // [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
                 DeleteInstrumentResponse result = apiInstance.DeleteInstrument(identifierType, identifier, scope);
                 Debug.WriteLine(result);
             }
