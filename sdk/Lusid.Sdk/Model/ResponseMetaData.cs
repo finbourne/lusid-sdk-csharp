@@ -27,41 +27,53 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The unique identifier of the quote.
+    /// Metadata related to an api response
     /// </summary>
-    [DataContract(Name = "QuoteId")]
-    public partial class QuoteId : IEquatable<QuoteId>
+    [DataContract(Name = "ResponseMetaData")]
+    public partial class ResponseMetaData : IEquatable<ResponseMetaData>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuoteId" /> class.
+        /// Initializes a new instance of the <see cref="ResponseMetaData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected QuoteId() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="QuoteId" /> class.
-        /// </summary>
-        /// <param name="quoteSeriesId">quoteSeriesId (required).</param>
-        /// <param name="effectiveAt">The effective datetime or cut label at which the quote is valid from. (required).</param>
-        public QuoteId(QuoteSeriesId quoteSeriesId = default(QuoteSeriesId), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel))
+        /// <param name="type">The type of meta data information being provided.</param>
+        /// <param name="description">The description of what occured for this specific piece of meta data.</param>
+        /// <param name="identifierType">The type of the listed identifiers.</param>
+        /// <param name="identifiers">The related identifiers that were impacted by this event.</param>
+        public ResponseMetaData(string type = default(string), string description = default(string), string identifierType = default(string), List<string> identifiers = default(List<string>))
         {
-            // to ensure "quoteSeriesId" is required (not null)
-            this.QuoteSeriesId = quoteSeriesId ?? throw new ArgumentNullException("quoteSeriesId is a required property for QuoteId and cannot be null");
-            // to ensure "effectiveAt" is required (not null)
-            this.EffectiveAt = effectiveAt ?? throw new ArgumentNullException("effectiveAt is a required property for QuoteId and cannot be null");
+            this.Type = type;
+            this.Description = description;
+            this.IdentifierType = identifierType;
+            this.Identifiers = identifiers;
         }
 
         /// <summary>
-        /// Gets or Sets QuoteSeriesId
+        /// The type of meta data information being provided
         /// </summary>
-        [DataMember(Name = "quoteSeriesId", IsRequired = true, EmitDefaultValue = false)]
-        public QuoteSeriesId QuoteSeriesId { get; set; }
+        /// <value>The type of meta data information being provided</value>
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// The effective datetime or cut label at which the quote is valid from.
+        /// The description of what occured for this specific piece of meta data
         /// </summary>
-        /// <value>The effective datetime or cut label at which the quote is valid from.</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOrCutLabel EffectiveAt { get; set; }
+        /// <value>The description of what occured for this specific piece of meta data</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// The type of the listed identifiers
+        /// </summary>
+        /// <value>The type of the listed identifiers</value>
+        [DataMember(Name = "identifierType", EmitDefaultValue = true)]
+        public string IdentifierType { get; set; }
+
+        /// <summary>
+        /// The related identifiers that were impacted by this event
+        /// </summary>
+        /// <value>The related identifiers that were impacted by this event</value>
+        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
+        public List<string> Identifiers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +82,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuoteId {\n");
-            sb.Append("  QuoteSeriesId: ").Append(QuoteSeriesId).Append("\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("class ResponseMetaData {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
+            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,29 +107,40 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuoteId);
+            return this.Equals(input as ResponseMetaData);
         }
 
         /// <summary>
-        /// Returns true if QuoteId instances are equal
+        /// Returns true if ResponseMetaData instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuoteId to be compared</param>
+        /// <param name="input">Instance of ResponseMetaData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuoteId input)
+        public bool Equals(ResponseMetaData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.QuoteSeriesId == input.QuoteSeriesId ||
-                    (this.QuoteSeriesId != null &&
-                    this.QuoteSeriesId.Equals(input.QuoteSeriesId))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.IdentifierType == input.IdentifierType ||
+                    (this.IdentifierType != null &&
+                    this.IdentifierType.Equals(input.IdentifierType))
+                ) && 
+                (
+                    this.Identifiers == input.Identifiers ||
+                    this.Identifiers != null &&
+                    input.Identifiers != null &&
+                    this.Identifiers.SequenceEqual(input.Identifiers)
                 );
         }
 
@@ -128,10 +153,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.QuoteSeriesId != null)
-                    hashCode = hashCode * 59 + this.QuoteSeriesId.GetHashCode();
-                if (this.EffectiveAt != null)
-                    hashCode = hashCode * 59 + this.EffectiveAt.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.IdentifierType != null)
+                    hashCode = hashCode * 59 + this.IdentifierType.GetHashCode();
+                if (this.Identifiers != null)
+                    hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
                 return hashCode;
             }
         }
