@@ -27,37 +27,47 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AggregatedReturnsResponse
+    /// A collection of resources that can be returned from requests.
     /// </summary>
-    [DataContract(Name = "AggregatedReturnsResponse")]
-    public partial class AggregatedReturnsResponse : IEquatable<AggregatedReturnsResponse>
+    [DataContract(Name = "ResourceListOfLegalEntity")]
+    public partial class ResourceListOfLegalEntity : IEquatable<ResourceListOfLegalEntity>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AggregatedReturnsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfLegalEntity" /> class.
         /// </summary>
-        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="results">Aggregated returns grouped by ReturnId.</param>
+        [JsonConstructorAttribute]
+        protected ResourceListOfLegalEntity() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceListOfLegalEntity" /> class.
+        /// </summary>
+        /// <param name="values">The resources to list. (required).</param>
+        /// <param name="href">The URI of the resource list..</param>
         /// <param name="links">Collection of links..</param>
-        public AggregatedReturnsResponse(string href = default(string), Dictionary<string, List<AggregatedReturn>> results = default(Dictionary<string, List<AggregatedReturn>>), List<Link> links = default(List<Link>))
+        /// <param name="nextPage">The next page of results..</param>
+        /// <param name="previousPage">The previous page of results..</param>
+        public ResourceListOfLegalEntity(List<LegalEntity> values = default(List<LegalEntity>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
+            // to ensure "values" is required (not null)
+            this.Values = values ?? throw new ArgumentNullException("values is a required property for ResourceListOfLegalEntity and cannot be null");
             this.Href = href;
-            this.Results = results;
             this.Links = links;
+            this.NextPage = nextPage;
+            this.PreviousPage = previousPage;
         }
 
         /// <summary>
-        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// The resources to list.
         /// </summary>
-        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
+        /// <value>The resources to list.</value>
+        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = false)]
+        public List<LegalEntity> Values { get; set; }
 
         /// <summary>
-        /// Aggregated returns grouped by ReturnId
+        /// The URI of the resource list.
         /// </summary>
-        /// <value>Aggregated returns grouped by ReturnId</value>
-        [DataMember(Name = "results", EmitDefaultValue = true)]
-        public Dictionary<string, List<AggregatedReturn>> Results { get; set; }
+        /// <value>The URI of the resource list.</value>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
 
         /// <summary>
         /// Collection of links.
@@ -67,16 +77,32 @@ namespace Lusid.Sdk.Model
         public List<Link> Links { get; set; }
 
         /// <summary>
+        /// The next page of results.
+        /// </summary>
+        /// <value>The next page of results.</value>
+        [DataMember(Name = "nextPage", EmitDefaultValue = true)]
+        public string NextPage { get; set; }
+
+        /// <summary>
+        /// The previous page of results.
+        /// </summary>
+        /// <value>The previous page of results.</value>
+        [DataMember(Name = "previousPage", EmitDefaultValue = true)]
+        public string PreviousPage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AggregatedReturnsResponse {\n");
+            sb.Append("class ResourceListOfLegalEntity {\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Results: ").Append(Results).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
+            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,36 +123,46 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AggregatedReturnsResponse);
+            return this.Equals(input as ResourceListOfLegalEntity);
         }
 
         /// <summary>
-        /// Returns true if AggregatedReturnsResponse instances are equal
+        /// Returns true if ResourceListOfLegalEntity instances are equal
         /// </summary>
-        /// <param name="input">Instance of AggregatedReturnsResponse to be compared</param>
+        /// <param name="input">Instance of ResourceListOfLegalEntity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AggregatedReturnsResponse input)
+        public bool Equals(ResourceListOfLegalEntity input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
+                ) && 
+                (
                     this.Href == input.Href ||
                     (this.Href != null &&
                     this.Href.Equals(input.Href))
-                ) && 
-                (
-                    this.Results == input.Results ||
-                    this.Results != null &&
-                    input.Results != null &&
-                    this.Results.SequenceEqual(input.Results)
                 ) && 
                 (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
                     this.Links.SequenceEqual(input.Links)
+                ) && 
+                (
+                    this.NextPage == input.NextPage ||
+                    (this.NextPage != null &&
+                    this.NextPage.Equals(input.NextPage))
+                ) && 
+                (
+                    this.PreviousPage == input.PreviousPage ||
+                    (this.PreviousPage != null &&
+                    this.PreviousPage.Equals(input.PreviousPage))
                 );
         }
 
@@ -139,12 +175,16 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
                 if (this.Href != null)
                     hashCode = hashCode * 59 + this.Href.GetHashCode();
-                if (this.Results != null)
-                    hashCode = hashCode * 59 + this.Results.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
+                if (this.NextPage != null)
+                    hashCode = hashCode * 59 + this.NextPage.GetHashCode();
+                if (this.PreviousPage != null)
+                    hashCode = hashCode * 59 + this.PreviousPage.GetHashCode();
                 return hashCode;
             }
         }
