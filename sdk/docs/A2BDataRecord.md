@@ -6,7 +6,7 @@ A2B Record - shows values on, and changes between two dates: A and B
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**HoldingType** | **string** | The type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc. | [optional] 
+**HoldingType** | **string** | The code for the type of the holding e.g. P, B, C, R, F etc. | [optional] 
 **InstrumentScope** | **string** | The unique Lusid Instrument Id (LUID) of the instrument that the holding is in. | [optional] 
 **InstrumentUid** | **string** | The unique Lusid Instrument Id (LUID) of the instrument that the holding is in. | [optional] 
 **SubHoldingKeys** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding properties which identify the holding. Each property will be from the &#39;Transaction&#39; domain. These are configured on a transaction portfolio. | [optional] 
