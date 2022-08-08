@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **CostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **Transaction** | [**Transaction**](Transaction.md) |  | [optional] 
 **Currency** | **string** | The holding currency. | [optional] 
-**HoldingTypeName** | **string** | The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc. | 
+**HoldingTypeName** | **string** | The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
