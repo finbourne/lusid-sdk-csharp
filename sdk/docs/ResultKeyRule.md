@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.ResultKeyRule
-A rule that describes how we resolve (unit) result data.
+Base class for representing result key rules in LUSID, which describe how to resolve (unit) result data.  This base class should not be directly instantiated; each supported ResultKeyRuleType has a corresponding inherited class.
 
 ## Properties
 
