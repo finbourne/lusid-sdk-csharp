@@ -32,6 +32,19 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ComplexMarketData")]
     [JsonConverter(typeof(JsonSubtypes), "MarketDataType")]
+    [JsonSubtypes.KnownSubType(typeof(CreditSpreadCurveData), "CreditSpreadCurveData")]
+    [JsonSubtypes.KnownSubType(typeof(DiscountFactorCurveData), "DiscountFactorCurveData")]
+    [JsonSubtypes.KnownSubType(typeof(EquityCurveByPricesData), "EquityCurveByPricesData")]
+    [JsonSubtypes.KnownSubType(typeof(EquityVolSurfaceData), "EquityVolSurfaceData")]
+    [JsonSubtypes.KnownSubType(typeof(FxForwardCurveByQuoteReference), "FxForwardCurveByQuoteReference")]
+    [JsonSubtypes.KnownSubType(typeof(FxForwardCurveData), "FxForwardCurveData")]
+    [JsonSubtypes.KnownSubType(typeof(FxForwardPipsCurveData), "FxForwardPipsCurveData")]
+    [JsonSubtypes.KnownSubType(typeof(FxForwardTenorCurveData), "FxForwardTenorCurveData")]
+    [JsonSubtypes.KnownSubType(typeof(FxForwardTenorPipsCurveData), "FxForwardTenorPipsCurveData")]
+    [JsonSubtypes.KnownSubType(typeof(FxVolSurfaceData), "FxVolSurfaceData")]
+    [JsonSubtypes.KnownSubType(typeof(IrVolCubeData), "IrVolCubeData")]
+    [JsonSubtypes.KnownSubType(typeof(OpaqueMarketData), "OpaqueMarketData")]
+    [JsonSubtypes.KnownSubType(typeof(YieldCurveData), "YieldCurveData")]
     public partial class ComplexMarketData : IEquatable<ComplexMarketData>
     {
         /// <summary>

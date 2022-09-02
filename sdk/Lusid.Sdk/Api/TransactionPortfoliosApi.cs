@@ -336,7 +336,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <returns>HoldingsAdjustment</returns>
         HoldingsAdjustment GetHoldingsAdjustment(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>));
 
@@ -351,7 +351,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <returns>ApiResponse of HoldingsAdjustment</returns>
         ApiResponse<HoldingsAdjustment> GetHoldingsAdjustmentWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>));
         /// <summary>
@@ -1000,7 +1000,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of HoldingsAdjustment</returns>
         System.Threading.Tasks.Task<HoldingsAdjustment> GetHoldingsAdjustmentAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1016,7 +1016,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (HoldingsAdjustment)</returns>
         System.Threading.Tasks.Task<ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -3457,7 +3457,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <returns>HoldingsAdjustment</returns>
         public HoldingsAdjustment GetHoldingsAdjustment(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>))
         {
@@ -3473,7 +3473,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <returns>ApiResponse of HoldingsAdjustment</returns>
         public Lusid.Sdk.Client.ApiResponse<HoldingsAdjustment> GetHoldingsAdjustmentWithHttpInfo(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>))
         {
@@ -3550,7 +3550,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of HoldingsAdjustment</returns>
         public async System.Threading.Tasks.Task<HoldingsAdjustment> GetHoldingsAdjustmentAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3567,7 +3567,7 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="effectiveAt">The effective datetime or cut label of the holdings adjustment.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the ‘Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holding’ domain are automatically returned. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the â€˜Instrument&#39; domain to decorate onto holdings adjustments.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;.              Note that properties from the &#39;Holdingâ€™ domain are automatically returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (HoldingsAdjustment)</returns>
         public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<HoldingsAdjustment>> GetHoldingsAdjustmentWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
