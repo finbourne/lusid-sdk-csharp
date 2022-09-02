@@ -32,6 +32,8 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ResultKeyRule")]
     [JsonConverter(typeof(JsonSubtypes), "ResultKeyRuleType")]
+    [JsonSubtypes.KnownSubType(typeof(PortfolioResultDataKeyRule), "PortfolioResultDataKeyRule")]
+    [JsonSubtypes.KnownSubType(typeof(ResultDataKeyRule), "ResultDataKeyRule")]
     public partial class ResultKeyRule : IEquatable<ResultKeyRule>
     {
         /// <summary>
