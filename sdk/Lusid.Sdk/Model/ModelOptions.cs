@@ -32,6 +32,11 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ModelOptions")]
     [JsonConverter(typeof(JsonSubtypes), "ModelOptionsType")]
+    [JsonSubtypes.KnownSubType(typeof(EmptyModelOptions), "EmptyModelOptions")]
+    [JsonSubtypes.KnownSubType(typeof(EquityModelOptions), "EquityModelOptions")]
+    [JsonSubtypes.KnownSubType(typeof(FxForwardModelOptions), "FxForwardModelOptions")]
+    [JsonSubtypes.KnownSubType(typeof(IndexModelOptions), "IndexModelOptions")]
+    [JsonSubtypes.KnownSubType(typeof(OpaqueModelOptions), "OpaqueModelOptions")]
     public partial class ModelOptions : IEquatable<ModelOptions>
     {
         /// <summary>
