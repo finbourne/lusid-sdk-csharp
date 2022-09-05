@@ -20,11 +20,9 @@ We publish two versions of the C# SDK:
 For more details on API endpoint categories, see [What is the LUSID feature release lifecycle?](https://support.lusid.com/knowledgebase/article/KA-01786/en-us).
 To find out which category an API endpoint falls into, see [LUSID API Documentation](https://www.lusid.com/api/swagger/index.html).
 
-
-
 ## Documentation
 
-For further documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-csharp/wiki).
+For further documentation on building the SDK, running the tutorials and using the SDK please see the [wiki](https://github.com/finbourne/lusid-sdk-csharp/wiki) and the [standalone examples repository](https://github.com/finbourne/lusid-sdk-examples-csharp).
 
 Documentation for namespaces, interfaces, classes, functions and other members of the 
 SDK is [available to view online](https://lusid-sdk-csharp.readthedocs.io/en/latest/).
