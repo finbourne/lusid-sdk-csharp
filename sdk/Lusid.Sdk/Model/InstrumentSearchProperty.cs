@@ -27,259 +27,42 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// FxSwapAllOf
+    /// InstrumentSearchProperty
     /// </summary>
-    [DataContract(Name = "FxSwap_allOf")]
-    public partial class FxSwapAllOf : IEquatable<FxSwapAllOf>
+    [DataContract(Name = "InstrumentSearchProperty")]
+    public partial class InstrumentSearchProperty : IEquatable<InstrumentSearchProperty>
     {
         /// <summary>
-        /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond
-        /// </summary>
-        /// <value>The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum InstrumentTypeEnum
-        {
-            /// <summary>
-            /// Enum QuotedSecurity for value: QuotedSecurity
-            /// </summary>
-            [EnumMember(Value = "QuotedSecurity")]
-            QuotedSecurity = 1,
-
-            /// <summary>
-            /// Enum InterestRateSwap for value: InterestRateSwap
-            /// </summary>
-            [EnumMember(Value = "InterestRateSwap")]
-            InterestRateSwap = 2,
-
-            /// <summary>
-            /// Enum FxForward for value: FxForward
-            /// </summary>
-            [EnumMember(Value = "FxForward")]
-            FxForward = 3,
-
-            /// <summary>
-            /// Enum Future for value: Future
-            /// </summary>
-            [EnumMember(Value = "Future")]
-            Future = 4,
-
-            /// <summary>
-            /// Enum ExoticInstrument for value: ExoticInstrument
-            /// </summary>
-            [EnumMember(Value = "ExoticInstrument")]
-            ExoticInstrument = 5,
-
-            /// <summary>
-            /// Enum FxOption for value: FxOption
-            /// </summary>
-            [EnumMember(Value = "FxOption")]
-            FxOption = 6,
-
-            /// <summary>
-            /// Enum CreditDefaultSwap for value: CreditDefaultSwap
-            /// </summary>
-            [EnumMember(Value = "CreditDefaultSwap")]
-            CreditDefaultSwap = 7,
-
-            /// <summary>
-            /// Enum InterestRateSwaption for value: InterestRateSwaption
-            /// </summary>
-            [EnumMember(Value = "InterestRateSwaption")]
-            InterestRateSwaption = 8,
-
-            /// <summary>
-            /// Enum Bond for value: Bond
-            /// </summary>
-            [EnumMember(Value = "Bond")]
-            Bond = 9,
-
-            /// <summary>
-            /// Enum EquityOption for value: EquityOption
-            /// </summary>
-            [EnumMember(Value = "EquityOption")]
-            EquityOption = 10,
-
-            /// <summary>
-            /// Enum FixedLeg for value: FixedLeg
-            /// </summary>
-            [EnumMember(Value = "FixedLeg")]
-            FixedLeg = 11,
-
-            /// <summary>
-            /// Enum FloatingLeg for value: FloatingLeg
-            /// </summary>
-            [EnumMember(Value = "FloatingLeg")]
-            FloatingLeg = 12,
-
-            /// <summary>
-            /// Enum BespokeCashFlowsLeg for value: BespokeCashFlowsLeg
-            /// </summary>
-            [EnumMember(Value = "BespokeCashFlowsLeg")]
-            BespokeCashFlowsLeg = 13,
-
-            /// <summary>
-            /// Enum Unknown for value: Unknown
-            /// </summary>
-            [EnumMember(Value = "Unknown")]
-            Unknown = 14,
-
-            /// <summary>
-            /// Enum TermDeposit for value: TermDeposit
-            /// </summary>
-            [EnumMember(Value = "TermDeposit")]
-            TermDeposit = 15,
-
-            /// <summary>
-            /// Enum ContractForDifference for value: ContractForDifference
-            /// </summary>
-            [EnumMember(Value = "ContractForDifference")]
-            ContractForDifference = 16,
-
-            /// <summary>
-            /// Enum EquitySwap for value: EquitySwap
-            /// </summary>
-            [EnumMember(Value = "EquitySwap")]
-            EquitySwap = 17,
-
-            /// <summary>
-            /// Enum CashPerpetual for value: CashPerpetual
-            /// </summary>
-            [EnumMember(Value = "CashPerpetual")]
-            CashPerpetual = 18,
-
-            /// <summary>
-            /// Enum CapFloor for value: CapFloor
-            /// </summary>
-            [EnumMember(Value = "CapFloor")]
-            CapFloor = 19,
-
-            /// <summary>
-            /// Enum CashSettled for value: CashSettled
-            /// </summary>
-            [EnumMember(Value = "CashSettled")]
-            CashSettled = 20,
-
-            /// <summary>
-            /// Enum CdsIndex for value: CdsIndex
-            /// </summary>
-            [EnumMember(Value = "CdsIndex")]
-            CdsIndex = 21,
-
-            /// <summary>
-            /// Enum Basket for value: Basket
-            /// </summary>
-            [EnumMember(Value = "Basket")]
-            Basket = 22,
-
-            /// <summary>
-            /// Enum FundingLeg for value: FundingLeg
-            /// </summary>
-            [EnumMember(Value = "FundingLeg")]
-            FundingLeg = 23,
-
-            /// <summary>
-            /// Enum FxSwap for value: FxSwap
-            /// </summary>
-            [EnumMember(Value = "FxSwap")]
-            FxSwap = 24,
-
-            /// <summary>
-            /// Enum ForwardRateAgreement for value: ForwardRateAgreement
-            /// </summary>
-            [EnumMember(Value = "ForwardRateAgreement")]
-            ForwardRateAgreement = 25,
-
-            /// <summary>
-            /// Enum SimpleInstrument for value: SimpleInstrument
-            /// </summary>
-            [EnumMember(Value = "SimpleInstrument")]
-            SimpleInstrument = 26,
-
-            /// <summary>
-            /// Enum Repo for value: Repo
-            /// </summary>
-            [EnumMember(Value = "Repo")]
-            Repo = 27,
-
-            /// <summary>
-            /// Enum Equity for value: Equity
-            /// </summary>
-            [EnumMember(Value = "Equity")]
-            Equity = 28,
-
-            /// <summary>
-            /// Enum ExchangeTradedOption for value: ExchangeTradedOption
-            /// </summary>
-            [EnumMember(Value = "ExchangeTradedOption")]
-            ExchangeTradedOption = 29,
-
-            /// <summary>
-            /// Enum ReferenceInstrument for value: ReferenceInstrument
-            /// </summary>
-            [EnumMember(Value = "ReferenceInstrument")]
-            ReferenceInstrument = 30,
-
-            /// <summary>
-            /// Enum ComplexBond for value: ComplexBond
-            /// </summary>
-            [EnumMember(Value = "ComplexBond")]
-            ComplexBond = 31,
-
-            /// <summary>
-            /// Enum InflationLinkedBond for value: InflationLinkedBond
-            /// </summary>
-            [EnumMember(Value = "InflationLinkedBond")]
-            InflationLinkedBond = 32
-
-        }
-
-
-        /// <summary>
-        /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond
-        /// </summary>
-        /// <value>The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond</value>
-        [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = false)]
-        public InstrumentTypeEnum InstrumentType { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FxSwapAllOf" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentSearchProperty" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FxSwapAllOf() { }
+        protected InstrumentSearchProperty() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FxSwapAllOf" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentSearchProperty" /> class.
         /// </summary>
-        /// <param name="nearFxForward">nearFxForward (required).</param>
-        /// <param name="farFxForward">farFxForward (required).</param>
-        /// <param name="notionalSymmetry">The NotionalSymmetry allows for even and uneven FxSwaps to be supported.  An even FxSwap is one where the near and far fx forwards have the same notional value on at least one of the  legs. An uneven FxSwap is one where near and far fx forwards don&#39;t have the same notional on both the  domestic and foreign legs.  By default NotionalSymmetry will be set as even.    Supported string (enumeration) values are: [Even, Uneven]..</param>
-        /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond (required).</param>
-        public FxSwapAllOf(FxForward nearFxForward = default(FxForward), FxForward farFxForward = default(FxForward), string notionalSymmetry = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        /// <param name="key">The property key of instrument property to search for. This will be from the &#39;Instrument&#39; domain and will take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Isin&#39; or &#39;Instrument/MyScope/AssetClass&#39;. (required).</param>
+        /// <param name="value">The value of the property e.g. &#39;US0378331005&#39; or &#39;Equity&#39;. (required).</param>
+        public InstrumentSearchProperty(string key = default(string), string value = default(string))
         {
-            // to ensure "nearFxForward" is required (not null)
-            this.NearFxForward = nearFxForward ?? throw new ArgumentNullException("nearFxForward is a required property for FxSwapAllOf and cannot be null");
-            // to ensure "farFxForward" is required (not null)
-            this.FarFxForward = farFxForward ?? throw new ArgumentNullException("farFxForward is a required property for FxSwapAllOf and cannot be null");
-            this.InstrumentType = instrumentType;
-            this.NotionalSymmetry = notionalSymmetry;
+            // to ensure "key" is required (not null)
+            this.Key = key ?? throw new ArgumentNullException("key is a required property for InstrumentSearchProperty and cannot be null");
+            // to ensure "value" is required (not null)
+            this.Value = value ?? throw new ArgumentNullException("value is a required property for InstrumentSearchProperty and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets NearFxForward
+        /// The property key of instrument property to search for. This will be from the &#39;Instrument&#39; domain and will take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Isin&#39; or &#39;Instrument/MyScope/AssetClass&#39;.
         /// </summary>
-        [DataMember(Name = "nearFxForward", IsRequired = true, EmitDefaultValue = false)]
-        public FxForward NearFxForward { get; set; }
+        /// <value>The property key of instrument property to search for. This will be from the &#39;Instrument&#39; domain and will take the format {domain}/{scope}/{code} e.g. &#39;Instrument/system/Isin&#39; or &#39;Instrument/MyScope/AssetClass&#39;.</value>
+        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = false)]
+        public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets FarFxForward
+        /// The value of the property e.g. &#39;US0378331005&#39; or &#39;Equity&#39;.
         /// </summary>
-        [DataMember(Name = "farFxForward", IsRequired = true, EmitDefaultValue = false)]
-        public FxForward FarFxForward { get; set; }
-
-        /// <summary>
-        /// The NotionalSymmetry allows for even and uneven FxSwaps to be supported.  An even FxSwap is one where the near and far fx forwards have the same notional value on at least one of the  legs. An uneven FxSwap is one where near and far fx forwards don&#39;t have the same notional on both the  domestic and foreign legs.  By default NotionalSymmetry will be set as even.    Supported string (enumeration) values are: [Even, Uneven].
-        /// </summary>
-        /// <value>The NotionalSymmetry allows for even and uneven FxSwaps to be supported.  An even FxSwap is one where the near and far fx forwards have the same notional value on at least one of the  legs. An uneven FxSwap is one where near and far fx forwards don&#39;t have the same notional on both the  domestic and foreign legs.  By default NotionalSymmetry will be set as even.    Supported string (enumeration) values are: [Even, Uneven].</value>
-        [DataMember(Name = "notionalSymmetry", EmitDefaultValue = true)]
-        public string NotionalSymmetry { get; set; }
+        /// <value>The value of the property e.g. &#39;US0378331005&#39; or &#39;Equity&#39;.</value>
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = false)]
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -288,11 +71,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FxSwapAllOf {\n");
-            sb.Append("  NearFxForward: ").Append(NearFxForward).Append("\n");
-            sb.Append("  FarFxForward: ").Append(FarFxForward).Append("\n");
-            sb.Append("  NotionalSymmetry: ").Append(NotionalSymmetry).Append("\n");
-            sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
+            sb.Append("class InstrumentSearchProperty {\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -313,38 +94,29 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FxSwapAllOf);
+            return this.Equals(input as InstrumentSearchProperty);
         }
 
         /// <summary>
-        /// Returns true if FxSwapAllOf instances are equal
+        /// Returns true if InstrumentSearchProperty instances are equal
         /// </summary>
-        /// <param name="input">Instance of FxSwapAllOf to be compared</param>
+        /// <param name="input">Instance of InstrumentSearchProperty to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FxSwapAllOf input)
+        public bool Equals(InstrumentSearchProperty input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.NearFxForward == input.NearFxForward ||
-                    (this.NearFxForward != null &&
-                    this.NearFxForward.Equals(input.NearFxForward))
+                    this.Key == input.Key ||
+                    (this.Key != null &&
+                    this.Key.Equals(input.Key))
                 ) && 
                 (
-                    this.FarFxForward == input.FarFxForward ||
-                    (this.FarFxForward != null &&
-                    this.FarFxForward.Equals(input.FarFxForward))
-                ) && 
-                (
-                    this.NotionalSymmetry == input.NotionalSymmetry ||
-                    (this.NotionalSymmetry != null &&
-                    this.NotionalSymmetry.Equals(input.NotionalSymmetry))
-                ) && 
-                (
-                    this.InstrumentType == input.InstrumentType ||
-                    this.InstrumentType.Equals(input.InstrumentType)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -357,13 +129,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NearFxForward != null)
-                    hashCode = hashCode * 59 + this.NearFxForward.GetHashCode();
-                if (this.FarFxForward != null)
-                    hashCode = hashCode * 59 + this.FarFxForward.GetHashCode();
-                if (this.NotionalSymmetry != null)
-                    hashCode = hashCode * 59 + this.NotionalSymmetry.GetHashCode();
-                hashCode = hashCode * 59 + this.InstrumentType.GetHashCode();
+                if (this.Key != null)
+                    hashCode = hashCode * 59 + this.Key.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }
