@@ -1,0 +1,11 @@
+# Lusid.Sdk.Model.ActionResultOfPortfolio
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Result** | **Object** |  | [optional] 
+**Value** | [**Portfolio**](Portfolio.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
