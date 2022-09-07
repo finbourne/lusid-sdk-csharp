@@ -19,8 +19,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Lusid.Sdk\Lusid.Sdk.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Examples\Examples.csproj" />
-  </ItemGroup>
 </Project>
