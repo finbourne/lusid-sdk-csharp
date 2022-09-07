@@ -1,13 +1,14 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32519.379
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lusid.Sdk", "Lusid.Sdk\Lusid.Sdk.csproj", "{A18E97D1-1621-43FF-87E4-C5C00FD2E516}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lusid.Sdk", "Lusid.Sdk\Lusid.Sdk.csproj", "{A18E97D1-1621-43FF-87E4-C5C00FD2E516}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lusid.Sdk.Tests", "Lusid.Sdk.Tests\Lusid.Sdk.Tests.csproj", "{529EE36E-F438-4EC0-8705-3341D3787505}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lusid.Sdk.Tests", "Lusid.Sdk.Tests\Lusid.Sdk.Tests.csproj", "{529EE36E-F438-4EC0-8705-3341D3787505}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LusidFeatureReporter", "LusidFeatureReporter\LusidFeatureReporter.csproj", "{8D0AA52B-706C-462D-B522-D21734A6348E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LusidFeatureReporter", "LusidFeatureReporter\LusidFeatureReporter.csproj", "{8D0AA52B-706C-462D-B522-D21734A6348E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A18E97D1-1621-43FF-87E4-C5C00FD2E516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A18E97D1-1621-43FF-87E4-C5C00FD2E516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A18E97D1-1621-43FF-87E4-C5C00FD2E516}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,11 +32,12 @@ Global
 		{8D0AA52B-706C-462D-B522-D21734A6348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0AA52B-706C-462D-B522-D21734A6348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0AA52B-706C-462D-B522-D21734A6348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996ADD70-8230-4EE3-A8E3-8CB3EAB9622C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1F9CAE37-7003-40F1-B84B-72AE8648F262}
 	EndGlobalSection
 EndGlobal
