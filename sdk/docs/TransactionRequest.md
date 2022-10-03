@@ -18,8 +18,6 @@ Name | Type | Description | Notes
 **CounterpartyId** | **string** | The identifier for the counterparty of the transaction. | [optional] 
 **Source** | **string** | The source of the transaction. This is used to look up the appropriate transaction group set in the transaction type configuration. | [optional] 
 **OtcConfirmation** | [**OtcConfirmation**](OtcConfirmation.md) |  | [optional] 
-**OrderId** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**AllocationId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
