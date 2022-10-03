@@ -5,7 +5,7 @@ Base class for representing schedules in LUSID.  This base class should not be d
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleType** | **string** | The available values are: Fixed, Float, Optionality, Step, Exercise, Invalid | 
+**ScheduleType** | **string** | The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
