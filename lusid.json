@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.11.4839",
+    "version": "0.11.4840",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -48947,7 +48947,7 @@
           },
           "amortisationMethod": {
             "type": "string",
-            "description": "The amortisation method the portfolio is using in the calculation.",
+            "description": "The amortisation method the portfolio is using in the calculation. This can be 'NoAmortisation', 'StraightLine' or 'EffectiveYield'.",
             "nullable": true
           }
         },
@@ -49393,7 +49393,7 @@
           },
           "amortisationMethod": {
             "type": "string",
-            "description": "The amortisation method the portfolio is using in the calculation.",
+            "description": "The amortisation method the portfolio is using in the calculation. This can be 'NoAmortisation', 'StraightLine' or 'EffectiveYield'.",
             "nullable": true
           }
         },
@@ -56315,7 +56315,7 @@
           },
           "amortisationMethod": {
             "type": "string",
-            "description": "The amortisation method the portfolio is using in the calculation.",
+            "description": "The amortisation method the portfolio is using in the calculation. This can be 'NoAmortisation', 'StraightLine' or 'EffectiveYield'.",
             "nullable": true
           },
           "links": {
@@ -56521,7 +56521,7 @@
           },
           "amortisationMethod": {
             "type": "string",
-            "description": "The amortisation method the portfolio is using in the calculation.",
+            "description": "The amortisation method the portfolio is using in the calculation. This can be 'NoAmortisation', 'StraightLine' or 'EffectiveYield'.",
             "nullable": true
           },
           "links": {
