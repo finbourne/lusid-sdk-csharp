@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **PriceSource** | **string** | The source or originator of the complex market data, e.g. a bank or financial institution. | [optional] 
 **Lineage** | **string** | This is obsolete. It is not used, it will not be stored, and has no effects.  If you wish to attach a Lineage to your ComplexMarketData,  you should provide it in the optional Lineage field in the ComplexMarketData class. | [optional] 
 **EffectiveAt** | [**DateTimeOrCutLabel**](DateTimeOrCutLabel.md) | The effectiveAt or cut label that this item of complex market data is/was updated/inserted with. | [optional] 
-**MarketAsset** | **string** | The name of the market entity that the document represents | [optional] 
+**MarketAsset** | **string** | The name of the market entity that the document represents | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
