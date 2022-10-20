@@ -27,68 +27,128 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A collection of resources that can be returned from requests.
+    /// AddressDefinition
     /// </summary>
-    [DataContract(Name = "ResourceListOfAllocation")]
-    public partial class ResourceListOfAllocation : IEquatable<ResourceListOfAllocation>
+    [DataContract(Name = "AddressDefinition")]
+    public partial class AddressDefinition : IEquatable<AddressDefinition>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfAllocation" /> class.
+        /// The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ResourceListOfAllocation() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfAllocation" /> class.
-        /// </summary>
-        /// <param name="values">The resources to list. (required).</param>
-        /// <param name="href">The URI of the resource list..</param>
-        /// <param name="links">Collection of links..</param>
-        /// <param name="nextPage">The next page of results..</param>
-        /// <param name="previousPage">The previous page of results..</param>
-        public ResourceListOfAllocation(List<Allocation> values = default(List<Allocation>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        /// <value>The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
         {
-            // to ensure "values" is required (not null)
-            this.Values = values ?? throw new ArgumentNullException("values is a required property for ResourceListOfAllocation and cannot be null");
-            this.Href = href;
-            this.Links = links;
-            this.NextPage = nextPage;
-            this.PreviousPage = previousPage;
+            /// <summary>
+            /// Enum String for value: String
+            /// </summary>
+            [EnumMember(Value = "String")]
+            String = 1,
+
+            /// <summary>
+            /// Enum Int for value: Int
+            /// </summary>
+            [EnumMember(Value = "Int")]
+            Int = 2,
+
+            /// <summary>
+            /// Enum Decimal for value: Decimal
+            /// </summary>
+            [EnumMember(Value = "Decimal")]
+            Decimal = 3,
+
+            /// <summary>
+            /// Enum DateTime for value: DateTime
+            /// </summary>
+            [EnumMember(Value = "DateTime")]
+            DateTime = 4,
+
+            /// <summary>
+            /// Enum Boolean for value: Boolean
+            /// </summary>
+            [EnumMember(Value = "Boolean")]
+            Boolean = 5,
+
+            /// <summary>
+            /// Enum ResultValue for value: ResultValue
+            /// </summary>
+            [EnumMember(Value = "ResultValue")]
+            ResultValue = 6,
+
+            /// <summary>
+            /// Enum Result0D for value: Result0D
+            /// </summary>
+            [EnumMember(Value = "Result0D")]
+            Result0D = 7,
+
+            /// <summary>
+            /// Enum Json for value: Json
+            /// </summary>
+            [EnumMember(Value = "Json")]
+            Json = 8
+
+        }
+
+
+        /// <summary>
+        /// The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json
+        /// </summary>
+        /// <value>The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json</value>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressDefinition" /> class.
+        /// </summary>
+        /// <param name="displayName">The display name of the address key..</param>
+        /// <param name="type">The available values are: String, Int, Decimal, DateTime, Boolean, ResultValue, Result0D, Json.</param>
+        /// <param name="description">The description for this result..</param>
+        /// <param name="lifeCycleStatus">What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any..</param>
+        /// <param name="removalDate">If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints..</param>
+        /// <param name="documentationLink">Contains a link to the documentation for this AddressDefinition in KnowledgeBase..</param>
+        public AddressDefinition(string displayName = default(string), TypeEnum? type = default(TypeEnum?), string description = default(string), string lifeCycleStatus = default(string), DateTimeOffset? removalDate = default(DateTimeOffset?), string documentationLink = default(string))
+        {
+            this.DisplayName = displayName;
+            this.Type = type;
+            this.Description = description;
+            this.LifeCycleStatus = lifeCycleStatus;
+            this.RemovalDate = removalDate;
+            this.DocumentationLink = documentationLink;
         }
 
         /// <summary>
-        /// The resources to list.
+        /// The display name of the address key.
         /// </summary>
-        /// <value>The resources to list.</value>
-        [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = false)]
-        public List<Allocation> Values { get; set; }
+        /// <value>The display name of the address key.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
-        /// The URI of the resource list.
+        /// The description for this result.
         /// </summary>
-        /// <value>The URI of the resource list.</value>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
+        /// <value>The description for this result.</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any.
         /// </summary>
-        /// <value>Collection of links.</value>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
-        public List<Link> Links { get; set; }
+        /// <value>What is the status of the address path. If it is not Production then it might be removed at some point in the future.  See the removal date for the likely timing of that if any.</value>
+        [DataMember(Name = "lifeCycleStatus", EmitDefaultValue = true)]
+        public string LifeCycleStatus { get; set; }
 
         /// <summary>
-        /// The next page of results.
+        /// If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.
         /// </summary>
-        /// <value>The next page of results.</value>
-        [DataMember(Name = "nextPage", EmitDefaultValue = true)]
-        public string NextPage { get; set; }
+        /// <value>If the life-cycle status of the address is Deprecated then this is the date at which support of the address will be suspended.  After that date it will be removed at the earliest possible point subject to any specific contractual support and development constraints.</value>
+        [DataMember(Name = "removalDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RemovalDate { get; set; }
 
         /// <summary>
-        /// The previous page of results.
+        /// Contains a link to the documentation for this AddressDefinition in KnowledgeBase.
         /// </summary>
-        /// <value>The previous page of results.</value>
-        [DataMember(Name = "previousPage", EmitDefaultValue = true)]
-        public string PreviousPage { get; set; }
+        /// <value>Contains a link to the documentation for this AddressDefinition in KnowledgeBase.</value>
+        [DataMember(Name = "documentationLink", EmitDefaultValue = true)]
+        public string DocumentationLink { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,12 +157,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResourceListOfAllocation {\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  NextPage: ").Append(NextPage).Append("\n");
-            sb.Append("  PreviousPage: ").Append(PreviousPage).Append("\n");
+            sb.Append("class AddressDefinition {\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  LifeCycleStatus: ").Append(LifeCycleStatus).Append("\n");
+            sb.Append("  RemovalDate: ").Append(RemovalDate).Append("\n");
+            sb.Append("  DocumentationLink: ").Append(DocumentationLink).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,46 +184,48 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfAllocation);
+            return this.Equals(input as AddressDefinition);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfAllocation instances are equal
+        /// Returns true if AddressDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfAllocation to be compared</param>
+        /// <param name="input">Instance of AddressDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfAllocation input)
+        public bool Equals(AddressDefinition input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Values == input.Values ||
-                    this.Values != null &&
-                    input.Values != null &&
-                    this.Values.SequenceEqual(input.Values)
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.NextPage == input.NextPage ||
-                    (this.NextPage != null &&
-                    this.NextPage.Equals(input.NextPage))
+                    this.LifeCycleStatus == input.LifeCycleStatus ||
+                    (this.LifeCycleStatus != null &&
+                    this.LifeCycleStatus.Equals(input.LifeCycleStatus))
                 ) && 
                 (
-                    this.PreviousPage == input.PreviousPage ||
-                    (this.PreviousPage != null &&
-                    this.PreviousPage.Equals(input.PreviousPage))
+                    this.RemovalDate == input.RemovalDate ||
+                    (this.RemovalDate != null &&
+                    this.RemovalDate.Equals(input.RemovalDate))
+                ) && 
+                (
+                    this.DocumentationLink == input.DocumentationLink ||
+                    (this.DocumentationLink != null &&
+                    this.DocumentationLink.Equals(input.DocumentationLink))
                 );
         }
 
@@ -175,16 +238,17 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Values != null)
-                    hashCode = hashCode * 59 + this.Values.GetHashCode();
-                if (this.Href != null)
-                    hashCode = hashCode * 59 + this.Href.GetHashCode();
-                if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
-                if (this.NextPage != null)
-                    hashCode = hashCode * 59 + this.NextPage.GetHashCode();
-                if (this.PreviousPage != null)
-                    hashCode = hashCode * 59 + this.PreviousPage.GetHashCode();
+                if (this.DisplayName != null)
+                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.LifeCycleStatus != null)
+                    hashCode = hashCode * 59 + this.LifeCycleStatus.GetHashCode();
+                if (this.RemovalDate != null)
+                    hashCode = hashCode * 59 + this.RemovalDate.GetHashCode();
+                if (this.DocumentationLink != null)
+                    hashCode = hashCode * 59 + this.DocumentationLink.GetHashCode();
                 return hashCode;
             }
         }
