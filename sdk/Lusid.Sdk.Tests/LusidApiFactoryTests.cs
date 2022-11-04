@@ -18,14 +18,14 @@ namespace Lusid.Sdk.Tests
     [TestFixture]
     public class LusidApiFactoryTests
     {
-        private ILusidApiFactory _factory = new LusidApiFactory(new Configuration());
+        private ILusidApiFactory _factory;
         private const string RequestIdRegexPattern = "[a-zA-Z0-9]{13}:[0-9a-fA-F]{8}";
         
 
         [OneTimeSetUp]
         public void SetUp()
         {
-            _factory = LusidApiFactoryBuilder.Build("secrets.json");
+            _factory = TestLusidApiFactoryBuilder.CreateApiFactory("secrets.json");
         }
 
         [Test]
@@ -86,7 +86,8 @@ namespace Lusid.Sdk.Tests
         {
             ApiConfiguration apiConfig = new ApiConfiguration
             {
-                TokenUrl = "xyz"
+                TokenUrl = "xyz",
+                ApiUrl = "http://abc" // api uri is checked first and must pass
             };
 
             Assert.That(
@@ -107,7 +108,32 @@ namespace Lusid.Sdk.Tests
                 () => new LusidApiFactory(apiConfig),
                 Throws.InstanceOf<UriFormatException>().With.Message.EqualTo("Invalid LUSID Uri: xyz"));
         }
-        
+
+        [Test]
+        public void NetworkConnectivityErrors_ThrowsException()
+        {
+            var apiConfig = ApiConfigurationBuilder.Build("secrets.json");
+            apiConfig.ApiUrl = "https://localhost:56789/api"; // nothing should be listening on this, so we should get a "No connection could be made" error...
+
+            var factory = new LusidApiFactory(apiConfig);
+            var api = factory.Api<PortfoliosApi>();
+
+            // Can't be more specific as we get different exceptions locally vs in the build pipeline
+            var expectedMsg = "Internal SDK error occurred when calling GetPortfolio";
+            
+            Assert.That(
+                () => api.GetPortfolioWithHttpInfo("someScope", "someCode"),
+                Throws.InstanceOf<ApiException>()
+                    .With.Message.Contains(expectedMsg));
+
+            // Note: these non-"WithHttpInfo" methods just unwrap the `Data` property from the call above.
+            // But these were the problematic ones, as they would previously just return a null value in this scenario.
+            Assert.That(
+                () => api.GetPortfolio("someScope", "someCode"),
+                Throws.InstanceOf<ApiException>()
+                    .With.Message.Contains(expectedMsg)); 
+        }
+
         [Test]
         public void ApiResponse_CanExtract_RequestId()
         {
@@ -138,6 +164,30 @@ namespace Lusid.Sdk.Tests
                 var requestId = e.GetRequestId();
                 StringAssert.IsMatch(RequestIdRegexPattern, requestId);
             } 
+        }
+        
+        [Test]
+        public void ApiException_WhenExceptionDoesNotContainRequestId_DoesNotThrow()
+        {
+            var exception = new ApiException(
+                errorCode: 123,
+                message: "Some Critical Exception",
+                errorContent: JsonConvert.SerializeObject(new LusidProblemDetails(name: "CriticalException")));
+
+            Assert.That(exception.GetRequestId(), Is.Null);
+        }
+        
+        [Test]
+        public void ApiException_WhenErrorContentIsNotAValidJson_DoesNotThrow()
+        {
+            const string errorContent = "<Some Invalid Json>";
+            var exception = new ApiException(
+                errorCode: 123,
+                message: "Some Critical Exception",
+                errorContent: errorContent);
+
+            Assert.That(exception.GetRequestId(), Is.Null);
+            Assert.That(exception.ProblemDetails(), Is.Null);
         }
         
         [Test]
@@ -248,19 +298,19 @@ namespace Lusid.Sdk.Tests
         }
         
         [Test]
-        public void ApiException_Without_ErrorContent_Returns_NullRequestId()
-        {
-            var error = new ApiException();
-            var errorResponse = error.GetRequestId();
-
-            Assert.That(errorResponse, Is.Null);
-        }
-        
-        [Test]
         public void ApiException_Without_ErrorContent_Returns_Null()
         {
             var error = new ApiException();
             var errorResponse = error.ProblemDetails();
+            
+            Assert.That(errorResponse, Is.Null);
+        }
+        
+        [Test]
+        public void ApiException_Without_ErrorContent_Returns_NullRequestId()
+        {
+            var error = new ApiException();
+            var errorResponse = error.GetRequestId();
             
             Assert.That(errorResponse, Is.Null);
         }
@@ -273,7 +323,124 @@ namespace Lusid.Sdk.Tests
             
             Assert.That(errorResponse, Is.Null);
         }
+
+        [TestCase(1, 10)]
+        [TestCase(100, 25, Explicit = true)]
+        public void Multi_Threaded_ApiFactory_Tasks(int quoteCount, int threadCount)
+        {
+            var config = TestLusidApiFactoryBuilder.CreateApiConfiguration("secrets.json");
+            if (config.MissingSecretVariables)
+            {
+                Assert.Inconclusive();
+            }
+
+            var provider = new ClientCredentialsFlowTokenProvider(config);
+            
+            var date = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
+
+            var tasks = Enumerable.Range(0, threadCount).Select(x => Task.Run(() =>
+            {
+                var request = Enumerable.Range(0, quoteCount).Select(i => new UpsertQuoteRequest(
+                    new QuoteId(
+                        new QuoteSeriesId(
+                            provider: "DataScope",
+                            priceSource: $"Bank {x}",
+                            instrumentId: "BBG000B9XRY4",
+                            instrumentIdType: QuoteSeriesId.InstrumentIdTypeEnum.Figi,
+                            quoteType: QuoteSeriesId.QuoteTypeEnum.Price,
+                            field: "mid"),
+                        effectiveAt: date.AddDays(i)),
+                    metricValue: new MetricValue(
+                        value: 199.23m,
+                        unit: "USD"),
+                    lineage: "InternalSystem")).ToDictionary(k => k.QuoteId.EffectiveAt.ToString(), v => v);
+                
+                var factory = LusidApiFactoryBuilder.Build(config.ApiUrl, provider);
+                var result = factory.Api<IQuotesApi>().UpsertQuotes("mt-scope", request);
+                Assert.That(result.Failed, Is.Empty);
+            }));
+
+            Task.WaitAll(tasks.ToArray());
+        }
+
+        [TestCase(1, 10)]
+        [TestCase(100, 25, Explicit = true)]
+        public void Multi_Threaded_ApiFactory_Tasks_With_PersonalAccessToken(int quoteCount, int threadCount)
+        {
+            var config = ApiConfigurationBuilder.Build(null);
+            if (config.MissingPersonalAccessTokenVariables)
+            {
+                Assert.Inconclusive();
+            }
+            
+            var provider = new PersonalAccessTokenProvider(config.PersonalAccessToken);
+
+            var date = new DateTimeOffset(2018, 1, 1, 0, 0, 0, TimeSpan.Zero);
+
+            var request = Enumerable.Range(0, quoteCount).Select(i => new UpsertQuoteRequest(
+                new QuoteId(
+                    new QuoteSeriesId(
+                        provider: "DataScope",
+                        priceSource: "BankA",
+                        instrumentId: "BBG000B9XRY4",
+                        instrumentIdType: QuoteSeriesId.InstrumentIdTypeEnum.Figi,
+                        quoteType: QuoteSeriesId.QuoteTypeEnum.Price,
+                        field: "mid"),
+                    effectiveAt: date.AddDays(i)),
+                metricValue: new MetricValue(
+                    value: 199.23m,
+                    unit: "USD"),
+                lineage: "InternalSystem")).ToDictionary(k => k.QuoteId.EffectiveAt.ToString(), v => v);
+
+            var tasks = Enumerable.Range(0, threadCount).Select(x => Task.Run(() =>
+            {
+                var factory = LusidApiFactoryBuilder.Build(config.ApiUrl, provider);
+                var result = factory.Api<IQuotesApi>().UpsertQuotes("mt-scope", request);
+                Assert.That(result.Failed, Is.Empty);
+            }));
+
+            Task.WaitAll(tasks.ToArray());
+        }
+
+        [Test, Explicit("Only an issue on .NET Core 2.2 on Linux / MacOS")]
+        public void LinuxSocketLeakTest() // See DEV-7152
+        {
+            ApiConfiguration config = TestLusidApiFactoryBuilder.CreateApiConfiguration("secrets.json");
+            var provider = new ClientCredentialsFlowTokenProvider(config);
+
+            var api = BuildApi();
+            api.CreatePortfolioGroup("sdktest", new CreatePortfolioGroupRequest("TestGroup", displayName: "TestGroup"));
+
+            // This loop should eventually throw a SocketException: "Address already in use" once all the sockets have been exhausted
+            for (int i = 0; i < 50_000; i++)
+            {
+                api = BuildApi();
+                PortfolioGroup result = api.GetPortfolioGroup("sdktest", "TestGroup");
+                Assert.That(result, Is.Not.Null);
+
+                // Option 1: force dispose of ApiClient
+                //api.Configuration.ApiClient.Dispose();
+
+                // Option 2: force all finalizers to run
+                if (i % 100 == 0)
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
+            }
+
+            /*** Local Functions ***/
+            IPortfolioGroupsApi BuildApi()
+            {
+                // An instance of HttpClient is created within LusidApiFactory.Configuration.ApiClient.RestClient
+                // which wasn't being disposed
+                ILusidApiFactory factory = LusidApiFactoryBuilder.Build(config.ApiUrl, provider);
+                IPortfolioGroupsApi api = factory.Api<IPortfolioGroupsApi>();
+                return api;
+            }
+        }
         
+        [Test]
         public void ApiResponse_CanExtract_DateHeader()
         {
             var apiResponse = _factory.Api<ApplicationMetadataApi>().GetLusidVersionsWithHttpInfo();
@@ -314,6 +481,66 @@ namespace Lusid.Sdk.Tests
             apiResponse.Headers[ApiResponseExtensions.DateHeader] = new[] {"invalid"};
             var date = apiResponse.GetRequestDateTime();
             Assert.IsNull(date);
+        }
+
+        [Test]
+        public void ExceptionFactoryIsOverriddenWithCustomImplementation()
+        {
+            var api = _factory.Api<ApplicationMetadataApi>();
+            Assert.That(api.ExceptionFactory.GetInvocationList().Single().Method.Name, Is.EqualTo(nameof(LusidExceptionHandler.CustomExceptionFactory)));
+        }
+
+        [Test]
+        public void ApiFactoryCanBuildApisWithDefaultHeaders()
+        {
+            // arrange
+            var config = TestLusidApiFactoryBuilder.CreateApiConfiguration("secrets.json");
+            var provider = new ClientCredentialsFlowTokenProvider(config);
+            var defaultHeaders = new Dictionary<string, string>()
+            {
+                {"X-LUSID-Application", "TestApp"}
+            };
+            
+            // act
+            var factory = LusidApiFactoryBuilder.Build(config.ApiUrl, provider, defaultHeaders);
+            var api = factory.Api<IPortfolioGroupsApi>();
+            
+            // assert
+            Assert.AreEqual(defaultHeaders["X-LUSID-Application"], api.Configuration.DefaultHeaders["X-LUSID-Application"]);
+        }
+
+        [Test]
+        public void ApiFactoryHasNoDefaultHeadersWhenNoneAreSpecified()
+        {
+            // arrange
+            var config = TestLusidApiFactoryBuilder.CreateApiConfiguration("secrets.json");
+            var provider = new ClientCredentialsFlowTokenProvider(config);
+
+            // act
+            var factory = LusidApiFactoryBuilder.Build(config.ApiUrl, provider);
+            var api = factory.Api<IPortfolioGroupsApi>();
+            
+            // assert
+            Assert.IsEmpty(api.Configuration.DefaultHeaders);
+        }
+
+        [Test]
+        public void ApiFactoryWithTimeout()
+        {
+            int timeout = 10;
+            int defaultTimeout = 100000;
+
+            var factory = LusidApiFactoryBuilder.Build("secrets.json", timeout);
+            var api = factory.Api<ScopesApi>();
+
+            DateTime start = DateTime.Now;
+
+            Assert.That(() => api.ListScopes(null), Throws.InstanceOf<ApiException>().With.Message.EqualTo("Internal SDK error occurred when calling ListScopes: The operation has timed out.").Or.Message.EqualTo("Internal SDK error occurred when calling ListScopes: The operation was canceled."));
+            
+            DateTime finish = DateTime.Now;
+            TimeSpan elapsed = finish - start;
+
+            Assert.That(elapsed.TotalMilliseconds, Is.LessThanOrEqualTo((long)defaultTimeout));
         }
     }
 }

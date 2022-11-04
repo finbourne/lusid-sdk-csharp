@@ -22,7 +22,7 @@ namespace Lusid.Sdk.Tests.Utilities
         public void Create_DateOrCutLabel_From_Cut_Label_Definition_Succeeds()
         {
             var testDate = new DateTimeOffset(2018, 3, 28, 0, 0, 0, 0, TimeSpan.Zero);
-
+            
             var parameter = new DateTimeOrCutLabel(testDate, "ExampleCutLabel");
 
             Assert.That(parameter.Parameter, Is.EqualTo("2018-03-28NExampleCutLabel"));
@@ -74,13 +74,13 @@ namespace Lusid.Sdk.Tests.Utilities
             Assert.That(c, Is.Not.SameAs(d));
             Assert.That(c, Is.EqualTo(d));
         }
-
+        
         class JsonCutLabel
         {
             public JsonCutLabel()
             {
             }
-
+            
             public DateTimeOrCutLabel dt { get; set; }
         }
 
@@ -89,8 +89,8 @@ namespace Lusid.Sdk.Tests.Utilities
         [TestCase("{'dt': '2021-10-29T00:00:00.0000000Z'}")]
         public void Deserialize_CutLabelJsonConverter(string json)
         {
-            var jcl = JsonConvert.DeserializeObject<JsonCutLabel>(json, converters: new JsonConverter[] { new CutLabelJsonConverter() });
-
+            var jcl = JsonConvert.DeserializeObject<JsonCutLabel>(json, converters: new JsonConverter[] {new CutLabelJsonConverter() });
+            
             Assert.That(jcl.dt.Parameter, Is.EqualTo("2021-10-29T00:00:00.0000000+00:00"));
         }
     }

@@ -20,68 +20,92 @@ namespace Lusid.Sdk.Utilities
     /// <inheritdoc />
     public class LusidApiFactory : ILusidApiFactory
     {
-        private Dictionary<Type, IApiAccessor> _apis;
+        private static readonly IEnumerable<Type> ApiTypes = Assembly.GetAssembly(typeof(ApiClient))
+            .GetTypes()
+            .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+
+        private readonly IReadOnlyDictionary<Type, IApiAccessor> _apis;
 
         /// <summary>
         /// Create a new factory using the specified configuration
         /// </summary>
-        public LusidApiFactory(ApiConfiguration apiConfiguration)
+        public LusidApiFactory(ApiConfiguration apiConfiguration, int timeout = 100000)
         {
             if (apiConfiguration == null) throw new ArgumentNullException(nameof(apiConfiguration));
-            
-            // Validate Uris
-            if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
-            {
-                throw new UriFormatException($"Invalid Token Uri: {apiConfiguration.TokenUrl}");
-            }
 
             if (!Uri.TryCreate(apiConfiguration.ApiUrl, UriKind.Absolute, out var _))
             {
                 throw new UriFormatException($"Invalid LUSID Uri: {apiConfiguration.ApiUrl}");
             }
 
+            // note: could employ a factory pattern here to create ITokenProvider in case more branching is required in the future:
+            ITokenProvider tokenProvider;
+            if (!string.IsNullOrEmpty(apiConfiguration.PersonalAccessToken)) // the personal access token takes precedence over other methods of authentication
+            {
+                tokenProvider = new PersonalAccessTokenProvider(apiConfiguration.PersonalAccessToken);
+            }
+            else
+            {                
+                if (!Uri.TryCreate(apiConfiguration.TokenUrl, UriKind.Absolute, out var _))
+                {
+                    throw new UriFormatException($"Invalid Token Uri: {apiConfiguration.TokenUrl}");
+                }
+                tokenProvider = new ClientCredentialsFlowTokenProvider(apiConfiguration);    
+            }
+            
             // Create configuration
-            var tokenProvider = new ClientCredentialsFlowTokenProvider(apiConfiguration);
             var configuration = new TokenProviderConfiguration(tokenProvider)
             {
                 BasePath = apiConfiguration.ApiUrl,
             };
             
             configuration.DefaultHeaders.Add("X-LUSID-Application", apiConfiguration.ApplicationName);
+            configuration.Timeout = timeout;
 
-            Init(configuration);
+            _apis = Init(configuration);
         }
-                
+
         /// <summary>
         /// Create a new factory using the specified configuration
         /// </summary>
         public LusidApiFactory(Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
-            
-            Init(configuration);
+
+            _apis = Init(configuration);
         }
 
-        private void Init(Configuration configuration)
-        {   
-            IEnumerable<Type> apis = Assembly.GetAssembly(typeof(ApiClient))
-                .GetTypes()
-                .Where(t => typeof(IApiAccessor).IsAssignableFrom(t) && t.IsClass);
+        private static Dictionary<Type, IApiAccessor> Init(Configuration configuration)
+        {
+            // If some retry policy has already been assigned, use it.
+            // Users can combine their own policy with the default policy by using the .Wrap() method.
+            RetryConfiguration.RetryPolicy = 
+                RetryConfiguration.RetryPolicy ?? PollyApiRetryHandler.DefaultRetryPolicyWithFallback;
+            
+            // If some async retry policy has already been assigned, use it.
+            // Users can combine their own policy with the default policy by using the .WrapAsync() method.
+            RetryConfiguration.AsyncRetryPolicy =
+                RetryConfiguration.AsyncRetryPolicy ?? PollyApiRetryHandler.DefaultRetryPolicyWithFallbackAsync;
 
-            _apis = new Dictionary<Type, IApiAccessor>();
-            foreach (var api in apis)
+            var dict = new Dictionary<Type, IApiAccessor>();
+            foreach (Type api in ApiTypes)
             {
                 if (!(Activator.CreateInstance(api, configuration) is IApiAccessor impl))
                 {
                     throw new Exception($"Unable to create type {api}");
                 }
 
+                // Replace the default implementation of the ExceptionFactory with a custom one defined by FINBOURNE
+                impl.ExceptionFactory = LusidExceptionHandler.CustomExceptionFactory;
+
                 var @interface = api.GetInterfaces()
                     .First(i => typeof(IApiAccessor).IsAssignableFrom(i));
 
-                _apis[api] = impl;
-                _apis[@interface] = impl;
+                dict[api] = impl;
+                dict[@interface] = impl;
             }
+
+            return dict;
         }
 
         /// <inheritdoc />
@@ -93,6 +117,7 @@ namespace Lusid.Sdk.Utilities
             {
                 throw new InvalidOperationException($"Unable to find api: {typeof(TApi)}");
             }
+
             return api as TApi;
         }
     }
