@@ -1,6 +1,6 @@
 # Lusid.Sdk.Api.PortfolioGroupsApi
 
-All URIs are relative to *https://www.lusid.com/api*
+All URIs are relative to *https://fbn-prd.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ Method | HTTP request | Description
 
 <a name="addportfoliotogroup"></a>
 # **AddPortfolioToGroup**
-> PortfolioGroup AddPortfolioToGroup (string scope, string code, DateTimeOrCutLabel effectiveAt = null, ResourceId resourceId = null)
+> PortfolioGroup AddPortfolioToGroup (string scope, string code, DateTimeOffset? effectiveAt = null, ResourceId resourceId = null)
 
 [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
 
@@ -53,14 +53,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(config);
             var scope = scope_example;  // string | The scope of the portfolio group to add a portfolio to.
             var code = code_example;  // string | The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label from which the portfolio will be added to the group. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the portfolio will be added to the group. (optional) 
             var resourceId = new ResourceId(); // ResourceId | The resource identifier of the portfolio to add to the portfolio group. (optional) 
 
             try
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to add a portfolio to. | 
  **code** | **string**| The code of the portfolio group to add a portfolio to. Together with the scope this uniquely identifies the portfolio group. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label from which the portfolio will be added to the group. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the portfolio will be added to the group. | [optional] 
  **resourceId** | [**ResourceId**](ResourceId.md)| The resource identifier of the portfolio to add to the portfolio group. | [optional] 
 
 ### Return type
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 <a name="addsubgrouptogroup"></a>
 # **AddSubGroupToGroup**
-> PortfolioGroup AddSubGroupToGroup (string scope, string code, DateTimeOrCutLabel effectiveAt = null, ResourceId resourceId = null)
+> PortfolioGroup AddSubGroupToGroup (string scope, string code, DateTimeOffset? effectiveAt = null, ResourceId resourceId = null)
 
 [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
 
@@ -135,14 +135,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(config);
             var scope = scope_example;  // string | The scope of the portfolio group to add a portfolio group to.
             var code = code_example;  // string | The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label from which the sub group will be added to the group. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the sub group will be added to the group. (optional) 
             var resourceId = new ResourceId(); // ResourceId | The resource identifier of the portfolio group to add to the portfolio group as a sub group. (optional) 
 
             try
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to add a portfolio group to. | 
  **code** | **string**| The code of the portfolio group to add a portfolio group to. Together with the scope this uniquely identifies the portfolio group. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label from which the sub group will be added to the group. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the sub group will be added to the group. | [optional] 
  **resourceId** | [**ResourceId**](ResourceId.md)| The resource identifier of the portfolio group to add to the portfolio group as a sub group. | [optional] 
 
 ### Return type
@@ -217,7 +217,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -307,7 +307,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -385,7 +385,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -467,7 +467,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteportfoliofromgroup"></a>
 # **DeletePortfolioFromGroup**
-> PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode, DateTimeOrCutLabel effectiveAt = null)
+> PortfolioGroup DeletePortfolioFromGroup (string scope, string code, string portfolioScope, string portfolioCode, DateTimeOffset? effectiveAt = null)
 
 [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
 
@@ -551,7 +551,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -560,7 +560,7 @@ namespace Example
             var code = code_example;  // string | The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group.
             var portfolioScope = portfolioScope_example;  // string | The scope of the portfolio being removed from the portfolio group.
             var portfolioCode = portfolioCode_example;  // string | The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label from which the portfolio will be removed from the portfolio group. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the portfolio will be removed from the portfolio group. (optional) 
 
             try
             {
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
  **code** | **string**| The code of the portfolio group to remove the portfolio from. Together with the scope this uniquely identifies the portfolio group. | 
  **portfolioScope** | **string**| The scope of the portfolio being removed from the portfolio group. | 
  **portfolioCode** | **string**| The code of the portfolio being removed from the portfolio group. Together with the scope this uniquely identifies the portfolio to remove. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label from which the portfolio will be removed from the portfolio group. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the portfolio will be removed from the portfolio group. | [optional] 
 
 ### Return type
 
@@ -635,7 +635,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 
 <a name="deletesubgroupfromgroup"></a>
 # **DeleteSubGroupFromGroup**
-> PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode, DateTimeOrCutLabel effectiveAt = null)
+> PortfolioGroup DeleteSubGroupFromGroup (string scope, string code, string subgroupScope, string subgroupCode, DateTimeOffset? effectiveAt = null)
 
 [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
 
@@ -713,7 +713,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -722,7 +722,7 @@ namespace Example
             var code = code_example;  // string | The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group.
             var subgroupScope = subgroupScope_example;  // string | The scope of the sub group to remove from the portfolio group.
             var subgroupCode = subgroupCode_example;  // string | The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label from which the sub group will be removed from the portfolio group. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime from which the sub group will be removed from the portfolio group. (optional) 
 
             try
             {
@@ -749,7 +749,7 @@ Name | Type | Description  | Notes
  **code** | **string**| The code of the portfolio group to remove the sub group from. Together with the scope this uniquely identifies the portfolio group. | 
  **subgroupScope** | **string**| The scope of the sub group to remove from the portfolio group. | 
  **subgroupCode** | **string**| The code of the sub group to remove from the portfolio group. Together with the scope this uniquely identifies the sub group. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label from which the sub group will be removed from the portfolio group. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime from which the sub group will be removed from the portfolio group. | [optional] 
 
 ### Return type
 
@@ -797,7 +797,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -889,7 +889,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -971,7 +971,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 
 <a name="getportfoliogroup"></a>
 # **GetPortfolioGroup**
-> PortfolioGroup GetPortfolioGroup (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
+> PortfolioGroup GetPortfolioGroup (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null)
 
 GetPortfolioGroup: Get portfolio group
 
@@ -1059,14 +1059,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(config);
             var scope = scope_example;  // string | The scope of the portfolio group to retrieve the definition for.
             var code = code_example;  // string | The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. (optional) 
 
             try
@@ -1092,7 +1092,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to retrieve the definition for. | 
  **code** | **string**| The code of the portfolio group to retrieve the definition for. Together with the scope              this uniquely identifies the portfolio group. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to retrieve the portfolio group definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio group definition. Defaults to return              the latest version of the portfolio group definition if not specified. | [optional] 
 
 ### Return type
@@ -1141,7 +1141,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1225,7 +1225,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 
 <a name="getportfoliogroupexpansion"></a>
 # **GetPortfolioGroupExpansion**
-> ExpandedGroup GetPortfolioGroupExpansion (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyFilter = null)
+> ExpandedGroup GetPortfolioGroupExpansion (string scope, string code, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyFilter = null)
 
 [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
 
@@ -1309,14 +1309,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(config);
             var scope = scope_example;  // string | The scope of the portfolio group to expand.
             var code = code_example;  // string | The code of the portfolio group to expand. Together with the scope this uniquely identifies the portfolio              group to expand.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to expand the portfolio group. Defaults to return the latest version of each portfolio in the group if not specified. (optional) 
             var propertyFilter = new List<string>(); // List<string> | The restricted list of property keys from the \"Portfolio\" domain which will be decorated onto each portfolio. These take the format {domain}/{scope}/{code} e.g. \"Portfolio/Manager/Id\". (optional) 
 
@@ -1343,7 +1343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to expand. | 
  **code** | **string**| The code of the portfolio group to expand. Together with the scope this uniquely identifies the portfolio              group to expand. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to expand the portfolio group. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to expand the portfolio group. Defaults to return the latest version of each portfolio in the group if not specified. | [optional] 
  **propertyFilter** | [**List&lt;string&gt;**](string.md)| The restricted list of property keys from the \&quot;Portfolio\&quot; domain which will be decorated onto each portfolio. These take the format {domain}/{scope}/{code} e.g. \&quot;Portfolio/Manager/Id\&quot;. | [optional] 
 
@@ -1393,7 +1393,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1475,7 +1475,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1565,7 +1565,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1651,7 +1651,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1724,7 +1724,7 @@ Name | Type | Description  | Notes
 
 <a name="listportfoliogroups"></a>
 # **ListPortfolioGroups**
-> ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null)
+> ResourceListOfPortfolioGroup ListPortfolioGroups (string scope, DateTimeOffset? effectiveAt = null, DateTimeOffset? asAt = null, string filter = null)
 
 [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
 
@@ -1745,13 +1745,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(config);
             var scope = scope_example;  // string | The scope to list the portfolio groups in.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. (optional) 
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. (optional) 
             var filter = filter_example;  // string | Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
@@ -1777,7 +1777,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope to list the portfolio groups in. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to list the portfolio groups. Defaults to the current LUSID system datetime if not specified. | [optional] 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio groups. Defaults to return the latest version of each portfolio group if not specified. | [optional] 
  **filter** | **string**| Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
 
@@ -1806,7 +1806,7 @@ Name | Type | Description  | Notes
 
 <a name="updateportfoliogroup"></a>
 # **UpdatePortfolioGroup**
-> PortfolioGroup UpdatePortfolioGroup (string scope, string code, DateTimeOrCutLabel effectiveAt = null, UpdatePortfolioGroupRequest updatePortfolioGroupRequest = null)
+> PortfolioGroup UpdatePortfolioGroup (string scope, string code, DateTimeOffset? effectiveAt = null, UpdatePortfolioGroupRequest updatePortfolioGroupRequest = null)
 
 [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
 
@@ -1827,14 +1827,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfolioGroupsApi(config);
             var scope = scope_example;  // string | The scope of the portfolio group to update the definition for.
             var code = code_example;  // string | The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to update the definition. (optional) 
+            var effectiveAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime at which to update the definition. (optional) 
             var updatePortfolioGroupRequest = new UpdatePortfolioGroupRequest(); // UpdatePortfolioGroupRequest | The updated portfolio group definition. (optional) 
 
             try
@@ -1860,7 +1860,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the portfolio group to update the definition for. | 
  **code** | **string**| The code of the portfolio group to update the definition for. Together with the scope this uniquely identifies the portfolio group. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to update the definition. | [optional] 
+ **effectiveAt** | **DateTimeOffset?**| The effective datetime at which to update the definition. | [optional] 
  **updatePortfolioGroupRequest** | [**UpdatePortfolioGroupRequest**](UpdatePortfolioGroupRequest.md)| The updated portfolio group definition. | [optional] 
 
 ### Return type
@@ -1909,7 +1909,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1989,7 +1989,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
+            config.BasePath = "https://fbn-prd.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
