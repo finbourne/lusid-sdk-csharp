@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DefaultScope** | **string** | For default rules, which scope should data be searched for in | 
 **AttemptToInferMissingFx** | **bool** | if true will calculate a missing Fx pair (e.g. THBJPY) from the inverse JPYTHB or from standardised pairs against USD, e.g. THBUSD and JPYUSD | [optional] 
 **CalendarScope** | **string** | The scope in which holiday calendars stored | [optional] 
-**ConventionScope** | **string** | The scope in which holiday calendars stored | [optional] 
+**ConventionScope** | **string** | The scope in which conventions stored | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
