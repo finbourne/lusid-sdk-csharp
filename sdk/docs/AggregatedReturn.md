@@ -6,6 +6,7 @@ A list of Aggregated Returns.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EffectiveAt** | **DateTimeOffset** | The effectiveAt for the return. | 
+**EndOfPeriod** | **DateTimeOffset** | The end of period date. For the monthly period this will be the Month End Date. | 
 **OpeningMarketValue** | **decimal?** | The opening market value. | [optional] 
 **ClosingMarketValue** | **decimal?** | The closing market value. | [optional] 
 **MetricsValue** | **Dictionary&lt;string, decimal&gt;** | The value for the specified metric. | 
