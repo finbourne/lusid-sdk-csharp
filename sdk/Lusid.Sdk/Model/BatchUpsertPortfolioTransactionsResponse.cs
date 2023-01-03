@@ -27,75 +27,53 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Used to specify holdings target amounts at the tax-lot level
+    /// BatchUpsertPortfolioTransactionsResponse
     /// </summary>
-    [DataContract(Name = "TargetTaxLot")]
-    public partial class TargetTaxLot : IEquatable<TargetTaxLot>
+    [DataContract(Name = "BatchUpsertPortfolioTransactionsResponse")]
+    public partial class BatchUpsertPortfolioTransactionsResponse : IEquatable<BatchUpsertPortfolioTransactionsResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetTaxLot" /> class.
+        /// Initializes a new instance of the <see cref="BatchUpsertPortfolioTransactionsResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TargetTaxLot() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TargetTaxLot" /> class.
-        /// </summary>
-        /// <param name="units">The number of units of the instrument in this tax-lot. (required).</param>
-        /// <param name="cost">cost.</param>
-        /// <param name="portfolioCost">The total cost of the tax-lot in the transaction portfolio&#39;s base currency..</param>
-        /// <param name="price">The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots..</param>
-        /// <param name="purchaseDate">The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots..</param>
-        /// <param name="settlementDate">The settlement date of the tax-lot&#39;s opening transaction..</param>
-        public TargetTaxLot(decimal units = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), decimal? portfolioCost = default(decimal?), decimal? price = default(decimal?), DateTimeOffset? purchaseDate = default(DateTimeOffset?), DateTimeOffset? settlementDate = default(DateTimeOffset?))
+        /// <param name="values">The transactions which have been successfully upserted..</param>
+        /// <param name="failed">The transactions that could not be upserted along with a reason for their failure..</param>
+        /// <param name="metadata">Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades.</param>
+        /// <param name="links">Collection of links..</param>
+        public BatchUpsertPortfolioTransactionsResponse(Dictionary<string, Transaction> values = default(Dictionary<string, Transaction>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
-            this.Units = units;
-            this.Cost = cost;
-            this.PortfolioCost = portfolioCost;
-            this.Price = price;
-            this.PurchaseDate = purchaseDate;
-            this.SettlementDate = settlementDate;
+            this.Values = values;
+            this.Failed = failed;
+            this.Metadata = metadata;
+            this.Links = links;
         }
 
         /// <summary>
-        /// The number of units of the instrument in this tax-lot.
+        /// The transactions which have been successfully upserted.
         /// </summary>
-        /// <value>The number of units of the instrument in this tax-lot.</value>
-        [DataMember(Name = "units", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Units { get; set; }
+        /// <value>The transactions which have been successfully upserted.</value>
+        [DataMember(Name = "values", EmitDefaultValue = true)]
+        public Dictionary<string, Transaction> Values { get; set; }
 
         /// <summary>
-        /// Gets or Sets Cost
+        /// The transactions that could not be upserted along with a reason for their failure.
         /// </summary>
-        [DataMember(Name = "cost", EmitDefaultValue = false)]
-        public CurrencyAndAmount Cost { get; set; }
+        /// <value>The transactions that could not be upserted along with a reason for their failure.</value>
+        [DataMember(Name = "failed", EmitDefaultValue = true)]
+        public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
-        /// The total cost of the tax-lot in the transaction portfolio&#39;s base currency.
+        /// Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades
         /// </summary>
-        /// <value>The total cost of the tax-lot in the transaction portfolio&#39;s base currency.</value>
-        [DataMember(Name = "portfolioCost", EmitDefaultValue = true)]
-        public decimal? PortfolioCost { get; set; }
+        /// <value>Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
 
         /// <summary>
-        /// The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots.
+        /// Collection of links.
         /// </summary>
-        /// <value>The purchase price of each unit of the instrument held in this tax-lot. This forms part of the unique key required for multiple tax-lots.</value>
-        [DataMember(Name = "price", EmitDefaultValue = true)]
-        public decimal? Price { get; set; }
-
-        /// <summary>
-        /// The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots.
-        /// </summary>
-        /// <value>The purchase date of this tax-lot. This forms part of the unique key required for multiple tax-lots.</value>
-        [DataMember(Name = "purchaseDate", EmitDefaultValue = true)]
-        public DateTimeOffset? PurchaseDate { get; set; }
-
-        /// <summary>
-        /// The settlement date of the tax-lot&#39;s opening transaction.
-        /// </summary>
-        /// <value>The settlement date of the tax-lot&#39;s opening transaction.</value>
-        [DataMember(Name = "settlementDate", EmitDefaultValue = true)]
-        public DateTimeOffset? SettlementDate { get; set; }
+        /// <value>Collection of links.</value>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,13 +82,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TargetTaxLot {\n");
-            sb.Append("  Units: ").Append(Units).Append("\n");
-            sb.Append("  Cost: ").Append(Cost).Append("\n");
-            sb.Append("  PortfolioCost: ").Append(PortfolioCost).Append("\n");
-            sb.Append("  Price: ").Append(Price).Append("\n");
-            sb.Append("  PurchaseDate: ").Append(PurchaseDate).Append("\n");
-            sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
+            sb.Append("class BatchUpsertPortfolioTransactionsResponse {\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  Failed: ").Append(Failed).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,48 +107,43 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TargetTaxLot);
+            return this.Equals(input as BatchUpsertPortfolioTransactionsResponse);
         }
 
         /// <summary>
-        /// Returns true if TargetTaxLot instances are equal
+        /// Returns true if BatchUpsertPortfolioTransactionsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of TargetTaxLot to be compared</param>
+        /// <param name="input">Instance of BatchUpsertPortfolioTransactionsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetTaxLot input)
+        public bool Equals(BatchUpsertPortfolioTransactionsResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Units == input.Units ||
-                    this.Units.Equals(input.Units)
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 ) && 
                 (
-                    this.Cost == input.Cost ||
-                    (this.Cost != null &&
-                    this.Cost.Equals(input.Cost))
+                    this.Failed == input.Failed ||
+                    this.Failed != null &&
+                    input.Failed != null &&
+                    this.Failed.SequenceEqual(input.Failed)
                 ) && 
                 (
-                    this.PortfolioCost == input.PortfolioCost ||
-                    (this.PortfolioCost != null &&
-                    this.PortfolioCost.Equals(input.PortfolioCost))
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 ) && 
                 (
-                    this.Price == input.Price ||
-                    (this.Price != null &&
-                    this.Price.Equals(input.Price))
-                ) && 
-                (
-                    this.PurchaseDate == input.PurchaseDate ||
-                    (this.PurchaseDate != null &&
-                    this.PurchaseDate.Equals(input.PurchaseDate))
-                ) && 
-                (
-                    this.SettlementDate == input.SettlementDate ||
-                    (this.SettlementDate != null &&
-                    this.SettlementDate.Equals(input.SettlementDate))
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -185,17 +156,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Units.GetHashCode();
-                if (this.Cost != null)
-                    hashCode = hashCode * 59 + this.Cost.GetHashCode();
-                if (this.PortfolioCost != null)
-                    hashCode = hashCode * 59 + this.PortfolioCost.GetHashCode();
-                if (this.Price != null)
-                    hashCode = hashCode * 59 + this.Price.GetHashCode();
-                if (this.PurchaseDate != null)
-                    hashCode = hashCode * 59 + this.PurchaseDate.GetHashCode();
-                if (this.SettlementDate != null)
-                    hashCode = hashCode * 59 + this.SettlementDate.GetHashCode();
+                if (this.Values != null)
+                    hashCode = hashCode * 59 + this.Values.GetHashCode();
+                if (this.Failed != null)
+                    hashCode = hashCode * 59 + this.Failed.GetHashCode();
+                if (this.Metadata != null)
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Links != null)
+                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
             }
         }
