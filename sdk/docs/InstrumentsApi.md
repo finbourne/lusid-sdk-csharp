@@ -1,11 +1,12 @@
 # Lusid.Sdk.Api.InstrumentsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
 [**DeleteInstrumentProperties**](InstrumentsApi.md#deleteinstrumentproperties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+[**DeleteInstruments**](InstrumentsApi.md#deleteinstruments) | **POST** /api/instruments/$delete | [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
 [**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
 [**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types
 [**GetInstrumentProperties**](InstrumentsApi.md#getinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
@@ -42,7 +43,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -122,7 +123,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -183,6 +184,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deleteinstruments"></a>
+# **DeleteInstruments**
+> DeleteInstrumentsResponse DeleteInstruments (List<string> requestBody, string deleteMode = null, string scope = null)
+
+[EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+
+Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as 'Deleted'; (iii) prepends the instrument's name with 'DELETED '; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteInstrumentsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InstrumentsApi(config);
+            var requestBody = new List<string>(); // List<string> | The list of lusidInstrumentId's to delete.
+            var deleteMode = deleteMode_example;  // string | The delete mode to use (defaults to 'Soft'). (optional) 
+            var scope = scope_example;  // string | The scope in which the instruments lie. When not supplied the scope is 'default'. (optional)  (default to "default")
+
+            try
+            {
+                // [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+                DeleteInstrumentsResponse result = apiInstance.DeleteInstruments(requestBody, deleteMode, scope);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstrumentsApi.DeleteInstruments: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestBody** | [**List&lt;string&gt;**](string.md)| The list of lusidInstrumentId&#39;s to delete. | 
+ **deleteMode** | **string**| The delete mode to use (defaults to &#39;Soft&#39;). | [optional] 
+ **scope** | **string**| The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+
+### Return type
+
+[**DeleteInstrumentsResponse**](DeleteInstrumentsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the instruments were deleted |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getinstrument"></a>
 # **GetInstrument**
 > Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string scope = null, List<string> relationshipDefinitionIds = null)
@@ -206,7 +287,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -294,7 +375,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -365,7 +446,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -449,7 +530,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -541,7 +622,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -629,7 +710,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -717,7 +798,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -805,7 +886,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -899,7 +980,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -981,7 +1062,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -1059,7 +1140,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 

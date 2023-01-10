@@ -1,13 +1,17 @@
 # Lusid.Sdk.Api.CorporateActionSourcesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BatchUpsertCorporateActions**](CorporateActionSourcesApi.md#batchupsertcorporateactions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
 [**CreateCorporateActionSource**](CorporateActionSourcesApi.md#createcorporateactionsource) | **POST** /api/corporateactionsources | [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
+[**DeleteCorporateActions**](CorporateActionSourcesApi.md#deletecorporateactions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+[**DeleteInstrumentEvents**](CorporateActionSourcesApi.md#deleteinstrumentevents) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
 [**GetCorporateActions**](CorporateActionSourcesApi.md#getcorporateactions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
+[**GetInstrumentEvents**](CorporateActionSourcesApi.md#getinstrumentevents) | **GET** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
 [**ListCorporateActionSources**](CorporateActionSourcesApi.md#listcorporateactionsources) | **GET** /api/corporateactionsources | [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
+[**UpsertInstrumentEvents**](CorporateActionSourcesApi.md#upsertinstrumentevents) | **POST** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
 
 
 <a name="batchupsertcorporateactions"></a>
@@ -33,7 +37,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -113,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -166,6 +170,166 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletecorporateactions"></a>
+# **DeleteCorporateActions**
+> DeletedEntityResponse DeleteCorporateActions (string scope, string code, List<string> corporateActionIds)
+
+[EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+
+Delete one or more corporate actions from a particular corporate action source.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteCorporateActionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CorporateActionSourcesApi(config);
+            var scope = scope_example;  // string | The scope of the corporate action source
+            var code = code_example;  // string | The code of the corporate action source
+            var corporateActionIds = new List<string>(); // List<string> | The IDs of the corporate actions to delete
+
+            try
+            {
+                // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+                DeletedEntityResponse result = apiInstance.DeleteCorporateActions(scope, code, corporateActionIds);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteCorporateActions: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **string**| The scope of the corporate action source | 
+ **code** | **string**| The code of the corporate action source | 
+ **corporateActionIds** | [**List&lt;string&gt;**](string.md)| The IDs of the corporate actions to delete | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Corporate Actions Deleted |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteinstrumentevents"></a>
+# **DeleteInstrumentEvents**
+> DeletedEntityResponse DeleteInstrumentEvents (string scope, string code, List<string> instrumentEventIds)
+
+[EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+
+Delete one or more corporate actions from a particular corporate action source.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteInstrumentEventsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CorporateActionSourcesApi(config);
+            var scope = scope_example;  // string | The scope of the corporate action source
+            var code = code_example;  // string | The code of the corporate action source
+            var instrumentEventIds = new List<string>(); // List<string> | The IDs of the instrument events to delete
+
+            try
+            {
+                // [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+                DeletedEntityResponse result = apiInstance.DeleteInstrumentEvents(scope, code, instrumentEventIds);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteInstrumentEvents: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **string**| The scope of the corporate action source | 
+ **code** | **string**| The code of the corporate action source | 
+ **instrumentEventIds** | [**List&lt;string&gt;**](string.md)| The IDs of the instrument events to delete | 
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Instrument Events Deleted |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcorporateactions"></a>
 # **GetCorporateActions**
 > ResourceListOfCorporateAction GetCorporateActions (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? limit = null, string filter = null)
@@ -189,7 +353,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -256,6 +420,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getinstrumentevents"></a>
+# **GetInstrumentEvents**
+> PagedResourceListOfInstrumentEventHolder GetInstrumentEvents (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string page = null, string filter = null)
+
+[EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
+
+Retrieves extrinsic corporate actions out of a corporate actions source
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetInstrumentEventsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CorporateActionSourcesApi(config);
+            var scope = scope_example;  // string | The scope of the portfolio.
+            var code = code_example;  // string | The code of the portfolio.
+            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data. (optional) 
+            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
+            var page = page_example;  // string | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional) 
+            var filter = filter_example;  // string | Optional. Expression to filter the result set. (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
+                PagedResourceListOfInstrumentEventHolder result = apiInstance.GetInstrumentEvents(scope, code, asAt, limit, page, filter);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CorporateActionSourcesApi.GetInstrumentEvents: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **string**| The scope of the portfolio. | 
+ **code** | **string**| The code of the portfolio. | 
+ **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data. | [optional] 
+ **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000]
+ **page** | **string**| Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. | [optional] 
+ **filter** | **string**| Optional. Expression to filter the result set. | [optional] 
+
+### Return type
+
+[**PagedResourceListOfInstrumentEventHolder**](PagedResourceListOfInstrumentEventHolder.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Instrument Events |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listcorporateactionsources"></a>
 # **ListCorporateActionSources**
 > PagedResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string> sortBy = null, int? limit = null, string filter = null, string page = null)
@@ -279,7 +529,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -335,6 +585,86 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | All Existing Corporate Action Sources |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="upsertinstrumentevents"></a>
+# **UpsertInstrumentEvents**
+> UpsertInstrumentEventsResponse UpsertInstrumentEvents (string scope, string code, List<UpsertInstrumentEventRequest> upsertInstrumentEventRequest = null)
+
+[EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+
+Batch upsert instrument events to corporate action sources.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class UpsertInstrumentEventsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CorporateActionSourcesApi(config);
+            var scope = scope_example;  // string | The scope of the corporate action source.
+            var code = code_example;  // string | The code of the corporate action source.
+            var upsertInstrumentEventRequest = new List<UpsertInstrumentEventRequest>(); // List<UpsertInstrumentEventRequest> | The instrument event definitions. (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+                UpsertInstrumentEventsResponse result = apiInstance.UpsertInstrumentEvents(scope, code, upsertInstrumentEventRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CorporateActionSourcesApi.UpsertInstrumentEvents: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **scope** | **string**| The scope of the corporate action source. | 
+ **code** | **string**| The code of the corporate action source. | 
+ **upsertInstrumentEventRequest** | [**List&lt;UpsertInstrumentEventRequest&gt;**](UpsertInstrumentEventRequest.md)| The instrument event definitions. | [optional] 
+
+### Return type
+
+[**UpsertInstrumentEventsResponse**](UpsertInstrumentEventsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Instrument Events Upserted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
