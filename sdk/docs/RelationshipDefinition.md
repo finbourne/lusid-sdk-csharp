@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **InwardDescription** | **string** | The description to relate target entity object and source entity object | 
 **LifeTime** | **string** | Describes how the relationships can change over time. | 
 **RelationshipCardinality** | **string** | Describes the cardinality of the relationship between source entity and target entity. | 
-**Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
+**Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
