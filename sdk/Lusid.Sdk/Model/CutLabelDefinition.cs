@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="cutLocalTime">cutLocalTime.</param>
         /// <param name="timeZone">timeZone.</param>
         /// <param name="href">href.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public CutLabelDefinition(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string timeZone = default(string), string href = default(string), List<Link> links = default(List<Link>))
         {
             this.Code = code;
@@ -90,9 +90,8 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
