@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="values">The transactions which have been successfully upserted..</param>
         /// <param name="failed">The transactions that could not be upserted along with a reason for their failure..</param>
         /// <param name="metadata">Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public BatchUpsertPortfolioTransactionsResponse(Dictionary<string, Transaction> values = default(Dictionary<string, Transaction>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
             this.Values = values;
@@ -69,9 +69,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
