@@ -27,60 +27,33 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CDSs generally conform to fairly standard definitions, but can be tweaked in a number of different ways.  This class gathers a number of common features which may deviate. These will default to the market standard when  no overrides are provided.
+    /// A standard representation of the effective date range for the event, used for display, filtering and windowing use cases.  The start and end values for the eventDateRange are mapped from the particular dates contained within the specific  InstrumentEvent schema.  Note that the start and end values may be identical for some types of events.
     /// </summary>
-    [DataContract(Name = "CdsProtectionDetailSpecification")]
-    public partial class CdsProtectionDetailSpecification : IEquatable<CdsProtectionDetailSpecification>
+    [DataContract(Name = "EventDateRange")]
+    public partial class EventDateRange : IEquatable<EventDateRange>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CdsProtectionDetailSpecification" /> class.
+        /// Initializes a new instance of the <see cref="EventDateRange" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CdsProtectionDetailSpecification() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CdsProtectionDetailSpecification" /> class.
-        /// </summary>
-        /// <param name="seniority">The seniority level of the CDS.    Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2]. (required).</param>
-        /// <param name="restructuringType">The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR]. (required).</param>
-        /// <param name="protectStartDay">Does the protection leg pay out in the case of default on the start date. (required).</param>
-        /// <param name="payAccruedInterestOnDefault">Should accrued interest on the premium leg be paid if a credit event occurs. (required).</param>
-        public CdsProtectionDetailSpecification(string seniority = default(string), string restructuringType = default(string), bool protectStartDay = default(bool), bool payAccruedInterestOnDefault = default(bool))
+        /// <param name="start">start.</param>
+        /// <param name="end">end.</param>
+        public EventDateRange(DateTimeOffset start = default(DateTimeOffset), DateTimeOffset end = default(DateTimeOffset))
         {
-            // to ensure "seniority" is required (not null)
-            this.Seniority = seniority ?? throw new ArgumentNullException("seniority is a required property for CdsProtectionDetailSpecification and cannot be null");
-            // to ensure "restructuringType" is required (not null)
-            this.RestructuringType = restructuringType ?? throw new ArgumentNullException("restructuringType is a required property for CdsProtectionDetailSpecification and cannot be null");
-            this.ProtectStartDay = protectStartDay;
-            this.PayAccruedInterestOnDefault = payAccruedInterestOnDefault;
+            this.Start = start;
+            this.End = end;
         }
 
         /// <summary>
-        /// The seniority level of the CDS.    Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].
+        /// Gets or Sets Start
         /// </summary>
-        /// <value>The seniority level of the CDS.    Supported string (enumeration) values are: [SNR, SUB, JRSUBUT2, PREFT1, SECDOM, SNRFOR, SUBLT2].</value>
-        [DataMember(Name = "seniority", IsRequired = true, EmitDefaultValue = false)]
-        public string Seniority { get; set; }
+        [DataMember(Name = "start", EmitDefaultValue = false)]
+        public DateTimeOffset Start { get; set; }
 
         /// <summary>
-        /// The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR].
+        /// Gets or Sets End
         /// </summary>
-        /// <value>The restructuring clause.  Supported string (enumeration) values are: [CR, MR, MM, XR].</value>
-        [DataMember(Name = "restructuringType", IsRequired = true, EmitDefaultValue = false)]
-        public string RestructuringType { get; set; }
-
-        /// <summary>
-        /// Does the protection leg pay out in the case of default on the start date.
-        /// </summary>
-        /// <value>Does the protection leg pay out in the case of default on the start date.</value>
-        [DataMember(Name = "protectStartDay", IsRequired = true, EmitDefaultValue = true)]
-        public bool ProtectStartDay { get; set; }
-
-        /// <summary>
-        /// Should accrued interest on the premium leg be paid if a credit event occurs.
-        /// </summary>
-        /// <value>Should accrued interest on the premium leg be paid if a credit event occurs.</value>
-        [DataMember(Name = "payAccruedInterestOnDefault", IsRequired = true, EmitDefaultValue = true)]
-        public bool PayAccruedInterestOnDefault { get; set; }
+        [DataMember(Name = "end", EmitDefaultValue = false)]
+        public DateTimeOffset End { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,11 +62,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CdsProtectionDetailSpecification {\n");
-            sb.Append("  Seniority: ").Append(Seniority).Append("\n");
-            sb.Append("  RestructuringType: ").Append(RestructuringType).Append("\n");
-            sb.Append("  ProtectStartDay: ").Append(ProtectStartDay).Append("\n");
-            sb.Append("  PayAccruedInterestOnDefault: ").Append(PayAccruedInterestOnDefault).Append("\n");
+            sb.Append("class EventDateRange {\n");
+            sb.Append("  Start: ").Append(Start).Append("\n");
+            sb.Append("  End: ").Append(End).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,37 +85,29 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CdsProtectionDetailSpecification);
+            return this.Equals(input as EventDateRange);
         }
 
         /// <summary>
-        /// Returns true if CdsProtectionDetailSpecification instances are equal
+        /// Returns true if EventDateRange instances are equal
         /// </summary>
-        /// <param name="input">Instance of CdsProtectionDetailSpecification to be compared</param>
+        /// <param name="input">Instance of EventDateRange to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CdsProtectionDetailSpecification input)
+        public bool Equals(EventDateRange input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Seniority == input.Seniority ||
-                    (this.Seniority != null &&
-                    this.Seniority.Equals(input.Seniority))
+                    this.Start == input.Start ||
+                    (this.Start != null &&
+                    this.Start.Equals(input.Start))
                 ) && 
                 (
-                    this.RestructuringType == input.RestructuringType ||
-                    (this.RestructuringType != null &&
-                    this.RestructuringType.Equals(input.RestructuringType))
-                ) && 
-                (
-                    this.ProtectStartDay == input.ProtectStartDay ||
-                    this.ProtectStartDay.Equals(input.ProtectStartDay)
-                ) && 
-                (
-                    this.PayAccruedInterestOnDefault == input.PayAccruedInterestOnDefault ||
-                    this.PayAccruedInterestOnDefault.Equals(input.PayAccruedInterestOnDefault)
+                    this.End == input.End ||
+                    (this.End != null &&
+                    this.End.Equals(input.End))
                 );
         }
 
@@ -157,12 +120,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Seniority != null)
-                    hashCode = hashCode * 59 + this.Seniority.GetHashCode();
-                if (this.RestructuringType != null)
-                    hashCode = hashCode * 59 + this.RestructuringType.GetHashCode();
-                hashCode = hashCode * 59 + this.ProtectStartDay.GetHashCode();
-                hashCode = hashCode * 59 + this.PayAccruedInterestOnDefault.GetHashCode();
+                if (this.Start != null)
+                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                if (this.End != null)
+                    hashCode = hashCode * 59 + this.End.GetHashCode();
                 return hashCode;
             }
         }
