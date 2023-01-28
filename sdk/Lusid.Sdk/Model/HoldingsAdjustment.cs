@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// <param name="version">version (required).</param>
         /// <param name="unmatchedHoldingMethod">Describes how the holdings were adjusted. If &#39;PositionToZero&#39; the entire transaction portfolio&#39;s holdings were set via a call to &#39;Set holdings&#39;. If &#39;KeepTheSame&#39; only the specified holdings were adjusted via a call to &#39;Adjust holdings&#39;. The available values are: PositionToZero, KeepTheSame (required).</param>
         /// <param name="adjustments">The holding adjustments. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public HoldingsAdjustment(DateTimeOffset effectiveAt = default(DateTimeOffset), Version version = default(Version), UnmatchedHoldingMethodEnum unmatchedHoldingMethod = default(UnmatchedHoldingMethodEnum), List<HoldingAdjustment> adjustments = default(List<HoldingAdjustment>), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
@@ -105,9 +105,8 @@ namespace Lusid.Sdk.Model
         public List<HoldingAdjustment> Adjustments { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

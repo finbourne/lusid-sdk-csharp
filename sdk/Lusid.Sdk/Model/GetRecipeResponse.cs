@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="value">value.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public GetRecipeResponse(string href = default(string), ConfigurationRecipe value = default(ConfigurationRecipe), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -59,9 +59,8 @@ namespace Lusid.Sdk.Model
         public ConfigurationRecipe Value { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
