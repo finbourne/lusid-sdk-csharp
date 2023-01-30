@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="values">The set of values that were removed..</param>
         /// <param name="failed">The set of values where removal failed, with a description as to why that is the case, e.g. badly formed request.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public AnnulStructuredDataResponse(string href = default(string), Dictionary<string, DateTimeOffset> values = default(Dictionary<string, DateTimeOffset>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -69,9 +69,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
