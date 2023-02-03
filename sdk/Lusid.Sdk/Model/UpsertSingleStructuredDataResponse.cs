@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="value">The value that was successfully retrieved..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public UpsertSingleStructuredDataResponse(string href = default(string), DateTimeOffset value = default(DateTimeOffset), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -60,9 +60,8 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset Value { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
