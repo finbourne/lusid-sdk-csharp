@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DeleteInstrumentPropertiesResponse" /> class.
         /// </summary>
         /// <param name="asAt">The as-at datetime at which properties were deleted. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public DeleteInstrumentPropertiesResponse(DateTimeOffset asAt = default(DateTimeOffset), List<Link> links = default(List<Link>))
         {
             this.AsAt = asAt;
@@ -56,9 +56,8 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
