@@ -248,7 +248,7 @@ namespace Lusid.Sdk.Model
         /// <param name="unitSchema">The available values are: NoUnits, Basic, Iso4217Currency.</param>
         /// <param name="acceptableUnits">acceptableUnits.</param>
         /// <param name="referenceData">referenceData.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public DataType(string href = default(string), TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), List<Link> links = default(List<Link>))
         {
             this.TypeValueRange = typeValueRange;
@@ -310,9 +310,8 @@ namespace Lusid.Sdk.Model
         public ReferenceData ReferenceData { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
