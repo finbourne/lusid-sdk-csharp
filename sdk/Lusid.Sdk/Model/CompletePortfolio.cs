@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Model
         /// <param name="version">version (required).</param>
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="baseCurrency">If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public CompletePortfolio(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), TypeEnum? type = default(TypeEnum?), Version version = default(Version), List<Property> properties = default(List<Property>), string baseCurrency = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -179,9 +179,8 @@ namespace Lusid.Sdk.Model
         public string BaseCurrency { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
