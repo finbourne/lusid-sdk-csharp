@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **SettlementCurrency** | **string** | The settlement currency of this allocation. | [optional] 
 **SettlementCurrencyFxRate** | **decimal?** | The settlement currency to allocation currency FX rate. | [optional] 
 **Counterparty** | **string** | The counterparty for this allocation. | [optional] 
+**ExecutionIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The executions associated with this allocation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
