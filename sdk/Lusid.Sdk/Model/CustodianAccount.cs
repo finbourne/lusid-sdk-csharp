@@ -27,162 +27,99 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// RawVendorEventAllOf
+    /// CustodianAccount
     /// </summary>
-    [DataContract(Name = "RawVendorEvent_allOf")]
-    public partial class RawVendorEventAllOf : IEquatable<RawVendorEventAllOf>
+    [DataContract(Name = "CustodianAccount")]
+    public partial class CustodianAccount : IEquatable<CustodianAccount>
     {
         /// <summary>
-        /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent
-        /// </summary>
-        /// <value>The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum InstrumentEventTypeEnum
-        {
-            /// <summary>
-            /// Enum TransitionEvent for value: TransitionEvent
-            /// </summary>
-            [EnumMember(Value = "TransitionEvent")]
-            TransitionEvent = 1,
-
-            /// <summary>
-            /// Enum InformationalEvent for value: InformationalEvent
-            /// </summary>
-            [EnumMember(Value = "InformationalEvent")]
-            InformationalEvent = 2,
-
-            /// <summary>
-            /// Enum OpenEvent for value: OpenEvent
-            /// </summary>
-            [EnumMember(Value = "OpenEvent")]
-            OpenEvent = 3,
-
-            /// <summary>
-            /// Enum CloseEvent for value: CloseEvent
-            /// </summary>
-            [EnumMember(Value = "CloseEvent")]
-            CloseEvent = 4,
-
-            /// <summary>
-            /// Enum StockSplitEvent for value: StockSplitEvent
-            /// </summary>
-            [EnumMember(Value = "StockSplitEvent")]
-            StockSplitEvent = 5,
-
-            /// <summary>
-            /// Enum BondDefaultEvent for value: BondDefaultEvent
-            /// </summary>
-            [EnumMember(Value = "BondDefaultEvent")]
-            BondDefaultEvent = 6,
-
-            /// <summary>
-            /// Enum CashDividendEvent for value: CashDividendEvent
-            /// </summary>
-            [EnumMember(Value = "CashDividendEvent")]
-            CashDividendEvent = 7,
-
-            /// <summary>
-            /// Enum AmortisationEvent for value: AmortisationEvent
-            /// </summary>
-            [EnumMember(Value = "AmortisationEvent")]
-            AmortisationEvent = 8,
-
-            /// <summary>
-            /// Enum CashFlowEvent for value: CashFlowEvent
-            /// </summary>
-            [EnumMember(Value = "CashFlowEvent")]
-            CashFlowEvent = 9,
-
-            /// <summary>
-            /// Enum ExerciseEvent for value: ExerciseEvent
-            /// </summary>
-            [EnumMember(Value = "ExerciseEvent")]
-            ExerciseEvent = 10,
-
-            /// <summary>
-            /// Enum ResetEvent for value: ResetEvent
-            /// </summary>
-            [EnumMember(Value = "ResetEvent")]
-            ResetEvent = 11,
-
-            /// <summary>
-            /// Enum TriggerEvent for value: TriggerEvent
-            /// </summary>
-            [EnumMember(Value = "TriggerEvent")]
-            TriggerEvent = 12,
-
-            /// <summary>
-            /// Enum RawVendorEvent for value: RawVendorEvent
-            /// </summary>
-            [EnumMember(Value = "RawVendorEvent")]
-            RawVendorEvent = 13,
-
-            /// <summary>
-            /// Enum InformationalErrorEvent for value: InformationalErrorEvent
-            /// </summary>
-            [EnumMember(Value = "InformationalErrorEvent")]
-            InformationalErrorEvent = 14
-
-        }
-
-
-        /// <summary>
-        /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent
-        /// </summary>
-        /// <value>The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent</value>
-        [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = false)]
-        public InstrumentEventTypeEnum InstrumentEventType { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RawVendorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="CustodianAccount" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RawVendorEventAllOf() { }
+        protected CustodianAccount() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RawVendorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="CustodianAccount" /> class.
         /// </summary>
-        /// <param name="effectiveAt">The effective date of the event (required).</param>
-        /// <param name="eventValue">eventValue (required).</param>
-        /// <param name="eventType">What type of internal event does this represent; reset, exercise, amortisation etc. (required).</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent (required).</param>
-        public RawVendorEventAllOf(DateTimeOffset effectiveAt = default(DateTimeOffset), LifeCycleEventValue eventValue = default(LifeCycleEventValue), string eventType = default(string), string eventStatus = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        /// <param name="custodianAccountId">custodianAccountId (required).</param>
+        /// <param name="status">The account status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
+        /// <param name="accountNumber">The Custodian Account Number (required).</param>
+        /// <param name="accountName">The identifiable name given to the Custodian Account (required).</param>
+        /// <param name="accountingMethod">The Accounting method to be used (required).</param>
+        /// <param name="currency">The Currency for the Account (required).</param>
+        /// <param name="properties">Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain..</param>
+        /// <param name="custodian">custodian (required).</param>
+        public CustodianAccount(ResourceId custodianAccountId = default(ResourceId), string status = default(string), string accountNumber = default(string), string accountName = default(string), string accountingMethod = default(string), string currency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), LegalEntity custodian = default(LegalEntity))
         {
-            this.EffectiveAt = effectiveAt;
-            // to ensure "eventValue" is required (not null)
-            this.EventValue = eventValue ?? throw new ArgumentNullException("eventValue is a required property for RawVendorEventAllOf and cannot be null");
-            // to ensure "eventType" is required (not null)
-            this.EventType = eventType ?? throw new ArgumentNullException("eventType is a required property for RawVendorEventAllOf and cannot be null");
-            // to ensure "eventStatus" is required (not null)
-            this.EventStatus = eventStatus ?? throw new ArgumentNullException("eventStatus is a required property for RawVendorEventAllOf and cannot be null");
-            this.InstrumentEventType = instrumentEventType;
+            // to ensure "custodianAccountId" is required (not null)
+            this.CustodianAccountId = custodianAccountId ?? throw new ArgumentNullException("custodianAccountId is a required property for CustodianAccount and cannot be null");
+            // to ensure "status" is required (not null)
+            this.Status = status ?? throw new ArgumentNullException("status is a required property for CustodianAccount and cannot be null");
+            // to ensure "accountNumber" is required (not null)
+            this.AccountNumber = accountNumber ?? throw new ArgumentNullException("accountNumber is a required property for CustodianAccount and cannot be null");
+            // to ensure "accountName" is required (not null)
+            this.AccountName = accountName ?? throw new ArgumentNullException("accountName is a required property for CustodianAccount and cannot be null");
+            // to ensure "accountingMethod" is required (not null)
+            this.AccountingMethod = accountingMethod ?? throw new ArgumentNullException("accountingMethod is a required property for CustodianAccount and cannot be null");
+            // to ensure "currency" is required (not null)
+            this.Currency = currency ?? throw new ArgumentNullException("currency is a required property for CustodianAccount and cannot be null");
+            // to ensure "custodian" is required (not null)
+            this.Custodian = custodian ?? throw new ArgumentNullException("custodian is a required property for CustodianAccount and cannot be null");
+            this.Properties = properties;
         }
 
         /// <summary>
-        /// The effective date of the event
+        /// Gets or Sets CustodianAccountId
         /// </summary>
-        /// <value>The effective date of the event</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = false)]
-        public DateTimeOffset EffectiveAt { get; set; }
+        [DataMember(Name = "custodianAccountId", IsRequired = true, EmitDefaultValue = false)]
+        public ResourceId CustodianAccountId { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventValue
+        /// The account status. Can be Active, Inactive or Deleted. Defaults to Active.
         /// </summary>
-        [DataMember(Name = "eventValue", IsRequired = true, EmitDefaultValue = false)]
-        public LifeCycleEventValue EventValue { get; set; }
+        /// <value>The account status. Can be Active, Inactive or Deleted. Defaults to Active.</value>
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// What type of internal event does this represent; reset, exercise, amortisation etc.
+        /// The Custodian Account Number
         /// </summary>
-        /// <value>What type of internal event does this represent; reset, exercise, amortisation etc.</value>
-        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = false)]
-        public string EventType { get; set; }
+        /// <value>The Custodian Account Number</value>
+        [DataMember(Name = "accountNumber", IsRequired = true, EmitDefaultValue = false)]
+        public string AccountNumber { get; set; }
 
         /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
+        /// The identifiable name given to the Custodian Account
         /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = false)]
-        public string EventStatus { get; set; }
+        /// <value>The identifiable name given to the Custodian Account</value>
+        [DataMember(Name = "accountName", IsRequired = true, EmitDefaultValue = false)]
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// The Accounting method to be used
+        /// </summary>
+        /// <value>The Accounting method to be used</value>
+        [DataMember(Name = "accountingMethod", IsRequired = true, EmitDefaultValue = false)]
+        public string AccountingMethod { get; set; }
+
+        /// <summary>
+        /// The Currency for the Account
+        /// </summary>
+        /// <value>The Currency for the Account</value>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = false)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain.
+        /// </summary>
+        /// <value>Set of unique Custodian Account properties and associated values to store with the Custodian Account. Each property must be from the &#39;CustodianAccount&#39; domain.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Custodian
+        /// </summary>
+        [DataMember(Name = "custodian", IsRequired = true, EmitDefaultValue = false)]
+        public LegalEntity Custodian { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -191,12 +128,15 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RawVendorEventAllOf {\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  EventValue: ").Append(EventValue).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
-            sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
+            sb.Append("class CustodianAccount {\n");
+            sb.Append("  CustodianAccountId: ").Append(CustodianAccountId).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            sb.Append("  AccountingMethod: ").Append(AccountingMethod).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Custodian: ").Append(Custodian).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -217,43 +157,60 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RawVendorEventAllOf);
+            return this.Equals(input as CustodianAccount);
         }
 
         /// <summary>
-        /// Returns true if RawVendorEventAllOf instances are equal
+        /// Returns true if CustodianAccount instances are equal
         /// </summary>
-        /// <param name="input">Instance of RawVendorEventAllOf to be compared</param>
+        /// <param name="input">Instance of CustodianAccount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RawVendorEventAllOf input)
+        public bool Equals(CustodianAccount input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.CustodianAccountId == input.CustodianAccountId ||
+                    (this.CustodianAccountId != null &&
+                    this.CustodianAccountId.Equals(input.CustodianAccountId))
                 ) && 
                 (
-                    this.EventValue == input.EventValue ||
-                    (this.EventValue != null &&
-                    this.EventValue.Equals(input.EventValue))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
+                    this.AccountNumber == input.AccountNumber ||
+                    (this.AccountNumber != null &&
+                    this.AccountNumber.Equals(input.AccountNumber))
                 ) && 
                 (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
+                    this.AccountName == input.AccountName ||
+                    (this.AccountName != null &&
+                    this.AccountName.Equals(input.AccountName))
                 ) && 
                 (
-                    this.InstrumentEventType == input.InstrumentEventType ||
-                    this.InstrumentEventType.Equals(input.InstrumentEventType)
+                    this.AccountingMethod == input.AccountingMethod ||
+                    (this.AccountingMethod != null &&
+                    this.AccountingMethod.Equals(input.AccountingMethod))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.Custodian == input.Custodian ||
+                    (this.Custodian != null &&
+                    this.Custodian.Equals(input.Custodian))
                 );
         }
 
@@ -266,15 +223,22 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EffectiveAt != null)
-                    hashCode = hashCode * 59 + this.EffectiveAt.GetHashCode();
-                if (this.EventValue != null)
-                    hashCode = hashCode * 59 + this.EventValue.GetHashCode();
-                if (this.EventType != null)
-                    hashCode = hashCode * 59 + this.EventType.GetHashCode();
-                if (this.EventStatus != null)
-                    hashCode = hashCode * 59 + this.EventStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.InstrumentEventType.GetHashCode();
+                if (this.CustodianAccountId != null)
+                    hashCode = hashCode * 59 + this.CustodianAccountId.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.AccountNumber != null)
+                    hashCode = hashCode * 59 + this.AccountNumber.GetHashCode();
+                if (this.AccountName != null)
+                    hashCode = hashCode * 59 + this.AccountName.GetHashCode();
+                if (this.AccountingMethod != null)
+                    hashCode = hashCode * 59 + this.AccountingMethod.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                if (this.Custodian != null)
+                    hashCode = hashCode * 59 + this.Custodian.GetHashCode();
                 return hashCode;
             }
         }
