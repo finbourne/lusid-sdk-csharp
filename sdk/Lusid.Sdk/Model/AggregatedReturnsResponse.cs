@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="results">Aggregated returns grouped by ReturnId.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public AggregatedReturnsResponse(string href = default(string), Dictionary<string, List<AggregatedReturn>> results = default(Dictionary<string, List<AggregatedReturn>>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -60,9 +60,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, List<AggregatedReturn>> Results { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="values">The instruments which have been successfully updated or created..</param>
         /// <param name="failed">The instruments that could not be updated or created or were left unchanged without error along with a reason for their failure..</param>
         /// <param name="metadata">Meta data associated with the upsert event..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public UpsertInstrumentsResponse(string href = default(string), Dictionary<string, Instrument> values = default(Dictionary<string, Instrument>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -78,9 +78,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
