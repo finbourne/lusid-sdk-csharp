@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **EquityOptionType** | **string** | Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]. | [optional] 
 **NumberOfShares** | **decimal?** | The amount of shares to exchange if the option is exercised. | [optional] 
 **Premium** | [**Premium**](Premium.md) |  | [optional] 
+**ExerciseType** | **string** | Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
