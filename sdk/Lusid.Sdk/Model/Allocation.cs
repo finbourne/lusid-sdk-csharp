@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// <param name="settlementCurrencyFxRate">The settlement currency to allocation currency FX rate..</param>
         /// <param name="counterparty">The counterparty for this allocation..</param>
         /// <param name="executionIds">The executions associated with this allocation.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Allocation(ResourceId id = default(ResourceId), ResourceId allocatedOrderId = default(ResourceId), ResourceId portfolioId = default(ResourceId), decimal quantity = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), Version version = default(Version), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string instrumentScope = default(string), string lusidInstrumentId = default(string), List<ResourceId> placementIds = default(List<ResourceId>), string state = default(string), string side = default(string), string type = default(string), DateTimeOffset? settlementDate = default(DateTimeOffset?), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), string settlementCurrency = default(string), decimal? settlementCurrencyFxRate = default(decimal?), string counterparty = default(string), List<ResourceId> executionIds = default(List<ResourceId>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -227,9 +227,8 @@ namespace Lusid.Sdk.Model
         public List<ResourceId> ExecutionIds { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
