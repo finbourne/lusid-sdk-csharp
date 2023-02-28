@@ -27,52 +27,69 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// UpdateCustomEntityDefinitionRequest
+    /// The definition of an Address Key Option
     /// </summary>
-    [DataContract(Name = "UpdateCustomEntityDefinitionRequest")]
-    public partial class UpdateCustomEntityDefinitionRequest : IEquatable<UpdateCustomEntityDefinitionRequest>
+    [DataContract(Name = "AddressKeyOptionDefinition")]
+    public partial class AddressKeyOptionDefinition : IEquatable<AddressKeyOptionDefinition>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateCustomEntityDefinitionRequest" /> class.
+        /// Initializes a new instance of the <see cref="AddressKeyOptionDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UpdateCustomEntityDefinitionRequest() { }
+        protected AddressKeyOptionDefinition() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateCustomEntityDefinitionRequest" /> class.
+        /// Initializes a new instance of the <see cref="AddressKeyOptionDefinition" /> class.
         /// </summary>
-        /// <param name="displayName">A display label for the custom entity type. (required).</param>
-        /// <param name="description">A description for the custom entity type. (required).</param>
-        /// <param name="fieldSchema">The description of the fields on the custom entity type. (required).</param>
-        public UpdateCustomEntityDefinitionRequest(string displayName = default(string), string description = default(string), List<CustomEntityFieldDefinition> fieldSchema = default(List<CustomEntityFieldDefinition>))
+        /// <param name="name">The name of the option (required).</param>
+        /// <param name="type">The type of the option (required).</param>
+        /// <param name="optional">Is this option required or optional? (required).</param>
+        /// <param name="allowedValueSet">If the option is a string or enum, the allowed set of values it can take..</param>
+        /// <param name="defaultValue">If the option is not required, what is the default value?.</param>
+        public AddressKeyOptionDefinition(string name = default(string), string type = default(string), bool optional = default(bool), List<string> allowedValueSet = default(List<string>), string defaultValue = default(string))
         {
-            // to ensure "displayName" is required (not null)
-            this.DisplayName = displayName ?? throw new ArgumentNullException("displayName is a required property for UpdateCustomEntityDefinitionRequest and cannot be null");
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for UpdateCustomEntityDefinitionRequest and cannot be null");
-            // to ensure "fieldSchema" is required (not null)
-            this.FieldSchema = fieldSchema ?? throw new ArgumentNullException("fieldSchema is a required property for UpdateCustomEntityDefinitionRequest and cannot be null");
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for AddressKeyOptionDefinition and cannot be null");
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for AddressKeyOptionDefinition and cannot be null");
+            this.Optional = optional;
+            this.AllowedValueSet = allowedValueSet;
+            this.DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// A display label for the custom entity type.
+        /// The name of the option
         /// </summary>
-        /// <value>A display label for the custom entity type.</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
-        public string DisplayName { get; set; }
+        /// <value>The name of the option</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// A description for the custom entity type.
+        /// The type of the option
         /// </summary>
-        /// <value>A description for the custom entity type.</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
-        public string Description { get; set; }
+        /// <value>The type of the option</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// The description of the fields on the custom entity type.
+        /// Is this option required or optional?
         /// </summary>
-        /// <value>The description of the fields on the custom entity type.</value>
-        [DataMember(Name = "fieldSchema", IsRequired = true, EmitDefaultValue = false)]
-        public List<CustomEntityFieldDefinition> FieldSchema { get; set; }
+        /// <value>Is this option required or optional?</value>
+        [DataMember(Name = "optional", IsRequired = true, EmitDefaultValue = true)]
+        public bool Optional { get; set; }
+
+        /// <summary>
+        /// If the option is a string or enum, the allowed set of values it can take.
+        /// </summary>
+        /// <value>If the option is a string or enum, the allowed set of values it can take.</value>
+        [DataMember(Name = "allowedValueSet", EmitDefaultValue = true)]
+        public List<string> AllowedValueSet { get; set; }
+
+        /// <summary>
+        /// If the option is not required, what is the default value?
+        /// </summary>
+        /// <value>If the option is not required, what is the default value?</value>
+        [DataMember(Name = "defaultValue", EmitDefaultValue = true)]
+        public string DefaultValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +98,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateCustomEntityDefinitionRequest {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  FieldSchema: ").Append(FieldSchema).Append("\n");
+            sb.Append("class AddressKeyOptionDefinition {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Optional: ").Append(Optional).Append("\n");
+            sb.Append("  AllowedValueSet: ").Append(AllowedValueSet).Append("\n");
+            sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,35 +124,44 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateCustomEntityDefinitionRequest);
+            return this.Equals(input as AddressKeyOptionDefinition);
         }
 
         /// <summary>
-        /// Returns true if UpdateCustomEntityDefinitionRequest instances are equal
+        /// Returns true if AddressKeyOptionDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateCustomEntityDefinitionRequest to be compared</param>
+        /// <param name="input">Instance of AddressKeyOptionDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateCustomEntityDefinitionRequest input)
+        public bool Equals(AddressKeyOptionDefinition input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FieldSchema == input.FieldSchema ||
-                    this.FieldSchema != null &&
-                    input.FieldSchema != null &&
-                    this.FieldSchema.SequenceEqual(input.FieldSchema)
+                    this.Optional == input.Optional ||
+                    this.Optional.Equals(input.Optional)
+                ) && 
+                (
+                    this.AllowedValueSet == input.AllowedValueSet ||
+                    this.AllowedValueSet != null &&
+                    input.AllowedValueSet != null &&
+                    this.AllowedValueSet.SequenceEqual(input.AllowedValueSet)
+                ) && 
+                (
+                    this.DefaultValue == input.DefaultValue ||
+                    (this.DefaultValue != null &&
+                    this.DefaultValue.Equals(input.DefaultValue))
                 );
         }
 
@@ -146,12 +174,15 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.FieldSchema != null)
-                    hashCode = hashCode * 59 + this.FieldSchema.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Optional.GetHashCode();
+                if (this.AllowedValueSet != null)
+                    hashCode = hashCode * 59 + this.AllowedValueSet.GetHashCode();
+                if (this.DefaultValue != null)
+                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
                 return hashCode;
             }
         }
