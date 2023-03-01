@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="amended">amended (required).</param>
         /// <param name="amendmentEffectiveAt">amendmentEffectiveAt.</param>
         /// <param name="amendmentAsAt">amendmentAsAt.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Change(string href = default(string), ResourceId entityId = default(ResourceId), bool corrected = default(bool), DateTimeOffset? correctionEffectiveAt = default(DateTimeOffset?), DateTimeOffset? correctionAsAt = default(DateTimeOffset?), bool amended = default(bool), DateTimeOffset? amendmentEffectiveAt = default(DateTimeOffset?), DateTimeOffset? amendmentAsAt = default(DateTimeOffset?), List<Link> links = default(List<Link>))
         {
             // to ensure "entityId" is required (not null)
@@ -112,9 +112,8 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AmendmentAsAt { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
