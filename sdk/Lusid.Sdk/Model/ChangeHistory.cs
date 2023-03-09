@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Model
         /// <param name="requestId">The unique identifier of the request that the changes were part of. (required).</param>
         /// <param name="action">The action performed on the transaction, either created, updated, or deleted. The available values are: Create, Update, Delete (required).</param>
         /// <param name="changes">The collection of changes that were made. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public ChangeHistory(string userId = default(string), DateTimeOffset modifiedAsAt = default(DateTimeOffset), string requestId = default(string), ActionEnum action = default(ActionEnum), List<ChangeItem> changes = default(List<ChangeItem>), List<Link> links = default(List<Link>))
         {
             // to ensure "userId" is required (not null)
@@ -122,9 +122,8 @@ namespace Lusid.Sdk.Model
         public List<ChangeItem> Changes { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

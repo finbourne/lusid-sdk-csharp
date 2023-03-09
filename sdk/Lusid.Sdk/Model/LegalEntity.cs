@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="relationships">A set of relationships associated to the Legal Entity..</param>
         /// <param name="counterpartyRiskInformation">counterpartyRiskInformation.</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public LegalEntity(string displayName = default(string), string description = default(string), string href = default(string), string lusidLegalEntityId = default(string), Dictionary<string, Property> identifiers = default(Dictionary<string, Property>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), CounterpartyRiskInformation counterpartyRiskInformation = default(CounterpartyRiskInformation), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             this.DisplayName = displayName;
@@ -121,9 +121,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

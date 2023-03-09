@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The schema of an contributing part of a valid LUSID resource identifier
+    /// IdentifierPartSchema
     /// </summary>
     [DataContract(Name = "IdentifierPartSchema")]
     public partial class IdentifierPartSchema : IEquatable<IdentifierPartSchema>
@@ -40,12 +40,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifierPartSchema" /> class.
         /// </summary>
-        /// <param name="index">The typical index in the identifier in which this part appears (required).</param>
-        /// <param name="name">The name of the identifier part that can/should be provided for this resource type (required).</param>
-        /// <param name="displayName">The display name of the identifier part (required).</param>
-        /// <param name="description">A brief description of the point of this identifier part (required).</param>
-        /// <param name="required">Whether a value is required to be provided (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="index">index (required).</param>
+        /// <param name="name">name (required).</param>
+        /// <param name="displayName">displayName (required).</param>
+        /// <param name="description">description (required).</param>
+        /// <param name="required">required (required).</param>
+        /// <param name="links">links.</param>
         public IdentifierPartSchema(int index = default(int), string name = default(string), string displayName = default(string), string description = default(string), bool required = default(bool), List<Link> links = default(List<Link>))
         {
             this.Index = index;
@@ -60,44 +60,38 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The typical index in the identifier in which this part appears
+        /// Gets or Sets Index
         /// </summary>
-        /// <value>The typical index in the identifier in which this part appears</value>
         [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
         public int Index { get; set; }
 
         /// <summary>
-        /// The name of the identifier part that can/should be provided for this resource type
+        /// Gets or Sets Name
         /// </summary>
-        /// <value>The name of the identifier part that can/should be provided for this resource type</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The display name of the identifier part
+        /// Gets or Sets DisplayName
         /// </summary>
-        /// <value>The display name of the identifier part</value>
         [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// A brief description of the point of this identifier part
+        /// Gets or Sets Description
         /// </summary>
-        /// <value>A brief description of the point of this identifier part</value>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Whether a value is required to be provided
+        /// Gets or Sets Required
         /// </summary>
-        /// <value>Whether a value is required to be provided</value>
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
