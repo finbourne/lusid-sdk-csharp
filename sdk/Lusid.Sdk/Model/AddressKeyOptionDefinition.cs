@@ -21,49 +21,75 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A simple result for a decimal value
+    /// The definition of an Address Key Option
     /// </summary>
-    [DataContract(Name = "ResultValueDecimal")]
-    [JsonConverter(typeof(JsonSubtypes), "ResultValueType")]
-    public partial class ResultValueDecimal : ResultValue, IEquatable<ResultValueDecimal>
+    [DataContract(Name = "AddressKeyOptionDefinition")]
+    public partial class AddressKeyOptionDefinition : IEquatable<AddressKeyOptionDefinition>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResultValueDecimal" /> class.
+        /// Initializes a new instance of the <see cref="AddressKeyOptionDefinition" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResultValueDecimal() { }
+        protected AddressKeyOptionDefinition() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResultValueDecimal" /> class.
+        /// Initializes a new instance of the <see cref="AddressKeyOptionDefinition" /> class.
         /// </summary>
-        /// <param name="value">The value itself.</param>
-        /// <param name="dimension">The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be  populate by the user on upsertion..</param>
-        /// <param name="resultValueType">The available values are: ResultValue, ResultValueDictionary, ResultValue0D, ResultValueDecimal, ResultValueInt, ResultValueString, ResultValueBool, ResultValueCurrency, CashFlowValue, CashFlowValueSet, ResultValueLifeCycleEventValue, ResultValueDateTimeOffset (required) (default to &quot;ResultValueDecimal&quot;).</param>
-        public ResultValueDecimal(decimal value = default(decimal), int? dimension = default(int?), ResultValueTypeEnum resultValueType = default(ResultValueTypeEnum)) : base(resultValueType)
+        /// <param name="name">The name of the option (required).</param>
+        /// <param name="type">The type of the option (required).</param>
+        /// <param name="optional">Is this option required or optional? (required).</param>
+        /// <param name="allowedValueSet">If the option is a string or enum, the allowed set of values it can take..</param>
+        /// <param name="defaultValue">If the option is not required, what is the default value?.</param>
+        public AddressKeyOptionDefinition(string name = default(string), string type = default(string), bool optional = default(bool), List<string> allowedValueSet = default(List<string>), string defaultValue = default(string))
         {
-            this.Value = value;
-            this.Dimension = dimension;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for AddressKeyOptionDefinition and cannot be null");
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for AddressKeyOptionDefinition and cannot be null");
+            this.Optional = optional;
+            this.AllowedValueSet = allowedValueSet;
+            this.DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// The value itself
+        /// The name of the option
         /// </summary>
-        /// <value>The value itself</value>
-        [DataMember(Name = "value", EmitDefaultValue = true)]
-        public decimal Value { get; set; }
+        /// <value>The name of the option</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be  populate by the user on upsertion.
+        /// The type of the option
         /// </summary>
-        /// <value>The dimension of the result. Can be null if there is no sensible way of defining the dimension. This field should not be  populate by the user on upsertion.</value>
-        [DataMember(Name = "dimension", EmitDefaultValue = true)]
-        public int? Dimension { get; set; }
+        /// <value>The type of the option</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Is this option required or optional?
+        /// </summary>
+        /// <value>Is this option required or optional?</value>
+        [DataMember(Name = "optional", IsRequired = true, EmitDefaultValue = true)]
+        public bool Optional { get; set; }
+
+        /// <summary>
+        /// If the option is a string or enum, the allowed set of values it can take.
+        /// </summary>
+        /// <value>If the option is a string or enum, the allowed set of values it can take.</value>
+        [DataMember(Name = "allowedValueSet", EmitDefaultValue = true)]
+        public List<string> AllowedValueSet { get; set; }
+
+        /// <summary>
+        /// If the option is not required, what is the default value?
+        /// </summary>
+        /// <value>If the option is not required, what is the default value?</value>
+        [DataMember(Name = "defaultValue", EmitDefaultValue = true)]
+        public string DefaultValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,10 +98,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResultValueDecimal {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Dimension: ").Append(Dimension).Append("\n");
+            sb.Append("class AddressKeyOptionDefinition {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Optional: ").Append(Optional).Append("\n");
+            sb.Append("  AllowedValueSet: ").Append(AllowedValueSet).Append("\n");
+            sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,7 +112,7 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -96,28 +124,44 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResultValueDecimal);
+            return this.Equals(input as AddressKeyOptionDefinition);
         }
 
         /// <summary>
-        /// Returns true if ResultValueDecimal instances are equal
+        /// Returns true if AddressKeyOptionDefinition instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResultValueDecimal to be compared</param>
+        /// <param name="input">Instance of AddressKeyOptionDefinition to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResultValueDecimal input)
+        public bool Equals(AddressKeyOptionDefinition input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
-                    this.Value == input.Value ||
-                    this.Value.Equals(input.Value)
-                ) && base.Equals(input) && 
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
                 (
-                    this.Dimension == input.Dimension ||
-                    (this.Dimension != null &&
-                    this.Dimension.Equals(input.Dimension))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Optional == input.Optional ||
+                    this.Optional.Equals(input.Optional)
+                ) && 
+                (
+                    this.AllowedValueSet == input.AllowedValueSet ||
+                    this.AllowedValueSet != null &&
+                    input.AllowedValueSet != null &&
+                    this.AllowedValueSet.SequenceEqual(input.AllowedValueSet)
+                ) && 
+                (
+                    this.DefaultValue == input.DefaultValue ||
+                    (this.DefaultValue != null &&
+                    this.DefaultValue.Equals(input.DefaultValue))
                 );
         }
 
@@ -129,10 +173,16 @@ namespace Lusid.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
-                if (this.Dimension != null)
-                    hashCode = hashCode * 59 + this.Dimension.GetHashCode();
+                int hashCode = 41;
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Optional.GetHashCode();
+                if (this.AllowedValueSet != null)
+                    hashCode = hashCode * 59 + this.AllowedValueSet.GetHashCode();
+                if (this.DefaultValue != null)
+                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
                 return hashCode;
             }
         }
