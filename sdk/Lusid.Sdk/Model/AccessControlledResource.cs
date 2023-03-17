@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A resource to which access can be controlled
+    /// AccessControlledResource
     /// </summary>
     [DataContract(Name = "AccessControlledResource")]
     public partial class AccessControlledResource : IEquatable<AccessControlledResource>
@@ -40,12 +40,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccessControlledResource" /> class.
         /// </summary>
-        /// <param name="application">The application to which this resource belongs.</param>
-        /// <param name="name">The display name of the resource.</param>
-        /// <param name="description">The description of the resource (required).</param>
-        /// <param name="actions">The actions acceptable for this type of resource (required).</param>
-        /// <param name="identifierParts">The constituent parts of a valid identifier for this resource.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="application">application.</param>
+        /// <param name="name">name.</param>
+        /// <param name="description">description (required).</param>
+        /// <param name="actions">actions (required).</param>
+        /// <param name="identifierParts">identifierParts.</param>
+        /// <param name="links">links.</param>
         public AccessControlledResource(string application = default(string), string name = default(string), string description = default(string), List<AccessControlledAction> actions = default(List<AccessControlledAction>), List<IdentifierPartSchema> identifierParts = default(List<IdentifierPartSchema>), List<Link> links = default(List<Link>))
         {
             // to ensure "description" is required (not null)
@@ -59,44 +59,38 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The application to which this resource belongs
+        /// Gets or Sets Application
         /// </summary>
-        /// <value>The application to which this resource belongs</value>
         [DataMember(Name = "application", EmitDefaultValue = true)]
         public string Application { get; set; }
 
         /// <summary>
-        /// The display name of the resource
+        /// Gets or Sets Name
         /// </summary>
-        /// <value>The display name of the resource</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of the resource
+        /// Gets or Sets Description
         /// </summary>
-        /// <value>The description of the resource</value>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The actions acceptable for this type of resource
+        /// Gets or Sets Actions
         /// </summary>
-        /// <value>The actions acceptable for this type of resource</value>
         [DataMember(Name = "actions", IsRequired = true, EmitDefaultValue = false)]
         public List<AccessControlledAction> Actions { get; set; }
 
         /// <summary>
-        /// The constituent parts of a valid identifier for this resource
+        /// Gets or Sets IdentifierParts
         /// </summary>
-        /// <value>The constituent parts of a valid identifier for this resource</value>
         [DataMember(Name = "identifierParts", EmitDefaultValue = true)]
         public List<IdentifierPartSchema> IdentifierParts { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
