@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="subGroups">The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups..</param>
         /// <param name="relationships">A set of relationships associated to the portfolio group..</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PortfolioGroup(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), List<ResourceId> portfolios = default(List<ResourceId>), List<ResourceId> subGroups = default(List<ResourceId>), List<Relationship> relationships = default(List<Relationship>), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -128,9 +128,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
