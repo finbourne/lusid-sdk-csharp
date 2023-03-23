@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="subHoldingKeys">The sub-holding properties which identify the holding. Each property will be from the &#39;Transaction&#39; domain. These are configured on a transaction portfolio..</param>
         /// <param name="records">A record of cash flows on a specific date. (required).</param>
         /// <param name="failed">The records that could not be returned along with a reason for their failure..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PortfolioCashLadder(string currency = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), List<CashLadderRecord> records = default(List<CashLadderRecord>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
             // to ensure "currency" is required (not null)
@@ -85,9 +85,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

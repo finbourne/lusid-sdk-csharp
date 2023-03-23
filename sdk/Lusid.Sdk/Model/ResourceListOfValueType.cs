@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A collection of resources that can be returned from requests.
+    /// ResourceListOfValueType
     /// </summary>
     [DataContract(Name = "ResourceListOfValueType")]
     public partial class ResourceListOfValueType : IEquatable<ResourceListOfValueType>
@@ -40,11 +40,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResourceListOfValueType" /> class.
         /// </summary>
-        /// <param name="values">The resources to list. (required).</param>
-        /// <param name="href">The URI of the resource list..</param>
-        /// <param name="links">Collection of links..</param>
-        /// <param name="nextPage">The next page of results..</param>
-        /// <param name="previousPage">The previous page of results..</param>
+        /// <param name="values">values (required).</param>
+        /// <param name="href">href.</param>
+        /// <param name="links">links.</param>
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
         public ResourceListOfValueType(List<ValueType> values = default(List<ValueType>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
             // to ensure "values" is required (not null)
@@ -56,37 +56,32 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The resources to list.
+        /// Gets or Sets Values
         /// </summary>
-        /// <value>The resources to list.</value>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = false)]
         public List<ValueType> Values { get; set; }
 
         /// <summary>
-        /// The URI of the resource list.
+        /// Gets or Sets Href
         /// </summary>
-        /// <value>The URI of the resource list.</value>
         [DataMember(Name = "href", EmitDefaultValue = true)]
         public string Href { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
         /// <summary>
-        /// The next page of results.
+        /// Gets or Sets NextPage
         /// </summary>
-        /// <value>The next page of results.</value>
         [DataMember(Name = "nextPage", EmitDefaultValue = true)]
         public string NextPage { get; set; }
 
         /// <summary>
-        /// The previous page of results.
+        /// Gets or Sets PreviousPage
         /// </summary>
-        /// <value>The previous page of results.</value>
         [DataMember(Name = "previousPage", EmitDefaultValue = true)]
         public string PreviousPage { get; set; }
 
