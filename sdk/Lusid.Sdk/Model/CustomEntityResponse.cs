@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="identifiers">The identifiers the custom entity will be upserted with. (required).</param>
         /// <param name="fields">The fields that decorate the custom entity. (required).</param>
         /// <param name="relationships">A set of relationships associated to the custom entity. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public CustomEntityResponse(string href = default(string), string entityType = default(string), Version version = default(Version), string displayName = default(string), string description = default(string), List<CustomEntityId> identifiers = default(List<CustomEntityId>), List<CustomEntityField> fields = default(List<CustomEntityField>), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
         {
             // to ensure "entityType" is required (not null)
@@ -124,9 +124,8 @@ namespace Lusid.Sdk.Model
         public List<Relationship> Relationships { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

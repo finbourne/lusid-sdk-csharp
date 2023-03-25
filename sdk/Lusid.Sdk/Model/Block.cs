@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="limitPrice">limitPrice.</param>
         /// <param name="stopPrice">stopPrice.</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Block(ResourceId id = default(ResourceId), List<ResourceId> orderIds = default(List<ResourceId>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), decimal quantity = default(decimal), string side = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset createdDate = default(DateTimeOffset), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -167,9 +167,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
