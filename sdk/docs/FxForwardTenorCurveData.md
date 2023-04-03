@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Tenors** | **List&lt;string&gt;** | Tenors for which the forward rates apply | 
 **Rates** | **List&lt;decimal&gt;** | Rates provided for the fx forward (price in FgnCcy per unit of DomCcy) | 
 **Lineage** | **string** | Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;. | [optional] 
+**MarketDataOptions** | [**MarketDataOptions**](MarketDataOptions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
