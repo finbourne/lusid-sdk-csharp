@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// <param name="stopPrice">stopPrice.</param>
         /// <param name="orderInstructionId">orderInstructionId.</param>
         /// <param name="packageId">packageId.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Order(Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Version version = default(Version), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), decimal quantity = default(decimal), string side = default(string), ResourceId orderBookId = default(ResourceId), ResourceId portfolioId = default(ResourceId), ResourceId id = default(ResourceId), string instrumentScope = default(string), string lusidInstrumentId = default(string), string state = default(string), string type = default(string), string timeInForce = default(string), DateTimeOffset date = default(DateTimeOffset), CurrencyAndAmount price = default(CurrencyAndAmount), CurrencyAndAmount limitPrice = default(CurrencyAndAmount), CurrencyAndAmount stopPrice = default(CurrencyAndAmount), ResourceId orderInstructionId = default(ResourceId), ResourceId packageId = default(ResourceId), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentIdentifiers" is required (not null)
@@ -213,9 +213,8 @@ namespace Lusid.Sdk.Model
         public ResourceId PackageId { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

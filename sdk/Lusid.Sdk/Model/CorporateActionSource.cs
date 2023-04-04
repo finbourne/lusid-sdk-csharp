@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the corporate action source.</param>
         /// <param name="description">The description of the corporate action source.</param>
         /// <param name="instrumentScopes">The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public CorporateActionSource(string href = default(string), ResourceId id = default(ResourceId), Version version = default(Version), string displayName = default(string), string description = default(string), List<string> instrumentScopes = default(List<string>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -94,9 +94,8 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentScopes { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
