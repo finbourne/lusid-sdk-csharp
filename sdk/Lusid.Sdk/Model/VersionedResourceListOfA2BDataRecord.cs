@@ -41,11 +41,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="VersionedResourceListOfA2BDataRecord" /> class.
         /// </summary>
         /// <param name="version">version (required).</param>
-        /// <param name="values">The resources to list. (required).</param>
-        /// <param name="href">The URI of the resource list..</param>
-        /// <param name="nextPage">The next page of results..</param>
-        /// <param name="previousPage">The previous page of results..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="values">values (required).</param>
+        /// <param name="href">href.</param>
+        /// <param name="nextPage">nextPage.</param>
+        /// <param name="previousPage">previousPage.</param>
+        /// <param name="links">links.</param>
         public VersionedResourceListOfA2BDataRecord(Version version = default(Version), List<A2BDataRecord> values = default(List<A2BDataRecord>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "version" is required (not null)
@@ -65,37 +65,32 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// The resources to list.
+        /// Gets or Sets Values
         /// </summary>
-        /// <value>The resources to list.</value>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = false)]
         public List<A2BDataRecord> Values { get; set; }
 
         /// <summary>
-        /// The URI of the resource list.
+        /// Gets or Sets Href
         /// </summary>
-        /// <value>The URI of the resource list.</value>
         [DataMember(Name = "href", EmitDefaultValue = true)]
         public string Href { get; set; }
 
         /// <summary>
-        /// The next page of results.
+        /// Gets or Sets NextPage
         /// </summary>
-        /// <value>The next page of results.</value>
         [DataMember(Name = "nextPage", EmitDefaultValue = true)]
         public string NextPage { get; set; }
 
         /// <summary>
-        /// The previous page of results.
+        /// Gets or Sets PreviousPage
         /// </summary>
-        /// <value>The previous page of results.</value>
         [DataMember(Name = "previousPage", EmitDefaultValue = true)]
         public string PreviousPage { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
