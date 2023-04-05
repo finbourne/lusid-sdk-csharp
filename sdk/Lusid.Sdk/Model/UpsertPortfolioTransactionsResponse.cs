@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="version">version (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="metadata">Contains warnings related to unresolved instruments or non-existent transaction types for the upserted trades.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public UpsertPortfolioTransactionsResponse(Version version = default(Version), string href = default(string), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
             // to ensure "version" is required (not null)
@@ -74,9 +74,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
