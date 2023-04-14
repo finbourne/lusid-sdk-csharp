@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="apiVersion">apiVersion.</param>
         /// <param name="buildVersion">buildVersion.</param>
         /// <param name="excelVersion">excelVersion.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public VersionSummaryDto(string apiVersion = default(string), string buildVersion = default(string), string excelVersion = default(string), List<Link> links = default(List<Link>))
         {
             this.ApiVersion = apiVersion;
@@ -66,9 +66,8 @@ namespace Lusid.Sdk.Model
         public string ExcelVersion { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
