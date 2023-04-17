@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Lusid.Sdk.Client;
 
 namespace Lusid.Sdk.Utilities
@@ -11,7 +12,7 @@ namespace Lusid.Sdk.Utilities
         /// <summary>
         /// The header that the LUSID request id is contained within.
         /// </summary>
-        public const string RequestIdHeader = "lusid-meta-requestId";
+        public const string RequestIdHeader = "lusid-meta-requestid";
         
         /// <summary>
         /// The header that the LUSID Date Time Offset is contained within.
@@ -24,7 +25,12 @@ namespace Lusid.Sdk.Utilities
         public static string GetRequestId<T>(this ApiResponse<T> apiResponse)
         {
             // Extract requestId from Insights link contained in the Instance property
-            return apiResponse.Headers.ContainsKey(RequestIdHeader) ? apiResponse.Headers[RequestIdHeader][0] : null;
+            return (
+                from header 
+                in apiResponse.Headers 
+                where header.Key.ToLower() == RequestIdHeader 
+                select header.Value[0]
+            ).FirstOrDefault();
         }
         
         /// <summary>
