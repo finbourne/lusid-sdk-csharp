@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">href.</param>
         /// <param name="values">values.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PropertySchema(string href = default(string), Dictionary<string, FieldSchema> values = default(Dictionary<string, FieldSchema>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -58,9 +58,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, FieldSchema> Values { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
