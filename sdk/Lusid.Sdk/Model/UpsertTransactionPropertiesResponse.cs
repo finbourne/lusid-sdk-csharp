@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="version">version.</param>
         /// <param name="properties">properties.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public UpsertTransactionPropertiesResponse(string href = default(string), Version version = default(Version), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -67,9 +67,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
