@@ -122,7 +122,7 @@ namespace Example
 
             var apiInstance = new ReconciliationsApi(config);
             var scope = scope_example;  // string | The scope of the mapping.
-            var code = code_example;  // string | The code fof the mapping.
+            var code = code_example;  // string | The code of the mapping.
 
             try
             {
@@ -146,7 +146,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| The scope of the mapping. | 
- **code** | **string**| The code fof the mapping. | 
+ **code** | **string**| The code of the mapping. | 
 
 ### Return type
 
