@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="values">The set of values that were successfully retrieved..</param>
         /// <param name="failed">The set of values that could not be retrieved due along with a reason for this, e.g badly formed request..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public GetComplexMarketDataResponse(string href = default(string), Dictionary<string, ComplexMarketData> values = default(Dictionary<string, ComplexMarketData>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -69,9 +69,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">href.</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public UpsertReferencePortfolioConstituentsResponse(string href = default(string), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -58,9 +58,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
