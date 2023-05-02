@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="aggregationCurrency">aggregationCurrency.</param>
         /// <param name="dataSchema">dataSchema.</param>
         /// <param name="aggregationFailures">aggregationFailures.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Aggregation(DateTimeOffset aggregationEffectiveAt = default(DateTimeOffset), DateTimeOffset aggregationAsAt = default(DateTimeOffset), string href = default(string), List<IDataRecord> data = default(List<IDataRecord>), string aggregationCurrency = default(string), ResultDataSchema dataSchema = default(ResultDataSchema), List<AggregationMeasureFailureDetail> aggregationFailures = default(List<AggregationMeasureFailureDetail>), List<Link> links = default(List<Link>))
         {
             this.AggregationEffectiveAt = aggregationEffectiveAt;
@@ -98,9 +98,8 @@ namespace Lusid.Sdk.Model
         public List<AggregationMeasureFailureDetail> AggregationFailures { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

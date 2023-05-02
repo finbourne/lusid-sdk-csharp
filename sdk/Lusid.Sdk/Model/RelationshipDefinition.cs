@@ -49,7 +49,7 @@ namespace Lusid.Sdk.Model
         /// <param name="inwardDescription">The description to relate target entity object and source entity object (required).</param>
         /// <param name="lifeTime">Describes how the relationships can change over time. (required).</param>
         /// <param name="relationshipCardinality">Describes the cardinality of the relationship between source entity and target entity. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public RelationshipDefinition(Version version = default(Version), ResourceId relationshipDefinitionId = default(ResourceId), string sourceEntityType = default(string), string targetEntityType = default(string), string displayName = default(string), string outwardDescription = default(string), string inwardDescription = default(string), string lifeTime = default(string), string relationshipCardinality = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "relationshipDefinitionId" is required (not null)
@@ -134,9 +134,8 @@ namespace Lusid.Sdk.Model
         public string RelationshipCardinality { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
