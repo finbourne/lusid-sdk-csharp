@@ -27,53 +27,41 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// In evaluating a left and right hand side holding or valuation set, two data records result. These are then compared based on a set of  rules. This results in either a match or failure to match. If there is a match both left and right will be present, otherwise one will not.  A difference will be present if a match was calculated.  The options used in comparison may result in elision of results where an exact or tolerable match is made.
+    /// A wrapper of conventions that should be used when interpreting tenors in the context of FX.  For instance, can be used to control how tenors are interpreted on an FxForwardTenorCurveData instance.
     /// </summary>
-    [DataContract(Name = "ReconciliationLine")]
-    public partial class ReconciliationLine : IEquatable<ReconciliationLine>
+    [DataContract(Name = "FxTenorConvention")]
+    public partial class FxTenorConvention : IEquatable<FxTenorConvention>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReconciliationLine" /> class.
+        /// Initializes a new instance of the <see cref="FxTenorConvention" /> class.
         /// </summary>
-        /// <param name="left">Left hand side of the comparison.</param>
-        /// <param name="right">Right hand side of the comparison.</param>
-        /// <param name="difference">Difference between LHS and RHS of comparison.</param>
-        /// <param name="resultComparison">The logical or semantic description of the difference, e.g. \&quot;Matches\&quot; or \&quot;MatchesWithTolerance\&quot; or \&quot;Failed\&quot;..</param>
-        public ReconciliationLine(Dictionary<string, Object> left = default(Dictionary<string, Object>), Dictionary<string, Object> right = default(Dictionary<string, Object>), Dictionary<string, Object> difference = default(Dictionary<string, Object>), Dictionary<string, Object> resultComparison = default(Dictionary<string, Object>))
+        [JsonConstructorAttribute]
+        protected FxTenorConvention() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FxTenorConvention" /> class.
+        /// </summary>
+        /// <param name="calendarCode">The code of the holiday calendar that should be used when interpreting FX tenors. (required).</param>
+        /// <param name="spotDays">The minimum number of business days that must pass within this calendar when calculating the spot date. (required).</param>
+        public FxTenorConvention(string calendarCode = default(string), int spotDays = default(int))
         {
-            this.Left = left;
-            this.Right = right;
-            this.Difference = difference;
-            this.ResultComparison = resultComparison;
+            // to ensure "calendarCode" is required (not null)
+            this.CalendarCode = calendarCode ?? throw new ArgumentNullException("calendarCode is a required property for FxTenorConvention and cannot be null");
+            this.SpotDays = spotDays;
         }
 
         /// <summary>
-        /// Left hand side of the comparison
+        /// The code of the holiday calendar that should be used when interpreting FX tenors.
         /// </summary>
-        /// <value>Left hand side of the comparison</value>
-        [DataMember(Name = "left", EmitDefaultValue = true)]
-        public Dictionary<string, Object> Left { get; set; }
+        /// <value>The code of the holiday calendar that should be used when interpreting FX tenors.</value>
+        [DataMember(Name = "calendarCode", IsRequired = true, EmitDefaultValue = false)]
+        public string CalendarCode { get; set; }
 
         /// <summary>
-        /// Right hand side of the comparison
+        /// The minimum number of business days that must pass within this calendar when calculating the spot date.
         /// </summary>
-        /// <value>Right hand side of the comparison</value>
-        [DataMember(Name = "right", EmitDefaultValue = true)]
-        public Dictionary<string, Object> Right { get; set; }
-
-        /// <summary>
-        /// Difference between LHS and RHS of comparison
-        /// </summary>
-        /// <value>Difference between LHS and RHS of comparison</value>
-        [DataMember(Name = "difference", EmitDefaultValue = true)]
-        public Dictionary<string, Object> Difference { get; set; }
-
-        /// <summary>
-        /// The logical or semantic description of the difference, e.g. \&quot;Matches\&quot; or \&quot;MatchesWithTolerance\&quot; or \&quot;Failed\&quot;.
-        /// </summary>
-        /// <value>The logical or semantic description of the difference, e.g. \&quot;Matches\&quot; or \&quot;MatchesWithTolerance\&quot; or \&quot;Failed\&quot;.</value>
-        [DataMember(Name = "resultComparison", EmitDefaultValue = true)]
-        public Dictionary<string, Object> ResultComparison { get; set; }
+        /// <value>The minimum number of business days that must pass within this calendar when calculating the spot date.</value>
+        [DataMember(Name = "spotDays", IsRequired = true, EmitDefaultValue = true)]
+        public int SpotDays { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,11 +70,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ReconciliationLine {\n");
-            sb.Append("  Left: ").Append(Left).Append("\n");
-            sb.Append("  Right: ").Append(Right).Append("\n");
-            sb.Append("  Difference: ").Append(Difference).Append("\n");
-            sb.Append("  ResultComparison: ").Append(ResultComparison).Append("\n");
+            sb.Append("class FxTenorConvention {\n");
+            sb.Append("  CalendarCode: ").Append(CalendarCode).Append("\n");
+            sb.Append("  SpotDays: ").Append(SpotDays).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,43 +93,28 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ReconciliationLine);
+            return this.Equals(input as FxTenorConvention);
         }
 
         /// <summary>
-        /// Returns true if ReconciliationLine instances are equal
+        /// Returns true if FxTenorConvention instances are equal
         /// </summary>
-        /// <param name="input">Instance of ReconciliationLine to be compared</param>
+        /// <param name="input">Instance of FxTenorConvention to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReconciliationLine input)
+        public bool Equals(FxTenorConvention input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Left == input.Left ||
-                    this.Left != null &&
-                    input.Left != null &&
-                    this.Left.SequenceEqual(input.Left)
+                    this.CalendarCode == input.CalendarCode ||
+                    (this.CalendarCode != null &&
+                    this.CalendarCode.Equals(input.CalendarCode))
                 ) && 
                 (
-                    this.Right == input.Right ||
-                    this.Right != null &&
-                    input.Right != null &&
-                    this.Right.SequenceEqual(input.Right)
-                ) && 
-                (
-                    this.Difference == input.Difference ||
-                    this.Difference != null &&
-                    input.Difference != null &&
-                    this.Difference.SequenceEqual(input.Difference)
-                ) && 
-                (
-                    this.ResultComparison == input.ResultComparison ||
-                    this.ResultComparison != null &&
-                    input.ResultComparison != null &&
-                    this.ResultComparison.SequenceEqual(input.ResultComparison)
+                    this.SpotDays == input.SpotDays ||
+                    this.SpotDays.Equals(input.SpotDays)
                 );
         }
 
@@ -156,14 +127,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Left != null)
-                    hashCode = hashCode * 59 + this.Left.GetHashCode();
-                if (this.Right != null)
-                    hashCode = hashCode * 59 + this.Right.GetHashCode();
-                if (this.Difference != null)
-                    hashCode = hashCode * 59 + this.Difference.GetHashCode();
-                if (this.ResultComparison != null)
-                    hashCode = hashCode * 59 + this.ResultComparison.GetHashCode();
+                if (this.CalendarCode != null)
+                    hashCode = hashCode * 59 + this.CalendarCode.GetHashCode();
+                hashCode = hashCode * 59 + this.SpotDays.GetHashCode();
                 return hashCode;
             }
         }
