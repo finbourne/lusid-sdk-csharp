@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 <a name="getmultiplepropertydefinitions"></a>
 # **GetMultiplePropertyDefinitions**
-> ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys, DateTimeOffset? asAt = null, string filter = null)
+> ResourceListOfPropertyDefinition GetMultiplePropertyDefinitions (List<string> propertyKeys, DateTimeOffset? asAt = null, string filter = null, DateTimeOrCutLabel effectiveAt = null)
 
 GetMultiplePropertyDefinitions: Get multiple property definitions
 
@@ -276,11 +276,12 @@ namespace Example
             var propertyKeys = new List<string>(); // List<string> | One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. 'Portfolio/Manager/Id'.
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
             var filter = filter_example;  // string | Expression to filter the result set.               For example, to filter on the Lifetime, use \"lifeTime eq 'Perpetual'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
                 // GetMultiplePropertyDefinitions: Get multiple property definitions
-                ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter);
+                ResourceListOfPropertyDefinition result = apiInstance.GetMultiplePropertyDefinitions(propertyKeys, asAt, filter, effectiveAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -301,6 +302,7 @@ Name | Type | Description  | Notes
  **propertyKeys** | [**List&lt;string&gt;**](string.md)| One or more property keys which identify each property that a definition should              be retrieved for. The format for each property key is {domain}/{scope}/{code}, e.g. &#39;Portfolio/Manager/Id&#39;. | 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the property definitions. Defaults to return              the latest version of each definition if not specified. | [optional] 
  **filter** | **string**| Expression to filter the result set.               For example, to filter on the Lifetime, use \&quot;lifeTime eq &#39;Perpetual&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+ **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 
@@ -327,7 +329,7 @@ Name | Type | Description  | Notes
 
 <a name="getpropertydefinition"></a>
 # **GetPropertyDefinition**
-> PropertyDefinition GetPropertyDefinition (string domain, string scope, string code, DateTimeOffset? asAt = null)
+> PropertyDefinition GetPropertyDefinition (string domain, string scope, string code, DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null)
 
 GetPropertyDefinition: Get property definition
 
@@ -357,11 +359,12 @@ namespace Example
             var scope = scope_example;  // string | The scope of the specified property.
             var code = code_example;  // string | The code of the specified property. Together with the domain and scope this uniquely              identifies the property.
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. (optional) 
+            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. (optional) 
 
             try
             {
                 // GetPropertyDefinition: Get property definition
-                PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt);
+                PropertyDefinition result = apiInstance.GetPropertyDefinition(domain, scope, code, asAt, effectiveAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -383,6 +386,7 @@ Name | Type | Description  | Notes
  **scope** | **string**| The scope of the specified property. | 
  **code** | **string**| The code of the specified property. Together with the domain and scope this uniquely              identifies the property. | 
  **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the property definition. Defaults to return              the latest version of the definition if not specified. | [optional] 
+ **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list properties attached to the Property Definition.              Defaults to the current LUSID system datetime if not specified. | [optional] 
 
 ### Return type
 

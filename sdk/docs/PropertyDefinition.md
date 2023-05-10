@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **DataTypeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Type** | **string** | The type of the property. The available values are: Label, Metric, Information | [optional] 
 **UnitSchema** | **string** | The units that can be associated with the property&#39;s values. This is defined by the property&#39;s data type. The available values are: NoUnits, Basic, Iso4217Currency | [optional] 
-**Domain** | **string** | The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Reconciliation | [optional] 
+**Domain** | **string** | The domain that the property exists in. The available values are: NotDefined, Transaction, Portfolio, Holding, ReferenceHolding, TransactionConfiguration, Instrument, CutLabelDefinition, Analytic, PortfolioGroup, Person, AccessMetadata, Order, UnitResult, MarketData, ConfigurationRecipe, Allocation, Calendar, LegalEntity, Placement, Execution, Block, Participation, Package, OrderInstruction, NextBestAction, CustomEntity, InstrumentEvent, Account, ChartOfAccounts, CustodianAccount, Abor, AborConfiguration, Reconciliation, PropertyDefinition | [optional] 
 **Scope** | **string** | The scope that the property exists in. | [optional] [readonly] 
 **Code** | **string** | The code of the property. Together with the domain and scope this uniquely identifies the property. | [optional] [readonly] 
 **ValueRequired** | **bool** | This field is not implemented and should be disregarded. | [optional] 
@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **PropertyDefinitionType** | **string** | The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition | [optional] 
 **PropertyDescription** | **string** | A brief description of what a property of this property definition contains. | [optional] 
 **DerivationFormula** | **string** | The rule that defines how data is composed for a derived property. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
