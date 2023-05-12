@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **SubGroups** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The collection of resource identifiers for the portfolio groups contained in the portfolio group as sub groups. | [optional] 
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the portfolio group. | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
-**Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
+**Links** | [**List&lt;Link&gt;**](Link.md) | Collection of links. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
