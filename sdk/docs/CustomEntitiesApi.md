@@ -664,7 +664,7 @@ namespace Example
             var identifierValue = identifierValue_example;  // string | The identifier value.
             var identifierScope = identifierScope_example;  // string | The identifier scope.
             var accessMetadataOperation = new List<AccessMetadataOperation>(); // List<AccessMetadataOperation> | The Json Patch document
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effectiveAt datetime at which the Access Metadata will be effective from (optional) 
+            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effectiveAt datetime at which to retrieve the Access Metadata (optional) 
             var effectiveUntil = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' datetime of the Access Metadata (optional) 
 
             try
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
  **identifierValue** | **string**| The identifier value. | 
  **identifierScope** | **string**| The identifier scope. | 
  **accessMetadataOperation** | [**List&lt;AccessMetadataOperation&gt;**](AccessMetadataOperation.md)| The Json Patch document | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effectiveAt datetime at which the Access Metadata will be effective from | [optional] 
+ **effectiveAt** | **DateTimeOrCutLabel**| The effectiveAt datetime at which to retrieve the Access Metadata | [optional] 
  **effectiveUntil** | **DateTimeOffset?**| The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata | [optional] 
 
 ### Return type
@@ -911,7 +911,7 @@ namespace Example
             var metadataKey = metadataKey_example;  // string | Key of the metadata entry to retrieve
             var identifierScope = identifierScope_example;  // string | The identifier scope.
             var upsertCustomEntityAccessMetadataRequest = new UpsertCustomEntityAccessMetadataRequest(); // UpsertCustomEntityAccessMetadataRequest | The Custom Entity Access Metadata entry to upsert
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effectiveAt datetime at which the Access Metadata will be effective from (optional) 
+            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effectiveAt datetime at which to retrieve the Access Metadata (optional) 
             var effectiveUntil = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' datetime of the Access Metadata (optional) 
 
             try
@@ -941,7 +941,7 @@ Name | Type | Description  | Notes
  **metadataKey** | **string**| Key of the metadata entry to retrieve | 
  **identifierScope** | **string**| The identifier scope. | 
  **upsertCustomEntityAccessMetadataRequest** | [**UpsertCustomEntityAccessMetadataRequest**](UpsertCustomEntityAccessMetadataRequest.md)| The Custom Entity Access Metadata entry to upsert | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effectiveAt datetime at which the Access Metadata will be effective from | [optional] 
+ **effectiveAt** | **DateTimeOrCutLabel**| The effectiveAt datetime at which to retrieve the Access Metadata | [optional] 
  **effectiveUntil** | **DateTimeOffset?**| The effective datetime until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; datetime of the Access Metadata | [optional] 
 
 ### Return type
