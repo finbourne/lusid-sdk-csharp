@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.EquityAllOfIdentifiers
-external market codes and identifiers for the equity, e.g. IBM
+External market codes and identifiers for the equity, e.g. IBM
 
 ## Properties
 

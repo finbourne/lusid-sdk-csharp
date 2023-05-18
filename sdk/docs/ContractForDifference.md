@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ReferenceRate** | **decimal** | The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0. | [optional] 
 **Type** | **string** | The type of CFD.    Supported string (enumeration) values are: [Cash, Futures]. | 
 **UnderlyingCcy** | **string** | The currency of the underlying | 
-**UnderlyingIdentifier** | **string** | external market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. | 
+**UnderlyingIdentifier** | **string** | External market codes and identifiers for the CFD, e.g. RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

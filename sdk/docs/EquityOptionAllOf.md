@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset** | The start date of the instrument. This is normally synonymous with the trade-date. | 
 **OptionMaturityDate** | **DateTimeOffset** | The maturity date of the option. | 
 **OptionSettlementDate** | **DateTimeOffset** | The settlement date of the option. | 
-**DeliveryType** | **string** | is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical]. | 
+**DeliveryType** | **string** | Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical]. | 
 **OptionType** | **string** | Type of optionality for the option    Supported string (enumeration) values are: [Call, Put]. | 
 **Strike** | **decimal** | The strike of the option. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
