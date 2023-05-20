@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="values">The quotes which have been successfully retrieved..</param>
         /// <param name="notFound">The quotes that could not be found along with a reason why..</param>
         /// <param name="failed">The quotes that could not be retrieved due to an error along with a reason for their failure..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public GetQuotesResponse(string href = default(string), Dictionary<string, Quote> values = default(Dictionary<string, Quote>), Dictionary<string, ErrorDetail> notFound = default(Dictionary<string, ErrorDetail>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -78,9 +78,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
