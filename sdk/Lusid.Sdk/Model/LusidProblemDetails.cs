@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A description of a problem that has arisen during the processing of a request.
+    /// LusidProblemDetails
     /// </summary>
     [DataContract(Name = "LusidProblemDetails")]
     public partial class LusidProblemDetails : IEquatable<LusidProblemDetails>
@@ -40,9 +40,9 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LusidProblemDetails" /> class.
         /// </summary>
-        /// <param name="name">The name of the error (required).</param>
-        /// <param name="errorDetails">Any additional informational information available about the nature and detail of the problem.</param>
-        /// <param name="code">Get the error code of the response (required).</param>
+        /// <param name="name">name (required).</param>
+        /// <param name="errorDetails">errorDetails.</param>
+        /// <param name="code">code (required).</param>
         /// <param name="type">type.</param>
         /// <param name="title">title.</param>
         /// <param name="status">status.</param>
@@ -62,23 +62,20 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The name of the error
+        /// Gets or Sets Name
         /// </summary>
-        /// <value>The name of the error</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Any additional informational information available about the nature and detail of the problem
+        /// Gets or Sets ErrorDetails
         /// </summary>
-        /// <value>Any additional informational information available about the nature and detail of the problem</value>
         [DataMember(Name = "errorDetails", EmitDefaultValue = true)]
         public List<Dictionary<string, string>> ErrorDetails { get; set; }
 
         /// <summary>
-        /// Get the error code of the response
+        /// Gets or Sets Code
         /// </summary>
-        /// <value>Get the error code of the response</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public int Code { get; set; }
 
