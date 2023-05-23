@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="NextValueInSequenceResponse" /> class.
         /// </summary>
         /// <param name="values">The next set of values for the specified Sequence. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public NextValueInSequenceResponse(List<string> values = default(List<string>), List<Link> links = default(List<Link>))
         {
             // to ensure "values" is required (not null)
@@ -57,9 +57,8 @@ namespace Lusid.Sdk.Model
         public List<string> Values { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

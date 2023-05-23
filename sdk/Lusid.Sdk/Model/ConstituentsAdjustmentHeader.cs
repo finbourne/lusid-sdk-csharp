@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="effectiveAt">There can be at most one holdings adjustment for a portfolio at a  specific effective time so this uniquely identifies the adjustment..</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public ConstituentsAdjustmentHeader(DateTimeOffset effectiveAt = default(DateTimeOffset), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             this.EffectiveAt = effectiveAt;
@@ -59,9 +59,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
