@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="values">The as-at datetime at which properties were created or updated. (required).</param>
         /// <param name="failed">The as-at datetime at which properties were created or updated. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public BatchUpsertPropertyDefinitionPropertiesResponse(Dictionary<string, Property> values = default(Dictionary<string, Property>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), List<Link> links = default(List<Link>))
         {
             // to ensure "values" is required (not null)
@@ -67,9 +67,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, ErrorDetail> Failed { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
