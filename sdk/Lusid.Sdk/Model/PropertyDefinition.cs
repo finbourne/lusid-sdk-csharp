@@ -548,7 +548,7 @@ namespace Lusid.Sdk.Model
         /// <param name="propertyDescription">A brief description of what a property of this property definition contains..</param>
         /// <param name="derivationFormula">The rule that defines how data is composed for a derived property..</param>
         /// <param name="properties">Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PropertyDefinition(string href = default(string), string key = default(string), ValueTypeEnum? valueType = default(ValueTypeEnum?), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), TypeEnum? type = default(TypeEnum?), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), DomainEnum? domain = default(DomainEnum?), bool valueRequired = default(bool), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), PropertyDefinitionTypeEnum? propertyDefinitionType = default(PropertyDefinitionTypeEnum?), string propertyDescription = default(string), string derivationFormula = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             this.Href = href;
@@ -664,9 +664,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

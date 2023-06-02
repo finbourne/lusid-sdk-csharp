@@ -55,7 +55,7 @@ namespace Lusid.Sdk.Model
         /// <param name="costBasisReportingCurrency">costBasisReportingCurrency (required).</param>
         /// <param name="transaction">transaction.</param>
         /// <param name="unrealisedGainLossReportingCurrency">unrealisedGainLossReportingCurrency (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PortfolioCashFlow(int groupById = default(int), int sequenceNumber = default(int), DateTimeOffset effectiveDate = default(DateTimeOffset), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string type = default(string), string movementName = default(string), CurrencyAndAmount cashflow = default(CurrencyAndAmount), CurrencyAndAmount balance = default(CurrencyAndAmount), decimal fxRate = default(decimal), CurrencyAndAmount cashflowReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount balanceReportingCurrency = default(CurrencyAndAmount), CurrencyAndAmount translationGainLoss = default(CurrencyAndAmount), CurrencyAndAmount costBasisReportingCurrency = default(CurrencyAndAmount), Transaction transaction = default(Transaction), CurrencyAndAmount unrealisedGainLossReportingCurrency = default(CurrencyAndAmount), List<Link> links = default(List<Link>))
         {
             this.GroupById = groupById;
@@ -183,9 +183,8 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount UnrealisedGainLossReportingCurrency { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
