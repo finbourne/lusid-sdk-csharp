@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="transactionConfigs">Collection of transaction type models (required).</param>
         /// <param name="sideDefinitions">Collection of side definitions.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public TransactionSetConfigurationData(List<TransactionConfigurationData> transactionConfigs = default(List<TransactionConfigurationData>), List<SideConfigurationData> sideDefinitions = default(List<SideConfigurationData>), List<Link> links = default(List<Link>))
         {
             // to ensure "transactionConfigs" is required (not null)
@@ -66,9 +66,8 @@ namespace Lusid.Sdk.Model
         public List<SideConfigurationData> SideDefinitions { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

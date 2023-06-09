@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="values">The properties that have been successfully upserted (required).</param>
         /// <param name="failed">The properties that could not be upserted along with a reason for their failure. (required).</param>
         /// <param name="asAtDate">The as-at datetime at which properties were created or updated. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public BatchUpsertPropertyDefinitionPropertiesResponse(Dictionary<string, Property> values = default(Dictionary<string, Property>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), DateTimeOffset asAtDate = default(DateTimeOffset), List<Link> links = default(List<Link>))
         {
             // to ensure "values" is required (not null)
@@ -76,9 +76,8 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAtDate { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
