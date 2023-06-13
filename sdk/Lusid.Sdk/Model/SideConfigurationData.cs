@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="rate">The rate. (required).</param>
         /// <param name="units">The units. (required).</param>
         /// <param name="amount">The amount. (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public SideConfigurationData(string side = default(string), string security = default(string), string currency = default(string), string rate = default(string), string units = default(string), string amount = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "side" is required (not null)
@@ -107,9 +107,8 @@ namespace Lusid.Sdk.Model
         public string Amount { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
