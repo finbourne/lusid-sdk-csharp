@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**GetQueryableKeys**](AggregationApi.md#getqueryablekeys) | **GET** /api/results/queryable/keys | [EARLY ACCESS] GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
 [**GetValuation**](AggregationApi.md#getvaluation) | **POST** /api/aggregation/$valuation | GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
 [**GetValuationOfWeightedInstruments**](AggregationApi.md#getvaluationofweightedinstruments) | **POST** /api/aggregation/$valuationinlined | GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
-[**SupportedAnalyticsInternal**](AggregationApi.md#supportedanalyticsinternal) | **POST** /api/aggregation/supportedanalyticsinternal | [INTERNAL] SupportedAnalyticsInternal: Generates a matrix of analytics features supported by LUSID.
 
 
 <a name="getqueryablekeys"></a>
@@ -222,82 +221,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListAggregationResponse**](ListAggregationResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | The details of the input related failure |  -  |
-| **0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="supportedanalyticsinternal"></a>
-# **SupportedAnalyticsInternal**
-> Aggregation SupportedAnalyticsInternal (SupportedAnalyticsInternalRequest supportedAnalyticsInternalRequest = null)
-
-[INTERNAL] SupportedAnalyticsInternal: Generates a matrix of analytics features supported by LUSID.
-
-Breaks down, e.g. by model and instrument type, either feature groups (such as pv, accrued, risk, cashflows) that are supported or the specific address keys that are supported for them.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class SupportedAnalyticsInternalExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AggregationApi(config);
-            var supportedAnalyticsInternalRequest = new SupportedAnalyticsInternalRequest(); // SupportedAnalyticsInternalRequest |  (optional) 
-
-            try
-            {
-                // [INTERNAL] SupportedAnalyticsInternal: Generates a matrix of analytics features supported by LUSID.
-                Aggregation result = apiInstance.SupportedAnalyticsInternal(supportedAnalyticsInternalRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AggregationApi.SupportedAnalyticsInternal: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **supportedAnalyticsInternalRequest** | [**SupportedAnalyticsInternalRequest**](SupportedAnalyticsInternalRequest.md)|  | [optional] 
-
-### Return type
-
-[**Aggregation**](Aggregation.md)
 
 ### Authorization
 
