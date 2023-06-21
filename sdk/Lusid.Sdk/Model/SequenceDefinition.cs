@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="value">The last used value of the sequence.</param>
         /// <param name="cycle">Indicates if the sequence would start from minimun value once it reaches maximum value. If set to false, a failure would return if the sequence reaches maximum value. (required).</param>
         /// <param name="pattern">The pattern to be used to generate next values in the sequence..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public SequenceDefinition(ResourceId id = default(ResourceId), long increment = default(long), long minValue = default(long), long maxValue = default(long), long start = default(long), long? value = default(long?), bool cycle = default(bool), string pattern = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -119,9 +119,8 @@ namespace Lusid.Sdk.Model
         public string Pattern { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

@@ -102,7 +102,7 @@ namespace Lusid.Sdk.Model
         /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst.</param>
         /// <param name="amortisationMethod">The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;..</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public PortfolioDetails(string href = default(string), ResourceId originPortfolioId = default(ResourceId), Version version = default(Version), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "originPortfolioId" is required (not null)
@@ -181,9 +181,8 @@ namespace Lusid.Sdk.Model
         public string TransactionTypeScope { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
