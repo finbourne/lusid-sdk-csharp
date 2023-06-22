@@ -5,8 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCustomEntityDefinition**](CustomEntityDefinitionsApi.md#createcustomentitydefinition) | **POST** /api/customentities/entitytypes | [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type.
-[**GetCustomEntityDefinition**](CustomEntityDefinitionsApi.md#getcustomentitydefinition) | **GET** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] GetCustomEntityDefinition: Get a Custom Entity type definition.
-[**GetDefinition**](CustomEntityDefinitionsApi.md#getdefinition) | **GET** /api/customentities/entitytypes/{entityType}/$deprecated | [DEPRECATED] GetDefinition: Get a Custom Entity type definition.
+[**GetDefinition**](CustomEntityDefinitionsApi.md#getdefinition) | **GET** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
 [**ListCustomEntityDefinitions**](CustomEntityDefinitionsApi.md#listcustomentitydefinitions) | **GET** /api/customentities/entitytypes | [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
 [**UpdateCustomEntityDefinition**](CustomEntityDefinitionsApi.md#updatecustomentitydefinition) | **PUT** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
 
@@ -87,89 +86,11 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcustomentitydefinition"></a>
-# **GetCustomEntityDefinition**
-> CustomEntityDefinition GetCustomEntityDefinition (string entityType, DateTimeOffset? asAt = null)
-
-[EARLY ACCESS] GetCustomEntityDefinition: Get a Custom Entity type definition.
-
-Retrieve a CustomEntityDefinition by a specific entityType at a point in AsAt time
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class GetCustomEntityDefinitionExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new CustomEntityDefinitionsApi(config);
-            var entityType = entityType_example;  // string | The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The AsAt datetime at which to retrieve the definition. (optional) 
-
-            try
-            {
-                // [EARLY ACCESS] GetCustomEntityDefinition: Get a Custom Entity type definition.
-                CustomEntityDefinition result = apiInstance.GetCustomEntityDefinition(entityType, asAt);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling CustomEntityDefinitionsApi.GetCustomEntityDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityType** | **string**| The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation. | 
- **asAt** | **DateTimeOffset?**| The AsAt datetime at which to retrieve the definition. | [optional] 
-
-### Return type
-
-[**CustomEntityDefinition**](CustomEntityDefinition.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The requested Custom Entity definition. |  -  |
-| **400** | The details of the input related failure |  -  |
-| **0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getdefinition"></a>
 # **GetDefinition**
 > CustomEntityDefinition GetDefinition (string entityType, DateTimeOffset? asAt = null)
 
-[DEPRECATED] GetDefinition: Get a Custom Entity type definition.
+[EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
 
 Retrieve a CustomEntityDefinition by a specific entityType at a point in AsAt time
 
@@ -198,7 +119,7 @@ namespace Example
 
             try
             {
-                // [DEPRECATED] GetDefinition: Get a Custom Entity type definition.
+                // [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
                 CustomEntityDefinition result = apiInstance.GetDefinition(entityType, asAt);
                 Debug.WriteLine(result);
             }
