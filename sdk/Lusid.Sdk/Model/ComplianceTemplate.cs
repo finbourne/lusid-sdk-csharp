@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of the Compliance Template (required).</param>
         /// <param name="tags">Tags for a Compliance Template.</param>
         /// <param name="variations">Variation details of a Compliance Template (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public ComplianceTemplate(ResourceId id = default(ResourceId), string description = default(string), List<string> tags = default(List<string>), List<ComplianceTemplateVariation> variations = default(List<ComplianceTemplateVariation>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -85,9 +85,8 @@ namespace Lusid.Sdk.Model
         public List<ComplianceTemplateVariation> Variations { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

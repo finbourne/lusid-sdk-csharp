@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="tags">The tags associated with the reference list..</param>
         /// <param name="referenceList">referenceList (required).</param>
         /// <param name="version">version (required).</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public ReferenceListResponse(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<string> tags = default(List<string>), ReferenceList referenceList = default(ReferenceList), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
@@ -102,9 +102,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

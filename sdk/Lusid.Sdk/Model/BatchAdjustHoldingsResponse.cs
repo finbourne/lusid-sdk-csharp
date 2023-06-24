@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// <param name="values">The holdings which have been successfully adjusted..</param>
         /// <param name="failed">The holdings that could not be adjusted along with a reason for their failure..</param>
         /// <param name="metadata">Contains warnings related to adjusted holdings.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public BatchAdjustHoldingsResponse(Dictionary<string, HoldingAdjustmentWithDate> values = default(Dictionary<string, HoldingAdjustmentWithDate>), Dictionary<string, ErrorDetail> failed = default(Dictionary<string, ErrorDetail>), Dictionary<string, List<ResponseMetaData>> metadata = default(Dictionary<string, List<ResponseMetaData>>), List<Link> links = default(List<Link>))
         {
             this.Values = values;
@@ -69,9 +69,8 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, List<ResponseMetaData>> Metadata { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
