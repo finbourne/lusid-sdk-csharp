@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="instrumentId">The unique LUSID Instrument Identifier (LUID) of the instrument..</param>
         /// <param name="supportedModels">The pricing models supported by the instrument e.g. &#39;Discounting&#39;..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public InstrumentModels(string instrumentId = default(string), List<string> supportedModels = default(List<string>), List<Link> links = default(List<Link>))
         {
             this.InstrumentId = instrumentId;
@@ -60,9 +60,8 @@ namespace Lusid.Sdk.Model
         public List<string> SupportedModels { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
