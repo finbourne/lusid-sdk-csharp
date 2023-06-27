@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Active** | **bool** |  | [optional] 
 **TemplateId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Variation** | **string** |  | [optional] 
+**PortfolioGroupId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **Parameters** | [**Dictionary&lt;string, ComplianceParameter&gt;**](ComplianceParameter.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | [optional] 
 **Version** | [**Version**](Version.md) |  | [optional] 
