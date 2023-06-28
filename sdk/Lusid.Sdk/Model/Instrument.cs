@@ -151,7 +151,7 @@ namespace Lusid.Sdk.Model
         /// <param name="assetClass">The nominal asset class of the instrument, e.g. InterestRates, FX, Inflation, Equities, Credit, Commodities, etc. The available values are: InterestRates, FX, Inflation, Equities, Credit, Commodities, Money, Unknown.</param>
         /// <param name="domCcy">The domestic currency, meaning the currency in which the instrument would typically be expected to pay cashflows, e.g. a share in AAPL being USD..</param>
         /// <param name="relationships">A set of relationships associated to the instrument..</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public Instrument(string href = default(string), string scope = default(string), string lusidInstrumentId = default(string), Version version = default(Version), string name = default(string), Dictionary<string, string> identifiers = default(Dictionary<string, string>), List<Property> properties = default(List<Property>), ResourceId lookthroughPortfolio = default(ResourceId), LusidInstrument instrumentDefinition = default(LusidInstrument), StateEnum state = default(StateEnum), AssetClassEnum? assetClass = default(AssetClassEnum?), string domCcy = default(string), List<Relationship> relationships = default(List<Relationship>), List<Link> links = default(List<Link>))
         {
             // to ensure "lusidInstrumentId" is required (not null)
@@ -249,9 +249,8 @@ namespace Lusid.Sdk.Model
         public List<Relationship> Relationships { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 

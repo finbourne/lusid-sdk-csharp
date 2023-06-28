@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="parameters">parameters.</param>
         /// <param name="properties">properties.</param>
         /// <param name="version">version.</param>
-        /// <param name="links">Collection of links..</param>
+        /// <param name="links">links.</param>
         public ComplianceRuleResponse(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), ResourceId templateId = default(ResourceId), string variation = default(string), ResourceId portfolioGroupId = default(ResourceId), Dictionary<string, ComplianceParameter> parameters = default(Dictionary<string, ComplianceParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), Version version = default(Version), List<Link> links = default(List<Link>))
         {
             this.Id = id;
@@ -122,9 +122,8 @@ namespace Lusid.Sdk.Model
         public Version Version { get; set; }
 
         /// <summary>
-        /// Collection of links.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Collection of links.</value>
         [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
