@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A posting Module request definition
+    /// A Posting Module request definition
     /// </summary>
     [DataContract(Name = "PostingModuleDetails")]
     public partial class PostingModuleDetails : IEquatable<PostingModuleDetails>, IValidatableObject
@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="name">The name to identify the Posting Module by (required).</param>
-        /// <param name="description">The description for the posting module.</param>
+        /// <param name="description">The description for the Posting Module.</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         public PostingModuleDetails(ResourceId chartOfAccountsId = default(ResourceId), string name = default(string), string description = default(string), string status = default(string))
         {
@@ -77,9 +77,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for the posting module
+        /// The description for the Posting Module
         /// </summary>
-        /// <value>The description for the posting module</value>
+        /// <value>The description for the Posting Module</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 

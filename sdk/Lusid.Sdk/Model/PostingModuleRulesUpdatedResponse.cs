@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A posting Module rules update response
+    /// A Posting Module rules update response
     /// </summary>
     [DataContract(Name = "PostingModuleRulesUpdatedResponse")]
     public partial class PostingModuleRulesUpdatedResponse : IEquatable<PostingModuleRulesUpdatedResponse>, IValidatableObject

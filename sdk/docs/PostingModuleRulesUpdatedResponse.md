@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.PostingModuleRulesUpdatedResponse
-A posting Module rules update response
+A Posting Module rules update response
 
 ## Properties
 

@@ -141,7 +141,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
         ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
         /// <remarks>
         /// Update the given Posting Module details.
@@ -149,13 +149,13 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostingModuleResponse</returns>
-        PostingModuleResponse UpdatePostingModuleDetails(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0);
+        PostingModuleResponse SetPostingModuleDetails(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
         /// <remarks>
         /// Update the given Posting Module details.
@@ -163,37 +163,37 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        ApiResponse<PostingModuleResponse> UpdatePostingModuleDetailsWithHttpInfo(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0);
+        ApiResponse<PostingModuleResponse> SetPostingModuleDetailsWithHttpInfo(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostingModuleRulesUpdatedResponse</returns>
-        PostingModuleRulesUpdatedResponse UpdatePostingModuleRules(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0);
+        PostingModuleRulesUpdatedResponse SetPostingModuleRules(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
-        ApiResponse<PostingModuleRulesUpdatedResponse> UpdatePostingModuleRulesWithHttpInfo(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0);
+        ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -328,7 +328,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
         /// <remarks>
         /// Update the given Posting Module details.
@@ -336,14 +336,14 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleResponse> UpdatePostingModuleDetailsAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleResponse> SetPostingModuleDetailsAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
         /// <remarks>
         /// Update the given Posting Module details.
@@ -351,40 +351,40 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> UpdatePostingModuleDetailsWithHttpInfoAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> SetPostingModuleDetailsWithHttpInfoAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> UpdatePostingModuleRulesAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
         /// </summary>
         /// <remarks>
-        /// Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleRulesUpdatedResponse>> UpdatePostingModuleRulesWithHttpInfoAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1387,47 +1387,47 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details Update the given Posting Module details.
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module Update the given Posting Module details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostingModuleResponse</returns>
-        public PostingModuleResponse UpdatePostingModuleDetails(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0)
+        public PostingModuleResponse SetPostingModuleDetails(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = UpdatePostingModuleDetailsWithHttpInfo(scope, code, postingModuleDetails);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = SetPostingModuleDetailsWithHttpInfo(scope, code, postingModuleDetails);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details Update the given Posting Module details.
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module Update the given Posting Module details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> UpdatePostingModuleDetailsWithHttpInfo(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> SetPostingModuleDetailsWithHttpInfo(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->UpdatePostingModuleDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->SetPostingModuleDetails");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->UpdatePostingModuleDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->SetPostingModuleDetails");
             }
 
             // verify the required parameter 'postingModuleDetails' is set
             if (postingModuleDetails == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleDetails' when calling PostingModulesApi->UpdatePostingModuleDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleDetails' when calling PostingModulesApi->SetPostingModuleDetails");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1462,7 +1462,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.Data = postingModuleDetails;
 
-            localVarRequestOptions.Operation = "PostingModulesApi.UpdatePostingModuleDetails";
+            localVarRequestOptions.Operation = "PostingModulesApi.SetPostingModuleDetails";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1483,10 +1483,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<PostingModuleResponse>("/api/postingmodule/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<PostingModuleResponse>("/api/postingmodule/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePostingModuleDetails", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetPostingModuleDetails", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1497,49 +1497,49 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details Update the given Posting Module details.
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module Update the given Posting Module details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleResponse> UpdatePostingModuleDetailsAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleResponse> SetPostingModuleDetailsAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await UpdatePostingModuleDetailsWithHttpInfoAsync(scope, code, postingModuleDetails, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await SetPostingModuleDetailsWithHttpInfoAsync(scope, code, postingModuleDetails, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details Update the given Posting Module details.
+        /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module Update the given Posting Module details.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleDetails">The details to be updated for the posting module.</param>
+        /// <param name="postingModuleDetails">The new details for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> UpdatePostingModuleDetailsWithHttpInfoAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> SetPostingModuleDetailsWithHttpInfoAsync(string scope, string code, PostingModuleDetails postingModuleDetails, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->UpdatePostingModuleDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->SetPostingModuleDetails");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->UpdatePostingModuleDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->SetPostingModuleDetails");
             }
 
             // verify the required parameter 'postingModuleDetails' is set
             if (postingModuleDetails == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleDetails' when calling PostingModulesApi->UpdatePostingModuleDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleDetails' when calling PostingModulesApi->SetPostingModuleDetails");
             }
 
 
@@ -1575,7 +1575,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.Data = postingModuleDetails;
 
-            localVarRequestOptions.Operation = "PostingModulesApi.UpdatePostingModuleDetails";
+            localVarRequestOptions.Operation = "PostingModulesApi.SetPostingModuleDetails";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1596,11 +1596,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PostingModuleResponse>("/api/postingmodule/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PostingModuleResponse>("/api/postingmodule/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePostingModuleDetails", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetPostingModuleDetails", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1611,47 +1611,47 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostingModuleRulesUpdatedResponse</returns>
-        public PostingModuleRulesUpdatedResponse UpdatePostingModuleRules(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0)
+        public PostingModuleRulesUpdatedResponse SetPostingModuleRules(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = UpdatePostingModuleRulesWithHttpInfo(scope, code, postingModuleRule);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = SetPostingModuleRulesWithHttpInfo(scope, code, postingModuleRule);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostingModuleRulesUpdatedResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> UpdatePostingModuleRulesWithHttpInfo(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesWithHttpInfo(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->UpdatePostingModuleRules");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->SetPostingModuleRules");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->UpdatePostingModuleRules");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->SetPostingModuleRules");
             }
 
             // verify the required parameter 'postingModuleRule' is set
             if (postingModuleRule == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleRule' when calling PostingModulesApi->UpdatePostingModuleRules");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleRule' when calling PostingModulesApi->SetPostingModuleRules");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1686,7 +1686,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.Data = postingModuleRule;
 
-            localVarRequestOptions.Operation = "PostingModulesApi.UpdatePostingModuleRules";
+            localVarRequestOptions.Operation = "PostingModulesApi.SetPostingModuleRules";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1707,10 +1707,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<PostingModuleRulesUpdatedResponse>("/api/postingmodule/{scope}/{code}/postingrules", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<PostingModuleRulesUpdatedResponse>("/api/postingmodule/{scope}/{code}/postingrules", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePostingModuleRules", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetPostingModuleRules", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1721,49 +1721,49 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostingModuleRulesUpdatedResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> UpdatePostingModuleRulesAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleRulesUpdatedResponse> SetPostingModuleRulesAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await UpdatePostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleRule, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse> localVarResponse = await SetPostingModuleRulesWithHttpInfoAsync(scope, code, postingModuleRule, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+        /// [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Posting Module to be updated.</param>
         /// <param name="code">The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.</param>
-        /// <param name="postingModuleRule">The new rule set to be updated for the posting module.</param>
+        /// <param name="postingModuleRule">The new rule set for the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostingModuleRulesUpdatedResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> UpdatePostingModuleRulesWithHttpInfoAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleRulesUpdatedResponse>> SetPostingModuleRulesWithHttpInfoAsync(string scope, string code, List<PostingModuleRule> postingModuleRule, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->UpdatePostingModuleRules");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PostingModulesApi->SetPostingModuleRules");
             }
 
             // verify the required parameter 'code' is set
             if (code == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->UpdatePostingModuleRules");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PostingModulesApi->SetPostingModuleRules");
             }
 
             // verify the required parameter 'postingModuleRule' is set
             if (postingModuleRule == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleRule' when calling PostingModulesApi->UpdatePostingModuleRules");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleRule' when calling PostingModulesApi->SetPostingModuleRules");
             }
 
 
@@ -1799,7 +1799,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.Data = postingModuleRule;
 
-            localVarRequestOptions.Operation = "PostingModulesApi.UpdatePostingModuleRules";
+            localVarRequestOptions.Operation = "PostingModulesApi.SetPostingModuleRules";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1820,11 +1820,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PostingModuleRulesUpdatedResponse>("/api/postingmodule/{scope}/{code}/postingrules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PostingModuleRulesUpdatedResponse>("/api/postingmodule/{scope}/{code}/postingrules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdatePostingModuleRules", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetPostingModuleRules", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

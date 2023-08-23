@@ -8,8 +8,8 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**DeletePostingModule**](PostingModulesApi.md#deletepostingmodule) | **DELETE** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule. |
 | [**ListPostingModuleRules**](PostingModulesApi.md#listpostingmodulerules) | **GET** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules |
 | [**ListPostingModules**](PostingModulesApi.md#listpostingmodules) | **GET** /api/postingmodule | [EXPERIMENTAL] ListPostingModules: List Posting Modules |
-| [**UpdatePostingModuleDetails**](PostingModulesApi.md#updatepostingmoduledetails) | **POST** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details |
-| [**UpdatePostingModuleRules**](PostingModulesApi.md#updatepostingmodulerules) | **POST** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules |
+| [**SetPostingModuleDetails**](PostingModulesApi.md#setpostingmoduledetails) | **PUT** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module |
+| [**SetPostingModuleRules**](PostingModulesApi.md#setpostingmodulerules) | **PUT** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module |
 
 <a id="createpostingmodule"></a>
 # **CreatePostingModule**
@@ -419,11 +419,11 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatepostingmoduledetails"></a>
-# **UpdatePostingModuleDetails**
-> PostingModuleResponse UpdatePostingModuleDetails (string scope, string code, PostingModuleDetails postingModuleDetails)
+<a id="setpostingmoduledetails"></a>
+# **SetPostingModuleDetails**
+> PostingModuleResponse SetPostingModuleDetails (string scope, string code, PostingModuleDetails postingModuleDetails)
 
-[EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
+[EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
 
 Update the given Posting Module details.
 
@@ -437,7 +437,7 @@ using Lusid.Sdk.Model;
 
 namespace Example
 {
-    public class UpdatePostingModuleDetailsExample
+    public class SetPostingModuleDetailsExample
     {
         public static void Main()
         {
@@ -449,17 +449,17 @@ namespace Example
             var apiInstance = new PostingModulesApi(config);
             var scope = "scope_example";  // string | The scope of the Posting Module to be updated.
             var code = "code_example";  // string | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.
-            var postingModuleDetails = new PostingModuleDetails(); // PostingModuleDetails | The details to be updated for the posting module.
+            var postingModuleDetails = new PostingModuleDetails(); // PostingModuleDetails | The new details for the Posting Module.
 
             try
             {
-                // [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
-                PostingModuleResponse result = apiInstance.UpdatePostingModuleDetails(scope, code, postingModuleDetails);
+                // [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+                PostingModuleResponse result = apiInstance.SetPostingModuleDetails(scope, code, postingModuleDetails);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PostingModulesApi.UpdatePostingModuleDetails: " + e.Message);
+                Debug.Print("Exception when calling PostingModulesApi.SetPostingModuleDetails: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -468,21 +468,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdatePostingModuleDetailsWithHttpInfo variant
+#### Using the SetPostingModuleDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdatePostingModuleDetails: Update a Posting Module details
-    ApiResponse<PostingModuleResponse> response = apiInstance.UpdatePostingModuleDetailsWithHttpInfo(scope, code, postingModuleDetails);
+    // [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
+    ApiResponse<PostingModuleResponse> response = apiInstance.SetPostingModuleDetailsWithHttpInfo(scope, code, postingModuleDetails);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PostingModulesApi.UpdatePostingModuleDetailsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PostingModulesApi.SetPostingModuleDetailsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -494,7 +494,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Posting Module to be updated. |  |
 | **code** | **string** | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module. |  |
-| **postingModuleDetails** | [**PostingModuleDetails**](PostingModuleDetails.md) | The details to be updated for the posting module. |  |
+| **postingModuleDetails** | [**PostingModuleDetails**](PostingModuleDetails.md) | The new details for the Posting Module. |  |
 
 ### Return type
 
@@ -519,13 +519,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updatepostingmodulerules"></a>
-# **UpdatePostingModuleRules**
-> PostingModuleRulesUpdatedResponse UpdatePostingModuleRules (string scope, string code, List<PostingModuleRule> postingModuleRule)
+<a id="setpostingmodulerules"></a>
+# **SetPostingModuleRules**
+> PostingModuleRulesUpdatedResponse SetPostingModuleRules (string scope, string code, List<PostingModuleRule> postingModuleRule)
 
-[EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
+[EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
 
-Update the given Posting Modules rules, this will replace the existing set of rules for the posting module.
+Set the given Posting Modules rules, this will replace the existing set of rules for the posting module.
 
 ### Example
 ```csharp
@@ -537,7 +537,7 @@ using Lusid.Sdk.Model;
 
 namespace Example
 {
-    public class UpdatePostingModuleRulesExample
+    public class SetPostingModuleRulesExample
     {
         public static void Main()
         {
@@ -549,17 +549,17 @@ namespace Example
             var apiInstance = new PostingModulesApi(config);
             var scope = "scope_example";  // string | The scope of the Posting Module to be updated.
             var code = "code_example";  // string | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module.
-            var postingModuleRule = new List<PostingModuleRule>(); // List<PostingModuleRule> | The new rule set to be updated for the posting module.
+            var postingModuleRule = new List<PostingModuleRule>(); // List<PostingModuleRule> | The new rule set for the Posting Module.
 
             try
             {
-                // [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
-                PostingModuleRulesUpdatedResponse result = apiInstance.UpdatePostingModuleRules(scope, code, postingModuleRule);
+                // [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
+                PostingModuleRulesUpdatedResponse result = apiInstance.SetPostingModuleRules(scope, code, postingModuleRule);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PostingModulesApi.UpdatePostingModuleRules: " + e.Message);
+                Debug.Print("Exception when calling PostingModulesApi.SetPostingModuleRules: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -568,21 +568,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdatePostingModuleRulesWithHttpInfo variant
+#### Using the SetPostingModuleRulesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdatePostingModuleRules: Update a Posting Modules rules
-    ApiResponse<PostingModuleRulesUpdatedResponse> response = apiInstance.UpdatePostingModuleRulesWithHttpInfo(scope, code, postingModuleRule);
+    // [EXPERIMENTAL] SetPostingModuleRules: Set the rules of a Posting Module
+    ApiResponse<PostingModuleRulesUpdatedResponse> response = apiInstance.SetPostingModuleRulesWithHttpInfo(scope, code, postingModuleRule);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PostingModulesApi.UpdatePostingModuleRulesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PostingModulesApi.SetPostingModuleRulesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -594,7 +594,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **scope** | **string** | The scope of the Posting Module to be updated. |  |
 | **code** | **string** | The code of the Posting Module to be updated. Together with the scope this uniquely identifies the Posting Module. |  |
-| **postingModuleRule** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The new rule set to be updated for the posting module. |  |
+| **postingModuleRule** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The new rule set for the Posting Module. |  |
 
 ### Return type
 

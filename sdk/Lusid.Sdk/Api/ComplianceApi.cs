@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ComplianceRuleResponse</returns>
         ComplianceRuleResponse GetComplianceRule(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
         ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
@@ -346,7 +346,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComplianceRuleResponse</returns>
@@ -362,7 +362,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
@@ -927,7 +927,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ComplianceRuleResponse</returns>
         public ComplianceRuleResponse GetComplianceRule(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
@@ -943,7 +943,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
         public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
@@ -1036,7 +1036,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComplianceRuleResponse</returns>
@@ -1053,7 +1053,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The compliance rule&#39;s scope.</param>
         /// <param name="code">The compliance rule&#39;s code.</param>
         /// <param name="asAt">Optional. Asat time for query. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>

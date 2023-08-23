@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A posting Module request definition
+    /// A Posting Module request definition
     /// </summary>
     [DataContract(Name = "PostingModuleRequest")]
     public partial class PostingModuleRequest : IEquatable<PostingModuleRequest>, IValidatableObject
@@ -36,10 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostingModuleRequest" /> class.
         /// </summary>
-        /// <param name="code">The code given for the chart of account. (required).</param>
+        /// <param name="code">The code of the Posting Module. (required).</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="name">The name to identify the Posting Module by (required).</param>
-        /// <param name="description">The description for the posting module.</param>
+        /// <param name="description">The description for the Posting Module.</param>
         /// <param name="rules">The posting rules that apply for the Posting Module.</param>
         public PostingModuleRequest(string code = default(string), ResourceId chartOfAccountsId = default(ResourceId), string name = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>))
         {
@@ -66,9 +66,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The code given for the chart of account.
+        /// The code of the Posting Module.
         /// </summary>
-        /// <value>The code given for the chart of account.</value>
+        /// <value>The code of the Posting Module.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
@@ -86,9 +86,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The description for the posting module
+        /// The description for the Posting Module
         /// </summary>
-        /// <value>The description for the posting module</value>
+        /// <value>The description for the Posting Module</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 

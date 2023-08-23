@@ -1,5 +1,5 @@
 # Lusid.Sdk.Model.PostingModuleCreateResponse
-A posting Module Create response
+A Posting Module Create response
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
 **Name** | **string** | The name to identify the Posting Module by | 
-**Description** | **string** | The description for the posting module | [optional] 
+**Description** | **string** | The description for the Posting Module | [optional] 
 **Rules** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The posting rules that apply for the Posting Module | [optional] 
 **Status** | **string** | The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. | 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 

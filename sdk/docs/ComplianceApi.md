@@ -144,7 +144,7 @@ namespace Example
             var scope = "scope_example";  // string | The compliance rule's scope.
             var code = "code_example";  // string | The compliance rule's code.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. Asat time for query. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. If not provided will return all the entitled properties for that rule. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Compliance' domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example 'Compliance/live/UCITS'. (optional) 
 
             try
             {
@@ -190,7 +190,7 @@ catch (ApiException e)
 | **scope** | **string** | The compliance rule&#39;s scope. |  |
 | **code** | **string** | The compliance rule&#39;s code. |  |
 | **asAt** | **DateTimeOffset?** | Optional. Asat time for query. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. If not provided will return all the entitled properties for that rule. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Compliance&#39; domain to decorate onto the rule.              These must take the format {domain}/{scope}/{code}, for example &#39;Compliance/live/UCITS&#39;. | [optional]  |
 
 ### Return type
 
