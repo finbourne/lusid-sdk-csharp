@@ -5,7 +5,7 @@ Representation of a Relation between a requested entity with the stated entity a
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | [**Version**](Version.md) |  | [optional] 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **RelatedEntityId** | **Dictionary&lt;string, string&gt;** |  | 
 **TraversalDirection** | **string** |  | 

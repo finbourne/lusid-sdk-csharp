@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Counterparty** | **string** | Optionally specifies the market entity this placement is placed with. | [optional] 
 **ExecutionSystem** | **string** | Optionally specifies the execution system in use. | [optional] 
 **EntryType** | **string** | Optionally specifies the entry type of this placement. | [optional] 
-**Version** | [**Version**](Version.md) |  | [optional] 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

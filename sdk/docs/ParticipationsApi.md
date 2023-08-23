@@ -1,16 +1,15 @@
 # Lusid.Sdk.Api.ParticipationsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**DeleteParticipation**](ParticipationsApi.md#deleteparticipation) | **DELETE** /api/participations/{scope}/{code} | [EARLY ACCESS] DeleteParticipation: Delete participation
-[**GetParticipation**](ParticipationsApi.md#getparticipation) | **GET** /api/participations/{scope}/{code} | [EARLY ACCESS] GetParticipation: Get Participation
-[**ListParticipations**](ParticipationsApi.md#listparticipations) | **GET** /api/participations | [EARLY ACCESS] ListParticipations: List Participations
-[**UpsertParticipations**](ParticipationsApi.md#upsertparticipations) | **POST** /api/participations | [EARLY ACCESS] UpsertParticipations: Upsert Participation
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**DeleteParticipation**](ParticipationsApi.md#deleteparticipation) | **DELETE** /api/participations/{scope}/{code} | [EARLY ACCESS] DeleteParticipation: Delete participation |
+| [**GetParticipation**](ParticipationsApi.md#getparticipation) | **GET** /api/participations/{scope}/{code} | [EARLY ACCESS] GetParticipation: Get Participation |
+| [**ListParticipations**](ParticipationsApi.md#listparticipations) | **GET** /api/participations | [EARLY ACCESS] ListParticipations: List Participations |
+| [**UpsertParticipations**](ParticipationsApi.md#upsertparticipations) | **POST** /api/participations | [EARLY ACCESS] UpsertParticipations: Upsert Participation |
 
-
-<a name="deleteparticipation"></a>
+<a id="deleteparticipation"></a>
 # **DeleteParticipation**
 > DeletedEntityResponse DeleteParticipation (string scope, string code)
 
@@ -33,13 +32,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ParticipationsApi(config);
-            var scope = scope_example;  // string | The participation scope.
-            var code = code_example;  // string | The participation's code. This, together with the scope uniquely identifies the participation to delete.
+            var scope = "scope_example";  // string | The participation scope.
+            var code = "code_example";  // string | The participation's code. This, together with the scope uniquely identifies the participation to delete.
 
             try
             {
@@ -49,8 +48,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ParticipationsApi.DeleteParticipation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ParticipationsApi.DeleteParticipation: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -58,12 +57,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteParticipationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteParticipation: Delete participation
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteParticipationWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ParticipationsApi.DeleteParticipationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The participation scope. | 
- **code** | **string**| The participation&#39;s code. This, together with the scope uniquely identifies the participation to delete. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The participation scope. |  |
+| **code** | **string** | The participation&#39;s code. This, together with the scope uniquely identifies the participation to delete. |  |
 
 ### Return type
 
@@ -88,9 +107,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getparticipation"></a>
+<a id="getparticipation"></a>
 # **GetParticipation**
-> Participation GetParticipation (string scope, string code, DateTimeOffset? asAt = null, List<string> propertyKeys = null)
+> Participation GetParticipation (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 [EARLY ACCESS] GetParticipation: Get Participation
 
@@ -111,15 +130,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ParticipationsApi(config);
-            var scope = scope_example;  // string | The scope to which the participation belongs.
-            var code = code_example;  // string | The participation's unique identifier.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Participation\" domain to decorate onto the participation.              These take the format {domain}/{scope}/{code} e.g. \"Participation/system/Name\". (optional) 
+            var scope = "scope_example";  // string | The scope to which the participation belongs.
+            var code = "code_example";  // string | The participation's unique identifier.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Participation\" domain to decorate onto the participation.              These take the format {domain}/{scope}/{code} e.g. \"Participation/system/Name\". (optional) 
 
             try
             {
@@ -129,8 +148,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ParticipationsApi.GetParticipation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ParticipationsApi.GetParticipation: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -138,14 +157,34 @@ namespace Example
 }
 ```
 
+#### Using the GetParticipationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetParticipation: Get Participation
+    ApiResponse<Participation> response = apiInstance.GetParticipationWithHttpInfo(scope, code, asAt, propertyKeys);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ParticipationsApi.GetParticipationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope to which the participation belongs. | 
- **code** | **string**| The participation&#39;s unique identifier. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Participation\&quot; domain to decorate onto the participation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Participation/system/Name\&quot;. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope to which the participation belongs. |  |
+| **code** | **string** | The participation&#39;s unique identifier. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Participation\&quot; domain to decorate onto the participation.              These take the format {domain}/{scope}/{code} e.g. \&quot;Participation/system/Name\&quot;. | [optional]  |
 
 ### Return type
 
@@ -170,9 +209,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listparticipations"></a>
+<a id="listparticipations"></a>
 # **ListParticipations**
-> PagedResourceListOfParticipation ListParticipations (DateTimeOffset? asAt = null, string page = null, List<string> sortBy = null, int? limit = null, string filter = null, List<string> propertyKeys = null)
+> PagedResourceListOfParticipation ListParticipations (DateTimeOffset? asAt = null, string? page = null, List<string>? sortBy = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
 
 [EARLY ACCESS] ListParticipations: List Participations
 
@@ -193,17 +232,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ParticipationsApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing participations from a previous call to list participations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
-            var sortBy = new List<string>(); // List<string> | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing participations from a previous call to list participations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Participation\" domain to decorate onto each participation.                  These take the format {domain}/{scope}/{code} e.g. \"Participation/system/Name\". (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Participation\" domain to decorate onto each participation.                  These take the format {domain}/{scope}/{code} e.g. \"Participation/system/Name\". (optional) 
 
             try
             {
@@ -213,8 +252,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ParticipationsApi.ListParticipations: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ParticipationsApi.ListParticipations: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -222,16 +261,36 @@ namespace Example
 }
 ```
 
+#### Using the ListParticipationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListParticipations: List Participations
+    ApiResponse<PagedResourceListOfParticipation> response = apiInstance.ListParticipationsWithHttpInfo(asAt, page, sortBy, limit, filter, propertyKeys);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ParticipationsApi.ListParticipationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing participations from a previous call to list participations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName. | [optional] 
- **limit** | **int?**| When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Participation\&quot; domain to decorate onto each participation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Participation/system/Name\&quot;. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the participation. Defaults to return the latest version of the participation if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing participations from a previous call to list participations.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Participation\&quot; domain to decorate onto each participation.                  These take the format {domain}/{scope}/{code} e.g. \&quot;Participation/system/Name\&quot;. | [optional]  |
 
 ### Return type
 
@@ -256,9 +315,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertparticipations"></a>
+<a id="upsertparticipations"></a>
 # **UpsertParticipations**
-> ResourceListOfParticipation UpsertParticipations (ParticipationSetRequest participationSetRequest = null)
+> ResourceListOfParticipation UpsertParticipations (ParticipationSetRequest? participationSetRequest = null)
 
 [EARLY ACCESS] UpsertParticipations: Upsert Participation
 
@@ -279,12 +338,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ParticipationsApi(config);
-            var participationSetRequest = new ParticipationSetRequest(); // ParticipationSetRequest | The collection of participation requests. (optional) 
+            var participationSetRequest = new ParticipationSetRequest?(); // ParticipationSetRequest? | The collection of participation requests. (optional) 
 
             try
             {
@@ -294,8 +353,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ParticipationsApi.UpsertParticipations: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ParticipationsApi.UpsertParticipations: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -303,11 +362,31 @@ namespace Example
 }
 ```
 
+#### Using the UpsertParticipationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertParticipations: Upsert Participation
+    ApiResponse<ResourceListOfParticipation> response = apiInstance.UpsertParticipationsWithHttpInfo(participationSetRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ParticipationsApi.UpsertParticipationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **participationSetRequest** | [**ParticipationSetRequest**](ParticipationSetRequest.md)| The collection of participation requests. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **participationSetRequest** | [**ParticipationSetRequest?**](ParticipationSetRequest?.md) | The collection of participation requests. | [optional]  |
 
 ### Return type
 
@@ -319,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

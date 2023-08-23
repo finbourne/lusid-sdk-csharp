@@ -1,15 +1,14 @@
 # Lusid.Sdk.Api.ScopesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | ListScopes: List Scopes
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**ListScopes**](ScopesApi.md#listscopes) | **GET** /api/scopes | ListScopes: List Scopes |
 
-
-<a name="listscopes"></a>
+<a id="listscopes"></a>
 # **ListScopes**
-> ResourceListOfScopeDefinition ListScopes (string filter = null)
+> ResourceListOfScopeDefinition ListScopes (string? filter = null)
 
 ListScopes: List Scopes
 
@@ -30,12 +29,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ScopesApi(config);
-            var filter = filter_example;  // string | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -45,8 +44,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ScopesApi.ListScopes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ScopesApi.ListScopes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -54,11 +53,31 @@ namespace Example
 }
 ```
 
+#### Using the ListScopesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListScopes: List Scopes
+    ApiResponse<ResourceListOfScopeDefinition> response = apiInstance.ListScopesWithHttpInfo(filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ScopesApi.ListScopesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter** | **string**| Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **filter** | **string?** | Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 

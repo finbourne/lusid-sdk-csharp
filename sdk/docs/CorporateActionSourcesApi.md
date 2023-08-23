@@ -1,26 +1,26 @@
 # Lusid.Sdk.Api.CorporateActionSourcesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**BatchUpsertCorporateActions**](CorporateActionSourcesApi.md#batchupsertcorporateactions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
-[**CreateCorporateActionSource**](CorporateActionSourcesApi.md#createcorporateactionsource) | **POST** /api/corporateactionsources | [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
-[**DeleteCorporateActions**](CorporateActionSourcesApi.md#deletecorporateactions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
-[**DeleteInstrumentEvents**](CorporateActionSourcesApi.md#deleteinstrumentevents) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
-[**GetCorporateActions**](CorporateActionSourcesApi.md#getcorporateactions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
-[**GetInstrumentEvents**](CorporateActionSourcesApi.md#getinstrumentevents) | **GET** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
-[**ListCorporateActionSources**](CorporateActionSourcesApi.md#listcorporateactionsources) | **GET** /api/corporateactionsources | [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
-[**UpsertInstrumentEvents**](CorporateActionSourcesApi.md#upsertinstrumentevents) | **POST** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**BatchUpsertCorporateActions**](CorporateActionSourcesApi.md#batchupsertcorporateactions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source. |
+| [**CreateCorporateActionSource**](CorporateActionSourcesApi.md#createcorporateactionsource) | **POST** /api/corporateactionsources | [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source |
+| [**DeleteCorporateActionSource**](CorporateActionSourcesApi.md#deletecorporateactionsource) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source. |
+| [**DeleteCorporateActions**](CorporateActionSourcesApi.md#deletecorporateactions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions |
+| [**DeleteInstrumentEvents**](CorporateActionSourcesApi.md#deleteinstrumentevents) | **DELETE** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source. |
+| [**GetCorporateActions**](CorporateActionSourcesApi.md#getcorporateactions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source. |
+| [**GetInstrumentEvents**](CorporateActionSourcesApi.md#getinstrumentevents) | **GET** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source. |
+| [**ListCorporateActionSources**](CorporateActionSourcesApi.md#listcorporateactionsources) | **GET** /api/corporateactionsources | [EARLY ACCESS] ListCorporateActionSources: List corporate action sources |
+| [**UpsertInstrumentEvents**](CorporateActionSourcesApi.md#upsertinstrumentevents) | **POST** /api/corporateactionsources/{scope}/{code}/instrumentevents | [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source. |
 
-
-<a name="batchupsertcorporateactions"></a>
+<a id="batchupsertcorporateactions"></a>
 # **BatchUpsertCorporateActions**
-> UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<UpsertCorporateActionRequest> upsertCorporateActionRequest = null)
+> UpsertCorporateActionsResponse BatchUpsertCorporateActions (string scope, string code, List<UpsertCorporateActionRequest>? upsertCorporateActionRequest = null)
 
 [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
 
-Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.
+Create or update one or more corporate actions in a particular corporate action source. Failures are identified in the body of the response.                If a corporate action is upserted at exactly the same effective datetime as a transaction for the same instrument, the corporate action takes precedence. Depending on the nature of the corporate action, this may mean it affects the transaction.                The maximum number of corporate actions that this method can upsert per request is 10,000.
 
 ### Example
 ```csharp
@@ -37,14 +37,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = scope_example;  // string | The scope of corporate action source
-            var code = code_example;  // string | The code of the corporate action source
-            var upsertCorporateActionRequest = new List<UpsertCorporateActionRequest>(); // List<UpsertCorporateActionRequest> | The corporate action definitions (optional) 
+            var scope = "scope_example";  // string | The scope of corporate action source
+            var code = "code_example";  // string | The code of the corporate action source
+            var upsertCorporateActionRequest = new List<UpsertCorporateActionRequest>?(); // List<UpsertCorporateActionRequest>? | The corporate action definitions (optional) 
 
             try
             {
@@ -54,8 +54,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.BatchUpsertCorporateActions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.BatchUpsertCorporateActions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -63,13 +63,33 @@ namespace Example
 }
 ```
 
+#### Using the BatchUpsertCorporateActionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BatchUpsertCorporateActions: Batch upsert corporate actions (instrument transition events) to corporate action source.
+    ApiResponse<UpsertCorporateActionsResponse> response = apiInstance.BatchUpsertCorporateActionsWithHttpInfo(scope, code, upsertCorporateActionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.BatchUpsertCorporateActionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of corporate action source | 
- **code** | **string**| The code of the corporate action source | 
- **upsertCorporateActionRequest** | [**List&lt;UpsertCorporateActionRequest&gt;**](UpsertCorporateActionRequest.md)| The corporate action definitions | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of corporate action source |  |
+| **code** | **string** | The code of the corporate action source |  |
+| **upsertCorporateActionRequest** | [**List&lt;UpsertCorporateActionRequest&gt;?**](UpsertCorporateActionRequest.md) | The corporate action definitions | [optional]  |
 
 ### Return type
 
@@ -81,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -94,7 +114,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createcorporateactionsource"></a>
+<a id="createcorporateactionsource"></a>
 # **CreateCorporateActionSource**
 > CorporateActionSource CreateCorporateActionSource (CreateCorporateActionSourceRequest createCorporateActionSourceRequest)
 
@@ -117,7 +137,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -132,8 +152,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.CreateCorporateActionSource: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.CreateCorporateActionSource: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -141,11 +161,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateCorporateActionSourceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateCorporateActionSource: Create corporate action source
+    ApiResponse<CorporateActionSource> response = apiInstance.CreateCorporateActionSourceWithHttpInfo(createCorporateActionSourceRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.CreateCorporateActionSourceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createCorporateActionSourceRequest** | [**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md)| The corporate action source definition | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createCorporateActionSourceRequest** | [**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md) | The corporate action source definition |  |
 
 ### Return type
 
@@ -157,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -170,13 +210,111 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletecorporateactions"></a>
+<a id="deletecorporateactionsource"></a>
+# **DeleteCorporateActionSource**
+> DeletedEntityResponse DeleteCorporateActionSource (string scope, string code)
+
+[BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+
+Deletes a single corporate action source
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteCorporateActionSourceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CorporateActionSourcesApi(config);
+            var scope = "scope_example";  // string | The scope of the corporate action source to be deleted
+            var code = "code_example";  // string | The code of the corporate action source to be deleted
+
+            try
+            {
+                // [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+                DeletedEntityResponse result = apiInstance.DeleteCorporateActionSource(scope, code);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteCorporateActionSource: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteCorporateActionSourceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [BETA] DeleteCorporateActionSource: Delete corporate actions (instrument transition events) from the corporate action source.
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCorporateActionSourceWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteCorporateActionSourceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the corporate action source to be deleted |  |
+| **code** | **string** | The code of the corporate action source to be deleted |  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Corporate Action Source Deleted |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="deletecorporateactions"></a>
 # **DeleteCorporateActions**
 > DeletedEntityResponse DeleteCorporateActions (string scope, string code, List<string> corporateActionIds)
 
 [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
 
-Delete one or more corporate actions from a particular corporate action source.
+Delete one or more corporate actions from a particular corporate action source.                The maximum number of corporate actions that this method can delete per request is 1,000.
 
 ### Example
 ```csharp
@@ -193,13 +331,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = scope_example;  // string | The scope of the corporate action source
-            var code = code_example;  // string | The code of the corporate action source
+            var scope = "scope_example";  // string | The scope of the corporate action source
+            var code = "code_example";  // string | The code of the corporate action source
             var corporateActionIds = new List<string>(); // List<string> | The IDs of the corporate actions to delete
 
             try
@@ -210,8 +348,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteCorporateActions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteCorporateActions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -219,13 +357,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteCorporateActionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteCorporateActions: Delete corporate actions
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteCorporateActionsWithHttpInfo(scope, code, corporateActionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteCorporateActionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the corporate action source | 
- **code** | **string**| The code of the corporate action source | 
- **corporateActionIds** | [**List&lt;string&gt;**](string.md)| The IDs of the corporate actions to delete | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the corporate action source |  |
+| **code** | **string** | The code of the corporate action source |  |
+| **corporateActionIds** | [**List&lt;string&gt;**](string.md) | The IDs of the corporate actions to delete |  |
 
 ### Return type
 
@@ -250,13 +408,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteinstrumentevents"></a>
+<a id="deleteinstrumentevents"></a>
 # **DeleteInstrumentEvents**
 > DeletedEntityResponse DeleteInstrumentEvents (string scope, string code, List<string> instrumentEventIds)
 
 [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
 
-Delete one or more corporate actions from a particular corporate action source.
+Delete one or more corporate actions from a particular corporate action source.                The maximum number of instrument events that this method can delete per request is 1,000.
 
 ### Example
 ```csharp
@@ -273,13 +431,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = scope_example;  // string | The scope of the corporate action source
-            var code = code_example;  // string | The code of the corporate action source
+            var scope = "scope_example";  // string | The scope of the corporate action source
+            var code = "code_example";  // string | The code of the corporate action source
             var instrumentEventIds = new List<string>(); // List<string> | The IDs of the instrument events to delete
 
             try
@@ -290,8 +448,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteInstrumentEvents: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteInstrumentEvents: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -299,13 +457,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteInstrumentEventsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteInstrumentEvents: Delete corporate actions (instrument transition events) from the corporate action source.
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteInstrumentEventsWithHttpInfo(scope, code, instrumentEventIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.DeleteInstrumentEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the corporate action source | 
- **code** | **string**| The code of the corporate action source | 
- **instrumentEventIds** | [**List&lt;string&gt;**](string.md)| The IDs of the instrument events to delete | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the corporate action source |  |
+| **code** | **string** | The code of the corporate action source |  |
+| **instrumentEventIds** | [**List&lt;string&gt;**](string.md) | The IDs of the instrument events to delete |  |
 
 ### Return type
 
@@ -330,9 +508,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcorporateactions"></a>
+<a id="getcorporateactions"></a>
 # **GetCorporateActions**
-> ResourceListOfCorporateAction GetCorporateActions (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? limit = null, string filter = null)
+> ResourceListOfCorporateAction GetCorporateActions (string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null, List<string>? sortBy = null, int? limit = null, string? filter = null)
 
 [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
 
@@ -353,19 +531,19 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = scope_example;  // string | The scope of the corporate action source.
-            var code = code_example;  // string | The code of the corporate action source.
-            var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | Optional. The start effective date of the data range. (optional) 
-            var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | Optional. The end effective date of the data range. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data. (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var scope = "scope_example";  // string | The scope of the corporate action source.
+            var code = "code_example";  // string | The code of the corporate action source.
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | Optional. The start effective date of the data range. (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | Optional. The end effective date of the data range. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the results to this number. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -375,8 +553,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.GetCorporateActions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.GetCorporateActions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -384,18 +562,38 @@ namespace Example
 }
 ```
 
+#### Using the GetCorporateActionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetCorporateActions: List corporate actions (instrument transition events) from the corporate action source.
+    ApiResponse<ResourceListOfCorporateAction> response = apiInstance.GetCorporateActionsWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, sortBy, limit, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.GetCorporateActionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the corporate action source. | 
- **code** | **string**| The code of the corporate action source. | 
- **fromEffectiveAt** | **DateTimeOrCutLabel**| Optional. The start effective date of the data range. | [optional] 
- **toEffectiveAt** | **DateTimeOrCutLabel**| Optional. The end effective date of the data range. | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data. | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the results to this number. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the corporate action source. |  |
+| **code** | **string** | The code of the corporate action source. |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | Optional. The start effective date of the data range. | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | Optional. The end effective date of the data range. | [optional]  |
+| **asAt** | **DateTimeOffset?** | Optional. The AsAt date of the data. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the results to this number. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#39;2020-03-06&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -420,9 +618,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstrumentevents"></a>
+<a id="getinstrumentevents"></a>
 # **GetInstrumentEvents**
-> PagedResourceListOfInstrumentEventHolder GetInstrumentEvents (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string page = null, string filter = null)
+> PagedResourceListOfInstrumentEventHolder GetInstrumentEvents (string scope, string code, DateTimeOffset? asAt = null, int? limit = null, string? page = null, string? filter = null)
 
 [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
 
@@ -443,17 +641,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data. (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
-            var page = page_example;  // string | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data. (optional) 
+            var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set. (optional) 
 
             try
             {
@@ -463,8 +661,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.GetInstrumentEvents: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.GetInstrumentEvents: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -472,16 +670,36 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentEventsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetInstrumentEvents: Get extrinsic instrument events out of a given corporate actions source.
+    ApiResponse<PagedResourceListOfInstrumentEventHolder> response = apiInstance.GetInstrumentEventsWithHttpInfo(scope, code, asAt, limit, page, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.GetInstrumentEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data. | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000]
- **page** | **string**| Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. |  |
+| **asAt** | **DateTimeOffset?** | Optional. The AsAt date of the data. | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000] |
+| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set. | [optional]  |
 
 ### Return type
 
@@ -506,9 +724,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcorporateactionsources"></a>
+<a id="listcorporateactionsources"></a>
 # **ListCorporateActionSources**
-> PagedResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string> sortBy = null, int? limit = null, string filter = null, string page = null)
+> PagedResourceListOfCorporateActionSource ListCorporateActionSources (DateTimeOffset? asAt = null, List<string>? sortBy = null, int? limit = null, string? filter = null, string? page = null)
 
 [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
 
@@ -529,16 +747,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional)  (default to 100)
-            var filter = filter_example;  // string | Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \"displayName eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var page = page_example;  // string | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var limit = 100;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. (optional)  (default to 100)
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \"displayName eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. (optional) 
 
             try
             {
@@ -548,8 +766,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.ListCorporateActionSources: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.ListCorporateActionSources: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -557,15 +775,35 @@ namespace Example
 }
 ```
 
+#### Using the ListCorporateActionSourcesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListCorporateActionSources: List corporate action sources
+    ApiResponse<PagedResourceListOfCorporateActionSource> response = apiInstance.ListCorporateActionSourcesWithHttpInfo(asAt, sortBy, limit, filter, page);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.ListCorporateActionSourcesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. | [optional] [default to 100]
- **filter** | **string**| Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **page** | **string**| Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | Optional. The AsAt date of the data | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. | [optional] [default to 100] |
+| **filter** | **string?** | Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. | [optional]  |
 
 ### Return type
 
@@ -590,13 +828,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertinstrumentevents"></a>
+<a id="upsertinstrumentevents"></a>
 # **UpsertInstrumentEvents**
-> UpsertInstrumentEventsResponse UpsertInstrumentEvents (string scope, string code, List<UpsertInstrumentEventRequest> upsertInstrumentEventRequest = null)
+> UpsertInstrumentEventsResponse UpsertInstrumentEvents (string scope, string code, List<UpsertInstrumentEventRequest>? upsertInstrumentEventRequest = null)
 
 [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
 
-Batch upsert instrument events to corporate action sources.
+Batch upsert instrument events to corporate action sources.                The maximum number of instrument events that this method can upsert per request is 10,000.
 
 ### Example
 ```csharp
@@ -613,14 +851,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = scope_example;  // string | The scope of the corporate action source.
-            var code = code_example;  // string | The code of the corporate action source.
-            var upsertInstrumentEventRequest = new List<UpsertInstrumentEventRequest>(); // List<UpsertInstrumentEventRequest> | The instrument event definitions. (optional) 
+            var scope = "scope_example";  // string | The scope of the corporate action source.
+            var code = "code_example";  // string | The code of the corporate action source.
+            var upsertInstrumentEventRequest = new List<UpsertInstrumentEventRequest>?(); // List<UpsertInstrumentEventRequest>? | The instrument event definitions. (optional) 
 
             try
             {
@@ -630,8 +868,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CorporateActionSourcesApi.UpsertInstrumentEvents: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CorporateActionSourcesApi.UpsertInstrumentEvents: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -639,13 +877,33 @@ namespace Example
 }
 ```
 
+#### Using the UpsertInstrumentEventsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertInstrumentEvents: Upsert instrument events to the provided corporate actions source.
+    ApiResponse<UpsertInstrumentEventsResponse> response = apiInstance.UpsertInstrumentEventsWithHttpInfo(scope, code, upsertInstrumentEventRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CorporateActionSourcesApi.UpsertInstrumentEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the corporate action source. | 
- **code** | **string**| The code of the corporate action source. | 
- **upsertInstrumentEventRequest** | [**List&lt;UpsertInstrumentEventRequest&gt;**](UpsertInstrumentEventRequest.md)| The instrument event definitions. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the corporate action source. |  |
+| **code** | **string** | The code of the corporate action source. |  |
+| **upsertInstrumentEventRequest** | [**List&lt;UpsertInstrumentEventRequest&gt;?**](UpsertInstrumentEventRequest.md) | The instrument event definitions. | [optional]  |
 
 ### Return type
 
@@ -657,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

@@ -1,29 +1,135 @@
 # Lusid.Sdk.Api.InstrumentsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
-[**DeleteInstrumentProperties**](InstrumentsApi.md#deleteinstrumentproperties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
-[**DeleteInstruments**](InstrumentsApi.md#deleteinstruments) | **POST** /api/instruments/$delete | [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
-[**GetExistingInstrumentModels**](InstrumentsApi.md#getexistinginstrumentmodels) | **GET** /api/instruments/{identifier}/models | GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
-[**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
-[**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types
-[**GetInstrumentProperties**](InstrumentsApi.md#getinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
-[**GetInstrumentPropertyTimeSeries**](InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
-[**GetInstrumentRelationships**](InstrumentsApi.md#getinstrumentrelationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
-[**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments
-[**ListInstrumentProperties**](InstrumentsApi.md#listinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
-[**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | ListInstruments: List instruments
-[**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | UpdateInstrumentIdentifier: Update instrument identifier
-[**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments
-[**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**BatchUpsertInstrumentProperties**](InstrumentsApi.md#batchupsertinstrumentproperties) | **POST** /api/instruments/$batchupsertproperties | [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties |
+| [**DeleteInstrument**](InstrumentsApi.md#deleteinstrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument |
+| [**DeleteInstrumentProperties**](InstrumentsApi.md#deleteinstrumentproperties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties |
+| [**DeleteInstruments**](InstrumentsApi.md#deleteinstruments) | **POST** /api/instruments/$delete | [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments |
+| [**GetAllPossibleFeatures**](InstrumentsApi.md#getallpossiblefeatures) | **GET** /api/instruments/{instrumentType}/allfeatures | [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. |
+| [**GetExistingInstrumentCapabilities**](InstrumentsApi.md#getexistinginstrumentcapabilities) | **GET** /api/instruments/{identifier}/capabilities | [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. |
+| [**GetExistingInstrumentModels**](InstrumentsApi.md#getexistinginstrumentmodels) | **GET** /api/instruments/{identifier}/models | GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID. |
+| [**GetInstrument**](InstrumentsApi.md#getinstrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument |
+| [**GetInstrumentIdentifierTypes**](InstrumentsApi.md#getinstrumentidentifiertypes) | **GET** /api/instruments/identifierTypes | GetInstrumentIdentifierTypes: Get instrument identifier types |
+| [**GetInstrumentPaymentDiary**](InstrumentsApi.md#getinstrumentpaymentdiary) | **GET** /api/instruments/{identifierType}/{identifier}/paymentdiary | [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary |
+| [**GetInstrumentProperties**](InstrumentsApi.md#getinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EARLY ACCESS] GetInstrumentProperties: Get instrument properties |
+| [**GetInstrumentPropertyTimeSeries**](InstrumentsApi.md#getinstrumentpropertytimeseries) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series |
+| [**GetInstrumentRelationships**](InstrumentsApi.md#getinstrumentrelationships) | **GET** /api/instruments/{identifierType}/{identifier}/relationships | [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships |
+| [**GetInstruments**](InstrumentsApi.md#getinstruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments |
+| [**ListInstrumentProperties**](InstrumentsApi.md#listinstrumentproperties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination) |
+| [**ListInstruments**](InstrumentsApi.md#listinstruments) | **GET** /api/instruments | ListInstruments: List instruments |
+| [**QueryInstrumentCapabilities**](InstrumentsApi.md#queryinstrumentcapabilities) | **POST** /api/instruments/capabilities | [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. |
+| [**UpdateInstrumentIdentifier**](InstrumentsApi.md#updateinstrumentidentifier) | **POST** /api/instruments/{identifierType}/{identifier} | UpdateInstrumentIdentifier: Update instrument identifier |
+| [**UpsertInstruments**](InstrumentsApi.md#upsertinstruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments |
+| [**UpsertInstrumentsProperties**](InstrumentsApi.md#upsertinstrumentsproperties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties |
+
+<a id="batchupsertinstrumentproperties"></a>
+# **BatchUpsertInstrumentProperties**
+> BatchUpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties (Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = null, DateTimeOrCutLabel? identifierEffectiveAt = null, string? successMode = null)
+
+[EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+
+Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an <i>effectiveFrom</i> datetime from which the property is valid, and an <i>effectiveUntil</i>  datetime until which the property is valid. Not supplying an <i>effectiveUntil</i> datetime results in the property being  valid indefinitely, or until the next <i>effectiveFrom</i> datetime of the property.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class BatchUpsertInstrumentPropertiesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InstrumentsApi(config);
+            var requestBody = new Dictionary<string, UpsertInstrumentPropertyRequest>(); // Dictionary<string, UpsertInstrumentPropertyRequest> | A list of instruments and associated instrument properties to create or update.
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var identifierEffectiveAt = "identifierEffectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var successMode = "\"Partial\"";  // string? | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional)  (default to "Partial")
+
+            try
+            {
+                // [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+                BatchUpsertInstrumentPropertiesResponse result = apiInstance.BatchUpsertInstrumentProperties(requestBody, scope, identifierEffectiveAt, successMode);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstrumentsApi.BatchUpsertInstrumentProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchUpsertInstrumentPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+    ApiResponse<BatchUpsertInstrumentPropertiesResponse> response = apiInstance.BatchUpsertInstrumentPropertiesWithHttpInfo(requestBody, scope, identifierEffectiveAt, successMode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.BatchUpsertInstrumentPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, UpsertInstrumentPropertyRequest&gt;**](UpsertInstrumentPropertyRequest.md) | A list of instruments and associated instrument properties to create or update. |  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **identifierEffectiveAt** | **DateTimeOrCutLabel?** | The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **successMode** | **string?** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. | [optional] [default to &quot;Partial&quot;] |
+
+### Return type
+
+[**BatchUpsertInstrumentPropertiesResponse**](BatchUpsertInstrumentPropertiesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
 
 
-<a name="deleteinstrument"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The successfully upserted properties along with any failures. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="deleteinstrument"></a>
 # **DeleteInstrument**
-> DeleteInstrumentResponse DeleteInstrument (string identifierType, string identifier, string scope = null)
+> DeleteInstrumentResponse DeleteInstrument (string identifierType, string identifier, string? scope = null)
 
 [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
 
@@ -44,14 +150,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to search, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -61,8 +167,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.DeleteInstrument: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.DeleteInstrument: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -70,13 +176,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteInstrumentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
+    ApiResponse<DeleteInstrumentResponse> response = apiInstance.DeleteInstrumentWithHttpInfo(identifierType, identifier, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.DeleteInstrumentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to search, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to search, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -101,9 +227,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteinstrumentproperties"></a>
+<a id="deleteinstrumentproperties"></a>
 # **DeleteInstrumentProperties**
-> DeleteInstrumentPropertiesResponse DeleteInstrumentProperties (string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = null, string scope = null)
+> DeleteInstrumentPropertiesResponse DeleteInstrumentProperties (string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = null, string? scope = null)
 
 [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
 
@@ -124,16 +250,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to search, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
             var requestBody = new List<string>(); // List<string> | A list of property keys from the 'Instruments' domain whose properties to delete.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -143,8 +269,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.DeleteInstrumentProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.DeleteInstrumentProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -152,15 +278,35 @@ namespace Example
 }
 ```
 
+#### Using the DeleteInstrumentPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
+    ApiResponse<DeleteInstrumentPropertiesResponse> response = apiInstance.DeleteInstrumentPropertiesWithHttpInfo(identifierType, identifier, requestBody, effectiveAt, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.DeleteInstrumentPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to search, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **requestBody** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Instruments&#39; domain whose properties to delete. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to search, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **requestBody** | [**List&lt;string&gt;**](string.md) | A list of property keys from the &#39;Instruments&#39; domain whose properties to delete. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -172,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -185,9 +331,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteinstruments"></a>
+<a id="deleteinstruments"></a>
 # **DeleteInstruments**
-> DeleteInstrumentsResponse DeleteInstruments (List<string> requestBody, string deleteMode = null, string scope = null)
+> DeleteInstrumentsResponse DeleteInstruments (List<string> requestBody, string? deleteMode = null, string? scope = null)
 
 [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
 
@@ -208,14 +354,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
             var requestBody = new List<string>(); // List<string> | The list of lusidInstrumentId's to delete.
-            var deleteMode = deleteMode_example;  // string | The delete mode to use (defaults to 'Soft'). (optional) 
-            var scope = scope_example;  // string | The scope in which the instruments lie. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var deleteMode = "Soft";  // string? | The delete mode to use (defaults to 'Soft'). (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instruments lie. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -225,8 +371,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.DeleteInstruments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.DeleteInstruments: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -234,13 +380,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteInstrumentsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+    ApiResponse<DeleteInstrumentsResponse> response = apiInstance.DeleteInstrumentsWithHttpInfo(requestBody, deleteMode, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.DeleteInstrumentsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**List&lt;string&gt;**](string.md)| The list of lusidInstrumentId&#39;s to delete. | 
- **deleteMode** | **string**| The delete mode to use (defaults to &#39;Soft&#39;). | [optional] 
- **scope** | **string**| The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**List&lt;string&gt;**](string.md) | The list of lusidInstrumentId&#39;s to delete. |  |
+| **deleteMode** | **string?** | The delete mode to use (defaults to &#39;Soft&#39;). | [optional]  |
+| **scope** | **string?** | The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -252,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -265,9 +431,213 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getexistinginstrumentmodels"></a>
+<a id="getallpossiblefeatures"></a>
+# **GetAllPossibleFeatures**
+> Dictionary&lt;string, List&lt;string&gt;&gt; GetAllPossibleFeatures (string instrumentType)
+
+[EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+
+Provides all possible instrument features an instrument of a given type can provide.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetAllPossibleFeaturesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InstrumentsApi(config);
+            var instrumentType = "instrumentType_example";  // string | A lusid instrument type e.g. Bond, FxOption.
+
+            try
+            {
+                // [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+                Dictionary<string, List<string>> result = apiInstance.GetAllPossibleFeatures(instrumentType);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstrumentsApi.GetAllPossibleFeatures: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAllPossibleFeaturesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+    ApiResponse<Dictionary<string, List<string>>> response = apiInstance.GetAllPossibleFeaturesWithHttpInfo(instrumentType);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetAllPossibleFeaturesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instrumentType** | **string** | A lusid instrument type e.g. Bond, FxOption. |  |
+
+### Return type
+
+**Dictionary<string, List<string>>**
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Provides all possible instrument features an instrument of a given type can provide. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getexistinginstrumentcapabilities"></a>
+# **GetExistingInstrumentCapabilities**
+> InstrumentCapabilities GetExistingInstrumentCapabilities (string identifier, string? model = null, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? instrumentScope = null, string? recipeScope = null, string? recipeCode = null)
+
+[EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+
+Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetExistingInstrumentCapabilitiesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InstrumentsApi(config);
+            var identifier = "identifier_example";  // string | A lusid instrument id identifying the instrument.
+            var model = "model_example";  // string? | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional) 
+            var instrumentScope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var recipeScope = "\"default\"";  // string? | The scope in which the recipe lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var recipeCode = "recipeCode_example";  // string? | A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+                InstrumentCapabilities result = apiInstance.GetExistingInstrumentCapabilities(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstrumentsApi.GetExistingInstrumentCapabilities: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetExistingInstrumentCapabilitiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+    ApiResponse<InstrumentCapabilities> response = apiInstance.GetExistingInstrumentCapabilitiesWithHttpInfo(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetExistingInstrumentCapabilitiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifier** | **string** | A lusid instrument id identifying the instrument. |  |
+| **model** | **string?** | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional]  |
+| **instrumentScope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **recipeScope** | **string?** | The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **recipeCode** | **string?** | A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. | [optional]  |
+
+### Return type
+
+[**InstrumentCapabilities**](InstrumentCapabilities.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Capabilities for a given instrument, with more details should the model be provided. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getexistinginstrumentmodels"></a>
 # **GetExistingInstrumentModels**
-> InstrumentModels GetExistingInstrumentModels (string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string instrumentScope = null, string recipeScope = null, string recipeCode = null)
+> InstrumentModels GetExistingInstrumentModels (string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? instrumentScope = null, string? recipeScope = null, string? recipeCode = null)
 
 GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
 
@@ -288,17 +658,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifier = identifier_example;  // string | A lusid instrument id identifying the instrument.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional) 
-            var instrumentScope = instrumentScope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var recipeScope = recipeScope_example;  // string | The scope in which the recipe lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var recipeCode = recipeCode_example;  // string | A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional) 
+            var identifier = "identifier_example";  // string | A lusid instrument id identifying the instrument.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional) 
+            var instrumentScope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var recipeScope = "\"default\"";  // string? | The scope in which the recipe lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var recipeCode = "recipeCode_example";  // string? | A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional) 
 
             try
             {
@@ -308,8 +678,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetExistingInstrumentModels: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetExistingInstrumentModels: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -317,16 +687,36 @@ namespace Example
 }
 ```
 
+#### Using the GetExistingInstrumentModelsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
+    ApiResponse<InstrumentModels> response = apiInstance.GetExistingInstrumentModelsWithHttpInfo(identifier, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetExistingInstrumentModelsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifier** | **string**| A lusid instrument id identifying the instrument. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional] 
- **instrumentScope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
- **recipeScope** | **string**| The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
- **recipeCode** | **string**| A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifier** | **string** | A lusid instrument id identifying the instrument. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional]  |
+| **instrumentScope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **recipeScope** | **string?** | The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **recipeCode** | **string?** | A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. | [optional]  |
 
 ### Return type
 
@@ -351,9 +741,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstrument"></a>
+<a id="getinstrument"></a>
 # **GetInstrument**
-> Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string scope = null, List<string> relationshipDefinitionIds = null)
+> Instrument GetInstrument (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null)
 
 GetInstrument: Get instrument
 
@@ -374,18 +764,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to use, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the 'Instrument' domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var relationshipDefinitionIds = new List<string>(); // List<string> | A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var identifierType = "identifierType_example";  // string | The unique identifier type to use, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -395,8 +785,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstrument: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrument: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -404,17 +794,37 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetInstrument: Get instrument
+    ApiResponse<Instrument> response = apiInstance.GetInstrumentWithHttpInfo(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to use, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
- **relationshipDefinitionIds** | [**List&lt;string&gt;**](string.md)| A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to use, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -439,7 +849,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstrumentidentifiertypes"></a>
+<a id="getinstrumentidentifiertypes"></a>
 # **GetInstrumentIdentifierTypes**
 > ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes ()
 
@@ -462,7 +872,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -476,8 +886,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentIdentifierTypes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentIdentifierTypes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -485,9 +895,28 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentIdentifierTypesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetInstrumentIdentifierTypes: Get instrument identifier types
+    ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> response = apiInstance.GetInstrumentIdentifierTypesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentIdentifierTypesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**ResourceListOfInstrumentIdTypeDescriptor**](ResourceListOfInstrumentIdTypeDescriptor.md)
@@ -510,9 +939,117 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstrumentproperties"></a>
+<a id="getinstrumentpaymentdiary"></a>
+# **GetInstrumentPaymentDiary**
+> InstrumentPaymentDiary GetInstrumentPaymentDiary (string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? scope = null)
+
+[EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+
+Get the payment diary of a single instrument.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetInstrumentPaymentDiaryExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InstrumentsApi(config);
+            var identifierType = "identifierType_example";  // string | The identifier being supplied e.g. \"Figi\".
+            var identifier = "identifier_example";  // string | The value of the identifier for the requested instrument.
+            var recipeScope = "recipeScope_example";  // string | The scope of the valuation recipe being used to generate the payment diary
+            var recipeCode = "recipeCode_example";  // string | The code of the valuation recipe being used to generate the payment diary
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the instrument's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the instrument's properties. Defaults to return the latest version of each property if not specified. (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+
+            try
+            {
+                // [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+                InstrumentPaymentDiary result = apiInstance.GetInstrumentPaymentDiary(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentPaymentDiary: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetInstrumentPaymentDiaryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+    ApiResponse<InstrumentPaymentDiary> response = apiInstance.GetInstrumentPaymentDiaryWithHttpInfo(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentPaymentDiaryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The identifier being supplied e.g. \&quot;Figi\&quot;. |  |
+| **identifier** | **string** | The value of the identifier for the requested instrument. |  |
+| **recipeScope** | **string** | The scope of the valuation recipe being used to generate the payment diary |  |
+| **recipeCode** | **string** | The code of the valuation recipe being used to generate the payment diary |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+
+### Return type
+
+[**InstrumentPaymentDiary**](InstrumentPaymentDiary.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The payment diary of the specified instrument |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getinstrumentproperties"></a>
 # **GetInstrumentProperties**
-> InstrumentProperties GetInstrumentProperties (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string scope = null)
+> InstrumentProperties GetInstrumentProperties (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? scope = null)
 
 [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
 
@@ -533,16 +1070,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to search, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the instrument's properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the instrument's properties. Defaults to returning              the latest version of each property if not specified. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the instrument's properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the instrument's properties. Defaults to returning              the latest version of each property if not specified. (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -552,8 +1089,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -561,15 +1098,35 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
+    ApiResponse<InstrumentProperties> response = apiInstance.GetInstrumentPropertiesWithHttpInfo(identifierType, identifier, effectiveAt, asAt, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to search, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to search, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -594,9 +1151,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstrumentpropertytimeseries"></a>
+<a id="getinstrumentpropertytimeseries"></a>
 # **GetInstrumentPropertyTimeSeries**
-> ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries (string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = null, DateTimeOffset? asAt = null, string filter = null, string page = null, int? limit = null, string scope = null)
+> ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries (string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, string? page = null, int? limit = null, string? scope = null)
 
 [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
 
@@ -617,20 +1174,20 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to search, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
-            var propertyKey = propertyKey_example;  // string | The property key of a property from the 'Instrument' domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.
-            var identifierEffectiveAt = identifierEffectiveAt_example;  // string | The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument's property history. Defaults to              returning the current datetime if not supplied. (optional) 
-            var filter = filter_example;  // string | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the <i>filter</i>, <i>effectiveAt</i> and              <i>asAt</i> fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional) 
+            var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var propertyKey = "propertyKey_example";  // string | The property key of a property from the 'Instrument' domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.
+            var identifierEffectiveAt = "identifierEffectiveAt_example";  // string? | The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument's property history. Defaults to              returning the current datetime if not supplied. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the <i>filter</i>, <i>effectiveAt</i> and              <i>asAt</i> fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -640,8 +1197,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentPropertyTimeSeries: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentPropertyTimeSeries: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -649,19 +1206,39 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentPropertyTimeSeriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+    ApiResponse<ResourceListOfPropertyInterval> response = apiInstance.GetInstrumentPropertyTimeSeriesWithHttpInfo(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentPropertyTimeSeriesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to search, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **propertyKey** | **string**| The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | 
- **identifierEffectiveAt** | **string**| The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. | [optional] 
- **filter** | **string**| Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **page** | **string**| The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to search, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **propertyKey** | **string** | The property key of a property from the &#39;Instrument&#39; domain whose history to retrieve.              This must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. |  |
+| **identifierEffectiveAt** | **string?** | The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument&#39;s property history. Defaults to              returning the current datetime if not supplied. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -686,9 +1263,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstrumentrelationships"></a>
+<a id="getinstrumentrelationships"></a>
 # **GetInstrumentRelationships**
-> ResourceListOfRelationship GetInstrumentRelationships (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> identifierTypes = null, string scope = null)
+> ResourceListOfRelationship GetInstrumentRelationships (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? identifierTypes = null, string? scope = null)
 
 [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
 
@@ -709,18 +1286,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | An identifier type attached to the Instrument.
-            var identifier = identifier_example;  // string | The identifier value.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional) 
-            var identifierTypes = new List<string>(); // List<string> | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional) 
-            var scope = scope_example;  // string | The entity scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var identifierType = "identifierType_example";  // string | An identifier type attached to the Instrument.
+            var identifier = "identifier_example";  // string | The identifier value.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional) 
+            var identifierTypes = new List<string>?(); // List<string>? | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional) 
+            var scope = "\"default\"";  // string? | The entity scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -730,8 +1307,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentRelationships: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetInstrumentRelationships: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -739,17 +1316,37 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentRelationshipsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
+    ApiResponse<ResourceListOfRelationship> response = apiInstance.GetInstrumentRelationshipsWithHttpInfo(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentRelationshipsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| An identifier type attached to the Instrument. | 
- **identifier** | **string**| The identifier value. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. | [optional] 
- **filter** | **string**| Expression to filter relationships. Users should provide null or empty string for this field until further notice. | [optional] 
- **identifierTypes** | [**List&lt;string&gt;**](string.md)| Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. | [optional] 
- **scope** | **string**| The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | An identifier type attached to the Instrument. |  |
+| **identifier** | **string** | The identifier value. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to get relationships. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve relationships. Defaults to return the latest LUSID AsAt time if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter relationships. Users should provide null or empty string for this field until further notice. | [optional]  |
+| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. | [optional]  |
+| **scope** | **string?** | The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -774,9 +1371,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstruments"></a>
+<a id="getinstruments"></a>
 # **GetInstruments**
-> GetInstrumentsResponse GetInstruments (string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, string scope = null, List<string> relationshipDefinitionIds = null)
+> GetInstrumentsResponse GetInstruments (string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null)
 
 GetInstruments: Get instruments
 
@@ -797,18 +1394,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to use, for example 'Figi'.
+            var identifierType = "identifierType_example";  // string | The unique identifier type to use, for example 'Figi'.
             var requestBody = new List<string>(); // List<string> | A list of one or more <i>identifierType</i> values to use to identify instruments.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the 'Instrument' domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var relationshipDefinitionIds = new List<string>(); // List<string> | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -818,8 +1415,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.GetInstruments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.GetInstruments: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -827,17 +1424,37 @@ namespace Example
 }
 ```
 
+#### Using the GetInstrumentsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetInstruments: Get instruments
+    ApiResponse<GetInstrumentsResponse> response = apiInstance.GetInstrumentsWithHttpInfo(identifierType, requestBody, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.GetInstrumentsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to use, for example &#39;Figi&#39;. | 
- **requestBody** | [**List&lt;string&gt;**](string.md)| A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
- **relationshipDefinitionIds** | [**List&lt;string&gt;**](string.md)| A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to use, for example &#39;Figi&#39;. |  |
+| **requestBody** | [**List&lt;string&gt;**](string.md) | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -849,7 +1466,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -862,9 +1479,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listinstrumentproperties"></a>
+<a id="listinstrumentproperties"></a>
 # **ListInstrumentProperties**
-> ResourceListOfProperty ListInstrumentProperties (string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? limit = null, string scope = null)
+> ResourceListOfProperty ListInstrumentProperties (string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? scope = null)
 
 [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
 
@@ -885,18 +1502,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to search, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the instrument's properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the instrument's properties. Defaults to returning              the latest version of each property if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing commands; this value is returned from the previous call. (optional) 
+            var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the instrument's properties.              Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the instrument's properties. Defaults to returning              the latest version of each property if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing commands; this value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the results per page to this number. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -906,8 +1523,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.ListInstrumentProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.ListInstrumentProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -915,17 +1532,37 @@ namespace Example
 }
 ```
 
+#### Using the ListInstrumentPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
+    ApiResponse<ResourceListOfProperty> response = apiInstance.ListInstrumentPropertiesWithHttpInfo(identifierType, identifier, effectiveAt, asAt, page, limit, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.ListInstrumentPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to search, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing commands; this value is returned from the previous call. | [optional] 
- **limit** | **int?**| When paginating, limit the results per page to this number. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to search, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing commands; this value is returned from the previous call. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results per page to this number. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -950,9 +1587,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listinstruments"></a>
+<a id="listinstruments"></a>
 # **ListInstruments**
-> PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel effectiveAt = null, string page = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null, List<string> instrumentPropertyKeys = null, string scope = null, List<string> relationshipDefinitionIds = null)
+> PagedResourceListOfInstrument ListInstruments (DateTimeOffset? asAt = null, DateTimeOrCutLabel? effectiveAt = null, string? page = null, List<string>? sortBy = null, int? start = null, int? limit = null, string? filter = null, List<string>? instrumentPropertyKeys = null, string? scope = null, List<string>? relationshipDefinitionIds = null)
 
 ListInstruments: List instruments
 
@@ -973,21 +1610,21 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional) 
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and               <i>asAt</i> fields must not have changed since the original request. Also, a <i>start</i> value cannot be               provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional) 
-            var sortBy = new List<string>(); // List<string> | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and               <i>asAt</i> fields must not have changed since the original request. Also, a <i>start</i> value cannot be               provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)  (default to "State eq 'Active'")
-            var instrumentPropertyKeys = new List<string>(); // List<string> | A list of property keys from the 'Instrument' domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
-            var relationshipDefinitionIds = new List<string>(); // List<string> | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var filter = "\"State eq 'Active'\"";  // string? | Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)  (default to "State eq 'Active'")
+            var instrumentPropertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Instrument' domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'. (optional) 
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -997,8 +1634,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.ListInstruments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.ListInstruments: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1006,20 +1643,40 @@ namespace Example
 }
 ```
 
+#### Using the ListInstrumentsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListInstruments: List instruments
+    ApiResponse<PagedResourceListOfInstrument> response = apiInstance.ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.ListInstrumentsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. | [optional] 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. Also, a &lt;i&gt;start&lt;/i&gt; value cannot be               provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional] 
- **start** | **int?**| When paginating, skip this number of results. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. | [optional] 
- **filter** | **string**| Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] [default to &quot;State eq &#39;Active&#39;&quot;]
- **instrumentPropertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional] 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
- **relationshipDefinitionIds** | [**List&lt;string&gt;**](string.md)| A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. | [optional]  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. Also, a &lt;i&gt;start&lt;/i&gt; value cannot be               provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **start** | **int?** | When paginating, skip this number of results. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] [default to &quot;State eq &#39;Active&#39;&quot;] |
+| **instrumentPropertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. | [optional]  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -1044,9 +1701,107 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateinstrumentidentifier"></a>
+<a id="queryinstrumentcapabilities"></a>
+# **QueryInstrumentCapabilities**
+> InstrumentCapabilities QueryInstrumentCapabilities (LusidInstrument lusidInstrument, string? model = null)
+
+[EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+
+Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class QueryInstrumentCapabilitiesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new InstrumentsApi(config);
+            var lusidInstrument = new LusidInstrument(); // LusidInstrument | The definition of the instrument.
+            var model = "model_example";  // string? | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+                InstrumentCapabilities result = apiInstance.QueryInstrumentCapabilities(lusidInstrument, model);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstrumentsApi.QueryInstrumentCapabilities: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the QueryInstrumentCapabilitiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+    ApiResponse<InstrumentCapabilities> response = apiInstance.QueryInstrumentCapabilitiesWithHttpInfo(lusidInstrument, model);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.QueryInstrumentCapabilitiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **lusidInstrument** | [**LusidInstrument**](LusidInstrument.md) | The definition of the instrument. |  |
+| **model** | **string?** | A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. | [optional]  |
+
+### Return type
+
+[**InstrumentCapabilities**](InstrumentCapabilities.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Capabilities for a given instrument, with more details should the model be provided. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updateinstrumentidentifier"></a>
 # **UpdateInstrumentIdentifier**
-> Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = null)
+> Instrument UpdateInstrumentIdentifier (string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = null)
 
 UpdateInstrumentIdentifier: Update instrument identifier
 
@@ -1067,15 +1822,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
-            var identifierType = identifierType_example;  // string | The unique identifier type to search, for example 'Figi'.
-            var identifier = identifier_example;  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
+            var identifierType = "identifierType_example";  // string | The unique identifier type to search, for example 'Figi'.
+            var identifier = "identifier_example";  // string | An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
             var updateInstrumentIdentifierRequest = new UpdateInstrumentIdentifierRequest(); // UpdateInstrumentIdentifierRequest | The identifier to update or delete. This need not be the same value as the               'identifier' parameter used to retrieve the instrument.
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -1085,8 +1840,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.UpdateInstrumentIdentifier: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.UpdateInstrumentIdentifier: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1094,14 +1849,34 @@ namespace Example
 }
 ```
 
+#### Using the UpdateInstrumentIdentifierWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // UpdateInstrumentIdentifier: Update instrument identifier
+    ApiResponse<Instrument> response = apiInstance.UpdateInstrumentIdentifierWithHttpInfo(identifierType, identifier, updateInstrumentIdentifierRequest, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.UpdateInstrumentIdentifierWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identifierType** | **string**| The unique identifier type to search, for example &#39;Figi&#39;. | 
- **identifier** | **string**| An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. | 
- **updateInstrumentIdentifierRequest** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md)| The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument. | 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **identifierType** | **string** | The unique identifier type to search, for example &#39;Figi&#39;. |  |
+| **identifier** | **string** | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;. |  |
+| **updateInstrumentIdentifierRequest** | [**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) | The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument. |  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -1113,7 +1888,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1126,9 +1901,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertinstruments"></a>
+<a id="upsertinstruments"></a>
 # **UpsertInstruments**
-> UpsertInstrumentsResponse UpsertInstruments (Dictionary<string, InstrumentDefinition> requestBody, string scope = null)
+> UpsertInstrumentsResponse UpsertInstruments (Dictionary<string, InstrumentDefinition> requestBody, string? scope = null)
 
 UpsertInstruments: Upsert instruments
 
@@ -1149,13 +1924,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
             var requestBody = new Dictionary<string, InstrumentDefinition>(); // Dictionary<string, InstrumentDefinition> | The definitions of the instruments to create or update.
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -1165,8 +1940,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.UpsertInstruments: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.UpsertInstruments: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1174,12 +1949,32 @@ namespace Example
 }
 ```
 
+#### Using the UpsertInstrumentsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // UpsertInstruments: Upsert instruments
+    ApiResponse<UpsertInstrumentsResponse> response = apiInstance.UpsertInstrumentsWithHttpInfo(requestBody, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.UpsertInstrumentsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**Dictionary&lt;string, InstrumentDefinition&gt;**](InstrumentDefinition.md)| The definitions of the instruments to create or update. | 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, InstrumentDefinition&gt;**](InstrumentDefinition.md) | The definitions of the instruments to create or update. |  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -1191,7 +1986,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1204,9 +1999,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertinstrumentsproperties"></a>
+<a id="upsertinstrumentsproperties"></a>
 # **UpsertInstrumentsProperties**
-> UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = null)
+> UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties (List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = null)
 
 UpsertInstrumentsProperties: Upsert instruments properties
 
@@ -1227,13 +2022,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentsApi(config);
             var upsertInstrumentPropertyRequest = new List<UpsertInstrumentPropertyRequest>(); // List<UpsertInstrumentPropertyRequest> | A list of instruments and associated instrument properties to create or update.
-            var scope = scope_example;  // string | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
+            var scope = "\"default\"";  // string? | The scope in which the instrument lies. When not supplied the scope is 'default'. (optional)  (default to "default")
 
             try
             {
@@ -1243,8 +2038,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstrumentsApi.UpsertInstrumentsProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstrumentsApi.UpsertInstrumentsProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1252,12 +2047,32 @@ namespace Example
 }
 ```
 
+#### Using the UpsertInstrumentsPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // UpsertInstrumentsProperties: Upsert instruments properties
+    ApiResponse<UpsertInstrumentPropertiesResponse> response = apiInstance.UpsertInstrumentsPropertiesWithHttpInfo(upsertInstrumentPropertyRequest, scope);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstrumentsApi.UpsertInstrumentsPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upsertInstrumentPropertyRequest** | [**List&lt;UpsertInstrumentPropertyRequest&gt;**](UpsertInstrumentPropertyRequest.md)| A list of instruments and associated instrument properties to create or update. | 
- **scope** | **string**| The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;]
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **upsertInstrumentPropertyRequest** | [**List&lt;UpsertInstrumentPropertyRequest&gt;**](UpsertInstrumentPropertyRequest.md) | A list of instruments and associated instrument properties to create or update. |  |
+| **scope** | **string?** | The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. | [optional] [default to &quot;default&quot;] |
 
 ### Return type
 
@@ -1269,7 +2084,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

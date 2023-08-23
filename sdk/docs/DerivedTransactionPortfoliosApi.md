@@ -1,16 +1,15 @@
 # Lusid.Sdk.Api.DerivedTransactionPortfoliosApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | CreateDerivedPortfolio: Create derived portfolio
-[**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateDerivedPortfolio**](DerivedTransactionPortfoliosApi.md#createderivedportfolio) | **POST** /api/derivedtransactionportfolios/{scope} | CreateDerivedPortfolio: Create derived portfolio |
+| [**DeleteDerivedPortfolioDetails**](DerivedTransactionPortfoliosApi.md#deletederivedportfoliodetails) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details |
 
-
-<a name="createderivedportfolio"></a>
+<a id="createderivedportfolio"></a>
 # **CreateDerivedPortfolio**
-> Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest createDerivedTransactionPortfolioRequest = null)
+> Portfolio CreateDerivedPortfolio (string scope, CreateDerivedTransactionPortfolioRequest? createDerivedTransactionPortfolioRequest = null)
 
 CreateDerivedPortfolio: Create derived portfolio
 
@@ -31,13 +30,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DerivedTransactionPortfoliosApi(config);
-            var scope = scope_example;  // string | The scope in which to create the derived transaction portfolio.
-            var createDerivedTransactionPortfolioRequest = new CreateDerivedTransactionPortfolioRequest(); // CreateDerivedTransactionPortfolioRequest | The definition of the derived transaction portfolio. (optional) 
+            var scope = "scope_example";  // string | The scope in which to create the derived transaction portfolio.
+            var createDerivedTransactionPortfolioRequest = new CreateDerivedTransactionPortfolioRequest?(); // CreateDerivedTransactionPortfolioRequest? | The definition of the derived transaction portfolio. (optional) 
 
             try
             {
@@ -47,8 +46,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.CreateDerivedPortfolio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.CreateDerivedPortfolio: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -56,12 +55,32 @@ namespace Example
 }
 ```
 
+#### Using the CreateDerivedPortfolioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // CreateDerivedPortfolio: Create derived portfolio
+    ApiResponse<Portfolio> response = apiInstance.CreateDerivedPortfolioWithHttpInfo(scope, createDerivedTransactionPortfolioRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.CreateDerivedPortfolioWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope in which to create the derived transaction portfolio. | 
- **createDerivedTransactionPortfolioRequest** | [**CreateDerivedTransactionPortfolioRequest**](CreateDerivedTransactionPortfolioRequest.md)| The definition of the derived transaction portfolio. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope in which to create the derived transaction portfolio. |  |
+| **createDerivedTransactionPortfolioRequest** | [**CreateDerivedTransactionPortfolioRequest?**](CreateDerivedTransactionPortfolioRequest?.md) | The definition of the derived transaction portfolio. | [optional]  |
 
 ### Return type
 
@@ -73,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -86,9 +105,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletederivedportfoliodetails"></a>
+<a id="deletederivedportfoliodetails"></a>
 # **DeleteDerivedPortfolioDetails**
-> DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOrCutLabel effectiveAt = null)
+> DeletedEntityResponse DeleteDerivedPortfolioDetails (string scope, string code, DateTimeOrCutLabel? effectiveAt = null)
 
 [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
 
@@ -109,14 +128,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DerivedTransactionPortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the derived transaction portfolio.
-            var code = code_example;  // string | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective date of the change. (optional) 
+            var scope = "scope_example";  // string | The scope of the derived transaction portfolio.
+            var code = "code_example";  // string | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective date of the change. (optional) 
 
             try
             {
@@ -126,8 +145,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.DeleteDerivedPortfolioDetails: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.DeleteDerivedPortfolioDetails: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,13 +154,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteDerivedPortfolioDetailsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteDerivedPortfolioDetailsWithHttpInfo(scope, code, effectiveAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DerivedTransactionPortfoliosApi.DeleteDerivedPortfolioDetailsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the derived transaction portfolio. | 
- **code** | **string**| The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective date of the change. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the derived transaction portfolio. |  |
+| **code** | **string** | The code of the derived transaction portfolio. Together with the scope this uniquely identifies              the derived transaction portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective date of the change. | [optional]  |
 
 ### Return type
 

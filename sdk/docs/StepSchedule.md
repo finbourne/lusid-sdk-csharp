@@ -5,7 +5,7 @@ Schedule that steps at known dated points in time.  Used in representation of a 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScheduleType** | **string** | The available values are: Fixed, Float, Optionality, Step, Exercise, FxRate, Invalid | 
+**ScheduleType** | **string** | The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid | 
 **LevelType** | **string** | The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]. | 
 **StepScheduleType** | **string** | The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread]. | 
 **Steps** | [**List&lt;LevelStep&gt;**](LevelStep.md) | The level steps which are applied. | 

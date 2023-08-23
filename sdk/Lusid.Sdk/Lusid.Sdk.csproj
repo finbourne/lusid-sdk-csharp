@@ -1,35 +1,44 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.284</Version>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Lusid.Sdk</AssemblyName>
     <PackageId>Lusid.Sdk</PackageId>
-    <Authors>engineering@finbourne.com</Authors>
-    <Company>FINBOURNE Technology Limited</Company>
-    <Product>LUSID</Product>
-    <Description>LUSID SDK</Description>
-    <RepositoryUrl>https://github.com/finbourne/lusid-sdk-csharp</RepositoryUrl>
+    <OutputType>Library</OutputType>
+    <Authors>FINBOURNE Technology Ltd</Authors>
+    <Company>FINBOURNE Technology Ltd</Company>
+    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
+    <Description>A library generated from a OpenAPI doc</Description>
+    <Copyright>FINBOURNE Technology Ltd</Copyright>
+    <RootNamespace>Lusid.Sdk</RootNamespace>
+    <Version>2.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Lusid.Sdk.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/finbourne/GIT_REPO_ID.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <PackageTags>FINBOURNE, LUSID, SDK</PackageTags>
+    <Nullable>annotations</Nullable>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
 
   <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningsAsErrors></WarningsAsErrors>
-    <NoWarn>1701;1702;CS0472;CS1573</NoWarn>
+    <NoWarn>1701;1702;CS0472;CS1573;CS0108;CS8073</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-  
+
   <ItemGroup>
-       <PackageReference Include="JsonSubTypes" Version="1.8.0" />
-       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-       <PackageReference Include="RestSharp" Version="106.15.0" />
-       <PackageReference Include="Polly" Version="7.2.1" />
-       <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
   </ItemGroup>
-  
 </Project>

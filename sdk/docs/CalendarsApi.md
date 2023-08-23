@@ -1,24 +1,23 @@
 # Lusid.Sdk.Api.CalendarsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**AddBusinessDaysToDate**](CalendarsApi.md#addbusinessdaystodate) | **POST** /api/calendars/businessday/{scope}/add | [EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
-[**AddDateToCalendar**](CalendarsApi.md#adddatetocalendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
-[**CreateCalendar**](CalendarsApi.md#createcalendar) | **POST** /api/calendars/generic | [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
-[**DeleteCalendar**](CalendarsApi.md#deletecalendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] DeleteCalendar: Delete a calendar
-[**DeleteDateFromCalendar**](CalendarsApi.md#deletedatefromcalendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
-[**GenerateSchedule**](CalendarsApi.md#generateschedule) | **POST** /api/calendars/schedule/{scope} | [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
-[**GetCalendar**](CalendarsApi.md#getcalendar) | **GET** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
-[**GetDates**](CalendarsApi.md#getdates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [EARLY ACCESS] GetDates: Get dates for a specific calendar
-[**IsBusinessDateTime**](CalendarsApi.md#isbusinessdatetime) | **GET** /api/calendars/businessday/{scope}/{code} | [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot;
-[**ListCalendars**](CalendarsApi.md#listcalendars) | **GET** /api/calendars/generic | [EARLY ACCESS] ListCalendars: List Calendars
-[**ListCalendarsInScope**](CalendarsApi.md#listcalendarsinscope) | **GET** /api/calendars/generic/{scope} | [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
-[**UpdateCalendar**](CalendarsApi.md#updatecalendar) | **POST** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] UpdateCalendar: Update a calendar
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**AddBusinessDaysToDate**](CalendarsApi.md#addbusinessdaystodate) | **POST** /api/calendars/businessday/{scope}/add | [EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date. |
+| [**AddDateToCalendar**](CalendarsApi.md#adddatetocalendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar |
+| [**CreateCalendar**](CalendarsApi.md#createcalendar) | **POST** /api/calendars/generic | [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form |
+| [**DeleteCalendar**](CalendarsApi.md#deletecalendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] DeleteCalendar: Delete a calendar |
+| [**DeleteDateFromCalendar**](CalendarsApi.md#deletedatefromcalendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar |
+| [**GenerateSchedule**](CalendarsApi.md#generateschedule) | **POST** /api/calendars/schedule/{scope} | [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates. |
+| [**GetCalendar**](CalendarsApi.md#getcalendar) | **GET** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] GetCalendar: Get a calendar in its generic form |
+| [**GetDates**](CalendarsApi.md#getdates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [EARLY ACCESS] GetDates: Get dates for a specific calendar |
+| [**IsBusinessDateTime**](CalendarsApi.md#isbusinessdatetime) | **GET** /api/calendars/businessday/{scope}/{code} | [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot; |
+| [**ListCalendars**](CalendarsApi.md#listcalendars) | **GET** /api/calendars/generic | [EARLY ACCESS] ListCalendars: List Calendars |
+| [**ListCalendarsInScope**](CalendarsApi.md#listcalendarsinscope) | **GET** /api/calendars/generic/{scope} | [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope |
+| [**UpdateCalendar**](CalendarsApi.md#updatecalendar) | **POST** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] UpdateCalendar: Update a calendar |
 
-
-<a name="addbusinessdaystodate"></a>
+<a id="addbusinessdaystodate"></a>
 # **AddBusinessDaysToDate**
 > AddBusinessDaysToDateResponse AddBusinessDaysToDate (string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest)
 
@@ -41,12 +40,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope within which to search for the calendars
+            var scope = "scope_example";  // string | Scope within which to search for the calendars
             var addBusinessDaysToDateRequest = new AddBusinessDaysToDateRequest(); // AddBusinessDaysToDateRequest | Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store
 
             try
@@ -57,8 +56,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.AddBusinessDaysToDate: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.AddBusinessDaysToDate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -66,12 +65,32 @@ namespace Example
 }
 ```
 
+#### Using the AddBusinessDaysToDateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
+    ApiResponse<AddBusinessDaysToDateResponse> response = apiInstance.AddBusinessDaysToDateWithHttpInfo(scope, addBusinessDaysToDateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.AddBusinessDaysToDateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope within which to search for the calendars | 
- **addBusinessDaysToDateRequest** | [**AddBusinessDaysToDateRequest**](AddBusinessDaysToDateRequest.md)| Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope within which to search for the calendars |  |
+| **addBusinessDaysToDateRequest** | [**AddBusinessDaysToDateRequest**](AddBusinessDaysToDateRequest.md) | Request Details: start date, number of days to add (which can be negative, but not zero), calendar codes and optionally an AsAt date for searching the calendar store |  |
 
 ### Return type
 
@@ -83,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -96,7 +115,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="adddatetocalendar"></a>
+<a id="adddatetocalendar"></a>
 # **AddDateToCalendar**
 > CalendarDate AddDateToCalendar (string scope, string code, CreateDateRequest createDateRequest)
 
@@ -119,13 +138,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendar
-            var code = code_example;  // string | Code of the calendar
+            var scope = "scope_example";  // string | Scope of the calendar
+            var code = "code_example";  // string | Code of the calendar
             var createDateRequest = new CreateDateRequest(); // CreateDateRequest | Add date to calendar request
 
             try
@@ -136,8 +155,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.AddDateToCalendar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.AddDateToCalendar: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -145,13 +164,33 @@ namespace Example
 }
 ```
 
+#### Using the AddDateToCalendarWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+    ApiResponse<CalendarDate> response = apiInstance.AddDateToCalendarWithHttpInfo(scope, code, createDateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.AddDateToCalendarWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendar | 
- **code** | **string**| Code of the calendar | 
- **createDateRequest** | [**CreateDateRequest**](CreateDateRequest.md)| Add date to calendar request | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendar |  |
+| **code** | **string** | Code of the calendar |  |
+| **createDateRequest** | [**CreateDateRequest**](CreateDateRequest.md) | Add date to calendar request |  |
 
 ### Return type
 
@@ -163,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -176,7 +215,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createcalendar"></a>
+<a id="createcalendar"></a>
 # **CreateCalendar**
 > Calendar CreateCalendar (CreateCalendarRequest createCalendarRequest)
 
@@ -199,7 +238,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -214,8 +253,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.CreateCalendar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.CreateCalendar: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -223,11 +262,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateCalendarWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form
+    ApiResponse<Calendar> response = apiInstance.CreateCalendarWithHttpInfo(createCalendarRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.CreateCalendarWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createCalendarRequest** | [**CreateCalendarRequest**](CreateCalendarRequest.md)| A request to create the calendar | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createCalendarRequest** | [**CreateCalendarRequest**](CreateCalendarRequest.md) | A request to create the calendar |  |
 
 ### Return type
 
@@ -239,7 +298,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -252,7 +311,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletecalendar"></a>
+<a id="deletecalendar"></a>
 # **DeleteCalendar**
 > Calendar DeleteCalendar (string scope, string code)
 
@@ -275,13 +334,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendar
-            var code = code_example;  // string | Code of the calendar
+            var scope = "scope_example";  // string | Scope of the calendar
+            var code = "code_example";  // string | Code of the calendar
 
             try
             {
@@ -291,8 +350,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.DeleteCalendar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.DeleteCalendar: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -300,12 +359,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteCalendarWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteCalendar: Delete a calendar
+    ApiResponse<Calendar> response = apiInstance.DeleteCalendarWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.DeleteCalendarWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendar | 
- **code** | **string**| Code of the calendar | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendar |  |
+| **code** | **string** | Code of the calendar |  |
 
 ### Return type
 
@@ -330,7 +409,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletedatefromcalendar"></a>
+<a id="deletedatefromcalendar"></a>
 # **DeleteDateFromCalendar**
 > CalendarDate DeleteDateFromCalendar (string scope, string code, string dateId)
 
@@ -353,14 +432,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendar
-            var code = code_example;  // string | Code of the calendar
-            var dateId = dateId_example;  // string | Identifier of the date to be removed
+            var scope = "scope_example";  // string | Scope of the calendar
+            var code = "code_example";  // string | Code of the calendar
+            var dateId = "dateId_example";  // string | Identifier of the date to be removed
 
             try
             {
@@ -370,8 +449,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.DeleteDateFromCalendar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.DeleteDateFromCalendar: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -379,13 +458,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteDateFromCalendarWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar
+    ApiResponse<CalendarDate> response = apiInstance.DeleteDateFromCalendarWithHttpInfo(scope, code, dateId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.DeleteDateFromCalendarWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendar | 
- **code** | **string**| Code of the calendar | 
- **dateId** | **string**| Identifier of the date to be removed | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendar |  |
+| **code** | **string** | Code of the calendar |  |
+| **dateId** | **string** | Identifier of the date to be removed |  |
 
 ### Return type
 
@@ -410,9 +509,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateschedule"></a>
+<a id="generateschedule"></a>
 # **GenerateSchedule**
-> ICollection&lt;DateTimeOffset&gt; GenerateSchedule (string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = null)
+> List&lt;DateTimeOffset&gt; GenerateSchedule (string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
 
@@ -433,25 +532,25 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendars to use
+            var scope = "scope_example";  // string | Scope of the calendars to use
             var valuationSchedule = new ValuationSchedule(); // ValuationSchedule | The ValuationSchedule to generate schedule dates from
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional AsAt for searching the calendar store. Defaults to Latest. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional AsAt for searching the calendar store. Defaults to Latest. (optional) 
 
             try
             {
                 // [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
-                ICollection<DateTimeOffset> result = apiInstance.GenerateSchedule(scope, valuationSchedule, asAt);
+                List<DateTimeOffset> result = apiInstance.GenerateSchedule(scope, valuationSchedule, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.GenerateSchedule: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.GenerateSchedule: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -459,17 +558,37 @@ namespace Example
 }
 ```
 
+#### Using the GenerateScheduleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates.
+    ApiResponse<List<DateTimeOffset>> response = apiInstance.GenerateScheduleWithHttpInfo(scope, valuationSchedule, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.GenerateScheduleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendars to use | 
- **valuationSchedule** | [**ValuationSchedule**](ValuationSchedule.md)| The ValuationSchedule to generate schedule dates from | 
- **asAt** | **DateTimeOffset?**| Optional AsAt for searching the calendar store. Defaults to Latest. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendars to use |  |
+| **valuationSchedule** | [**ValuationSchedule**](ValuationSchedule.md) | The ValuationSchedule to generate schedule dates from |  |
+| **asAt** | **DateTimeOffset?** | Optional AsAt for searching the calendar store. Defaults to Latest. | [optional]  |
 
 ### Return type
 
-**ICollection<DateTimeOffset>**
+**List<DateTimeOffset>**
 
 ### Authorization
 
@@ -477,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -490,9 +609,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcalendar"></a>
+<a id="getcalendar"></a>
 # **GetCalendar**
-> Calendar GetCalendar (string scope, string code, List<string> propertyKeys = null, DateTimeOffset? asAt = null)
+> Calendar GetCalendar (string scope, string code, List<string>? propertyKeys = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
 
@@ -513,15 +632,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendar identifier
-            var code = code_example;  // string | Code of the calendar identifier
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendar (optional) 
+            var scope = "scope_example";  // string | Scope of the calendar identifier
+            var code = "code_example";  // string | Code of the calendar identifier
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendar (optional) 
 
             try
             {
@@ -531,8 +650,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.GetCalendar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.GetCalendar: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -540,14 +659,34 @@ namespace Example
 }
 ```
 
+#### Using the GetCalendarWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+    ApiResponse<Calendar> response = apiInstance.GetCalendarWithHttpInfo(scope, code, propertyKeys, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.GetCalendarWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendar identifier | 
- **code** | **string**| Code of the calendar identifier | 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional] 
- **asAt** | **DateTimeOffset?**| The AsAt datetime at which to retrieve the calendar | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendar identifier |  |
+| **code** | **string** | Code of the calendar identifier |  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the calendar | [optional]  |
 
 ### Return type
 
@@ -572,9 +711,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getdates"></a>
+<a id="getdates"></a>
 # **GetDates**
-> ResourceListOfCalendarDate GetDates (string scope, string code, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null, List<string> idFilter = null)
+> ResourceListOfCalendarDate GetDates (string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null, List<string>? idFilter = null)
 
 [EARLY ACCESS] GetDates: Get dates for a specific calendar
 
@@ -595,17 +734,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendar
-            var code = code_example;  // string | Code of the calendar
-            var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | Where the effective window of dates should begin from (optional) 
-            var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | Where the effective window of dates should end (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | AsAt the dates should be retrieved at (optional) 
-            var idFilter = new List<string>(); // List<string> | An additional filter that will filter dates based on their identifer (optional) 
+            var scope = "scope_example";  // string | Scope of the calendar
+            var code = "code_example";  // string | Code of the calendar
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | Where the effective window of dates should begin from (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | Where the effective window of dates should end (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt the dates should be retrieved at (optional) 
+            var idFilter = new List<string>?(); // List<string>? | An additional filter that will filter dates based on their identifer (optional) 
 
             try
             {
@@ -615,8 +754,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.GetDates: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.GetDates: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -624,16 +763,36 @@ namespace Example
 }
 ```
 
+#### Using the GetDatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetDates: Get dates for a specific calendar
+    ApiResponse<ResourceListOfCalendarDate> response = apiInstance.GetDatesWithHttpInfo(scope, code, fromEffectiveAt, toEffectiveAt, asAt, idFilter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.GetDatesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendar | 
- **code** | **string**| Code of the calendar | 
- **fromEffectiveAt** | **DateTimeOrCutLabel**| Where the effective window of dates should begin from | [optional] 
- **toEffectiveAt** | **DateTimeOrCutLabel**| Where the effective window of dates should end | [optional] 
- **asAt** | **DateTimeOffset?**| AsAt the dates should be retrieved at | [optional] 
- **idFilter** | [**List&lt;string&gt;**](string.md)| An additional filter that will filter dates based on their identifer | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendar |  |
+| **code** | **string** | Code of the calendar |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | Where the effective window of dates should begin from | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | Where the effective window of dates should end | [optional]  |
+| **asAt** | **DateTimeOffset?** | AsAt the dates should be retrieved at | [optional]  |
+| **idFilter** | [**List&lt;string&gt;?**](string.md) | An additional filter that will filter dates based on their identifer | [optional]  |
 
 ### Return type
 
@@ -658,7 +817,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="isbusinessdatetime"></a>
+<a id="isbusinessdatetime"></a>
 # **IsBusinessDateTime**
 > IsBusinessDayResponse IsBusinessDateTime (DateTimeOffset dateTime, string scope, string code, DateTimeOffset? asAt = null)
 
@@ -681,15 +840,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var dateTime = 2013-10-20T19:20:30+01:00;  // DateTimeOffset | DateTime to check - This DateTime must be UTC
-            var scope = scope_example;  // string | Scope of the calendar
-            var code = code_example;  // string | Code of the calendar
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | AsAt for the request (optional) 
+            var dateTime = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset | DateTime to check - This DateTime must be UTC
+            var scope = "scope_example";  // string | Scope of the calendar
+            var code = "code_example";  // string | Code of the calendar
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | AsAt for the request (optional) 
 
             try
             {
@@ -699,8 +858,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.IsBusinessDateTime: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.IsBusinessDateTime: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -708,14 +867,34 @@ namespace Example
 }
 ```
 
+#### Using the IsBusinessDateTimeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \"Business DateTime\"
+    ApiResponse<IsBusinessDayResponse> response = apiInstance.IsBusinessDateTimeWithHttpInfo(dateTime, scope, code, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.IsBusinessDateTimeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dateTime** | **DateTimeOffset**| DateTime to check - This DateTime must be UTC | 
- **scope** | **string**| Scope of the calendar | 
- **code** | **string**| Code of the calendar | 
- **asAt** | **DateTimeOffset?**| AsAt for the request | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dateTime** | **DateTimeOffset** | DateTime to check - This DateTime must be UTC |  |
+| **scope** | **string** | Scope of the calendar |  |
+| **code** | **string** | Code of the calendar |  |
+| **asAt** | **DateTimeOffset?** | AsAt for the request | [optional]  |
 
 ### Return type
 
@@ -740,9 +919,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcalendars"></a>
+<a id="listcalendars"></a>
 # **ListCalendars**
-> PagedResourceListOfCalendar ListCalendars (DateTimeOffset? asAt = null, string page = null, int? limit = null, List<string> propertyKeys = null, string filter = null)
+> PagedResourceListOfCalendar ListCalendars (DateTimeOffset? asAt = null, string? page = null, int? limit = null, List<string>? propertyKeys = null, string? filter = null)
 
 [EARLY ACCESS] ListCalendars: List Calendars
 
@@ -763,16 +942,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -782,8 +961,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.ListCalendars: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.ListCalendars: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -791,15 +970,35 @@ namespace Example
 }
 ```
 
+#### Using the ListCalendarsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListCalendars: List Calendars
+    ApiResponse<PagedResourceListOfCalendar> response = apiInstance.ListCalendarsWithHttpInfo(asAt, page, limit, propertyKeys, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.ListCalendarsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The AsAt datetime at which to retrieve the calendars | [optional] 
- **page** | **string**| The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **limit** | **int?**| When paginating, limit the number of returned results to this many. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional] 
- **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the calendars | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -824,9 +1023,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcalendarsinscope"></a>
+<a id="listcalendarsinscope"></a>
 # **ListCalendarsInScope**
-> PagedResourceListOfCalendar ListCalendarsInScope (string scope, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, List<string> propertyKeys = null, string filter = null)
+> PagedResourceListOfCalendar ListCalendarsInScope (string scope, DateTimeOffset? asAt = null, string? page = null, int? start = null, int? limit = null, List<string>? propertyKeys = null, string? filter = null)
 
 [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
 
@@ -847,18 +1046,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the calendars
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var scope = "scope_example";  // string | Scope of the calendars
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the calendars (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Calendar\" domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \"Calendar/System/Name\". (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -868,8 +1067,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.ListCalendarsInScope: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.ListCalendarsInScope: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -877,17 +1076,37 @@ namespace Example
 }
 ```
 
+#### Using the ListCalendarsInScopeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+    ApiResponse<PagedResourceListOfCalendar> response = apiInstance.ListCalendarsInScopeWithHttpInfo(scope, asAt, page, start, limit, propertyKeys, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.ListCalendarsInScopeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the calendars | 
- **asAt** | **DateTimeOffset?**| The AsAt datetime at which to retrieve the calendars | [optional] 
- **page** | **string**| The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **start** | **int?**| When paginating, skip this number of results. | [optional] 
- **limit** | **int?**| When paginating, limit the number of returned results to this many. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional] 
- **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the calendars |  |
+| **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the calendars | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing calendars from a previous call to list calendars.              This value is returned from the previous call. If a pagination token is provided the sortBy, filter, and asAt fields              must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
+| **start** | **int?** | When paginating, skip this number of results. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Calendar\&quot; domain to decorate onto the calendar,               These take the format {domain}/{scope}/{code} e.g. \&quot;Calendar/System/Name\&quot;. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -912,7 +1131,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatecalendar"></a>
+<a id="updatecalendar"></a>
 # **UpdateCalendar**
 > Calendar UpdateCalendar (string scope, string code, UpdateCalendarRequest updateCalendarRequest)
 
@@ -935,13 +1154,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CalendarsApi(config);
-            var scope = scope_example;  // string | Scope of the request
-            var code = code_example;  // string | Code of the request
+            var scope = "scope_example";  // string | Scope of the request
+            var code = "code_example";  // string | Code of the request
             var updateCalendarRequest = new UpdateCalendarRequest(); // UpdateCalendarRequest | The new state of the calendar
 
             try
@@ -952,8 +1171,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CalendarsApi.UpdateCalendar: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CalendarsApi.UpdateCalendar: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -961,13 +1180,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateCalendarWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpdateCalendar: Update a calendar
+    ApiResponse<Calendar> response = apiInstance.UpdateCalendarWithHttpInfo(scope, code, updateCalendarRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarsApi.UpdateCalendarWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| Scope of the request | 
- **code** | **string**| Code of the request | 
- **updateCalendarRequest** | [**UpdateCalendarRequest**](UpdateCalendarRequest.md)| The new state of the calendar | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | Scope of the request |  |
+| **code** | **string** | Code of the request |  |
+| **updateCalendarRequest** | [**UpdateCalendarRequest**](UpdateCalendarRequest.md) | The new state of the calendar |  |
 
 ### Return type
 
@@ -979,7 +1218,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

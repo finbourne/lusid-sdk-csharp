@@ -1,21 +1,20 @@
 # Lusid.Sdk.Api.DataTypesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateDataType**](DataTypesApi.md#createdatatype) | **POST** /api/datatypes | [EARLY ACCESS] CreateDataType: Create data type definition
-[**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | GetDataType: Get data type definition
-[**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
-[**ListDataTypeSummaries**](DataTypesApi.md#listdatatypesummaries) | **GET** /api/datatypes | [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
-[**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | ListDataTypes: List data types
-[**UpdateDataType**](DataTypesApi.md#updatedatatype) | **PUT** /api/datatypes/{scope}/{code} | [EARLY ACCESS] UpdateDataType: Update data type definition
-[**UpdateReferenceValues**](DataTypesApi.md#updatereferencevalues) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateDataType**](DataTypesApi.md#createdatatype) | **POST** /api/datatypes | [EARLY ACCESS] CreateDataType: Create data type definition |
+| [**GetDataType**](DataTypesApi.md#getdatatype) | **GET** /api/datatypes/{scope}/{code} | GetDataType: Get data type definition |
+| [**GetUnitsFromDataType**](DataTypesApi.md#getunitsfromdatatype) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type |
+| [**ListDataTypeSummaries**](DataTypesApi.md#listdatatypesummaries) | **GET** /api/datatypes | [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data |
+| [**ListDataTypes**](DataTypesApi.md#listdatatypes) | **GET** /api/datatypes/{scope} | ListDataTypes: List data types |
+| [**UpdateDataType**](DataTypesApi.md#updatedatatype) | **PUT** /api/datatypes/{scope}/{code} | [EARLY ACCESS] UpdateDataType: Update data type definition |
+| [**UpdateReferenceValues**](DataTypesApi.md#updatereferencevalues) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type |
 
-
-<a name="createdatatype"></a>
+<a id="createdatatype"></a>
 # **CreateDataType**
-> DataType CreateDataType (CreateDataTypeRequest createDataTypeRequest = null)
+> DataType CreateDataType (CreateDataTypeRequest? createDataTypeRequest = null)
 
 [EARLY ACCESS] CreateDataType: Create data type definition
 
@@ -36,12 +35,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var createDataTypeRequest = new CreateDataTypeRequest(); // CreateDataTypeRequest | The definition of the new data type (optional) 
+            var createDataTypeRequest = new CreateDataTypeRequest?(); // CreateDataTypeRequest? | The definition of the new data type (optional) 
 
             try
             {
@@ -51,8 +50,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.CreateDataType: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.CreateDataType: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -60,11 +59,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateDataTypeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateDataType: Create data type definition
+    ApiResponse<DataType> response = apiInstance.CreateDataTypeWithHttpInfo(createDataTypeRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.CreateDataTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createDataTypeRequest** | [**CreateDataTypeRequest**](CreateDataTypeRequest.md)| The definition of the new data type | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createDataTypeRequest** | [**CreateDataTypeRequest?**](CreateDataTypeRequest?.md) | The definition of the new data type | [optional]  |
 
 ### Return type
 
@@ -76,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -89,7 +108,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getdatatype"></a>
+<a id="getdatatype"></a>
 # **GetDataType**
 > DataType GetDataType (string scope, string code, DateTimeOffset? asAt = null)
 
@@ -112,14 +131,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var scope = scope_example;  // string | The scope of the data type
-            var code = code_example;  // string | The code of the data type
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
+            var scope = "scope_example";  // string | The scope of the data type
+            var code = "code_example";  // string | The code of the data type
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. (optional) 
 
             try
             {
@@ -129,8 +148,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.GetDataType: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.GetDataType: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -138,13 +157,33 @@ namespace Example
 }
 ```
 
+#### Using the GetDataTypeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetDataType: Get data type definition
+    ApiResponse<DataType> response = apiInstance.GetDataTypeWithHttpInfo(scope, code, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.GetDataTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the data type | 
- **code** | **string**| The code of the data type | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the data type |  |
+| **code** | **string** | The code of the data type |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. | [optional]  |
 
 ### Return type
 
@@ -169,9 +208,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getunitsfromdatatype"></a>
+<a id="getunitsfromdatatype"></a>
 # **GetUnitsFromDataType**
-> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string> units = null, string filter = null, DateTimeOffset? asAt = null)
+> ResourceListOfIUnitDefinitionDto GetUnitsFromDataType (string scope, string code, List<string>? units = null, string? filter = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
 
@@ -192,16 +231,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var scope = scope_example;  // string | The scope of the data type
-            var code = code_example;  // string | The code of the data type
-            var units = new List<string>(); // List<string> | One or more unit identifiers for which the definition is being requested (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \"schema eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The as at of the requested data type (optional) 
+            var scope = "scope_example";  // string | The scope of the data type
+            var code = "code_example";  // string | The code of the data type
+            var units = new List<string>?(); // List<string>? | One or more unit identifiers for which the definition is being requested (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \"schema eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The as at of the requested data type (optional) 
 
             try
             {
@@ -211,8 +250,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.GetUnitsFromDataType: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.GetUnitsFromDataType: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -220,15 +259,35 @@ namespace Example
 }
 ```
 
+#### Using the GetUnitsFromDataTypeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
+    ApiResponse<ResourceListOfIUnitDefinitionDto> response = apiInstance.GetUnitsFromDataTypeWithHttpInfo(scope, code, units, filter, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.GetUnitsFromDataTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the data type | 
- **code** | **string**| The code of the data type | 
- **units** | [**List&lt;string&gt;**](string.md)| One or more unit identifiers for which the definition is being requested | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The as at of the requested data type | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the data type |  |
+| **code** | **string** | The code of the data type |  |
+| **units** | [**List&lt;string&gt;?**](string.md) | One or more unit identifiers for which the definition is being requested | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **asAt** | **DateTimeOffset?** | Optional. The as at of the requested data type | [optional]  |
 
 ### Return type
 
@@ -253,9 +312,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listdatatypesummaries"></a>
+<a id="listdatatypesummaries"></a>
 # **ListDataTypeSummaries**
-> PagedResourceListOfDataTypeSummary ListDataTypeSummaries (DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, List<string> sortBy = null)
+> PagedResourceListOfDataTypeSummary ListDataTypeSummaries (DateTimeOffset? asAt = null, string? page = null, int? start = null, int? limit = null, string? filter = null, List<string>? sortBy = null)
 
 [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
 
@@ -276,17 +335,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",               to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var sortBy = new List<string>(); // List<string> | Sort the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",               to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
             {
@@ -296,8 +355,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.ListDataTypeSummaries: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.ListDataTypeSummaries: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -305,16 +364,36 @@ namespace Example
 }
 ```
 
+#### Using the ListDataTypeSummariesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListDataTypeSummaries: List all data type summaries, without the reference data
+    ApiResponse<PagedResourceListOfDataTypeSummary> response = apiInstance.ListDataTypeSummariesWithHttpInfo(asAt, page, start, limit, filter, sortBy);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.ListDataTypeSummariesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **start** | **int?**| When paginating, skip this number of results. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Sort the results by these fields. Use use the &#39;-&#39; sign to denote descending allocation e.g. -MyFieldName. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, sortBy  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
+| **start** | **int?** | When paginating, skip this number of results. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#39;myscope&#39;\&quot;, to filter on Schema, use \&quot;schema eq &#39;string&#39;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#39;value&#39;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
 
@@ -339,9 +418,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listdatatypes"></a>
+<a id="listdatatypes"></a>
 # **ListDataTypes**
-> ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ResourceListOfDataType ListDataTypes (string scope, DateTimeOffset? asAt = null, bool? includeSystem = null, List<string>? sortBy = null, int? start = null, int? limit = null, string? filter = null)
 
 ListDataTypes: List data types
 
@@ -362,18 +441,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var scope = scope_example;  // string | The requested scope of the data types
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The as at of the requested data types (optional) 
+            var scope = "scope_example";  // string | The requested scope of the data types
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The as at of the requested data types (optional) 
             var includeSystem = true;  // bool? | Whether to additionally include those data types in the \"system\" scope (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -383,8 +462,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.ListDataTypes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.ListDataTypes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -392,17 +471,37 @@ namespace Example
 }
 ```
 
+#### Using the ListDataTypesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListDataTypes: List data types
+    ApiResponse<ResourceListOfDataType> response = apiInstance.ListDataTypesWithHttpInfo(scope, asAt, includeSystem, sortBy, start, limit, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.ListDataTypesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The requested scope of the data types | 
- **asAt** | **DateTimeOffset?**| The as at of the requested data types | [optional] 
- **includeSystem** | **bool?**| Whether to additionally include those data types in the \&quot;system\&quot; scope | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The requested scope of the data types |  |
+| **asAt** | **DateTimeOffset?** | The as at of the requested data types | [optional]  |
+| **includeSystem** | **bool?** | Whether to additionally include those data types in the \&quot;system\&quot; scope | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
+| **start** | **int?** | Optional. When paginating, skip this number of results | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -427,7 +526,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatedatatype"></a>
+<a id="updatedatatype"></a>
 # **UpdateDataType**
 > DataType UpdateDataType (string scope, string code, UpdateDataTypeRequest updateDataTypeRequest)
 
@@ -450,13 +549,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var scope = scope_example;  // string | The scope of the data type
-            var code = code_example;  // string | The code of the data type
+            var scope = "scope_example";  // string | The scope of the data type
+            var code = "code_example";  // string | The code of the data type
             var updateDataTypeRequest = new UpdateDataTypeRequest(); // UpdateDataTypeRequest | The updated definition of the data type
 
             try
@@ -467,8 +566,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.UpdateDataType: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.UpdateDataType: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -476,13 +575,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateDataTypeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpdateDataType: Update data type definition
+    ApiResponse<DataType> response = apiInstance.UpdateDataTypeWithHttpInfo(scope, code, updateDataTypeRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.UpdateDataTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the data type | 
- **code** | **string**| The code of the data type | 
- **updateDataTypeRequest** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md)| The updated definition of the data type | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the data type |  |
+| **code** | **string** | The code of the data type |  |
+| **updateDataTypeRequest** | [**UpdateDataTypeRequest**](UpdateDataTypeRequest.md) | The updated definition of the data type |  |
 
 ### Return type
 
@@ -494,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -507,7 +626,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatereferencevalues"></a>
+<a id="updatereferencevalues"></a>
 # **UpdateReferenceValues**
 > DataType UpdateReferenceValues (string scope, string code, List<FieldValue> fieldValue)
 
@@ -530,13 +649,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DataTypesApi(config);
-            var scope = scope_example;  // string | The scope of the data type
-            var code = code_example;  // string | The code of the data type
+            var scope = "scope_example";  // string | The scope of the data type
+            var code = "code_example";  // string | The code of the data type
             var fieldValue = new List<FieldValue>(); // List<FieldValue> | The updated reference values
 
             try
@@ -547,8 +666,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DataTypesApi.UpdateReferenceValues: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DataTypesApi.UpdateReferenceValues: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -556,13 +675,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateReferenceValuesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpdateReferenceValues: Update reference data on a data type
+    ApiResponse<DataType> response = apiInstance.UpdateReferenceValuesWithHttpInfo(scope, code, fieldValue);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling DataTypesApi.UpdateReferenceValuesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the data type | 
- **code** | **string**| The code of the data type | 
- **fieldValue** | [**List&lt;FieldValue&gt;**](FieldValue.md)| The updated reference values | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the data type |  |
+| **code** | **string** | The code of the data type |  |
+| **fieldValue** | [**List&lt;FieldValue&gt;**](FieldValue.md) | The updated reference values |  |
 
 ### Return type
 
@@ -574,7 +713,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **FlowConventions** | [**CdsFlowConventions**](CdsFlowConventions.md) |  | [optional] 
 **CouponRate** | **decimal** | The coupon rate paid on each payment date of the premium leg as a fraction of 100 percent, e.g. \&quot;0.05\&quot; meaning 500 basis points or 5%.  For a standard corporate CDS (North American) this must be either 100bps or 500bps. | 
 **Identifiers** | **Dictionary&lt;string, string&gt;** | External market codes and identifiers for the cds index, e.g. a RED code, BBG ID or ICE code. | 
-**Basket** | [**Basket**](Basket.md) |  | 
+**Basket** | [**Basket**](Basket.md) |  | [optional] 
 **ConventionName** | [**FlowConventionName**](FlowConventionName.md) |  | [optional] 
 **Notional** | **decimal** | The notional quantity that applies to both the premium and protection legs. | 
 

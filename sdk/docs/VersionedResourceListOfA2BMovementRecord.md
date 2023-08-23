@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | [**Version**](Version.md) |  | 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | 
 **Values** | [**List&lt;A2BMovementRecord&gt;**](A2BMovementRecord.md) |  | 
 **Href** | **string** |  | [optional] 
 **NextPage** | **string** |  | [optional] 

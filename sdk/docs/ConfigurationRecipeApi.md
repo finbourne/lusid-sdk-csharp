@@ -1,16 +1,15 @@
 # Lusid.Sdk.Api.ConfigurationRecipeApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**DeleteConfigurationRecipe**](ConfigurationRecipeApi.md#deleteconfigurationrecipe) | **DELETE** /api/recipes/{scope}/{code} | DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
-[**GetConfigurationRecipe**](ConfigurationRecipeApi.md#getconfigurationrecipe) | **GET** /api/recipes/{scope}/{code} | GetConfigurationRecipe: Get Configuration Recipe
-[**ListConfigurationRecipes**](ConfigurationRecipeApi.md#listconfigurationrecipes) | **GET** /api/recipes | ListConfigurationRecipes: List the set of Configuration Recipes
-[**UpsertConfigurationRecipe**](ConfigurationRecipeApi.md#upsertconfigurationrecipe) | **POST** /api/recipes | UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**DeleteConfigurationRecipe**](ConfigurationRecipeApi.md#deleteconfigurationrecipe) | **DELETE** /api/recipes/{scope}/{code} | DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present. |
+| [**GetConfigurationRecipe**](ConfigurationRecipeApi.md#getconfigurationrecipe) | **GET** /api/recipes/{scope}/{code} | GetConfigurationRecipe: Get Configuration Recipe |
+| [**ListConfigurationRecipes**](ConfigurationRecipeApi.md#listconfigurationrecipes) | **GET** /api/recipes | ListConfigurationRecipes: List the set of Configuration Recipes |
+| [**UpsertConfigurationRecipe**](ConfigurationRecipeApi.md#upsertconfigurationrecipe) | **POST** /api/recipes | UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid. |
 
-
-<a name="deleteconfigurationrecipe"></a>
+<a id="deleteconfigurationrecipe"></a>
 # **DeleteConfigurationRecipe**
 > AnnulSingleStructuredDataResponse DeleteConfigurationRecipe (string scope, string code)
 
@@ -33,13 +32,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ConfigurationRecipeApi(config);
-            var scope = scope_example;  // string | The scope of the Configuration Recipe to delete.
-            var code = code_example;  // string | The Configuration Recipe to delete.
+            var scope = "scope_example";  // string | The scope of the Configuration Recipe to delete.
+            var code = "code_example";  // string | The Configuration Recipe to delete.
 
             try
             {
@@ -49,8 +48,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ConfigurationRecipeApi.DeleteConfigurationRecipe: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ConfigurationRecipeApi.DeleteConfigurationRecipe: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -58,12 +57,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteConfigurationRecipeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
+    ApiResponse<AnnulSingleStructuredDataResponse> response = apiInstance.DeleteConfigurationRecipeWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ConfigurationRecipeApi.DeleteConfigurationRecipeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Configuration Recipe to delete. | 
- **code** | **string**| The Configuration Recipe to delete. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Configuration Recipe to delete. |  |
+| **code** | **string** | The Configuration Recipe to delete. |  |
 
 ### Return type
 
@@ -88,7 +107,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getconfigurationrecipe"></a>
+<a id="getconfigurationrecipe"></a>
 # **GetConfigurationRecipe**
 > GetRecipeResponse GetConfigurationRecipe (string scope, string code, DateTimeOffset? asAt = null)
 
@@ -111,14 +130,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ConfigurationRecipeApi(config);
-            var scope = scope_example;  // string | The scope of the Configuration Recipe to retrieve.
-            var code = code_example;  // string | The name of the recipe to retrieve the data for.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional) 
+            var scope = "scope_example";  // string | The scope of the Configuration Recipe to retrieve.
+            var code = "code_example";  // string | The name of the recipe to retrieve the data for.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. (optional) 
 
             try
             {
@@ -128,8 +147,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ConfigurationRecipeApi.GetConfigurationRecipe: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ConfigurationRecipeApi.GetConfigurationRecipe: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -137,13 +156,33 @@ namespace Example
 }
 ```
 
+#### Using the GetConfigurationRecipeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetConfigurationRecipe: Get Configuration Recipe
+    ApiResponse<GetRecipeResponse> response = apiInstance.GetConfigurationRecipeWithHttpInfo(scope, code, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ConfigurationRecipeApi.GetConfigurationRecipeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Configuration Recipe to retrieve. | 
- **code** | **string**| The name of the recipe to retrieve the data for. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Configuration Recipe to retrieve. |  |
+| **code** | **string** | The name of the recipe to retrieve the data for. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Configuration Recipe. Defaults to return the latest version if not specified. | [optional]  |
 
 ### Return type
 
@@ -168,9 +207,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listconfigurationrecipes"></a>
+<a id="listconfigurationrecipes"></a>
 # **ListConfigurationRecipes**
-> ResourceListOfGetRecipeResponse ListConfigurationRecipes (DateTimeOffset? asAt = null, string filter = null)
+> ResourceListOfGetRecipeResponse ListConfigurationRecipes (DateTimeOffset? asAt = null, string? filter = null)
 
 ListConfigurationRecipes: List the set of Configuration Recipes
 
@@ -191,13 +230,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ConfigurationRecipeApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -207,8 +246,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ConfigurationRecipeApi.ListConfigurationRecipes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ConfigurationRecipeApi.ListConfigurationRecipes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -216,12 +255,32 @@ namespace Example
 }
 ```
 
+#### Using the ListConfigurationRecipesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListConfigurationRecipes: List the set of Configuration Recipes
+    ApiResponse<ResourceListOfGetRecipeResponse> response = apiInstance.ListConfigurationRecipesWithHttpInfo(asAt, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ConfigurationRecipeApi.ListConfigurationRecipesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional] 
- **filter** | **string**| Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Configuration Recipes. Defaults to latest if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:              https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -246,7 +305,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertconfigurationrecipe"></a>
+<a id="upsertconfigurationrecipe"></a>
 # **UpsertConfigurationRecipe**
 > UpsertSingleStructuredDataResponse UpsertConfigurationRecipe (UpsertRecipeRequest upsertRecipeRequest)
 
@@ -269,7 +328,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -284,8 +343,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ConfigurationRecipeApi.UpsertConfigurationRecipe: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ConfigurationRecipeApi.UpsertConfigurationRecipe: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -293,11 +352,31 @@ namespace Example
 }
 ```
 
+#### Using the UpsertConfigurationRecipeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
+    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertConfigurationRecipeWithHttpInfo(upsertRecipeRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ConfigurationRecipeApi.UpsertConfigurationRecipeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upsertRecipeRequest** | [**UpsertRecipeRequest**](UpsertRecipeRequest.md)| The Configuration Recipe to update or insert | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **upsertRecipeRequest** | [**UpsertRecipeRequest**](UpsertRecipeRequest.md) | The Configuration Recipe to update or insert |  |
 
 ### Return type
 
@@ -309,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

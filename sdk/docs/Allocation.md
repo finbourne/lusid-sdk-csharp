@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | 
 **Quantity** | **decimal** | The quantity of given instrument allocated. | 
 **InstrumentIdentifiers** | **Dictionary&lt;string, string&gt;** | The instrument allocated. | 
-**Version** | [**Version**](Version.md) |  | [optional] 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Client-defined properties associated with this allocation. | [optional] 
 **InstrumentScope** | **string** | The scope in which the instrument lies | [optional] 
 **LusidInstrumentId** | **string** | The LUSID instrument id for the instrument allocated. | 

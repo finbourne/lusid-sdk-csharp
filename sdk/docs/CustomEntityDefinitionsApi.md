@@ -1,16 +1,15 @@
 # Lusid.Sdk.Api.CustomEntityDefinitionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateCustomEntityDefinition**](CustomEntityDefinitionsApi.md#createcustomentitydefinition) | **POST** /api/customentities/entitytypes | [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type.
-[**GetDefinition**](CustomEntityDefinitionsApi.md#getdefinition) | **GET** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
-[**ListCustomEntityDefinitions**](CustomEntityDefinitionsApi.md#listcustomentitydefinitions) | **GET** /api/customentities/entitytypes | [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
-[**UpdateCustomEntityDefinition**](CustomEntityDefinitionsApi.md#updatecustomentitydefinition) | **PUT** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateCustomEntityDefinition**](CustomEntityDefinitionsApi.md#createcustomentitydefinition) | **POST** /api/customentities/entitytypes | [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type. |
+| [**GetDefinition**](CustomEntityDefinitionsApi.md#getdefinition) | **GET** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition. |
+| [**ListCustomEntityDefinitions**](CustomEntityDefinitionsApi.md#listcustomentitydefinitions) | **GET** /api/customentities/entitytypes | [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions |
+| [**UpdateCustomEntityDefinition**](CustomEntityDefinitionsApi.md#updatecustomentitydefinition) | **PUT** /api/customentities/entitytypes/{entityType} | [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type. |
 
-
-<a name="createcustomentitydefinition"></a>
+<a id="createcustomentitydefinition"></a>
 # **CreateCustomEntityDefinition**
 > CustomEntityDefinition CreateCustomEntityDefinition (CustomEntityDefinitionRequest customEntityDefinitionRequest)
 
@@ -33,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -48,8 +47,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomEntityDefinitionsApi.CreateCustomEntityDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CustomEntityDefinitionsApi.CreateCustomEntityDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -57,11 +56,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateCustomEntityDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateCustomEntityDefinition: Define a new Custom Entity type.
+    ApiResponse<CustomEntityDefinition> response = apiInstance.CreateCustomEntityDefinitionWithHttpInfo(customEntityDefinitionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CustomEntityDefinitionsApi.CreateCustomEntityDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customEntityDefinitionRequest** | [**CustomEntityDefinitionRequest**](CustomEntityDefinitionRequest.md)| The payload containing the description of the Custom Entity type. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customEntityDefinitionRequest** | [**CustomEntityDefinitionRequest**](CustomEntityDefinitionRequest.md) | The payload containing the description of the Custom Entity type. |  |
 
 ### Return type
 
@@ -73,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -86,7 +105,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getdefinition"></a>
+<a id="getdefinition"></a>
 # **GetDefinition**
 > CustomEntityDefinition GetDefinition (string entityType, DateTimeOffset? asAt = null)
 
@@ -109,13 +128,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomEntityDefinitionsApi(config);
-            var entityType = entityType_example;  // string | The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The AsAt datetime at which to retrieve the definition. (optional) 
+            var entityType = "entityType_example";  // string | The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt datetime at which to retrieve the definition. (optional) 
 
             try
             {
@@ -125,8 +144,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomEntityDefinitionsApi.GetDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CustomEntityDefinitionsApi.GetDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -134,12 +153,32 @@ namespace Example
 }
 ```
 
+#### Using the GetDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetDefinition: Get a Custom Entity type definition.
+    ApiResponse<CustomEntityDefinition> response = apiInstance.GetDefinitionWithHttpInfo(entityType, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CustomEntityDefinitionsApi.GetDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityType** | **string**| The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation. | 
- **asAt** | **DateTimeOffset?**| The AsAt datetime at which to retrieve the definition. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityType** | **string** | The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation. |  |
+| **asAt** | **DateTimeOffset?** | The AsAt datetime at which to retrieve the definition. | [optional]  |
 
 ### Return type
 
@@ -164,9 +203,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcustomentitydefinitions"></a>
+<a id="listcustomentitydefinitions"></a>
 # **ListCustomEntityDefinitions**
-> PagedResourceListOfCustomEntityDefinition ListCustomEntityDefinitions (DateTimeOffset? asAt = null, int? limit = null, string filter = null, string page = null)
+> PagedResourceListOfCustomEntityDefinition ListCustomEntityDefinitions (DateTimeOffset? asAt = null, int? limit = null, string? filter = null, string? page = null)
 
 [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
 
@@ -187,15 +226,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomEntityDefinitionsApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the entities. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the entities. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. (optional) 
 
             try
             {
@@ -205,8 +244,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomEntityDefinitionsApi.ListCustomEntityDefinitions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CustomEntityDefinitionsApi.ListCustomEntityDefinitions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -214,14 +253,34 @@ namespace Example
 }
 ```
 
+#### Using the ListCustomEntityDefinitionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListCustomEntityDefinitions: List the Custom Entity type definitions
+    ApiResponse<PagedResourceListOfCustomEntityDefinition> response = apiInstance.ListCustomEntityDefinitionsWithHttpInfo(asAt, limit, filter, page);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CustomEntityDefinitionsApi.ListCustomEntityDefinitionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the entities. Defaults to returning the latest version              of each portfolio if not specified. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
- **filter** | **string**| Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **page** | **string**| The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the entities. Defaults to returning the latest version              of each portfolio if not specified. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing entities; this              value is returned from the previous call. If a pagination token is provided, the filter, limit              and asAt fields must not have changed since the original request. | [optional]  |
 
 ### Return type
 
@@ -246,7 +305,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatecustomentitydefinition"></a>
+<a id="updatecustomentitydefinition"></a>
 # **UpdateCustomEntityDefinition**
 > CustomEntityDefinition UpdateCustomEntityDefinition (string entityType, UpdateCustomEntityDefinitionRequest updateCustomEntityDefinitionRequest)
 
@@ -269,12 +328,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomEntityDefinitionsApi(config);
-            var entityType = entityType_example;  // string | The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.
+            var entityType = "entityType_example";  // string | The identifier for the Custom Entity type, derived from the \"entityTypeName\" provided on creation.
             var updateCustomEntityDefinitionRequest = new UpdateCustomEntityDefinitionRequest(); // UpdateCustomEntityDefinitionRequest | The payload containing the description of the Custom Entity type.
 
             try
@@ -285,8 +344,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CustomEntityDefinitionsApi.UpdateCustomEntityDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CustomEntityDefinitionsApi.UpdateCustomEntityDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -294,12 +353,32 @@ namespace Example
 }
 ```
 
+#### Using the UpdateCustomEntityDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpdateCustomEntityDefinition: Modify an existing Custom Entity type.
+    ApiResponse<CustomEntityDefinition> response = apiInstance.UpdateCustomEntityDefinitionWithHttpInfo(entityType, updateCustomEntityDefinitionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CustomEntityDefinitionsApi.UpdateCustomEntityDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entityType** | **string**| The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation. | 
- **updateCustomEntityDefinitionRequest** | [**UpdateCustomEntityDefinitionRequest**](UpdateCustomEntityDefinitionRequest.md)| The payload containing the description of the Custom Entity type. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityType** | **string** | The identifier for the Custom Entity type, derived from the \&quot;entityTypeName\&quot; provided on creation. |  |
+| **updateCustomEntityDefinitionRequest** | [**UpdateCustomEntityDefinitionRequest**](UpdateCustomEntityDefinitionRequest.md) | The payload containing the description of the Custom Entity type. |  |
 
 ### Return type
 
@@ -311,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

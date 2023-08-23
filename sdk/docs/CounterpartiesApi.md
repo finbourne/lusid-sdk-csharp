@@ -1,20 +1,19 @@
 # Lusid.Sdk.Api.CounterpartiesApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**DeleteCounterpartyAgreement**](CounterpartiesApi.md#deletecounterpartyagreement) | **DELETE** /api/counterparties/counterpartyagreements/{scope}/{code} | [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
-[**DeleteCreditSupportAnnex**](CounterpartiesApi.md#deletecreditsupportannex) | **DELETE** /api/counterparties/creditsupportannexes/{scope}/{code} | [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
-[**GetCounterpartyAgreement**](CounterpartiesApi.md#getcounterpartyagreement) | **GET** /api/counterparties/counterpartyagreements/{scope}/{code} | [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
-[**GetCreditSupportAnnex**](CounterpartiesApi.md#getcreditsupportannex) | **GET** /api/counterparties/creditsupportannexes/{scope}/{code} | [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
-[**ListCounterpartyAgreements**](CounterpartiesApi.md#listcounterpartyagreements) | **GET** /api/counterparties/counterpartyagreements | [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
-[**ListCreditSupportAnnexes**](CounterpartiesApi.md#listcreditsupportannexes) | **GET** /api/counterparties/creditsupportannexes | [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
-[**UpsertCounterpartyAgreement**](CounterpartiesApi.md#upsertcounterpartyagreement) | **POST** /api/counterparties/counterpartyagreements | [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
-[**UpsertCreditSupportAnnex**](CounterpartiesApi.md#upsertcreditsupportannex) | **POST** /api/counterparties/creditsupportannexes | [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**DeleteCounterpartyAgreement**](CounterpartiesApi.md#deletecounterpartyagreement) | **DELETE** /api/counterparties/counterpartyagreements/{scope}/{code} | [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code |
+| [**DeleteCreditSupportAnnex**](CounterpartiesApi.md#deletecreditsupportannex) | **DELETE** /api/counterparties/creditsupportannexes/{scope}/{code} | [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code |
+| [**GetCounterpartyAgreement**](CounterpartiesApi.md#getcounterpartyagreement) | **GET** /api/counterparties/counterpartyagreements/{scope}/{code} | [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement |
+| [**GetCreditSupportAnnex**](CounterpartiesApi.md#getcreditsupportannex) | **GET** /api/counterparties/creditsupportannexes/{scope}/{code} | [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex |
+| [**ListCounterpartyAgreements**](CounterpartiesApi.md#listcounterpartyagreements) | **GET** /api/counterparties/counterpartyagreements | [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements |
+| [**ListCreditSupportAnnexes**](CounterpartiesApi.md#listcreditsupportannexes) | **GET** /api/counterparties/creditsupportannexes | [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes |
+| [**UpsertCounterpartyAgreement**](CounterpartiesApi.md#upsertcounterpartyagreement) | **POST** /api/counterparties/counterpartyagreements | [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement |
+| [**UpsertCreditSupportAnnex**](CounterpartiesApi.md#upsertcreditsupportannex) | **POST** /api/counterparties/creditsupportannexes | [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex |
 
-
-<a name="deletecounterpartyagreement"></a>
+<a id="deletecounterpartyagreement"></a>
 # **DeleteCounterpartyAgreement**
 > AnnulSingleStructuredDataResponse DeleteCounterpartyAgreement (string scope, string code)
 
@@ -37,13 +36,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CounterpartiesApi(config);
-            var scope = scope_example;  // string | The scope of the Counterparty Agreement to delete.
-            var code = code_example;  // string | The Counterparty Agreement to delete.
+            var scope = "scope_example";  // string | The scope of the Counterparty Agreement to delete.
+            var code = "code_example";  // string | The Counterparty Agreement to delete.
 
             try
             {
@@ -53,8 +52,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.DeleteCounterpartyAgreement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.DeleteCounterpartyAgreement: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -62,12 +61,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteCounterpartyAgreementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
+    ApiResponse<AnnulSingleStructuredDataResponse> response = apiInstance.DeleteCounterpartyAgreementWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.DeleteCounterpartyAgreementWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Counterparty Agreement to delete. | 
- **code** | **string**| The Counterparty Agreement to delete. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Counterparty Agreement to delete. |  |
+| **code** | **string** | The Counterparty Agreement to delete. |  |
 
 ### Return type
 
@@ -92,7 +111,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletecreditsupportannex"></a>
+<a id="deletecreditsupportannex"></a>
 # **DeleteCreditSupportAnnex**
 > AnnulSingleStructuredDataResponse DeleteCreditSupportAnnex (string scope, string code)
 
@@ -115,13 +134,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CounterpartiesApi(config);
-            var scope = scope_example;  // string | The scope of the Credit Support Annex to delete.
-            var code = code_example;  // string | The Credit Support Annex to delete.
+            var scope = "scope_example";  // string | The scope of the Credit Support Annex to delete.
+            var code = "code_example";  // string | The Credit Support Annex to delete.
 
             try
             {
@@ -131,8 +150,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.DeleteCreditSupportAnnex: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.DeleteCreditSupportAnnex: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -140,12 +159,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteCreditSupportAnnexWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
+    ApiResponse<AnnulSingleStructuredDataResponse> response = apiInstance.DeleteCreditSupportAnnexWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.DeleteCreditSupportAnnexWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Credit Support Annex to delete. | 
- **code** | **string**| The Credit Support Annex to delete. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Credit Support Annex to delete. |  |
+| **code** | **string** | The Credit Support Annex to delete. |  |
 
 ### Return type
 
@@ -170,7 +209,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcounterpartyagreement"></a>
+<a id="getcounterpartyagreement"></a>
 # **GetCounterpartyAgreement**
 > GetCounterpartyAgreementResponse GetCounterpartyAgreement (string scope, string code, DateTimeOffset? asAt = null)
 
@@ -193,14 +232,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CounterpartiesApi(config);
-            var scope = scope_example;  // string | The scope of the Counterparty Agreement to retrieve.
-            var code = code_example;  // string | The name of the Counterparty Agreement to retrieve the data for.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional) 
+            var scope = "scope_example";  // string | The scope of the Counterparty Agreement to retrieve.
+            var code = "code_example";  // string | The name of the Counterparty Agreement to retrieve the data for.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. (optional) 
 
             try
             {
@@ -210,8 +249,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.GetCounterpartyAgreement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.GetCounterpartyAgreement: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -219,13 +258,33 @@ namespace Example
 }
 ```
 
+#### Using the GetCounterpartyAgreementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetCounterpartyAgreement: Get Counterparty Agreement
+    ApiResponse<GetCounterpartyAgreementResponse> response = apiInstance.GetCounterpartyAgreementWithHttpInfo(scope, code, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.GetCounterpartyAgreementWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Counterparty Agreement to retrieve. | 
- **code** | **string**| The name of the Counterparty Agreement to retrieve the data for. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Counterparty Agreement to retrieve. |  |
+| **code** | **string** | The name of the Counterparty Agreement to retrieve the data for. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Counterparty Agreement. Defaults to return the latest version if not specified. | [optional]  |
 
 ### Return type
 
@@ -250,7 +309,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcreditsupportannex"></a>
+<a id="getcreditsupportannex"></a>
 # **GetCreditSupportAnnex**
 > GetCreditSupportAnnexResponse GetCreditSupportAnnex (string scope, string code, DateTimeOffset? asAt = null)
 
@@ -273,14 +332,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CounterpartiesApi(config);
-            var scope = scope_example;  // string | The scope of the Credit Support Annex to retrieve.
-            var code = code_example;  // string | The name of the Credit Support Annex to retrieve the data for.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional) 
+            var scope = "scope_example";  // string | The scope of the Credit Support Annex to retrieve.
+            var code = "code_example";  // string | The name of the Credit Support Annex to retrieve the data for.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. (optional) 
 
             try
             {
@@ -290,8 +349,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.GetCreditSupportAnnex: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.GetCreditSupportAnnex: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -299,13 +358,33 @@ namespace Example
 }
 ```
 
+#### Using the GetCreditSupportAnnexWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetCreditSupportAnnex: Get Credit Support Annex
+    ApiResponse<GetCreditSupportAnnexResponse> response = apiInstance.GetCreditSupportAnnexWithHttpInfo(scope, code, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.GetCreditSupportAnnexWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Credit Support Annex to retrieve. | 
- **code** | **string**| The name of the Credit Support Annex to retrieve the data for. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Credit Support Annex to retrieve. |  |
+| **code** | **string** | The name of the Credit Support Annex to retrieve the data for. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Credit Support Annex . Defaults to return the latest version if not specified. | [optional]  |
 
 ### Return type
 
@@ -330,7 +409,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcounterpartyagreements"></a>
+<a id="listcounterpartyagreements"></a>
 # **ListCounterpartyAgreements**
 > ResourceListOfGetCounterpartyAgreementResponse ListCounterpartyAgreements (DateTimeOffset? asAt = null)
 
@@ -353,12 +432,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CounterpartiesApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. (optional) 
 
             try
             {
@@ -368,8 +447,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.ListCounterpartyAgreements: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.ListCounterpartyAgreements: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -377,11 +456,31 @@ namespace Example
 }
 ```
 
+#### Using the ListCounterpartyAgreementsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListCounterpartyAgreements: List the set of Counterparty Agreements
+    ApiResponse<ResourceListOfGetCounterpartyAgreementResponse> response = apiInstance.ListCounterpartyAgreementsWithHttpInfo(asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.ListCounterpartyAgreementsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Counterparty Agreements. Defaults to latest if not specified. | [optional]  |
 
 ### Return type
 
@@ -406,7 +505,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcreditsupportannexes"></a>
+<a id="listcreditsupportannexes"></a>
 # **ListCreditSupportAnnexes**
 > ResourceListOfGetCreditSupportAnnexResponse ListCreditSupportAnnexes (DateTimeOffset? asAt = null)
 
@@ -429,12 +528,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CounterpartiesApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. (optional) 
 
             try
             {
@@ -444,8 +543,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.ListCreditSupportAnnexes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.ListCreditSupportAnnexes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -453,11 +552,31 @@ namespace Example
 }
 ```
 
+#### Using the ListCreditSupportAnnexesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListCreditSupportAnnexes: List the set of Credit Support Annexes
+    ApiResponse<ResourceListOfGetCreditSupportAnnexResponse> response = apiInstance.ListCreditSupportAnnexesWithHttpInfo(asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.ListCreditSupportAnnexesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Credit Support Annexes. Defaults to latest if not specified. | [optional]  |
 
 ### Return type
 
@@ -482,7 +601,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertcounterpartyagreement"></a>
+<a id="upsertcounterpartyagreement"></a>
 # **UpsertCounterpartyAgreement**
 > UpsertSingleStructuredDataResponse UpsertCounterpartyAgreement (UpsertCounterpartyAgreementRequest upsertCounterpartyAgreementRequest)
 
@@ -505,7 +624,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -520,8 +639,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.UpsertCounterpartyAgreement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.UpsertCounterpartyAgreement: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -529,11 +648,31 @@ namespace Example
 }
 ```
 
+#### Using the UpsertCounterpartyAgreementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
+    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertCounterpartyAgreementWithHttpInfo(upsertCounterpartyAgreementRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.UpsertCounterpartyAgreementWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upsertCounterpartyAgreementRequest** | [**UpsertCounterpartyAgreementRequest**](UpsertCounterpartyAgreementRequest.md)| The Counterparty Agreement to update or insert | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **upsertCounterpartyAgreementRequest** | [**UpsertCounterpartyAgreementRequest**](UpsertCounterpartyAgreementRequest.md) | The Counterparty Agreement to update or insert |  |
 
 ### Return type
 
@@ -545,7 +684,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -558,7 +697,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertcreditsupportannex"></a>
+<a id="upsertcreditsupportannex"></a>
 # **UpsertCreditSupportAnnex**
 > UpsertSingleStructuredDataResponse UpsertCreditSupportAnnex (UpsertCreditSupportAnnexRequest upsertCreditSupportAnnexRequest)
 
@@ -581,7 +720,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -596,8 +735,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling CounterpartiesApi.UpsertCreditSupportAnnex: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling CounterpartiesApi.UpsertCreditSupportAnnex: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -605,11 +744,31 @@ namespace Example
 }
 ```
 
+#### Using the UpsertCreditSupportAnnexWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertCreditSupportAnnex: Upsert Credit Support Annex
+    ApiResponse<UpsertSingleStructuredDataResponse> response = apiInstance.UpsertCreditSupportAnnexWithHttpInfo(upsertCreditSupportAnnexRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CounterpartiesApi.UpsertCreditSupportAnnexWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upsertCreditSupportAnnexRequest** | [**UpsertCreditSupportAnnexRequest**](UpsertCreditSupportAnnexRequest.md)| The Credit Support Annex to update or insert | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **upsertCreditSupportAnnexRequest** | [**UpsertCreditSupportAnnexRequest**](UpsertCreditSupportAnnexRequest.md) | The Credit Support Annex to update or insert |  |
 
 ### Return type
 
@@ -621,7 +780,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

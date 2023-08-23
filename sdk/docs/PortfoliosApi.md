@@ -1,37 +1,39 @@
 # Lusid.Sdk.Api.PortfoliosApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**DeleteKeyFromPortfolioAccessMetadata**](PortfoliosApi.md#deletekeyfromportfolioaccessmetadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
-[**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
-[**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | DeletePortfolioProperties: Delete portfolio properties
-[**DeletePortfolioReturns**](PortfoliosApi.md#deleteportfolioreturns) | **DELETE** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete | [EARLY ACCESS] DeletePortfolioReturns: Delete Returns
-[**GetAggregatedReturnsDispersionMetrics**](PortfoliosApi.md#getaggregatedreturnsdispersionmetrics) | **POST** /api/portfolios/{scope}/{code}/returns/dispersion/$aggregated | [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
-[**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio
-[**GetPortfolioAggregatedReturns**](PortfoliosApi.md#getportfolioaggregatedreturns) | **POST** /api/portfolios/{scope}/{code}/returns/$aggregated | [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
-[**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | GetPortfolioCommands: Get portfolio commands
-[**GetPortfolioMetadata**](PortfoliosApi.md#getportfoliometadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
-[**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties
-[**GetPortfolioPropertyTimeSeries**](PortfoliosApi.md#getportfoliopropertytimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
-[**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
-[**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns
-[**GetPortfoliosAccessMetadataByKey**](PortfoliosApi.md#getportfoliosaccessmetadatabykey) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
-[**ListPortfolioProperties**](PortfoliosApi.md#listportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
-[**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios
-[**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope
-[**PatchPortfolio**](PortfoliosApi.md#patchportfolio) | **PATCH** /api/portfolios/{scope}/{code} | [EARLY ACCESS] PatchPortfolio: Patch portfolio.
-[**PatchPortfolioAccessMetadata**](PortfoliosApi.md#patchportfolioaccessmetadata) | **PATCH** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
-[**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio
-[**UpsertPortfolioAccessMetadata**](PortfoliosApi.md#upsertportfolioaccessmetadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
-[**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties
-[**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**DeleteKeyFromPortfolioAccessMetadata**](PortfoliosApi.md#deletekeyfromportfolioaccessmetadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule |
+| [**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio |
+| [**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | DeletePortfolioProperties: Delete portfolio properties |
+| [**DeletePortfolioReturns**](PortfoliosApi.md#deleteportfolioreturns) | **DELETE** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete | [EARLY ACCESS] DeletePortfolioReturns: Delete Returns |
+| [**GetAggregatedReturnsDispersionMetrics**](PortfoliosApi.md#getaggregatedreturnsdispersionmetrics) | **POST** /api/portfolios/{scope}/{code}/returns/dispersion/$aggregated | [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric |
+| [**GetCompositeBreakdown**](PortfoliosApi.md#getcompositebreakdown) | **POST** /api/portfolios/{scope}/{code}/returns/breakdown | [EARLY ACCESS] GetCompositeBreakdown: Get the Composite Breakdown on how the composite Returns are calculated |
+| [**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio |
+| [**GetPortfolioAggregateReturns**](PortfoliosApi.md#getportfolioaggregatereturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated | [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). |
+| [**GetPortfolioAggregatedReturns**](PortfoliosApi.md#getportfolioaggregatedreturns) | **POST** /api/portfolios/{scope}/{code}/returns/$aggregated | [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns |
+| [**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | GetPortfolioCommands: Get portfolio commands |
+| [**GetPortfolioMetadata**](PortfoliosApi.md#getportfoliometadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio |
+| [**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties |
+| [**GetPortfolioPropertyTimeSeries**](PortfoliosApi.md#getportfoliopropertytimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series |
+| [**GetPortfolioRelations**](PortfoliosApi.md#getportfoliorelations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations |
+| [**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships |
+| [**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns |
+| [**GetPortfoliosAccessMetadataByKey**](PortfoliosApi.md#getportfoliosaccessmetadatabykey) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object |
+| [**ListPortfolioProperties**](PortfoliosApi.md#listportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties |
+| [**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios |
+| [**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope |
+| [**PatchPortfolio**](PortfoliosApi.md#patchportfolio) | **PATCH** /api/portfolios/{scope}/{code} | [EARLY ACCESS] PatchPortfolio: Patch portfolio. |
+| [**PatchPortfolioAccessMetadata**](PortfoliosApi.md#patchportfolioaccessmetadata) | **PATCH** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. |
+| [**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio |
+| [**UpsertPortfolioAccessMetadata**](PortfoliosApi.md#upsertportfolioaccessmetadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. |
+| [**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties |
+| [**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns |
 
-
-<a name="deletekeyfromportfolioaccessmetadata"></a>
+<a id="deletekeyfromportfolioaccessmetadata"></a>
 # **DeleteKeyFromPortfolioAccessMetadata**
-> DeletedEntityResponse DeleteKeyFromPortfolioAccessMetadata (string scope, string code, string metadataKey, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? effectiveUntil = null)
+> DeletedEntityResponse DeleteKeyFromPortfolioAccessMetadata (string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? effectiveUntil = null)
 
 [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
 
@@ -52,16 +54,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Quote Access Metadata Rule to retrieve.
-            var code = code_example;  // string | Portfolio code
-            var metadataKey = metadataKey_example;  // string | The metadataKey identifying the access metadata entry to delete
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective date to delete at, if this is not supplied, it will delete all data found (optional) 
-            var effectiveUntil = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional) 
+            var scope = "scope_example";  // string | The scope of the Quote Access Metadata Rule to retrieve.
+            var code = "code_example";  // string | Portfolio code
+            var metadataKey = "metadataKey_example";  // string | The metadataKey identifying the access metadata entry to delete
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective date to delete at, if this is not supplied, it will delete all data found (optional) 
+            var effectiveUntil = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional) 
 
             try
             {
@@ -71,8 +73,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.DeleteKeyFromPortfolioAccessMetadata: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.DeleteKeyFromPortfolioAccessMetadata: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -80,15 +82,35 @@ namespace Example
 }
 ```
 
+#### Using the DeleteKeyFromPortfolioAccessMetadataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteKeyFromPortfolioAccessMetadataWithHttpInfo(scope, code, metadataKey, effectiveAt, effectiveUntil);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.DeleteKeyFromPortfolioAccessMetadataWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Quote Access Metadata Rule to retrieve. | 
- **code** | **string**| Portfolio code | 
- **metadataKey** | **string**| The metadataKey identifying the access metadata entry to delete | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective date to delete at, if this is not supplied, it will delete all data found | [optional] 
- **effectiveUntil** | **DateTimeOffset?**| The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Quote Access Metadata Rule to retrieve. |  |
+| **code** | **string** | Portfolio code |  |
+| **metadataKey** | **string** | The metadataKey identifying the access metadata entry to delete |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective date to delete at, if this is not supplied, it will delete all data found | [optional]  |
+| **effectiveUntil** | **DateTimeOffset?** | The effective date until which the delete is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional]  |
 
 ### Return type
 
@@ -113,7 +135,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteportfolio"></a>
+<a id="deleteportfolio"></a>
 # **DeletePortfolio**
 > DeletedEntityResponse DeletePortfolio (string scope, string code)
 
@@ -136,13 +158,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
 
             try
             {
@@ -152,8 +174,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.DeletePortfolio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.DeletePortfolio: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -161,12 +183,32 @@ namespace Example
 }
 ```
 
+#### Using the DeletePortfolioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // DeletePortfolio: Delete portfolio
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePortfolioWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
 
 ### Return type
 
@@ -191,9 +233,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteportfolioproperties"></a>
+<a id="deleteportfolioproperties"></a>
 # **DeletePortfolioProperties**
-> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> propertyKeys, DateTimeOrCutLabel effectiveAt = null)
+> DeletedEntityResponse DeletePortfolioProperties (string scope, string code, List<string> propertyKeys, DateTimeOrCutLabel? effectiveAt = null)
 
 DeletePortfolioProperties: Delete portfolio properties
 
@@ -214,15 +256,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var propertyKeys = new List<string>(); // List<string> | The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. Each property must be from the 'Portfolio' domain.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional) 
 
             try
             {
@@ -232,8 +274,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -241,14 +283,34 @@ namespace Example
 }
 ```
 
+#### Using the DeletePortfolioPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // DeletePortfolioProperties: Delete portfolio properties
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePortfolioPropertiesWithHttpInfo(scope, code, propertyKeys, effectiveAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **propertyKeys** | [**List&lt;string&gt;**](string.md) | The property keys of the properties to delete. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Each property must be from the &#39;Portfolio&#39; domain. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | [optional]  |
 
 ### Return type
 
@@ -273,9 +335,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteportfolioreturns"></a>
+<a id="deleteportfolioreturns"></a>
 # **DeletePortfolioReturns**
-> DeletedEntityResponse DeletePortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, string period = null)
+> DeletedEntityResponse DeletePortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel fromEffectiveAt, DateTimeOrCutLabel toEffectiveAt, string? period = null)
 
 [EARLY ACCESS] DeletePortfolioReturns: Delete Returns
 
@@ -296,18 +358,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio.
-            var code = code_example;  // string | The code of the  Portfolio.
-            var returnScope = returnScope_example;  // string | The scope of the Returns.
-            var returnCode = returnCode_example;  // string | The code of the Returns.
-            var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | The start date from which to delete the Returns.
-            var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | The end date from which to delete the Returns.
-            var period = period_example;  // string | The Period (Daily or Monthly) of the Returns to be deleted. Defaults to Daily. (optional) 
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
+            var returnScope = "returnScope_example";  // string | The scope of the Returns.
+            var returnCode = "returnCode_example";  // string | The code of the Returns.
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel | The start date from which to delete the Returns.
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel | The end date from which to delete the Returns.
+            var period = "period_example";  // string? | The Period (Daily or Monthly) of the Returns to be deleted. Defaults to Daily. (optional) 
 
             try
             {
@@ -317,8 +379,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioReturns: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioReturns: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -326,17 +388,37 @@ namespace Example
 }
 ```
 
+#### Using the DeletePortfolioReturnsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeletePortfolioReturns: Delete Returns
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePortfolioReturnsWithHttpInfo(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.DeletePortfolioReturnsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio. | 
- **code** | **string**| The code of the  Portfolio. | 
- **returnScope** | **string**| The scope of the Returns. | 
- **returnCode** | **string**| The code of the Returns. | 
- **fromEffectiveAt** | **DateTimeOrCutLabel**| The start date from which to delete the Returns. | 
- **toEffectiveAt** | **DateTimeOrCutLabel**| The end date from which to delete the Returns. | 
- **period** | **string**| The Period (Daily or Monthly) of the Returns to be deleted. Defaults to Daily. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **returnScope** | **string** | The scope of the Returns. |  |
+| **returnCode** | **string** | The code of the Returns. |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel** | The start date from which to delete the Returns. |  |
+| **toEffectiveAt** | **DateTimeOrCutLabel** | The end date from which to delete the Returns. |  |
+| **period** | **string?** | The Period (Daily or Monthly) of the Returns to be deleted. Defaults to Daily. | [optional]  |
 
 ### Return type
 
@@ -361,7 +443,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getaggregatedreturnsdispersionmetrics"></a>
+<a id="getaggregatedreturnsdispersionmetrics"></a>
 # **GetAggregatedReturnsDispersionMetrics**
 > CompositeDispersionResponse GetAggregatedReturnsDispersionMetrics (string scope, string code, AggregatedReturnsDispersionRequest aggregatedReturnsDispersionRequest, DateTimeOffset? asAt = null)
 
@@ -384,15 +466,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio.
-            var code = code_example;  // string | The code of the  Portfolio.
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
             var aggregatedReturnsDispersionRequest = new AggregatedReturnsDispersionRequest(); // AggregatedReturnsDispersionRequest | The request used in the AggregatedReturnsDispersionMetric.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
 
             try
             {
@@ -402,8 +484,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetAggregatedReturnsDispersionMetrics: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetAggregatedReturnsDispersionMetrics: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -411,14 +493,34 @@ namespace Example
 }
 ```
 
+#### Using the GetAggregatedReturnsDispersionMetricsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetAggregatedReturnsDispersionMetrics: Get the Aggregated Returns Dispersion metric
+    ApiResponse<CompositeDispersionResponse> response = apiInstance.GetAggregatedReturnsDispersionMetricsWithHttpInfo(scope, code, aggregatedReturnsDispersionRequest, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetAggregatedReturnsDispersionMetricsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio. | 
- **code** | **string**| The code of the  Portfolio. | 
- **aggregatedReturnsDispersionRequest** | [**AggregatedReturnsDispersionRequest**](AggregatedReturnsDispersionRequest.md)| The request used in the AggregatedReturnsDispersionMetric. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **aggregatedReturnsDispersionRequest** | [**AggregatedReturnsDispersionRequest**](AggregatedReturnsDispersionRequest.md) | The request used in the AggregatedReturnsDispersionMetric. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
 
 ### Return type
 
@@ -430,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -443,9 +545,115 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfolio"></a>
+<a id="getcompositebreakdown"></a>
+# **GetCompositeBreakdown**
+> CompositeBreakdownResponse GetCompositeBreakdown (string scope, string code, CompositeBreakdownRequest compositeBreakdownRequest, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null)
+
+[EARLY ACCESS] GetCompositeBreakdown: Get the Composite Breakdown on how the composite Returns are calculated
+
+Calculate the Composite Returns and return this with the constituents which are included in this calculation
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetCompositeBreakdownExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PortfoliosApi(config);
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
+            var compositeBreakdownRequest = new CompositeBreakdownRequest(); // CompositeBreakdownRequest | The request used in the GetCompositeBreakdown.
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The start date from which to calculate the Returns. (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The end date for which to calculate the Returns. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] GetCompositeBreakdown: Get the Composite Breakdown on how the composite Returns are calculated
+                CompositeBreakdownResponse result = apiInstance.GetCompositeBreakdown(scope, code, compositeBreakdownRequest, fromEffectiveAt, toEffectiveAt, asAt);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortfoliosApi.GetCompositeBreakdown: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetCompositeBreakdownWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetCompositeBreakdown: Get the Composite Breakdown on how the composite Returns are calculated
+    ApiResponse<CompositeBreakdownResponse> response = apiInstance.GetCompositeBreakdownWithHttpInfo(scope, code, compositeBreakdownRequest, fromEffectiveAt, toEffectiveAt, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetCompositeBreakdownWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **compositeBreakdownRequest** | [**CompositeBreakdownRequest**](CompositeBreakdownRequest.md) | The request used in the GetCompositeBreakdown. |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | The start date from which to calculate the Returns. | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | The end date for which to calculate the Returns. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
+
+### Return type
+
+[**CompositeBreakdownResponse**](CompositeBreakdownResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The aggregated returns grouped by return stream. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getportfolio"></a>
 # **GetPortfolio**
-> Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, List<string> propertyKeys = null, List<string> relationshipDefinitionIds = null)
+> Portfolio GetPortfolio (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, List<string>? propertyKeys = null, List<string>? relationshipDefinitionIds = null)
 
 GetPortfolio: Get portfolio
 
@@ -466,17 +674,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the 'Portfolio' domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
-            var relationshipDefinitionIds = new List<string>(); // List<string> | A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Portfolio' domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
@@ -486,8 +694,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolio: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -495,16 +703,36 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetPortfolio: Get portfolio
+    ApiResponse<Portfolio> response = apiInstance.GetPortfolioWithHttpInfo(scope, code, effectiveAt, asAt, propertyKeys, relationshipDefinitionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional] 
- **relationshipDefinitionIds** | [**List&lt;string&gt;**](string.md)| A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve the portfolio definition. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the portfolio definition. Defaults to returning the latest version of the portfolio definition if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Portfolio&#39; domain to decorate onto the portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the format              {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional]  |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the portfolio in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -529,9 +757,131 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfolioaggregatedreturns"></a>
+<a id="getportfolioaggregatereturns"></a>
+# **GetPortfolioAggregateReturns**
+> ResourceListOfAggregatedReturn GetPortfolioAggregateReturns (string scope, string code, string returnScope, string returnCode, string? recipeIdScope = null, string? recipeIdCode = null, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, string? compositeMethod = null, string? period = null, string? outputFrequency = null, List<string>? metrics = null, DateTimeOffset? asAt = null, DateTimeOrCutLabel? alternativeIncDate = null)
+
+[EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+
+Aggregate Returns which are on the specified portfolio.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetPortfolioAggregateReturnsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PortfoliosApi(config);
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
+            var returnScope = "returnScope_example";  // string | The scope of the Returns.
+            var returnCode = "returnCode_example";  // string | The code of the Returns.
+            var recipeIdScope = "recipeIdScope_example";  // string? | The Recipe Scope for getting the fx rates (optional) 
+            var recipeIdCode = "recipeIdCode_example";  // string? | The Recipe Code for getting the fx rates (optional) 
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The start date from which to calculate the Returns. (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The end date for which to calculate the Returns. (optional) 
+            var compositeMethod = "compositeMethod_example";  // string? | The method used to calculate the Portfolio performance:              Equal/Asset. (optional) 
+            var period = "period_example";  // string? | The type of the returns used to calculate the aggregation result: Daily/Monthly. (optional) 
+            var outputFrequency = "outputFrequency_example";  // string? | The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. (optional) 
+            var metrics = new List<string>?(); // List<string>? | Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
+            var alternativeIncDate = "alternativeIncDate_example";  // DateTimeOrCutLabel? | The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin. Can be a date string or Portfolio property. (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+                ResourceListOfAggregatedReturn result = apiInstance.GetPortfolioAggregateReturns(scope, code, returnScope, returnCode, recipeIdScope, recipeIdCode, fromEffectiveAt, toEffectiveAt, compositeMethod, period, outputFrequency, metrics, asAt, alternativeIncDate);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioAggregateReturns: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortfolioAggregateReturnsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+    ApiResponse<ResourceListOfAggregatedReturn> response = apiInstance.GetPortfolioAggregateReturnsWithHttpInfo(scope, code, returnScope, returnCode, recipeIdScope, recipeIdCode, fromEffectiveAt, toEffectiveAt, compositeMethod, period, outputFrequency, metrics, asAt, alternativeIncDate);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioAggregateReturnsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **returnScope** | **string** | The scope of the Returns. |  |
+| **returnCode** | **string** | The code of the Returns. |  |
+| **recipeIdScope** | **string?** | The Recipe Scope for getting the fx rates | [optional]  |
+| **recipeIdCode** | **string?** | The Recipe Code for getting the fx rates | [optional]  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | The start date from which to calculate the Returns. | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | The end date for which to calculate the Returns. | [optional]  |
+| **compositeMethod** | **string?** | The method used to calculate the Portfolio performance:              Equal/Asset. | [optional]  |
+| **period** | **string?** | The type of the returns used to calculate the aggregation result: Daily/Monthly. | [optional]  |
+| **outputFrequency** | **string?** | The type of calculated output: Daily/Weekly/Monthly/Quarterly/Half-Yearly/Yearly. | [optional]  |
+| **metrics** | [**List&lt;string&gt;?**](string.md) | Determines what type of returns should be calculated, see https://support.lusid.com/knowledgebase/article/KA-01675/en-us for a list of available metrics. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
+| **alternativeIncDate** | **DateTimeOrCutLabel?** | The date from which to consider the Returns on the Portfolio, if this is different from the date when Returns begin. Can be a date string or Portfolio property. | [optional]  |
+
+### Return type
+
+[**ResourceListOfAggregatedReturn**](ResourceListOfAggregatedReturn.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The aggregated returns. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getportfolioaggregatedreturns"></a>
 # **GetPortfolioAggregatedReturns**
-> AggregatedReturnsResponse GetPortfolioAggregatedReturns (string scope, string code, AggregatedReturnsRequest aggregatedReturnsRequest, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, DateTimeOffset? asAt = null)
+> AggregatedReturnsResponse GetPortfolioAggregatedReturns (string scope, string code, AggregatedReturnsRequest aggregatedReturnsRequest, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
 
@@ -552,17 +902,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio.
-            var code = code_example;  // string | The code of the  Portfolio.
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
             var aggregatedReturnsRequest = new AggregatedReturnsRequest(); // AggregatedReturnsRequest | The request used in the AggregatedReturns.
-            var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | The start date from which to calculate the Returns. (optional) 
-            var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | The end date for which to calculate the Returns. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The start date from which to calculate the Returns. (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The end date for which to calculate the Returns. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
 
             try
             {
@@ -572,8 +922,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioAggregatedReturns: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioAggregatedReturns: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -581,16 +931,36 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioAggregatedReturnsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+    ApiResponse<AggregatedReturnsResponse> response = apiInstance.GetPortfolioAggregatedReturnsWithHttpInfo(scope, code, aggregatedReturnsRequest, fromEffectiveAt, toEffectiveAt, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioAggregatedReturnsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio. | 
- **code** | **string**| The code of the  Portfolio. | 
- **aggregatedReturnsRequest** | [**AggregatedReturnsRequest**](AggregatedReturnsRequest.md)| The request used in the AggregatedReturns. | 
- **fromEffectiveAt** | **DateTimeOrCutLabel**| The start date from which to calculate the Returns. | [optional] 
- **toEffectiveAt** | **DateTimeOrCutLabel**| The end date for which to calculate the Returns. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **aggregatedReturnsRequest** | [**AggregatedReturnsRequest**](AggregatedReturnsRequest.md) | The request used in the AggregatedReturns. |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | The start date from which to calculate the Returns. | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | The end date for which to calculate the Returns. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
 
 ### Return type
 
@@ -602,7 +972,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -615,9 +985,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfoliocommands"></a>
+<a id="getportfoliocommands"></a>
 # **GetPortfolioCommands**
-> ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string filter = null, string page = null, int? limit = null)
+> ResourceListOfProcessedCommand GetPortfolioCommands (string scope, string code, DateTimeOffset? fromAsAt = null, DateTimeOffset? toAsAt = null, string? filter = null, string? page = null, int? limit = null)
 
 GetPortfolioCommands: Get portfolio commands
 
@@ -638,17 +1008,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
-            var fromAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional) 
-            var toAsAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the results.              For example, to filter on the User ID, specify \"userId.id eq 'string'\".              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing commands; this value is returned from the previous call. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var fromAsAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. (optional) 
+            var toAsAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the User ID, specify \"userId.id eq 'string'\".              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing commands; this value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 500 if not specified. (optional) 
 
             try
@@ -659,8 +1029,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioCommands: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioCommands: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -668,17 +1038,37 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioCommandsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetPortfolioCommands: Get portfolio commands
+    ApiResponse<ResourceListOfProcessedCommand> response = apiInstance.GetPortfolioCommandsWithHttpInfo(scope, code, fromAsAt, toAsAt, filter, page, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioCommandsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **fromAsAt** | **DateTimeOffset?**| The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. | [optional] 
- **toAsAt** | **DateTimeOffset?**| The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. | [optional] 
- **filter** | **string**| Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **page** | **string**| The pagination token to use to continue listing commands; this value is returned from the previous call. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. Defaults to 500 if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **fromAsAt** | **DateTimeOffset?** | The lower bound asAt datetime (inclusive) from which to retrieve commands. There is no lower bound if this is not specified. | [optional]  |
+| **toAsAt** | **DateTimeOffset?** | The upper bound asAt datetime (inclusive) from which to retrieve commands. There is no upper bound if this is not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the User ID, specify \&quot;userId.id eq &#39;string&#39;\&quot;.              For more information about filtering, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing commands; this value is returned from the previous call. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 500 if not specified. | [optional]  |
 
 ### Return type
 
@@ -703,9 +1093,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfoliometadata"></a>
+<a id="getportfoliometadata"></a>
 # **GetPortfolioMetadata**
-> Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt; GetPortfolioMetadata (string scope, string code, string effectiveAt = null, DateTimeOffset? asAt = null)
+> Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt; GetPortfolioMetadata (string scope, string code, string? effectiveAt = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
 
@@ -726,15 +1116,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio Access Metadata Rule to retrieve.
-            var code = code_example;  // string | Portfolio code
-            var effectiveAt = effectiveAt_example;  // string | The effectiveAt datetime at which to retrieve the access metadata rule. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio access metadata. (optional) 
+            var scope = "scope_example";  // string | The scope of the Portfolio Access Metadata Rule to retrieve.
+            var code = "code_example";  // string | Portfolio code
+            var effectiveAt = "effectiveAt_example";  // string? | The effectiveAt datetime at which to retrieve the access metadata rule. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio access metadata. (optional) 
 
             try
             {
@@ -744,8 +1134,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioMetadata: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioMetadata: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -753,14 +1143,34 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioMetadataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+    ApiResponse<Dictionary<string, List<AccessMetadataValue>>> response = apiInstance.GetPortfolioMetadataWithHttpInfo(scope, code, effectiveAt, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioMetadataWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio Access Metadata Rule to retrieve. | 
- **code** | **string**| Portfolio code | 
- **effectiveAt** | **string**| The effectiveAt datetime at which to retrieve the access metadata rule. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio access metadata. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio Access Metadata Rule to retrieve. |  |
+| **code** | **string** | Portfolio code |  |
+| **effectiveAt** | **string?** | The effectiveAt datetime at which to retrieve the access metadata rule. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the portfolio access metadata. | [optional]  |
 
 ### Return type
 
@@ -785,9 +1195,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfolioproperties"></a>
+<a id="getportfolioproperties"></a>
 # **GetPortfolioProperties**
-> PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
+> PortfolioProperties GetPortfolioProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
 GetPortfolioProperties: Get portfolio properties
 
@@ -808,15 +1218,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio's properties. Defaults to returning the latest version of each property if not specified. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the portfolio's properties. Defaults to returning the latest version of each property if not specified. (optional) 
 
             try
             {
@@ -826,8 +1236,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -835,14 +1245,34 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // GetPortfolioProperties: Get portfolio properties
+    ApiResponse<PortfolioProperties> response = apiInstance.GetPortfolioPropertiesWithHttpInfo(scope, code, effectiveAt, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio&#39;s properties. Defaults to returning the latest version of each property if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the portfolio&#39;s properties. Defaults to returning the latest version of each property if not specified. | [optional]  |
 
 ### Return type
 
@@ -867,9 +1297,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfoliopropertytimeseries"></a>
+<a id="getportfoliopropertytimeseries"></a>
 # **GetPortfolioPropertyTimeSeries**
-> ResourceListOfPropertyInterval GetPortfolioPropertyTimeSeries (string scope, string code, string propertyKey, string portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string filter = null, string page = null, int? limit = null)
+> ResourceListOfPropertyInterval GetPortfolioPropertyTimeSeries (string scope, string code, string propertyKey, string? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, string? page = null, int? limit = null)
 
 [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
 
@@ -890,18 +1320,18 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
-            var propertyKey = propertyKey_example;  // string | The property key of the property whose history to show.              This must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
-            var portfolioEffectiveAt = portfolioEffectiveAt_example;  // string | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional) 
-            var filter = filter_example;  // string | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var propertyKey = "propertyKey_example";  // string | The property key of the property whose history to show.              This must be from the 'Portfolio' domain and in the format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'.
+            var portfolioEffectiveAt = "portfolioEffectiveAt_example";  // string? | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. (optional) 
 
             try
@@ -912,8 +1342,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioPropertyTimeSeries: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioPropertyTimeSeries: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -921,18 +1351,38 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioPropertyTimeSeriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+    ApiResponse<ResourceListOfPropertyInterval> response = apiInstance.GetPortfolioPropertyTimeSeriesWithHttpInfo(scope, code, propertyKey, portfolioEffectiveAt, asAt, filter, page, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioPropertyTimeSeriesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **propertyKey** | **string**| The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | 
- **portfolioEffectiveAt** | **string**| The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. | [optional] 
- **filter** | **string**| Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **page** | **string**| The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **propertyKey** | **string** | The property key of the property whose history to show.              This must be from the &#39;Portfolio&#39; domain and in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. |  |
+| **portfolioEffectiveAt** | **string?** | The effective datetime used to resolve the portfolio. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to show the history. Defaults to returning the current datetime if not supplied. | [optional]  |
+| **filter** | **string?** | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the filter, portfolioEffectiveAt, and asAt fields              must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. | [optional]  |
 
 ### Return type
 
@@ -957,9 +1407,115 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfoliorelationships"></a>
+<a id="getportfoliorelations"></a>
+# **GetPortfolioRelations**
+> ResourceListOfRelation GetPortfolioRelations (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? identifierTypes = null)
+
+[EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
+
+Get relations for a particular portfolio.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetPortfolioRelationsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new PortfoliosApi(config);
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the relations. Provide a null or empty string for this field until further notice. (optional) 
+            var identifierTypes = new List<string>?(); // List<string>? | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
+                ResourceListOfRelation result = apiInstance.GetPortfolioRelations(scope, code, effectiveAt, asAt, filter, identifierTypes);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioRelations: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortfolioRelationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
+    ApiResponse<ResourceListOfRelation> response = apiInstance.GetPortfolioRelationsWithHttpInfo(scope, code, effectiveAt, asAt, filter, identifierTypes);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioRelationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve relations. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve relations. Defaults to returning the latest LUSID AsAt time if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the relations. Provide a null or empty string for this field until further notice. | [optional]  |
+| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These must be from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. Only identifier types provided will be used to look up relevant entities in relations. If not applicable, provide an empty array. | [optional]  |
+
+### Return type
+
+[**ResourceListOfRelation**](ResourceListOfRelation.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The relations for the specified portfolio. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getportfoliorelationships"></a>
 # **GetPortfolioRelationships**
-> ResourceListOfRelationship GetPortfolioRelationships (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string filter = null, List<string> identifierTypes = null)
+> ResourceListOfRelationship GetPortfolioRelationships (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? identifierTypes = null)
 
 [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
 
@@ -980,17 +1536,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional) 
-            var identifierTypes = new List<string>(); // List<string> | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the relationships. Provide a null or empty string for this field until further notice. (optional) 
+            var identifierTypes = new List<string>?(); // List<string>? | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the 'Person' or 'LegalEntity' domains and have the format {domain}/{scope}/{code}, for example              'Person/CompanyDetails/Role'. An Empty array may be used to return all related Entities. (optional) 
 
             try
             {
@@ -1000,8 +1556,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioRelationships: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioRelationships: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1009,16 +1565,36 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioRelationshipsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+    ApiResponse<ResourceListOfRelationship> response = apiInstance.GetPortfolioRelationshipsWithHttpInfo(scope, code, effectiveAt, asAt, filter, identifierTypes);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioRelationshipsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. | [optional] 
- **filter** | **string**| Expression to filter the relationships. Provide a null or empty string for this field until further notice. | [optional] 
- **identifierTypes** | [**List&lt;string&gt;**](string.md)| Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to retrieve relationships. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve relationships. Defaults to returning the latest LUSID AsAt time if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the relationships. Provide a null or empty string for this field until further notice. | [optional]  |
+| **identifierTypes** | [**List&lt;string&gt;?**](string.md) | Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. | [optional]  |
 
 ### Return type
 
@@ -1043,9 +1619,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfolioreturns"></a>
+<a id="getportfolioreturns"></a>
 # **GetPortfolioReturns**
-> ResourceListOfPerformanceReturn GetPortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel fromEffectiveAt = null, DateTimeOrCutLabel toEffectiveAt = null, string period = null, DateTimeOffset? asAt = null)
+> ResourceListOfPerformanceReturn GetPortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, string? period = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetPortfolioReturns: Get Returns
 
@@ -1066,19 +1642,19 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio.
-            var code = code_example;  // string | The code of the  Portfolio.
-            var returnScope = returnScope_example;  // string | The scope of the Returns.
-            var returnCode = returnCode_example;  // string | The code of the Returns.
-            var fromEffectiveAt = fromEffectiveAt_example;  // DateTimeOrCutLabel | The start date from which to get the Returns. (optional) 
-            var toEffectiveAt = toEffectiveAt_example;  // DateTimeOrCutLabel | The end date from which to get the Returns. (optional) 
-            var period = period_example;  // string | Show the Returns on a Daily or Monthly period. Defaults to Daily. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
+            var returnScope = "returnScope_example";  // string | The scope of the Returns.
+            var returnCode = "returnCode_example";  // string | The code of the Returns.
+            var fromEffectiveAt = "fromEffectiveAt_example";  // DateTimeOrCutLabel? | The start date from which to get the Returns. (optional) 
+            var toEffectiveAt = "toEffectiveAt_example";  // DateTimeOrCutLabel? | The end date from which to get the Returns. (optional) 
+            var period = "period_example";  // string? | Show the Returns on a Daily or Monthly period. Defaults to Daily. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Returns. Defaults to the latest. (optional) 
 
             try
             {
@@ -1088,8 +1664,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioReturns: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfolioReturns: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1097,18 +1673,38 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfolioReturnsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPortfolioReturns: Get Returns
+    ApiResponse<ResourceListOfPerformanceReturn> response = apiInstance.GetPortfolioReturnsWithHttpInfo(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfolioReturnsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio. | 
- **code** | **string**| The code of the  Portfolio. | 
- **returnScope** | **string**| The scope of the Returns. | 
- **returnCode** | **string**| The code of the Returns. | 
- **fromEffectiveAt** | **DateTimeOrCutLabel**| The start date from which to get the Returns. | [optional] 
- **toEffectiveAt** | **DateTimeOrCutLabel**| The end date from which to get the Returns. | [optional] 
- **period** | **string**| Show the Returns on a Daily or Monthly period. Defaults to Daily. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **returnScope** | **string** | The scope of the Returns. |  |
+| **returnCode** | **string** | The code of the Returns. |  |
+| **fromEffectiveAt** | **DateTimeOrCutLabel?** | The start date from which to get the Returns. | [optional]  |
+| **toEffectiveAt** | **DateTimeOrCutLabel?** | The end date from which to get the Returns. | [optional]  |
+| **period** | **string?** | Show the Returns on a Daily or Monthly period. Defaults to Daily. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Returns. Defaults to the latest. | [optional]  |
 
 ### Return type
 
@@ -1133,9 +1729,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getportfoliosaccessmetadatabykey"></a>
+<a id="getportfoliosaccessmetadatabykey"></a>
 # **GetPortfoliosAccessMetadataByKey**
-> ICollection&lt;AccessMetadataValue&gt; GetPortfoliosAccessMetadataByKey (string scope, string code, string metadataKey, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null)
+> List&lt;AccessMetadataValue&gt; GetPortfoliosAccessMetadataByKey (string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
 
@@ -1156,27 +1752,27 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio Access Metadata Rule to retrieve.
-            var code = code_example;  // string | The code of the portfolio
-            var metadataKey = metadataKey_example;  // string | Key of the metadata to retrieve
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective date of the rule (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio access metadata. (optional) 
+            var scope = "scope_example";  // string | The scope of the Portfolio Access Metadata Rule to retrieve.
+            var code = "code_example";  // string | The code of the portfolio
+            var metadataKey = "metadataKey_example";  // string | Key of the metadata to retrieve
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective date of the rule (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the portfolio access metadata. (optional) 
 
             try
             {
                 // [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
-                ICollection<AccessMetadataValue> result = apiInstance.GetPortfoliosAccessMetadataByKey(scope, code, metadataKey, effectiveAt, asAt);
+                List<AccessMetadataValue> result = apiInstance.GetPortfoliosAccessMetadataByKey(scope, code, metadataKey, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.GetPortfoliosAccessMetadataByKey: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.GetPortfoliosAccessMetadataByKey: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1184,19 +1780,39 @@ namespace Example
 }
 ```
 
+#### Using the GetPortfoliosAccessMetadataByKeyWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
+    ApiResponse<List<AccessMetadataValue>> response = apiInstance.GetPortfoliosAccessMetadataByKeyWithHttpInfo(scope, code, metadataKey, effectiveAt, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.GetPortfoliosAccessMetadataByKeyWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio Access Metadata Rule to retrieve. | 
- **code** | **string**| The code of the portfolio | 
- **metadataKey** | **string**| Key of the metadata to retrieve | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective date of the rule | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the portfolio access metadata. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio Access Metadata Rule to retrieve. |  |
+| **code** | **string** | The code of the portfolio |  |
+| **metadataKey** | **string** | Key of the metadata to retrieve |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective date of the rule | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the portfolio access metadata. | [optional]  |
 
 ### Return type
 
-[**ICollection&lt;AccessMetadataValue&gt;**](AccessMetadataValue.md)
+[**List&lt;AccessMetadataValue&gt;**](AccessMetadataValue.md)
 
 ### Authorization
 
@@ -1217,9 +1833,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listportfolioproperties"></a>
+<a id="listportfolioproperties"></a>
 # **ListPortfolioProperties**
-> ResourceListOfProperty ListPortfolioProperties (string scope, string code, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? limit = null)
+> ResourceListOfProperty ListPortfolioProperties (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null)
 
 [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
 
@@ -1240,16 +1856,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolio's properties. Defaults to returning the latest version of each property if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing commands; this value is returned from the previous call. (optional) 
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolio's properties. Defaults to the current LUSID system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the portfolio's properties. Defaults to returning the latest version of each property if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing commands; this value is returned from the previous call. (optional) 
             var limit = 56;  // int? | When paginating, limit the results per page to this number. (optional) 
 
             try
@@ -1260,8 +1876,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.ListPortfolioProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.ListPortfolioProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1269,16 +1885,36 @@ namespace Example
 }
 ```
 
+#### Using the ListPortfolioPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties
+    ApiResponse<ResourceListOfProperty> response = apiInstance.ListPortfolioPropertiesWithHttpInfo(scope, code, effectiveAt, asAt, page, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.ListPortfolioPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolio&#39;s properties. Defaults to returning the latest version of each property if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing commands; this value is returned from the previous call. | [optional] 
- **limit** | **int?**| When paginating, limit the results per page to this number. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the portfolio&#39;s properties. Defaults to the current LUSID system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the portfolio&#39;s properties. Defaults to returning the latest version of each property if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing commands; this value is returned from the previous call. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results per page to this number. | [optional]  |
 
 ### Return type
 
@@ -1303,9 +1939,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listportfolios"></a>
+<a id="listportfolios"></a>
 # **ListPortfolios**
-> ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, string query = null, List<string> propertyKeys = null, List<string> relationshipDefinitionIds = null)
+> ResourceListOfPortfolio ListPortfolios (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? start = null, int? limit = null, string? filter = null, List<string>? sortBy = null, string? query = null, List<string>? propertyKeys = null, List<string>? relationshipDefinitionIds = null)
 
 ListPortfolios: List portfolios
 
@@ -1326,31 +1962,32 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the results.              For example, to filter on the transaction type, specify \"type eq 'Transaction'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var query = query_example;  // string | Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6',              specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\". (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
-            var relationshipDefinitionIds = new List<string>(); // List<string> | A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the transaction type, specify \"type eq 'Transaction'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var query = "query_example";  // string? | Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of 'LUID_PPA8HI6M' or a Figi of 'BBG000BLNNH6',              specify \"instrument.identifiers in (('LusidInstrumentId', 'LUID_PPA8HI6M'), ('Figi', 'BBG000BLNNH6'))\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
                 // ListPortfolios: List portfolios
-                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, start, limit, filter, query, propertyKeys, relationshipDefinitionIds);
+                ResourceListOfPortfolio result = apiInstance.ListPortfolios(effectiveAt, asAt, page, start, limit, filter, sortBy, query, propertyKeys, relationshipDefinitionIds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.ListPortfolios: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.ListPortfolios: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1358,19 +1995,40 @@ namespace Example
 }
 ```
 
+#### Using the ListPortfoliosWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListPortfolios: List portfolios
+    ApiResponse<ResourceListOfPortfolio> response = apiInstance.ListPortfoliosWithHttpInfo(effectiveAt, asAt, page, start, limit, filter, sortBy, query, propertyKeys, relationshipDefinitionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.ListPortfoliosWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **start** | **int?**| When paginating, skip this number of results. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
- **filter** | **string**| Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **query** | **string**| Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional] 
- **relationshipDefinitionIds** | [**List&lt;string&gt;**](string.md)| A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing portfolios; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
+| **start** | **int?** | When paginating, skip this number of results. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the transaction type, specify \&quot;type eq &#39;Transaction&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **query** | **string?** | Expression specifying the criteria that the returned portfolios must meet. For example, to see which              portfolios have holdings in instruments with a LusidInstrumentId (LUID) of &#39;LUID_PPA8HI6M&#39; or a Figi of &#39;BBG000BLNNH6&#39;,              specify \&quot;instrument.identifiers in ((&#39;LusidInstrumentId&#39;, &#39;LUID_PPA8HI6M&#39;), (&#39;Figi&#39;, &#39;BBG000BLNNH6&#39;))\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional]  |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -1395,9 +2053,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listportfoliosforscope"></a>
+<a id="listportfoliosforscope"></a>
 # **ListPortfoliosForScope**
-> ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? asAt = null, string page = null, int? start = null, int? limit = null, string filter = null, List<string> propertyKeys = null, List<string> relationshipDefinitionIds = null)
+> ResourceListOfPortfolio ListPortfoliosForScope (string scope, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? start = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null, List<string>? relationshipDefinitionIds = null)
 
 ListPortfoliosForScope: List portfolios for scope
 
@@ -1418,31 +2076,32 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope whose portfolios to list.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var scope = "scope_example";  // string | The scope whose portfolios to list.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the results.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
-            var propertyKeys = new List<string>(); // List<string> | A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
-            var relationshipDefinitionIds = new List<string>(); // List<string> | A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Portfolio' domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example 'Portfolio/Manager/Id'. (optional) 
+            var relationshipDefinitionIds = new List<string>?(); // List<string>? | A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional) 
 
             try
             {
                 // ListPortfoliosForScope: List portfolios for scope
-                ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, page, start, limit, filter, propertyKeys, relationshipDefinitionIds);
+                ResourceListOfPortfolio result = apiInstance.ListPortfoliosForScope(scope, effectiveAt, asAt, page, start, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.ListPortfoliosForScope: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.ListPortfoliosForScope: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1450,19 +2109,40 @@ namespace Example
 }
 ```
 
+#### Using the ListPortfoliosForScopeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // ListPortfoliosForScope: List portfolios for scope
+    ApiResponse<ResourceListOfPortfolio> response = apiInstance.ListPortfoliosForScopeWithHttpInfo(scope, effectiveAt, asAt, page, start, limit, filter, sortBy, propertyKeys, relationshipDefinitionIds);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.ListPortfoliosForScopeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope whose portfolios to list. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional] 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional] 
- **start** | **int?**| When paginating, skip this number of results. | [optional] 
- **limit** | **int?**| When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional] 
- **filter** | **string**| Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional] 
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional] 
- **relationshipDefinitionIds** | [**List&lt;string&gt;**](string.md)| A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope whose portfolios to list. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to list the portfolios. Defaults to the current LUSID              system datetime if not specified. | [optional]  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the portfolios. Defaults to returning the latest version              of each portfolio if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing portfolios. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
+| **start** | **int?** | When paginating, skip this number of results. | [optional]  |
+| **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to return only transactions with a transaction type of &#39;Buy&#39;, specify \&quot;type eq &#39;Buy&#39;\&quot;.              For more information about filtering results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Portfolio&#39; domain to decorate onto each portfolio,              or from any domain that supports relationships to decorate onto related entities. These must take the              format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. | [optional]  |
+| **relationshipDefinitionIds** | [**List&lt;string&gt;?**](string.md) | A list of relationship definitions that are used to decorate related entities              onto the portfolios in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. | [optional]  |
 
 ### Return type
 
@@ -1487,7 +2167,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="patchportfolio"></a>
+<a id="patchportfolio"></a>
 # **PatchPortfolio**
 > ActionResultOfPortfolio PatchPortfolio (string scope, string code, List<Operation> operation)
 
@@ -1510,13 +2190,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.
             var operation = new List<Operation>(); // List<Operation> | The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.
 
             try
@@ -1527,8 +2207,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.PatchPortfolio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.PatchPortfolio: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1536,13 +2216,33 @@ namespace Example
 }
 ```
 
+#### Using the PatchPortfolioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+    ApiResponse<ActionResultOfPortfolio> response = apiInstance.PatchPortfolioWithHttpInfo(scope, code, operation);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.PatchPortfolioWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the               scope this uniquely identifies the portfolio. | 
- **operation** | [**List&lt;Operation&gt;**](Operation.md)| The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the               scope this uniquely identifies the portfolio. |  |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md) | The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902. |  |
 
 ### Return type
 
@@ -1554,7 +2254,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1567,9 +2267,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="patchportfolioaccessmetadata"></a>
+<a id="patchportfolioaccessmetadata"></a>
 # **PatchPortfolioAccessMetadata**
-> Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt; PatchPortfolioAccessMetadata (string scope, string code, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? effectiveUntil = null)
+> Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt; PatchPortfolioAccessMetadata (string scope, string code, List<AccessMetadataOperation> accessMetadataOperation, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? effectiveUntil = null)
 
 [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
 
@@ -1590,16 +2290,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio Access Metadata Rule.
-            var code = code_example;  // string | Portfolio code
+            var scope = "scope_example";  // string | The scope of the Portfolio Access Metadata Rule.
+            var code = "code_example";  // string | Portfolio code
             var accessMetadataOperation = new List<AccessMetadataOperation>(); // List<AccessMetadataOperation> | The Json Patch document
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The date this rule will effective from (optional) 
-            var effectiveUntil = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date this rule will effective from (optional) 
+            var effectiveUntil = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional) 
 
             try
             {
@@ -1609,8 +2309,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.PatchPortfolioAccessMetadata: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.PatchPortfolioAccessMetadata: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1618,15 +2318,35 @@ namespace Example
 }
 ```
 
+#### Using the PatchPortfolioAccessMetadataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
+    ApiResponse<Dictionary<string, List<AccessMetadataValue>>> response = apiInstance.PatchPortfolioAccessMetadataWithHttpInfo(scope, code, accessMetadataOperation, effectiveAt, effectiveUntil);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.PatchPortfolioAccessMetadataWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio Access Metadata Rule. | 
- **code** | **string**| Portfolio code | 
- **accessMetadataOperation** | [**List&lt;AccessMetadataOperation&gt;**](AccessMetadataOperation.md)| The Json Patch document | 
- **effectiveAt** | **DateTimeOrCutLabel**| The date this rule will effective from | [optional] 
- **effectiveUntil** | **DateTimeOffset?**| The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio Access Metadata Rule. |  |
+| **code** | **string** | Portfolio code |  |
+| **accessMetadataOperation** | [**List&lt;AccessMetadataOperation&gt;**](AccessMetadataOperation.md) | The Json Patch document |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The date this rule will effective from | [optional]  |
+| **effectiveUntil** | **DateTimeOffset?** | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional]  |
 
 ### Return type
 
@@ -1638,7 +2358,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1651,9 +2371,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateportfolio"></a>
+<a id="updateportfolio"></a>
 # **UpdatePortfolio**
-> Portfolio UpdatePortfolio (string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel effectiveAt = null)
+> Portfolio UpdatePortfolio (string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel? effectiveAt = null)
 
 UpdatePortfolio: Update portfolio
 
@@ -1674,15 +2394,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var updatePortfolioRequest = new UpdatePortfolioRequest(); // UpdatePortfolioRequest | The updated portfolio definition.
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. (optional) 
 
             try
             {
@@ -1692,8 +2412,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.UpdatePortfolio: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.UpdatePortfolio: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1701,14 +2421,34 @@ namespace Example
 }
 ```
 
+#### Using the UpdatePortfolioWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // UpdatePortfolio: Update portfolio
+    ApiResponse<Portfolio> response = apiInstance.UpdatePortfolioWithHttpInfo(scope, code, updatePortfolioRequest, effectiveAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.UpdatePortfolioWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **updatePortfolioRequest** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md)| The updated portfolio definition. | 
- **effectiveAt** | **DateTimeOrCutLabel**| The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **updatePortfolioRequest** | [**UpdatePortfolioRequest**](UpdatePortfolioRequest.md) | The updated portfolio definition. |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The effective datetime or cut label at which to update the definition. Defaults to the current               LUSID system datetime if not specified. | [optional]  |
 
 ### Return type
 
@@ -1720,7 +2460,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1733,9 +2473,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertportfolioaccessmetadata"></a>
+<a id="upsertportfolioaccessmetadata"></a>
 # **UpsertPortfolioAccessMetadata**
-> ResourceListOfAccessMetadataValueOf UpsertPortfolioAccessMetadata (string scope, string code, string metadataKey, UpsertPortfolioAccessMetadataRequest upsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel effectiveAt = null, DateTimeOffset? effectiveUntil = null)
+> ResourceListOfAccessMetadataValueOf UpsertPortfolioAccessMetadata (string scope, string code, string metadataKey, UpsertPortfolioAccessMetadataRequest upsertPortfolioAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? effectiveUntil = null)
 
 [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
 
@@ -1756,17 +2496,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope to use when updating or inserting the Portfolio Access Metadata Rule.
-            var code = code_example;  // string | Portfolio code
-            var metadataKey = metadataKey_example;  // string | Key of the access metadata to upsert
+            var scope = "scope_example";  // string | The scope to use when updating or inserting the Portfolio Access Metadata Rule.
+            var code = "code_example";  // string | Portfolio code
+            var metadataKey = "metadataKey_example";  // string | Key of the access metadata to upsert
             var upsertPortfolioAccessMetadataRequest = new UpsertPortfolioAccessMetadataRequest(); // UpsertPortfolioAccessMetadataRequest | The Portfolio Access Metadata Rule to update or insert
-            var effectiveAt = effectiveAt_example;  // DateTimeOrCutLabel | The date this rule will effective from (optional) 
-            var effectiveUntil = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional) 
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel? | The date this rule will effective from (optional) 
+            var effectiveUntil = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next 'effectiveAt' date of the Access Metadata (optional) 
 
             try
             {
@@ -1776,8 +2516,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioAccessMetadata: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioAccessMetadata: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1785,16 +2525,36 @@ namespace Example
 }
 ```
 
+#### Using the UpsertPortfolioAccessMetadataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
+    ApiResponse<ResourceListOfAccessMetadataValueOf> response = apiInstance.UpsertPortfolioAccessMetadataWithHttpInfo(scope, code, metadataKey, upsertPortfolioAccessMetadataRequest, effectiveAt, effectiveUntil);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioAccessMetadataWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope to use when updating or inserting the Portfolio Access Metadata Rule. | 
- **code** | **string**| Portfolio code | 
- **metadataKey** | **string**| Key of the access metadata to upsert | 
- **upsertPortfolioAccessMetadataRequest** | [**UpsertPortfolioAccessMetadataRequest**](UpsertPortfolioAccessMetadataRequest.md)| The Portfolio Access Metadata Rule to update or insert | 
- **effectiveAt** | **DateTimeOrCutLabel**| The date this rule will effective from | [optional] 
- **effectiveUntil** | **DateTimeOffset?**| The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope to use when updating or inserting the Portfolio Access Metadata Rule. |  |
+| **code** | **string** | Portfolio code |  |
+| **metadataKey** | **string** | Key of the access metadata to upsert |  |
+| **upsertPortfolioAccessMetadataRequest** | [**UpsertPortfolioAccessMetadataRequest**](UpsertPortfolioAccessMetadataRequest.md) | The Portfolio Access Metadata Rule to update or insert |  |
+| **effectiveAt** | **DateTimeOrCutLabel?** | The date this rule will effective from | [optional]  |
+| **effectiveUntil** | **DateTimeOffset?** | The effective date until which the Access Metadata is valid. If not supplied this will be valid indefinitely, or until the next &#39;effectiveAt&#39; date of the Access Metadata | [optional]  |
 
 ### Return type
 
@@ -1806,7 +2566,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1819,7 +2579,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertportfolioproperties"></a>
+<a id="upsertportfolioproperties"></a>
 # **UpsertPortfolioProperties**
 > PortfolioProperties UpsertPortfolioProperties (string scope, string code, Dictionary<string, Property> requestBody)
 
@@ -1842,13 +2602,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the portfolio.
-            var code = code_example;  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
+            var scope = "scope_example";  // string | The scope of the portfolio.
+            var code = "code_example";  // string | The code of the portfolio. Together with the scope this uniquely identifies the portfolio.
             var requestBody = new Dictionary<string, Property>(); // Dictionary<string, Property> | The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               'Portfolio/Manager/Id'.
 
             try
@@ -1859,8 +2619,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioProperties: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioProperties: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1868,13 +2628,33 @@ namespace Example
 }
 ```
 
+#### Using the UpsertPortfolioPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // UpsertPortfolioProperties: Upsert portfolio properties
+    ApiResponse<PortfolioProperties> response = apiInstance.UpsertPortfolioPropertiesWithHttpInfo(scope, code, requestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioPropertiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the portfolio. | 
- **code** | **string**| The code of the portfolio. Together with the scope this uniquely identifies the portfolio. | 
- **requestBody** | [**Dictionary&lt;string, Property&gt;**](Property.md)| The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the portfolio. |  |
+| **code** | **string** | The code of the portfolio. Together with the scope this uniquely identifies the portfolio. |  |
+| **requestBody** | [**Dictionary&lt;string, Property&gt;**](Property.md) | The properties to be created or updated. Each property in               the request must be keyed by its unique property key. This has the format {domain}/{scope}/{code}, for example               &#39;Portfolio/Manager/Id&#39;. |  |
 
 ### Return type
 
@@ -1886,7 +2666,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -1899,7 +2679,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="upsertportfolioreturns"></a>
+<a id="upsertportfolioreturns"></a>
 # **UpsertPortfolioReturns**
 > UpsertReturnsResponse UpsertPortfolioReturns (string scope, string code, string returnScope, string returnCode, List<PerformanceReturn> performanceReturn)
 
@@ -1922,15 +2702,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PortfoliosApi(config);
-            var scope = scope_example;  // string | The scope of the Portfolio.
-            var code = code_example;  // string | The code of the  Portfolio.
-            var returnScope = returnScope_example;  // string | The scope of the Returns.
-            var returnCode = returnCode_example;  // string | The code of the Returns.
+            var scope = "scope_example";  // string | The scope of the Portfolio.
+            var code = "code_example";  // string | The code of the  Portfolio.
+            var returnScope = "returnScope_example";  // string | The scope of the Returns.
+            var returnCode = "returnCode_example";  // string | The code of the Returns.
             var performanceReturn = new List<PerformanceReturn>(); // List<PerformanceReturn> | This contains the Returns which need to be upsert.
 
             try
@@ -1941,8 +2721,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioReturns: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioReturns: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1950,15 +2730,35 @@ namespace Example
 }
 ```
 
+#### Using the UpsertPortfolioReturnsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+    ApiResponse<UpsertReturnsResponse> response = apiInstance.UpsertPortfolioReturnsWithHttpInfo(scope, code, returnScope, returnCode, performanceReturn);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PortfoliosApi.UpsertPortfolioReturnsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the Portfolio. | 
- **code** | **string**| The code of the  Portfolio. | 
- **returnScope** | **string**| The scope of the Returns. | 
- **returnCode** | **string**| The code of the Returns. | 
- **performanceReturn** | [**List&lt;PerformanceReturn&gt;**](PerformanceReturn.md)| This contains the Returns which need to be upsert. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Portfolio. |  |
+| **code** | **string** | The code of the  Portfolio. |  |
+| **returnScope** | **string** | The scope of the Returns. |  |
+| **returnCode** | **string** | The code of the Returns. |  |
+| **performanceReturn** | [**List&lt;PerformanceReturn&gt;**](PerformanceReturn.md) | This contains the Returns which need to be upsert. |  |
 
 ### Return type
 
@@ -1970,7 +2770,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

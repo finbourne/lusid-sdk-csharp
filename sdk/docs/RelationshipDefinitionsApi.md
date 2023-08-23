@@ -1,17 +1,16 @@
 # Lusid.Sdk.Api.RelationshipDefinitionsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateRelationshipDefinition**](RelationshipDefinitionsApi.md#createrelationshipdefinition) | **POST** /api/relationshipdefinitions | [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
-[**DeleteRelationshipDefinition**](RelationshipDefinitionsApi.md#deleterelationshipdefinition) | **DELETE** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition
-[**GetRelationshipDefinition**](RelationshipDefinitionsApi.md#getrelationshipdefinition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] GetRelationshipDefinition: Get relationship definition
-[**ListRelationshipDefinitions**](RelationshipDefinitionsApi.md#listrelationshipdefinitions) | **GET** /api/relationshipdefinitions | [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
-[**UpdateRelationshipDefinition**](RelationshipDefinitionsApi.md#updaterelationshipdefinition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateRelationshipDefinition**](RelationshipDefinitionsApi.md#createrelationshipdefinition) | **POST** /api/relationshipdefinitions | [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition |
+| [**DeleteRelationshipDefinition**](RelationshipDefinitionsApi.md#deleterelationshipdefinition) | **DELETE** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition |
+| [**GetRelationshipDefinition**](RelationshipDefinitionsApi.md#getrelationshipdefinition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] GetRelationshipDefinition: Get relationship definition |
+| [**ListRelationshipDefinitions**](RelationshipDefinitionsApi.md#listrelationshipdefinitions) | **GET** /api/relationshipdefinitions | [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions |
+| [**UpdateRelationshipDefinition**](RelationshipDefinitionsApi.md#updaterelationshipdefinition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition |
 
-
-<a name="createrelationshipdefinition"></a>
+<a id="createrelationshipdefinition"></a>
 # **CreateRelationshipDefinition**
 > RelationshipDefinition CreateRelationshipDefinition (CreateRelationshipDefinitionRequest createRelationshipDefinitionRequest)
 
@@ -34,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -49,8 +48,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipDefinitionsApi.CreateRelationshipDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipDefinitionsApi.CreateRelationshipDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -58,11 +57,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateRelationshipDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateRelationshipDefinition: Create Relationship Definition
+    ApiResponse<RelationshipDefinition> response = apiInstance.CreateRelationshipDefinitionWithHttpInfo(createRelationshipDefinitionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipDefinitionsApi.CreateRelationshipDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createRelationshipDefinitionRequest** | [**CreateRelationshipDefinitionRequest**](CreateRelationshipDefinitionRequest.md)| The definition of the new relationship. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createRelationshipDefinitionRequest** | [**CreateRelationshipDefinitionRequest**](CreateRelationshipDefinitionRequest.md) | The definition of the new relationship. |  |
 
 ### Return type
 
@@ -74,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -87,7 +106,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleterelationshipdefinition"></a>
+<a id="deleterelationshipdefinition"></a>
 # **DeleteRelationshipDefinition**
 > DeletedEntityResponse DeleteRelationshipDefinition (string scope, string code)
 
@@ -110,13 +129,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RelationshipDefinitionsApi(config);
-            var scope = scope_example;  // string | The scope of the relationship definition to be deleted.
-            var code = code_example;  // string | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.
+            var scope = "scope_example";  // string | The scope of the relationship definition to be deleted.
+            var code = "code_example";  // string | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship.
 
             try
             {
@@ -126,8 +145,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipDefinitionsApi.DeleteRelationshipDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipDefinitionsApi.DeleteRelationshipDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -135,12 +154,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteRelationshipDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteRelationshipDefinition: Delete Relationship Definition
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteRelationshipDefinitionWithHttpInfo(scope, code);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipDefinitionsApi.DeleteRelationshipDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the relationship definition to be deleted. | 
- **code** | **string**| The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the relationship definition to be deleted. |  |
+| **code** | **string** | The code of the relationship definition to be deleted. Together with the domain and scope this uniquely              identifies the relationship. |  |
 
 ### Return type
 
@@ -165,7 +204,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getrelationshipdefinition"></a>
+<a id="getrelationshipdefinition"></a>
 # **GetRelationshipDefinition**
 > RelationshipDefinition GetRelationshipDefinition (string scope, string code, DateTimeOffset? asAt = null)
 
@@ -188,14 +227,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RelationshipDefinitionsApi(config);
-            var scope = scope_example;  // string | The scope of the specified relationship definition.
-            var code = code_example;  // string | The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional) 
+            var scope = "scope_example";  // string | The scope of the specified relationship definition.
+            var code = "code_example";  // string | The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. (optional) 
 
             try
             {
@@ -205,8 +244,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipDefinitionsApi.GetRelationshipDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipDefinitionsApi.GetRelationshipDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -214,13 +253,33 @@ namespace Example
 }
 ```
 
+#### Using the GetRelationshipDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetRelationshipDefinition: Get relationship definition
+    ApiResponse<RelationshipDefinition> response = apiInstance.GetRelationshipDefinitionWithHttpInfo(scope, code, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipDefinitionsApi.GetRelationshipDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the specified relationship definition. | 
- **code** | **string**| The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition. | 
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the specified relationship definition. |  |
+| **code** | **string** | The code of the specified relationship definition. Together with the domain and scope this uniquely              identifies the relationship definition. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relationship definition. Defaults to return              the latest version of the definition if not specified. | [optional]  |
 
 ### Return type
 
@@ -245,9 +304,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listrelationshipdefinitions"></a>
+<a id="listrelationshipdefinitions"></a>
 # **ListRelationshipDefinitions**
-> PagedResourceListOfRelationshipDefinition ListRelationshipDefinitions (DateTimeOffset? asAt = null, string page = null, int? limit = null, string filter = null)
+> PagedResourceListOfRelationshipDefinition ListRelationshipDefinitions (DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
 
 [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
 
@@ -268,15 +327,15 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RelationshipDefinitionsApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
-            var page = page_example;  // string | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, asAt field  must not have changed since the original request. (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, asAt field  must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var filter = filter_example;  // string | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set.              For example, to filter on the Scope, use \"scope eq 'ExampleScope'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
 
             try
             {
@@ -286,8 +345,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipDefinitionsApi.ListRelationshipDefinitions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipDefinitionsApi.ListRelationshipDefinitions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -295,14 +354,34 @@ namespace Example
 }
 ```
 
+#### Using the ListRelationshipDefinitionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListRelationshipDefinitions: List relationship definitions
+    ApiResponse<PagedResourceListOfRelationshipDefinition> response = apiInstance.ListRelationshipDefinitionsWithHttpInfo(asAt, page, limit, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipDefinitionsApi.ListRelationshipDefinitionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. | [optional] 
- **page** | **string**| The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, asAt field  must not have changed since the original request. | [optional] 
- **limit** | **int?**| When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional] 
- **filter** | **string**| Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the relationship definitions. Defaults to return              the latest version of each definition if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing relationship definitions from a previous call to list relationship definitions. This  value is returned from the previous call. If a pagination token is provided the filter, asAt field  must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set.              For example, to filter on the Scope, use \&quot;scope eq &#39;ExampleScope&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 
 ### Return type
 
@@ -327,7 +406,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updaterelationshipdefinition"></a>
+<a id="updaterelationshipdefinition"></a>
 # **UpdateRelationshipDefinition**
 > RelationshipDefinition UpdateRelationshipDefinition (string scope, string code, UpdateRelationshipDefinitionRequest updateRelationshipDefinitionRequest)
 
@@ -350,13 +429,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RelationshipDefinitionsApi(config);
-            var scope = scope_example;  // string | The scope of the relationship definition being updated.
-            var code = code_example;  // string | The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.
+            var scope = "scope_example";  // string | The scope of the relationship definition being updated.
+            var code = "code_example";  // string | The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition.
             var updateRelationshipDefinitionRequest = new UpdateRelationshipDefinitionRequest(); // UpdateRelationshipDefinitionRequest | The details of relationship definition to update.
 
             try
@@ -367,8 +446,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipDefinitionsApi.UpdateRelationshipDefinition: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipDefinitionsApi.UpdateRelationshipDefinition: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -376,13 +455,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateRelationshipDefinitionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] UpdateRelationshipDefinition: Update Relationship Definition
+    ApiResponse<RelationshipDefinition> response = apiInstance.UpdateRelationshipDefinitionWithHttpInfo(scope, code, updateRelationshipDefinitionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipDefinitionsApi.UpdateRelationshipDefinitionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the relationship definition being updated. | 
- **code** | **string**| The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition. | 
- **updateRelationshipDefinitionRequest** | [**UpdateRelationshipDefinitionRequest**](UpdateRelationshipDefinitionRequest.md)| The details of relationship definition to update. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the relationship definition being updated. |  |
+| **code** | **string** | The code of the relationship definition being updated. Together with the scope this uniquely              identifies the relationship definition. |  |
+| **updateRelationshipDefinitionRequest** | [**UpdateRelationshipDefinitionRequest**](UpdateRelationshipDefinitionRequest.md) | The details of relationship definition to update. |  |
 
 ### Return type
 
@@ -394,7 +493,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

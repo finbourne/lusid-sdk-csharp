@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | [optional] 
-**Version** | [**Version**](Version.md) |  | [optional] 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **DisplayName** | **string** | The name of the corporate action source | [optional] 
 **Description** | **string** | The description of the corporate action source | [optional] 
 **InstrumentScopes** | **List&lt;string&gt;** | The list of instrument scopes used as the scope resolution strategy when resolving instruments of upserted corporate actions. | [optional] 

@@ -6,7 +6,7 @@ Representation of a relationship containing details of source and target entitie
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
-**Version** | [**Version**](Version.md) |  | [optional] 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **RelationshipDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **SourceEntity** | [**RelatedEntity**](RelatedEntity.md) |  | 
 **TargetEntity** | [**RelatedEntity**](RelatedEntity.md) |  | 

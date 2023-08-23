@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **LegDefinition** | [**LegDefinition**](LegDefinition.md) |  | 
 **Notional** | **decimal** | Scaling factor to apply to leg quantities. | 
 **Overrides** | [**FixedLegAllOfOverrides**](FixedLegAllOfOverrides.md) |  | [optional] 
+**CapRate** | **decimal?** | The maximum floating rate which a cashflow can accrue. | [optional] 
+**FloorRate** | **decimal?** | The minimum floating rate which a cashflow can accrue. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,14 +1,13 @@
 # Lusid.Sdk.Api.RelationshipsApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateRelationship**](RelationshipsApi.md#createrelationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships | [EARLY ACCESS] CreateRelationship: Create Relationship
-[**DeleteRelationship**](RelationshipsApi.md#deleterelationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EARLY ACCESS] DeleteRelationship: Delete Relationship
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateRelationship**](RelationshipsApi.md#createrelationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships | [EARLY ACCESS] CreateRelationship: Create Relationship |
+| [**DeleteRelationship**](RelationshipsApi.md#deleterelationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EARLY ACCESS] DeleteRelationship: Delete Relationship |
 
-
-<a name="createrelationship"></a>
+<a id="createrelationship"></a>
 # **CreateRelationship**
 > CompleteRelationship CreateRelationship (string scope, string code, CreateRelationshipRequest createRelationshipRequest)
 
@@ -31,13 +30,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RelationshipsApi(config);
-            var scope = scope_example;  // string | The scope of the relationship
-            var code = code_example;  // string | The code of the relationship
+            var scope = "scope_example";  // string | The scope of the relationship
+            var code = "code_example";  // string | The code of the relationship
             var createRelationshipRequest = new CreateRelationshipRequest(); // CreateRelationshipRequest | The details of the relationship to create.
 
             try
@@ -48,8 +47,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipsApi.CreateRelationship: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipsApi.CreateRelationship: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -57,13 +56,33 @@ namespace Example
 }
 ```
 
+#### Using the CreateRelationshipWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] CreateRelationship: Create Relationship
+    ApiResponse<CompleteRelationship> response = apiInstance.CreateRelationshipWithHttpInfo(scope, code, createRelationshipRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipsApi.CreateRelationshipWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the relationship | 
- **code** | **string**| The code of the relationship | 
- **createRelationshipRequest** | [**CreateRelationshipRequest**](CreateRelationshipRequest.md)| The details of the relationship to create. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the relationship |  |
+| **code** | **string** | The code of the relationship |  |
+| **createRelationshipRequest** | [**CreateRelationshipRequest**](CreateRelationshipRequest.md) | The details of the relationship to create. |  |
 
 ### Return type
 
@@ -75,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 
@@ -88,7 +107,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleterelationship"></a>
+<a id="deleterelationship"></a>
 # **DeleteRelationship**
 > DeletedEntityResponse DeleteRelationship (string scope, string code, DeleteRelationshipRequest deleteRelationshipRequest)
 
@@ -111,13 +130,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RelationshipsApi(config);
-            var scope = scope_example;  // string | The scope of the relationship
-            var code = code_example;  // string | The code of the relationship
+            var scope = "scope_example";  // string | The scope of the relationship
+            var code = "code_example";  // string | The code of the relationship
             var deleteRelationshipRequest = new DeleteRelationshipRequest(); // DeleteRelationshipRequest | The details of the relationship to delete.
 
             try
@@ -128,8 +147,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling RelationshipsApi.DeleteRelationship: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling RelationshipsApi.DeleteRelationship: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -137,13 +156,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteRelationshipWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] DeleteRelationship: Delete Relationship
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteRelationshipWithHttpInfo(scope, code, deleteRelationshipRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling RelationshipsApi.DeleteRelationshipWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scope** | **string**| The scope of the relationship | 
- **code** | **string**| The code of the relationship | 
- **deleteRelationshipRequest** | [**DeleteRelationshipRequest**](DeleteRelationshipRequest.md)| The details of the relationship to delete. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the relationship |  |
+| **code** | **string** | The code of the relationship |  |
+| **deleteRelationshipRequest** | [**DeleteRelationshipRequest**](DeleteRelationshipRequest.md) | The details of the relationship to delete. |  |
 
 ### Return type
 
@@ -155,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
 
 

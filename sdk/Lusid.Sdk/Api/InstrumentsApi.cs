@@ -1,13 +1,9 @@
 /*
  * LUSID API
  *
- * # Introduction  This page documents the [LUSID APIs](../../../api/swagger), which allows authorised clients to query and update their data within the LUSID platform.  SDKs to interact with the LUSID APIs are available in the following languages and frameworks:  * [C#](https://github.com/finbourne/lusid-sdk-csharp) * [Java](https://github.com/finbourne/lusid-sdk-java) * [JavaScript](https://github.com/finbourne/lusid-sdk-js) * [Python](https://github.com/finbourne/lusid-sdk-python) * [Angular](https://github.com/finbourne/lusid-sdk-angular)  The LUSID platform is made up of a number of sub-applications. You can find the API / swagger documentation by following the links in the table below.   | Application   | Description                                                                       | API / Swagger Documentation                          | |- -- -- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --|- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -| | LUSID         | Open, API-first, developer-friendly investment data platform.                     | [Swagger](../../../api/swagger/index.html)           | | Web app       | User-facing front end for LUSID.                                                  | [Swagger](../../../app/swagger/index.html)           | | Scheduler     | Automated job scheduler.                                                          | [Swagger](../../../scheduler2/swagger/index.html)    | | Insights      | Monitoring and troubleshooting service.                                           | [Swagger](../../../insights/swagger/index.html)      | | Identity      | Identity management for LUSID (in conjunction with Access)                        | [Swagger](../../../identity/swagger/index.html)      | | Access        | Access control for LUSID (in conjunction with Identity)                           | [Swagger](../../../access/swagger/index.html)        | | Drive         | Secure file repository and manager for collaboration.                             | [Swagger](../../../drive/swagger/index.html)         | | Luminesce     | Data virtualisation service (query data from multiple providers, including LUSID) | [Swagger](../../../honeycomb/swagger/index.html)     | | Notification  | Notification service.                                                             | [Swagger](../../../notifications/swagger/index.html) | | Configuration | File store for secrets and other sensitive information.                           | [Swagger](../../../configuration/swagger/index.html) |   # Error Codes  | Code|Name|Description | | - --|- --|- -- | | <a name=\"-10\">-10</a>|Server Configuration Error|  | | <a name=\"-1\">-1</a>|Unknown error|An unexpected error was encountered on our side. | | <a name=\"102\">102</a>|Version Not Found|  | | <a name=\"103\">103</a>|Api Rate Limit Violation|  | | <a name=\"104\">104</a>|Instrument Not Found|  | | <a name=\"105\">105</a>|Property Not Found|  | | <a name=\"106\">106</a>|Portfolio Recursion Depth|  | | <a name=\"108\">108</a>|Group Not Found|  | | <a name=\"109\">109</a>|Portfolio Not Found|  | | <a name=\"110\">110</a>|Property Schema Not Found|  | | <a name=\"111\">111</a>|Portfolio Ancestry Not Found|  | | <a name=\"112\">112</a>|Portfolio With Id Already Exists|  | | <a name=\"113\">113</a>|Orphaned Portfolio|  | | <a name=\"119\">119</a>|Missing Base Claims|  | | <a name=\"121\">121</a>|Property Not Defined|  | | <a name=\"122\">122</a>|Cannot Delete System Property|  | | <a name=\"123\">123</a>|Cannot Modify Immutable Property Field|  | | <a name=\"124\">124</a>|Property Already Exists|  | | <a name=\"125\">125</a>|Invalid Property Life Time|  | | <a name=\"126\">126</a>|Property Constraint Style Excludes Properties|  | | <a name=\"127\">127</a>|Cannot Modify Default Data Type|  | | <a name=\"128\">128</a>|Group Already Exists|  | | <a name=\"129\">129</a>|No Such Data Type|  | | <a name=\"130\">130</a>|Undefined Value For Data Type|  | | <a name=\"131\">131</a>|Unsupported Value Type Defined On Data Type|  | | <a name=\"132\">132</a>|Validation Error|  | | <a name=\"133\">133</a>|Loop Detected In Group Hierarchy|  | | <a name=\"134\">134</a>|Undefined Acceptable Values|  | | <a name=\"135\">135</a>|Sub Group Already Exists|  | | <a name=\"138\">138</a>|Price Source Not Found|  | | <a name=\"139\">139</a>|Analytic Store Not Found|  | | <a name=\"141\">141</a>|Analytic Store Already Exists|  | | <a name=\"143\">143</a>|Client Instrument Already Exists|  | | <a name=\"144\">144</a>|Duplicate In Parameter Set|  | | <a name=\"147\">147</a>|Results Not Found|  | | <a name=\"148\">148</a>|Order Field Not In Result Set|  | | <a name=\"149\">149</a>|Operation Failed|  | | <a name=\"150\">150</a>|Elastic Search Error|  | | <a name=\"151\">151</a>|Invalid Parameter Value|  | | <a name=\"153\">153</a>|Command Processing Failure|  | | <a name=\"154\">154</a>|Entity State Construction Failure|  | | <a name=\"155\">155</a>|Entity Timeline Does Not Exist|  | | <a name=\"156\">156</a>|Concurrency Conflict Failure|  | | <a name=\"157\">157</a>|Invalid Request|  | | <a name=\"158\">158</a>|Event Publish Unknown|  | | <a name=\"159\">159</a>|Event Query Failure|  | | <a name=\"160\">160</a>|Blob Did Not Exist|  | | <a name=\"162\">162</a>|Sub System Request Failure|  | | <a name=\"163\">163</a>|Sub System Configuration Failure|  | | <a name=\"165\">165</a>|Failed To Delete|  | | <a name=\"166\">166</a>|Upsert Client Instrument Failure|  | | <a name=\"167\">167</a>|Illegal As At Interval|  | | <a name=\"168\">168</a>|Illegal Bitemporal Query|  | | <a name=\"169\">169</a>|Invalid Alternate Id|  | | <a name=\"170\">170</a>|Cannot Add Source Portfolio Property Explicitly|  | | <a name=\"171\">171</a>|Entity Already Exists In Group|  | | <a name=\"173\">173</a>|Entity With Id Already Exists|  | | <a name=\"174\">174</a>|Derived Portfolio Details Do Not Exist|  | | <a name=\"175\">175</a>|Entity Not In Group|  | | <a name=\"176\">176</a>|Portfolio With Name Already Exists|  | | <a name=\"177\">177</a>|Invalid Transactions|  | | <a name=\"178\">178</a>|Reference Portfolio Not Found|  | | <a name=\"179\">179</a>|Duplicate Id|  | | <a name=\"180\">180</a>|Command Retrieval Failure|  | | <a name=\"181\">181</a>|Data Filter Application Failure|  | | <a name=\"182\">182</a>|Search Failed|  | | <a name=\"183\">183</a>|Movements Engine Configuration Key Failure|  | | <a name=\"184\">184</a>|Fx Rate Source Not Found|  | | <a name=\"185\">185</a>|Accrual Source Not Found|  | | <a name=\"186\">186</a>|Access Denied|  | | <a name=\"187\">187</a>|Invalid Identity Token|  | | <a name=\"188\">188</a>|Invalid Request Headers|  | | <a name=\"189\">189</a>|Price Not Found|  | | <a name=\"190\">190</a>|Invalid Sub Holding Keys Provided|  | | <a name=\"191\">191</a>|Duplicate Sub Holding Keys Provided|  | | <a name=\"192\">192</a>|Cut Definition Not Found|  | | <a name=\"193\">193</a>|Cut Definition Invalid|  | | <a name=\"194\">194</a>|Time Variant Property Deletion Date Unspecified|  | | <a name=\"195\">195</a>|Perpetual Property Deletion Date Specified|  | | <a name=\"196\">196</a>|Time Variant Property Upsert Date Unspecified|  | | <a name=\"197\">197</a>|Perpetual Property Upsert Date Specified|  | | <a name=\"200\">200</a>|Invalid Unit For Data Type|  | | <a name=\"201\">201</a>|Invalid Type For Data Type|  | | <a name=\"202\">202</a>|Invalid Value For Data Type|  | | <a name=\"203\">203</a>|Unit Not Defined For Data Type|  | | <a name=\"204\">204</a>|Units Not Supported On Data Type|  | | <a name=\"205\">205</a>|Cannot Specify Units On Data Type|  | | <a name=\"206\">206</a>|Unit Schema Inconsistent With Data Type|  | | <a name=\"207\">207</a>|Unit Definition Not Specified|  | | <a name=\"208\">208</a>|Duplicate Unit Definitions Specified|  | | <a name=\"209\">209</a>|Invalid Units Definition|  | | <a name=\"210\">210</a>|Invalid Instrument Identifier Unit|  | | <a name=\"211\">211</a>|Holdings Adjustment Does Not Exist|  | | <a name=\"212\">212</a>|Could Not Build Excel Url|  | | <a name=\"213\">213</a>|Could Not Get Excel Version|  | | <a name=\"214\">214</a>|Instrument By Code Not Found|  | | <a name=\"215\">215</a>|Entity Schema Does Not Exist|  | | <a name=\"216\">216</a>|Feature Not Supported On Portfolio Type|  | | <a name=\"217\">217</a>|Quote Not Found|  | | <a name=\"218\">218</a>|Invalid Quote Identifier|  | | <a name=\"219\">219</a>|Invalid Metric For Data Type|  | | <a name=\"220\">220</a>|Invalid Instrument Definition|  | | <a name=\"221\">221</a>|Instrument Upsert Failure|  | | <a name=\"222\">222</a>|Reference Portfolio Request Not Supported|  | | <a name=\"223\">223</a>|Transaction Portfolio Request Not Supported|  | | <a name=\"224\">224</a>|Invalid Property Value Assignment|  | | <a name=\"230\">230</a>|Transaction Type Not Found|  | | <a name=\"231\">231</a>|Transaction Type Duplication|  | | <a name=\"232\">232</a>|Portfolio Does Not Exist At Given Date|  | | <a name=\"233\">233</a>|Query Parser Failure|  | | <a name=\"234\">234</a>|Duplicate Constituent|  | | <a name=\"235\">235</a>|Unresolved Instrument Constituent|  | | <a name=\"236\">236</a>|Unresolved Instrument In Transition|  | | <a name=\"237\">237</a>|Missing Side Definitions|  | | <a name=\"299\">299</a>|Invalid Recipe|  | | <a name=\"300\">300</a>|Missing Recipe|  | | <a name=\"301\">301</a>|Dependencies|  | | <a name=\"304\">304</a>|Portfolio Preprocess Failure|  | | <a name=\"310\">310</a>|Valuation Engine Failure|  | | <a name=\"311\">311</a>|Task Factory Failure|  | | <a name=\"312\">312</a>|Task Evaluation Failure|  | | <a name=\"313\">313</a>|Task Generation Failure|  | | <a name=\"314\">314</a>|Engine Configuration Failure|  | | <a name=\"315\">315</a>|Model Specification Failure|  | | <a name=\"320\">320</a>|Market Data Key Failure|  | | <a name=\"321\">321</a>|Market Resolver Failure|  | | <a name=\"322\">322</a>|Market Data Failure|  | | <a name=\"330\">330</a>|Curve Failure|  | | <a name=\"331\">331</a>|Volatility Surface Failure|  | | <a name=\"332\">332</a>|Volatility Cube Failure|  | | <a name=\"350\">350</a>|Instrument Failure|  | | <a name=\"351\">351</a>|Cash Flows Failure|  | | <a name=\"352\">352</a>|Reference Data Failure|  | | <a name=\"360\">360</a>|Aggregation Failure|  | | <a name=\"361\">361</a>|Aggregation Measure Failure|  | | <a name=\"370\">370</a>|Result Retrieval Failure|  | | <a name=\"371\">371</a>|Result Processing Failure|  | | <a name=\"372\">372</a>|Vendor Result Processing Failure|  | | <a name=\"373\">373</a>|Vendor Result Mapping Failure|  | | <a name=\"374\">374</a>|Vendor Library Unauthorised|  | | <a name=\"375\">375</a>|Vendor Connectivity Error|  | | <a name=\"376\">376</a>|Vendor Interface Error|  | | <a name=\"377\">377</a>|Vendor Pricing Failure|  | | <a name=\"378\">378</a>|Vendor Translation Failure|  | | <a name=\"379\">379</a>|Vendor Key Mapping Failure|  | | <a name=\"380\">380</a>|Vendor Reflection Failure|  | | <a name=\"381\">381</a>|Vendor Process Failure|  | | <a name=\"382\">382</a>|Vendor System Failure|  | | <a name=\"390\">390</a>|Attempt To Upsert Duplicate Quotes|  | | <a name=\"391\">391</a>|Corporate Action Source Does Not Exist|  | | <a name=\"392\">392</a>|Corporate Action Source Already Exists|  | | <a name=\"393\">393</a>|Instrument Identifier Already In Use|  | | <a name=\"394\">394</a>|Properties Not Found|  | | <a name=\"395\">395</a>|Batch Operation Aborted|  | | <a name=\"400\">400</a>|Invalid Iso4217 Currency Code|  | | <a name=\"401\">401</a>|Cannot Assign Instrument Identifier To Currency|  | | <a name=\"402\">402</a>|Cannot Assign Currency Identifier To Non Currency|  | | <a name=\"403\">403</a>|Currency Instrument Cannot Be Deleted|  | | <a name=\"404\">404</a>|Currency Instrument Cannot Have Economic Definition|  | | <a name=\"405\">405</a>|Currency Instrument Cannot Have Lookthrough Portfolio|  | | <a name=\"406\">406</a>|Cannot Create Currency Instrument With Multiple Identifiers|  | | <a name=\"407\">407</a>|Specified Currency Is Undefined|  | | <a name=\"410\">410</a>|Index Does Not Exist|  | | <a name=\"411\">411</a>|Sort Field Does Not Exist|  | | <a name=\"413\">413</a>|Negative Pagination Parameters|  | | <a name=\"414\">414</a>|Invalid Search Syntax|  | | <a name=\"415\">415</a>|Filter Execution Timeout|  | | <a name=\"420\">420</a>|Side Definition Inconsistent|  | | <a name=\"450\">450</a>|Invalid Quote Access Metadata Rule|  | | <a name=\"451\">451</a>|Access Metadata Not Found|  | | <a name=\"452\">452</a>|Invalid Access Metadata Identifier|  | | <a name=\"460\">460</a>|Standard Resource Not Found|  | | <a name=\"461\">461</a>|Standard Resource Conflict|  | | <a name=\"462\">462</a>|Calendar Not Found|  | | <a name=\"463\">463</a>|Date In A Calendar Not Found|  | | <a name=\"464\">464</a>|Invalid Date Source Data|  | | <a name=\"465\">465</a>|Invalid Timezone|  | | <a name=\"601\">601</a>|Person Identifier Already In Use|  | | <a name=\"602\">602</a>|Person Not Found|  | | <a name=\"603\">603</a>|Cannot Set Identifier|  | | <a name=\"617\">617</a>|Invalid Recipe Specification In Request|  | | <a name=\"618\">618</a>|Inline Recipe Deserialisation Failure|  | | <a name=\"619\">619</a>|Identifier Types Not Set For Entity|  | | <a name=\"620\">620</a>|Cannot Delete All Client Defined Identifiers|  | | <a name=\"650\">650</a>|The Order requested was not found.|  | | <a name=\"654\">654</a>|The Allocation requested was not found.|  | | <a name=\"655\">655</a>|Cannot build the fx forward target with the given holdings.|  | | <a name=\"656\">656</a>|Group does not contain expected entities.|  | | <a name=\"665\">665</a>|Destination directory not found|  | | <a name=\"667\">667</a>|Relation definition already exists|  | | <a name=\"672\">672</a>|Could not retrieve file contents|  | | <a name=\"673\">673</a>|Missing entitlements for entities in Group|  | | <a name=\"674\">674</a>|Next Best Action not found|  | | <a name=\"676\">676</a>|Relation definition not defined|  | | <a name=\"677\">677</a>|Invalid entity identifier for relation|  | | <a name=\"681\">681</a>|Sorting by specified field not supported|One or more of the provided fields to order by were either invalid or not supported. | | <a name=\"682\">682</a>|Too many fields to sort by|The number of fields to sort the data by exceeds the number allowed by the endpoint | | <a name=\"684\">684</a>|Sequence Not Found|  | | <a name=\"685\">685</a>|Sequence Already Exists|  | | <a name=\"686\">686</a>|Non-cycling sequence has been exhausted|  | | <a name=\"687\">687</a>|Legal Entity Identifier Already In Use|  | | <a name=\"688\">688</a>|Legal Entity Not Found|  | | <a name=\"689\">689</a>|The supplied pagination token is invalid|  | | <a name=\"690\">690</a>|Property Type Is Not Supported|  | | <a name=\"691\">691</a>|Multiple Tax-lots For Currency Type Is Not Supported|  | | <a name=\"692\">692</a>|This endpoint does not support impersonation|  | | <a name=\"693\">693</a>|Entity type is not supported for Relationship|  | | <a name=\"694\">694</a>|Relationship Validation Failure|  | | <a name=\"695\">695</a>|Relationship Not Found|  | | <a name=\"697\">697</a>|Derived Property Formula No Longer Valid|  | | <a name=\"698\">698</a>|Story is not available|  | | <a name=\"703\">703</a>|Corporate Action Does Not Exist|  | | <a name=\"720\">720</a>|The provided sort and filter combination is not valid|  | | <a name=\"721\">721</a>|A2B generation failed|  | | <a name=\"722\">722</a>|Aggregated Return Calculation Failure|  | | <a name=\"723\">723</a>|Custom Entity Definition Identifier Already In Use|  | | <a name=\"724\">724</a>|Custom Entity Definition Not Found|  | | <a name=\"725\">725</a>|The Placement requested was not found.|  | | <a name=\"726\">726</a>|The Execution requested was not found.|  | | <a name=\"727\">727</a>|The Block requested was not found.|  | | <a name=\"728\">728</a>|The Participation requested was not found.|  | | <a name=\"729\">729</a>|The Package requested was not found.|  | | <a name=\"730\">730</a>|The OrderInstruction requested was not found.|  | | <a name=\"732\">732</a>|Custom Entity not found.|  | | <a name=\"733\">733</a>|Custom Entity Identifier already in use.|  | | <a name=\"735\">735</a>|Calculation Failed.|  | | <a name=\"736\">736</a>|An expected key on HttpResponse is missing.|  | | <a name=\"737\">737</a>|A required fee detail is missing.|  | | <a name=\"738\">738</a>|Zero rows were returned from Luminesce|  | | <a name=\"739\">739</a>|Provided Weekend Mask was invalid|  | | <a name=\"742\">742</a>|Custom Entity fields do not match the definition|  | | <a name=\"746\">746</a>|The provided sequence is not valid.|  | | <a name=\"751\">751</a>|The type of the Custom Entity is different than the type provided in the definition.|  | | <a name=\"752\">752</a>|Luminesce process returned an error.|  | | <a name=\"753\">753</a>|File name or content incompatible with operation.|  | | <a name=\"755\">755</a>|Schema of response from Drive is not as expected.|  | | <a name=\"757\">757</a>|Schema of response from Luminesce is not as expected.|  | | <a name=\"758\">758</a>|Luminesce timed out.|  | | <a name=\"763\">763</a>|Invalid Lusid Entity Identifier Unit|  | | <a name=\"768\">768</a>|Fee rule not found.|  | | <a name=\"769\">769</a>|Cannot update the base currency of a portfolio with transactions loaded|  | | <a name=\"771\">771</a>|Transaction configuration source not found|  | | <a name=\"774\">774</a>|Compliance rule not found.|  | | <a name=\"775\">775</a>|Fund accounting document cannot be processed.|  | | <a name=\"778\">778</a>|Unable to look up FX rate from trade ccy to portfolio ccy for some of the trades.|  | | <a name=\"782\">782</a>|The Property definition dataType is not matching the derivation formula dataType|  | | <a name=\"783\">783</a>|The Property definition domain is not supported for derived properties|  | | <a name=\"788\">788</a>|Compliance run not found failure.|  | | <a name=\"790\">790</a>|Custom Entity has missing or invalid identifiers|  | | <a name=\"791\">791</a>|Custom Entity definition already exists|  | | <a name=\"792\">792</a>|Compliance PropertyKey is missing.|  | | <a name=\"793\">793</a>|Compliance Criteria Value for matching is missing.|  | | <a name=\"795\">795</a>|Cannot delete identifier definition|  | | <a name=\"796\">796</a>|Tax rule set not found.|  | | <a name=\"797\">797</a>|A tax rule set with this id already exists.|  | | <a name=\"798\">798</a>|Multiple rule sets for the same property key are applicable.|  | | <a name=\"800\">800</a>|Can not upsert an instrument event of this type.|  | | <a name=\"801\">801</a>|The instrument event does not exist.|  | | <a name=\"802\">802</a>|The Instrument event is missing salient information.|  | | <a name=\"803\">803</a>|The Instrument event could not be processed.|  | | <a name=\"804\">804</a>|Some data requested does not follow the order graph assumptions.|  | | <a name=\"811\">811</a>|A price could not be found for an order.|  | | <a name=\"812\">812</a>|A price could not be found for an allocation.|  | | <a name=\"813\">813</a>|Chart of Accounts not found.|  | | <a name=\"814\">814</a>|Account not found.|  | | <a name=\"815\">815</a>|Abor not found.|  | | <a name=\"816\">816</a>|Abor Configuration not found.|  | | <a name=\"817\">817</a>|Reconciliation mapping not found|  | | <a name=\"818\">818</a>|Attribute type could not be deleted because it doesn't exist.|  | | <a name=\"819\">819</a>|Reconciliation not found.|  | | <a name=\"820\">820</a>|Custodian Account not found.|  | | <a name=\"821\">821</a>|Allocation Failure|  | | <a name=\"822\">822</a>|Reconciliation run not found|  | | <a name=\"823\">823</a>|Reconciliation break not found|  | | <a name=\"824\">824</a>|Entity link type could not be deleted because it doesn't exist.|  | | <a name=\"828\">828</a>|Address key definition not found.|  | | <a name=\"829\">829</a>|Compliance template not found.|  | | <a name=\"830\">830</a>|Action not supported|  | | <a name=\"831\">831</a>|Reference list not found.|  | | <a name=\"832\">832</a>|Posting Module not found.|  | | <a name=\"833\">833</a>|The type of parameter provided did not match that required by the compliance rule.|  | | <a name=\"834\">834</a>|The parameters provided by a rule did not match those required by its template.|  | | <a name=\"835\">835</a>|PostingModuleRule has a not allowed Property Domain.|  | 
- *
- * The version of the OpenAPI document: 1.0.284
  * Contact: info@finbourne.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
-
 
 using System;
 using System.Collections.Generic;
@@ -16,6 +12,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Lusid.Sdk.Client;
+using Lusid.Sdk.Client.Auth;
 using Lusid.Sdk.Model;
 
 namespace Lusid.Sdk.Api
@@ -28,6 +25,35 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>BatchUpsertInstrumentPropertiesResponse</returns>
+        BatchUpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
+        ApiResponse<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesWithHttpInfo(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
@@ -37,8 +63,9 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteInstrumentResponse</returns>
-        DeleteInstrumentResponse DeleteInstrument(string identifierType, string identifier, string scope = default(string));
+        DeleteInstrumentResponse DeleteInstrument(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
@@ -50,8 +77,9 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteInstrumentResponse</returns>
-        ApiResponse<DeleteInstrumentResponse> DeleteInstrumentWithHttpInfo(string identifierType, string identifier, string scope = default(string));
+        ApiResponse<DeleteInstrumentResponse> DeleteInstrumentWithHttpInfo(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
@@ -64,8 +92,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteInstrumentPropertiesResponse</returns>
-        DeleteInstrumentPropertiesResponse DeleteInstrumentProperties(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string));
+        DeleteInstrumentPropertiesResponse DeleteInstrumentProperties(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
@@ -79,8 +108,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteInstrumentPropertiesResponse</returns>
-        ApiResponse<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string));
+        ApiResponse<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
@@ -91,8 +121,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteInstrumentsResponse</returns>
-        DeleteInstrumentsResponse DeleteInstruments(List<string> requestBody, string deleteMode = default(string), string scope = default(string));
+        DeleteInstrumentsResponse DeleteInstruments(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
@@ -104,8 +135,67 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteInstrumentsResponse</returns>
-        ApiResponse<DeleteInstrumentsResponse> DeleteInstrumentsWithHttpInfo(List<string> requestBody, string deleteMode = default(string), string scope = default(string));
+        ApiResponse<DeleteInstrumentsResponse> DeleteInstrumentsWithHttpInfo(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// </summary>
+        /// <remarks>
+        /// Provides all possible instrument features an instrument of a given type can provide.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
+        Dictionary<string, List<string>> GetAllPossibleFeatures(string instrumentType, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// </summary>
+        /// <remarks>
+        /// Provides all possible instrument features an instrument of a given type can provide.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
+        ApiResponse<Dictionary<string, List<string>>> GetAllPossibleFeaturesWithHttpInfo(string instrumentType, int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentCapabilities</returns>
+        InstrumentCapabilities GetExistingInstrumentCapabilities(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentCapabilities</returns>
+        ApiResponse<InstrumentCapabilities> GetExistingInstrumentCapabilitiesWithHttpInfo(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0);
         /// <summary>
         /// GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
         /// </summary>
@@ -119,8 +209,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstrumentModels</returns>
-        InstrumentModels GetExistingInstrumentModels(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string));
+        InstrumentModels GetExistingInstrumentModels(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
@@ -135,8 +226,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstrumentModels</returns>
-        ApiResponse<InstrumentModels> GetExistingInstrumentModelsWithHttpInfo(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string));
+        ApiResponse<InstrumentModels> GetExistingInstrumentModelsWithHttpInfo(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0);
         /// <summary>
         /// GetInstrument: Get instrument
         /// </summary>
@@ -151,8 +243,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Instrument</returns>
-        Instrument GetInstrument(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>));
+        Instrument GetInstrument(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// GetInstrument: Get instrument
@@ -168,8 +261,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Instrument</returns>
-        ApiResponse<Instrument> GetInstrumentWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>));
+        ApiResponse<Instrument> GetInstrumentWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
         /// </summary>
@@ -177,8 +271,9 @@ namespace Lusid.Sdk.Api
         /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfInstrumentIdTypeDescriptor</returns>
-        ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes();
+        ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes(int operationIndex = 0);
 
         /// <summary>
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
@@ -187,8 +282,44 @@ namespace Lusid.Sdk.Api
         /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentIdTypeDescriptor</returns>
-        ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesWithHttpInfo();
+        ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesWithHttpInfo(int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// </summary>
+        /// <remarks>
+        /// Get the payment diary of a single instrument.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentPaymentDiary</returns>
+        InstrumentPaymentDiary GetInstrumentPaymentDiary(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// </summary>
+        /// <remarks>
+        /// Get the payment diary of a single instrument.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentPaymentDiary</returns>
+        ApiResponse<InstrumentPaymentDiary> GetInstrumentPaymentDiaryWithHttpInfo(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
         /// </summary>
@@ -201,8 +332,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstrumentProperties</returns>
-        InstrumentProperties GetInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string));
+        InstrumentProperties GetInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
@@ -216,8 +348,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstrumentProperties</returns>
-        ApiResponse<InstrumentProperties> GetInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string));
+        ApiResponse<InstrumentProperties> GetInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
         /// </summary>
@@ -234,8 +367,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfPropertyInterval</returns>
-        ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string));
+        ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
@@ -253,8 +387,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyInterval</returns>
-        ApiResponse<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesWithHttpInfo(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string));
+        ApiResponse<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesWithHttpInfo(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
         /// </summary>
@@ -269,8 +404,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfRelationship</returns>
-        ResourceListOfRelationship GetInstrumentRelationships(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string));
+        ResourceListOfRelationship GetInstrumentRelationships(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
@@ -286,8 +422,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
-        ApiResponse<ResourceListOfRelationship> GetInstrumentRelationshipsWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string));
+        ApiResponse<ResourceListOfRelationship> GetInstrumentRelationshipsWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// GetInstruments: Get instruments
         /// </summary>
@@ -302,8 +439,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetInstrumentsResponse</returns>
-        GetInstrumentsResponse GetInstruments(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>));
+        GetInstrumentsResponse GetInstruments(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// GetInstruments: Get instruments
@@ -319,8 +457,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
-        ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>));
+        ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
         /// </summary>
@@ -335,8 +474,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfProperty</returns>
-        ResourceListOfProperty ListInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string));
+        ResourceListOfProperty ListInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
@@ -352,8 +492,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfProperty</returns>
-        ApiResponse<ResourceListOfProperty> ListInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string));
+        ApiResponse<ResourceListOfProperty> ListInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// ListInstruments: List instruments
         /// </summary>
@@ -371,8 +512,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfInstrument</returns>
-        PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>));
+        PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// ListInstruments: List instruments
@@ -391,8 +533,34 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
-        ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>));
+        ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentCapabilities</returns>
+        InstrumentCapabilities QueryInstrumentCapabilities(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentCapabilities</returns>
+        ApiResponse<InstrumentCapabilities> QueryInstrumentCapabilitiesWithHttpInfo(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0);
         /// <summary>
         /// UpdateInstrumentIdentifier: Update instrument identifier
         /// </summary>
@@ -404,8 +572,9 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Instrument</returns>
-        Instrument UpdateInstrumentIdentifier(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string));
+        Instrument UpdateInstrumentIdentifier(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// UpdateInstrumentIdentifier: Update instrument identifier
@@ -418,8 +587,9 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Instrument</returns>
-        ApiResponse<Instrument> UpdateInstrumentIdentifierWithHttpInfo(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string));
+        ApiResponse<Instrument> UpdateInstrumentIdentifierWithHttpInfo(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// UpsertInstruments: Upsert instruments
         /// </summary>
@@ -429,8 +599,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpsertInstrumentsResponse</returns>
-        UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string));
+        UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// UpsertInstruments: Upsert instruments
@@ -441,8 +612,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpsertInstrumentsResponse</returns>
-        ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string));
+        ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
@@ -452,8 +624,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpsertInstrumentPropertiesResponse</returns>
-        UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string));
+        UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// UpsertInstrumentsProperties: Upsert instruments properties
@@ -464,8 +637,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpsertInstrumentPropertiesResponse</returns>
-        ApiResponse<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesWithHttpInfo(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string));
+        ApiResponse<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesWithHttpInfo(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -476,6 +650,37 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatchUpsertInstrumentPropertiesResponse</returns>
+        System.Threading.Tasks.Task<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties
+        /// </summary>
+        /// <remarks>
+        /// Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatchUpsertInstrumentPropertiesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchUpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpInfoAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
@@ -485,9 +690,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteInstrumentResponse</returns>
-        System.Threading.Tasks.Task<DeleteInstrumentResponse> DeleteInstrumentAsync(string identifierType, string identifier, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeleteInstrumentResponse> DeleteInstrumentAsync(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
@@ -499,9 +705,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteInstrumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpInfoAsync(string identifierType, string identifier, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpInfoAsync(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
         /// </summary>
@@ -514,9 +721,10 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteInstrumentPropertiesResponse</returns>
-        System.Threading.Tasks.Task<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstrumentProperties: Delete instrument properties
@@ -530,9 +738,10 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteInstrumentPropertiesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentPropertiesResponse>> DeleteInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentPropertiesResponse>> DeleteInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
@@ -543,9 +752,10 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteInstrumentsResponse</returns>
-        System.Threading.Tasks.Task<DeleteInstrumentsResponse> DeleteInstrumentsAsync(List<string> requestBody, string deleteMode = default(string), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeleteInstrumentsResponse> DeleteInstrumentsAsync(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
@@ -557,9 +767,72 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteInstrumentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentsResponse>> DeleteInstrumentsWithHttpInfoAsync(List<string> requestBody, string deleteMode = default(string), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentsResponse>> DeleteInstrumentsWithHttpInfoAsync(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// </summary>
+        /// <remarks>
+        /// Provides all possible instrument features an instrument of a given type can provide.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, List<string>>> GetAllPossibleFeaturesAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type.
+        /// </summary>
+        /// <remarks>
+        /// Provides all possible instrument features an instrument of a given type can provide.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;string&gt;&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, List<string>>>> GetAllPossibleFeaturesWithHttpInfoAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentCapabilities</returns>
+        System.Threading.Tasks.Task<InstrumentCapabilities> GetExistingInstrumentCapabilitiesAsync(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentCapabilities)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstrumentCapabilities>> GetExistingInstrumentCapabilitiesWithHttpInfoAsync(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
         /// </summary>
@@ -573,9 +846,10 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstrumentModels</returns>
-        System.Threading.Tasks.Task<InstrumentModels> GetExistingInstrumentModelsAsync(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InstrumentModels> GetExistingInstrumentModelsAsync(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetExistingInstrumentModels: Retrieve supported pricing models for an existing instrument identified by LUID.
@@ -590,9 +864,10 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstrumentModels)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstrumentModels>> GetExistingInstrumentModelsWithHttpInfoAsync(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InstrumentModels>> GetExistingInstrumentModelsWithHttpInfoAsync(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetInstrument: Get instrument
         /// </summary>
@@ -607,9 +882,10 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instrument</returns>
-        System.Threading.Tasks.Task<Instrument> GetInstrumentAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Instrument> GetInstrumentAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetInstrument: Get instrument
@@ -625,9 +901,10 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instrument)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Instrument>> GetInstrumentWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Instrument>> GetInstrumentWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
         /// </summary>
@@ -635,9 +912,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfInstrumentIdTypeDescriptor</returns>
-        System.Threading.Tasks.Task<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetInstrumentIdentifierTypes: Get instrument identifier types
@@ -646,9 +924,47 @@ namespace Lusid.Sdk.Api
         /// Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentIdTypeDescriptor)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentIdTypeDescriptor>> GetInstrumentIdentifierTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfInstrumentIdTypeDescriptor>> GetInstrumentIdentifierTypesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// </summary>
+        /// <remarks>
+        /// Get the payment diary of a single instrument.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentPaymentDiary</returns>
+        System.Threading.Tasks.Task<InstrumentPaymentDiary> GetInstrumentPaymentDiaryAsync(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary
+        /// </summary>
+        /// <remarks>
+        /// Get the payment diary of a single instrument.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentPaymentDiary)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstrumentPaymentDiary>> GetInstrumentPaymentDiaryWithHttpInfoAsync(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
         /// </summary>
@@ -661,9 +977,10 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstrumentProperties</returns>
-        System.Threading.Tasks.Task<InstrumentProperties> GetInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InstrumentProperties> GetInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentProperties: Get instrument properties
@@ -677,9 +994,10 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstrumentProperties)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstrumentProperties>> GetInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InstrumentProperties>> GetInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
         /// </summary>
@@ -696,9 +1014,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfPropertyInterval</returns>
-        System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesAsync(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesAsync(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
@@ -716,9 +1035,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPropertyInterval)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyInterval>> GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyInterval>> GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
         /// </summary>
@@ -733,9 +1053,10 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfRelationship</returns>
-        System.Threading.Tasks.Task<ResourceListOfRelationship> GetInstrumentRelationshipsAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfRelationship> GetInstrumentRelationshipsAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] GetInstrumentRelationships: Get Instrument relationships
@@ -751,9 +1072,10 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfRelationship)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelationship>> GetInstrumentRelationshipsWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelationship>> GetInstrumentRelationshipsWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetInstruments: Get instruments
         /// </summary>
@@ -768,9 +1090,10 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetInstrumentsResponse</returns>
-        System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetInstruments: Get instruments
@@ -786,9 +1109,10 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetInstrumentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpInfoAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpInfoAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
         /// </summary>
@@ -803,9 +1127,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfProperty</returns>
-        System.Threading.Tasks.Task<ResourceListOfProperty> ListInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfProperty> ListInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] ListInstrumentProperties: Get instrument properties (with Pagination)
@@ -821,9 +1146,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfProperty)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfProperty>> ListInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfProperty>> ListInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// ListInstruments: List instruments
         /// </summary>
@@ -841,9 +1167,10 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfInstrument</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// ListInstruments: List instruments
@@ -862,9 +1189,37 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrument)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentCapabilities</returns>
+        System.Threading.Tasks.Task<InstrumentCapabilities> QueryInstrumentCapabilitiesAsync(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.
+        /// </summary>
+        /// <remarks>
+        /// Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentCapabilities)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstrumentCapabilities>> QueryInstrumentCapabilitiesWithHttpInfoAsync(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// UpdateInstrumentIdentifier: Update instrument identifier
         /// </summary>
@@ -876,9 +1231,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instrument</returns>
-        System.Threading.Tasks.Task<Instrument> UpdateInstrumentIdentifierAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Instrument> UpdateInstrumentIdentifierAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// UpdateInstrumentIdentifier: Update instrument identifier
@@ -891,9 +1247,10 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instrument)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Instrument>> UpdateInstrumentIdentifierWithHttpInfoAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Instrument>> UpdateInstrumentIdentifierWithHttpInfoAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// UpsertInstruments: Upsert instruments
         /// </summary>
@@ -903,9 +1260,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertInstrumentsResponse</returns>
-        System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// UpsertInstruments: Upsert instruments
@@ -916,9 +1274,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// UpsertInstrumentsProperties: Upsert instruments properties
         /// </summary>
@@ -928,9 +1287,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertInstrumentPropertiesResponse</returns>
-        System.Threading.Tasks.Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// UpsertInstrumentsProperties: Upsert instruments properties
@@ -941,9 +1301,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentPropertiesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpInfoAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpInfoAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -974,7 +1335,7 @@ namespace Lusid.Sdk.Api
         /// Initializes a new instance of the <see cref="InstrumentsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public InstrumentsApi(String basePath)
+        public InstrumentsApi(string basePath)
         {
             this.Configuration = Lusid.Sdk.Client.Configuration.MergeConfigurations(
                 Lusid.Sdk.Client.GlobalConfiguration.Instance,
@@ -1034,7 +1395,7 @@ namespace Lusid.Sdk.Api
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
             return this.Configuration.BasePath;
         }
@@ -1062,80 +1423,224 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
-        /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <returns>DeleteInstrumentResponse</returns>
-        public DeleteInstrumentResponse DeleteInstrument(string identifierType, string identifier, string scope = default(string))
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>BatchUpsertInstrumentPropertiesResponse</returns>
+        public BatchUpsertInstrumentPropertiesResponse BatchUpsertInstrumentProperties(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> localVarResponse = DeleteInstrumentWithHttpInfo(identifierType, identifier, scope);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertInstrumentPropertiesResponse> localVarResponse = BatchUpsertInstrumentPropertiesWithHttpInfo(requestBody, scope, identifierEffectiveAt, successMode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
-        /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <returns>ApiResponse of DeleteInstrumentResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> DeleteInstrumentWithHttpInfo(string identifierType, string identifier, string scope = default(string))
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesWithHttpInfo(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0)
         {
-            // verify the required parameter 'identifierType' is set
-            if (identifierType == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->DeleteInstrument");
-
-            // verify the required parameter 'identifier' is set
-            if (identifier == null)
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->DeleteInstrument");
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->BatchUpsertInstrumentProperties");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
-            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
-            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
             if (scope != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
+            if (identifierEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierEffectiveAt", identifierEffectiveAt));
+            }
+            if (successMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "InstrumentsApi.BatchUpsertInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<BatchUpsertInstrumentPropertiesResponse>("/api/instruments/$batchupsertproperties", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpsertInstrumentProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatchUpsertInstrumentPropertiesResponse</returns>
+        public async System.Threading.Tasks.Task<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertInstrumentPropertiesResponse> localVarResponse = await BatchUpsertInstrumentPropertiesWithHttpInfoAsync(requestBody, scope, identifierEffectiveAt, successMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchUpsertInstrumentProperties: Batch upsert instruments properties Create or update one or more properties for particular instruments.    Each instrument property is updated if it exists and created if it does not. For any failures, a reason  is provided.    Properties have an &lt;i&gt;effectiveFrom&lt;/i&gt; datetime from which the property is valid, and an &lt;i&gt;effectiveUntil&lt;/i&gt;  datetime until which the property is valid. Not supplying an &lt;i&gt;effectiveUntil&lt;/i&gt; datetime results in the property being  valid indefinitely, or until the next &lt;i&gt;effectiveFrom&lt;/i&gt; datetime of the property.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody">A list of instruments and associated instrument properties to create or update.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="identifierEffectiveAt">The effective datetime used to resolve each instrument from the provided identifiers. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (optional, default to &quot;Partial&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatchUpsertInstrumentPropertiesResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpInfoAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->BatchUpsertInstrumentProperties");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+            if (identifierEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierEffectiveAt", identifierEffectiveAt));
+            }
+            if (successMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            }
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "InstrumentsApi.BatchUpsertInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeleteInstrumentResponse>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BatchUpsertInstrumentPropertiesResponse>("/api/instruments/$batchupsertproperties", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("BatchUpsertInstrumentProperties", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1148,11 +1653,11 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of DeleteInstrumentResponse</returns>
-        public async System.Threading.Tasks.Task<DeleteInstrumentResponse> DeleteInstrumentAsync(string identifierType, string identifier, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeleteInstrumentResponse</returns>
+        public DeleteInstrumentResponse DeleteInstrument(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> localVarResponse = await DeleteInstrumentWithHttpInfoAsync(identifierType, identifier, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> localVarResponse = DeleteInstrumentWithHttpInfo(identifierType, identifier, scope);
             return localVarResponse.Data;
         }
 
@@ -1163,37 +1668,45 @@ namespace Lusid.Sdk.Api
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DeleteInstrumentResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpInfoAsync(string identifierType, string identifier, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeleteInstrumentResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> DeleteInstrumentWithHttpInfo(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->DeleteInstrument");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->DeleteInstrument");
-
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -1202,25 +1715,142 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.DeleteInstrument";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeleteInstrumentResponse>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInstrument", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
+        /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeleteInstrumentResponse</returns>
+        public async System.Threading.Tasks.Task<DeleteInstrumentResponse> DeleteInstrumentAsync(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse> localVarResponse = await DeleteInstrumentWithHttpInfoAsync(identifierType, identifier, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
+        /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeleteInstrumentResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentResponse>> DeleteInstrumentWithHttpInfoAsync(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->DeleteInstrument");
+            }
+
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->DeleteInstrument");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.DeleteInstrument";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteInstrumentResponse>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1235,8 +1865,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteInstrumentPropertiesResponse</returns>
-        public DeleteInstrumentPropertiesResponse DeleteInstrumentProperties(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string))
+        public DeleteInstrumentPropertiesResponse DeleteInstrumentProperties(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse> localVarResponse = DeleteInstrumentPropertiesWithHttpInfo(identifierType, identifier, requestBody, effectiveAt, scope);
             return localVarResponse.Data;
@@ -1251,42 +1882,55 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteInstrumentPropertiesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->DeleteInstrumentProperties");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->DeleteInstrumentProperties");
+            }
 
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->DeleteInstrumentProperties");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json",
                 "application/json",
                 "text/json",
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -1300,24 +1944,35 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.DeleteInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<DeleteInstrumentPropertiesResponse>("/api/instruments/{identifierType}/{identifier}/properties/$delete", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteInstrumentProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1332,11 +1987,12 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteInstrumentPropertiesResponse</returns>
-        public async System.Threading.Tasks.Task<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse> localVarResponse = await DeleteInstrumentPropertiesWithHttpInfoAsync(identifierType, identifier, requestBody, effectiveAt, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse> localVarResponse = await DeleteInstrumentPropertiesWithHttpInfoAsync(identifierType, identifier, requestBody, effectiveAt, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1349,45 +2005,57 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">A list of property keys from the &#39;Instruments&#39; domain whose properties to delete.</param>
         /// <param name="effectiveAt">The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#39;effectiveAt&#39; datetime. If the &#39;effectiveAt&#39; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteInstrumentPropertiesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse>> DeleteInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentPropertiesResponse>> DeleteInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->DeleteInstrumentProperties");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->DeleteInstrumentProperties");
+            }
 
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->DeleteInstrumentProperties");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -1401,25 +2069,36 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.DeleteInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<DeleteInstrumentPropertiesResponse>("/api/instruments/{identifierType}/{identifier}/properties/$delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteInstrumentProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1432,8 +2111,9 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeleteInstrumentsResponse</returns>
-        public DeleteInstrumentsResponse DeleteInstruments(List<string> requestBody, string deleteMode = default(string), string scope = default(string))
+        public DeleteInstrumentsResponse DeleteInstruments(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse> localVarResponse = DeleteInstrumentsWithHttpInfo(requestBody, deleteMode, scope);
             return localVarResponse.Data;
@@ -1446,34 +2126,43 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeleteInstrumentsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse> DeleteInstrumentsWithHttpInfo(List<string> requestBody, string deleteMode = default(string), string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse> DeleteInstrumentsWithHttpInfo(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->DeleteInstruments");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json",
                 "application/json",
                 "text/json",
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (deleteMode != null)
             {
@@ -1485,24 +2174,35 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.DeleteInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<DeleteInstrumentsResponse>("/api/instruments/$delete", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1515,11 +2215,12 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeleteInstrumentsResponse</returns>
-        public async System.Threading.Tasks.Task<DeleteInstrumentsResponse> DeleteInstrumentsAsync(List<string> requestBody, string deleteMode = default(string), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeleteInstrumentsResponse> DeleteInstrumentsAsync(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse> localVarResponse = await DeleteInstrumentsWithHttpInfoAsync(requestBody, deleteMode, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse> localVarResponse = await DeleteInstrumentsWithHttpInfoAsync(requestBody, deleteMode, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1530,37 +2231,45 @@ namespace Lusid.Sdk.Api
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
         /// <param name="deleteMode">The delete mode to use (defaults to &#39;Soft&#39;). (optional)</param>
         /// <param name="scope">The scope in which the instruments lie. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeleteInstrumentsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse>> DeleteInstrumentsWithHttpInfoAsync(List<string> requestBody, string deleteMode = default(string), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeleteInstrumentsResponse>> DeleteInstrumentsWithHttpInfoAsync(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->DeleteInstruments");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (deleteMode != null)
             {
@@ -1572,25 +2281,468 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.DeleteInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<DeleteInstrumentsResponse>("/api/instruments/$delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
+        public Dictionary<string, List<string>> GetAllPossibleFeatures(string instrumentType, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>> localVarResponse = GetAllPossibleFeaturesWithHttpInfo(instrumentType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
+        public Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>> GetAllPossibleFeaturesWithHttpInfo(string instrumentType, int operationIndex = 0)
+        {
+            // verify the required parameter 'instrumentType' is set
+            if (instrumentType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentType' when calling InstrumentsApi->GetAllPossibleFeatures");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instrumentType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentType)); // path parameter
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetAllPossibleFeatures";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Dictionary<string, List<string>>>("/api/instruments/{instrumentType}/allfeatures", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllPossibleFeatures", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, List<string>>> GetAllPossibleFeaturesAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>> localVarResponse = await GetAllPossibleFeaturesWithHttpInfoAsync(instrumentType, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetAllPossibleFeatures: Provides list of all possible features for instrument type. Provides all possible instrument features an instrument of a given type can provide.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentType">A lusid instrument type e.g. Bond, FxOption.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;string&gt;&gt;)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Dictionary<string, List<string>>>> GetAllPossibleFeaturesWithHttpInfoAsync(string instrumentType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'instrumentType' is set
+            if (instrumentType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentType' when calling InstrumentsApi->GetAllPossibleFeatures");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instrumentType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentType)); // path parameter
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetAllPossibleFeatures";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, List<string>>>("/api/instruments/{instrumentType}/allfeatures", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllPossibleFeatures", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentCapabilities</returns>
+        public InstrumentCapabilities GetExistingInstrumentCapabilities(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities> localVarResponse = GetExistingInstrumentCapabilitiesWithHttpInfo(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentCapabilities</returns>
+        public Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities> GetExistingInstrumentCapabilitiesWithHttpInfo(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetExistingInstrumentCapabilities");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            if (model != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "model", model));
+            }
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (instrumentScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "instrumentScope", instrumentScope));
+            }
+            if (recipeScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeScope", recipeScope));
+            }
+            if (recipeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeCode", recipeCode));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetExistingInstrumentCapabilities";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<InstrumentCapabilities>("/api/instruments/{identifier}/capabilities", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetExistingInstrumentCapabilities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentCapabilities</returns>
+        public async System.Threading.Tasks.Task<InstrumentCapabilities> GetExistingInstrumentCapabilitiesAsync(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities> localVarResponse = await GetExistingInstrumentCapabilitiesWithHttpInfoAsync(identifier, model, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExistingInstrumentCapabilities: Retrieve capabilities of an existing instrument identified by LUID. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies.  Given an lusid instrument id provides instrument capabilities, outlining features, and, given the model, the capabilities also include supported addresses as well as economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifier">A lusid instrument id identifying the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. (optional)</param>
+        /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentCapabilities)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities>> GetExistingInstrumentCapabilitiesWithHttpInfoAsync(string identifier, string? model = default(string?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetExistingInstrumentCapabilities");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            if (model != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "model", model));
+            }
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (instrumentScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "instrumentScope", instrumentScope));
+            }
+            if (recipeScope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeScope", recipeScope));
+            }
+            if (recipeCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeCode", recipeCode));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetExistingInstrumentCapabilities";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InstrumentCapabilities>("/api/instruments/{identifier}/capabilities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetExistingInstrumentCapabilities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1606,8 +2758,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstrumentModels</returns>
-        public InstrumentModels GetExistingInstrumentModels(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string))
+        public InstrumentModels GetExistingInstrumentModels(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<InstrumentModels> localVarResponse = GetExistingInstrumentModelsWithHttpInfo(identifier, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode);
             return localVarResponse.Data;
@@ -1623,30 +2776,39 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstrumentModels</returns>
-        public Lusid.Sdk.Client.ApiResponse<InstrumentModels> GetExistingInstrumentModelsWithHttpInfo(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string))
+        public Lusid.Sdk.Client.ApiResponse<InstrumentModels> GetExistingInstrumentModelsWithHttpInfo(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetExistingInstrumentModels");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
             if (effectiveAt != null)
@@ -1670,24 +2832,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeCode", recipeCode));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetExistingInstrumentModels";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentModels>("/api/instruments/{identifier}/models", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetExistingInstrumentModels", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1703,11 +2876,12 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstrumentModels</returns>
-        public async System.Threading.Tasks.Task<InstrumentModels> GetExistingInstrumentModelsAsync(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InstrumentModels> GetExistingInstrumentModelsAsync(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<InstrumentModels> localVarResponse = await GetExistingInstrumentModelsWithHttpInfoAsync(identifier, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<InstrumentModels> localVarResponse = await GetExistingInstrumentModelsWithHttpInfoAsync(identifier, effectiveAt, asAt, instrumentScope, recipeScope, recipeCode, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1721,33 +2895,41 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentScope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeScope">The scope in which the recipe lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="recipeCode">A unique identifier for an entity, used to obtain configuration recipe details. Default configuration recipe is used if not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstrumentModels)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentModels>> GetExistingInstrumentModelsWithHttpInfoAsync(string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string instrumentScope = default(string), string recipeScope = default(string), string recipeCode = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentModels>> GetExistingInstrumentModelsWithHttpInfoAsync(string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? instrumentScope = default(string?), string? recipeScope = default(string?), string? recipeCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetExistingInstrumentModels");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
             if (effectiveAt != null)
@@ -1771,25 +2953,36 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeCode", recipeCode));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetExistingInstrumentModels";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<InstrumentModels>("/api/instruments/{identifier}/models", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetExistingInstrumentModels", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1806,8 +2999,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Instrument</returns>
-        public Instrument GetInstrument(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>))
+        public Instrument GetInstrument(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<Instrument> localVarResponse = GetInstrumentWithHttpInfo(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds);
             return localVarResponse.Data;
@@ -1824,34 +3018,45 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Instrument</returns>
-        public Lusid.Sdk.Client.ApiResponse<Instrument> GetInstrumentWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>))
+        public Lusid.Sdk.Client.ApiResponse<Instrument> GetInstrumentWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrument");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrument");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -1876,24 +3081,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrument";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Instrument>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1910,11 +3126,12 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instrument</returns>
-        public async System.Threading.Tasks.Task<Instrument> GetInstrumentAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Instrument> GetInstrumentAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<Instrument> localVarResponse = await GetInstrumentWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Instrument> localVarResponse = await GetInstrumentWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1929,37 +3146,47 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto              the instrument, or from any domain that supports relationships to decorate onto related entities.              These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities              onto the instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instrument)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Instrument>> GetInstrumentWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Instrument>> GetInstrumentWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrument");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrument");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -1984,25 +3211,36 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrument";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<Instrument>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2012,8 +3250,9 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfInstrumentIdTypeDescriptor</returns>
-        public ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes()
+        public ResourceListOfInstrumentIdTypeDescriptor GetInstrumentIdentifierTypes(int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> localVarResponse = GetInstrumentIdentifierTypesWithHttpInfo();
             return localVarResponse.Data;
@@ -2023,46 +3262,64 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfInstrumentIdTypeDescriptor</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesWithHttpInfo()
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesWithHttpInfo(int operationIndex = 0)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentIdentifierTypes";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ResourceListOfInstrumentIdTypeDescriptor>("/api/instruments/identifierTypes", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentIdentifierTypes", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2072,11 +3329,12 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfInstrumentIdTypeDescriptor</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfInstrumentIdTypeDescriptor> GetInstrumentIdentifierTypesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> localVarResponse = await GetInstrumentIdentifierTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor> localVarResponse = await GetInstrumentIdentifierTypesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2084,50 +3342,337 @@ namespace Lusid.Sdk.Api
         /// GetInstrumentIdentifierTypes: Get instrument identifier types Retrieve a list of all valid instrument identifier types and whether they are unique or not.                An instrument must have a value for at least one unique identifier type (it can have more than one unique type and value).  In addition, a value is automatically generated for a LUSID Instrument ID (LUID) unique type by the system.                An instrument can have values for multiple non-unique identifier types (or it can have zero non-unique types and values).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfInstrumentIdTypeDescriptor)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor>> GetInstrumentIdentifierTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfInstrumentIdTypeDescriptor>> GetInstrumentIdentifierTypesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentIdentifierTypes";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfInstrumentIdTypeDescriptor>("/api/instruments/identifierTypes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentIdentifierTypes", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentPaymentDiary</returns>
+        public InstrumentPaymentDiary GetInstrumentPaymentDiary(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentPaymentDiary> localVarResponse = GetInstrumentPaymentDiaryWithHttpInfo(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentPaymentDiary</returns>
+        public Lusid.Sdk.Client.ApiResponse<InstrumentPaymentDiary> GetInstrumentPaymentDiaryWithHttpInfo(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            // verify the required parameter 'recipeScope' is set
+            if (recipeScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeScope' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            // verify the required parameter 'recipeCode' is set
+            if (recipeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeCode' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeScope", recipeScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeCode", recipeCode));
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentPaymentDiary";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<InstrumentPaymentDiary>("/api/instruments/{identifierType}/{identifier}/paymentdiary", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstrumentPaymentDiary", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentPaymentDiary</returns>
+        public async System.Threading.Tasks.Task<InstrumentPaymentDiary> GetInstrumentPaymentDiaryAsync(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentPaymentDiary> localVarResponse = await GetInstrumentPaymentDiaryWithHttpInfoAsync(identifierType, identifier, recipeScope, recipeCode, effectiveAt, asAt, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstrumentPaymentDiary: Get instrument payment diary Get the payment diary of a single instrument.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="identifierType">The identifier being supplied e.g. \&quot;Figi\&quot;.</param>
+        /// <param name="identifier">The value of the identifier for the requested instrument.</param>
+        /// <param name="recipeScope">The scope of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="recipeCode">The code of the valuation recipe being used to generate the payment diary</param>
+        /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties. Defaults to the current LUSID system datetime if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to return the latest version of each property if not specified. (optional)</param>
+        /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentPaymentDiary)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentPaymentDiary>> GetInstrumentPaymentDiaryWithHttpInfoAsync(string identifierType, string identifier, string recipeScope, string recipeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'identifierType' is set
+            if (identifierType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            // verify the required parameter 'identifier' is set
+            if (identifier == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            // verify the required parameter 'recipeScope' is set
+            if (recipeScope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeScope' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+            // verify the required parameter 'recipeCode' is set
+            if (recipeCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'recipeCode' when calling InstrumentsApi->GetInstrumentPaymentDiary");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeScope", recipeScope));
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeCode", recipeCode));
+            if (effectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (scope != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
+            }
+
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentPaymentDiary";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InstrumentPaymentDiary>("/api/instruments/{identifierType}/{identifier}/paymentdiary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstrumentPaymentDiary", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2142,8 +3687,9 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InstrumentProperties</returns>
-        public InstrumentProperties GetInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string))
+        public InstrumentProperties GetInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<InstrumentProperties> localVarResponse = GetInstrumentPropertiesWithHttpInfo(identifierType, identifier, effectiveAt, asAt, scope);
             return localVarResponse.Data;
@@ -2158,34 +3704,45 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InstrumentProperties</returns>
-        public Lusid.Sdk.Client.ApiResponse<InstrumentProperties> GetInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<InstrumentProperties> GetInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentProperties");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentProperties");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -2202,24 +3759,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstrumentProperties>("/api/instruments/{identifierType}/{identifier}/properties", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2234,11 +3802,12 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstrumentProperties</returns>
-        public async System.Threading.Tasks.Task<InstrumentProperties> GetInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InstrumentProperties> GetInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<InstrumentProperties> localVarResponse = await GetInstrumentPropertiesWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<InstrumentProperties> localVarResponse = await GetInstrumentPropertiesWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2251,37 +3820,47 @@ namespace Lusid.Sdk.Api
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the instrument&#39;s properties.              Defaults to the current LUSID system datetime if not specified. (optional)</param>
         /// <param name="asAt">The asAt datetime at which to list the instrument&#39;s properties. Defaults to returning              the latest version of each property if not specified. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstrumentProperties)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentProperties>> GetInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentProperties>> GetInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentProperties");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentProperties");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -2298,25 +3877,36 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<InstrumentProperties>("/api/instruments/{identifierType}/{identifier}/properties", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2335,8 +3925,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfPropertyInterval</returns>
-        public ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string))
+        public ResourceListOfPropertyInterval GetInstrumentPropertyTimeSeries(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = GetInstrumentPropertyTimeSeriesWithHttpInfo(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit, scope);
             return localVarResponse.Data;
@@ -2355,38 +3946,51 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfPropertyInterval</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesWithHttpInfo(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesWithHttpInfo(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentPropertyTimeSeries");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentPropertyTimeSeries");
+            }
 
             // verify the required parameter 'propertyKey' is set
             if (propertyKey == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'propertyKey' when calling InstrumentsApi->GetInstrumentPropertyTimeSeries");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -2416,24 +4020,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentPropertyTimeSeries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ResourceListOfPropertyInterval>("/api/instruments/{identifierType}/{identifier}/properties/time-series", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentPropertyTimeSeries", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2452,11 +4067,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfPropertyInterval</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesAsync(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetInstrumentPropertyTimeSeriesAsync(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = await GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval> localVarResponse = await GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(identifierType, identifier, propertyKey, identifierEffectiveAt, asAt, filter, page, limit, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2473,41 +4089,53 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfPropertyInterval)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval>> GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(string identifierType, string identifier, string propertyKey, string identifierEffectiveAt = default(string), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPropertyInterval>> GetInstrumentPropertyTimeSeriesWithHttpInfoAsync(string identifierType, string identifier, string propertyKey, string? identifierEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentPropertyTimeSeries");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentPropertyTimeSeries");
+            }
 
             // verify the required parameter 'propertyKey' is set
             if (propertyKey == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'propertyKey' when calling InstrumentsApi->GetInstrumentPropertyTimeSeries");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -2537,25 +4165,36 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentPropertyTimeSeries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfPropertyInterval>("/api/instruments/{identifierType}/{identifier}/properties/time-series", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentPropertyTimeSeries", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2572,8 +4211,9 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfRelationship</returns>
-        public ResourceListOfRelationship GetInstrumentRelationships(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string))
+        public ResourceListOfRelationship GetInstrumentRelationships(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship> localVarResponse = GetInstrumentRelationshipsWithHttpInfo(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope);
             return localVarResponse.Data;
@@ -2590,34 +4230,45 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship> GetInstrumentRelationshipsWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship> GetInstrumentRelationshipsWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentRelationships");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentRelationships");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -2642,24 +4293,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentRelationships";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ResourceListOfRelationship>("/api/instruments/{identifierType}/{identifier}/relationships", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentRelationships", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2676,11 +4338,12 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfRelationship</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfRelationship> GetInstrumentRelationshipsAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfRelationship> GetInstrumentRelationshipsAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship> localVarResponse = await GetInstrumentRelationshipsWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship> localVarResponse = await GetInstrumentRelationshipsWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, filter, identifierTypes, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2695,37 +4358,47 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter relationships. Users should provide null or empty string for this field until further notice. (optional)</param>
         /// <param name="identifierTypes">Identifier types (as property keys) used for referencing Persons or Legal Entities.              These can be specified from the &#39;Person&#39; or &#39;LegalEntity&#39; domains and have the format {domain}/{scope}/{code}, for example              &#39;Person/CompanyDetails/Role&#39;. An Empty array may be used to return all related Entities. (optional)</param>
         /// <param name="scope">The entity scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfRelationship)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship>> GetInstrumentRelationshipsWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string filter = default(string), List<string> identifierTypes = default(List<string>), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfRelationship>> GetInstrumentRelationshipsWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstrumentRelationships");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->GetInstrumentRelationships");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -2750,25 +4423,36 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstrumentRelationships";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfRelationship>("/api/instruments/{identifierType}/{identifier}/relationships", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstrumentRelationships", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2785,8 +4469,9 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetInstrumentsResponse</returns>
-        public GetInstrumentsResponse GetInstruments(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>))
+        public GetInstrumentsResponse GetInstruments(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse> localVarResponse = GetInstrumentsWithHttpInfo(identifierType, requestBody, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds);
             return localVarResponse.Data;
@@ -2803,38 +4488,49 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetInstrumentsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>))
+        public Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse> GetInstrumentsWithHttpInfo(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstruments");
+            }
 
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->GetInstruments");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json",
                 "application/json",
                 "text/json",
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierType", identifierType));
             if (effectiveAt != null)
@@ -2859,24 +4555,35 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GetInstrumentsResponse>("/api/instruments/$get", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2893,11 +4600,12 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetInstrumentsResponse</returns>
-        public async System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetInstrumentsResponse> GetInstrumentsAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse> localVarResponse = await GetInstrumentsWithHttpInfoAsync(identifierType, requestBody, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse> localVarResponse = await GetInstrumentsWithHttpInfoAsync(identifierType, requestBody, effectiveAt, asAt, propertyKeys, scope, relationshipDefinitionIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2912,41 +4620,51 @@ namespace Lusid.Sdk.Api
         /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               each instrument, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetInstrumentsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpInfoAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), List<string> propertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GetInstrumentsResponse>> GetInstrumentsWithHttpInfoAsync(string identifierType, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->GetInstruments");
+            }
 
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->GetInstruments");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "identifierType", identifierType));
             if (effectiveAt != null)
@@ -2971,25 +4689,36 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.GetInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<GetInstrumentsResponse>("/api/instruments/$get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3006,8 +4735,9 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ResourceListOfProperty</returns>
-        public ResourceListOfProperty ListInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string))
+        public ResourceListOfProperty ListInstrumentProperties(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty> localVarResponse = ListInstrumentPropertiesWithHttpInfo(identifierType, identifier, effectiveAt, asAt, page, limit, scope);
             return localVarResponse.Data;
@@ -3024,34 +4754,45 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ResourceListOfProperty</returns>
-        public Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty> ListInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty> ListInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->ListInstrumentProperties");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->ListInstrumentProperties");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -3076,24 +4817,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.ListInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ResourceListOfProperty>("/api/instruments/{identifierType}/{identifier}/properties/list", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListInstrumentProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3110,11 +4862,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ResourceListOfProperty</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfProperty> ListInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfProperty> ListInstrumentPropertiesAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty> localVarResponse = await ListInstrumentPropertiesWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, page, limit, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty> localVarResponse = await ListInstrumentPropertiesWithHttpInfoAsync(identifierType, identifier, effectiveAt, asAt, page, limit, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3129,37 +4882,47 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing commands; this value is returned from the previous call. (optional)</param>
         /// <param name="limit">When paginating, limit the results per page to this number. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfProperty)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty>> ListInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), DateTimeOffset? asAt = default(DateTimeOffset?), string page = default(string), int? limit = default(int?), string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfProperty>> ListInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->ListInstrumentProperties");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->ListInstrumentProperties");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -3184,25 +4947,36 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scope", scope));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.ListInstrumentProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfProperty>("/api/instruments/{identifierType}/{identifier}/properties/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListInstrumentProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3222,8 +4996,9 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfInstrument</returns>
-        public PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>))
+        public PagedResourceListOfInstrument ListInstruments(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = ListInstrumentsWithHttpInfo(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds);
             return localVarResponse.Data;
@@ -3243,26 +5018,33 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfInstrument</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>))
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> ListInstrumentsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (asAt != null)
             {
@@ -3305,24 +5087,35 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.ListInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PagedResourceListOfInstrument>("/api/instruments", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3342,11 +5135,12 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfInstrument</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfInstrument> ListInstrumentsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = await ListInstrumentsWithHttpInfoAsync(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument> localVarResponse = await ListInstrumentsWithHttpInfoAsync(asAt, effectiveAt, page, sortBy, start, limit, filter, instrumentPropertyKeys, scope, relationshipDefinitionIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3364,29 +5158,35 @@ namespace Lusid.Sdk.Api
         /// <param name="instrumentPropertyKeys">A list of property keys from the &#39;Instrument&#39; domain to decorate onto               instruments, or from any domain that supports relationships to decorate onto related entities.               These must have the format {domain}/{scope}/{code}, for example &#39;Instrument/system/Name&#39;. (optional)</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="relationshipDefinitionIds">A list of relationship definitions that are used to decorate related entities               onto each instrument in the response. These must take the form {relationshipDefinitionScope}/{relationshipDefinitionCode}. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfInstrument)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string page = default(string), List<string> sortBy = default(List<string>), int? start = default(int?), int? limit = default(int?), string filter = default(string), List<string> instrumentPropertyKeys = default(List<string>), string scope = default(string), List<string> relationshipDefinitionIds = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfInstrument>> ListInstrumentsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? instrumentPropertyKeys = default(List<string>?), string? scope = default(string?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (asAt != null)
             {
@@ -3429,25 +5229,236 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "relationshipDefinitionIds", relationshipDefinitionIds));
             }
 
+            localVarRequestOptions.Operation = "InstrumentsApi.ListInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfInstrument>("/api/instruments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentCapabilities</returns>
+        public InstrumentCapabilities QueryInstrumentCapabilities(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities> localVarResponse = QueryInstrumentCapabilitiesWithHttpInfo(lusidInstrument, model);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentCapabilities</returns>
+        public Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities> QueryInstrumentCapabilitiesWithHttpInfo(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'lusidInstrument' is set
+            if (lusidInstrument == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'lusidInstrument' when calling InstrumentsApi->QueryInstrumentCapabilities");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (model != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "model", model));
+            }
+            localVarRequestOptions.Data = lusidInstrument;
+
+            localVarRequestOptions.Operation = "InstrumentsApi.QueryInstrumentCapabilities";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<InstrumentCapabilities>("/api/instruments/capabilities", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("QueryInstrumentCapabilities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentCapabilities</returns>
+        public async System.Threading.Tasks.Task<InstrumentCapabilities> QueryInstrumentCapabilitiesAsync(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities> localVarResponse = await QueryInstrumentCapabilitiesWithHttpInfoAsync(lusidInstrument, model, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] QueryInstrumentCapabilities: Query capabilities of a particular instrument in advance of creating it. These include instrument features, and if model is provided it also includes supported address keys and economic dependencies. Returns instrument capabilities containing useful information about the instrument and the model. This includes  - features corresponding to the instrument e.g. Optionality:American, Other:InflationLinked  - supported addresses (if model provided) e.g. Valuation/Pv, Valuation/DirtyPriceKey, Valuation/Accrued  - economic dependencies (if model provided) e.g. Cash:USD, Fx:GBP.USD, Rates:GBP.GBPOIS
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="lusidInstrument">The definition of the instrument.</param>
+        /// <param name="model">A pricing model for the instrument. Defaults to Unknown if not specified. If not specified the SupportedAddresses and EconomicDependencies are not provided. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentCapabilities)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentCapabilities>> QueryInstrumentCapabilitiesWithHttpInfoAsync(LusidInstrument lusidInstrument, string? model = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'lusidInstrument' is set
+            if (lusidInstrument == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'lusidInstrument' when calling InstrumentsApi->QueryInstrumentCapabilities");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (model != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "model", model));
+            }
+            localVarRequestOptions.Data = lusidInstrument;
+
+            localVarRequestOptions.Operation = "InstrumentsApi.QueryInstrumentCapabilities";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InstrumentCapabilities>("/api/instruments/capabilities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("QueryInstrumentCapabilities", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3461,8 +5472,9 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Instrument</returns>
-        public Instrument UpdateInstrumentIdentifier(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string))
+        public Instrument UpdateInstrumentIdentifier(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<Instrument> localVarResponse = UpdateInstrumentIdentifierWithHttpInfo(identifierType, identifier, updateInstrumentIdentifierRequest, scope);
             return localVarResponse.Data;
@@ -3476,42 +5488,55 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Instrument</returns>
-        public Lusid.Sdk.Client.ApiResponse<Instrument> UpdateInstrumentIdentifierWithHttpInfo(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<Instrument> UpdateInstrumentIdentifierWithHttpInfo(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->UpdateInstrumentIdentifier");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->UpdateInstrumentIdentifier");
+            }
 
             // verify the required parameter 'updateInstrumentIdentifierRequest' is set
             if (updateInstrumentIdentifierRequest == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateInstrumentIdentifierRequest' when calling InstrumentsApi->UpdateInstrumentIdentifier");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json",
                 "application/json",
                 "text/json",
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -3521,24 +5546,35 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = updateInstrumentIdentifierRequest;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.UpdateInstrumentIdentifier";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Instrument>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateInstrumentIdentifier", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3552,11 +5588,12 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instrument</returns>
-        public async System.Threading.Tasks.Task<Instrument> UpdateInstrumentIdentifierAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Instrument> UpdateInstrumentIdentifierAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<Instrument> localVarResponse = await UpdateInstrumentIdentifierWithHttpInfoAsync(identifierType, identifier, updateInstrumentIdentifierRequest, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Instrument> localVarResponse = await UpdateInstrumentIdentifierWithHttpInfoAsync(identifierType, identifier, updateInstrumentIdentifierRequest, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3568,45 +5605,57 @@ namespace Lusid.Sdk.Api
         /// <param name="identifier">An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#39;BBG000BLNNV0&#39;.</param>
         /// <param name="updateInstrumentIdentifierRequest">The identifier to update or delete. This need not be the same value as the               &#39;identifier&#39; parameter used to retrieve the instrument.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instrument)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Instrument>> UpdateInstrumentIdentifierWithHttpInfoAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Instrument>> UpdateInstrumentIdentifierWithHttpInfoAsync(string identifierType, string identifier, UpdateInstrumentIdentifierRequest updateInstrumentIdentifierRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'identifierType' is set
             if (identifierType == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifierType' when calling InstrumentsApi->UpdateInstrumentIdentifier");
+            }
 
             // verify the required parameter 'identifier' is set
             if (identifier == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'identifier' when calling InstrumentsApi->UpdateInstrumentIdentifier");
+            }
 
             // verify the required parameter 'updateInstrumentIdentifierRequest' is set
             if (updateInstrumentIdentifierRequest == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateInstrumentIdentifierRequest' when calling InstrumentsApi->UpdateInstrumentIdentifier");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("identifierType", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifierType)); // path parameter
             localVarRequestOptions.PathParameters.Add("identifier", Lusid.Sdk.Client.ClientUtils.ParameterToString(identifier)); // path parameter
@@ -3616,25 +5665,36 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = updateInstrumentIdentifierRequest;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.UpdateInstrumentIdentifier";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<Instrument>("/api/instruments/{identifierType}/{identifier}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateInstrumentIdentifier", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3646,8 +5706,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpsertInstrumentsResponse</returns>
-        public UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string))
+        public UpsertInstrumentsResponse UpsertInstruments(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = UpsertInstrumentsWithHttpInfo(requestBody, scope);
             return localVarResponse.Data;
@@ -3659,34 +5720,43 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpsertInstrumentsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> UpsertInstrumentsWithHttpInfo(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->UpsertInstruments");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json",
                 "application/json",
                 "text/json",
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (scope != null)
             {
@@ -3694,24 +5764,35 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.UpsertInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UpsertInstrumentsResponse>("/api/instruments", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3723,11 +5804,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertInstrumentsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertInstrumentsResponse> UpsertInstrumentsAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = await UpsertInstrumentsWithHttpInfoAsync(requestBody, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse> localVarResponse = await UpsertInstrumentsWithHttpInfoAsync(requestBody, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3737,37 +5819,45 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The definitions of the instruments to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentsResponse>> UpsertInstrumentsWithHttpInfoAsync(Dictionary<string, InstrumentDefinition> requestBody, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling InstrumentsApi->UpsertInstruments");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (scope != null)
             {
@@ -3775,25 +5865,36 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = requestBody;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.UpsertInstruments";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertInstrumentsResponse>("/api/instruments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertInstruments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3805,8 +5906,9 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpsertInstrumentPropertiesResponse</returns>
-        public UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string))
+        public UpsertInstrumentPropertiesResponse UpsertInstrumentsProperties(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse> localVarResponse = UpsertInstrumentsPropertiesWithHttpInfo(upsertInstrumentPropertyRequest, scope);
             return localVarResponse.Data;
@@ -3818,34 +5920,43 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpsertInstrumentPropertiesResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesWithHttpInfo(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string))
+        public Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesWithHttpInfo(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'upsertInstrumentPropertyRequest' is set
             if (upsertInstrumentPropertyRequest == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'upsertInstrumentPropertyRequest' when calling InstrumentsApi->UpsertInstrumentsProperties");
+            }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json",
                 "application/json",
                 "text/json",
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (scope != null)
             {
@@ -3853,24 +5964,35 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = upsertInstrumentPropertyRequest;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.UpsertInstrumentsProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
-
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<UpsertInstrumentPropertiesResponse>("/api/instruments/$upsertproperties", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertInstrumentsProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3882,11 +6004,12 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertInstrumentPropertiesResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertInstrumentPropertiesResponse> UpsertInstrumentsPropertiesAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse> localVarResponse = await UpsertInstrumentsPropertiesWithHttpInfoAsync(upsertInstrumentPropertyRequest, scope, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse> localVarResponse = await UpsertInstrumentsPropertiesWithHttpInfoAsync(upsertInstrumentPropertyRequest, scope, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3896,37 +6019,45 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertInstrumentPropertyRequest">A list of instruments and associated instrument properties to create or update.</param>
         /// <param name="scope">The scope in which the instrument lies. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertInstrumentPropertiesResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpInfoAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string scope = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertInstrumentPropertiesResponse>> UpsertInstrumentsPropertiesWithHttpInfoAsync(List<UpsertInstrumentPropertyRequest> upsertInstrumentPropertyRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'upsertInstrumentPropertyRequest' is set
             if (upsertInstrumentPropertyRequest == null)
+            {
                 throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'upsertInstrumentPropertyRequest' when calling InstrumentsApi->UpsertInstrumentsProperties");
+            }
 
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/_*+json"
+                "application/*+json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "text/plain",
                 "application/json",
                 "text/json"
             };
 
-
             var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (scope != null)
             {
@@ -3934,25 +6065,36 @@ namespace Lusid.Sdk.Api
             }
             localVarRequestOptions.Data = upsertInstrumentPropertyRequest;
 
+            localVarRequestOptions.Operation = "InstrumentsApi.UpsertInstrumentsProperties";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
             // authentication (oauth2) required
             // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
-            //  set the LUSID header
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Language", "C#");
-            localVarRequestOptions.HeaderParameters.Add("X-LUSID-Sdk-Version", "1.0.284");
-
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertInstrumentPropertiesResponse>("/api/instruments/$upsertproperties", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertInstrumentsProperties", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

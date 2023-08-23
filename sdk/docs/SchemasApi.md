@@ -1,16 +1,15 @@
 # Lusid.Sdk.Api.SchemasApi
 
-All URIs are relative to *https://fbn-prd.lusid.com/api*
+All URIs are relative to *https://www.lusid.com/api*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**GetEntitySchema**](SchemasApi.md#getentityschema) | **GET** /api/schemas/entities/{entity} | [EARLY ACCESS] GetEntitySchema: Get schema
-[**GetPropertySchema**](SchemasApi.md#getpropertyschema) | **GET** /api/schemas/properties | [EARLY ACCESS] GetPropertySchema: Get property schema
-[**GetValueTypes**](SchemasApi.md#getvaluetypes) | **GET** /api/schemas/types | [EARLY ACCESS] GetValueTypes: Get value types
-[**ListEntities**](SchemasApi.md#listentities) | **GET** /api/schemas/entities | [EARLY ACCESS] ListEntities: List entities
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**GetEntitySchema**](SchemasApi.md#getentityschema) | **GET** /api/schemas/entities/{entity} | [EARLY ACCESS] GetEntitySchema: Get schema |
+| [**GetPropertySchema**](SchemasApi.md#getpropertyschema) | **GET** /api/schemas/properties | [EARLY ACCESS] GetPropertySchema: Get property schema |
+| [**GetValueTypes**](SchemasApi.md#getvaluetypes) | **GET** /api/schemas/types | [EARLY ACCESS] GetValueTypes: Get value types |
+| [**ListEntities**](SchemasApi.md#listentities) | **GET** /api/schemas/entities | [EARLY ACCESS] ListEntities: List entities |
 
-
-<a name="getentityschema"></a>
+<a id="getentityschema"></a>
 # **GetEntitySchema**
 > Schema GetEntitySchema (string entity)
 
@@ -33,12 +32,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemasApi(config);
-            var entity = entity_example;  // string | The name of a valid entity
+            var entity = "entity_example";  // string | The name of a valid entity
 
             try
             {
@@ -48,8 +47,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SchemasApi.GetEntitySchema: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SchemasApi.GetEntitySchema: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -57,11 +56,31 @@ namespace Example
 }
 ```
 
+#### Using the GetEntitySchemaWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetEntitySchema: Get schema
+    ApiResponse<Schema> response = apiInstance.GetEntitySchemaWithHttpInfo(entity);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SchemasApi.GetEntitySchemaWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity** | **string**| The name of a valid entity | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entity** | **string** | The name of a valid entity |  |
 
 ### Return type
 
@@ -86,9 +105,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getpropertyschema"></a>
+<a id="getpropertyschema"></a>
 # **GetPropertySchema**
-> PropertySchema GetPropertySchema (List<string> propertyKeys = null, DateTimeOffset? asAt = null)
+> PropertySchema GetPropertySchema (List<string>? propertyKeys = null, DateTimeOffset? asAt = null)
 
 [EARLY ACCESS] GetPropertySchema: Get property schema
 
@@ -109,13 +128,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemasApi(config);
-            var propertyKeys = new List<string>(); // List<string> | One or more property keys for which the schema is requested (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | One or more property keys for which the schema is requested (optional) 
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data (optional) 
 
             try
             {
@@ -125,8 +144,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SchemasApi.GetPropertySchema: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SchemasApi.GetPropertySchema: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -134,12 +153,32 @@ namespace Example
 }
 ```
 
+#### Using the GetPropertySchemaWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetPropertySchema: Get property schema
+    ApiResponse<PropertySchema> response = apiInstance.GetPropertySchemaWithHttpInfo(propertyKeys, asAt);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SchemasApi.GetPropertySchemaWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **propertyKeys** | [**List&lt;string&gt;**](string.md)| One or more property keys for which the schema is requested | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date of the data | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | One or more property keys for which the schema is requested | [optional]  |
+| **asAt** | **DateTimeOffset?** | Optional. The AsAt date of the data | [optional]  |
 
 ### Return type
 
@@ -164,9 +203,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getvaluetypes"></a>
+<a id="getvaluetypes"></a>
 # **GetValueTypes**
-> ResourceListOfValueType GetValueTypes (List<string> sortBy = null, int? start = null, int? limit = null)
+> ResourceListOfValueType GetValueTypes (List<string>? sortBy = null, int? start = null, int? limit = null)
 
 [EARLY ACCESS] GetValueTypes: Get value types
 
@@ -187,12 +226,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemasApi(config);
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
 
@@ -204,8 +243,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SchemasApi.GetValueTypes: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SchemasApi.GetValueTypes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -213,13 +252,33 @@ namespace Example
 }
 ```
 
+#### Using the GetValueTypesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetValueTypes: Get value types
+    ApiResponse<ResourceListOfValueType> response = apiInstance.GetValueTypesWithHttpInfo(sortBy, start, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SchemasApi.GetValueTypesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
+| **start** | **int?** | Optional. When paginating, skip this number of results | [optional]  |
+| **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 
 ### Return type
 
@@ -244,7 +303,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listentities"></a>
+<a id="listentities"></a>
 # **ListEntities**
 > ResourceListOfString ListEntities ()
 
@@ -267,7 +326,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/api";
+            config.BasePath = "https://www.lusid.com/api";
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
@@ -281,8 +340,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SchemasApi.ListEntities: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling SchemasApi.ListEntities: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -290,9 +349,28 @@ namespace Example
 }
 ```
 
+#### Using the ListEntitiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] ListEntities: List entities
+    ApiResponse<ResourceListOfString> response = apiInstance.ListEntitiesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SchemasApi.ListEntitiesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**ResourceListOfString**](ResourceListOfString.md)
