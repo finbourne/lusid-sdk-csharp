@@ -261,8 +261,9 @@ namespace Lusid.Sdk.Model
         /// <param name="isNonDeliverable">Is the contract an IRS of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the settlement currency based on the difference between  the fixed and floating rates..</param>
         /// <param name="legs">The set of instrument legs that define the swap instrument, these should be FloatingLeg or FixedLeg. (required).</param>
         /// <param name="settlementCcy">Settlement currency if IRS is non-deliverable..</param>
+        /// <param name="upFrontPayment">upFrontPayment.</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan (required).</param>
-        public InterestRateSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isNonDeliverable = default(bool), List<InstrumentLeg> legs = default(List<InstrumentLeg>), string settlementCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public InterestRateSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isNonDeliverable = default(bool), List<InstrumentLeg> legs = default(List<InstrumentLeg>), string settlementCcy = default(string), UpFrontPayment upFrontPayment = default(UpFrontPayment), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -275,6 +276,7 @@ namespace Lusid.Sdk.Model
             this.InstrumentType = instrumentType;
             this.IsNonDeliverable = isNonDeliverable;
             this.SettlementCcy = settlementCcy;
+            this.UpFrontPayment = upFrontPayment;
         }
 
         /// <summary>
@@ -313,6 +315,12 @@ namespace Lusid.Sdk.Model
         public string SettlementCcy { get; set; }
 
         /// <summary>
+        /// Gets or Sets UpFrontPayment
+        /// </summary>
+        [DataMember(Name = "upFrontPayment", EmitDefaultValue = false)]
+        public UpFrontPayment UpFrontPayment { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -325,6 +333,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsNonDeliverable: ").Append(IsNonDeliverable).Append("\n");
             sb.Append("  Legs: ").Append(Legs).Append("\n");
             sb.Append("  SettlementCcy: ").Append(SettlementCcy).Append("\n");
+            sb.Append("  UpFrontPayment: ").Append(UpFrontPayment).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -387,6 +396,11 @@ namespace Lusid.Sdk.Model
                     this.SettlementCcy.Equals(input.SettlementCcy))
                 ) && 
                 (
+                    this.UpFrontPayment == input.UpFrontPayment ||
+                    (this.UpFrontPayment != null &&
+                    this.UpFrontPayment.Equals(input.UpFrontPayment))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -417,6 +431,10 @@ namespace Lusid.Sdk.Model
                 if (this.SettlementCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.SettlementCcy.GetHashCode();
+                }
+                if (this.UpFrontPayment != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpFrontPayment.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
