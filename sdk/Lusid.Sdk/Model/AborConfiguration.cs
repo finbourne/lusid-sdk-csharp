@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description for the AborConfiguration..</param>
         /// <param name="name">The given name for the AborConfiguration..</param>
         /// <param name="recipeId">recipeId.</param>
-        /// <param name="chartOfAccountsId">chartOfAccountsId.</param>
+        /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="postingModuleIds">The Posting Modules Ids from where the rules to be applied are retrieved..</param>
         /// <param name="properties">Properties to add to the AborConfiguration..</param>
         /// <param name="version">version.</param>
@@ -54,11 +54,16 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for AborConfiguration and cannot be null");
             }
             this.Id = id;
+            // to ensure "chartOfAccountsId" is required (not null)
+            if (chartOfAccountsId == null)
+            {
+                throw new ArgumentNullException("chartOfAccountsId is a required property for AborConfiguration and cannot be null");
+            }
+            this.ChartOfAccountsId = chartOfAccountsId;
             this.Href = href;
             this.Description = description;
             this.Name = name;
             this.RecipeId = recipeId;
-            this.ChartOfAccountsId = chartOfAccountsId;
             this.PostingModuleIds = postingModuleIds;
             this.Properties = properties;
             this._Version = version;
@@ -101,7 +106,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets ChartOfAccountsId
         /// </summary>
-        [DataMember(Name = "chartOfAccountsId", EmitDefaultValue = false)]
+        [DataMember(Name = "chartOfAccountsId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>

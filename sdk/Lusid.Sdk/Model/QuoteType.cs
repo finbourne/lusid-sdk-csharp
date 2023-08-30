@@ -98,7 +98,13 @@ namespace Lusid.Sdk.Model
         /// Enum PoolFactor for value: PoolFactor
         /// </summary>
         [EnumMember(Value = "PoolFactor")]
-        PoolFactor = 12
+        PoolFactor = 12,
+
+        /// <summary>
+        /// Enum InflationAssumption for value: InflationAssumption
+        /// </summary>
+        [EnumMember(Value = "InflationAssumption")]
+        InflationAssumption = 13
 
     }
 

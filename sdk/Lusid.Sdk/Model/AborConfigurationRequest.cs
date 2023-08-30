@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description for the AborConfiguration..</param>
         /// <param name="name">The given name for the AborConfiguration..</param>
         /// <param name="recipeId">recipeId (required).</param>
-        /// <param name="chartOfAccountsId">chartOfAccountsId.</param>
+        /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="postingModuleIds">The Posting Modules Ids from where the rules to be applied are retrieved..</param>
         /// <param name="properties">Properties to add to the AborConfiguration..</param>
         public AborConfigurationRequest(string code = default(string), string description = default(string), string name = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<ResourceId> postingModuleIds = default(List<ResourceId>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
@@ -57,9 +57,14 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("recipeId is a required property for AborConfigurationRequest and cannot be null");
             }
             this.RecipeId = recipeId;
+            // to ensure "chartOfAccountsId" is required (not null)
+            if (chartOfAccountsId == null)
+            {
+                throw new ArgumentNullException("chartOfAccountsId is a required property for AborConfigurationRequest and cannot be null");
+            }
+            this.ChartOfAccountsId = chartOfAccountsId;
             this.Description = description;
             this.Name = name;
-            this.ChartOfAccountsId = chartOfAccountsId;
             this.PostingModuleIds = postingModuleIds;
             this.Properties = properties;
         }
@@ -94,7 +99,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets ChartOfAccountsId
         /// </summary>
-        [DataMember(Name = "chartOfAccountsId", EmitDefaultValue = false)]
+        [DataMember(Name = "chartOfAccountsId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
