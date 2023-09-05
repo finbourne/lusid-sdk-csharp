@@ -36,16 +36,16 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostingModuleResponse" /> class.
         /// </summary>
+        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="name">The name to identify the Posting Module by (required).</param>
+        /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
         /// <param name="ruleCount">The number of posting rules that apply for the Posting Module.</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         /// <param name="version">version.</param>
-        /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="links">links.</param>
-        public PostingModuleResponse(ResourceId id = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), string name = default(string), string description = default(string), int ruleCount = default(int), string status = default(string), ModelVersion version = default(ModelVersion), string href = default(string), List<Link> links = default(List<Link>))
+        public PostingModuleResponse(string href = default(string), ResourceId id = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), int ruleCount = default(int), string status = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -59,24 +59,31 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("chartOfAccountsId is a required property for PostingModuleResponse and cannot be null");
             }
             this.ChartOfAccountsId = chartOfAccountsId;
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for PostingModuleResponse and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for PostingModuleResponse and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "status" is required (not null)
             if (status == null)
             {
                 throw new ArgumentNullException("status is a required property for PostingModuleResponse and cannot be null");
             }
             this.Status = status;
+            this.Href = href;
             this.Description = description;
             this.RuleCount = ruleCount;
             this._Version = version;
-            this.Href = href;
             this.Links = links;
         }
+
+        /// <summary>
+        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
+        /// </summary>
+        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
+        [DataMember(Name = "href", EmitDefaultValue = true)]
+        public string Href { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -94,8 +101,8 @@ namespace Lusid.Sdk.Model
         /// The name to identify the Posting Module by
         /// </summary>
         /// <value>The name to identify the Posting Module by</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description for the Posting Module
@@ -125,13 +132,6 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
-        /// The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.
-        /// </summary>
-        /// <value>The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime.</value>
-        [DataMember(Name = "href", EmitDefaultValue = true)]
-        public string Href { get; set; }
-
-        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -145,14 +145,14 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostingModuleResponse {\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  RuleCount: ").Append(RuleCount).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -190,6 +190,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Href == input.Href ||
+                    (this.Href != null &&
+                    this.Href.Equals(input.Href))
+                ) && 
+                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -200,9 +205,9 @@ namespace Lusid.Sdk.Model
                     this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -224,11 +229,6 @@ namespace Lusid.Sdk.Model
                     this._Version.Equals(input._Version))
                 ) && 
                 (
-                    this.Href == input.Href ||
-                    (this.Href != null &&
-                    this.Href.Equals(input.Href))
-                ) && 
-                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -245,6 +245,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Href != null)
+                {
+                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -253,9 +257,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -269,10 +273,6 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
-                }
-                if (this.Href != null)
-                {
-                    hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
                 if (this.Links != null)
                 {
@@ -289,10 +289,10 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

@@ -38,15 +38,15 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
+        /// <param name="displayName">The given name for the AborConfiguration..</param>
         /// <param name="description">The description for the AborConfiguration..</param>
-        /// <param name="name">The given name for the AborConfiguration..</param>
         /// <param name="recipeId">recipeId.</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="postingModuleIds">The Posting Modules Ids from where the rules to be applied are retrieved..</param>
         /// <param name="properties">Properties to add to the AborConfiguration..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public AborConfiguration(string href = default(string), ResourceId id = default(ResourceId), string description = default(string), string name = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<ResourceId> postingModuleIds = default(List<ResourceId>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public AborConfiguration(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<ResourceId> postingModuleIds = default(List<ResourceId>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -61,8 +61,8 @@ namespace Lusid.Sdk.Model
             }
             this.ChartOfAccountsId = chartOfAccountsId;
             this.Href = href;
+            this.DisplayName = displayName;
             this.Description = description;
-            this.Name = name;
             this.RecipeId = recipeId;
             this.PostingModuleIds = postingModuleIds;
             this.Properties = properties;
@@ -84,18 +84,18 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
+        /// The given name for the AborConfiguration.
+        /// </summary>
+        /// <value>The given name for the AborConfiguration.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
         /// The description for the AborConfiguration.
         /// </summary>
         /// <value>The description for the AborConfiguration.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// The given name for the AborConfiguration.
-        /// </summary>
-        /// <value>The given name for the AborConfiguration.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipeId
@@ -145,8 +145,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class AborConfiguration {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
             sb.Append("  PostingModuleIds: ").Append(PostingModuleIds).Append("\n");
@@ -199,14 +199,14 @@ namespace Lusid.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.RecipeId == input.RecipeId ||
@@ -260,13 +260,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 if (this.RecipeId != null)
                 {

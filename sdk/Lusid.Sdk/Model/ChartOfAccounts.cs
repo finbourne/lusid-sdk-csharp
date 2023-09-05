@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="name">The given name for the chart of account..</param>
+        /// <param name="displayName">The given name for the chart of account..</param>
         /// <param name="description">The description for the chart of account..</param>
         /// <param name="properties">Chart of Accounts properties to add to the chart of account..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public ChartOfAccounts(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public ChartOfAccounts(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -52,7 +52,7 @@ namespace Lusid.Sdk.Model
             }
             this.Id = id;
             this.Href = href;
-            this.Name = name;
+            this.DisplayName = displayName;
             this.Description = description;
             this.Properties = properties;
             this._Version = version;
@@ -76,8 +76,8 @@ namespace Lusid.Sdk.Model
         /// The given name for the chart of account.
         /// </summary>
         /// <value>The given name for the chart of account.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description for the chart of account.
@@ -115,7 +115,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class ChartOfAccounts {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
@@ -166,9 +166,9 @@ namespace Lusid.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -211,9 +211,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {

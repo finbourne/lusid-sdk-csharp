@@ -37,10 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ChartOfAccountsRequest" /> class.
         /// </summary>
         /// <param name="code">The code given for the chart of account. (required).</param>
-        /// <param name="name">The given name for the chart of account..</param>
+        /// <param name="displayName">The given name for the chart of account..</param>
         /// <param name="description">The description for the chart of account..</param>
         /// <param name="properties">Chart of Accounts properties to add to the chart of account..</param>
-        public ChartOfAccountsRequest(string code = default(string), string name = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public ChartOfAccountsRequest(string code = default(string), string displayName = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for ChartOfAccountsRequest and cannot be null");
             }
             this.Code = code;
-            this.Name = name;
+            this.DisplayName = displayName;
             this.Description = description;
             this.Properties = properties;
         }
@@ -64,8 +64,8 @@ namespace Lusid.Sdk.Model
         /// The given name for the chart of account.
         /// </summary>
         /// <value>The given name for the chart of account.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description for the chart of account.
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ChartOfAccountsRequest {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
@@ -134,9 +134,9 @@ namespace Lusid.Sdk.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -164,9 +164,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -206,16 +206,16 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
             }
 
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

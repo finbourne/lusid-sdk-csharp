@@ -37,10 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PostingModuleDetails" /> class.
         /// </summary>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="name">The name to identify the Posting Module by (required).</param>
+        /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
-        public PostingModuleDetails(ResourceId chartOfAccountsId = default(ResourceId), string name = default(string), string description = default(string), string status = default(string))
+        public PostingModuleDetails(ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), string status = default(string))
         {
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
@@ -48,12 +48,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("chartOfAccountsId is a required property for PostingModuleDetails and cannot be null");
             }
             this.ChartOfAccountsId = chartOfAccountsId;
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
             {
-                throw new ArgumentNullException("name is a required property for PostingModuleDetails and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for PostingModuleDetails and cannot be null");
             }
-            this.Name = name;
+            this.DisplayName = displayName;
             // to ensure "status" is required (not null)
             if (status == null)
             {
@@ -73,8 +73,8 @@ namespace Lusid.Sdk.Model
         /// The name to identify the Posting Module by
         /// </summary>
         /// <value>The name to identify the Posting Module by</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description for the Posting Module
@@ -99,7 +99,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostingModuleDetails {\n");
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
@@ -143,9 +143,9 @@ namespace Lusid.Sdk.Model
                     this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -172,9 +172,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -195,23 +195,23 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
-            // Name (string) pattern
-            Regex regexName = new Regex(@"^[^\\<>&\""]+$", RegexOptions.CultureInvariant);
-            if (false == regexName.Match(this.Name).Success)
+            // DisplayName (string) pattern
+            Regex regexDisplayName = new Regex(@"^[^\\<>&\""]+$", RegexOptions.CultureInvariant);
+            if (false == regexDisplayName.Match(this.DisplayName).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, must match a pattern of " + regexDisplayName, new [] { "DisplayName" });
             }
 
             // Description (string) maxLength

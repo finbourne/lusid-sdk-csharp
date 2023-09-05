@@ -38,13 +38,14 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio. (required).</param>
+        /// <param name="displayName">The given name for the Abor..</param>
         /// <param name="description">The description for the Abor..</param>
-        /// <param name="aborConfig">aborConfig.</param>
+        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio. (required).</param>
+        /// <param name="aborConfigurationId">aborConfigurationId.</param>
         /// <param name="properties">Properties to add to the Abor..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public Abor(string href = default(string), ResourceId id = default(ResourceId), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), string description = default(string), ResourceId aborConfig = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Abor(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -59,8 +60,9 @@ namespace Lusid.Sdk.Model
             }
             this.PortfolioIds = portfolioIds;
             this.Href = href;
+            this.DisplayName = displayName;
             this.Description = description;
-            this.AborConfig = aborConfig;
+            this.AborConfigurationId = aborConfigurationId;
             this.Properties = properties;
             this._Version = version;
             this.Links = links;
@@ -80,11 +82,11 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio.
+        /// The given name for the Abor.
         /// </summary>
-        /// <value>The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio.</value>
-        [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
-        public List<PortfolioEntityId> PortfolioIds { get; set; }
+        /// <value>The given name for the Abor.</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// The description for the Abor.
@@ -94,10 +96,17 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets AborConfig
+        /// The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio.
         /// </summary>
-        [DataMember(Name = "aborConfig", EmitDefaultValue = false)]
-        public ResourceId AborConfig { get; set; }
+        /// <value>The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio.</value>
+        [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
+        public List<PortfolioEntityId> PortfolioIds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AborConfigurationId
+        /// </summary>
+        [DataMember(Name = "aborConfigurationId", EmitDefaultValue = false)]
+        public ResourceId AborConfigurationId { get; set; }
 
         /// <summary>
         /// Properties to add to the Abor.
@@ -128,9 +137,10 @@ namespace Lusid.Sdk.Model
             sb.Append("class Abor {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  AborConfig: ").Append(AborConfig).Append("\n");
+            sb.Append("  PortfolioIds: ").Append(PortfolioIds).Append("\n");
+            sb.Append("  AborConfigurationId: ").Append(AborConfigurationId).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -180,10 +190,9 @@ namespace Lusid.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.PortfolioIds == input.PortfolioIds ||
-                    this.PortfolioIds != null &&
-                    input.PortfolioIds != null &&
-                    this.PortfolioIds.SequenceEqual(input.PortfolioIds)
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -191,9 +200,15 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.AborConfig == input.AborConfig ||
-                    (this.AborConfig != null &&
-                    this.AborConfig.Equals(input.AborConfig))
+                    this.PortfolioIds == input.PortfolioIds ||
+                    this.PortfolioIds != null &&
+                    input.PortfolioIds != null &&
+                    this.PortfolioIds.SequenceEqual(input.PortfolioIds)
+                ) && 
+                (
+                    this.AborConfigurationId == input.AborConfigurationId ||
+                    (this.AborConfigurationId != null &&
+                    this.AborConfigurationId.Equals(input.AborConfigurationId))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -231,17 +246,21 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.PortfolioIds != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.PortfolioIds.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.AborConfig != null)
+                if (this.PortfolioIds != null)
                 {
-                    hashCode = (hashCode * 59) + this.AborConfig.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PortfolioIds.GetHashCode();
+                }
+                if (this.AborConfigurationId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AborConfigurationId.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

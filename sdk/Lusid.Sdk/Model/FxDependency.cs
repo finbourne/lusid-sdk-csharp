@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="domesticCurrency">DomesticCurrency is the first currency in a currency pair quote e.g. eur-gbp, eur is the domestic currency. (required).</param>
         /// <param name="foreignCurrency">ForeignCurrency is the second currency in a currency pair quote e.g. eur-gbp, gbp is the foreign currency. (required).</param>
         /// <param name="date">The effectiveAt of the fx rate. (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor (required) (default to &quot;FxDependency&quot;).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, VendorDependency (required) (default to &quot;FxDependency&quot;).</param>
         public FxDependency(string domesticCurrency = default(string), string foreignCurrency = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
             // to ensure "domesticCurrency" is required (not null)

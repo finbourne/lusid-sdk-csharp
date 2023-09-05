@@ -89,6 +89,21 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
+        /// The unique request id of the command that created the entity.
+        /// </summary>
+        /// <value>The unique request id of the command that created the entity.</value>
+        [DataMember(Name = "requestIdCreated", EmitDefaultValue = true)]
+        public string RequestIdCreated { get; private set; }
+
+        /// <summary>
+        /// Returns false as RequestIdCreated should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRequestIdCreated()
+        {
+            return false;
+        }
+        /// <summary>
         /// The asAt datetime at which the entity (including its properties) was last updated in LUSID.
         /// </summary>
         /// <value>The asAt datetime at which the entity (including its properties) was last updated in LUSID.</value>
@@ -119,6 +134,21 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
+        /// The unique request id of the command that last updated the entity (including its properties) in LUSID.
+        /// </summary>
+        /// <value>The unique request id of the command that last updated the entity (including its properties) in LUSID.</value>
+        [DataMember(Name = "requestIdModified", EmitDefaultValue = true)]
+        public string RequestIdModified { get; private set; }
+
+        /// <summary>
+        /// Returns false as RequestIdModified should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRequestIdModified()
+        {
+            return false;
+        }
+        /// <summary>
         /// The integer version number for the entity (the entity was created at version 1)
         /// </summary>
         /// <value>The integer version number for the entity (the entity was created at version 1)</value>
@@ -145,8 +175,10 @@ namespace Lusid.Sdk.Model
             sb.Append("  AsAtDate: ").Append(AsAtDate).Append("\n");
             sb.Append("  AsAtCreated: ").Append(AsAtCreated).Append("\n");
             sb.Append("  UserIdCreated: ").Append(UserIdCreated).Append("\n");
+            sb.Append("  RequestIdCreated: ").Append(RequestIdCreated).Append("\n");
             sb.Append("  AsAtModified: ").Append(AsAtModified).Append("\n");
             sb.Append("  UserIdModified: ").Append(UserIdModified).Append("\n");
+            sb.Append("  RequestIdModified: ").Append(RequestIdModified).Append("\n");
             sb.Append("  AsAtVersionNumber: ").Append(AsAtVersionNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -204,6 +236,11 @@ namespace Lusid.Sdk.Model
                     this.UserIdCreated.Equals(input.UserIdCreated))
                 ) && 
                 (
+                    this.RequestIdCreated == input.RequestIdCreated ||
+                    (this.RequestIdCreated != null &&
+                    this.RequestIdCreated.Equals(input.RequestIdCreated))
+                ) && 
+                (
                     this.AsAtModified == input.AsAtModified ||
                     (this.AsAtModified != null &&
                     this.AsAtModified.Equals(input.AsAtModified))
@@ -212,6 +249,11 @@ namespace Lusid.Sdk.Model
                     this.UserIdModified == input.UserIdModified ||
                     (this.UserIdModified != null &&
                     this.UserIdModified.Equals(input.UserIdModified))
+                ) && 
+                (
+                    this.RequestIdModified == input.RequestIdModified ||
+                    (this.RequestIdModified != null &&
+                    this.RequestIdModified.Equals(input.RequestIdModified))
                 ) && 
                 (
                     this.AsAtVersionNumber == input.AsAtVersionNumber ||
@@ -245,6 +287,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.UserIdCreated.GetHashCode();
                 }
+                if (this.RequestIdCreated != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequestIdCreated.GetHashCode();
+                }
                 if (this.AsAtModified != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAtModified.GetHashCode();
@@ -252,6 +298,10 @@ namespace Lusid.Sdk.Model
                 if (this.UserIdModified != null)
                 {
                     hashCode = (hashCode * 59) + this.UserIdModified.GetHashCode();
+                }
+                if (this.RequestIdModified != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequestIdModified.GetHashCode();
                 }
                 if (this.AsAtVersionNumber != null)
                 {
