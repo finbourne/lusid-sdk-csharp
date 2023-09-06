@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="marketIdentifier">Type of the code identifying the asset, e.g. ISIN or CUSIP (required).</param>
         /// <param name="code">The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN (required).</param>
         /// <param name="date">The effectiveAt of the quote for the identified entity. (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, VendorDependency (required) (default to &quot;QuoteDependency&quot;).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor (required) (default to &quot;QuoteDependency&quot;).</param>
         public QuoteDependency(string marketIdentifier = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
             // to ensure "marketIdentifier" is required (not null)

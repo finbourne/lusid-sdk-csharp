@@ -50,27 +50,27 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PostingModuleCreateResponse</returns>
         ApiResponse<PostingModuleCreateResponse> CreatePostingModuleWithHttpInfo(string scope, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
         /// <remarks>
-        /// Delete the given PostingModule.
+        /// Delete the given Posting Module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeletedEntityResponse</returns>
         DeletedEntityResponse DeletePostingModule(string scope, string code, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
         /// <remarks>
-        /// Delete the given PostingModule.
+        /// Delete the given Posting Module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, int operationIndex = 0);
@@ -120,7 +120,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfPostingModuleResponse</returns>
         PagedResourceListOfPostingModuleResponse ListPostingModules(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
         ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
@@ -231,28 +231,28 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PostingModuleCreateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PostingModuleCreateResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
         /// <remarks>
-        /// Delete the given PostingModule.
+        /// Delete the given Posting Module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
         System.Threading.Tasks.Task<DeletedEntityResponse> DeletePostingModuleAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
         /// <remarks>
-        /// Delete the given PostingModule.
+        /// Delete the given Posting Module.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
@@ -305,7 +305,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleResponse</returns>
@@ -322,7 +322,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
@@ -709,11 +709,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule. Delete the given PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module. Delete the given Posting Module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeletedEntityResponse</returns>
         public DeletedEntityResponse DeletePostingModule(string scope, string code, int operationIndex = 0)
@@ -723,11 +723,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule. Delete the given PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module. Delete the given Posting Module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeletePostingModuleWithHttpInfo(string scope, string code, int operationIndex = 0)
@@ -806,11 +806,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule. Delete the given PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module. Delete the given Posting Module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
@@ -821,11 +821,11 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule. Delete the given PostingModule.
+        /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module. Delete the given Posting Module.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="scope">The scope of the PostingModule to be deleted.</param>
-        /// <param name="code">The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.</param>
+        /// <param name="scope">The scope of the Posting Module to be deleted.</param>
+        /// <param name="code">The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
@@ -1172,7 +1172,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfPostingModuleResponse</returns>
         public PagedResourceListOfPostingModuleResponse ListPostingModules(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
@@ -1189,7 +1189,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
         public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
@@ -1281,7 +1281,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleResponse</returns>
@@ -1299,7 +1299,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
         /// <param name="start">When paginating, skip this number of results. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>

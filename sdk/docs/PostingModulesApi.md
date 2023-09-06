@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreatePostingModule**](PostingModulesApi.md#createpostingmodule) | **POST** /api/postingmodule/{scope} | [EXPERIMENTAL] CreatePostingModule: Create a Posting Module |
-| [**DeletePostingModule**](PostingModulesApi.md#deletepostingmodule) | **DELETE** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule. |
+| [**DeletePostingModule**](PostingModulesApi.md#deletepostingmodule) | **DELETE** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module. |
 | [**ListPostingModuleRules**](PostingModulesApi.md#listpostingmodulerules) | **GET** /api/postingmodule/{scope}/{code}/postingrules | [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules |
 | [**ListPostingModules**](PostingModulesApi.md#listpostingmodules) | **GET** /api/postingmodule | [EXPERIMENTAL] ListPostingModules: List Posting Modules |
 | [**SetPostingModuleDetails**](PostingModulesApi.md#setpostingmoduledetails) | **PUT** /api/postingmodule/{scope}/{code} | [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module |
@@ -103,7 +103,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The newly created posting module. |  -  |
+| **201** | The newly created Posting Module. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -113,9 +113,9 @@ catch (ApiException e)
 # **DeletePostingModule**
 > DeletedEntityResponse DeletePostingModule (string scope, string code)
 
-[EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+[EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
 
-Delete the given PostingModule.
+Delete the given Posting Module.
 
 ### Example
 ```csharp
@@ -137,12 +137,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PostingModulesApi(config);
-            var scope = "scope_example";  // string | The scope of the PostingModule to be deleted.
-            var code = "code_example";  // string | The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule.
+            var scope = "scope_example";  // string | The scope of the Posting Module to be deleted.
+            var code = "code_example";  // string | The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module.
 
             try
             {
-                // [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+                // [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
                 DeletedEntityResponse result = apiInstance.DeletePostingModule(scope, code);
                 Debug.WriteLine(result);
             }
@@ -163,7 +163,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeletePostingModule: Delete a PostingModule.
+    // [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeletePostingModuleWithHttpInfo(scope, code);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -181,8 +181,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the PostingModule to be deleted. |  |
-| **code** | **string** | The code of the PostingModule to be deleted. Together with the scope this uniquely identifies the PostingModule. |  |
+| **scope** | **string** | The scope of the Posting Module to be deleted. |  |
+| **code** | **string** | The code of the Posting Module to be deleted. Together with the scope this uniquely identifies the Posting Module. |  |
 
 ### Return type
 
@@ -201,7 +201,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The datetime that the PostingModule was deleted |  -  |
+| **200** | The datetime that the Posting Module was deleted. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -347,7 +347,7 @@ namespace Example
             var page = "page_example";  // string? | The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
             var start = 56;  // int? | When paginating, skip this number of results. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
-            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the PostingModule type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the Posting Module type, specify \"id.Code eq '001'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
 
             try
             {
@@ -394,7 +394,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
 | **start** | **int?** | When paginating, skip this number of results. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
-| **filter** | **string?** | Expression to filter the results.              For example, to filter on the PostingModule type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **filter** | **string?** | Expression to filter the results.              For example, to filter on the Posting Module type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
 
 ### Return type
 
@@ -413,7 +413,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The requested Posting Modules |  -  |
+| **200** | The requested Posting Modules. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -513,7 +513,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The updated posting module |  -  |
+| **200** | The updated Posting Module. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -613,7 +613,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The posting module with updated rules |  -  |
+| **200** | The Posting Module with updated rules. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

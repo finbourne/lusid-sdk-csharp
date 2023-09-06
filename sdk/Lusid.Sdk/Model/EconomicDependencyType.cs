@@ -96,10 +96,10 @@ namespace Lusid.Sdk.Model
         QuoteDependency = 11,
 
         /// <summary>
-        /// Enum VendorDependency for value: VendorDependency
+        /// Enum Vendor for value: Vendor
         /// </summary>
-        [EnumMember(Value = "VendorDependency")]
-        VendorDependency = 12
+        [EnumMember(Value = "Vendor")]
+        Vendor = 12
 
     }
 
