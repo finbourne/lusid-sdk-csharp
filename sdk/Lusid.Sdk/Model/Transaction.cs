@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// <param name="type">The type of the transaction e.g. &#39;Buy&#39;, &#39;Sell&#39;. The transaction type should have been pre-configured via the System Configuration API endpoint. (required).</param>
         /// <param name="instrumentIdentifiers">A set of instrument identifiers that can resolve the transaction to a unique instrument..</param>
         /// <param name="instrumentScope">The scope in which the transaction&#39;s instrument lies..</param>
-        /// <param name="instrumentUid">The unqiue Lusid Instrument Id (LUID) of the instrument that the transaction is in. (required).</param>
+        /// <param name="instrumentUid">The unique Lusid Instrument Id (LUID) of the instrument that the transaction is in. (required).</param>
         /// <param name="transactionDate">The date of the transaction. (required).</param>
         /// <param name="settlementDate">The settlement date of the transaction. (required).</param>
         /// <param name="units">The number of units transacted in the associated instrument. (required).</param>
@@ -167,9 +167,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentScope { get; set; }
 
         /// <summary>
-        /// The unqiue Lusid Instrument Id (LUID) of the instrument that the transaction is in.
+        /// The unique Lusid Instrument Id (LUID) of the instrument that the transaction is in.
         /// </summary>
-        /// <value>The unqiue Lusid Instrument Id (LUID) of the instrument that the transaction is in.</value>
+        /// <value>The unique Lusid Instrument Id (LUID) of the instrument that the transaction is in.</value>
         [DataMember(Name = "instrumentUid", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentUid { get; set; }
 

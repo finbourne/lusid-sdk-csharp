@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="RealisedGainLoss" /> class.
         /// </summary>
         /// <param name="instrumentScope">The scope in which the instrument lies..</param>
-        /// <param name="instrumentUid">The unqiue Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with. (required).</param>
+        /// <param name="instrumentUid">The unique Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with. (required).</param>
         /// <param name="units">The number of units of the associated instrument against which the gain or loss has been realised. (required).</param>
         /// <param name="purchasePrice">The purchase price of each unit associated with this gain or loss..</param>
         /// <param name="costTradeCcy">costTradeCcy (required).</param>
@@ -93,9 +93,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentScope { get; set; }
 
         /// <summary>
-        /// The unqiue Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with.
+        /// The unique Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with.
         /// </summary>
-        /// <value>The unqiue Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with.</value>
+        /// <value>The unique Lusid Instrument Id (LUID) of the instrument that this gain or loss is associated with.</value>
         [DataMember(Name = "instrumentUid", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentUid { get; set; }
 

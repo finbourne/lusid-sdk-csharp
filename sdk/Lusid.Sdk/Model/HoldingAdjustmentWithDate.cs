@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The effective date of the holding adjustment.</param>
         /// <param name="instrumentIdentifiers">A set of instrument identifiers that can resolve the holding adjustment to a unique instrument..</param>
         /// <param name="instrumentScope">The scope of the instrument that the holding adjustment is in..</param>
-        /// <param name="instrumentUid">The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in. (required).</param>
+        /// <param name="instrumentUid">The unique Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in. (required).</param>
         /// <param name="subHoldingKeys">The set of unique transaction properties and associated values stored with the holding adjustment transactions automatically created by LUSID. Each property will be from the &#39;Transaction&#39; domain..</param>
         /// <param name="properties">The set of unique holding properties and associated values stored with the target holding. Each property will be from the &#39;Holding&#39; domain..</param>
         /// <param name="taxLots">The tax-lots that together make up the target holding. (required).</param>
@@ -88,9 +88,9 @@ namespace Lusid.Sdk.Model
         public string InstrumentScope { get; set; }
 
         /// <summary>
-        /// The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.
+        /// The unique Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.
         /// </summary>
-        /// <value>The unqiue Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.</value>
+        /// <value>The unique Lusid Instrument Id (LUID) of the instrument that the holding adjustment is in.</value>
         [DataMember(Name = "instrumentUid", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentUid { get; set; }
 
