@@ -189,6 +189,45 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of GetVirtualDocumentResponse</returns>
         ApiResponse<GetVirtualDocumentResponse> GetVirtualDocumentWithHttpInfo(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PagedResourceListOfVirtualRow</returns>
+        PagedResourceListOfVirtualRow GetVirtualDocumentRows(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PagedResourceListOfVirtualRow</returns>
+        ApiResponse<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] UpsertResultValue: Upsert result value
         /// </summary>
         /// <remarks>
@@ -423,6 +462,47 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetVirtualDocumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetVirtualDocumentResponse>> GetVirtualDocumentWithHttpInfoAsync(string scope, Dictionary<string, StructuredResultDataId> requestBody, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfVirtualRow</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfVirtualRow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfVirtualRow>> GetVirtualDocumentRowsWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] UpsertResultValue: Upsert result value
         /// </summary>
@@ -1909,6 +1989,306 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVirtualDocument", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PagedResourceListOfVirtualRow</returns>
+        public PagedResourceListOfVirtualRow GetVirtualDocumentRows(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> localVarResponse = GetVirtualDocumentRowsWithHttpInfo(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PagedResourceListOfVirtualRow</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsWithHttpInfo(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'source' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'resultType' is set
+            if (resultType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'resultType' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'effectiveAt' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("source", Lusid.Sdk.Client.ClientUtils.ParameterToString(source)); // path parameter
+            localVarRequestOptions.PathParameters.Add("resultType", Lusid.Sdk.Client.ClientUtils.ParameterToString(resultType)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "StructuredResultDataApi.GetVirtualDocumentRows";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfVirtualRow>("/api/unitresults/virtualdocument/{scope}/{code}/{source}/{resultType}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetVirtualDocumentRows", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfVirtualRow</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfVirtualRow> GetVirtualDocumentRowsAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow> localVarResponse = await GetVirtualDocumentRowsWithHttpInfoAsync(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope in which to retrieve the virtual document.</param>
+        /// <param name="code">The code of the virtual document to retrieve.</param>
+        /// <param name="source">The source of the virtual document to retrieve.</param>
+        /// <param name="resultType">The result type of the virtual document to retrieve.</param>
+        /// <param name="effectiveAt">The effectiveAt datetime at which to retrieve the virtual document.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfVirtualRow)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfVirtualRow>> GetVirtualDocumentRowsWithHttpInfoAsync(string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'source' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'resultType' is set
+            if (resultType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'resultType' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+            // verify the required parameter 'effectiveAt' is set
+            if (effectiveAt == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'effectiveAt' when calling StructuredResultDataApi->GetVirtualDocumentRows");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("source", Lusid.Sdk.Client.ClientUtils.ParameterToString(source)); // path parameter
+            localVarRequestOptions.PathParameters.Add("resultType", Lusid.Sdk.Client.ClientUtils.ParameterToString(resultType)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "StructuredResultDataApi.GetVirtualDocumentRows";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfVirtualRow>("/api/unitresults/virtualdocument/{scope}/{code}/{source}/{resultType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetVirtualDocumentRows", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -10,6 +10,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetDataMap**](StructuredResultDataApi.md#getdatamap) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] GetDataMap: Get data map |
 | [**GetStructuredResultData**](StructuredResultDataApi.md#getstructuredresultdata) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] GetStructuredResultData: Get structured result data |
 | [**GetVirtualDocument**](StructuredResultDataApi.md#getvirtualdocument) | **POST** /api/unitresults/virtualdocument/{scope}/$get | [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents |
+| [**GetVirtualDocumentRows**](StructuredResultDataApi.md#getvirtualdocumentrows) | **GET** /api/unitresults/virtualdocument/{scope}/{code}/{source}/{resultType} | [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows |
 | [**UpsertResultValue**](StructuredResultDataApi.md#upsertresultvalue) | **POST** /api/unitresults/resultvalue/{scope} | [EXPERIMENTAL] UpsertResultValue: Upsert result value |
 | [**UpsertStructuredResultData**](StructuredResultDataApi.md#upsertstructuredresultdata) | **POST** /api/unitresults/{scope} | [BETA] UpsertStructuredResultData: Upsert structured result data |
 
@@ -610,6 +611,118 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successfully retrieved virtual documents along with any failures. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getvirtualdocumentrows"></a>
+# **GetVirtualDocumentRows**
+> PagedResourceListOfVirtualRow GetVirtualDocumentRows (string scope, string code, string source, string resultType, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null)
+
+[EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+
+Retrieve the rows of the virtual document with the specified identifiers and the given effectiveAt date time.    Get virtual document rows merges multiple StructuredResultData items upserted with UpsertStructuredResultData  for a single StructuredResultDataId.                Since an item of StructuredResultData is always upserted with a StructuredResultDataId, of which  effectiveAt is a part, then merging across the asAt dimension is supported but not merging across the  effectiveAt dimension.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetVirtualDocumentRowsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new StructuredResultDataApi(config);
+            var scope = "scope_example";  // string | The scope in which to retrieve the virtual document.
+            var code = "code_example";  // string | The code of the virtual document to retrieve.
+            var source = "source_example";  // string | The source of the virtual document to retrieve.
+            var resultType = "resultType_example";  // string | The result type of the virtual document to retrieve.
+            var effectiveAt = "effectiveAt_example";  // DateTimeOrCutLabel | The effectiveAt datetime at which to retrieve the virtual document.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
+            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. (optional) 
+            var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. (optional) 
+
+            try
+            {
+                // [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+                PagedResourceListOfVirtualRow result = apiInstance.GetVirtualDocumentRows(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling StructuredResultDataApi.GetVirtualDocumentRows: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetVirtualDocumentRowsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetVirtualDocumentRows: Get Virtual Document Rows
+    ApiResponse<PagedResourceListOfVirtualRow> response = apiInstance.GetVirtualDocumentRowsWithHttpInfo(scope, code, source, resultType, effectiveAt, asAt, page, limit, filter);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling StructuredResultDataApi.GetVirtualDocumentRowsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope in which to retrieve the virtual document. |  |
+| **code** | **string** | The code of the virtual document to retrieve. |  |
+| **source** | **string** | The source of the virtual document to retrieve. |  |
+| **resultType** | **string** | The result type of the virtual document to retrieve. |  |
+| **effectiveAt** | **DateTimeOrCutLabel** | The effectiveAt datetime at which to retrieve the virtual document. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the virtual document. Defaults to returning the latest version if not specified. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing virtual document rows from a previous               call to list virtual document rows. This value is returned from the previous call. If a pagination token is               provided the filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
+| **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional]  |
+| **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here:               https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
+
+### Return type
+
+[**PagedResourceListOfVirtualRow**](PagedResourceListOfVirtualRow.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The rows of the virtual document. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
