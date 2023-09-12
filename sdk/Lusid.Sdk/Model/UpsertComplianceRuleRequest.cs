@@ -39,10 +39,10 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="name">name.</param>
         /// <param name="description">description.</param>
-        /// <param name="active">active.</param>
+        /// <param name="active">active (required).</param>
         /// <param name="templateId">templateId (required).</param>
         /// <param name="variation">variation (required).</param>
-        /// <param name="portfolioGroupId">portfolioGroupId.</param>
+        /// <param name="portfolioGroupId">portfolioGroupId (required).</param>
         /// <param name="parameters">parameters (required).</param>
         /// <param name="properties">properties (required).</param>
         public UpsertComplianceRuleRequest(ResourceId id = default(ResourceId), string name = default(string), string description = default(string), bool active = default(bool), ResourceId templateId = default(ResourceId), string variation = default(string), ResourceId portfolioGroupId = default(ResourceId), Dictionary<string, ComplianceParameter> parameters = default(Dictionary<string, ComplianceParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
@@ -53,6 +53,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("id is a required property for UpsertComplianceRuleRequest and cannot be null");
             }
             this.Id = id;
+            this.Active = active;
             // to ensure "templateId" is required (not null)
             if (templateId == null)
             {
@@ -65,6 +66,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("variation is a required property for UpsertComplianceRuleRequest and cannot be null");
             }
             this.Variation = variation;
+            // to ensure "portfolioGroupId" is required (not null)
+            if (portfolioGroupId == null)
+            {
+                throw new ArgumentNullException("portfolioGroupId is a required property for UpsertComplianceRuleRequest and cannot be null");
+            }
+            this.PortfolioGroupId = portfolioGroupId;
             // to ensure "parameters" is required (not null)
             if (parameters == null)
             {
@@ -79,8 +86,6 @@ namespace Lusid.Sdk.Model
             this.Properties = properties;
             this.Name = name;
             this.Description = description;
-            this.Active = active;
-            this.PortfolioGroupId = portfolioGroupId;
         }
 
         /// <summary>
@@ -104,7 +109,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Active
         /// </summary>
-        [DataMember(Name = "active", EmitDefaultValue = true)]
+        [DataMember(Name = "active", IsRequired = true, EmitDefaultValue = true)]
         public bool Active { get; set; }
 
         /// <summary>
@@ -122,7 +127,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets PortfolioGroupId
         /// </summary>
-        [DataMember(Name = "portfolioGroupId", EmitDefaultValue = false)]
+        [DataMember(Name = "portfolioGroupId", IsRequired = true, EmitDefaultValue = true)]
         public ResourceId PortfolioGroupId { get; set; }
 
         /// <summary>

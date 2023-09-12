@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Id** | [**ResourceId**](ResourceId.md) |  | 
 **Name** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
-**Active** | **bool** |  | [optional] 
+**Active** | **bool** |  | 
 **TemplateId** | [**ResourceId**](ResourceId.md) |  | 
 **Variation** | **string** |  | 
-**PortfolioGroupId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**PortfolioGroupId** | [**ResourceId**](ResourceId.md) |  | 
 **Parameters** | [**Dictionary&lt;string, ComplianceParameter&gt;**](ComplianceParameter.md) |  | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) |  | 
 
