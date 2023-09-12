@@ -12,14 +12,8 @@ The NuGet package for the LUSID SDK can installed from https://www.nuget.org/pac
 $ dotnet add package Lusid.Sdk 
 ```
 
-We publish two versions of the C# SDK:
-
-* **lusid-sdk-csharp (this one) - supports `Production` and `Early Access` API endpoints**
-* [lusid-sdk-csharp-preview](https://github.com/finbourne/lusid-sdk-csharp-preview) - supports `Production`, `Early Access`, `Beta` and `Experimental` API endpoints.
-
 For more details on API endpoint categories, see [What is the LUSID feature release lifecycle?](https://support.lusid.com/knowledgebase/article/KA-01786/en-us).
 To find out which category an API endpoint falls into, see [LUSID API Documentation](https://www.lusid.com/api/swagger/index.html).
-
 
 
 ## Documentation
@@ -31,7 +25,6 @@ SDK is [available to view online](https://lusid-sdk-csharp.readthedocs.io/en/lat
 
 ## Build Status 
 
-| branch | status |
-| --- | --- |
-| `master` |  ![Nuget](https://img.shields.io/nuget/v/Lusid.Sdk?color=blue) ![run-sdk-tests](https://github.com/finbourne/lusid-sdk-csharp/workflows/run-sdk-tests/badge.svg?branch=master)|
-| `develop` | ![run-sdk-tests](https://github.com/finbourne/lusid-sdk-csharp/workflows/run-sdk-tests/badge.svg?branch=develop) |
+![Nuget](https://img.shields.io/nuget/v/Lusid.Sdk?color=blue)
+
+![run-sdk-tests](https://github.com/finbourne/lusid-sdk-csharp/workflows/run-sdk-tests/badge.svg?branch=main)
