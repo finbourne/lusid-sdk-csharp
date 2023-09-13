@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **IsNonDeliverable** | **bool** | Is the contract an IRS of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the settlement currency based on the difference between  the fixed and floating rates. | [optional] 
 **Legs** | [**List&lt;InstrumentLeg&gt;**](InstrumentLeg.md) | The set of instrument legs that define the swap instrument, these should be FloatingLeg or FixedLeg. | 
 **SettlementCcy** | **string** | Settlement currency if IRS is non-deliverable. | [optional] 
-**UpFrontPayment** | [**UpFrontPayment**](UpFrontPayment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
