@@ -122,7 +122,13 @@ namespace Lusid.Sdk.Model
         /// Enum PortfolioGroupIdListComplianceParameter for value: PortfolioGroupIdListComplianceParameter
         /// </summary>
         [EnumMember(Value = "PortfolioGroupIdListComplianceParameter")]
-        PortfolioGroupIdListComplianceParameter = 16
+        PortfolioGroupIdListComplianceParameter = 16,
+
+        /// <summary>
+        /// Enum InstrumentListComplianceParameter for value: InstrumentListComplianceParameter
+        /// </summary>
+        [EnumMember(Value = "InstrumentListComplianceParameter")]
+        InstrumentListComplianceParameter = 17
 
     }
 

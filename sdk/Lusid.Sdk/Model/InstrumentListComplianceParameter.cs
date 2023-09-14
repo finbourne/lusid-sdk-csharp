@@ -24,28 +24,28 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioGroupIdComplianceParameter
+    /// InstrumentListComplianceParameter
     /// </summary>
-    [DataContract(Name = "PortfolioGroupIdComplianceParameter")]
+    [DataContract(Name = "InstrumentListComplianceParameter")]
     [JsonConverter(typeof(JsonSubtypes), "ComplianceParameterType")]
-    public partial class PortfolioGroupIdComplianceParameter : ComplianceParameter, IEquatable<PortfolioGroupIdComplianceParameter>, IValidatableObject
+    public partial class InstrumentListComplianceParameter : ComplianceParameter, IEquatable<InstrumentListComplianceParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentListComplianceParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioGroupIdComplianceParameter() { }
+        protected InstrumentListComplianceParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="InstrumentListComplianceParameter" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter (required) (default to &quot;PortfolioGroupIdComplianceParameter&quot;).</param>
-        public PortfolioGroupIdComplianceParameter(ResourceId value = default(ResourceId), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
+        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter (required) (default to &quot;InstrumentListComplianceParameter&quot;).</param>
+        public InstrumentListComplianceParameter(ResourceId value = default(ResourceId), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
         {
             // to ensure "value" is required (not null)
             if (value == null)
             {
-                throw new ArgumentNullException("value is a required property for PortfolioGroupIdComplianceParameter and cannot be null");
+                throw new ArgumentNullException("value is a required property for InstrumentListComplianceParameter and cannot be null");
             }
             this.Value = value;
         }
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PortfolioGroupIdComplianceParameter {\n");
+            sb.Append("class InstrumentListComplianceParameter {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioGroupIdComplianceParameter);
+            return this.Equals(input as InstrumentListComplianceParameter);
         }
 
         /// <summary>
-        /// Returns true if PortfolioGroupIdComplianceParameter instances are equal
+        /// Returns true if InstrumentListComplianceParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioGroupIdComplianceParameter to be compared</param>
+        /// <param name="input">Instance of InstrumentListComplianceParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioGroupIdComplianceParameter input)
+        public bool Equals(InstrumentListComplianceParameter input)
         {
             if (input == null)
             {

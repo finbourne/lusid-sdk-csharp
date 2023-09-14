@@ -234,9 +234,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Document (string) maxLength
-            if (this.Document != null && this.Document.Length > 256000)
+            if (this.Document != null && this.Document.Length > 1000000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Document, length must be less than 256000.", new [] { "Document" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Document, length must be less than 1000000.", new [] { "Document" });
             }
 
             // Document (string) minLength

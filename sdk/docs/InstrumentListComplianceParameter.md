@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.PropertyKeyListComplianceParameter
+# Lusid.Sdk.Model.InstrumentListComplianceParameter
 
 ## Properties
 
