@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="mappings">This allows you to map a transaction property to a property on the underlying holding.</param>
         /// <param name="name">The movement name (optional).</param>
         /// <param name="movementOptions">Allows extra specifications for the movement. The only option currently available is &#39;DirectAdjustment&#39;. A movement type of &#39;StockMovement&#39; with an option of &#39;DirectAdjusment&#39; will allow you to adjust the unitsof a holding without affecting its cost base. You will, therefore, be able to reflect the impact of a stock split by loading a Transaction..</param>
-        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>))
+        /// <param name="settlementDateOverride">Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction..</param>
+        public TransactionTypeMovement(string movementTypes = default(string), string side = default(string), int direction = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypePropertyMapping> mappings = default(List<TransactionTypePropertyMapping>), string name = default(string), List<string> movementOptions = default(List<string>), string settlementDateOverride = default(string))
         {
             // to ensure "movementTypes" is required (not null)
             if (movementTypes == null)
@@ -62,6 +63,7 @@ namespace Lusid.Sdk.Model
             this.Mappings = mappings;
             this.Name = name;
             this.MovementOptions = movementOptions;
+            this.SettlementDateOverride = settlementDateOverride;
         }
 
         /// <summary>
@@ -114,6 +116,13 @@ namespace Lusid.Sdk.Model
         public List<string> MovementOptions { get; set; }
 
         /// <summary>
+        /// Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction.
+        /// </summary>
+        /// <value>Optional property key that must be in the Transaction domain when specified. When the movement is processed and the transaction has this property set to a valid date, then the property value will override the SettlementDate of the transaction.</value>
+        [DataMember(Name = "settlementDateOverride", EmitDefaultValue = true)]
+        public string SettlementDateOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,6 +137,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Mappings: ").Append(Mappings).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  MovementOptions: ").Append(MovementOptions).Append("\n");
+            sb.Append("  SettlementDateOverride: ").Append(SettlementDateOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +209,11 @@ namespace Lusid.Sdk.Model
                     this.MovementOptions != null &&
                     input.MovementOptions != null &&
                     this.MovementOptions.SequenceEqual(input.MovementOptions)
+                ) && 
+                (
+                    this.SettlementDateOverride == input.SettlementDateOverride ||
+                    (this.SettlementDateOverride != null &&
+                    this.SettlementDateOverride.Equals(input.SettlementDateOverride))
                 );
         }
 
@@ -235,6 +250,10 @@ namespace Lusid.Sdk.Model
                 if (this.MovementOptions != null)
                 {
                     hashCode = (hashCode * 59) + this.MovementOptions.GetHashCode();
+                }
+                if (this.SettlementDateOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementDateOverride.GetHashCode();
                 }
                 return hashCode;
             }
