@@ -267,7 +267,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -282,7 +282,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -585,7 +585,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -601,7 +601,7 @@ namespace Lusid.Sdk.Api
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2569,7 +2569,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2585,7 +2585,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2685,7 +2685,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2702,7 +2702,7 @@ namespace Lusid.Sdk.Api
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
-        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration</param>
+        /// <param name="type">One of the transaction configuration alias types to uniquely identify the configuration. If this type does not exist, then a new transaction type is created using the body of the request in the given source, without including this type</param>
         /// <param name="transactionTypeRequest">The transaction configuration to set</param>
         /// <param name="scope">The scope in which the transaction types exists. When not supplied the scope is &#39;default&#39;. (optional, default to &quot;default&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
