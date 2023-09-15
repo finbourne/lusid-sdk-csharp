@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// OpaqueDependencyAllOf
+    /// InflationFixingDependencyAllOf
     /// </summary>
-    [DataContract(Name = "OpaqueDependency_allOf")]
-    public partial class OpaqueDependencyAllOf : IEquatable<OpaqueDependencyAllOf>, IValidatableObject
+    [DataContract(Name = "InflationFixingDependency_allOf")]
+    public partial class InflationFixingDependencyAllOf : IEquatable<InflationFixingDependencyAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
@@ -129,18 +129,55 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "dependencyType", IsRequired = true, EmitDefaultValue = true)]
         public DependencyTypeEnum DependencyType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpaqueDependencyAllOf" /> class.
+        /// Initializes a new instance of the <see cref="InflationFixingDependencyAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OpaqueDependencyAllOf() { }
+        protected InflationFixingDependencyAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpaqueDependencyAllOf" /> class.
+        /// Initializes a new instance of the <see cref="InflationFixingDependencyAllOf" /> class.
         /// </summary>
+        /// <param name="type">The Type of fixing (index, ratio or assumption) (required).</param>
+        /// <param name="code">The Code of the fixing, typically the index name (required).</param>
+        /// <param name="date">The effectiveAt of the inflation fixing (required).</param>
         /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required).</param>
-        public OpaqueDependencyAllOf(DependencyTypeEnum dependencyType = default(DependencyTypeEnum))
+        public InflationFixingDependencyAllOf(string type = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum))
         {
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new ArgumentNullException("type is a required property for InflationFixingDependencyAllOf and cannot be null");
+            }
+            this.Type = type;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for InflationFixingDependencyAllOf and cannot be null");
+            }
+            this.Code = code;
+            this.Date = date;
             this.DependencyType = dependencyType;
         }
+
+        /// <summary>
+        /// The Type of fixing (index, ratio or assumption)
+        /// </summary>
+        /// <value>The Type of fixing (index, ratio or assumption)</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// The Code of the fixing, typically the index name
+        /// </summary>
+        /// <value>The Code of the fixing, typically the index name</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// The effectiveAt of the inflation fixing
+        /// </summary>
+        /// <value>The effectiveAt of the inflation fixing</value>
+        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,7 +186,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OpaqueDependencyAllOf {\n");
+            sb.Append("class InflationFixingDependencyAllOf {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  DependencyType: ").Append(DependencyType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -171,21 +211,36 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OpaqueDependencyAllOf);
+            return this.Equals(input as InflationFixingDependencyAllOf);
         }
 
         /// <summary>
-        /// Returns true if OpaqueDependencyAllOf instances are equal
+        /// Returns true if InflationFixingDependencyAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of OpaqueDependencyAllOf to be compared</param>
+        /// <param name="input">Instance of InflationFixingDependencyAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OpaqueDependencyAllOf input)
+        public bool Equals(InflationFixingDependencyAllOf input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
+                ) && 
                 (
                     this.DependencyType == input.DependencyType ||
                     this.DependencyType.Equals(input.DependencyType)
@@ -201,6 +256,18 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                if (this.Date != null)
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.DependencyType.GetHashCode();
                 return hashCode;
             }
@@ -213,6 +280,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
+
             yield break;
         }
     }

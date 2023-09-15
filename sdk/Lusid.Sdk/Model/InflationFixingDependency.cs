@@ -24,59 +24,59 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// For indicating a dependency on the value of an asset at a point in time.  If the time is omitted, then the dependency is interpreted as the latest value with respect to anything observing it.  E.g. An EquitySwap will declare a dependency on the current price of the underlying equity.
+    /// For indicating a dependency upon an inflation fixing
     /// </summary>
-    [DataContract(Name = "QuoteDependency")]
+    [DataContract(Name = "InflationFixingDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]
-    public partial class QuoteDependency : EconomicDependency, IEquatable<QuoteDependency>, IValidatableObject
+    public partial class InflationFixingDependency : EconomicDependency, IEquatable<InflationFixingDependency>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuoteDependency" /> class.
+        /// Initializes a new instance of the <see cref="InflationFixingDependency" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuoteDependency() { }
+        protected InflationFixingDependency() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuoteDependency" /> class.
+        /// Initializes a new instance of the <see cref="InflationFixingDependency" /> class.
         /// </summary>
-        /// <param name="marketIdentifier">Type of the code identifying the asset, e.g. ISIN or CUSIP (required).</param>
-        /// <param name="code">The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN (required).</param>
-        /// <param name="date">The effectiveAt of the quote for the identified entity. (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;QuoteDependency&quot;).</param>
-        public QuoteDependency(string marketIdentifier = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
+        /// <param name="type">The Type of fixing (index, ratio or assumption) (required).</param>
+        /// <param name="code">The Code of the fixing, typically the index name (required).</param>
+        /// <param name="date">The effectiveAt of the inflation fixing (required).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;InflationFixingDependency&quot;).</param>
+        public InflationFixingDependency(string type = default(string), string code = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
-            // to ensure "marketIdentifier" is required (not null)
-            if (marketIdentifier == null)
+            // to ensure "type" is required (not null)
+            if (type == null)
             {
-                throw new ArgumentNullException("marketIdentifier is a required property for QuoteDependency and cannot be null");
+                throw new ArgumentNullException("type is a required property for InflationFixingDependency and cannot be null");
             }
-            this.MarketIdentifier = marketIdentifier;
+            this.Type = type;
             // to ensure "code" is required (not null)
             if (code == null)
             {
-                throw new ArgumentNullException("code is a required property for QuoteDependency and cannot be null");
+                throw new ArgumentNullException("code is a required property for InflationFixingDependency and cannot be null");
             }
             this.Code = code;
             this.Date = date;
         }
 
         /// <summary>
-        /// Type of the code identifying the asset, e.g. ISIN or CUSIP
+        /// The Type of fixing (index, ratio or assumption)
         /// </summary>
-        /// <value>Type of the code identifying the asset, e.g. ISIN or CUSIP</value>
-        [DataMember(Name = "marketIdentifier", IsRequired = true, EmitDefaultValue = true)]
-        public string MarketIdentifier { get; set; }
+        /// <value>The Type of fixing (index, ratio or assumption)</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN
+        /// The Code of the fixing, typically the index name
         /// </summary>
-        /// <value>The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN</value>
+        /// <value>The Code of the fixing, typically the index name</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// The effectiveAt of the quote for the identified entity.
+        /// The effectiveAt of the inflation fixing
         /// </summary>
-        /// <value>The effectiveAt of the quote for the identified entity.</value>
+        /// <value>The effectiveAt of the inflation fixing</value>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset Date { get; set; }
 
@@ -87,9 +87,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class QuoteDependency {\n");
+            sb.Append("class InflationFixingDependency {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  MarketIdentifier: ").Append(MarketIdentifier).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("}\n");
@@ -112,15 +112,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuoteDependency);
+            return this.Equals(input as InflationFixingDependency);
         }
 
         /// <summary>
-        /// Returns true if QuoteDependency instances are equal
+        /// Returns true if InflationFixingDependency instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuoteDependency to be compared</param>
+        /// <param name="input">Instance of InflationFixingDependency to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuoteDependency input)
+        public bool Equals(InflationFixingDependency input)
         {
             if (input == null)
             {
@@ -128,9 +128,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.MarketIdentifier == input.MarketIdentifier ||
-                    (this.MarketIdentifier != null &&
-                    this.MarketIdentifier.Equals(input.MarketIdentifier))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && base.Equals(input) && 
                 (
                     this.Code == input.Code ||
@@ -153,9 +153,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.MarketIdentifier != null)
+                if (this.Type != null)
                 {
-                    hashCode = (hashCode * 59) + this.MarketIdentifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 if (this.Code != null)
                 {
@@ -190,22 +190,16 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // MarketIdentifier (string) minLength
-            if (this.MarketIdentifier != null && this.MarketIdentifier.Length < 1)
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketIdentifier, length must be greater than 1.", new [] { "MarketIdentifier" });
-            }
-
-            // Code (string) maxLength
-            if (this.Code != null && this.Code.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 50.", new [] { "Code" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 0)
+            if (this.Code != null && this.Code.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 0.", new [] { "Code" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
             }
 
             yield break;

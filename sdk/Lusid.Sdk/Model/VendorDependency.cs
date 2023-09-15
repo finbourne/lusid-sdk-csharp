@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="vendorName">The name of the outside vendor (required).</param>
         /// <param name="vendorPath">The specific dependency path (required).</param>
         /// <param name="date">The effectiveDate of the entity that this is a dependency for. (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor (required) (default to &quot;VendorDependency&quot;).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;VendorDependency&quot;).</param>
         public VendorDependency(string vendorName = default(string), List<string> vendorPath = default(List<string>), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
             // to ensure "vendorName" is required (not null)

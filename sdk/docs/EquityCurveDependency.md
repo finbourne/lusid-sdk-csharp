@@ -5,7 +5,7 @@ For indicating a dependency on an EquityCurve.  E.g. When pricing an EquitySwap 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DependencyType** | **string** | The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor | 
+**DependencyType** | **string** | The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency | 
 **MarketIdentifier** | **string** | Type of the code identifying the corresponding equity, e.g. ISIN or CUSIP | 
 **Code** | **string** | The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN | 
 **CurveType** | **string** | The curve type of the EquityCurve required. E.g. EquityCurveByPrices | 

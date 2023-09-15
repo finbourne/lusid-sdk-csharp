@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class FxForwardsDependencyAllOf : IEquatable<FxForwardsDependencyAllOf>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor
+        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
         /// </summary>
-        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor</value>
+        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DependencyTypeEnum
         {
@@ -105,15 +105,27 @@ namespace Lusid.Sdk.Model
             /// Enum Vendor for value: Vendor
             /// </summary>
             [EnumMember(Value = "Vendor")]
-            Vendor = 12
+            Vendor = 12,
+
+            /// <summary>
+            /// Enum CalendarDependency for value: CalendarDependency
+            /// </summary>
+            [EnumMember(Value = "CalendarDependency")]
+            CalendarDependency = 13,
+
+            /// <summary>
+            /// Enum InflationFixingDependency for value: InflationFixingDependency
+            /// </summary>
+            [EnumMember(Value = "InflationFixingDependency")]
+            InflationFixingDependency = 14
 
         }
 
 
         /// <summary>
-        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor
+        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
         /// </summary>
-        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor</value>
+        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency</value>
         [DataMember(Name = "dependencyType", IsRequired = true, EmitDefaultValue = true)]
         public DependencyTypeEnum DependencyType { get; set; }
         /// <summary>
@@ -128,7 +140,7 @@ namespace Lusid.Sdk.Model
         /// <param name="foreignCurrency">ForeignCurrency is the second currency in a currency pair quote e.g. eur-gbp, gbp is the foreign currency. (required).</param>
         /// <param name="curveType">Used to describe the format in which the curve is expressed  e.g. FxFwdCurve (general term to describe any representation), TenorFxFwdCurve, PipsFxFwdCurve. (required).</param>
         /// <param name="date">The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor (required).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required).</param>
         public FxForwardsDependencyAllOf(string domesticCurrency = default(string), string foreignCurrency = default(string), string curveType = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum))
         {
             // to ensure "domesticCurrency" is required (not null)

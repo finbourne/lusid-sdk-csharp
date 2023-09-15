@@ -24,24 +24,38 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Represents a dependency that could not be understood as an externally exposed dependency.  If this is an unexpected dependency, then please contact support.
+    /// For indicating a dependency upon calendar codes
     /// </summary>
-    [DataContract(Name = "OpaqueDependency")]
+    [DataContract(Name = "CalendarDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]
-    public partial class OpaqueDependency : EconomicDependency, IEquatable<OpaqueDependency>, IValidatableObject
+    public partial class CalendarDependency : EconomicDependency, IEquatable<CalendarDependency>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpaqueDependency" /> class.
+        /// Initializes a new instance of the <see cref="CalendarDependency" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OpaqueDependency() { }
+        protected CalendarDependency() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpaqueDependency" /> class.
+        /// Initializes a new instance of the <see cref="CalendarDependency" /> class.
         /// </summary>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;OpaqueDependency&quot;).</param>
-        public OpaqueDependency(DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
+        /// <param name="calendars">The Codes of the calendars that are depended upon. (required).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;CalendarDependency&quot;).</param>
+        public CalendarDependency(List<string> calendars = default(List<string>), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
+            // to ensure "calendars" is required (not null)
+            if (calendars == null)
+            {
+                throw new ArgumentNullException("calendars is a required property for CalendarDependency and cannot be null");
+            }
+            this.Calendars = calendars;
         }
+
+        /// <summary>
+        /// The Codes of the calendars that are depended upon.
+        /// </summary>
+        /// <value>The Codes of the calendars that are depended upon.</value>
+        [DataMember(Name = "calendars", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Calendars { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -50,8 +64,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OpaqueDependency {\n");
+            sb.Append("class CalendarDependency {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  Calendars: ").Append(Calendars).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -72,21 +87,27 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OpaqueDependency);
+            return this.Equals(input as CalendarDependency);
         }
 
         /// <summary>
-        /// Returns true if OpaqueDependency instances are equal
+        /// Returns true if CalendarDependency instances are equal
         /// </summary>
-        /// <param name="input">Instance of OpaqueDependency to be compared</param>
+        /// <param name="input">Instance of CalendarDependency to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OpaqueDependency input)
+        public bool Equals(CalendarDependency input)
         {
             if (input == null)
             {
                 return false;
             }
-            return base.Equals(input);
+            return base.Equals(input) && 
+                (
+                    this.Calendars == input.Calendars ||
+                    this.Calendars != null &&
+                    input.Calendars != null &&
+                    this.Calendars.SequenceEqual(input.Calendars)
+                );
         }
 
         /// <summary>
@@ -98,6 +119,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                if (this.Calendars != null)
+                {
+                    hashCode = (hashCode * 59) + this.Calendars.GetHashCode();
+                }
                 return hashCode;
             }
         }

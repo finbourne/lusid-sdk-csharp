@@ -28,6 +28,7 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "EconomicDependency")]
     [JsonConverter(typeof(JsonSubtypes), "DependencyType")]
+    [JsonSubtypes.KnownSubType(typeof(CalendarDependency), "CalendarDependency")]
     [JsonSubtypes.KnownSubType(typeof(CashDependency), "CashDependency")]
     [JsonSubtypes.KnownSubType(typeof(DiscountingDependency), "DiscountingDependency")]
     [JsonSubtypes.KnownSubType(typeof(EquityCurveDependency), "EquityCurveDependency")]
@@ -36,6 +37,7 @@ namespace Lusid.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FxForwardsDependency), "FxForwardsDependency")]
     [JsonSubtypes.KnownSubType(typeof(FxVolDependency), "FxVolDependency")]
     [JsonSubtypes.KnownSubType(typeof(IndexProjectionDependency), "IndexProjectionDependency")]
+    [JsonSubtypes.KnownSubType(typeof(InflationFixingDependency), "InflationFixingDependency")]
     [JsonSubtypes.KnownSubType(typeof(IrVolDependency), "IrVolDependency")]
     [JsonSubtypes.KnownSubType(typeof(OpaqueDependency), "OpaqueDependency")]
     [JsonSubtypes.KnownSubType(typeof(QuoteDependency), "QuoteDependency")]
@@ -43,9 +45,9 @@ namespace Lusid.Sdk.Model
     public partial class EconomicDependency : IEquatable<EconomicDependency>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor
+        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
         /// </summary>
-        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor</value>
+        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DependencyTypeEnum
         {
@@ -119,15 +121,27 @@ namespace Lusid.Sdk.Model
             /// Enum Vendor for value: Vendor
             /// </summary>
             [EnumMember(Value = "Vendor")]
-            Vendor = 12
+            Vendor = 12,
+
+            /// <summary>
+            /// Enum CalendarDependency for value: CalendarDependency
+            /// </summary>
+            [EnumMember(Value = "CalendarDependency")]
+            CalendarDependency = 13,
+
+            /// <summary>
+            /// Enum InflationFixingDependency for value: InflationFixingDependency
+            /// </summary>
+            [EnumMember(Value = "InflationFixingDependency")]
+            InflationFixingDependency = 14
 
         }
 
 
         /// <summary>
-        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor
+        /// The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency
         /// </summary>
-        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor</value>
+        /// <value>The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency</value>
         [DataMember(Name = "dependencyType", IsRequired = true, EmitDefaultValue = true)]
         public DependencyTypeEnum DependencyType { get; set; }
         /// <summary>
@@ -138,7 +152,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EconomicDependency" /> class.
         /// </summary>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor (required).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required).</param>
         public EconomicDependency(DependencyTypeEnum dependencyType = default(DependencyTypeEnum))
         {
             this.DependencyType = dependencyType;

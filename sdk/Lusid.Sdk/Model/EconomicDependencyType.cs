@@ -99,7 +99,19 @@ namespace Lusid.Sdk.Model
         /// Enum Vendor for value: Vendor
         /// </summary>
         [EnumMember(Value = "Vendor")]
-        Vendor = 12
+        Vendor = 12,
+
+        /// <summary>
+        /// Enum CalendarDependency for value: CalendarDependency
+        /// </summary>
+        [EnumMember(Value = "CalendarDependency")]
+        CalendarDependency = 13,
+
+        /// <summary>
+        /// Enum InflationFixingDependency for value: InflationFixingDependency
+        /// </summary>
+        [EnumMember(Value = "InflationFixingDependency")]
+        InflationFixingDependency = 14
 
     }
 

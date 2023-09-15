@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code identifying the corresponding equity, e.g. US0378331005 if the MarketIdentifier was set to ISIN (required).</param>
         /// <param name="curveType">The curve type of the EquityCurve required. E.g. EquityCurveByPrices (required).</param>
         /// <param name="date">The effectiveDate of the entity that this is a dependency for.  Unless there is an obvious date this should be, like for a historic reset, then this is the valuation date. (required).</param>
-        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor (required) (default to &quot;EquityCurveDependency&quot;).</param>
+        /// <param name="dependencyType">The available values are: OpaqueDependency, CashDependency, DiscountingDependency, EquityCurveDependency, EquityVolDependency, FxDependency, FxForwardsDependency, FxVolDependency, IndexProjectionDependency, IrVolDependency, QuoteDependency, Vendor, CalendarDependency, InflationFixingDependency (required) (default to &quot;EquityCurveDependency&quot;).</param>
         public EquityCurveDependency(string marketIdentifier = default(string), string code = default(string), string curveType = default(string), DateTimeOffset date = default(DateTimeOffset), DependencyTypeEnum dependencyType = default(DependencyTypeEnum)) : base(dependencyType)
         {
             // to ensure "marketIdentifier" is required (not null)
