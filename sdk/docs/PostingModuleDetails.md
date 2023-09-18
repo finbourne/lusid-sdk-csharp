@@ -5,7 +5,6 @@ A posting Module request definition
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name to identify the Posting Module by | 
 **Description** | **string** | The description for the Posting Module | [optional] 
 **Status** | **string** | The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. | 

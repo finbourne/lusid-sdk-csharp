@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PostingModuleCreateResponse" /> class.
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="id">id (required).</param>
+        /// <param name="postingModuleCode">The code of the Posting Module. (required).</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
@@ -45,14 +45,14 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public PostingModuleCreateResponse(string href = default(string), ResourceId id = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>), string status = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public PostingModuleCreateResponse(string href = default(string), string postingModuleCode = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>), string status = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "postingModuleCode" is required (not null)
+            if (postingModuleCode == null)
             {
-                throw new ArgumentNullException("id is a required property for PostingModuleCreateResponse and cannot be null");
+                throw new ArgumentNullException("postingModuleCode is a required property for PostingModuleCreateResponse and cannot be null");
             }
-            this.Id = id;
+            this.PostingModuleCode = postingModuleCode;
             // to ensure "chartOfAccountsId" is required (not null)
             if (chartOfAccountsId == null)
             {
@@ -86,10 +86,11 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The code of the Posting Module.
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId Id { get; set; }
+        /// <value>The code of the Posting Module.</value>
+        [DataMember(Name = "postingModuleCode", IsRequired = true, EmitDefaultValue = true)]
+        public string PostingModuleCode { get; set; }
 
         /// <summary>
         /// Gets or Sets ChartOfAccountsId
@@ -146,7 +147,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostingModuleCreateResponse {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  PostingModuleCode: ").Append(PostingModuleCode).Append("\n");
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -195,9 +196,9 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.PostingModuleCode == input.PostingModuleCode ||
+                    (this.PostingModuleCode != null &&
+                    this.PostingModuleCode.Equals(input.PostingModuleCode))
                 ) && 
                 (
                     this.ChartOfAccountsId == input.ChartOfAccountsId ||
@@ -251,9 +252,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
                 }
-                if (this.Id != null)
+                if (this.PostingModuleCode != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PostingModuleCode.GetHashCode();
                 }
                 if (this.ChartOfAccountsId != null)
                 {

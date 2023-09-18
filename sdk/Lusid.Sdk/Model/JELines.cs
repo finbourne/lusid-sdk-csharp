@@ -46,7 +46,7 @@ namespace Lusid.Sdk.Model
         /// <param name="glCode">Code of general ledger the JE lines posting to. (required).</param>
         /// <param name="local">local (required).</param>
         /// <param name="_base">_base (required).</param>
-        /// <param name="postingModuleId">postingModuleId.</param>
+        /// <param name="postingModuleCode">The code of the posting module where the posting rules derived the JE Lines..</param>
         /// <param name="postingRule">The rule generating the JELinse. (required).</param>
         /// <param name="asAtDate">The corresponding input date and time of the Transaction generating the JELine. (required).</param>
         /// <param name="activitiesDescription">This would be the description of the business activities where these JE lines are posting for..</param>
@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Model
         /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
         /// <param name="economicBucket">Raw JE Line details of the economic bucket for the JE Line. (required).</param>
         /// <param name="links">links.</param>
-        public JELines(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string glCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), ResourceId postingModuleId = default(ResourceId), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), List<Link> links = default(List<Link>))
+        public JELines(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string glCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -141,7 +141,7 @@ namespace Lusid.Sdk.Model
             }
             this.EconomicBucket = economicBucket;
             this.SubHoldingKeys = subHoldingKeys;
-            this.PostingModuleId = postingModuleId;
+            this.PostingModuleCode = postingModuleCode;
             this.ActivitiesDescription = activitiesDescription;
             this.Properties = properties;
             this.Links = links;
@@ -215,10 +215,11 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount Base { get; set; }
 
         /// <summary>
-        /// Gets or Sets PostingModuleId
+        /// The code of the posting module where the posting rules derived the JE Lines.
         /// </summary>
-        [DataMember(Name = "postingModuleId", EmitDefaultValue = false)]
-        public ResourceId PostingModuleId { get; set; }
+        /// <value>The code of the posting module where the posting rules derived the JE Lines.</value>
+        [DataMember(Name = "postingModuleCode", EmitDefaultValue = true)]
+        public string PostingModuleCode { get; set; }
 
         /// <summary>
         /// The rule generating the JELinse.
@@ -307,7 +308,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  GlCode: ").Append(GlCode).Append("\n");
             sb.Append("  Local: ").Append(Local).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
-            sb.Append("  PostingModuleId: ").Append(PostingModuleId).Append("\n");
+            sb.Append("  PostingModuleCode: ").Append(PostingModuleCode).Append("\n");
             sb.Append("  PostingRule: ").Append(PostingRule).Append("\n");
             sb.Append("  AsAtDate: ").Append(AsAtDate).Append("\n");
             sb.Append("  ActivitiesDescription: ").Append(ActivitiesDescription).Append("\n");
@@ -405,9 +406,9 @@ namespace Lusid.Sdk.Model
                     this.Base.Equals(input.Base))
                 ) && 
                 (
-                    this.PostingModuleId == input.PostingModuleId ||
-                    (this.PostingModuleId != null &&
-                    this.PostingModuleId.Equals(input.PostingModuleId))
+                    this.PostingModuleCode == input.PostingModuleCode ||
+                    (this.PostingModuleCode != null &&
+                    this.PostingModuleCode.Equals(input.PostingModuleCode))
                 ) && 
                 (
                     this.PostingRule == input.PostingRule ||
@@ -512,9 +513,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Base.GetHashCode();
                 }
-                if (this.PostingModuleId != null)
+                if (this.PostingModuleCode != null)
                 {
-                    hashCode = (hashCode * 59) + this.PostingModuleId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PostingModuleCode.GetHashCode();
                 }
                 if (this.PostingRule != null)
                 {

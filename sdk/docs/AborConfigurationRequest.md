@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The description for the AborConfiguration. | [optional] 
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | 
 **ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
-**PostingModuleIds** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The Posting Modules Ids from where the rules to be applied are retrieved. | [optional] 
+**PostingModuleCodes** | **List&lt;string&gt;** | The Posting Modules Codes from where the rules to be applied are retrieved. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Properties to add to the AborConfiguration. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

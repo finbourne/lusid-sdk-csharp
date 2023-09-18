@@ -41,9 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description for the AborConfiguration..</param>
         /// <param name="recipeId">recipeId (required).</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="postingModuleIds">The Posting Modules Ids from where the rules to be applied are retrieved..</param>
+        /// <param name="postingModuleCodes">The Posting Modules Codes from where the rules to be applied are retrieved..</param>
         /// <param name="properties">Properties to add to the AborConfiguration..</param>
-        public AborConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<ResourceId> postingModuleIds = default(List<ResourceId>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public AborConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -65,7 +65,7 @@ namespace Lusid.Sdk.Model
             this.ChartOfAccountsId = chartOfAccountsId;
             this.DisplayName = displayName;
             this.Description = description;
-            this.PostingModuleIds = postingModuleIds;
+            this.PostingModuleCodes = postingModuleCodes;
             this.Properties = properties;
         }
 
@@ -103,11 +103,11 @@ namespace Lusid.Sdk.Model
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
-        /// The Posting Modules Ids from where the rules to be applied are retrieved.
+        /// The Posting Modules Codes from where the rules to be applied are retrieved.
         /// </summary>
-        /// <value>The Posting Modules Ids from where the rules to be applied are retrieved.</value>
-        [DataMember(Name = "postingModuleIds", EmitDefaultValue = true)]
-        public List<ResourceId> PostingModuleIds { get; set; }
+        /// <value>The Posting Modules Codes from where the rules to be applied are retrieved.</value>
+        [DataMember(Name = "postingModuleCodes", EmitDefaultValue = true)]
+        public List<string> PostingModuleCodes { get; set; }
 
         /// <summary>
         /// Properties to add to the AborConfiguration.
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
-            sb.Append("  PostingModuleIds: ").Append(PostingModuleIds).Append("\n");
+            sb.Append("  PostingModuleCodes: ").Append(PostingModuleCodes).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -192,10 +192,10 @@ namespace Lusid.Sdk.Model
                     this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
                 ) && 
                 (
-                    this.PostingModuleIds == input.PostingModuleIds ||
-                    this.PostingModuleIds != null &&
-                    input.PostingModuleIds != null &&
-                    this.PostingModuleIds.SequenceEqual(input.PostingModuleIds)
+                    this.PostingModuleCodes == input.PostingModuleCodes ||
+                    this.PostingModuleCodes != null &&
+                    input.PostingModuleCodes != null &&
+                    this.PostingModuleCodes.SequenceEqual(input.PostingModuleCodes)
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -234,9 +234,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
                 }
-                if (this.PostingModuleIds != null)
+                if (this.PostingModuleCodes != null)
                 {
-                    hashCode = (hashCode * 59) + this.PostingModuleIds.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PostingModuleCodes.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

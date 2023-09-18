@@ -37,11 +37,10 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PostingModuleRequest" /> class.
         /// </summary>
         /// <param name="code">The code of the Posting Module. (required).</param>
-        /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
         /// <param name="rules">The posting rules that apply for the Posting Module.</param>
-        public PostingModuleRequest(string code = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>))
+        public PostingModuleRequest(string code = default(string), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -49,12 +48,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("code is a required property for PostingModuleRequest and cannot be null");
             }
             this.Code = code;
-            // to ensure "chartOfAccountsId" is required (not null)
-            if (chartOfAccountsId == null)
-            {
-                throw new ArgumentNullException("chartOfAccountsId is a required property for PostingModuleRequest and cannot be null");
-            }
-            this.ChartOfAccountsId = chartOfAccountsId;
             // to ensure "displayName" is required (not null)
             if (displayName == null)
             {
@@ -71,12 +64,6 @@ namespace Lusid.Sdk.Model
         /// <value>The code of the Posting Module.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ChartOfAccountsId
-        /// </summary>
-        [DataMember(Name = "chartOfAccountsId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
         /// The name to identify the Posting Module by
@@ -108,7 +95,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostingModuleRequest {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
@@ -153,11 +139,6 @@ namespace Lusid.Sdk.Model
                     this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.ChartOfAccountsId == input.ChartOfAccountsId ||
-                    (this.ChartOfAccountsId != null &&
-                    this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
-                ) && 
-                (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
@@ -187,10 +168,6 @@ namespace Lusid.Sdk.Model
                 if (this.Code != null)
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
-                if (this.ChartOfAccountsId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {

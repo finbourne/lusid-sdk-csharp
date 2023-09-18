@@ -36,18 +36,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostingModuleDetails" /> class.
         /// </summary>
-        /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
-        public PostingModuleDetails(ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), string status = default(string))
+        public PostingModuleDetails(string displayName = default(string), string description = default(string), string status = default(string))
         {
-            // to ensure "chartOfAccountsId" is required (not null)
-            if (chartOfAccountsId == null)
-            {
-                throw new ArgumentNullException("chartOfAccountsId is a required property for PostingModuleDetails and cannot be null");
-            }
-            this.ChartOfAccountsId = chartOfAccountsId;
             // to ensure "displayName" is required (not null)
             if (displayName == null)
             {
@@ -62,12 +55,6 @@ namespace Lusid.Sdk.Model
             this.Status = status;
             this.Description = description;
         }
-
-        /// <summary>
-        /// Gets or Sets ChartOfAccountsId
-        /// </summary>
-        [DataMember(Name = "chartOfAccountsId", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
         /// The name to identify the Posting Module by
@@ -98,7 +85,6 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostingModuleDetails {\n");
-            sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -138,11 +124,6 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ChartOfAccountsId == input.ChartOfAccountsId ||
-                    (this.ChartOfAccountsId != null &&
-                    this.ChartOfAccountsId.Equals(input.ChartOfAccountsId))
-                ) && 
-                (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
@@ -168,10 +149,6 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ChartOfAccountsId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ChartOfAccountsId.GetHashCode();
-                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
