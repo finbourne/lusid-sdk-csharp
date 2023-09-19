@@ -197,9 +197,9 @@ namespace Lusid.Sdk.Model
             }
 
             // Account (string) maxLength
-            if (this.Account != null && this.Account.Length > 64)
+            if (this.Account != null && this.Account.Length > 512)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Account, length must be less than 64.", new [] { "Account" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Account, length must be less than 512.", new [] { "Account" });
             }
 
             // Account (string) minLength
@@ -209,7 +209,7 @@ namespace Lusid.Sdk.Model
             }
 
             // Account (string) pattern
-            Regex regexAccount = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            Regex regexAccount = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
             if (false == regexAccount.Match(this.Account).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Account, must match a pattern of " + regexAccount, new [] { "Account" });
