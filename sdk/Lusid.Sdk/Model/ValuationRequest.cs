@@ -45,10 +45,11 @@ namespace Lusid.Sdk.Model
         /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place..</param>
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
         /// <param name="returnResultAsExpandedTypes">Financially meaningful results can be presented as either simple flat types or more complex expanded types.  For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied)  or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example,  the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false..</param>
+        /// <param name="includeOrderFlow">includeOrderFlow.</param>
         /// <param name="portfolioEntityIds">The set of portfolio or portfolio group identifier(s) that is to be valued. (required).</param>
         /// <param name="valuationSchedule">valuationSchedule (required).</param>
         /// <param name="marketDataOverrides">marketDataOverrides.</param>
-        public ValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ValuationSchedule valuationSchedule = default(ValuationSchedule), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides))
+        public ValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), OrderFlowConfiguration includeOrderFlow = default(OrderFlowConfiguration), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), ValuationSchedule valuationSchedule = default(ValuationSchedule), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides))
         {
             // to ensure "recipeId" is required (not null)
             if (recipeId == null)
@@ -81,6 +82,7 @@ namespace Lusid.Sdk.Model
             this.ReportCurrency = reportCurrency;
             this.EquipWithSubtotals = equipWithSubtotals;
             this.ReturnResultAsExpandedTypes = returnResultAsExpandedTypes;
+            this.IncludeOrderFlow = includeOrderFlow;
             this.MarketDataOverrides = marketDataOverrides;
         }
 
@@ -147,6 +149,12 @@ namespace Lusid.Sdk.Model
         public bool ReturnResultAsExpandedTypes { get; set; }
 
         /// <summary>
+        /// Gets or Sets IncludeOrderFlow
+        /// </summary>
+        [DataMember(Name = "includeOrderFlow", EmitDefaultValue = false)]
+        public OrderFlowConfiguration IncludeOrderFlow { get; set; }
+
+        /// <summary>
         /// The set of portfolio or portfolio group identifier(s) that is to be valued.
         /// </summary>
         /// <value>The set of portfolio or portfolio group identifier(s) that is to be valued.</value>
@@ -182,6 +190,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ReportCurrency: ").Append(ReportCurrency).Append("\n");
             sb.Append("  EquipWithSubtotals: ").Append(EquipWithSubtotals).Append("\n");
             sb.Append("  ReturnResultAsExpandedTypes: ").Append(ReturnResultAsExpandedTypes).Append("\n");
+            sb.Append("  IncludeOrderFlow: ").Append(IncludeOrderFlow).Append("\n");
             sb.Append("  PortfolioEntityIds: ").Append(PortfolioEntityIds).Append("\n");
             sb.Append("  ValuationSchedule: ").Append(ValuationSchedule).Append("\n");
             sb.Append("  MarketDataOverrides: ").Append(MarketDataOverrides).Append("\n");
@@ -268,6 +277,11 @@ namespace Lusid.Sdk.Model
                     this.ReturnResultAsExpandedTypes.Equals(input.ReturnResultAsExpandedTypes)
                 ) && 
                 (
+                    this.IncludeOrderFlow == input.IncludeOrderFlow ||
+                    (this.IncludeOrderFlow != null &&
+                    this.IncludeOrderFlow.Equals(input.IncludeOrderFlow))
+                ) && 
+                (
                     this.PortfolioEntityIds == input.PortfolioEntityIds ||
                     this.PortfolioEntityIds != null &&
                     input.PortfolioEntityIds != null &&
@@ -324,6 +338,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.EquipWithSubtotals.GetHashCode();
                 hashCode = (hashCode * 59) + this.ReturnResultAsExpandedTypes.GetHashCode();
+                if (this.IncludeOrderFlow != null)
+                {
+                    hashCode = (hashCode * 59) + this.IncludeOrderFlow.GetHashCode();
+                }
                 if (this.PortfolioEntityIds != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioEntityIds.GetHashCode();

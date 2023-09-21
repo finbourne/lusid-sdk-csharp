@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
 **DisplayName** | **string** | The name to identify the Posting Module by | 
 **Description** | **string** | The description for the Posting Module | [optional] 
-**Rules** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The posting rules that apply for the Posting Module | [optional] 
+**Rules** | [**List&lt;PostingModuleRule&gt;**](PostingModuleRule.md) | The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection. | [optional] 
 **Status** | **string** | The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. | 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

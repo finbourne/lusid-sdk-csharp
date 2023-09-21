@@ -37,19 +37,21 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="QueryBucketedCashFlowsRequest" /> class.
         /// </summary>
         /// <param name="asAt">The time of the system at which to query for bucketed cashflows..</param>
-        /// <param name="windowStart">The start date of the window. (required).</param>
-        /// <param name="windowEnd">The end date of the window. (required).</param>
+        /// <param name="windowStart">The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  There is no lower bound if this is not specified. (required).</param>
+        /// <param name="windowEnd">The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  The upper bound defaults to &#39;today&#39; if it is not specified (required).</param>
         /// <param name="portfolioEntityIds">The set of portfolios and portfolio groups to which the instrument events must belong. (required).</param>
-        /// <param name="effectiveAt">The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows (required).</param>
+        /// <param name="effectiveAt">The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today. (required).</param>
         /// <param name="recipeId">recipeId (required).</param>
-        /// <param name="roundingMethod">When bucketing, there is not a unique way to allocate the bucket points. RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp]. (required).</param>
-        /// <param name="bucketingDates">A list of dates to perform cashflow bucketing upon. If this is provided, the list of tenors for bucketing should be empty..</param>
-        /// <param name="bucketingTenors">A list of tenors to perform cashflow bucketing upon. If this is provided, the list of dates for bucketing should be empty..</param>
+        /// <param name="roundingMethod">When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp]. (required).</param>
+        /// <param name="bucketingDates">A list of dates to perform cashflow bucketing upon.  If this is provided, the list of tenors for bucketing should be empty..</param>
+        /// <param name="bucketingTenors">A list of tenors to perform cashflow bucketing upon.  If this is provided, the list of dates for bucketing should be empty..</param>
         /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries. (required).</param>
-        /// <param name="groupBy">The set of address keys to use to group the bucketed cash flows..</param>
+        /// <param name="groupBy">The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out..</param>
         /// <param name="addresses">The set of items that the user wishes to see in the results. If empty, will be defaulted to standard ones..</param>
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
-        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool))
+        /// <param name="excludeUnsettledTrades">Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set..</param>
+        /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow].</param>
+        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string))
         {
             this.WindowStart = windowStart;
             this.WindowEnd = windowEnd;
@@ -84,6 +86,8 @@ namespace Lusid.Sdk.Model
             this.GroupBy = groupBy;
             this.Addresses = addresses;
             this.EquipWithSubtotals = equipWithSubtotals;
+            this.ExcludeUnsettledTrades = excludeUnsettledTrades;
+            this.CashFlowType = cashFlowType;
         }
 
         /// <summary>
@@ -94,16 +98,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? AsAt { get; set; }
 
         /// <summary>
-        /// The start date of the window.
+        /// The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  There is no lower bound if this is not specified.
         /// </summary>
-        /// <value>The start date of the window.</value>
+        /// <value>The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  There is no lower bound if this is not specified.</value>
         [DataMember(Name = "windowStart", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset WindowStart { get; set; }
 
         /// <summary>
-        /// The end date of the window.
+        /// The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  The upper bound defaults to &#39;today&#39; if it is not specified
         /// </summary>
-        /// <value>The end date of the window.</value>
+        /// <value>The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  The upper bound defaults to &#39;today&#39; if it is not specified</value>
         [DataMember(Name = "windowEnd", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset WindowEnd { get; set; }
 
@@ -115,9 +119,9 @@ namespace Lusid.Sdk.Model
         public List<PortfolioEntityId> PortfolioEntityIds { get; set; }
 
         /// <summary>
-        /// The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows
+        /// The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
         /// </summary>
-        /// <value>The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows</value>
+        /// <value>The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.</value>
         [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset EffectiveAt { get; set; }
 
@@ -128,23 +132,23 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
-        /// When bucketing, there is not a unique way to allocate the bucket points. RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].
+        /// When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].
         /// </summary>
-        /// <value>When bucketing, there is not a unique way to allocate the bucket points. RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].</value>
+        /// <value>When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].</value>
         [DataMember(Name = "roundingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string RoundingMethod { get; set; }
 
         /// <summary>
-        /// A list of dates to perform cashflow bucketing upon. If this is provided, the list of tenors for bucketing should be empty.
+        /// A list of dates to perform cashflow bucketing upon.  If this is provided, the list of tenors for bucketing should be empty.
         /// </summary>
-        /// <value>A list of dates to perform cashflow bucketing upon. If this is provided, the list of tenors for bucketing should be empty.</value>
+        /// <value>A list of dates to perform cashflow bucketing upon.  If this is provided, the list of tenors for bucketing should be empty.</value>
         [DataMember(Name = "bucketingDates", EmitDefaultValue = true)]
         public List<DateTimeOffset> BucketingDates { get; set; }
 
         /// <summary>
-        /// A list of tenors to perform cashflow bucketing upon. If this is provided, the list of dates for bucketing should be empty.
+        /// A list of tenors to perform cashflow bucketing upon.  If this is provided, the list of dates for bucketing should be empty.
         /// </summary>
-        /// <value>A list of tenors to perform cashflow bucketing upon. If this is provided, the list of dates for bucketing should be empty.</value>
+        /// <value>A list of tenors to perform cashflow bucketing upon.  If this is provided, the list of dates for bucketing should be empty.</value>
         [DataMember(Name = "bucketingTenors", EmitDefaultValue = true)]
         public List<string> BucketingTenors { get; set; }
 
@@ -156,9 +160,9 @@ namespace Lusid.Sdk.Model
         public string ReportCurrency { get; set; }
 
         /// <summary>
-        /// The set of address keys to use to group the bucketed cash flows.
+        /// The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.
         /// </summary>
-        /// <value>The set of address keys to use to group the bucketed cash flows.</value>
+        /// <value>The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out.</value>
         [DataMember(Name = "groupBy", EmitDefaultValue = true)]
         public List<string> GroupBy { get; set; }
 
@@ -175,6 +179,20 @@ namespace Lusid.Sdk.Model
         /// <value>Flag directing the Valuation call to populate the results with subtotals of aggregates.</value>
         [DataMember(Name = "equipWithSubtotals", EmitDefaultValue = true)]
         public bool EquipWithSubtotals { get; set; }
+
+        /// <summary>
+        /// Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set.
+        /// </summary>
+        /// <value>Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set.</value>
+        [DataMember(Name = "excludeUnsettledTrades", EmitDefaultValue = true)]
+        public bool ExcludeUnsettledTrades { get; set; }
+
+        /// <summary>
+        /// Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow]
+        /// </summary>
+        /// <value>Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow]</value>
+        [DataMember(Name = "cashFlowType", EmitDefaultValue = true)]
+        public string CashFlowType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -197,6 +215,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  GroupBy: ").Append(GroupBy).Append("\n");
             sb.Append("  Addresses: ").Append(Addresses).Append("\n");
             sb.Append("  EquipWithSubtotals: ").Append(EquipWithSubtotals).Append("\n");
+            sb.Append("  ExcludeUnsettledTrades: ").Append(ExcludeUnsettledTrades).Append("\n");
+            sb.Append("  CashFlowType: ").Append(CashFlowType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -300,6 +320,15 @@ namespace Lusid.Sdk.Model
                 (
                     this.EquipWithSubtotals == input.EquipWithSubtotals ||
                     this.EquipWithSubtotals.Equals(input.EquipWithSubtotals)
+                ) && 
+                (
+                    this.ExcludeUnsettledTrades == input.ExcludeUnsettledTrades ||
+                    this.ExcludeUnsettledTrades.Equals(input.ExcludeUnsettledTrades)
+                ) && 
+                (
+                    this.CashFlowType == input.CashFlowType ||
+                    (this.CashFlowType != null &&
+                    this.CashFlowType.Equals(input.CashFlowType))
                 );
         }
 
@@ -361,6 +390,11 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Addresses.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EquipWithSubtotals.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExcludeUnsettledTrades.GetHashCode();
+                if (this.CashFlowType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashFlowType.GetHashCode();
+                }
                 return hashCode;
             }
         }

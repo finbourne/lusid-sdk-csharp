@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="ruleId">The identifier for the rule (required).</param>
         /// <param name="account">The account to post the Activity credit or debit to (required).</param>
-        /// <param name="ruleFilter">The filter syntax for the rule. See KB for filter syntax https://support.lusid.com/knowledgebase/article/KA-01914/en-us (required).</param>
+        /// <param name="ruleFilter">The filter syntax for the rule. See KB for filter syntax https://support.lusid.com/knowledgebase/article/KA-02140 (required).</param>
         public PostingModuleRule(string ruleId = default(string), string account = default(string), string ruleFilter = default(string))
         {
             // to ensure "ruleId" is required (not null)
@@ -76,9 +76,9 @@ namespace Lusid.Sdk.Model
         public string Account { get; set; }
 
         /// <summary>
-        /// The filter syntax for the rule. See KB for filter syntax https://support.lusid.com/knowledgebase/article/KA-01914/en-us
+        /// The filter syntax for the rule. See KB for filter syntax https://support.lusid.com/knowledgebase/article/KA-02140
         /// </summary>
-        /// <value>The filter syntax for the rule. See KB for filter syntax https://support.lusid.com/knowledgebase/article/KA-01914/en-us</value>
+        /// <value>The filter syntax for the rule. See KB for filter syntax https://support.lusid.com/knowledgebase/article/KA-02140</value>
         [DataMember(Name = "ruleFilter", IsRequired = true, EmitDefaultValue = true)]
         public string RuleFilter { get; set; }
 

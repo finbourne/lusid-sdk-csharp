@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code of the Posting Module. (required).</param>
         /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
-        /// <param name="rules">The posting rules that apply for the Posting Module.</param>
+        /// <param name="rules">The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection..</param>
         public PostingModuleRequest(string code = default(string), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>))
         {
             // to ensure "code" is required (not null)
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The posting rules that apply for the Posting Module
+        /// The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.
         /// </summary>
-        /// <value>The posting rules that apply for the Posting Module</value>
+        /// <value>The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.</value>
         [DataMember(Name = "rules", EmitDefaultValue = true)]
         public List<PostingModuleRule> Rules { get; set; }
 

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ReportCurrency** | **string** | Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place. | [optional] 
 **EquipWithSubtotals** | **bool** | Flag directing the Valuation call to populate the results with subtotals of aggregates. | [optional] 
 **ReturnResultAsExpandedTypes** | **bool** | Financially meaningful results can be presented as either simple flat types or more complex expanded types.  For example, the present value (PV) of a holding could be represented either as a simple decimal (with currency implied)  or as a decimal-currency pair. This flag allows either representation to be returned. In the PV example,  the returned value would be the decimal-currency pair if this flag is true, or the decimal only if this flag is false. | [optional] 
+**IncludeOrderFlow** | [**OrderFlowConfiguration**](OrderFlowConfiguration.md) |  | [optional] 
 **PortfolioEntityIds** | [**List&lt;PortfolioEntityId&gt;**](PortfolioEntityId.md) | The set of portfolio or portfolio group identifier(s) that is to be valued. | 
 **ValuationSchedule** | [**ValuationSchedule**](ValuationSchedule.md) |  | 
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 

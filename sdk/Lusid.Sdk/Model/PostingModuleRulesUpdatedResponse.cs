@@ -31,7 +31,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostingModuleRulesUpdatedResponse" /> class.
         /// </summary>
-        /// <param name="rules">The posting rules that apply for the Posting Module.</param>
+        /// <param name="rules">The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection..</param>
         /// <param name="version">version.</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="links">links.</param>
@@ -44,9 +44,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The posting rules that apply for the Posting Module
+        /// The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.
         /// </summary>
-        /// <value>The posting rules that apply for the Posting Module</value>
+        /// <value>The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.</value>
         [DataMember(Name = "rules", EmitDefaultValue = true)]
         public List<PostingModuleRule> Rules { get; set; }
 

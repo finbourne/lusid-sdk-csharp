@@ -36,20 +36,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BucketedCashFlowRequest" /> class.
         /// </summary>
-        /// <param name="roundingMethod">When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod    Supported string (enumeration) values are: [RoundDown, RoundUp]. (required).</param>
+        /// <param name="roundingMethod">When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp]. (required).</param>
         /// <param name="bucketingDates">A list of dates to perform cashflow bucketing upon.  If this is provided, the list of tenors for bucketing should be empty..</param>
         /// <param name="bucketTenors">A list of tenors to perform cashflow bucketing upon.  If this is provided, the list of dates for bucketing should be empty..</param>
         /// <param name="effectiveAt">The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today..</param>
         /// <param name="windowStart">The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  There is no lower bound if this is not specified..</param>
         /// <param name="windowEnd">The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.  The upper bound defaults to &#39;today&#39; if it is not specified.</param>
         /// <param name="recipeId">recipeId.</param>
-        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place..</param>
+        /// <param name="reportCurrency">Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries..</param>
         /// <param name="groupBy">The set of items by which to perform grouping. This primarily matters when one or more of the metric operators is a mapping  that reduces set size, e.g. sum or proportion. The group-by statement determines the set of keys by which to break the results out..</param>
         /// <param name="addresses">The set of items that the user wishes to see in the results. If empty, will be defaulted to standard ones..</param>
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
-        /// <param name="asAt">The asAt date to use.</param>
+        /// <param name="asAt">The time of the system at which to query for bucketed cashflows..</param>
         /// <param name="excludeUnsettledTrades">Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set..</param>
-        /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this).</param>
+        /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow].</param>
         public BucketedCashFlowRequest(string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketTenors = default(List<string>), string effectiveAt = default(string), string windowStart = default(string), string windowEnd = default(string), ResourceId recipeId = default(ResourceId), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), DateTimeOffset? asAt = default(DateTimeOffset?), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string))
         {
             // to ensure "roundingMethod" is required (not null)
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod    Supported string (enumeration) values are: [RoundDown, RoundUp].
+        /// When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].
         /// </summary>
-        /// <value>When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod    Supported string (enumeration) values are: [RoundDown, RoundUp].</value>
+        /// <value>When bucketing, there is not a unique way to allocate the bucket points.  RoundingMethod Supported string (enumeration) values are: [RoundDown, RoundUp].</value>
         [DataMember(Name = "roundingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string RoundingMethod { get; set; }
 
@@ -122,9 +122,9 @@ namespace Lusid.Sdk.Model
         public ResourceId RecipeId { get; set; }
 
         /// <summary>
-        /// Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.
+        /// Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.
         /// </summary>
-        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.  If not present, then the currency of the relevant portfolio will be used in its place.</value>
+        /// <value>Three letter ISO currency string indicating what currency to report in for ReportCurrency denominated queries.</value>
         [DataMember(Name = "reportCurrency", EmitDefaultValue = true)]
         public string ReportCurrency { get; set; }
 
@@ -150,9 +150,9 @@ namespace Lusid.Sdk.Model
         public bool EquipWithSubtotals { get; set; }
 
         /// <summary>
-        /// The asAt date to use
+        /// The time of the system at which to query for bucketed cashflows.
         /// </summary>
-        /// <value>The asAt date to use</value>
+        /// <value>The time of the system at which to query for bucketed cashflows.</value>
         [DataMember(Name = "asAt", EmitDefaultValue = true)]
         public DateTimeOffset? AsAt { get; set; }
 
@@ -164,9 +164,9 @@ namespace Lusid.Sdk.Model
         public bool ExcludeUnsettledTrades { get; set; }
 
         /// <summary>
-        /// Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)
+        /// Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow]
         /// </summary>
-        /// <value>Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)</value>
+        /// <value>Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow]</value>
         [DataMember(Name = "cashFlowType", EmitDefaultValue = true)]
         public string CashFlowType { get; set; }
 
