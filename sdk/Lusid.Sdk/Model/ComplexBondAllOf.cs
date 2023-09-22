@@ -260,14 +260,18 @@ namespace Lusid.Sdk.Model
         /// <param name="calculationType">The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon]..</param>
         /// <param name="schedules">schedules..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
+        /// <param name="assetBacked">If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment..</param>
+        /// <param name="assetPoolIdentifier">Identifier used to retrieve pool factor information about this bond from the quote store. This is expected to  be the bond&#39;s ISIN as the pricer for asset backed securities will specifically look for an identifier of  ISIN identifier type when searching for pool factor reset values in the quote store..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan (required).</param>
-        public ComplexBondAllOf(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public ComplexBondAllOf(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.InstrumentType = instrumentType;
             this.Identifiers = identifiers;
             this.CalculationType = calculationType;
             this.Schedules = schedules;
             this.RoundingConventions = roundingConventions;
+            this.AssetBacked = assetBacked;
+            this.AssetPoolIdentifier = assetPoolIdentifier;
         }
 
         /// <summary>
@@ -299,6 +303,20 @@ namespace Lusid.Sdk.Model
         public List<RoundingConvention> RoundingConventions { get; set; }
 
         /// <summary>
+        /// If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment.
+        /// </summary>
+        /// <value>If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment.</value>
+        [DataMember(Name = "assetBacked", EmitDefaultValue = true)]
+        public bool? AssetBacked { get; set; }
+
+        /// <summary>
+        /// Identifier used to retrieve pool factor information about this bond from the quote store. This is expected to  be the bond&#39;s ISIN as the pricer for asset backed securities will specifically look for an identifier of  ISIN identifier type when searching for pool factor reset values in the quote store.
+        /// </summary>
+        /// <value>Identifier used to retrieve pool factor information about this bond from the quote store. This is expected to  be the bond&#39;s ISIN as the pricer for asset backed securities will specifically look for an identifier of  ISIN identifier type when searching for pool factor reset values in the quote store.</value>
+        [DataMember(Name = "assetPoolIdentifier", EmitDefaultValue = true)]
+        public string AssetPoolIdentifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -310,6 +328,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
+            sb.Append("  AssetBacked: ").Append(AssetBacked).Append("\n");
+            sb.Append("  AssetPoolIdentifier: ").Append(AssetPoolIdentifier).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -370,6 +390,16 @@ namespace Lusid.Sdk.Model
                     this.RoundingConventions.SequenceEqual(input.RoundingConventions)
                 ) && 
                 (
+                    this.AssetBacked == input.AssetBacked ||
+                    (this.AssetBacked != null &&
+                    this.AssetBacked.Equals(input.AssetBacked))
+                ) && 
+                (
+                    this.AssetPoolIdentifier == input.AssetPoolIdentifier ||
+                    (this.AssetPoolIdentifier != null &&
+                    this.AssetPoolIdentifier.Equals(input.AssetPoolIdentifier))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -400,6 +430,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
                 }
+                if (this.AssetBacked != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetBacked.GetHashCode();
+                }
+                if (this.AssetPoolIdentifier != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetPoolIdentifier.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
             }
@@ -412,6 +450,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AssetPoolIdentifier (string) maxLength
+            if (this.AssetPoolIdentifier != null && this.AssetPoolIdentifier.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetPoolIdentifier, length must be less than 50.", new [] { "AssetPoolIdentifier" });
+            }
+
+            // AssetPoolIdentifier (string) minLength
+            if (this.AssetPoolIdentifier != null && this.AssetPoolIdentifier.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetPoolIdentifier, length must be greater than 0.", new [] { "AssetPoolIdentifier" });
+            }
+
             yield break;
         }
     }

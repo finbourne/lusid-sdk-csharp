@@ -39,11 +39,13 @@ namespace Lusid.Sdk.Model
         /// <param name="useBusinessDays">Is the ex-dividend period counted in business days or calendar days.  Defaults to true if not set..</param>
         /// <param name="exDividendDays">Number of days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, than there is no ex-dividend period. (required).</param>
         /// <param name="returnNegativeAccrued">Does the accrued interest go negative in the ex-dividend period, or does it go to zero.  Defaults to true if not set..</param>
-        public ExDividendConfiguration(bool useBusinessDays = default(bool), int exDividendDays = default(int), bool returnNegativeAccrued = default(bool))
+        /// <param name="applyThirty360PayDelay">Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar  days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities  with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays  setting will be ignored.  Defaults to false if not provided..</param>
+        public ExDividendConfiguration(bool useBusinessDays = default(bool), int exDividendDays = default(int), bool returnNegativeAccrued = default(bool), bool applyThirty360PayDelay = default(bool))
         {
             this.ExDividendDays = exDividendDays;
             this.UseBusinessDays = useBusinessDays;
             this.ReturnNegativeAccrued = returnNegativeAccrued;
+            this.ApplyThirty360PayDelay = applyThirty360PayDelay;
         }
 
         /// <summary>
@@ -68,6 +70,13 @@ namespace Lusid.Sdk.Model
         public bool ReturnNegativeAccrued { get; set; }
 
         /// <summary>
+        /// Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar  days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities  with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays  setting will be ignored.  Defaults to false if not provided.
+        /// </summary>
+        /// <value>Set this flag to true if the ex-dividend days represent a pay delay from the accrual end date in calendar  days under the 30/360 day count convention. The typical use case for this flag are Mortgage Backed Securities  with pay delay between 1 and 60 days, such as FreddieMac and FannieMae. If this flag is set, the useBusinessDays  setting will be ignored.  Defaults to false if not provided.</value>
+        [DataMember(Name = "applyThirty360PayDelay", EmitDefaultValue = true)]
+        public bool ApplyThirty360PayDelay { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +87,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UseBusinessDays: ").Append(UseBusinessDays).Append("\n");
             sb.Append("  ExDividendDays: ").Append(ExDividendDays).Append("\n");
             sb.Append("  ReturnNegativeAccrued: ").Append(ReturnNegativeAccrued).Append("\n");
+            sb.Append("  ApplyThirty360PayDelay: ").Append(ApplyThirty360PayDelay).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +134,10 @@ namespace Lusid.Sdk.Model
                 (
                     this.ReturnNegativeAccrued == input.ReturnNegativeAccrued ||
                     this.ReturnNegativeAccrued.Equals(input.ReturnNegativeAccrued)
+                ) && 
+                (
+                    this.ApplyThirty360PayDelay == input.ApplyThirty360PayDelay ||
+                    this.ApplyThirty360PayDelay.Equals(input.ApplyThirty360PayDelay)
                 );
         }
 
@@ -139,6 +153,7 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.UseBusinessDays.GetHashCode();
                 hashCode = (hashCode * 59) + this.ExDividendDays.GetHashCode();
                 hashCode = (hashCode * 59) + this.ReturnNegativeAccrued.GetHashCode();
+                hashCode = (hashCode * 59) + this.ApplyThirty360PayDelay.GetHashCode();
                 return hashCode;
             }
         }
