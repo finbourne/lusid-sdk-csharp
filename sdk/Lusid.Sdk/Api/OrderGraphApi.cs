@@ -25,7 +25,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfOrderGraphBlock ListOrderGraphBlocks(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphBlock</returns>
         ApiResponse<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -78,7 +78,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacementChildren(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -95,7 +95,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfOrderGraphPlacement</returns>
         ApiResponse<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -112,7 +112,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfOrderGraphPlacement ListOrderGraphPlacements(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
@@ -156,7 +156,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfOrderGraphBlock> ListOrderGraphBlocksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
@@ -174,7 +174,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphBlock)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphBlock>> ListOrderGraphBlocksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? useComplianceV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -193,7 +193,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementChildrenAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -211,7 +211,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfOrderGraphPlacement)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrderGraphPlacement>> ListOrderGraphPlacementChildrenWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -229,7 +229,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfOrderGraphPlacement> ListOrderGraphPlacementsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? paginationToken = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
         /// </summary>
         /// <remarks>
         /// Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
@@ -363,7 +363,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -382,7 +382,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -484,7 +484,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -504,7 +504,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
+        /// [EARLY ACCESS] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all blocks of orders, subject to the filter, along with the IDs of orders, placements, allocations and  executions in the block, the total quantities of each, and a simple text field describing the overall state.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -609,7 +609,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
@@ -628,7 +628,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
@@ -736,7 +736,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
@@ -756,7 +756,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacementChildren: Lists all placements for the parent placement specified by the scope and code, and builds a summary picture of the state of their associated order entities. Lists all child order placements, for the specified parent placement, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The parent placement&#39;s scope</param>
@@ -867,7 +867,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -885,7 +885,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -982,7 +982,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
@@ -1001,7 +1001,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
+        /// [EARLY ACCESS] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities. Lists all order placements, subject to the filter, along with the IDs of the block and order that the  placement is for, each placement&#39;s quantity, the IDs of all allocations and executions in the placement  and the total quantities of those, and a simple text field describing the overall state of the placement.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>

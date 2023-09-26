@@ -2121,7 +2121,7 @@ catch (ApiException e)
 
 <a id="gettransactionsforportfoliogroup"></a>
 # **GetTransactionsForPortfolioGroup**
-> VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup (string scope, string code, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, bool? showCancelledTransactions = null)
+> VersionedResourceListOfTransaction GetTransactionsForPortfolioGroup (string scope, string code, DateTimeOrCutLabel? fromTransactionDate = null, DateTimeOrCutLabel? toTransactionDate = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? propertyKeys = null, int? limit = null, string? page = null, bool? showCancelledTransactions = null, List<string>? sortBy = null)
 
 GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
 
@@ -2157,11 +2157,12 @@ namespace Example
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
             var page = "page_example";  // string? | The pagination token to use to continue listing transactions from a previous call to GetTransactions. (optional) 
             var showCancelledTransactions = true;  // bool? | Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
 
             try
             {
                 // GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
-                VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions);
+                VersionedResourceListOfTransaction result = apiInstance.GetTransactionsForPortfolioGroup(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2182,7 +2183,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
-    ApiResponse<VersionedResourceListOfTransaction> response = apiInstance.GetTransactionsForPortfolioGroupWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions);
+    ApiResponse<VersionedResourceListOfTransaction> response = apiInstance.GetTransactionsForPortfolioGroupWithHttpInfo(scope, code, fromTransactionDate, toTransactionDate, asAt, filter, propertyKeys, limit, page, showCancelledTransactions, sortBy);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2209,6 +2210,7 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
 | **page** | **string?** | The pagination token to use to continue listing transactions from a previous call to GetTransactions. | [optional]  |
 | **showCancelledTransactions** | **bool?** | Option to specify whether or not to include cancelled transactions,               including previous versions of transactions which have since been amended.               Defaults to False if not specified. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 
 ### Return type
 

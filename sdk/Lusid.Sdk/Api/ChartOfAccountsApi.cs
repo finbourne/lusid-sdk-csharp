@@ -60,8 +60,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostingModuleCreateResponse</returns>
-        PostingModuleCreateResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
+        /// <returns>PostingModuleResponse</returns>
+        PostingModuleResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
@@ -74,8 +74,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostingModuleCreateResponse</returns>
-        ApiResponse<PostingModuleCreateResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
+        /// <returns>ApiResponse of PostingModuleResponse</returns>
+        ApiResponse<PostingModuleResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
@@ -221,6 +221,33 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
         ApiResponse<ChartOfAccounts> GetChartOfAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a Posting Module complete with its rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostingModuleResponse</returns>
+        PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a Posting Module complete with its rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostingModuleResponse</returns>
+        ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
         /// </summary>
@@ -556,8 +583,8 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostingModuleCreateResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleCreateResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of PostingModuleResponse</returns>
+        System.Threading.Tasks.Task<PostingModuleResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
@@ -571,8 +598,8 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostingModuleCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleCreateResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] DeleteAccounts: Soft or hard delete multiple accounts
         /// </summary>
@@ -728,6 +755,35 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> GetChartOfAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a Posting Module complete with its rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostingModuleResponse</returns>
+        System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the definition of a Posting Module complete with its rules.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
         /// </summary>
@@ -1364,10 +1420,10 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PostingModuleCreateResponse</returns>
-        public PostingModuleCreateResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0)
+        /// <returns>PostingModuleResponse</returns>
+        public PostingModuleResponse CreatePostingModule(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleCreateResponse> localVarResponse = CreatePostingModuleWithHttpInfo(scope, code, postingModuleRequest);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = CreatePostingModuleWithHttpInfo(scope, code, postingModuleRequest);
             return localVarResponse.Data;
         }
 
@@ -1379,8 +1435,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PostingModuleCreateResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleCreateResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0)
+        /// <returns>ApiResponse of PostingModuleResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> CreatePostingModuleWithHttpInfo(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1453,7 +1509,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<PostingModuleCreateResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<PostingModuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreatePostingModule", localVarResponse);
@@ -1475,10 +1531,10 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PostingModuleCreateResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleCreateResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of PostingModuleResponse</returns>
+        public async System.Threading.Tasks.Task<PostingModuleResponse> CreatePostingModuleAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleCreateResponse> localVarResponse = await CreatePostingModuleWithHttpInfoAsync(scope, code, postingModuleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await CreatePostingModuleWithHttpInfoAsync(scope, code, postingModuleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1491,8 +1547,8 @@ namespace Lusid.Sdk.Api
         /// <param name="postingModuleRequest">The definition of the Posting Module.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PostingModuleCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleCreateResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> CreatePostingModuleWithHttpInfoAsync(string scope, string code, PostingModuleRequest postingModuleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1566,7 +1622,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PostingModuleCreateResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<PostingModuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2707,6 +2763,222 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetChartOfAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module Retrieve the definition of a Posting Module complete with its rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PostingModuleResponse</returns>
+        public PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = GetPostingModuleWithHttpInfo(scope, code, postingModuleCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module Retrieve the definition of a Posting Module complete with its rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PostingModuleResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->GetPostingModule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->GetPostingModule");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->GetPostingModule");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.GetPostingModule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PostingModuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPostingModule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module Retrieve the definition of a Posting Module complete with its rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PostingModuleResponse</returns>
+        public async System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await GetPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module Retrieve the definition of a Posting Module complete with its rules.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
+        /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->GetPostingModule");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->GetPostingModule");
+            }
+
+            // verify the required parameter 'postingModuleCode' is set
+            if (postingModuleCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'postingModuleCode' when calling ChartOfAccountsApi->GetPostingModule");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.GetPostingModule";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PostingModuleResponse>("/api/chartofaccounts/{scope}/{code}/postingmodules/{postingModuleCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPostingModule", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -37,7 +37,8 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TranslationResult" /> class.
         /// </summary>
         /// <param name="entity">The serialised entity the translation script produced. (required).</param>
-        public TranslationResult(string entity = default(string))
+        /// <param name="properties">Any properties the translation script produced. (required).</param>
+        public TranslationResult(string entity = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "entity" is required (not null)
             if (entity == null)
@@ -45,6 +46,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("entity is a required property for TranslationResult and cannot be null");
             }
             this.Entity = entity;
+            // to ensure "properties" is required (not null)
+            if (properties == null)
+            {
+                throw new ArgumentNullException("properties is a required property for TranslationResult and cannot be null");
+            }
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -55,6 +62,13 @@ namespace Lusid.Sdk.Model
         public string Entity { get; set; }
 
         /// <summary>
+        /// Any properties the translation script produced.
+        /// </summary>
+        /// <value>Any properties the translation script produced.</value>
+        [DataMember(Name = "properties", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +77,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TranslationResult {\n");
             sb.Append("  Entity: ").Append(Entity).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,6 +117,12 @@ namespace Lusid.Sdk.Model
                     this.Entity == input.Entity ||
                     (this.Entity != null &&
                     this.Entity.Equals(input.Entity))
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -117,6 +138,10 @@ namespace Lusid.Sdk.Model
                 if (this.Entity != null)
                 {
                     hashCode = (hashCode * 59) + this.Entity.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }

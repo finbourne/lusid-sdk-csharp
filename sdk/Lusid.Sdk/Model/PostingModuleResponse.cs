@@ -41,11 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
         /// <param name="displayName">The name to identify the Posting Module by (required).</param>
         /// <param name="description">The description for the Posting Module.</param>
-        /// <param name="ruleCount">The number of posting rules that apply for the Posting Module.</param>
+        /// <param name="rules">The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection..</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public PostingModuleResponse(string href = default(string), string postingModuleCode = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), int ruleCount = default(int), string status = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public PostingModuleResponse(string href = default(string), string postingModuleCode = default(string), ResourceId chartOfAccountsId = default(ResourceId), string displayName = default(string), string description = default(string), List<PostingModuleRule> rules = default(List<PostingModuleRule>), string status = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "postingModuleCode" is required (not null)
             if (postingModuleCode == null)
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Model
             this.Status = status;
             this.Href = href;
             this.Description = description;
-            this.RuleCount = ruleCount;
+            this.Rules = rules;
             this._Version = version;
             this.Links = links;
         }
@@ -113,11 +113,11 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The number of posting rules that apply for the Posting Module
+        /// The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.
         /// </summary>
-        /// <value>The number of posting rules that apply for the Posting Module</value>
-        [DataMember(Name = "ruleCount", EmitDefaultValue = false)]
-        public int RuleCount { get; set; }
+        /// <value>The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.</value>
+        [DataMember(Name = "rules", EmitDefaultValue = true)]
+        public List<PostingModuleRule> Rules { get; set; }
 
         /// <summary>
         /// The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active.
@@ -151,7 +151,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ChartOfAccountsId: ").Append(ChartOfAccountsId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  RuleCount: ").Append(RuleCount).Append("\n");
+            sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -216,8 +216,10 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.RuleCount == input.RuleCount ||
-                    this.RuleCount.Equals(input.RuleCount)
+                    this.Rules == input.Rules ||
+                    this.Rules != null &&
+                    input.Rules != null &&
+                    this.Rules.SequenceEqual(input.Rules)
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -266,7 +268,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.RuleCount.GetHashCode();
+                if (this.Rules != null)
+                {
+                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
+                }
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
