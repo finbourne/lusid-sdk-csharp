@@ -36,8 +36,8 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostingModuleDetails" /> class.
         /// </summary>
-        /// <param name="displayName">The name to identify the Posting Module by (required).</param>
-        /// <param name="description">The description for the Posting Module.</param>
+        /// <param name="displayName">The name of the Posting Module. (required).</param>
+        /// <param name="description">A description for the Posting Module..</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         public PostingModuleDetails(string displayName = default(string), string description = default(string), string status = default(string))
         {
@@ -57,16 +57,16 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The name to identify the Posting Module by
+        /// The name of the Posting Module.
         /// </summary>
-        /// <value>The name to identify the Posting Module by</value>
+        /// <value>The name of the Posting Module.</value>
         [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The description for the Posting Module
+        /// A description for the Posting Module.
         /// </summary>
-        /// <value>The description for the Posting Module</value>
+        /// <value>A description for the Posting Module.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 

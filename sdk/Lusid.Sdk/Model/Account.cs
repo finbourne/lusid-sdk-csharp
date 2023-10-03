@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class Account : IEquatable<Account>, IValidatableObject
     {
         /// <summary>
-        /// The account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted
+        /// The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted
         /// </summary>
-        /// <value>The account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted</value>
+        /// <value>The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted
+        /// The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted
         /// </summary>
-        /// <value>The account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted</value>
+        /// <value>The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public StatusEnum Status { get; set; }
         /// <summary>
@@ -70,12 +70,12 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Account" /> class.
         /// </summary>
-        /// <param name="code">The code given for the account. (required).</param>
-        /// <param name="description">The description for the account..</param>
-        /// <param name="type">The account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue. (required).</param>
-        /// <param name="status">The account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted (required).</param>
-        /// <param name="control">This allows users to specify whether this a protected account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”. (required).</param>
-        /// <param name="properties">Account properties to add to the account..</param>
+        /// <param name="code">The code given for the Account. (required).</param>
+        /// <param name="description">A description for the Account..</param>
+        /// <param name="type">The Account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue. (required).</param>
+        /// <param name="status">The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted (required).</param>
+        /// <param name="control">This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”. (required).</param>
+        /// <param name="properties">A set of properties for the Account..</param>
         public Account(string code = default(string), string description = default(string), string type = default(string), StatusEnum status = default(StatusEnum), string control = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
@@ -102,37 +102,37 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The code given for the account.
+        /// The code given for the Account.
         /// </summary>
-        /// <value>The code given for the account.</value>
+        /// <value>The code given for the Account.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// The description for the account.
+        /// A description for the Account.
         /// </summary>
-        /// <value>The description for the account.</value>
+        /// <value>A description for the Account.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue.
+        /// The Account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue.
         /// </summary>
-        /// <value>The account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue.</value>
+        /// <value>The Account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// This allows users to specify whether this a protected account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.
+        /// This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.
         /// </summary>
-        /// <value>This allows users to specify whether this a protected account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.</value>
+        /// <value>This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.</value>
         [DataMember(Name = "control", IsRequired = true, EmitDefaultValue = true)]
         public string Control { get; set; }
 
         /// <summary>
-        /// Account properties to add to the account.
+        /// A set of properties for the Account.
         /// </summary>
-        /// <value>Account properties to add to the account.</value>
+        /// <value>A set of properties for the Account.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="postingModuleCode">The code of the Posting Module. (required).</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="displayName">The name to identify the Posting Module by (required).</param>
-        /// <param name="description">The description for the Posting Module.</param>
-        /// <param name="rules">The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection..</param>
+        /// <param name="displayName">The name of the Posting Module. (required).</param>
+        /// <param name="description">A description for the Posting Module..</param>
+        /// <param name="rules">The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection..</param>
         /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
@@ -99,23 +99,23 @@ namespace Lusid.Sdk.Model
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
-        /// The name to identify the Posting Module by
+        /// The name of the Posting Module.
         /// </summary>
-        /// <value>The name to identify the Posting Module by</value>
+        /// <value>The name of the Posting Module.</value>
         [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The description for the Posting Module
+        /// A description for the Posting Module.
         /// </summary>
-        /// <value>The description for the Posting Module</value>
+        /// <value>A description for the Posting Module.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.
+        /// The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.
         /// </summary>
-        /// <value>The posting rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.</value>
+        /// <value>The Posting Rules that apply for the Posting Module. Rules are evaluated in the order they occur in this collection.</value>
         [DataMember(Name = "rules", EmitDefaultValue = true)]
         public List<PostingModuleRule> Rules { get; set; }
 

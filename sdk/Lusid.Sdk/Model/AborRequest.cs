@@ -37,11 +37,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AborRequest" /> class.
         /// </summary>
         /// <param name="code">The code given for the Abor. (required).</param>
-        /// <param name="displayName">The given name for the Abor. (required).</param>
+        /// <param name="displayName">The name of the Abor. (required).</param>
         /// <param name="description">The description for the Abor..</param>
-        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio. (required).</param>
+        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. (required).</param>
         /// <param name="aborConfigurationId">aborConfigurationId (required).</param>
-        /// <param name="properties">Properties to add to the Abor..</param>
+        /// <param name="properties">A set of properties for the Abor..</param>
         public AborRequest(string code = default(string), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
@@ -80,9 +80,9 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// The given name for the Abor.
+        /// The name of the Abor.
         /// </summary>
-        /// <value>The given name for the Abor.</value>
+        /// <value>The name of the Abor.</value>
         [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
@@ -94,9 +94,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio.
+        /// The list with the portfolio ids which are part of the Abor.
         /// </summary>
-        /// <value>The list with the portfolio ids which are part of the Abor. For now the only supported value is SinglePortfolio.</value>
+        /// <value>The list with the portfolio ids which are part of the Abor.</value>
         [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
         public List<PortfolioEntityId> PortfolioIds { get; set; }
 
@@ -107,9 +107,9 @@ namespace Lusid.Sdk.Model
         public ResourceId AborConfigurationId { get; set; }
 
         /// <summary>
-        /// Properties to add to the Abor.
+        /// A set of properties for the Abor.
         /// </summary>
-        /// <value>Properties to add to the Abor.</value>
+        /// <value>A set of properties for the Abor.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CustodianAccount" /> class.
         /// </summary>
         /// <param name="custodianAccountId">custodianAccountId (required).</param>
-        /// <param name="status">The account status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
+        /// <param name="status">The Account status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
         /// <param name="accountNumber">The Custodian Account Number (required).</param>
         /// <param name="accountName">The identifiable name given to the Custodian Account (required).</param>
         /// <param name="accountingMethod">The Accounting method to be used (required).</param>
@@ -105,9 +105,9 @@ namespace Lusid.Sdk.Model
         public ResourceId CustodianAccountId { get; set; }
 
         /// <summary>
-        /// The account status. Can be Active, Inactive or Deleted. Defaults to Active.
+        /// The Account status. Can be Active, Inactive or Deleted. Defaults to Active.
         /// </summary>
-        /// <value>The account status. Can be Active, Inactive or Deleted. Defaults to Active.</value>
+        /// <value>The Account status. Can be Active, Inactive or Deleted. Defaults to Active.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

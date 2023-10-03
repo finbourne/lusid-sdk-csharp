@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39;..</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
-        /// <param name="properties">Properties to add to the diary entry..</param>
+        /// <param name="properties">A set of properties for the diary entry..</param>
         public DiaryEntryRequest(string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             this.EffectiveAt = effectiveAt;
@@ -79,9 +79,9 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? QueryAsAt { get; set; }
 
         /// <summary>
-        /// Properties to add to the diary entry.
+        /// A set of properties for the diary entry.
         /// </summary>
-        /// <value>Properties to add to the diary entry.</value>
+        /// <value>A set of properties for the diary entry.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

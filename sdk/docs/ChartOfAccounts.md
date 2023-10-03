@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**DisplayName** | **string** | The given name for the chart of account. | [optional] 
-**Description** | **string** | The description for the chart of account. | [optional] 
-**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Chart of Accounts properties to add to the chart of account. | [optional] 
+**DisplayName** | **string** | The name of the Chart of Account. | [optional] 
+**Description** | **string** | A description of the Chart of Accounts. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Chart of Accounts. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

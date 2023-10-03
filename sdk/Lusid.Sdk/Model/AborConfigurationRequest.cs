@@ -36,13 +36,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AborConfigurationRequest" /> class.
         /// </summary>
-        /// <param name="code">The code given for the AborConfiguration. (required).</param>
-        /// <param name="displayName">The given name for the AborConfiguration..</param>
-        /// <param name="description">The description for the AborConfiguration..</param>
+        /// <param name="code">The code given for the Abor Configuration. (required).</param>
+        /// <param name="displayName">The name of the Abor Configuration..</param>
+        /// <param name="description">A description for the Abor Configuration..</param>
         /// <param name="recipeId">recipeId (required).</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="postingModuleCodes">The Posting Modules Codes from where the rules to be applied are retrieved..</param>
-        /// <param name="properties">Properties to add to the AborConfiguration..</param>
+        /// <param name="postingModuleCodes">The Posting Module Codes from which the rules to be applied are retrieved..</param>
+        /// <param name="properties">A set of properties for the Abor Configuration..</param>
         public AborConfigurationRequest(string code = default(string), string displayName = default(string), string description = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
             // to ensure "code" is required (not null)
@@ -70,23 +70,23 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The code given for the AborConfiguration.
+        /// The code given for the Abor Configuration.
         /// </summary>
-        /// <value>The code given for the AborConfiguration.</value>
+        /// <value>The code given for the Abor Configuration.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// The given name for the AborConfiguration.
+        /// The name of the Abor Configuration.
         /// </summary>
-        /// <value>The given name for the AborConfiguration.</value>
+        /// <value>The name of the Abor Configuration.</value>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The description for the AborConfiguration.
+        /// A description for the Abor Configuration.
         /// </summary>
-        /// <value>The description for the AborConfiguration.</value>
+        /// <value>A description for the Abor Configuration.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -103,16 +103,16 @@ namespace Lusid.Sdk.Model
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
-        /// The Posting Modules Codes from where the rules to be applied are retrieved.
+        /// The Posting Module Codes from which the rules to be applied are retrieved.
         /// </summary>
-        /// <value>The Posting Modules Codes from where the rules to be applied are retrieved.</value>
+        /// <value>The Posting Module Codes from which the rules to be applied are retrieved.</value>
         [DataMember(Name = "postingModuleCodes", EmitDefaultValue = true)]
         public List<string> PostingModuleCodes { get; set; }
 
         /// <summary>
-        /// Properties to add to the AborConfiguration.
+        /// A set of properties for the Abor Configuration.
         /// </summary>
-        /// <value>Properties to add to the AborConfiguration.</value>
+        /// <value>A set of properties for the Abor Configuration.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

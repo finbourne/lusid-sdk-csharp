@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **PortfolioEntityIds** | [**List&lt;PortfolioEntityId&gt;**](PortfolioEntityId.md) | The set of portfolio or portfolio group identifier(s) that is to be valued. | 
 **ValuationSchedule** | [**ValuationSchedule**](ValuationSchedule.md) |  | 
 **MarketDataOverrides** | [**MarketDataOverrides**](MarketDataOverrides.md) |  | [optional] 
+**CorporateActionSourceId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="aliases">List of transaction types that map to this specific transaction configuration (required).</param>
         /// <param name="movements">Movement data for the transaction type (required).</param>
         /// <param name="properties">Properties attached to the transaction type.</param>
-        public TransactionTypeRequest(List<TransactionTypeAlias> aliases = default(List<TransactionTypeAlias>), List<TransactionTypeMovement> movements = default(List<TransactionTypeMovement>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="calculations">Calculations to be performed for the transaction type.</param>
+        public TransactionTypeRequest(List<TransactionTypeAlias> aliases = default(List<TransactionTypeAlias>), List<TransactionTypeMovement> movements = default(List<TransactionTypeMovement>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), List<TransactionTypeCalculation> calculations = default(List<TransactionTypeCalculation>))
         {
             // to ensure "aliases" is required (not null)
             if (aliases == null)
@@ -54,6 +55,7 @@ namespace Lusid.Sdk.Model
             }
             this.Movements = movements;
             this.Properties = properties;
+            this.Calculations = calculations;
         }
 
         /// <summary>
@@ -78,6 +80,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
         /// <summary>
+        /// Calculations to be performed for the transaction type
+        /// </summary>
+        /// <value>Calculations to be performed for the transaction type</value>
+        [DataMember(Name = "calculations", EmitDefaultValue = true)]
+        public List<TransactionTypeCalculation> Calculations { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +97,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Aliases: ").Append(Aliases).Append("\n");
             sb.Append("  Movements: ").Append(Movements).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Calculations: ").Append(Calculations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +150,12 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.Calculations == input.Calculations ||
+                    this.Calculations != null &&
+                    input.Calculations != null &&
+                    this.Calculations.SequenceEqual(input.Calculations)
                 );
         }
 
@@ -163,6 +179,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.Calculations != null)
+                {
+                    hashCode = (hashCode * 59) + this.Calculations.GetHashCode();
                 }
                 return hashCode;
             }

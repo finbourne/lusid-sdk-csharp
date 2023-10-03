@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ActivitiesDescription** | **string** | This would be the description of the business activities where these JE lines are posting for. | [optional] 
 **SourceType** | **string** | So far are 4 types: LusidTxn, LusidValuation, Manual and External. | 
 **SourceId** | **string** | For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. | 
-**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Properties to add to the Abor. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Abor. | [optional] 
 **MovementName** | **string** | The name of the movement. | 
 **HoldingType** | **string** | Defines the broad category holding within the portfolio. | 
 **EconomicBucket** | **string** | Raw JE Line details of the economic bucket for the JE Line. | 

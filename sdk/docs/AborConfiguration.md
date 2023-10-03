@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**DisplayName** | **string** | The given name for the AborConfiguration. | [optional] 
-**Description** | **string** | The description for the AborConfiguration. | [optional] 
+**DisplayName** | **string** | The name of the Abor Configuration. | [optional] 
+**Description** | **string** | A description for the Abor Configuration. | [optional] 
 **RecipeId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **ChartOfAccountsId** | [**ResourceId**](ResourceId.md) |  | 
-**PostingModuleCodes** | **List&lt;string&gt;** | The Posting Modules Codes from where the rules to be applied are retrieved. | [optional] 
-**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Properties to add to the AborConfiguration. | [optional] 
+**PostingModuleCodes** | **List&lt;string&gt;** | The Posting Module Codes from which the rules to be applied are retrieved. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Abor Configuration. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

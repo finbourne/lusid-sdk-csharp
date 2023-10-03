@@ -38,9 +38,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="displayName">The given name for the chart of account..</param>
-        /// <param name="description">The description for the chart of account..</param>
-        /// <param name="properties">Chart of Accounts properties to add to the chart of account..</param>
+        /// <param name="displayName">The name of the Chart of Account..</param>
+        /// <param name="description">A description of the Chart of Accounts..</param>
+        /// <param name="properties">A set of properties for the Chart of Accounts..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
         public ChartOfAccounts(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
@@ -73,23 +73,23 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// The given name for the chart of account.
+        /// The name of the Chart of Account.
         /// </summary>
-        /// <value>The given name for the chart of account.</value>
+        /// <value>The name of the Chart of Account.</value>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The description for the chart of account.
+        /// A description of the Chart of Accounts.
         /// </summary>
-        /// <value>The description for the chart of account.</value>
+        /// <value>A description of the Chart of Accounts.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Chart of Accounts properties to add to the chart of account.
+        /// A set of properties for the Chart of Accounts.
         /// </summary>
-        /// <value>Chart of Accounts properties to add to the chart of account.</value>
+        /// <value>A set of properties for the Chart of Accounts.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

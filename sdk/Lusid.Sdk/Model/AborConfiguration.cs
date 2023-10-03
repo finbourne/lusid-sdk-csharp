@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="displayName">The given name for the AborConfiguration..</param>
-        /// <param name="description">The description for the AborConfiguration..</param>
+        /// <param name="displayName">The name of the Abor Configuration..</param>
+        /// <param name="description">A description for the Abor Configuration..</param>
         /// <param name="recipeId">recipeId.</param>
         /// <param name="chartOfAccountsId">chartOfAccountsId (required).</param>
-        /// <param name="postingModuleCodes">The Posting Modules Codes from where the rules to be applied are retrieved..</param>
-        /// <param name="properties">Properties to add to the AborConfiguration..</param>
+        /// <param name="postingModuleCodes">The Posting Module Codes from which the rules to be applied are retrieved..</param>
+        /// <param name="properties">A set of properties for the Abor Configuration..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
         public AborConfiguration(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ResourceId recipeId = default(ResourceId), ResourceId chartOfAccountsId = default(ResourceId), List<string> postingModuleCodes = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
@@ -84,16 +84,16 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// The given name for the AborConfiguration.
+        /// The name of the Abor Configuration.
         /// </summary>
-        /// <value>The given name for the AborConfiguration.</value>
+        /// <value>The name of the Abor Configuration.</value>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The description for the AborConfiguration.
+        /// A description for the Abor Configuration.
         /// </summary>
-        /// <value>The description for the AborConfiguration.</value>
+        /// <value>A description for the Abor Configuration.</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -110,16 +110,16 @@ namespace Lusid.Sdk.Model
         public ResourceId ChartOfAccountsId { get; set; }
 
         /// <summary>
-        /// The Posting Modules Codes from where the rules to be applied are retrieved.
+        /// The Posting Module Codes from which the rules to be applied are retrieved.
         /// </summary>
-        /// <value>The Posting Modules Codes from where the rules to be applied are retrieved.</value>
+        /// <value>The Posting Module Codes from which the rules to be applied are retrieved.</value>
         [DataMember(Name = "postingModuleCodes", EmitDefaultValue = true)]
         public List<string> PostingModuleCodes { get; set; }
 
         /// <summary>
-        /// Properties to add to the AborConfiguration.
+        /// A set of properties for the Abor Configuration.
         /// </summary>
-        /// <value>Properties to add to the AborConfiguration.</value>
+        /// <value>A set of properties for the Abor Configuration.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

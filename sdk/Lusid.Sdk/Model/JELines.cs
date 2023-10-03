@@ -52,7 +52,7 @@ namespace Lusid.Sdk.Model
         /// <param name="activitiesDescription">This would be the description of the business activities where these JE lines are posting for..</param>
         /// <param name="sourceType">So far are 4 types: LusidTxn, LusidValuation, Manual and External. (required).</param>
         /// <param name="sourceId">For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. (required).</param>
-        /// <param name="properties">Properties to add to the Abor..</param>
+        /// <param name="properties">A set of properties for the Abor..</param>
         /// <param name="movementName">The name of the movement. (required).</param>
         /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
         /// <param name="economicBucket">Raw JE Line details of the economic bucket for the JE Line. (required).</param>
@@ -257,9 +257,9 @@ namespace Lusid.Sdk.Model
         public string SourceId { get; set; }
 
         /// <summary>
-        /// Properties to add to the Abor.
+        /// A set of properties for the Abor.
         /// </summary>
-        /// <value>Properties to add to the Abor.</value>
+        /// <value>A set of properties for the Abor.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 

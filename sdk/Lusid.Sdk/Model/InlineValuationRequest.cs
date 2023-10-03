@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="valuationSchedule">valuationSchedule.</param>
         /// <param name="instruments">The set of instruments, weighted by the quantities held that are required.  It is identified by an identifier tag that can be used to identify it externally.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case. (required).</param>
         /// <param name="marketDataOverrides">marketDataOverrides.</param>
-        public InlineValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), ValuationSchedule valuationSchedule = default(ValuationSchedule), List<WeightedInstrument> instruments = default(List<WeightedInstrument>), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides))
+        /// <param name="corporateActionSourceId">corporateActionSourceId.</param>
+        public InlineValuationRequest(ResourceId recipeId = default(ResourceId), DateTimeOffset? asAt = default(DateTimeOffset?), List<AggregateSpec> metrics = default(List<AggregateSpec>), List<string> groupBy = default(List<string>), List<PropertyFilter> filters = default(List<PropertyFilter>), List<OrderBySpec> sort = default(List<OrderBySpec>), string reportCurrency = default(string), bool equipWithSubtotals = default(bool), bool returnResultAsExpandedTypes = default(bool), ValuationSchedule valuationSchedule = default(ValuationSchedule), List<WeightedInstrument> instruments = default(List<WeightedInstrument>), MarketDataOverrides marketDataOverrides = default(MarketDataOverrides), ResourceId corporateActionSourceId = default(ResourceId))
         {
             // to ensure "metrics" is required (not null)
             if (metrics == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.ReturnResultAsExpandedTypes = returnResultAsExpandedTypes;
             this.ValuationSchedule = valuationSchedule;
             this.MarketDataOverrides = marketDataOverrides;
+            this.CorporateActionSourceId = corporateActionSourceId;
         }
 
         /// <summary>
@@ -156,6 +158,12 @@ namespace Lusid.Sdk.Model
         public MarketDataOverrides MarketDataOverrides { get; set; }
 
         /// <summary>
+        /// Gets or Sets CorporateActionSourceId
+        /// </summary>
+        [DataMember(Name = "corporateActionSourceId", EmitDefaultValue = false)]
+        public ResourceId CorporateActionSourceId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +183,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ValuationSchedule: ").Append(ValuationSchedule).Append("\n");
             sb.Append("  Instruments: ").Append(Instruments).Append("\n");
             sb.Append("  MarketDataOverrides: ").Append(MarketDataOverrides).Append("\n");
+            sb.Append("  CorporateActionSourceId: ").Append(CorporateActionSourceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -272,6 +281,11 @@ namespace Lusid.Sdk.Model
                     this.MarketDataOverrides == input.MarketDataOverrides ||
                     (this.MarketDataOverrides != null &&
                     this.MarketDataOverrides.Equals(input.MarketDataOverrides))
+                ) && 
+                (
+                    this.CorporateActionSourceId == input.CorporateActionSourceId ||
+                    (this.CorporateActionSourceId != null &&
+                    this.CorporateActionSourceId.Equals(input.CorporateActionSourceId))
                 );
         }
 
@@ -325,6 +339,10 @@ namespace Lusid.Sdk.Model
                 if (this.MarketDataOverrides != null)
                 {
                     hashCode = (hashCode * 59) + this.MarketDataOverrides.GetHashCode();
+                }
+                if (this.CorporateActionSourceId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CorporateActionSourceId.GetHashCode();
                 }
                 return hashCode;
             }

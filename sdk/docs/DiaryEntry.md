@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **EffectiveAt** | **DateTimeOffset** | The effective time of the diary entry. | 
 **QueryAsAt** | **DateTimeOffset** | The query time of the diary entry. Defaults to latest. | [optional] 
 **PreviousEntryTime** | **DateTimeOffset** | The entry time of the previous diary entry. | [optional] 
-**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Properties to add to the diary entry. | [optional] 
+**Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

@@ -32,7 +32,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="AborConfigurationProperties" /> class.
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
-        /// <param name="properties">The AborConfiguration properties. These will be from the &#39;AborConfiguration&#39; domain..</param>
+        /// <param name="properties">The Abor Configuration properties. These will be from the &#39;AborConfiguration&#39; domain..</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
         public AborConfigurationProperties(string href = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
@@ -51,9 +51,9 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// The AborConfiguration properties. These will be from the &#39;AborConfiguration&#39; domain.
+        /// The Abor Configuration properties. These will be from the &#39;AborConfiguration&#39; domain.
         /// </summary>
-        /// <value>The AborConfiguration properties. These will be from the &#39;AborConfiguration&#39; domain.</value>
+        /// <value>The Abor Configuration properties. These will be from the &#39;AborConfiguration&#39; domain.</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, Property> Properties { get; set; }
 
