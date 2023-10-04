@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="alternativeInceptionDate">Optional - either a date, or the key for a portfolio property containing a date. If provided, the given date will override the inception date for this request..</param>
         /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule. Holiday calendar(s) are supplied by their codes, for example, &#39;CoppClark&#39;. Note that when the calendars are not available (e.g. when the user has insufficient permissions), a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="currency">Optional - either a string or a property. If provided, the results will be converted to the specified currency.</param>
-        public AggregatedReturnsRequest(List<PerformanceReturnsMetric> metrics = default(List<PerformanceReturnsMetric>), List<ResourceId> returnIds = default(List<ResourceId>), ResourceId recipeId = default(ResourceId), string compositeMethod = default(string), string period = default(string), string outputFrequency = default(string), string alternativeInceptionDate = default(string), List<string> holidayCalendars = default(List<string>), string currency = default(string))
+        /// <param name="runMode">The RunMode the aggregation will calculate metrics for. Defaults to ReturnData..</param>
+        public AggregatedReturnsRequest(List<PerformanceReturnsMetric> metrics = default(List<PerformanceReturnsMetric>), List<ResourceId> returnIds = default(List<ResourceId>), ResourceId recipeId = default(ResourceId), string compositeMethod = default(string), string period = default(string), string outputFrequency = default(string), string alternativeInceptionDate = default(string), List<string> holidayCalendars = default(List<string>), string currency = default(string), string runMode = default(string))
         {
             // to ensure "metrics" is required (not null)
             if (metrics == null)
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             this.AlternativeInceptionDate = alternativeInceptionDate;
             this.HolidayCalendars = holidayCalendars;
             this.Currency = currency;
+            this.RunMode = runMode;
         }
 
         /// <summary>
@@ -126,6 +128,13 @@ namespace Lusid.Sdk.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// The RunMode the aggregation will calculate metrics for. Defaults to ReturnData.
+        /// </summary>
+        /// <value>The RunMode the aggregation will calculate metrics for. Defaults to ReturnData.</value>
+        [DataMember(Name = "runMode", EmitDefaultValue = true)]
+        public string RunMode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +151,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AlternativeInceptionDate: ").Append(AlternativeInceptionDate).Append("\n");
             sb.Append("  HolidayCalendars: ").Append(HolidayCalendars).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  RunMode: ").Append(RunMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,6 +234,11 @@ namespace Lusid.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.RunMode == input.RunMode ||
+                    (this.RunMode != null &&
+                    this.RunMode.Equals(input.RunMode))
                 );
         }
 
@@ -271,6 +286,10 @@ namespace Lusid.Sdk.Model
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.RunMode != null)
+                {
+                    hashCode = (hashCode * 59) + this.RunMode.GetHashCode();
                 }
                 return hashCode;
             }

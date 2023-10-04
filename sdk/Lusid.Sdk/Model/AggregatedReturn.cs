@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="frequency">Show the aggregated output returns on a Daily or Monthly period..</param>
         /// <param name="compositeMembers">The number of members in the Composite on the given day..</param>
         /// <param name="compositeMembersWithoutReturn">List containing Composite members which post no return on the given day..</param>
-        public AggregatedReturn(DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset endOfPeriod = default(DateTimeOffset), decimal? openingMarketValue = default(decimal?), decimal? closingMarketValue = default(decimal?), Dictionary<string, decimal> metricsValue = default(Dictionary<string, decimal>), string frequency = default(string), int? compositeMembers = default(int?), List<ResourceId> compositeMembersWithoutReturn = default(List<ResourceId>))
+        /// <param name="warnings">List of the warnings about the calculation of the aggregated return..</param>
+        public AggregatedReturn(DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset endOfPeriod = default(DateTimeOffset), decimal? openingMarketValue = default(decimal?), decimal? closingMarketValue = default(decimal?), Dictionary<string, decimal> metricsValue = default(Dictionary<string, decimal>), string frequency = default(string), int? compositeMembers = default(int?), List<ResourceId> compositeMembersWithoutReturn = default(List<ResourceId>), List<string> warnings = default(List<string>))
         {
             this.EffectiveAt = effectiveAt;
             this.EndOfPeriod = endOfPeriod;
@@ -59,6 +60,7 @@ namespace Lusid.Sdk.Model
             this.Frequency = frequency;
             this.CompositeMembers = compositeMembers;
             this.CompositeMembersWithoutReturn = compositeMembersWithoutReturn;
+            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -118,6 +120,13 @@ namespace Lusid.Sdk.Model
         public List<ResourceId> CompositeMembersWithoutReturn { get; set; }
 
         /// <summary>
+        /// List of the warnings about the calculation of the aggregated return.
+        /// </summary>
+        /// <value>List of the warnings about the calculation of the aggregated return.</value>
+        [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        public List<string> Warnings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +142,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  CompositeMembers: ").Append(CompositeMembers).Append("\n");
             sb.Append("  CompositeMembersWithoutReturn: ").Append(CompositeMembersWithoutReturn).Append("\n");
+            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -209,6 +219,12 @@ namespace Lusid.Sdk.Model
                     this.CompositeMembersWithoutReturn != null &&
                     input.CompositeMembersWithoutReturn != null &&
                     this.CompositeMembersWithoutReturn.SequenceEqual(input.CompositeMembersWithoutReturn)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -252,6 +268,10 @@ namespace Lusid.Sdk.Model
                 if (this.CompositeMembersWithoutReturn != null)
                 {
                     hashCode = (hashCode * 59) + this.CompositeMembersWithoutReturn.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
                 }
                 return hashCode;
             }
