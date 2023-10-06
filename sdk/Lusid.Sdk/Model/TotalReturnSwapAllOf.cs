@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// InterestRateSwapAllOf
+    /// TotalReturnSwapAllOf
     /// </summary>
-    [DataContract(Name = "InterestRateSwap_allOf")]
-    public partial class InterestRateSwapAllOf : IEquatable<InterestRateSwapAllOf>, IValidatableObject
+    [DataContract(Name = "TotalReturnSwap_allOf")]
+    public partial class TotalReturnSwapAllOf : IEquatable<TotalReturnSwapAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap
@@ -255,32 +255,35 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentTypeEnum InstrumentType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InterestRateSwapAllOf" /> class.
+        /// Initializes a new instance of the <see cref="TotalReturnSwapAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InterestRateSwapAllOf() { }
+        protected TotalReturnSwapAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InterestRateSwapAllOf" /> class.
+        /// Initializes a new instance of the <see cref="TotalReturnSwapAllOf" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="isNonDeliverable">Is the contract an IRS of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the settlement currency based on the difference between  the fixed and floating rates..</param>
-        /// <param name="legs">The set of instrument legs that define the swap instrument, these should be FloatingLeg or FixedLeg. (required).</param>
-        /// <param name="settlementCcy">Settlement currency if IRS is non-deliverable..</param>
+        /// <param name="paymentLeg">paymentLeg (required).</param>
+        /// <param name="underlyingLeg">underlyingLeg (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap (required).</param>
-        public InterestRateSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), bool isNonDeliverable = default(bool), List<InstrumentLeg> legs = default(List<InstrumentLeg>), string settlementCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public TotalReturnSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InstrumentLeg paymentLeg = default(InstrumentLeg), UnderlyingLeg underlyingLeg = default(UnderlyingLeg), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            // to ensure "legs" is required (not null)
-            if (legs == null)
+            // to ensure "paymentLeg" is required (not null)
+            if (paymentLeg == null)
             {
-                throw new ArgumentNullException("legs is a required property for InterestRateSwapAllOf and cannot be null");
+                throw new ArgumentNullException("paymentLeg is a required property for TotalReturnSwapAllOf and cannot be null");
             }
-            this.Legs = legs;
+            this.PaymentLeg = paymentLeg;
+            // to ensure "underlyingLeg" is required (not null)
+            if (underlyingLeg == null)
+            {
+                throw new ArgumentNullException("underlyingLeg is a required property for TotalReturnSwapAllOf and cannot be null");
+            }
+            this.UnderlyingLeg = underlyingLeg;
             this.InstrumentType = instrumentType;
-            this.IsNonDeliverable = isNonDeliverable;
-            this.SettlementCcy = settlementCcy;
         }
 
         /// <summary>
@@ -298,25 +301,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// Is the contract an IRS of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the settlement currency based on the difference between  the fixed and floating rates.
+        /// Gets or Sets PaymentLeg
         /// </summary>
-        /// <value>Is the contract an IRS of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the settlement currency based on the difference between  the fixed and floating rates.</value>
-        [DataMember(Name = "isNonDeliverable", EmitDefaultValue = true)]
-        public bool IsNonDeliverable { get; set; }
+        [DataMember(Name = "paymentLeg", IsRequired = true, EmitDefaultValue = true)]
+        public InstrumentLeg PaymentLeg { get; set; }
 
         /// <summary>
-        /// The set of instrument legs that define the swap instrument, these should be FloatingLeg or FixedLeg.
+        /// Gets or Sets UnderlyingLeg
         /// </summary>
-        /// <value>The set of instrument legs that define the swap instrument, these should be FloatingLeg or FixedLeg.</value>
-        [DataMember(Name = "legs", IsRequired = true, EmitDefaultValue = true)]
-        public List<InstrumentLeg> Legs { get; set; }
-
-        /// <summary>
-        /// Settlement currency if IRS is non-deliverable.
-        /// </summary>
-        /// <value>Settlement currency if IRS is non-deliverable.</value>
-        [DataMember(Name = "settlementCcy", EmitDefaultValue = true)]
-        public string SettlementCcy { get; set; }
+        [DataMember(Name = "underlyingLeg", IsRequired = true, EmitDefaultValue = true)]
+        public UnderlyingLeg UnderlyingLeg { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -325,12 +319,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InterestRateSwapAllOf {\n");
+            sb.Append("class TotalReturnSwapAllOf {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
-            sb.Append("  IsNonDeliverable: ").Append(IsNonDeliverable).Append("\n");
-            sb.Append("  Legs: ").Append(Legs).Append("\n");
-            sb.Append("  SettlementCcy: ").Append(SettlementCcy).Append("\n");
+            sb.Append("  PaymentLeg: ").Append(PaymentLeg).Append("\n");
+            sb.Append("  UnderlyingLeg: ").Append(UnderlyingLeg).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -352,15 +345,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InterestRateSwapAllOf);
+            return this.Equals(input as TotalReturnSwapAllOf);
         }
 
         /// <summary>
-        /// Returns true if InterestRateSwapAllOf instances are equal
+        /// Returns true if TotalReturnSwapAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of InterestRateSwapAllOf to be compared</param>
+        /// <param name="input">Instance of TotalReturnSwapAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InterestRateSwapAllOf input)
+        public bool Equals(TotalReturnSwapAllOf input)
         {
             if (input == null)
             {
@@ -378,19 +371,14 @@ namespace Lusid.Sdk.Model
                     this.MaturityDate.Equals(input.MaturityDate))
                 ) && 
                 (
-                    this.IsNonDeliverable == input.IsNonDeliverable ||
-                    this.IsNonDeliverable.Equals(input.IsNonDeliverable)
+                    this.PaymentLeg == input.PaymentLeg ||
+                    (this.PaymentLeg != null &&
+                    this.PaymentLeg.Equals(input.PaymentLeg))
                 ) && 
                 (
-                    this.Legs == input.Legs ||
-                    this.Legs != null &&
-                    input.Legs != null &&
-                    this.Legs.SequenceEqual(input.Legs)
-                ) && 
-                (
-                    this.SettlementCcy == input.SettlementCcy ||
-                    (this.SettlementCcy != null &&
-                    this.SettlementCcy.Equals(input.SettlementCcy))
+                    this.UnderlyingLeg == input.UnderlyingLeg ||
+                    (this.UnderlyingLeg != null &&
+                    this.UnderlyingLeg.Equals(input.UnderlyingLeg))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -415,14 +403,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.IsNonDeliverable.GetHashCode();
-                if (this.Legs != null)
+                if (this.PaymentLeg != null)
                 {
-                    hashCode = (hashCode * 59) + this.Legs.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PaymentLeg.GetHashCode();
                 }
-                if (this.SettlementCcy != null)
+                if (this.UnderlyingLeg != null)
                 {
-                    hashCode = (hashCode * 59) + this.SettlementCcy.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UnderlyingLeg.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;

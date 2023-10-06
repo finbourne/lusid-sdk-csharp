@@ -230,7 +230,13 @@ namespace Lusid.Sdk.Model
         /// Enum SimpleCashFlowLoan for value: SimpleCashFlowLoan
         /// </summary>
         [EnumMember(Value = "SimpleCashFlowLoan")]
-        SimpleCashFlowLoan = 34
+        SimpleCashFlowLoan = 34,
+
+        /// <summary>
+        /// Enum TotalReturnSwap for value: TotalReturnSwap
+        /// </summary>
+        [EnumMember(Value = "TotalReturnSwap")]
+        TotalReturnSwap = 35
 
     }
 

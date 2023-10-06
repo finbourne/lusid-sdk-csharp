@@ -36,12 +36,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Compounding" /> class.
         /// </summary>
+        /// <param name="averagingMethod">Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted]..</param>
         /// <param name="calculationShiftMethod">Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout]..</param>
         /// <param name="compoundingMethod">If the interest rate is simple or compounded.    Supported string (enumeration) values are: [Average, Compounded]. (required).</param>
         /// <param name="resetFrequency">The interest payment frequency. (required).</param>
         /// <param name="shift">Defines the number of days to lockout or shift observation period by - should be a non-negative integer.</param>
-        /// <param name="spreadCompoundingMethod">Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None]. (required).</param>
-        public Compounding(string calculationShiftMethod = default(string), string compoundingMethod = default(string), string resetFrequency = default(string), int shift = default(int), string spreadCompoundingMethod = default(string))
+        /// <param name="spreadCompoundingMethod">Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None]..</param>
+        public Compounding(string averagingMethod = default(string), string calculationShiftMethod = default(string), string compoundingMethod = default(string), string resetFrequency = default(string), int shift = default(int), string spreadCompoundingMethod = default(string))
         {
             // to ensure "compoundingMethod" is required (not null)
             if (compoundingMethod == null)
@@ -55,15 +56,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("resetFrequency is a required property for Compounding and cannot be null");
             }
             this.ResetFrequency = resetFrequency;
-            // to ensure "spreadCompoundingMethod" is required (not null)
-            if (spreadCompoundingMethod == null)
-            {
-                throw new ArgumentNullException("spreadCompoundingMethod is a required property for Compounding and cannot be null");
-            }
-            this.SpreadCompoundingMethod = spreadCompoundingMethod;
+            this.AveragingMethod = averagingMethod;
             this.CalculationShiftMethod = calculationShiftMethod;
             this.Shift = shift;
+            this.SpreadCompoundingMethod = spreadCompoundingMethod;
         }
+
+        /// <summary>
+        /// Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted].
+        /// </summary>
+        /// <value>Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted].</value>
+        [DataMember(Name = "averagingMethod", EmitDefaultValue = true)]
+        public string AveragingMethod { get; set; }
 
         /// <summary>
         /// Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout].
@@ -97,7 +101,7 @@ namespace Lusid.Sdk.Model
         /// Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].
         /// </summary>
         /// <value>Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].</value>
-        [DataMember(Name = "spreadCompoundingMethod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "spreadCompoundingMethod", EmitDefaultValue = true)]
         public string SpreadCompoundingMethod { get; set; }
 
         /// <summary>
@@ -108,6 +112,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Compounding {\n");
+            sb.Append("  AveragingMethod: ").Append(AveragingMethod).Append("\n");
             sb.Append("  CalculationShiftMethod: ").Append(CalculationShiftMethod).Append("\n");
             sb.Append("  CompoundingMethod: ").Append(CompoundingMethod).Append("\n");
             sb.Append("  ResetFrequency: ").Append(ResetFrequency).Append("\n");
@@ -149,6 +154,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.AveragingMethod == input.AveragingMethod ||
+                    (this.AveragingMethod != null &&
+                    this.AveragingMethod.Equals(input.AveragingMethod))
+                ) && 
+                (
                     this.CalculationShiftMethod == input.CalculationShiftMethod ||
                     (this.CalculationShiftMethod != null &&
                     this.CalculationShiftMethod.Equals(input.CalculationShiftMethod))
@@ -183,6 +193,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AveragingMethod != null)
+                {
+                    hashCode = (hashCode * 59) + this.AveragingMethod.GetHashCode();
+                }
                 if (this.CalculationShiftMethod != null)
                 {
                     hashCode = (hashCode * 59) + this.CalculationShiftMethod.GetHashCode();
@@ -211,6 +225,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AveragingMethod (string) maxLength
+            if (this.AveragingMethod != null && this.AveragingMethod.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AveragingMethod, length must be less than 32.", new [] { "AveragingMethod" });
+            }
+
+            // AveragingMethod (string) minLength
+            if (this.AveragingMethod != null && this.AveragingMethod.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AveragingMethod, length must be greater than 0.", new [] { "AveragingMethod" });
+            }
+
             // CompoundingMethod (string) minLength
             if (this.CompoundingMethod != null && this.CompoundingMethod.Length < 1)
             {
@@ -223,10 +249,16 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResetFrequency, length must be greater than 1.", new [] { "ResetFrequency" });
             }
 
-            // SpreadCompoundingMethod (string) minLength
-            if (this.SpreadCompoundingMethod != null && this.SpreadCompoundingMethod.Length < 1)
+            // SpreadCompoundingMethod (string) maxLength
+            if (this.SpreadCompoundingMethod != null && this.SpreadCompoundingMethod.Length > 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SpreadCompoundingMethod, length must be greater than 1.", new [] { "SpreadCompoundingMethod" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SpreadCompoundingMethod, length must be less than 32.", new [] { "SpreadCompoundingMethod" });
+            }
+
+            // SpreadCompoundingMethod (string) minLength
+            if (this.SpreadCompoundingMethod != null && this.SpreadCompoundingMethod.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SpreadCompoundingMethod, length must be greater than 0.", new [] { "SpreadCompoundingMethod" });
             }
 
             yield break;
