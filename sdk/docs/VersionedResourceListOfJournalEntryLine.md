@@ -1,11 +1,11 @@
-# Lusid.Sdk.Model.VersionedResourceListOfJELines
+# Lusid.Sdk.Model.VersionedResourceListOfJournalEntryLine
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | 
-**Values** | [**List&lt;JELines&gt;**](JELines.md) |  | 
+**Values** | [**List&lt;JournalEntryLine&gt;**](JournalEntryLine.md) |  | 
 **Href** | **string** |  | [optional] 
 **NextPage** | **string** |  | [optional] 
 **PreviousPage** | **string** |  | [optional] 

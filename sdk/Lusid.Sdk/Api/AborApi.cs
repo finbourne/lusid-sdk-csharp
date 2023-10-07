@@ -135,10 +135,10 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Abor</returns>
         ApiResponse<Abor> GetAborWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor.
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -148,14 +148,14 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VersionedResourceListOfJELines</returns>
-        VersionedResourceListOfJELines GetJELines(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        /// <returns>VersionedResourceListOfJournalEntryLine</returns>
+        VersionedResourceListOfJournalEntryLine GetJELines(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor.
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -165,8 +165,43 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VersionedResourceListOfJELines</returns>
-        ApiResponse<VersionedResourceListOfJELines> GetJELinesWithHttpInfo(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of VersionedResourceListOfJournalEntryLine</returns>
+        ApiResponse<VersionedResourceListOfJournalEntryLine> GetJELinesWithHttpInfo(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>VersionedResourceListOfJournalEntryLine</returns>
+        VersionedResourceListOfJournalEntryLine GetJournalEntryLines(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of VersionedResourceListOfJournalEntryLine</returns>
+        ApiResponse<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesWithHttpInfo(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListAbors: List Abors.
         /// </summary>
@@ -394,10 +429,10 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Abor)</returns>
         System.Threading.Tasks.Task<ApiResponse<Abor>> GetAborWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor.
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -408,14 +443,14 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VersionedResourceListOfJELines</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfJELines> GetJELinesAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of VersionedResourceListOfJournalEntryLine</returns>
+        System.Threading.Tasks.Task<VersionedResourceListOfJournalEntryLine> GetJELinesAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor.
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
         /// </summary>
         /// <remarks>
-        /// Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -426,8 +461,45 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VersionedResourceListOfJELines)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfJELines>> GetJELinesWithHttpInfoAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (VersionedResourceListOfJournalEntryLine)</returns>
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfJournalEntryLine>> GetJELinesWithHttpInfoAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of VersionedResourceListOfJournalEntryLine</returns>
+        System.Threading.Tasks.Task<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListOfJournalEntryLine)</returns>
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfJournalEntryLine>> GetJournalEntryLinesWithHttpInfoAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListAbors: List Abors.
         /// </summary>
@@ -1531,7 +1603,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor. DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1541,15 +1613,15 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VersionedResourceListOfJELines</returns>
-        public VersionedResourceListOfJELines GetJELines(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        /// <returns>VersionedResourceListOfJournalEntryLine</returns>
+        public VersionedResourceListOfJournalEntryLine GetJELines(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJELines> localVarResponse = GetJELinesWithHttpInfo(scope, code, jELinesQueryParameters, asAt, limit, page);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> localVarResponse = GetJELinesWithHttpInfo(scope, code, jELinesQueryParameters, asAt, limit, page);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor. DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1559,8 +1631,8 @@ namespace Lusid.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VersionedResourceListOfJELines</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJELines> GetJELinesWithHttpInfo(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of VersionedResourceListOfJournalEntryLine</returns>
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> GetJELinesWithHttpInfo(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1645,7 +1717,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<VersionedResourceListOfJELines>("/api/abor/{scope}/{code}/JELines/$query", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<VersionedResourceListOfJournalEntryLine>("/api/abor/{scope}/{code}/JELines/$query/$deprecated", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetJELines", localVarResponse);
@@ -1659,7 +1731,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor. DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1670,15 +1742,15 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VersionedResourceListOfJELines</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfJELines> GetJELinesAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of VersionedResourceListOfJournalEntryLine</returns>
+        public async System.Threading.Tasks.Task<VersionedResourceListOfJournalEntryLine> GetJELinesAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJELines> localVarResponse = await GetJELinesWithHttpInfoAsync(scope, code, jELinesQueryParameters, asAt, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> localVarResponse = await GetJELinesWithHttpInfoAsync(scope, code, jELinesQueryParameters, asAt, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetJELines: Get the JELines for the given Abor. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
+        /// [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor. DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Abor.</param>
@@ -1689,8 +1761,8 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VersionedResourceListOfJELines)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJELines>> GetJELinesWithHttpInfoAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (VersionedResourceListOfJournalEntryLine)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine>> GetJELinesWithHttpInfoAsync(string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1776,11 +1848,283 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<VersionedResourceListOfJELines>("/api/abor/{scope}/{code}/JELines/$query", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<VersionedResourceListOfJournalEntryLine>("/api/abor/{scope}/{code}/JELines/$query/$deprecated", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetJELines", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>VersionedResourceListOfJournalEntryLine</returns>
+        public VersionedResourceListOfJournalEntryLine GetJournalEntryLines(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> localVarResponse = GetJournalEntryLinesWithHttpInfo(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of VersionedResourceListOfJournalEntryLine</returns>
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesWithHttpInfo(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->GetJournalEntryLines");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->GetJournalEntryLines");
+            }
+
+            // verify the required parameter 'journalEntryLinesQueryParameters' is set
+            if (journalEntryLinesQueryParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'journalEntryLinesQueryParameters' when calling AborApi->GetJournalEntryLines");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.Data = journalEntryLinesQueryParameters;
+
+            localVarRequestOptions.Operation = "AborApi.GetJournalEntryLines";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<VersionedResourceListOfJournalEntryLine>("/api/abor/{scope}/{code}/journalentrylines/$query", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJournalEntryLines", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of VersionedResourceListOfJournalEntryLine</returns>
+        public async System.Threading.Tasks.Task<VersionedResourceListOfJournalEntryLine> GetJournalEntryLinesAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine> localVarResponse = await GetJournalEntryLinesWithHttpInfoAsync(scope, code, journalEntryLinesQueryParameters, asAt, filter, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. Gets the Journal Entry lines for the given Abor                The Journal Entry lines have been generated from transactions and translated via posting rules
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.</param>
+        /// <param name="journalEntryLinesQueryParameters">The query parameters used in running the generation of the Journal Entry lines.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve Journal Entry lines. Defaults to returning the latest version               of each transaction if not specified. (optional)</param>
+        /// <param name="filter">\&quot;Expression to filter the result set.\&quot; (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing Journal Entry lines from a previous call to GetJournalEntryLines. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (VersionedResourceListOfJournalEntryLine)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfJournalEntryLine>> GetJournalEntryLinesWithHttpInfoAsync(string scope, string code, JournalEntryLinesQueryParameters journalEntryLinesQueryParameters, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->GetJournalEntryLines");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->GetJournalEntryLines");
+            }
+
+            // verify the required parameter 'journalEntryLinesQueryParameters' is set
+            if (journalEntryLinesQueryParameters == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'journalEntryLinesQueryParameters' when calling AborApi->GetJournalEntryLines");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.Data = journalEntryLinesQueryParameters;
+
+            localVarRequestOptions.Operation = "AborApi.GetJournalEntryLines";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<VersionedResourceListOfJournalEntryLine>("/api/abor/{scope}/{code}/journalentrylines/$query", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJournalEntryLines", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

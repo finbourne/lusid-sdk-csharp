@@ -23,134 +23,138 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An JELines entity.
+    /// A Journal Entry line entity.
     /// </summary>
-    [DataContract(Name = "JELines")]
-    public partial class JELines : IEquatable<JELines>, IValidatableObject
+    [DataContract(Name = "JournalEntryLine")]
+    public partial class JournalEntryLine : IEquatable<JournalEntryLine>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JELines" /> class.
+        /// Initializes a new instance of the <see cref="JournalEntryLine" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected JELines() { }
+        protected JournalEntryLine() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="JELines" /> class.
+        /// Initializes a new instance of the <see cref="JournalEntryLine" /> class.
         /// </summary>
-        /// <param name="accountingDate">The JELines accounting date. (required).</param>
+        /// <param name="accountingDate">The Journal Entry Line accounting date. (required).</param>
         /// <param name="activityDate">The actual date of the activity. Differs from the accounting date when creating journals that would occur in a closed period. (required).</param>
         /// <param name="portfolioId">portfolioId (required).</param>
-        /// <param name="instrumentId">To indicate the instrument of the transaction that the JE line posted for, if applicable. (required).</param>
-        /// <param name="instrumentScope">The scope in which the JELines instrument is in. (required).</param>
+        /// <param name="instrumentId">To indicate the instrument of the transaction that the Journal Entry Line posted for, if applicable. (required).</param>
+        /// <param name="instrumentScope">The scope in which the Journal Entry Line instrument is in. (required).</param>
         /// <param name="subHoldingKeys">The sub-holding properties which are part of the AccountingKey..</param>
-        /// <param name="taxLotId">The tax lot Id that JE line is impacting. (required).</param>
-        /// <param name="glCode">Code of general ledger the JE lines posting to. (required).</param>
+        /// <param name="taxLotId">The tax lot Id that the Journal Entry Line is impacting. (required).</param>
+        /// <param name="generalLedgerAccountCode">The code of the account in the general ledger the Journal Entry was posted to. (required).</param>
         /// <param name="local">local (required).</param>
         /// <param name="_base">_base (required).</param>
-        /// <param name="postingModuleCode">The code of the posting module where the posting rules derived the JE Lines..</param>
-        /// <param name="postingRule">The rule generating the JELinse. (required).</param>
-        /// <param name="asAtDate">The corresponding input date and time of the Transaction generating the JELine. (required).</param>
-        /// <param name="activitiesDescription">This would be the description of the business activities where these JE lines are posting for..</param>
+        /// <param name="postingModuleCode">The code of the posting module where the posting rules derived the Journal Entry lines..</param>
+        /// <param name="postingRule">The rule generating the Journal Entry Line. (required).</param>
+        /// <param name="asAtDate">The corresponding input date and time of the Transaction generating the Journal Entry Line. (required).</param>
+        /// <param name="activitiesDescription">This would be the description of the business activities this Journal Entry Line is for..</param>
         /// <param name="sourceType">So far are 4 types: LusidTxn, LusidValuation, Manual and External. (required).</param>
         /// <param name="sourceId">For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. (required).</param>
         /// <param name="properties">A set of properties for the Abor..</param>
         /// <param name="movementName">The name of the movement. (required).</param>
         /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
-        /// <param name="economicBucket">Raw JE Line details of the economic bucket for the JE Line. (required).</param>
+        /// <param name="economicBucket">Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. (required).</param>
+        /// <param name="levels">Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
+        /// <param name="sourceLevels">Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="links">links.</param>
-        public JELines(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string glCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), List<Link> links = default(List<Link>))
+        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
             // to ensure "portfolioId" is required (not null)
             if (portfolioId == null)
             {
-                throw new ArgumentNullException("portfolioId is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("portfolioId is a required property for JournalEntryLine and cannot be null");
             }
             this.PortfolioId = portfolioId;
             // to ensure "instrumentId" is required (not null)
             if (instrumentId == null)
             {
-                throw new ArgumentNullException("instrumentId is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("instrumentId is a required property for JournalEntryLine and cannot be null");
             }
             this.InstrumentId = instrumentId;
             // to ensure "instrumentScope" is required (not null)
             if (instrumentScope == null)
             {
-                throw new ArgumentNullException("instrumentScope is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("instrumentScope is a required property for JournalEntryLine and cannot be null");
             }
             this.InstrumentScope = instrumentScope;
             // to ensure "taxLotId" is required (not null)
             if (taxLotId == null)
             {
-                throw new ArgumentNullException("taxLotId is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("taxLotId is a required property for JournalEntryLine and cannot be null");
             }
             this.TaxLotId = taxLotId;
-            // to ensure "glCode" is required (not null)
-            if (glCode == null)
+            // to ensure "generalLedgerAccountCode" is required (not null)
+            if (generalLedgerAccountCode == null)
             {
-                throw new ArgumentNullException("glCode is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("generalLedgerAccountCode is a required property for JournalEntryLine and cannot be null");
             }
-            this.GlCode = glCode;
+            this.GeneralLedgerAccountCode = generalLedgerAccountCode;
             // to ensure "local" is required (not null)
             if (local == null)
             {
-                throw new ArgumentNullException("local is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("local is a required property for JournalEntryLine and cannot be null");
             }
             this.Local = local;
             // to ensure "_base" is required (not null)
             if (_base == null)
             {
-                throw new ArgumentNullException("_base is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("_base is a required property for JournalEntryLine and cannot be null");
             }
             this.Base = _base;
             // to ensure "postingRule" is required (not null)
             if (postingRule == null)
             {
-                throw new ArgumentNullException("postingRule is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("postingRule is a required property for JournalEntryLine and cannot be null");
             }
             this.PostingRule = postingRule;
             this.AsAtDate = asAtDate;
             // to ensure "sourceType" is required (not null)
             if (sourceType == null)
             {
-                throw new ArgumentNullException("sourceType is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("sourceType is a required property for JournalEntryLine and cannot be null");
             }
             this.SourceType = sourceType;
             // to ensure "sourceId" is required (not null)
             if (sourceId == null)
             {
-                throw new ArgumentNullException("sourceId is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("sourceId is a required property for JournalEntryLine and cannot be null");
             }
             this.SourceId = sourceId;
             // to ensure "movementName" is required (not null)
             if (movementName == null)
             {
-                throw new ArgumentNullException("movementName is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("movementName is a required property for JournalEntryLine and cannot be null");
             }
             this.MovementName = movementName;
             // to ensure "holdingType" is required (not null)
             if (holdingType == null)
             {
-                throw new ArgumentNullException("holdingType is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("holdingType is a required property for JournalEntryLine and cannot be null");
             }
             this.HoldingType = holdingType;
             // to ensure "economicBucket" is required (not null)
             if (economicBucket == null)
             {
-                throw new ArgumentNullException("economicBucket is a required property for JELines and cannot be null");
+                throw new ArgumentNullException("economicBucket is a required property for JournalEntryLine and cannot be null");
             }
             this.EconomicBucket = economicBucket;
             this.SubHoldingKeys = subHoldingKeys;
             this.PostingModuleCode = postingModuleCode;
             this.ActivitiesDescription = activitiesDescription;
             this.Properties = properties;
+            this.Levels = levels;
+            this.SourceLevels = sourceLevels;
             this.Links = links;
         }
 
         /// <summary>
-        /// The JELines accounting date.
+        /// The Journal Entry Line accounting date.
         /// </summary>
-        /// <value>The JELines accounting date.</value>
+        /// <value>The Journal Entry Line accounting date.</value>
         [DataMember(Name = "accountingDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset AccountingDate { get; set; }
 
@@ -168,16 +172,16 @@ namespace Lusid.Sdk.Model
         public ResourceId PortfolioId { get; set; }
 
         /// <summary>
-        /// To indicate the instrument of the transaction that the JE line posted for, if applicable.
+        /// To indicate the instrument of the transaction that the Journal Entry Line posted for, if applicable.
         /// </summary>
-        /// <value>To indicate the instrument of the transaction that the JE line posted for, if applicable.</value>
+        /// <value>To indicate the instrument of the transaction that the Journal Entry Line posted for, if applicable.</value>
         [DataMember(Name = "instrumentId", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentId { get; set; }
 
         /// <summary>
-        /// The scope in which the JELines instrument is in.
+        /// The scope in which the Journal Entry Line instrument is in.
         /// </summary>
-        /// <value>The scope in which the JELines instrument is in.</value>
+        /// <value>The scope in which the Journal Entry Line instrument is in.</value>
         [DataMember(Name = "instrumentScope", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentScope { get; set; }
 
@@ -189,18 +193,18 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, PerpetualProperty> SubHoldingKeys { get; set; }
 
         /// <summary>
-        /// The tax lot Id that JE line is impacting.
+        /// The tax lot Id that the Journal Entry Line is impacting.
         /// </summary>
-        /// <value>The tax lot Id that JE line is impacting.</value>
+        /// <value>The tax lot Id that the Journal Entry Line is impacting.</value>
         [DataMember(Name = "taxLotId", IsRequired = true, EmitDefaultValue = true)]
         public string TaxLotId { get; set; }
 
         /// <summary>
-        /// Code of general ledger the JE lines posting to.
+        /// The code of the account in the general ledger the Journal Entry was posted to.
         /// </summary>
-        /// <value>Code of general ledger the JE lines posting to.</value>
-        [DataMember(Name = "glCode", IsRequired = true, EmitDefaultValue = true)]
-        public string GlCode { get; set; }
+        /// <value>The code of the account in the general ledger the Journal Entry was posted to.</value>
+        [DataMember(Name = "generalLedgerAccountCode", IsRequired = true, EmitDefaultValue = true)]
+        public string GeneralLedgerAccountCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Local
@@ -215,30 +219,30 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount Base { get; set; }
 
         /// <summary>
-        /// The code of the posting module where the posting rules derived the JE Lines.
+        /// The code of the posting module where the posting rules derived the Journal Entry lines.
         /// </summary>
-        /// <value>The code of the posting module where the posting rules derived the JE Lines.</value>
+        /// <value>The code of the posting module where the posting rules derived the Journal Entry lines.</value>
         [DataMember(Name = "postingModuleCode", EmitDefaultValue = true)]
         public string PostingModuleCode { get; set; }
 
         /// <summary>
-        /// The rule generating the JELinse.
+        /// The rule generating the Journal Entry Line.
         /// </summary>
-        /// <value>The rule generating the JELinse.</value>
+        /// <value>The rule generating the Journal Entry Line.</value>
         [DataMember(Name = "postingRule", IsRequired = true, EmitDefaultValue = true)]
         public string PostingRule { get; set; }
 
         /// <summary>
-        /// The corresponding input date and time of the Transaction generating the JELine.
+        /// The corresponding input date and time of the Transaction generating the Journal Entry Line.
         /// </summary>
-        /// <value>The corresponding input date and time of the Transaction generating the JELine.</value>
+        /// <value>The corresponding input date and time of the Transaction generating the Journal Entry Line.</value>
         [DataMember(Name = "asAtDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset AsAtDate { get; set; }
 
         /// <summary>
-        /// This would be the description of the business activities where these JE lines are posting for.
+        /// This would be the description of the business activities this Journal Entry Line is for.
         /// </summary>
-        /// <value>This would be the description of the business activities where these JE lines are posting for.</value>
+        /// <value>This would be the description of the business activities this Journal Entry Line is for.</value>
         [DataMember(Name = "activitiesDescription", EmitDefaultValue = true)]
         public string ActivitiesDescription { get; set; }
 
@@ -278,11 +282,25 @@ namespace Lusid.Sdk.Model
         public string HoldingType { get; set; }
 
         /// <summary>
-        /// Raw JE Line details of the economic bucket for the JE Line.
+        /// Raw Journal Entry Line details of the economic bucket for the Journal Entry Line.
         /// </summary>
-        /// <value>Raw JE Line details of the economic bucket for the JE Line.</value>
+        /// <value>Raw Journal Entry Line details of the economic bucket for the Journal Entry Line.</value>
         [DataMember(Name = "economicBucket", IsRequired = true, EmitDefaultValue = true)]
         public string EconomicBucket { get; set; }
+
+        /// <summary>
+        /// Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.
+        /// </summary>
+        /// <value>Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.</value>
+        [DataMember(Name = "levels", EmitDefaultValue = true)]
+        public List<string> Levels { get; set; }
+
+        /// <summary>
+        /// Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.
+        /// </summary>
+        /// <value>Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.</value>
+        [DataMember(Name = "sourceLevels", EmitDefaultValue = true)]
+        public List<string> SourceLevels { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -297,7 +315,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class JELines {\n");
+            sb.Append("class JournalEntryLine {\n");
             sb.Append("  AccountingDate: ").Append(AccountingDate).Append("\n");
             sb.Append("  ActivityDate: ").Append(ActivityDate).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
@@ -305,7 +323,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
             sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
             sb.Append("  TaxLotId: ").Append(TaxLotId).Append("\n");
-            sb.Append("  GlCode: ").Append(GlCode).Append("\n");
+            sb.Append("  GeneralLedgerAccountCode: ").Append(GeneralLedgerAccountCode).Append("\n");
             sb.Append("  Local: ").Append(Local).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
             sb.Append("  PostingModuleCode: ").Append(PostingModuleCode).Append("\n");
@@ -318,6 +336,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  MovementName: ").Append(MovementName).Append("\n");
             sb.Append("  HoldingType: ").Append(HoldingType).Append("\n");
             sb.Append("  EconomicBucket: ").Append(EconomicBucket).Append("\n");
+            sb.Append("  Levels: ").Append(Levels).Append("\n");
+            sb.Append("  SourceLevels: ").Append(SourceLevels).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -339,15 +359,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as JELines);
+            return this.Equals(input as JournalEntryLine);
         }
 
         /// <summary>
-        /// Returns true if JELines instances are equal
+        /// Returns true if JournalEntryLine instances are equal
         /// </summary>
-        /// <param name="input">Instance of JELines to be compared</param>
+        /// <param name="input">Instance of JournalEntryLine to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JELines input)
+        public bool Equals(JournalEntryLine input)
         {
             if (input == null)
             {
@@ -391,9 +411,9 @@ namespace Lusid.Sdk.Model
                     this.TaxLotId.Equals(input.TaxLotId))
                 ) && 
                 (
-                    this.GlCode == input.GlCode ||
-                    (this.GlCode != null &&
-                    this.GlCode.Equals(input.GlCode))
+                    this.GeneralLedgerAccountCode == input.GeneralLedgerAccountCode ||
+                    (this.GeneralLedgerAccountCode != null &&
+                    this.GeneralLedgerAccountCode.Equals(input.GeneralLedgerAccountCode))
                 ) && 
                 (
                     this.Local == input.Local ||
@@ -457,6 +477,18 @@ namespace Lusid.Sdk.Model
                     this.EconomicBucket.Equals(input.EconomicBucket))
                 ) && 
                 (
+                    this.Levels == input.Levels ||
+                    this.Levels != null &&
+                    input.Levels != null &&
+                    this.Levels.SequenceEqual(input.Levels)
+                ) && 
+                (
+                    this.SourceLevels == input.SourceLevels ||
+                    this.SourceLevels != null &&
+                    input.SourceLevels != null &&
+                    this.SourceLevels.SequenceEqual(input.SourceLevels)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -501,9 +533,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TaxLotId.GetHashCode();
                 }
-                if (this.GlCode != null)
+                if (this.GeneralLedgerAccountCode != null)
                 {
-                    hashCode = (hashCode * 59) + this.GlCode.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GeneralLedgerAccountCode.GetHashCode();
                 }
                 if (this.Local != null)
                 {
@@ -553,6 +585,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EconomicBucket.GetHashCode();
                 }
+                if (this.Levels != null)
+                {
+                    hashCode = (hashCode * 59) + this.Levels.GetHashCode();
+                }
+                if (this.SourceLevels != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceLevels.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();
@@ -586,10 +626,10 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxLotId, length must be greater than 1.", new [] { "TaxLotId" });
             }
 
-            // GlCode (string) minLength
-            if (this.GlCode != null && this.GlCode.Length < 1)
+            // GeneralLedgerAccountCode (string) minLength
+            if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GlCode, length must be greater than 1.", new [] { "GlCode" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, length must be greater than 1.", new [] { "GeneralLedgerAccountCode" });
             }
 
             // PostingRule (string) minLength

@@ -23,18 +23,18 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// VersionedResourceListOfJELines
+    /// VersionedResourceListOfJournalEntryLine
     /// </summary>
-    [DataContract(Name = "VersionedResourceListOfJELines")]
-    public partial class VersionedResourceListOfJELines : IEquatable<VersionedResourceListOfJELines>, IValidatableObject
+    [DataContract(Name = "VersionedResourceListOfJournalEntryLine")]
+    public partial class VersionedResourceListOfJournalEntryLine : IEquatable<VersionedResourceListOfJournalEntryLine>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VersionedResourceListOfJELines" /> class.
+        /// Initializes a new instance of the <see cref="VersionedResourceListOfJournalEntryLine" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VersionedResourceListOfJELines() { }
+        protected VersionedResourceListOfJournalEntryLine() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VersionedResourceListOfJELines" /> class.
+        /// Initializes a new instance of the <see cref="VersionedResourceListOfJournalEntryLine" /> class.
         /// </summary>
         /// <param name="version">version (required).</param>
         /// <param name="values">values (required).</param>
@@ -42,18 +42,18 @@ namespace Lusid.Sdk.Model
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
         /// <param name="links">links.</param>
-        public VersionedResourceListOfJELines(ModelVersion version = default(ModelVersion), List<JELines> values = default(List<JELines>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
+        public VersionedResourceListOfJournalEntryLine(ModelVersion version = default(ModelVersion), List<JournalEntryLine> values = default(List<JournalEntryLine>), string href = default(string), string nextPage = default(string), string previousPage = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "version" is required (not null)
             if (version == null)
             {
-                throw new ArgumentNullException("version is a required property for VersionedResourceListOfJELines and cannot be null");
+                throw new ArgumentNullException("version is a required property for VersionedResourceListOfJournalEntryLine and cannot be null");
             }
             this._Version = version;
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for VersionedResourceListOfJELines and cannot be null");
+                throw new ArgumentNullException("values is a required property for VersionedResourceListOfJournalEntryLine and cannot be null");
             }
             this.Values = values;
             this.Href = href;
@@ -72,7 +72,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<JELines> Values { get; set; }
+        public List<JournalEntryLine> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -105,7 +105,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class VersionedResourceListOfJELines {\n");
+            sb.Append("class VersionedResourceListOfJournalEntryLine {\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
@@ -132,15 +132,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VersionedResourceListOfJELines);
+            return this.Equals(input as VersionedResourceListOfJournalEntryLine);
         }
 
         /// <summary>
-        /// Returns true if VersionedResourceListOfJELines instances are equal
+        /// Returns true if VersionedResourceListOfJournalEntryLine instances are equal
         /// </summary>
-        /// <param name="input">Instance of VersionedResourceListOfJELines to be compared</param>
+        /// <param name="input">Instance of VersionedResourceListOfJournalEntryLine to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VersionedResourceListOfJELines input)
+        public bool Equals(VersionedResourceListOfJournalEntryLine input)
         {
             if (input == null)
             {
