@@ -50,6 +50,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ChartOfAccounts</returns>
         ApiResponse<ChartOfAccounts> CreateChartOfAccountsWithHttpInfo(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Create the given General Ledger profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GeneralLedgerProfileResponse</returns>
+        GeneralLedgerProfileResponse CreateGeneralLedgerProfile(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Create the given General Ledger profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
+        ApiResponse<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileWithHttpInfo(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
         /// </summary>
         /// <remarks>
@@ -130,6 +157,33 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteChartOfAccountsWithHttpInfo(string scope, string code, int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Delete the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Delete the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        ApiResponse<DeletedEntityResponse> DeleteGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
@@ -221,6 +275,33 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ChartOfAccounts</returns>
         ApiResponse<ChartOfAccounts> GetChartOfAccountsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Get the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GeneralLedgerProfileResponse</returns>
+        GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Get the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
+        ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
         /// </summary>
@@ -323,6 +404,41 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
         ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+        /// </summary>
+        /// <remarks>
+        /// List all the General Ledger profiles matching particular criteria.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PagedResourceListOfGeneralLedgerProfileResponse</returns>
+        PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+        /// </summary>
+        /// <remarks>
+        /// List all the General Ledger profiles matching particular criteria.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PagedResourceListOfGeneralLedgerProfileResponse</returns>
+        ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
         /// </summary>
         /// <remarks>
@@ -394,6 +510,35 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
         ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+        /// </summary>
+        /// <remarks>
+        /// Update the given General Ledger profile Mappings.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GeneralLedgerProfileResponse</returns>
+        GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+        /// </summary>
+        /// <remarks>
+        /// Update the given General Ledger profile Mappings.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
+        ApiResponse<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsWithHttpInfo(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
@@ -572,6 +717,35 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> CreateChartOfAccountsWithHttpInfoAsync(string scope, ChartOfAccountsRequest chartOfAccountsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Create the given General Ledger profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GeneralLedgerProfileResponse</returns>
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Create the given General Ledger profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> CreateGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EXPERIMENTAL] CreatePostingModule: Create a Posting Module
         /// </summary>
         /// <remarks>
@@ -658,6 +832,35 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteChartOfAccountsWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Delete the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Delete the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] DeletePostingModule: Delete a Posting Module.
         /// </summary>
@@ -755,6 +958,35 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ChartOfAccounts)</returns>
         System.Threading.Tasks.Task<ApiResponse<ChartOfAccounts>> GetChartOfAccountsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Get the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GeneralLedgerProfileResponse</returns>
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
+        /// </summary>
+        /// <remarks>
+        /// Get the given General Ledger Profile.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
         /// </summary>
@@ -863,6 +1095,43 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfChartOfAccounts)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+        /// </summary>
+        /// <remarks>
+        /// List all the General Ledger profiles matching particular criteria.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfGeneralLedgerProfileResponse</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
+        /// </summary>
+        /// <remarks>
+        /// List all the General Ledger profiles matching particular criteria.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfGeneralLedgerProfileResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
         /// </summary>
         /// <remarks>
@@ -938,6 +1207,37 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? start = default(int?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+        /// </summary>
+        /// <remarks>
+        /// Update the given General Ledger profile Mappings.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GeneralLedgerProfileResponse</returns>
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings.
+        /// </summary>
+        /// <remarks>
+        /// Update the given General Ledger profile Mappings.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> SetGeneralLedgerProfileMappingsWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] SetPostingModuleDetails: Set the details of a Posting Module
         /// </summary>
@@ -1403,6 +1703,230 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateChartOfAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile. Create the given General Ledger profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GeneralLedgerProfileResponse</returns>
+        public GeneralLedgerProfileResponse CreateGeneralLedgerProfile(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = CreateGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile. Create the given General Ledger profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileWithHttpInfo(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->CreateGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->CreateGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'generalLedgerProfileRequest' is set
+            if (generalLedgerProfileRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileRequest' when calling ChartOfAccountsApi->CreateGeneralLedgerProfile");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = generalLedgerProfileRequest;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.CreateGeneralLedgerProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<GeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGeneralLedgerProfile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile. Create the given General Ledger profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GeneralLedgerProfileResponse</returns>
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> CreateGeneralLedgerProfileAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await CreateGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] CreateGeneralLedgerProfile: Create a General Ledger Profile. Create the given General Ledger profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileRequest">The definition of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> CreateGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, GeneralLedgerProfileRequest generalLedgerProfileRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->CreateGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->CreateGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'generalLedgerProfileRequest' is set
+            if (generalLedgerProfileRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileRequest' when calling ChartOfAccountsApi->CreateGeneralLedgerProfile");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = generalLedgerProfileRequest;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.CreateGeneralLedgerProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGeneralLedgerProfile", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2061,6 +2585,222 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteChartOfAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. Delete the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. Delete the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->DeleteGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->DeleteGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'generalLedgerProfileCode' is set
+            if (generalLedgerProfileCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileCode' when calling ChartOfAccountsApi->DeleteGeneralLedgerProfile");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.DeleteGeneralLedgerProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGeneralLedgerProfile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. Delete the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteGeneralLedgerProfile: Delete a General Ledger Profile. Delete the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->DeleteGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->DeleteGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'generalLedgerProfileCode' is set
+            if (generalLedgerProfileCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileCode' when calling ChartOfAccountsApi->DeleteGeneralLedgerProfile");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.DeleteGeneralLedgerProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGeneralLedgerProfile", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2763,6 +3503,222 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetChartOfAccounts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile. Get the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GeneralLedgerProfileResponse</returns>
+        public GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile. Get the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->GetGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->GetGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'generalLedgerProfileCode' is set
+            if (generalLedgerProfileCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileCode' when calling ChartOfAccountsApi->GetGeneralLedgerProfile");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.GetGeneralLedgerProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGeneralLedgerProfile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile. Get the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GeneralLedgerProfileResponse</returns>
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await GetGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile. Get the given General Ledger Profile.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
+        /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->GetGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->GetGeneralLedgerProfile");
+            }
+
+            // verify the required parameter 'generalLedgerProfileCode' is set
+            if (generalLedgerProfileCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileCode' when calling ChartOfAccountsApi->GetGeneralLedgerProfile");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.GetGeneralLedgerProfile";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGeneralLedgerProfile", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3517,6 +4473,264 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles. List all the General Ledger profiles matching particular criteria.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PagedResourceListOfGeneralLedgerProfileResponse</returns>
+        public PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = ListGeneralLedgerProfilesWithHttpInfo(scope, code, asAt, start, page, limit, filter);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles. List all the General Ledger profiles matching particular criteria.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PagedResourceListOfGeneralLedgerProfileResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->ListGeneralLedgerProfiles");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->ListGeneralLedgerProfiles");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (start != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.ListGeneralLedgerProfiles";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PagedResourceListOfGeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListGeneralLedgerProfiles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles. List all the General Ledger profiles matching particular criteria.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfGeneralLedgerProfileResponse</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = await ListGeneralLedgerProfilesWithHttpInfoAsync(scope, code, asAt, start, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles. List all the General Ledger profiles matching particular criteria.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts</param>
+        /// <param name="code">The code of the Chart of Accounts</param>
+        /// <param name="asAt">The asAt datetime at which to list the General Ledger Profiles. Defaults to returning the latest version of each General Ledger Profile if not specified. (optional)</param>
+        /// <param name="start">The start of the pager for the list of General Ledger Profiles (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)</param>
+        /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfGeneralLedgerProfileResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int? start = default(int?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->ListGeneralLedgerProfiles");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->ListGeneralLedgerProfiles");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (start != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.ListGeneralLedgerProfiles";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfGeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListGeneralLedgerProfiles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules List the Rules in a Posting Module
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4041,6 +5255,248 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPostingModules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. Update the given General Ledger profile Mappings.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GeneralLedgerProfileResponse</returns>
+        public GeneralLedgerProfileResponse SetGeneralLedgerProfileMappings(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = SetGeneralLedgerProfileMappingsWithHttpInfo(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. Update the given General Ledger profile Mappings.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsWithHttpInfo(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            // verify the required parameter 'generalLedgerProfileCode' is set
+            if (generalLedgerProfileCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileCode' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            // verify the required parameter 'generalLedgerProfileMapping' is set
+            if (generalLedgerProfileMapping == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileMapping' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+            localVarRequestOptions.Data = generalLedgerProfileMapping;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.SetGeneralLedgerProfileMappings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<GeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}/mappings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetGeneralLedgerProfileMappings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. Update the given General Ledger profile Mappings.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GeneralLedgerProfileResponse</returns>
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> SetGeneralLedgerProfileMappingsAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await SetGeneralLedgerProfileMappingsWithHttpInfoAsync(scope, code, generalLedgerProfileCode, generalLedgerProfileMapping, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetGeneralLedgerProfileMappings: Sets the General Ledger Profile Mappings. Update the given General Ledger profile Mappings.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Chart of Accounts.</param>
+        /// <param name="code">The code of the Chart of Accounts.</param>
+        /// <param name="generalLedgerProfileCode">The code of the General Ledger Profile</param>
+        /// <param name="generalLedgerProfileMapping">The updated General Ledger Profile Mappings, the previous mappings will be wholly replaced with this data. Mappings will be evaluated in the order they are provided.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> SetGeneralLedgerProfileMappingsWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, List<GeneralLedgerProfileMapping> generalLedgerProfileMapping, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            // verify the required parameter 'generalLedgerProfileCode' is set
+            if (generalLedgerProfileCode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileCode' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+            // verify the required parameter 'generalLedgerProfileMapping' is set
+            if (generalLedgerProfileMapping == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'generalLedgerProfileMapping' when calling ChartOfAccountsApi->SetGeneralLedgerProfileMappings");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+            localVarRequestOptions.Data = generalLedgerProfileMapping;
+
+            localVarRequestOptions.Operation = "ChartOfAccountsApi.SetGeneralLedgerProfileMappings";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<GeneralLedgerProfileResponse>("/api/chartofaccounts/{scope}/{code}/generalledgerprofile/{generalLedgerProfileCode}/mappings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetGeneralLedgerProfileMappings", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

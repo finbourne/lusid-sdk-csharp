@@ -104,7 +104,13 @@ namespace Lusid.Sdk.Model
         /// Enum InflationAssumption for value: InflationAssumption
         /// </summary>
         [EnumMember(Value = "InflationAssumption")]
-        InflationAssumption = 13
+        InflationAssumption = 13,
+
+        /// <summary>
+        /// Enum DirtyPrice for value: DirtyPrice
+        /// </summary>
+        [EnumMember(Value = "DirtyPrice")]
+        DirtyPrice = 14
 
     }
 

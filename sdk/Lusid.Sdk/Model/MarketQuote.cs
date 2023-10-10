@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class MarketQuote : IEquatable<MarketQuote>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption
+        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice
         /// </summary>
-        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption</value>
+        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum QuoteTypeEnum
         {
@@ -111,15 +111,21 @@ namespace Lusid.Sdk.Model
             /// Enum InflationAssumption for value: InflationAssumption
             /// </summary>
             [EnumMember(Value = "InflationAssumption")]
-            InflationAssumption = 13
+            InflationAssumption = 13,
+
+            /// <summary>
+            /// Enum DirtyPrice for value: DirtyPrice
+            /// </summary>
+            [EnumMember(Value = "DirtyPrice")]
+            DirtyPrice = 14
 
         }
 
 
         /// <summary>
-        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption
+        /// The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice
         /// </summary>
-        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption</value>
+        /// <value>The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice</value>
         [DataMember(Name = "quoteType", IsRequired = true, EmitDefaultValue = true)]
         public QuoteTypeEnum QuoteType { get; set; }
         /// <summary>
@@ -130,7 +136,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketQuote" /> class.
         /// </summary>
-        /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption (required).</param>
+        /// <param name="quoteType">The available values are: Price, Spread, Rate, LogNormalVol, NormalVol, ParSpread, IsdaSpread, Upfront, Index, Ratio, Delta, PoolFactor, InflationAssumption, DirtyPrice (required).</param>
         /// <param name="value">Numeric value of the quote (required).</param>
         public MarketQuote(QuoteTypeEnum quoteType = default(QuoteTypeEnum), decimal value = default(decimal))
         {
