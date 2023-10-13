@@ -236,7 +236,13 @@ namespace Lusid.Sdk.Model
         /// Enum TotalReturnSwap for value: TotalReturnSwap
         /// </summary>
         [EnumMember(Value = "TotalReturnSwap")]
-        TotalReturnSwap = 35
+        TotalReturnSwap = 35,
+
+        /// <summary>
+        /// Enum InflationLeg for value: InflationLeg
+        /// </summary>
+        [EnumMember(Value = "InflationLeg")]
+        InflationLeg = 36
 
     }
 

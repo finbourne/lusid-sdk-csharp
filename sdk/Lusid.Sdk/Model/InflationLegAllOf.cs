@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// EquityOptionAllOf
+    /// InflationLegAllOf
     /// </summary>
-    [DataContract(Name = "EquityOption_allOf")]
-    public partial class EquityOptionAllOf : IEquatable<EquityOptionAllOf>, IValidatableObject
+    [DataContract(Name = "InflationLeg_allOf")]
+    public partial class InflationLegAllOf : IEquatable<InflationLegAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg
@@ -261,68 +261,52 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentTypeEnum InstrumentType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityOptionAllOf" /> class.
+        /// Initializes a new instance of the <see cref="InflationLegAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EquityOptionAllOf() { }
+        protected InflationLegAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EquityOptionAllOf" /> class.
+        /// Initializes a new instance of the <see cref="InflationLegAllOf" /> class.
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="optionMaturityDate">The maturity date of the option. (required).</param>
-        /// <param name="optionSettlementDate">The settlement date of the option. (required).</param>
-        /// <param name="deliveryType">Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical]. (required).</param>
-        /// <param name="optionType">Type of optionality for the option    Supported string (enumeration) values are: [Call, Put]. (required).</param>
-        /// <param name="strike">The strike of the option. (required).</param>
-        /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
-        /// <param name="underlyingIdentifier">The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode]. (required).</param>
-        /// <param name="code">The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;. (required).</param>
-        /// <param name="equityOptionType">Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant]..</param>
-        /// <param name="numberOfShares">The amount of shares to exchange if the option is exercised..</param>
-        /// <param name="premium">premium.</param>
-        /// <param name="exerciseType">Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American]..</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="flowConventions">flowConventions (required).</param>
+        /// <param name="baseCPI">Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps..</param>
+        /// <param name="calculationType">The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded]. (required).</param>
+        /// <param name="capRate">Optional cap, needed for LPI Legs or CPI Legs with Caps.</param>
+        /// <param name="floorRate">Optional floor, needed for LPI Legs or CPI Legs with Floors..</param>
+        /// <param name="inflationIndexConventions">inflationIndexConventions (required).</param>
+        /// <param name="notional">The notional (required).</param>
+        /// <param name="payReceive">PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive]..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required).</param>
-        public EquityOptionAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset optionMaturityDate = default(DateTimeOffset), DateTimeOffset optionSettlementDate = default(DateTimeOffset), string deliveryType = default(string), string optionType = default(string), decimal strike = default(decimal), string domCcy = default(string), string underlyingIdentifier = default(string), string code = default(string), string equityOptionType = default(string), decimal? numberOfShares = default(decimal?), Premium premium = default(Premium), string exerciseType = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public InflationLegAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal? baseCPI = default(decimal?), string calculationType = default(string), decimal? capRate = default(decimal?), decimal? floorRate = default(decimal?), InflationIndexConventions inflationIndexConventions = default(InflationIndexConventions), decimal notional = default(decimal), string payReceive = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
-            this.OptionMaturityDate = optionMaturityDate;
-            this.OptionSettlementDate = optionSettlementDate;
-            // to ensure "deliveryType" is required (not null)
-            if (deliveryType == null)
+            this.MaturityDate = maturityDate;
+            // to ensure "flowConventions" is required (not null)
+            if (flowConventions == null)
             {
-                throw new ArgumentNullException("deliveryType is a required property for EquityOptionAllOf and cannot be null");
+                throw new ArgumentNullException("flowConventions is a required property for InflationLegAllOf and cannot be null");
             }
-            this.DeliveryType = deliveryType;
-            // to ensure "optionType" is required (not null)
-            if (optionType == null)
+            this.FlowConventions = flowConventions;
+            // to ensure "calculationType" is required (not null)
+            if (calculationType == null)
             {
-                throw new ArgumentNullException("optionType is a required property for EquityOptionAllOf and cannot be null");
+                throw new ArgumentNullException("calculationType is a required property for InflationLegAllOf and cannot be null");
             }
-            this.OptionType = optionType;
-            this.Strike = strike;
-            // to ensure "domCcy" is required (not null)
-            if (domCcy == null)
+            this.CalculationType = calculationType;
+            // to ensure "inflationIndexConventions" is required (not null)
+            if (inflationIndexConventions == null)
             {
-                throw new ArgumentNullException("domCcy is a required property for EquityOptionAllOf and cannot be null");
+                throw new ArgumentNullException("inflationIndexConventions is a required property for InflationLegAllOf and cannot be null");
             }
-            this.DomCcy = domCcy;
-            // to ensure "underlyingIdentifier" is required (not null)
-            if (underlyingIdentifier == null)
-            {
-                throw new ArgumentNullException("underlyingIdentifier is a required property for EquityOptionAllOf and cannot be null");
-            }
-            this.UnderlyingIdentifier = underlyingIdentifier;
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for EquityOptionAllOf and cannot be null");
-            }
-            this.Code = code;
+            this.InflationIndexConventions = inflationIndexConventions;
+            this.Notional = notional;
             this.InstrumentType = instrumentType;
-            this.EquityOptionType = equityOptionType;
-            this.NumberOfShares = numberOfShares;
-            this.Premium = premium;
-            this.ExerciseType = exerciseType;
+            this.BaseCPI = baseCPI;
+            this.CapRate = capRate;
+            this.FloorRate = floorRate;
+            this.PayReceive = payReceive;
         }
 
         /// <summary>
@@ -333,87 +317,65 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The maturity date of the option.
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The maturity date of the option.</value>
-        [DataMember(Name = "optionMaturityDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset OptionMaturityDate { get; set; }
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// The settlement date of the option.
+        /// Gets or Sets FlowConventions
         /// </summary>
-        /// <value>The settlement date of the option.</value>
-        [DataMember(Name = "optionSettlementDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset OptionSettlementDate { get; set; }
+        [DataMember(Name = "flowConventions", IsRequired = true, EmitDefaultValue = true)]
+        public FlowConventions FlowConventions { get; set; }
 
         /// <summary>
-        /// Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical].
+        /// Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps.
         /// </summary>
-        /// <value>Is the option cash settled or physical delivery of option    Supported string (enumeration) values are: [Cash, Physical].</value>
-        [DataMember(Name = "deliveryType", IsRequired = true, EmitDefaultValue = true)]
-        public string DeliveryType { get; set; }
+        /// <value>Optional BaseCPI, if specified it will be used in place of BaseCPI(StartDate).  This should not be required for standard inflation swaps.</value>
+        [DataMember(Name = "baseCPI", EmitDefaultValue = true)]
+        public decimal? BaseCPI { get; set; }
 
         /// <summary>
-        /// Type of optionality for the option    Supported string (enumeration) values are: [Call, Put].
+        /// The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].
         /// </summary>
-        /// <value>Type of optionality for the option    Supported string (enumeration) values are: [Call, Put].</value>
-        [DataMember(Name = "optionType", IsRequired = true, EmitDefaultValue = true)]
-        public string OptionType { get; set; }
+        /// <value>The calculation type.  ZeroCoupon is used for CPILegs where there is a single payment at maturity of  Notional * (CPI(T) / CPI(T0) - 1)  where CPI(T0) is the BaseCPI of this leg  YearOnYear is used for YoY and LPI swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(t-1) - 1)  If a cap and floor is added to this it becomes an LPI swap leg.  Compounded is used for inflation swap legs where there is a series of annual payments  Notional * dayCount * (CPI(t) / CPI(T0) - 1)  i.e. the BaseCPI is used every year. These swaps are not as common as CPI or    Supported string (enumeration) values are: [ZeroCoupon, YearOnYear, Compounded].</value>
+        [DataMember(Name = "calculationType", IsRequired = true, EmitDefaultValue = true)]
+        public string CalculationType { get; set; }
 
         /// <summary>
-        /// The strike of the option.
+        /// Optional cap, needed for LPI Legs or CPI Legs with Caps
         /// </summary>
-        /// <value>The strike of the option.</value>
-        [DataMember(Name = "strike", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Strike { get; set; }
+        /// <value>Optional cap, needed for LPI Legs or CPI Legs with Caps</value>
+        [DataMember(Name = "capRate", EmitDefaultValue = true)]
+        public decimal? CapRate { get; set; }
 
         /// <summary>
-        /// The domestic currency of the instrument.
+        /// Optional floor, needed for LPI Legs or CPI Legs with Floors.
         /// </summary>
-        /// <value>The domestic currency of the instrument.</value>
-        [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
-        public string DomCcy { get; set; }
+        /// <value>Optional floor, needed for LPI Legs or CPI Legs with Floors.</value>
+        [DataMember(Name = "floorRate", EmitDefaultValue = true)]
+        public decimal? FloorRate { get; set; }
 
         /// <summary>
-        /// The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].
+        /// Gets or Sets InflationIndexConventions
         /// </summary>
-        /// <value>The market identifier type of the underlying code, e.g RIC.    Supported string (enumeration) values are: [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].</value>
-        [DataMember(Name = "underlyingIdentifier", IsRequired = true, EmitDefaultValue = true)]
-        public string UnderlyingIdentifier { get; set; }
+        [DataMember(Name = "inflationIndexConventions", IsRequired = true, EmitDefaultValue = true)]
+        public InflationIndexConventions InflationIndexConventions { get; set; }
 
         /// <summary>
-        /// The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;.
+        /// The notional
         /// </summary>
-        /// <value>The identifying code for the equity underlying, e.g. &#39;IBM.N&#39;.</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        /// <value>The notional</value>
+        [DataMember(Name = "notional", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Notional { get; set; }
 
         /// <summary>
-        /// Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].
+        /// PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        /// <value>Equity option types. E.g. Vanilla (default), RightsIssue, Warrant.    Supported string (enumeration) values are: [Vanilla, RightsIssue, Warrant].</value>
-        [DataMember(Name = "equityOptionType", EmitDefaultValue = true)]
-        public string EquityOptionType { get; set; }
-
-        /// <summary>
-        /// The amount of shares to exchange if the option is exercised.
-        /// </summary>
-        /// <value>The amount of shares to exchange if the option is exercised.</value>
-        [DataMember(Name = "numberOfShares", EmitDefaultValue = true)]
-        public decimal? NumberOfShares { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Premium
-        /// </summary>
-        [DataMember(Name = "premium", EmitDefaultValue = false)]
-        public Premium Premium { get; set; }
-
-        /// <summary>
-        /// Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].
-        /// </summary>
-        /// <value>Type of optionality that is present; European, American.    Supported string (enumeration) values are: [European, American].</value>
-        [DataMember(Name = "exerciseType", EmitDefaultValue = true)]
-        public string ExerciseType { get; set; }
+        /// <value>PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.    Supported string (enumeration) values are: [Pay, Receive].</value>
+        [DataMember(Name = "payReceive", EmitDefaultValue = true)]
+        public string PayReceive { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -422,20 +384,17 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EquityOptionAllOf {\n");
+            sb.Append("class InflationLegAllOf {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  OptionMaturityDate: ").Append(OptionMaturityDate).Append("\n");
-            sb.Append("  OptionSettlementDate: ").Append(OptionSettlementDate).Append("\n");
-            sb.Append("  DeliveryType: ").Append(DeliveryType).Append("\n");
-            sb.Append("  OptionType: ").Append(OptionType).Append("\n");
-            sb.Append("  Strike: ").Append(Strike).Append("\n");
-            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
-            sb.Append("  UnderlyingIdentifier: ").Append(UnderlyingIdentifier).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  EquityOptionType: ").Append(EquityOptionType).Append("\n");
-            sb.Append("  NumberOfShares: ").Append(NumberOfShares).Append("\n");
-            sb.Append("  Premium: ").Append(Premium).Append("\n");
-            sb.Append("  ExerciseType: ").Append(ExerciseType).Append("\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
+            sb.Append("  FlowConventions: ").Append(FlowConventions).Append("\n");
+            sb.Append("  BaseCPI: ").Append(BaseCPI).Append("\n");
+            sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
+            sb.Append("  CapRate: ").Append(CapRate).Append("\n");
+            sb.Append("  FloorRate: ").Append(FloorRate).Append("\n");
+            sb.Append("  InflationIndexConventions: ").Append(InflationIndexConventions).Append("\n");
+            sb.Append("  Notional: ").Append(Notional).Append("\n");
+            sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -457,15 +416,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EquityOptionAllOf);
+            return this.Equals(input as InflationLegAllOf);
         }
 
         /// <summary>
-        /// Returns true if EquityOptionAllOf instances are equal
+        /// Returns true if InflationLegAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of EquityOptionAllOf to be compared</param>
+        /// <param name="input">Instance of InflationLegAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EquityOptionAllOf input)
+        public bool Equals(InflationLegAllOf input)
         {
             if (input == null)
             {
@@ -478,63 +437,48 @@ namespace Lusid.Sdk.Model
                     this.StartDate.Equals(input.StartDate))
                 ) && 
                 (
-                    this.OptionMaturityDate == input.OptionMaturityDate ||
-                    (this.OptionMaturityDate != null &&
-                    this.OptionMaturityDate.Equals(input.OptionMaturityDate))
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
                 ) && 
                 (
-                    this.OptionSettlementDate == input.OptionSettlementDate ||
-                    (this.OptionSettlementDate != null &&
-                    this.OptionSettlementDate.Equals(input.OptionSettlementDate))
+                    this.FlowConventions == input.FlowConventions ||
+                    (this.FlowConventions != null &&
+                    this.FlowConventions.Equals(input.FlowConventions))
                 ) && 
                 (
-                    this.DeliveryType == input.DeliveryType ||
-                    (this.DeliveryType != null &&
-                    this.DeliveryType.Equals(input.DeliveryType))
+                    this.BaseCPI == input.BaseCPI ||
+                    (this.BaseCPI != null &&
+                    this.BaseCPI.Equals(input.BaseCPI))
                 ) && 
                 (
-                    this.OptionType == input.OptionType ||
-                    (this.OptionType != null &&
-                    this.OptionType.Equals(input.OptionType))
+                    this.CalculationType == input.CalculationType ||
+                    (this.CalculationType != null &&
+                    this.CalculationType.Equals(input.CalculationType))
                 ) && 
                 (
-                    this.Strike == input.Strike ||
-                    this.Strike.Equals(input.Strike)
+                    this.CapRate == input.CapRate ||
+                    (this.CapRate != null &&
+                    this.CapRate.Equals(input.CapRate))
                 ) && 
                 (
-                    this.DomCcy == input.DomCcy ||
-                    (this.DomCcy != null &&
-                    this.DomCcy.Equals(input.DomCcy))
+                    this.FloorRate == input.FloorRate ||
+                    (this.FloorRate != null &&
+                    this.FloorRate.Equals(input.FloorRate))
                 ) && 
                 (
-                    this.UnderlyingIdentifier == input.UnderlyingIdentifier ||
-                    (this.UnderlyingIdentifier != null &&
-                    this.UnderlyingIdentifier.Equals(input.UnderlyingIdentifier))
+                    this.InflationIndexConventions == input.InflationIndexConventions ||
+                    (this.InflationIndexConventions != null &&
+                    this.InflationIndexConventions.Equals(input.InflationIndexConventions))
                 ) && 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.Notional == input.Notional ||
+                    this.Notional.Equals(input.Notional)
                 ) && 
                 (
-                    this.EquityOptionType == input.EquityOptionType ||
-                    (this.EquityOptionType != null &&
-                    this.EquityOptionType.Equals(input.EquityOptionType))
-                ) && 
-                (
-                    this.NumberOfShares == input.NumberOfShares ||
-                    (this.NumberOfShares != null &&
-                    this.NumberOfShares.Equals(input.NumberOfShares))
-                ) && 
-                (
-                    this.Premium == input.Premium ||
-                    (this.Premium != null &&
-                    this.Premium.Equals(input.Premium))
-                ) && 
-                (
-                    this.ExerciseType == input.ExerciseType ||
-                    (this.ExerciseType != null &&
-                    this.ExerciseType.Equals(input.ExerciseType))
+                    this.PayReceive == input.PayReceive ||
+                    (this.PayReceive != null &&
+                    this.PayReceive.Equals(input.PayReceive))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -555,50 +499,38 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
                 }
-                if (this.OptionMaturityDate != null)
+                if (this.MaturityDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.OptionMaturityDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
                 }
-                if (this.OptionSettlementDate != null)
+                if (this.FlowConventions != null)
                 {
-                    hashCode = (hashCode * 59) + this.OptionSettlementDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FlowConventions.GetHashCode();
                 }
-                if (this.DeliveryType != null)
+                if (this.BaseCPI != null)
                 {
-                    hashCode = (hashCode * 59) + this.DeliveryType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.BaseCPI.GetHashCode();
                 }
-                if (this.OptionType != null)
+                if (this.CalculationType != null)
                 {
-                    hashCode = (hashCode * 59) + this.OptionType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CalculationType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Strike.GetHashCode();
-                if (this.DomCcy != null)
+                if (this.CapRate != null)
                 {
-                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CapRate.GetHashCode();
                 }
-                if (this.UnderlyingIdentifier != null)
+                if (this.FloorRate != null)
                 {
-                    hashCode = (hashCode * 59) + this.UnderlyingIdentifier.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FloorRate.GetHashCode();
                 }
-                if (this.Code != null)
+                if (this.InflationIndexConventions != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InflationIndexConventions.GetHashCode();
                 }
-                if (this.EquityOptionType != null)
+                hashCode = (hashCode * 59) + this.Notional.GetHashCode();
+                if (this.PayReceive != null)
                 {
-                    hashCode = (hashCode * 59) + this.EquityOptionType.GetHashCode();
-                }
-                if (this.NumberOfShares != null)
-                {
-                    hashCode = (hashCode * 59) + this.NumberOfShares.GetHashCode();
-                }
-                if (this.Premium != null)
-                {
-                    hashCode = (hashCode * 59) + this.Premium.GetHashCode();
-                }
-                if (this.ExerciseType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExerciseType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PayReceive.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
@@ -612,28 +544,10 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DeliveryType (string) minLength
-            if (this.DeliveryType != null && this.DeliveryType.Length < 1)
+            // CalculationType (string) minLength
+            if (this.CalculationType != null && this.CalculationType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DeliveryType, length must be greater than 1.", new [] { "DeliveryType" });
-            }
-
-            // OptionType (string) minLength
-            if (this.OptionType != null && this.OptionType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OptionType, length must be greater than 1.", new [] { "OptionType" });
-            }
-
-            // UnderlyingIdentifier (string) minLength
-            if (this.UnderlyingIdentifier != null && this.UnderlyingIdentifier.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnderlyingIdentifier, length must be greater than 1.", new [] { "UnderlyingIdentifier" });
-            }
-
-            // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalculationType, length must be greater than 1.", new [] { "CalculationType" });
             }
 
             yield break;
