@@ -6,7 +6,7 @@ A TrialBalance entity.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GeneralLedgerAccountCode** | **string** | The Account code that the trial balance results have been grouped against | 
-**Description** | **string** | The description of the record | 
+**Description** | **string** | The description of the record | [optional] 
 **Levels** | **List&lt;string&gt;** | The levels that have been derived from the specified General Ledger Profile | 
 **AccountType** | **string** | The account type attributed to the record | 
 **Opening** | **decimal** | The opening balance at the start of the period | 

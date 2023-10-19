@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TrialBalance" /> class.
         /// </summary>
         /// <param name="generalLedgerAccountCode">The Account code that the trial balance results have been grouped against (required).</param>
-        /// <param name="description">The description of the record (required).</param>
+        /// <param name="description">The description of the record.</param>
         /// <param name="levels">The levels that have been derived from the specified General Ledger Profile (required).</param>
         /// <param name="accountType">The account type attributed to the record (required).</param>
         /// <param name="opening">The opening balance at the start of the period (required).</param>
@@ -53,12 +53,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("generalLedgerAccountCode is a required property for TrialBalance and cannot be null");
             }
             this.GeneralLedgerAccountCode = generalLedgerAccountCode;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for TrialBalance and cannot be null");
-            }
-            this.Description = description;
             // to ensure "levels" is required (not null)
             if (levels == null)
             {
@@ -75,6 +69,7 @@ namespace Lusid.Sdk.Model
             this.Closing = closing;
             this.Debit = debit;
             this.Credit = credit;
+            this.Description = description;
             this.Links = links;
         }
 
@@ -89,7 +84,7 @@ namespace Lusid.Sdk.Model
         /// The description of the record
         /// </summary>
         /// <value>The description of the record</value>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -285,12 +280,6 @@ namespace Lusid.Sdk.Model
             if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralLedgerAccountCode, length must be greater than 1.", new [] { "GeneralLedgerAccountCode" });
-            }
-
-            // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // AccountType (string) minLength
