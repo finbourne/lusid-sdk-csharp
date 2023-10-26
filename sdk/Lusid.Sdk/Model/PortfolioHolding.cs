@@ -48,7 +48,8 @@ namespace Lusid.Sdk.Model
         /// <param name="transaction">transaction.</param>
         /// <param name="currency">The holding currency..</param>
         /// <param name="holdingTypeName">The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc..</param>
-        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string))
+        /// <param name="holdingId">A single identifier for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio..</param>
+        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -82,6 +83,7 @@ namespace Lusid.Sdk.Model
             this.Transaction = transaction;
             this.Currency = currency;
             this.HoldingTypeName = holdingTypeName;
+            this.HoldingId = holdingId;
         }
 
         /// <summary>
@@ -166,6 +168,13 @@ namespace Lusid.Sdk.Model
         public string HoldingTypeName { get; set; }
 
         /// <summary>
+        /// A single identifier for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio.
+        /// </summary>
+        /// <value>A single identifier for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio.</value>
+        [DataMember(Name = "holdingId", EmitDefaultValue = true)]
+        public long? HoldingId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,6 +194,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Transaction: ").Append(Transaction).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  HoldingTypeName: ").Append(HoldingTypeName).Append("\n");
+            sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -279,6 +289,11 @@ namespace Lusid.Sdk.Model
                     this.HoldingTypeName == input.HoldingTypeName ||
                     (this.HoldingTypeName != null &&
                     this.HoldingTypeName.Equals(input.HoldingTypeName))
+                ) && 
+                (
+                    this.HoldingId == input.HoldingId ||
+                    (this.HoldingId != null &&
+                    this.HoldingId.Equals(input.HoldingId))
                 );
         }
 
@@ -332,6 +347,10 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingTypeName != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingTypeName.GetHashCode();
+                }
+                if (this.HoldingId != null)
+                {
+                    hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
                 }
                 return hashCode;
             }

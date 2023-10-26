@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="displayName">The name of the Posting Module. (required).</param>
         /// <param name="description">A description for the Posting Module..</param>
-        /// <param name="status">The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active. (required).</param>
+        /// <param name="status">The Posting Module status. Can be Active or Inactive. Defaults to Active. (required).</param>
         public PostingModuleDetails(string displayName = default(string), string description = default(string), string status = default(string))
         {
             // to ensure "displayName" is required (not null)
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active.
+        /// The Posting Module status. Can be Active or Inactive. Defaults to Active.
         /// </summary>
-        /// <value>The Posting Module status. Can be Active, Inactive or Deleted. Defaults to Active.</value>
+        /// <value>The Posting Module status. Can be Active or Inactive. Defaults to Active.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

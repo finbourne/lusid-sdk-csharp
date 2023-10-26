@@ -51,7 +51,8 @@ namespace Lusid.Sdk.Model
         /// <param name="equipWithSubtotals">Flag directing the Valuation call to populate the results with subtotals of aggregates..</param>
         /// <param name="excludeUnsettledTrades">Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set..</param>
         /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow].</param>
-        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string))
+        /// <param name="bucketingSchedule">bucketingSchedule.</param>
+        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule))
         {
             this.WindowStart = windowStart;
             this.WindowEnd = windowEnd;
@@ -88,6 +89,7 @@ namespace Lusid.Sdk.Model
             this.EquipWithSubtotals = equipWithSubtotals;
             this.ExcludeUnsettledTrades = excludeUnsettledTrades;
             this.CashFlowType = cashFlowType;
+            this.BucketingSchedule = bucketingSchedule;
         }
 
         /// <summary>
@@ -195,6 +197,12 @@ namespace Lusid.Sdk.Model
         public string CashFlowType { get; set; }
 
         /// <summary>
+        /// Gets or Sets BucketingSchedule
+        /// </summary>
+        [DataMember(Name = "bucketingSchedule", EmitDefaultValue = false)]
+        public BucketingSchedule BucketingSchedule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -217,6 +225,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EquipWithSubtotals: ").Append(EquipWithSubtotals).Append("\n");
             sb.Append("  ExcludeUnsettledTrades: ").Append(ExcludeUnsettledTrades).Append("\n");
             sb.Append("  CashFlowType: ").Append(CashFlowType).Append("\n");
+            sb.Append("  BucketingSchedule: ").Append(BucketingSchedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -329,6 +338,11 @@ namespace Lusid.Sdk.Model
                     this.CashFlowType == input.CashFlowType ||
                     (this.CashFlowType != null &&
                     this.CashFlowType.Equals(input.CashFlowType))
+                ) && 
+                (
+                    this.BucketingSchedule == input.BucketingSchedule ||
+                    (this.BucketingSchedule != null &&
+                    this.BucketingSchedule.Equals(input.BucketingSchedule))
                 );
         }
 
@@ -394,6 +408,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashFlowType != null)
                 {
                     hashCode = (hashCode * 59) + this.CashFlowType.GetHashCode();
+                }
+                if (this.BucketingSchedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketingSchedule.GetHashCode();
                 }
                 return hashCode;
             }
