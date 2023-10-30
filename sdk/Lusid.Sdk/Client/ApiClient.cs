@@ -803,11 +803,16 @@ namespace Lusid.Sdk.Client
                     {
                         s.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.KeepAlive, true);
                         s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveTime, 30);
-                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveInterval, 30);
-                        // note that 100 below gives us 50m worth of tcpkeepalive.  That should be plenty for any call.
-                        // note this doesnt work on some windows versions
-                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveRetryCount, 100);
+
+                        // we did have the interval and keepalivetime set at 30 a piece and the following line to 
+                        // set the number of retries, giving us a total of 50m.
+                        // s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveRetryCount, 100);
+                        // However as stated originally, that line doesn't work on some windows versions, and
+                        // as it turns out, specifically doesn't work on Windows versions of Azure Functions, so 
+                        // isn't appropriate here. Instead, increasing both 30s keepalives to 300s achieves the same
+                        // 50m threshold without blowing up Azure Functions, so I think we're good.
+                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveTime, 300);
+                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveInterval, 300);
 
                         var addresses = await Dns.GetHostAddressesAsync(ctx.DnsEndPoint.Host);
                         var endpoint = new IPEndPoint(addresses[0], ctx.DnsEndPoint.Port);
@@ -816,6 +821,8 @@ namespace Lusid.Sdk.Client
                     }
                     catch (Exception e)
                     {
+                        // if we make it in here, there's a pretty good chance we've hit a DNS lookup error.  Not much to be done
+                        // other than rethrow.
                         s.Dispose();
 
                         if (Environment.GetEnvironmentVariable("SDK_LOGGING") != null)
