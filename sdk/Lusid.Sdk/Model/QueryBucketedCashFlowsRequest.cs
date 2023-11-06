@@ -52,7 +52,8 @@ namespace Lusid.Sdk.Model
         /// <param name="excludeUnsettledTrades">Flag directing the Valuation call to exclude cashflows from unsettled trades.  If absent or set to false, cashflows will returned based on trade date - more specifically, cashflows from any unsettled trades will be included in the results. If set to true, unsettled trades will be excluded from the result set..</param>
         /// <param name="cashFlowType">Indicate the requested cash flow representation InstrumentCashFlows or PortfolioCashFlows (GetCashLadder uses this)  Options: [InstrumentCashFlow, PortfolioCashFlow].</param>
         /// <param name="bucketingSchedule">bucketingSchedule.</param>
-        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule))
+        /// <param name="filter">filter.</param>
+        public QueryBucketedCashFlowsRequest(DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset windowStart = default(DateTimeOffset), DateTimeOffset windowEnd = default(DateTimeOffset), List<PortfolioEntityId> portfolioEntityIds = default(List<PortfolioEntityId>), DateTimeOffset effectiveAt = default(DateTimeOffset), ResourceId recipeId = default(ResourceId), string roundingMethod = default(string), List<DateTimeOffset> bucketingDates = default(List<DateTimeOffset>), List<string> bucketingTenors = default(List<string>), string reportCurrency = default(string), List<string> groupBy = default(List<string>), List<string> addresses = default(List<string>), bool equipWithSubtotals = default(bool), bool excludeUnsettledTrades = default(bool), string cashFlowType = default(string), BucketingSchedule bucketingSchedule = default(BucketingSchedule), string filter = default(string))
         {
             this.WindowStart = windowStart;
             this.WindowEnd = windowEnd;
@@ -90,6 +91,7 @@ namespace Lusid.Sdk.Model
             this.ExcludeUnsettledTrades = excludeUnsettledTrades;
             this.CashFlowType = cashFlowType;
             this.BucketingSchedule = bucketingSchedule;
+            this.Filter = filter;
         }
 
         /// <summary>
@@ -203,6 +205,12 @@ namespace Lusid.Sdk.Model
         public BucketingSchedule BucketingSchedule { get; set; }
 
         /// <summary>
+        /// Gets or Sets Filter
+        /// </summary>
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
+        public string Filter { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -226,6 +234,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ExcludeUnsettledTrades: ").Append(ExcludeUnsettledTrades).Append("\n");
             sb.Append("  CashFlowType: ").Append(CashFlowType).Append("\n");
             sb.Append("  BucketingSchedule: ").Append(BucketingSchedule).Append("\n");
+            sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -343,6 +352,11 @@ namespace Lusid.Sdk.Model
                     this.BucketingSchedule == input.BucketingSchedule ||
                     (this.BucketingSchedule != null &&
                     this.BucketingSchedule.Equals(input.BucketingSchedule))
+                ) && 
+                (
+                    this.Filter == input.Filter ||
+                    (this.Filter != null &&
+                    this.Filter.Equals(input.Filter))
                 );
         }
 
@@ -413,6 +427,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BucketingSchedule.GetHashCode();
                 }
+                if (this.Filter != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -440,6 +458,25 @@ namespace Lusid.Sdk.Model
             if (this.ReportCurrency != null && this.ReportCurrency.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReportCurrency, length must be greater than 0.", new [] { "ReportCurrency" });
+            }
+
+            // Filter (string) maxLength
+            if (this.Filter != null && this.Filter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be less than 16384.", new [] { "Filter" });
+            }
+
+            // Filter (string) minLength
+            if (this.Filter != null && this.Filter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be greater than 0.", new [] { "Filter" });
+            }
+
+            // Filter (string) pattern
+            Regex regexFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexFilter.Match(this.Filter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, must match a pattern of " + regexFilter, new [] { "Filter" });
             }
 
             yield break;
