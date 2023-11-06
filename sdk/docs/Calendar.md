@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **WeekendMask** | [**WeekendMask**](WeekendMask.md) |  | 
 **SourceProvider** | **string** |  | 
 **Properties** | [**List&lt;Property&gt;**](Property.md) |  | 
+**_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

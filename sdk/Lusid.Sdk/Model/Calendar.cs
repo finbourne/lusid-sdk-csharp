@@ -42,7 +42,8 @@ namespace Lusid.Sdk.Model
         /// <param name="weekendMask">weekendMask (required).</param>
         /// <param name="sourceProvider">sourceProvider (required).</param>
         /// <param name="properties">properties (required).</param>
-        public Calendar(string href = default(string), ResourceId id = default(ResourceId), string type = default(string), WeekendMask weekendMask = default(WeekendMask), string sourceProvider = default(string), List<Property> properties = default(List<Property>))
+        /// <param name="version">version.</param>
+        public Calendar(string href = default(string), ResourceId id = default(ResourceId), string type = default(string), WeekendMask weekendMask = default(WeekendMask), string sourceProvider = default(string), List<Property> properties = default(List<Property>), ModelVersion version = default(ModelVersion))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -75,6 +76,7 @@ namespace Lusid.Sdk.Model
             }
             this.Properties = properties;
             this.Href = href;
+            this._Version = version;
         }
 
         /// <summary>
@@ -114,6 +116,12 @@ namespace Lusid.Sdk.Model
         public List<Property> Properties { get; set; }
 
         /// <summary>
+        /// Gets or Sets _Version
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion _Version { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -127,6 +135,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  WeekendMask: ").Append(WeekendMask).Append("\n");
             sb.Append("  SourceProvider: ").Append(SourceProvider).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +201,11 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -227,6 +241,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this._Version != null)
+                {
+                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 }
                 return hashCode;
             }
