@@ -38,10 +38,10 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="averagingMethod">Defines whether a weighted or unweighted average is used when calculating the average rate.  It applies only when CompoundingMethod &#x3D; ‘Average‘.    Supported string (enumeration) values are: [Unweighted, Weighted]..</param>
         /// <param name="calculationShiftMethod">Defines which resets and day counts are used for the rate calculation    Supported string (enumeration) values are: [Lookback, NoShift, ObservationPeriodShift, Lockout]..</param>
-        /// <param name="compoundingMethod">If the interest rate is simple or compounded.    Supported string (enumeration) values are: [Average, Compounded]. (required).</param>
+        /// <param name="compoundingMethod">If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Average, Compounded, CompoundedIndex]. (required).</param>
         /// <param name="resetFrequency">The interest payment frequency. (required).</param>
         /// <param name="shift">Defines the number of days to lockout or shift observation period by - should be a non-negative integer.</param>
-        /// <param name="spreadCompoundingMethod">Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None]..</param>
+        /// <param name="spreadCompoundingMethod">Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Available compounding methods:    | Method | Description |  | - -- -- - | - -- -- -- -- -- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \&quot;IsdaCompounding\&quot;, \&quot;NoCompounding\&quot;, \&quot;IsdaFlatCompounding\&quot;, and \&quot;None\&quot; are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None]..</param>
         public Compounding(string averagingMethod = default(string), string calculationShiftMethod = default(string), string compoundingMethod = default(string), string resetFrequency = default(string), int shift = default(int), string spreadCompoundingMethod = default(string))
         {
             // to ensure "compoundingMethod" is required (not null)
@@ -77,9 +77,9 @@ namespace Lusid.Sdk.Model
         public string CalculationShiftMethod { get; set; }
 
         /// <summary>
-        /// If the interest rate is simple or compounded.    Supported string (enumeration) values are: [Average, Compounded].
+        /// If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Average, Compounded, CompoundedIndex].
         /// </summary>
-        /// <value>If the interest rate is simple or compounded.    Supported string (enumeration) values are: [Average, Compounded].</value>
+        /// <value>If the interest rate is simple, compounded or using a pre-computed compounded index.    Supported string (enumeration) values are: [Average, Compounded, CompoundedIndex].</value>
         [DataMember(Name = "compoundingMethod", IsRequired = true, EmitDefaultValue = true)]
         public string CompoundingMethod { get; set; }
 
@@ -98,9 +98,9 @@ namespace Lusid.Sdk.Model
         public int Shift { get; set; }
 
         /// <summary>
-        /// Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].
+        /// Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Available compounding methods:    | Method | Description |  | - -- -- - | - -- -- -- -- -- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \&quot;IsdaCompounding\&quot;, \&quot;NoCompounding\&quot;, \&quot;IsdaFlatCompounding\&quot;, and \&quot;None\&quot; are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].
         /// </summary>
-        /// <value>Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].</value>
+        /// <value>Defines how the computed leg spread is applied to compounded rate.  It applies only when CompoundingMethod &#x3D; ‘Compounded‘.    Available compounding methods:    | Method | Description |  | - -- -- - | - -- -- -- -- -- |  | Straight | Compounding rate in each compound period includes the spread. |  | Flat | Compounding rate does not include the spread, and the spread is used for simple interest in each compound period. |  | SpreadExclusive | Compounding rate does not include the spread, and the spread is used for simple interest for whole accrual period. |    The values \&quot;IsdaCompounding\&quot;, \&quot;NoCompounding\&quot;, \&quot;IsdaFlatCompounding\&quot;, and \&quot;None\&quot; are accepted for compatibility  with existing instruments and their use is discouraged.    Supported string (enumeration) values are: [Straight, IsdaCompounding, NoCompounding, SpreadExclusive, IsdaFlatCompounding, Flat, None].</value>
         [DataMember(Name = "spreadCompoundingMethod", EmitDefaultValue = true)]
         public string SpreadCompoundingMethod { get; set; }
 
