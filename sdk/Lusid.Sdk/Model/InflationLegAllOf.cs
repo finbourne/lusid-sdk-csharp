@@ -544,10 +544,28 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CalculationType (string) minLength
-            if (this.CalculationType != null && this.CalculationType.Length < 1)
+            // CalculationType (string) maxLength
+            if (this.CalculationType != null && this.CalculationType.Length > 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalculationType, length must be greater than 1.", new [] { "CalculationType" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalculationType, length must be less than 32.", new [] { "CalculationType" });
+            }
+
+            // CalculationType (string) minLength
+            if (this.CalculationType != null && this.CalculationType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalculationType, length must be greater than 0.", new [] { "CalculationType" });
+            }
+
+            // PayReceive (string) maxLength
+            if (this.PayReceive != null && this.PayReceive.Length > 32)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PayReceive, length must be less than 32.", new [] { "PayReceive" });
+            }
+
+            // PayReceive (string) minLength
+            if (this.PayReceive != null && this.PayReceive.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PayReceive, length must be greater than 0.", new [] { "PayReceive" });
             }
 
             yield break;

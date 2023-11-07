@@ -270,49 +270,26 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
         /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="flowConventions">flowConventions (required).</param>
-        /// <param name="fixedRate">Fixed Rate (required).</param>
-        /// <param name="inflationCap">Optional cap, needed for LPI swaps. Should not be set for ZCIIS..</param>
-        /// <param name="inflationFloor">Optional floor, needed for LPI swaps. Should not be set for ZCIIS..</param>
-        /// <param name="inflationFrequency">Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported..</param>
-        /// <param name="inflationIndexName">Name of the Inflation Index (required).</param>
-        /// <param name="inflationInterpolation">Inflation Interpolation flag, defaults to Linear but some older swaps require Flat.    Supported string (enumeration) values are: [Linear, Flat]..</param>
-        /// <param name="inflationRollDay">Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th)..</param>
-        /// <param name="notional">The notional (required).</param>
-        /// <param name="observationLag">Observation Lag, must be a number of Months, typically 3 or 4 but sometimes 8. (required).</param>
-        /// <param name="payReceive">PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.  If set to Pay, this swap pays inflation and receives fixed.    Supported string (enumeration) values are: [Pay, Receive]..</param>
+        /// <param name="inflationLeg">inflationLeg (required).</param>
+        /// <param name="fixedLeg">fixedLeg (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required).</param>
-        public InflationSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal fixedRate = default(decimal), decimal? inflationCap = default(decimal?), decimal? inflationFloor = default(decimal?), string inflationFrequency = default(string), string inflationIndexName = default(string), string inflationInterpolation = default(string), int inflationRollDay = default(int), decimal notional = default(decimal), string observationLag = default(string), string payReceive = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public InflationSwapAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), InflationLeg inflationLeg = default(InflationLeg), FixedLeg fixedLeg = default(FixedLeg), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
-            // to ensure "flowConventions" is required (not null)
-            if (flowConventions == null)
+            // to ensure "inflationLeg" is required (not null)
+            if (inflationLeg == null)
             {
-                throw new ArgumentNullException("flowConventions is a required property for InflationSwapAllOf and cannot be null");
+                throw new ArgumentNullException("inflationLeg is a required property for InflationSwapAllOf and cannot be null");
             }
-            this.FlowConventions = flowConventions;
-            this.FixedRate = fixedRate;
-            // to ensure "inflationIndexName" is required (not null)
-            if (inflationIndexName == null)
+            this.InflationLeg = inflationLeg;
+            // to ensure "fixedLeg" is required (not null)
+            if (fixedLeg == null)
             {
-                throw new ArgumentNullException("inflationIndexName is a required property for InflationSwapAllOf and cannot be null");
+                throw new ArgumentNullException("fixedLeg is a required property for InflationSwapAllOf and cannot be null");
             }
-            this.InflationIndexName = inflationIndexName;
-            this.Notional = notional;
-            // to ensure "observationLag" is required (not null)
-            if (observationLag == null)
-            {
-                throw new ArgumentNullException("observationLag is a required property for InflationSwapAllOf and cannot be null");
-            }
-            this.ObservationLag = observationLag;
+            this.FixedLeg = fixedLeg;
             this.InstrumentType = instrumentType;
-            this.InflationCap = inflationCap;
-            this.InflationFloor = inflationFloor;
-            this.InflationFrequency = inflationFrequency;
-            this.InflationInterpolation = inflationInterpolation;
-            this.InflationRollDay = inflationRollDay;
-            this.PayReceive = payReceive;
         }
 
         /// <summary>
@@ -330,80 +307,16 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets FlowConventions
+        /// Gets or Sets InflationLeg
         /// </summary>
-        [DataMember(Name = "flowConventions", IsRequired = true, EmitDefaultValue = true)]
-        public FlowConventions FlowConventions { get; set; }
+        [DataMember(Name = "inflationLeg", IsRequired = true, EmitDefaultValue = true)]
+        public InflationLeg InflationLeg { get; set; }
 
         /// <summary>
-        /// Fixed Rate
+        /// Gets or Sets FixedLeg
         /// </summary>
-        /// <value>Fixed Rate</value>
-        [DataMember(Name = "fixedRate", IsRequired = true, EmitDefaultValue = true)]
-        public decimal FixedRate { get; set; }
-
-        /// <summary>
-        /// Optional cap, needed for LPI swaps. Should not be set for ZCIIS.
-        /// </summary>
-        /// <value>Optional cap, needed for LPI swaps. Should not be set for ZCIIS.</value>
-        [DataMember(Name = "inflationCap", EmitDefaultValue = true)]
-        public decimal? InflationCap { get; set; }
-
-        /// <summary>
-        /// Optional floor, needed for LPI swaps. Should not be set for ZCIIS.
-        /// </summary>
-        /// <value>Optional floor, needed for LPI swaps. Should not be set for ZCIIS.</value>
-        [DataMember(Name = "inflationFloor", EmitDefaultValue = true)]
-        public decimal? InflationFloor { get; set; }
-
-        /// <summary>
-        /// Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.
-        /// </summary>
-        /// <value>Frequency of inflation updated. Optional and defaults to Monthly which is the most common.  However both Australian and New Zealand inflation is published Quarterly. Only tenors of 1M or 3M are supported.</value>
-        [DataMember(Name = "inflationFrequency", EmitDefaultValue = true)]
-        public string InflationFrequency { get; set; }
-
-        /// <summary>
-        /// Name of the Inflation Index
-        /// </summary>
-        /// <value>Name of the Inflation Index</value>
-        [DataMember(Name = "inflationIndexName", IsRequired = true, EmitDefaultValue = true)]
-        public string InflationIndexName { get; set; }
-
-        /// <summary>
-        /// Inflation Interpolation flag, defaults to Linear but some older swaps require Flat.    Supported string (enumeration) values are: [Linear, Flat].
-        /// </summary>
-        /// <value>Inflation Interpolation flag, defaults to Linear but some older swaps require Flat.    Supported string (enumeration) values are: [Linear, Flat].</value>
-        [DataMember(Name = "inflationInterpolation", EmitDefaultValue = true)]
-        public string InflationInterpolation { get; set; }
-
-        /// <summary>
-        /// Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).
-        /// </summary>
-        /// <value>Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).</value>
-        [DataMember(Name = "inflationRollDay", EmitDefaultValue = false)]
-        public int InflationRollDay { get; set; }
-
-        /// <summary>
-        /// The notional
-        /// </summary>
-        /// <value>The notional</value>
-        [DataMember(Name = "notional", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Notional { get; set; }
-
-        /// <summary>
-        /// Observation Lag, must be a number of Months, typically 3 or 4 but sometimes 8.
-        /// </summary>
-        /// <value>Observation Lag, must be a number of Months, typically 3 or 4 but sometimes 8.</value>
-        [DataMember(Name = "observationLag", IsRequired = true, EmitDefaultValue = true)]
-        public string ObservationLag { get; set; }
-
-        /// <summary>
-        /// PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.  If set to Pay, this swap pays inflation and receives fixed.    Supported string (enumeration) values are: [Pay, Receive].
-        /// </summary>
-        /// <value>PayReceive flag for the inflation leg.  This field is optional and defaults to Pay.  If set to Pay, this swap pays inflation and receives fixed.    Supported string (enumeration) values are: [Pay, Receive].</value>
-        [DataMember(Name = "payReceive", EmitDefaultValue = true)]
-        public string PayReceive { get; set; }
+        [DataMember(Name = "fixedLeg", IsRequired = true, EmitDefaultValue = true)]
+        public FixedLeg FixedLeg { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -415,17 +328,8 @@ namespace Lusid.Sdk.Model
             sb.Append("class InflationSwapAllOf {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
-            sb.Append("  FlowConventions: ").Append(FlowConventions).Append("\n");
-            sb.Append("  FixedRate: ").Append(FixedRate).Append("\n");
-            sb.Append("  InflationCap: ").Append(InflationCap).Append("\n");
-            sb.Append("  InflationFloor: ").Append(InflationFloor).Append("\n");
-            sb.Append("  InflationFrequency: ").Append(InflationFrequency).Append("\n");
-            sb.Append("  InflationIndexName: ").Append(InflationIndexName).Append("\n");
-            sb.Append("  InflationInterpolation: ").Append(InflationInterpolation).Append("\n");
-            sb.Append("  InflationRollDay: ").Append(InflationRollDay).Append("\n");
-            sb.Append("  Notional: ").Append(Notional).Append("\n");
-            sb.Append("  ObservationLag: ").Append(ObservationLag).Append("\n");
-            sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
+            sb.Append("  InflationLeg: ").Append(InflationLeg).Append("\n");
+            sb.Append("  FixedLeg: ").Append(FixedLeg).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -473,56 +377,14 @@ namespace Lusid.Sdk.Model
                     this.MaturityDate.Equals(input.MaturityDate))
                 ) && 
                 (
-                    this.FlowConventions == input.FlowConventions ||
-                    (this.FlowConventions != null &&
-                    this.FlowConventions.Equals(input.FlowConventions))
+                    this.InflationLeg == input.InflationLeg ||
+                    (this.InflationLeg != null &&
+                    this.InflationLeg.Equals(input.InflationLeg))
                 ) && 
                 (
-                    this.FixedRate == input.FixedRate ||
-                    this.FixedRate.Equals(input.FixedRate)
-                ) && 
-                (
-                    this.InflationCap == input.InflationCap ||
-                    (this.InflationCap != null &&
-                    this.InflationCap.Equals(input.InflationCap))
-                ) && 
-                (
-                    this.InflationFloor == input.InflationFloor ||
-                    (this.InflationFloor != null &&
-                    this.InflationFloor.Equals(input.InflationFloor))
-                ) && 
-                (
-                    this.InflationFrequency == input.InflationFrequency ||
-                    (this.InflationFrequency != null &&
-                    this.InflationFrequency.Equals(input.InflationFrequency))
-                ) && 
-                (
-                    this.InflationIndexName == input.InflationIndexName ||
-                    (this.InflationIndexName != null &&
-                    this.InflationIndexName.Equals(input.InflationIndexName))
-                ) && 
-                (
-                    this.InflationInterpolation == input.InflationInterpolation ||
-                    (this.InflationInterpolation != null &&
-                    this.InflationInterpolation.Equals(input.InflationInterpolation))
-                ) && 
-                (
-                    this.InflationRollDay == input.InflationRollDay ||
-                    this.InflationRollDay.Equals(input.InflationRollDay)
-                ) && 
-                (
-                    this.Notional == input.Notional ||
-                    this.Notional.Equals(input.Notional)
-                ) && 
-                (
-                    this.ObservationLag == input.ObservationLag ||
-                    (this.ObservationLag != null &&
-                    this.ObservationLag.Equals(input.ObservationLag))
-                ) && 
-                (
-                    this.PayReceive == input.PayReceive ||
-                    (this.PayReceive != null &&
-                    this.PayReceive.Equals(input.PayReceive))
+                    this.FixedLeg == input.FixedLeg ||
+                    (this.FixedLeg != null &&
+                    this.FixedLeg.Equals(input.FixedLeg))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -547,40 +409,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
                 }
-                if (this.FlowConventions != null)
+                if (this.InflationLeg != null)
                 {
-                    hashCode = (hashCode * 59) + this.FlowConventions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InflationLeg.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.FixedRate.GetHashCode();
-                if (this.InflationCap != null)
+                if (this.FixedLeg != null)
                 {
-                    hashCode = (hashCode * 59) + this.InflationCap.GetHashCode();
-                }
-                if (this.InflationFloor != null)
-                {
-                    hashCode = (hashCode * 59) + this.InflationFloor.GetHashCode();
-                }
-                if (this.InflationFrequency != null)
-                {
-                    hashCode = (hashCode * 59) + this.InflationFrequency.GetHashCode();
-                }
-                if (this.InflationIndexName != null)
-                {
-                    hashCode = (hashCode * 59) + this.InflationIndexName.GetHashCode();
-                }
-                if (this.InflationInterpolation != null)
-                {
-                    hashCode = (hashCode * 59) + this.InflationInterpolation.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.InflationRollDay.GetHashCode();
-                hashCode = (hashCode * 59) + this.Notional.GetHashCode();
-                if (this.ObservationLag != null)
-                {
-                    hashCode = (hashCode * 59) + this.ObservationLag.GetHashCode();
-                }
-                if (this.PayReceive != null)
-                {
-                    hashCode = (hashCode * 59) + this.PayReceive.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FixedLeg.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
@@ -594,18 +429,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // InflationIndexName (string) minLength
-            if (this.InflationIndexName != null && this.InflationIndexName.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InflationIndexName, length must be greater than 1.", new [] { "InflationIndexName" });
-            }
-
-            // ObservationLag (string) minLength
-            if (this.ObservationLag != null && this.ObservationLag.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObservationLag, length must be greater than 1.", new [] { "ObservationLag" });
-            }
-
             yield break;
         }
     }
