@@ -24,51 +24,65 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A cash distribution paid out to shareholders.
+    /// Definition of a Bond Coupon Event  This is an event that describes the occurence of a cashflow due to a fixed rate bond coupon payment.
     /// </summary>
-    [DataContract(Name = "CashDividendEvent")]
+    [DataContract(Name = "BondCouponEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class CashDividendEvent : InstrumentEvent, IEquatable<CashDividendEvent>, IValidatableObject
+    public partial class BondCouponEvent : InstrumentEvent, IEquatable<BondCouponEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashDividendEvent" /> class.
+        /// Initializes a new instance of the <see cref="BondCouponEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CashDividendEvent() { }
+        protected BondCouponEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashDividendEvent" /> class.
+        /// Initializes a new instance of the <see cref="BondCouponEvent" /> class.
         /// </summary>
-        /// <param name="grossAmount">The before tax amount for each share held being paid out to shareholders. (required).</param>
-        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
-        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender. (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent (required) (default to &quot;CashDividendEvent&quot;).</param>
-        public CashDividendEvent(decimal grossAmount = default(decimal), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="exDate">Ex-Dividend date of the coupon payment (required).</param>
+        /// <param name="paymentDate">Payment date of the coupon payment (required).</param>
+        /// <param name="currency">Currency of the coupon payment (required).</param>
+        /// <param name="couponPerUnit">CouponRate*Principal (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent (required) (default to &quot;BondCouponEvent&quot;).</param>
+        public BondCouponEvent(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal couponPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.GrossAmount = grossAmount;
+            this.ExDate = exDate;
             this.PaymentDate = paymentDate;
-            this.RecordDate = recordDate;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for BondCouponEvent and cannot be null");
+            }
+            this.Currency = currency;
+            this.CouponPerUnit = couponPerUnit;
         }
 
         /// <summary>
-        /// The before tax amount for each share held being paid out to shareholders.
+        /// Ex-Dividend date of the coupon payment
         /// </summary>
-        /// <value>The before tax amount for each share held being paid out to shareholders.</value>
-        [DataMember(Name = "grossAmount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal GrossAmount { get; set; }
+        /// <value>Ex-Dividend date of the coupon payment</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The date the company pays out dividends to shareholders.
+        /// Payment date of the coupon payment
         /// </summary>
-        /// <value>The date the company pays out dividends to shareholders.</value>
+        /// <value>Payment date of the coupon payment</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// Date you have to be the holder of record in order to participate in the tender.
+        /// Currency of the coupon payment
         /// </summary>
-        /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
-        [DataMember(Name = "recordDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset RecordDate { get; set; }
+        /// <value>Currency of the coupon payment</value>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// CouponRate*Principal
+        /// </summary>
+        /// <value>CouponRate*Principal</value>
+        [DataMember(Name = "couponPerUnit", IsRequired = true, EmitDefaultValue = true)]
+        public decimal CouponPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,11 +91,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CashDividendEvent {\n");
+            sb.Append("class BondCouponEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  GrossAmount: ").Append(GrossAmount).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
-            sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  CouponPerUnit: ").Append(CouponPerUnit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CashDividendEvent);
+            return this.Equals(input as BondCouponEvent);
         }
 
         /// <summary>
-        /// Returns true if CashDividendEvent instances are equal
+        /// Returns true if BondCouponEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of CashDividendEvent to be compared</param>
+        /// <param name="input">Instance of BondCouponEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CashDividendEvent input)
+        public bool Equals(BondCouponEvent input)
         {
             if (input == null)
             {
@@ -118,8 +133,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.GrossAmount == input.GrossAmount ||
-                    this.GrossAmount.Equals(input.GrossAmount)
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && base.Equals(input) && 
                 (
                     this.PaymentDate == input.PaymentDate ||
@@ -127,9 +143,13 @@ namespace Lusid.Sdk.Model
                     this.PaymentDate.Equals(input.PaymentDate))
                 ) && base.Equals(input) && 
                 (
-                    this.RecordDate == input.RecordDate ||
-                    (this.RecordDate != null &&
-                    this.RecordDate.Equals(input.RecordDate))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && base.Equals(input) && 
+                (
+                    this.CouponPerUnit == input.CouponPerUnit ||
+                    this.CouponPerUnit.Equals(input.CouponPerUnit)
                 );
         }
 
@@ -142,15 +162,19 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 59) + this.GrossAmount.GetHashCode();
+                if (this.ExDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                }
                 if (this.PaymentDate != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                if (this.RecordDate != null)
+                if (this.Currency != null)
                 {
-                    hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CouponPerUnit.GetHashCode();
                 return hashCode;
             }
         }

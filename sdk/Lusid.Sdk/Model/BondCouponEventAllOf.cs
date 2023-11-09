@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransitionEventAllOf
+    /// BondCouponEventAllOf
     /// </summary>
-    [DataContract(Name = "TransitionEvent_allOf")]
-    public partial class TransitionEventAllOf : IEquatable<TransitionEventAllOf>, IValidatableObject
+    [DataContract(Name = "BondCouponEvent_allOf")]
+    public partial class BondCouponEventAllOf : IEquatable<BondCouponEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent
@@ -135,71 +135,59 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransitionEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="BondCouponEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TransitionEventAllOf() { }
+        protected BondCouponEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransitionEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="BondCouponEventAllOf" /> class.
         /// </summary>
-        /// <param name="announcementDate">The announcement date of the corporate action.</param>
-        /// <param name="exDate">The ex date of the corporate action.</param>
-        /// <param name="recordDate">The record date of the corporate action.</param>
-        /// <param name="paymentDate">The payment date of the corporate action.</param>
-        /// <param name="inputTransition">inputTransition.</param>
-        /// <param name="outputTransitions">The resulting transitions from this event.</param>
+        /// <param name="exDate">Ex-Dividend date of the coupon payment (required).</param>
+        /// <param name="paymentDate">Payment date of the coupon payment (required).</param>
+        /// <param name="currency">Currency of the coupon payment (required).</param>
+        /// <param name="couponPerUnit">CouponRate*Principal (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent (required).</param>
-        public TransitionEventAllOf(DateTimeOffset announcementDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), InputTransition inputTransition = default(InputTransition), List<OutputTransition> outputTransitions = default(List<OutputTransition>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public BondCouponEventAllOf(DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), string currency = default(string), decimal couponPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.InstrumentEventType = instrumentEventType;
-            this.AnnouncementDate = announcementDate;
             this.ExDate = exDate;
-            this.RecordDate = recordDate;
             this.PaymentDate = paymentDate;
-            this.InputTransition = inputTransition;
-            this.OutputTransitions = outputTransitions;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
+            {
+                throw new ArgumentNullException("currency is a required property for BondCouponEventAllOf and cannot be null");
+            }
+            this.Currency = currency;
+            this.CouponPerUnit = couponPerUnit;
+            this.InstrumentEventType = instrumentEventType;
         }
 
         /// <summary>
-        /// The announcement date of the corporate action
+        /// Ex-Dividend date of the coupon payment
         /// </summary>
-        /// <value>The announcement date of the corporate action</value>
-        [DataMember(Name = "announcementDate", EmitDefaultValue = false)]
-        public DateTimeOffset AnnouncementDate { get; set; }
-
-        /// <summary>
-        /// The ex date of the corporate action
-        /// </summary>
-        /// <value>The ex date of the corporate action</value>
-        [DataMember(Name = "exDate", EmitDefaultValue = false)]
+        /// <value>Ex-Dividend date of the coupon payment</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The record date of the corporate action
+        /// Payment date of the coupon payment
         /// </summary>
-        /// <value>The record date of the corporate action</value>
-        [DataMember(Name = "recordDate", EmitDefaultValue = false)]
-        public DateTimeOffset RecordDate { get; set; }
-
-        /// <summary>
-        /// The payment date of the corporate action
-        /// </summary>
-        /// <value>The payment date of the corporate action</value>
-        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
+        /// <value>Payment date of the coupon payment</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets InputTransition
+        /// Currency of the coupon payment
         /// </summary>
-        [DataMember(Name = "inputTransition", EmitDefaultValue = false)]
-        public InputTransition InputTransition { get; set; }
+        /// <value>Currency of the coupon payment</value>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
 
         /// <summary>
-        /// The resulting transitions from this event
+        /// CouponRate*Principal
         /// </summary>
-        /// <value>The resulting transitions from this event</value>
-        [DataMember(Name = "outputTransitions", EmitDefaultValue = true)]
-        public List<OutputTransition> OutputTransitions { get; set; }
+        /// <value>CouponRate*Principal</value>
+        [DataMember(Name = "couponPerUnit", IsRequired = true, EmitDefaultValue = true)]
+        public decimal CouponPerUnit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -208,13 +196,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TransitionEventAllOf {\n");
-            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("class BondCouponEventAllOf {\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
-            sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
-            sb.Append("  InputTransition: ").Append(InputTransition).Append("\n");
-            sb.Append("  OutputTransitions: ").Append(OutputTransitions).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  CouponPerUnit: ").Append(CouponPerUnit).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -236,15 +222,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransitionEventAllOf);
+            return this.Equals(input as BondCouponEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if TransitionEventAllOf instances are equal
+        /// Returns true if BondCouponEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransitionEventAllOf to be compared</param>
+        /// <param name="input">Instance of BondCouponEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransitionEventAllOf input)
+        public bool Equals(BondCouponEventAllOf input)
         {
             if (input == null)
             {
@@ -252,19 +238,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.AnnouncementDate == input.AnnouncementDate ||
-                    (this.AnnouncementDate != null &&
-                    this.AnnouncementDate.Equals(input.AnnouncementDate))
-                ) && 
-                (
                     this.ExDate == input.ExDate ||
                     (this.ExDate != null &&
                     this.ExDate.Equals(input.ExDate))
-                ) && 
-                (
-                    this.RecordDate == input.RecordDate ||
-                    (this.RecordDate != null &&
-                    this.RecordDate.Equals(input.RecordDate))
                 ) && 
                 (
                     this.PaymentDate == input.PaymentDate ||
@@ -272,15 +248,13 @@ namespace Lusid.Sdk.Model
                     this.PaymentDate.Equals(input.PaymentDate))
                 ) && 
                 (
-                    this.InputTransition == input.InputTransition ||
-                    (this.InputTransition != null &&
-                    this.InputTransition.Equals(input.InputTransition))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.OutputTransitions == input.OutputTransitions ||
-                    this.OutputTransitions != null &&
-                    input.OutputTransitions != null &&
-                    this.OutputTransitions.SequenceEqual(input.OutputTransitions)
+                    this.CouponPerUnit == input.CouponPerUnit ||
+                    this.CouponPerUnit.Equals(input.CouponPerUnit)
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -297,30 +271,19 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AnnouncementDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
-                }
                 if (this.ExDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
-                }
-                if (this.RecordDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
                 }
                 if (this.PaymentDate != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                if (this.InputTransition != null)
+                if (this.Currency != null)
                 {
-                    hashCode = (hashCode * 59) + this.InputTransition.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                if (this.OutputTransitions != null)
-                {
-                    hashCode = (hashCode * 59) + this.OutputTransitions.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.CouponPerUnit.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }

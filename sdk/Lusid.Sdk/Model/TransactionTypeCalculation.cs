@@ -37,7 +37,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionTypeCalculation" /> class.
         /// </summary>
         /// <param name="type">The type of calculation to perform (required).</param>
-        /// <param name="side">The Side determines which of the fields from our transaction are used to generate the Movement. Side1 means the &#39;security&#39; side of the transaction, ie the Instrument and Units; Side2 means the &#39;cash&#39; side, ie the Total Consideration (required).</param>
+        /// <param name="side">The side to which the calculation is applied (required).</param>
         public TransactionTypeCalculation(string type = default(string), string side = default(string))
         {
             // to ensure "type" is required (not null)
@@ -62,9 +62,9 @@ namespace Lusid.Sdk.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// The Side determines which of the fields from our transaction are used to generate the Movement. Side1 means the &#39;security&#39; side of the transaction, ie the Instrument and Units; Side2 means the &#39;cash&#39; side, ie the Total Consideration
+        /// The side to which the calculation is applied
         /// </summary>
-        /// <value>The Side determines which of the fields from our transaction are used to generate the Movement. Side1 means the &#39;security&#39; side of the transaction, ie the Instrument and Units; Side2 means the &#39;cash&#39; side, ie the Total Consideration</value>
+        /// <value>The side to which the calculation is applied</value>
         [DataMember(Name = "side", IsRequired = true, EmitDefaultValue = true)]
         public string Side { get; set; }
 

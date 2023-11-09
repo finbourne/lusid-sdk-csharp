@@ -250,8 +250,9 @@ namespace Lusid.Sdk.Model
         /// <param name="unitSchema">The available values are: NoUnits, Basic, Iso4217Currency.</param>
         /// <param name="acceptableUnits">acceptableUnits.</param>
         /// <param name="referenceData">referenceData.</param>
+        /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public DataType(string href = default(string), TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), List<Link> links = default(List<Link>))
+        public DataType(string href = default(string), TypeValueRangeEnum typeValueRange = default(TypeValueRangeEnum), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), ValueTypeEnum valueType = default(ValueTypeEnum), List<string> acceptableValues = default(List<string>), UnitSchemaEnum? unitSchema = default(UnitSchemaEnum?), List<IUnitDefinitionDto> acceptableUnits = default(List<IUnitDefinitionDto>), ReferenceData referenceData = default(ReferenceData), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.TypeValueRange = typeValueRange;
             // to ensure "id" is required (not null)
@@ -278,6 +279,7 @@ namespace Lusid.Sdk.Model
             this.UnitSchema = unitSchema;
             this.AcceptableUnits = acceptableUnits;
             this.ReferenceData = referenceData;
+            this._Version = version;
             this.Links = links;
         }
 
@@ -324,6 +326,12 @@ namespace Lusid.Sdk.Model
         public ReferenceData ReferenceData { get; set; }
 
         /// <summary>
+        /// Gets or Sets _Version
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion _Version { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -347,6 +355,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UnitSchema: ").Append(UnitSchema).Append("\n");
             sb.Append("  AcceptableUnits: ").Append(AcceptableUnits).Append("\n");
             sb.Append("  ReferenceData: ").Append(ReferenceData).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -433,6 +442,11 @@ namespace Lusid.Sdk.Model
                     this.ReferenceData.Equals(input.ReferenceData))
                 ) && 
                 (
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -479,6 +493,10 @@ namespace Lusid.Sdk.Model
                 if (this.ReferenceData != null)
                 {
                     hashCode = (hashCode * 59) + this.ReferenceData.GetHashCode();
+                }
+                if (this._Version != null)
+                {
+                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 }
                 if (this.Links != null)
                 {

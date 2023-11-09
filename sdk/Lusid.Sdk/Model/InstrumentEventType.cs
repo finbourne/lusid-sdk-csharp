@@ -111,7 +111,13 @@ namespace Lusid.Sdk.Model
         /// Enum InformationalErrorEvent for value: InformationalErrorEvent
         /// </summary>
         [EnumMember(Value = "InformationalErrorEvent")]
-        InformationalErrorEvent = 14
+        InformationalErrorEvent = 14,
+
+        /// <summary>
+        /// Enum BondCouponEvent for value: BondCouponEvent
+        /// </summary>
+        [EnumMember(Value = "BondCouponEvent")]
+        BondCouponEvent = 15
 
     }
 
