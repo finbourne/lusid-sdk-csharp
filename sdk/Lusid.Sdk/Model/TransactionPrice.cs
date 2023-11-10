@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class TransactionPrice : IEquatable<TransactionPrice>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Price, Yield, Spread
+        /// The available values are: Price, Yield, Spread, CashFlowPerUnit
         /// </summary>
-        /// <value>The available values are: Price, Yield, Spread</value>
+        /// <value>The available values are: Price, Yield, Spread, CashFlowPerUnit</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -51,22 +51,28 @@ namespace Lusid.Sdk.Model
             /// Enum Spread for value: Spread
             /// </summary>
             [EnumMember(Value = "Spread")]
-            Spread = 3
+            Spread = 3,
+
+            /// <summary>
+            /// Enum CashFlowPerUnit for value: CashFlowPerUnit
+            /// </summary>
+            [EnumMember(Value = "CashFlowPerUnit")]
+            CashFlowPerUnit = 4
 
         }
 
 
         /// <summary>
-        /// The available values are: Price, Yield, Spread
+        /// The available values are: Price, Yield, Spread, CashFlowPerUnit
         /// </summary>
-        /// <value>The available values are: Price, Yield, Spread</value>
+        /// <value>The available values are: Price, Yield, Spread, CashFlowPerUnit</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionPrice" /> class.
         /// </summary>
         /// <param name="price">price.</param>
-        /// <param name="type">The available values are: Price, Yield, Spread.</param>
+        /// <param name="type">The available values are: Price, Yield, Spread, CashFlowPerUnit.</param>
         public TransactionPrice(decimal price = default(decimal), TypeEnum? type = default(TypeEnum?))
         {
             this.Price = price;

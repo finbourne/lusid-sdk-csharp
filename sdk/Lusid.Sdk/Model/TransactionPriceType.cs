@@ -44,7 +44,13 @@ namespace Lusid.Sdk.Model
         /// Enum Spread for value: Spread
         /// </summary>
         [EnumMember(Value = "Spread")]
-        Spread = 3
+        Spread = 3,
+
+        /// <summary>
+        /// Enum CashFlowPerUnit for value: CashFlowPerUnit
+        /// </summary>
+        [EnumMember(Value = "CashFlowPerUnit")]
+        CashFlowPerUnit = 4
 
     }
 

@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="date">A date. If specified, DiaryEntry must not be specified..</param>
         /// <param name="diaryEntry">The code of a diary entry. If specified, Date must not be specified..</param>
-        public DateOrDiaryEntry(string date = default(string), string diaryEntry = default(string))
+        public DateOrDiaryEntry(DateTimeOrCutLabel date = default(DateTimeOrCutLabel), string diaryEntry = default(string))
         {
             this.Date = date;
             this.DiaryEntry = diaryEntry;
@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>A date. If specified, DiaryEntry must not be specified.</value>
         [DataMember(Name = "date", EmitDefaultValue = true)]
-        public string Date { get; set; }
+        public DateTimeOrCutLabel Date { get; set; }
 
         /// <summary>
         /// The code of a diary entry. If specified, Date must not be specified.

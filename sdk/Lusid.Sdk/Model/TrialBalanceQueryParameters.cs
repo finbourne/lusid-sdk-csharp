@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
-        /// <param name="dateMode">The mode of calculation of the journal entry lines..</param>
+        /// <param name="dateMode">The mode of calculation of the journal entry lines. The available values are: ActivityDate..</param>
         /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels..</param>
         public TrialBalanceQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string))
         {
@@ -56,9 +56,9 @@ namespace Lusid.Sdk.Model
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>
-        /// The mode of calculation of the journal entry lines.
+        /// The mode of calculation of the journal entry lines. The available values are: ActivityDate.
         /// </summary>
-        /// <value>The mode of calculation of the journal entry lines.</value>
+        /// <value>The mode of calculation of the journal entry lines. The available values are: ActivityDate.</value>
         [DataMember(Name = "dateMode", EmitDefaultValue = true)]
         public string DateMode { get; set; }
 

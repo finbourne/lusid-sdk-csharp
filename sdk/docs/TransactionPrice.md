@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Price** | **decimal** |  | [optional] 
-**Type** | **string** | The available values are: Price, Yield, Spread | [optional] 
+**Type** | **string** | The available values are: Price, Yield, Spread, CashFlowPerUnit | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
