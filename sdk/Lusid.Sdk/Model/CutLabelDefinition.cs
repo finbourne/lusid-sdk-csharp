@@ -37,8 +37,9 @@ namespace Lusid.Sdk.Model
         /// <param name="cutLocalTime">cutLocalTime.</param>
         /// <param name="timeZone">timeZone.</param>
         /// <param name="href">href.</param>
+        /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public CutLabelDefinition(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string timeZone = default(string), string href = default(string), List<Link> links = default(List<Link>))
+        public CutLabelDefinition(string code = default(string), string displayName = default(string), string description = default(string), CutLocalTime cutLocalTime = default(CutLocalTime), string timeZone = default(string), string href = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             this.Code = code;
             this.DisplayName = displayName;
@@ -46,6 +47,7 @@ namespace Lusid.Sdk.Model
             this.CutLocalTime = cutLocalTime;
             this.TimeZone = timeZone;
             this.Href = href;
+            this._Version = version;
             this.Links = links;
         }
 
@@ -86,6 +88,12 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
+        /// Gets or Sets _Version
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public ModelVersion _Version { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -105,6 +113,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CutLocalTime: ").Append(CutLocalTime).Append("\n");
             sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -172,6 +181,11 @@ namespace Lusid.Sdk.Model
                     this.Href.Equals(input.Href))
                 ) && 
                 (
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -211,6 +225,10 @@ namespace Lusid.Sdk.Model
                 if (this.Href != null)
                 {
                     hashCode = (hashCode * 59) + this.Href.GetHashCode();
+                }
+                if (this._Version != null)
+                {
+                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 }
                 if (this.Links != null)
                 {
