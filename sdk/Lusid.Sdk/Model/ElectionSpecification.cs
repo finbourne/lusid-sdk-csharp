@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="electionType">electionType (required).</param>
         /// <param name="cardinality">cardinality (required).</param>
         /// <param name="referencedAs">referencedAs (required).</param>
-        public ElectionSpecification(string electionType = default(string), List<string> cardinality = default(List<string>), List<string> referencedAs = default(List<string>))
+        public ElectionSpecification(string electionType = default(string), Dictionary<string, string> cardinality = default(Dictionary<string, string>), List<string> referencedAs = default(List<string>))
         {
             // to ensure "electionType" is required (not null)
             if (electionType == null)
@@ -71,7 +71,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Cardinality
         /// </summary>
         [DataMember(Name = "cardinality", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Cardinality { get; set; }
+        public Dictionary<string, string> Cardinality { get; set; }
 
         /// <summary>
         /// Gets or Sets ReferencedAs
