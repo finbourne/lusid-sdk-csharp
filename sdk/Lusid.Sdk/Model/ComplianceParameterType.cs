@@ -128,7 +128,13 @@ namespace Lusid.Sdk.Model
         /// Enum InstrumentListComplianceParameter for value: InstrumentListComplianceParameter
         /// </summary>
         [EnumMember(Value = "InstrumentListComplianceParameter")]
-        InstrumentListComplianceParameter = 17
+        InstrumentListComplianceParameter = 17,
+
+        /// <summary>
+        /// Enum FilterPredicateComplianceParameter for value: FilterPredicateComplianceParameter
+        /// </summary>
+        [EnumMember(Value = "FilterPredicateComplianceParameter")]
+        FilterPredicateComplianceParameter = 18
 
     }
 

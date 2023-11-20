@@ -32,11 +32,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="UpsertRecipeRequest" /> class.
         /// </summary>
         /// <param name="configurationRecipe">configurationRecipe.</param>
-        /// <param name="configurationRecipeSnippet">configurationRecipeSnippet.</param>
-        public UpsertRecipeRequest(ConfigurationRecipe configurationRecipe = default(ConfigurationRecipe), ConfigurationRecipeSnippet configurationRecipeSnippet = default(ConfigurationRecipeSnippet))
+        public UpsertRecipeRequest(ConfigurationRecipe configurationRecipe = default(ConfigurationRecipe))
         {
             this.ConfigurationRecipe = configurationRecipe;
-            this.ConfigurationRecipeSnippet = configurationRecipeSnippet;
         }
 
         /// <summary>
@@ -44,12 +42,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "configurationRecipe", EmitDefaultValue = false)]
         public ConfigurationRecipe ConfigurationRecipe { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ConfigurationRecipeSnippet
-        /// </summary>
-        [DataMember(Name = "configurationRecipeSnippet", EmitDefaultValue = false)]
-        public ConfigurationRecipeSnippet ConfigurationRecipeSnippet { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,7 +52,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpsertRecipeRequest {\n");
             sb.Append("  ConfigurationRecipe: ").Append(ConfigurationRecipe).Append("\n");
-            sb.Append("  ConfigurationRecipeSnippet: ").Append(ConfigurationRecipeSnippet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,11 +91,6 @@ namespace Lusid.Sdk.Model
                     this.ConfigurationRecipe == input.ConfigurationRecipe ||
                     (this.ConfigurationRecipe != null &&
                     this.ConfigurationRecipe.Equals(input.ConfigurationRecipe))
-                ) && 
-                (
-                    this.ConfigurationRecipeSnippet == input.ConfigurationRecipeSnippet ||
-                    (this.ConfigurationRecipeSnippet != null &&
-                    this.ConfigurationRecipeSnippet.Equals(input.ConfigurationRecipeSnippet))
                 );
         }
 
@@ -120,10 +106,6 @@ namespace Lusid.Sdk.Model
                 if (this.ConfigurationRecipe != null)
                 {
                     hashCode = (hashCode * 59) + this.ConfigurationRecipe.GetHashCode();
-                }
-                if (this.ConfigurationRecipeSnippet != null)
-                {
-                    hashCode = (hashCode * 59) + this.ConfigurationRecipeSnippet.GetHashCode();
                 }
                 return hashCode;
             }
