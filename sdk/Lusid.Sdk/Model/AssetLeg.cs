@@ -25,47 +25,47 @@ namespace Lusid.Sdk.Model
     /// <summary>
     /// The underlying instrument representing one side of the TRS and its pay-receive direction.
     /// </summary>
-    [DataContract(Name = "UnderlyingLeg")]
-    public partial class UnderlyingLeg : IEquatable<UnderlyingLeg>, IValidatableObject
+    [DataContract(Name = "AssetLeg")]
+    public partial class AssetLeg : IEquatable<AssetLeg>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnderlyingLeg" /> class.
+        /// Initializes a new instance of the <see cref="AssetLeg" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UnderlyingLeg() { }
+        protected AssetLeg() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnderlyingLeg" /> class.
+        /// Initializes a new instance of the <see cref="AssetLeg" /> class.
         /// </summary>
-        /// <param name="payReceive">Either Pay or Receive stating direction of the underlying in the swap.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
-        /// <param name="underlying">underlying (required).</param>
-        public UnderlyingLeg(string payReceive = default(string), LusidInstrument underlying = default(LusidInstrument))
+        /// <param name="asset">asset (required).</param>
+        /// <param name="payReceive">Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive]. (required).</param>
+        public AssetLeg(LusidInstrument asset = default(LusidInstrument), string payReceive = default(string))
         {
+            // to ensure "asset" is required (not null)
+            if (asset == null)
+            {
+                throw new ArgumentNullException("asset is a required property for AssetLeg and cannot be null");
+            }
+            this.Asset = asset;
             // to ensure "payReceive" is required (not null)
             if (payReceive == null)
             {
-                throw new ArgumentNullException("payReceive is a required property for UnderlyingLeg and cannot be null");
+                throw new ArgumentNullException("payReceive is a required property for AssetLeg and cannot be null");
             }
             this.PayReceive = payReceive;
-            // to ensure "underlying" is required (not null)
-            if (underlying == null)
-            {
-                throw new ArgumentNullException("underlying is a required property for UnderlyingLeg and cannot be null");
-            }
-            this.Underlying = underlying;
         }
 
         /// <summary>
-        /// Either Pay or Receive stating direction of the underlying in the swap.    Supported string (enumeration) values are: [Pay, Receive].
+        /// Gets or Sets Asset
         /// </summary>
-        /// <value>Either Pay or Receive stating direction of the underlying in the swap.    Supported string (enumeration) values are: [Pay, Receive].</value>
-        [DataMember(Name = "payReceive", IsRequired = true, EmitDefaultValue = true)]
-        public string PayReceive { get; set; }
+        [DataMember(Name = "asset", IsRequired = true, EmitDefaultValue = true)]
+        public LusidInstrument Asset { get; set; }
 
         /// <summary>
-        /// Gets or Sets Underlying
+        /// Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive].
         /// </summary>
-        [DataMember(Name = "underlying", IsRequired = true, EmitDefaultValue = true)]
-        public LusidInstrument Underlying { get; set; }
+        /// <value>Either Pay or Receive stating direction of the asset in the swap.    Supported string (enumeration) values are: [Pay, Receive].</value>
+        [DataMember(Name = "payReceive", IsRequired = true, EmitDefaultValue = true)]
+        public string PayReceive { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,9 +74,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UnderlyingLeg {\n");
+            sb.Append("class AssetLeg {\n");
+            sb.Append("  Asset: ").Append(Asset).Append("\n");
             sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
-            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +97,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UnderlyingLeg);
+            return this.Equals(input as AssetLeg);
         }
 
         /// <summary>
-        /// Returns true if UnderlyingLeg instances are equal
+        /// Returns true if AssetLeg instances are equal
         /// </summary>
-        /// <param name="input">Instance of UnderlyingLeg to be compared</param>
+        /// <param name="input">Instance of AssetLeg to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UnderlyingLeg input)
+        public bool Equals(AssetLeg input)
         {
             if (input == null)
             {
@@ -113,14 +113,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.Asset == input.Asset ||
+                    (this.Asset != null &&
+                    this.Asset.Equals(input.Asset))
+                ) && 
+                (
                     this.PayReceive == input.PayReceive ||
                     (this.PayReceive != null &&
                     this.PayReceive.Equals(input.PayReceive))
-                ) && 
-                (
-                    this.Underlying == input.Underlying ||
-                    (this.Underlying != null &&
-                    this.Underlying.Equals(input.Underlying))
                 );
         }
 
@@ -133,13 +133,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Asset != null)
+                {
+                    hashCode = (hashCode * 59) + this.Asset.GetHashCode();
+                }
                 if (this.PayReceive != null)
                 {
                     hashCode = (hashCode * 59) + this.PayReceive.GetHashCode();
-                }
-                if (this.Underlying != null)
-                {
-                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
                 }
                 return hashCode;
             }
