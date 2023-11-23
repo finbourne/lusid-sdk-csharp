@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Client
     internal class CustomJsonCodec : IRestSerializer, ISerializer, IDeserializer
     {
         private readonly IReadableConfiguration _configuration;
-        private static readonly string _contentType = "application/json";
+        private static readonly ContentType _contentType = ContentType.Json;
         private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
         {
             // OpenAPI generated types generally hide default constructors.
@@ -155,17 +155,18 @@ namespace Lusid.Sdk.Client
         public ISerializer Serializer => this;
         public IDeserializer Deserializer => this;
 
-        public string[] AcceptedContentTypes => RestSharp.Serializers.ContentType.JsonAccept;
+        public string[] AcceptedContentTypes => ContentType.JsonAccept;
 
         public SupportsContentType SupportsContentType => contentType =>
-            contentType.EndsWith("json", StringComparison.InvariantCultureIgnoreCase) ||
-            contentType.EndsWith("javascript", StringComparison.InvariantCultureIgnoreCase);
+            contentType.Value.EndsWith("json", StringComparison.InvariantCultureIgnoreCase) ||
+            contentType.Value.EndsWith("javascript", StringComparison.InvariantCultureIgnoreCase);
 
-        public string ContentType
+        public ContentType ContentType
         {
             get { return _contentType; }
             set { throw new InvalidOperationException("Not allowed to set content type."); }
         }
+
 
         public DataFormat DataFormat => DataFormat.Json;
     }
@@ -507,22 +508,23 @@ namespace Lusid.Sdk.Client
                 ConfigureMessageHandler = ConfigureMessageHandler
             };
 
-            RestClient client = new RestClient(clientOptions)
-                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
-
             if (!string.IsNullOrEmpty(configuration.OAuthTokenUrl) &&
                 !string.IsNullOrEmpty(configuration.OAuthClientId) &&
                 !string.IsNullOrEmpty(configuration.OAuthClientSecret) &&
                 configuration.OAuthFlow != null)
             {
-                client = client.UseAuthenticator(new OAuthAuthenticator(
+                clientOptions.Authenticator= new OAuthAuthenticator(
                     configuration.OAuthTokenUrl,
                     configuration.OAuthClientId,
                     configuration.OAuthClientSecret,
                     configuration.OAuthFlow,
                     SerializerSettings,
-                    configuration));
+                    configuration);
             }
+
+            RestClient client = new RestClient(clientOptions,
+                configureSerialization: s =>
+                    s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
 
             InterceptRequest(req);
 
@@ -531,9 +533,8 @@ namespace Lusid.Sdk.Client
             {
                 var policy = RetryConfiguration.RetryPolicy;
                 var policyResult = policy.ExecuteAndCapture(() => client.Execute(req));
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
+                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(req)
                 {
-                    Request = req,
                     ErrorException = policyResult.FinalException
                 };
             }
@@ -617,22 +618,23 @@ namespace Lusid.Sdk.Client
                 ConfigureMessageHandler = ConfigureMessageHandler
             };
 
-            RestClient client = new RestClient(clientOptions)
-                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
-
             if (!string.IsNullOrEmpty(configuration.OAuthTokenUrl) &&
                 !string.IsNullOrEmpty(configuration.OAuthClientId) &&
                 !string.IsNullOrEmpty(configuration.OAuthClientSecret) &&
                 configuration.OAuthFlow != null)
             {
-                client = client.UseAuthenticator(new OAuthAuthenticator(
+                clientOptions.Authenticator = new OAuthAuthenticator(
                     configuration.OAuthTokenUrl,
                     configuration.OAuthClientId,
                     configuration.OAuthClientSecret,
                     configuration.OAuthFlow,
                     SerializerSettings,
-                    configuration));
+                    configuration);
             }
+
+            RestClient client = new RestClient(clientOptions,
+                configureSerialization: s =>
+                    s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
 
             InterceptRequest(req);
 
@@ -641,9 +643,8 @@ namespace Lusid.Sdk.Client
             {
                 var policy = RetryConfiguration.AsyncRetryPolicy;
                 var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(req, ct), cancellationToken).ConfigureAwait(false);
-                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
+                response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>(req)
                 {
-                    Request = req,
                     ErrorException = policyResult.FinalException
                 };
             }

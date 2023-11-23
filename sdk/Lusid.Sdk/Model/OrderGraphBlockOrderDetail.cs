@@ -38,9 +38,10 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="complianceState">The compliance state of this order. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;. (required).</param>
+        /// <param name="approvalState">The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;. (required).</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="portfolioName">The name of the order&#39;s referenced Portfolio..</param>
-        public OrderGraphBlockOrderDetail(ResourceId id = default(ResourceId), string complianceState = default(string), ResourceId portfolioId = default(ResourceId), string portfolioName = default(string))
+        public OrderGraphBlockOrderDetail(ResourceId id = default(ResourceId), string complianceState = default(string), string approvalState = default(string), ResourceId portfolioId = default(ResourceId), string portfolioName = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -54,6 +55,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("complianceState is a required property for OrderGraphBlockOrderDetail and cannot be null");
             }
             this.ComplianceState = complianceState;
+            // to ensure "approvalState" is required (not null)
+            if (approvalState == null)
+            {
+                throw new ArgumentNullException("approvalState is a required property for OrderGraphBlockOrderDetail and cannot be null");
+            }
+            this.ApprovalState = approvalState;
             this.PortfolioId = portfolioId;
             this.PortfolioName = portfolioName;
         }
@@ -70,6 +77,13 @@ namespace Lusid.Sdk.Model
         /// <value>The compliance state of this order. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;.</value>
         [DataMember(Name = "complianceState", IsRequired = true, EmitDefaultValue = true)]
         public string ComplianceState { get; set; }
+
+        /// <summary>
+        /// The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;.
+        /// </summary>
+        /// <value>The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;.</value>
+        [DataMember(Name = "approvalState", IsRequired = true, EmitDefaultValue = true)]
+        public string ApprovalState { get; set; }
 
         /// <summary>
         /// Gets or Sets PortfolioId
@@ -94,6 +108,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class OrderGraphBlockOrderDetail {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ComplianceState: ").Append(ComplianceState).Append("\n");
+            sb.Append("  ApprovalState: ").Append(ApprovalState).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  PortfolioName: ").Append(PortfolioName).Append("\n");
             sb.Append("}\n");
@@ -142,6 +157,11 @@ namespace Lusid.Sdk.Model
                     this.ComplianceState.Equals(input.ComplianceState))
                 ) && 
                 (
+                    this.ApprovalState == input.ApprovalState ||
+                    (this.ApprovalState != null &&
+                    this.ApprovalState.Equals(input.ApprovalState))
+                ) && 
+                (
                     this.PortfolioId == input.PortfolioId ||
                     (this.PortfolioId != null &&
                     this.PortfolioId.Equals(input.PortfolioId))
@@ -170,6 +190,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ComplianceState.GetHashCode();
                 }
+                if (this.ApprovalState != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApprovalState.GetHashCode();
+                }
                 if (this.PortfolioId != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioId.GetHashCode();
@@ -193,6 +217,12 @@ namespace Lusid.Sdk.Model
             if (this.ComplianceState != null && this.ComplianceState.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ComplianceState, length must be greater than 1.", new [] { "ComplianceState" });
+            }
+
+            // ApprovalState (string) minLength
+            if (this.ApprovalState != null && this.ApprovalState.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApprovalState, length must be greater than 1.", new [] { "ApprovalState" });
             }
 
             yield break;

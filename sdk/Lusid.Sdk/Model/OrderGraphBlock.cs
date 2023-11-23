@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="allocated">allocated (required).</param>
         /// <param name="derivedState">A simple description of the overall state of a block. (required).</param>
         /// <param name="derivedComplianceState">The overall compliance state of a block, derived from the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;. (required).</param>
-        public OrderGraphBlock(Block block = default(Block), OrderGraphBlockOrderSynopsis ordered = default(OrderGraphBlockOrderSynopsis), OrderGraphBlockPlacementSynopsis placed = default(OrderGraphBlockPlacementSynopsis), OrderGraphBlockExecutionSynopsis executed = default(OrderGraphBlockExecutionSynopsis), OrderGraphBlockAllocationSynopsis allocated = default(OrderGraphBlockAllocationSynopsis), string derivedState = default(string), string derivedComplianceState = default(string))
+        /// <param name="derivedApprovalState">The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;. (required).</param>
+        public OrderGraphBlock(Block block = default(Block), OrderGraphBlockOrderSynopsis ordered = default(OrderGraphBlockOrderSynopsis), OrderGraphBlockPlacementSynopsis placed = default(OrderGraphBlockPlacementSynopsis), OrderGraphBlockExecutionSynopsis executed = default(OrderGraphBlockExecutionSynopsis), OrderGraphBlockAllocationSynopsis allocated = default(OrderGraphBlockAllocationSynopsis), string derivedState = default(string), string derivedComplianceState = default(string), string derivedApprovalState = default(string))
         {
             // to ensure "block" is required (not null)
             if (block == null)
@@ -87,6 +88,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("derivedComplianceState is a required property for OrderGraphBlock and cannot be null");
             }
             this.DerivedComplianceState = derivedComplianceState;
+            // to ensure "derivedApprovalState" is required (not null)
+            if (derivedApprovalState == null)
+            {
+                throw new ArgumentNullException("derivedApprovalState is a required property for OrderGraphBlock and cannot be null");
+            }
+            this.DerivedApprovalState = derivedApprovalState;
         }
 
         /// <summary>
@@ -134,6 +141,13 @@ namespace Lusid.Sdk.Model
         public string DerivedComplianceState { get; set; }
 
         /// <summary>
+        /// The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;.
+        /// </summary>
+        /// <value>The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;.</value>
+        [DataMember(Name = "derivedApprovalState", IsRequired = true, EmitDefaultValue = true)]
+        public string DerivedApprovalState { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +162,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Allocated: ").Append(Allocated).Append("\n");
             sb.Append("  DerivedState: ").Append(DerivedState).Append("\n");
             sb.Append("  DerivedComplianceState: ").Append(DerivedComplianceState).Append("\n");
+            sb.Append("  DerivedApprovalState: ").Append(DerivedApprovalState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -217,6 +232,11 @@ namespace Lusid.Sdk.Model
                     this.DerivedComplianceState == input.DerivedComplianceState ||
                     (this.DerivedComplianceState != null &&
                     this.DerivedComplianceState.Equals(input.DerivedComplianceState))
+                ) && 
+                (
+                    this.DerivedApprovalState == input.DerivedApprovalState ||
+                    (this.DerivedApprovalState != null &&
+                    this.DerivedApprovalState.Equals(input.DerivedApprovalState))
                 );
         }
 
@@ -257,6 +277,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DerivedComplianceState.GetHashCode();
                 }
+                if (this.DerivedApprovalState != null)
+                {
+                    hashCode = (hashCode * 59) + this.DerivedApprovalState.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -278,6 +302,12 @@ namespace Lusid.Sdk.Model
             if (this.DerivedComplianceState != null && this.DerivedComplianceState.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DerivedComplianceState, length must be greater than 1.", new [] { "DerivedComplianceState" });
+            }
+
+            // DerivedApprovalState (string) minLength
+            if (this.DerivedApprovalState != null && this.DerivedApprovalState.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DerivedApprovalState, length must be greater than 1.", new [] { "DerivedApprovalState" });
             }
 
             yield break;

@@ -106,8 +106,10 @@ namespace Lusid.Sdk.Model
         /// <param name="spread">Spread over floating rate given as a fraction..</param>
         /// <param name="stubType">StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
+        /// <param name="compounding">compounding.</param>
+        /// <param name="resetConvention">Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required).</param>
-        public FloatScheduleAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
+        public FloatScheduleAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
             this.ScheduleType = scheduleType;
             this.StartDate = startDate;
@@ -122,6 +124,8 @@ namespace Lusid.Sdk.Model
             this.Spread = spread;
             this.StubType = stubType;
             this.ExDividendConfiguration = exDividendConfiguration;
+            this.Compounding = compounding;
+            this.ResetConvention = resetConvention;
         }
 
         /// <summary>
@@ -204,6 +208,19 @@ namespace Lusid.Sdk.Model
         public ExDividendConfiguration ExDividendConfiguration { get; set; }
 
         /// <summary>
+        /// Gets or Sets Compounding
+        /// </summary>
+        [DataMember(Name = "compounding", EmitDefaultValue = false)]
+        public Compounding Compounding { get; set; }
+
+        /// <summary>
+        /// Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].
+        /// </summary>
+        /// <value>Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears].</value>
+        [DataMember(Name = "resetConvention", EmitDefaultValue = true)]
+        public string ResetConvention { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -223,6 +240,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Spread: ").Append(Spread).Append("\n");
             sb.Append("  StubType: ").Append(StubType).Append("\n");
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
+            sb.Append("  Compounding: ").Append(Compounding).Append("\n");
+            sb.Append("  ResetConvention: ").Append(ResetConvention).Append("\n");
             sb.Append("  ScheduleType: ").Append(ScheduleType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -318,6 +337,16 @@ namespace Lusid.Sdk.Model
                     this.ExDividendConfiguration.Equals(input.ExDividendConfiguration))
                 ) && 
                 (
+                    this.Compounding == input.Compounding ||
+                    (this.Compounding != null &&
+                    this.Compounding.Equals(input.Compounding))
+                ) && 
+                (
+                    this.ResetConvention == input.ResetConvention ||
+                    (this.ResetConvention != null &&
+                    this.ResetConvention.Equals(input.ResetConvention))
+                ) && 
+                (
                     this.ScheduleType == input.ScheduleType ||
                     this.ScheduleType.Equals(input.ScheduleType)
                 );
@@ -374,6 +403,14 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ExDividendConfiguration.GetHashCode();
                 }
+                if (this.Compounding != null)
+                {
+                    hashCode = (hashCode * 59) + this.Compounding.GetHashCode();
+                }
+                if (this.ResetConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResetConvention.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ScheduleType.GetHashCode();
                 return hashCode;
             }
@@ -386,6 +423,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ResetConvention (string) maxLength
+            if (this.ResetConvention != null && this.ResetConvention.Length > 16)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResetConvention, length must be less than 16.", new [] { "ResetConvention" });
+            }
+
+            // ResetConvention (string) minLength
+            if (this.ResetConvention != null && this.ResetConvention.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResetConvention, length must be greater than 0.", new [] { "ResetConvention" });
+            }
+
             yield break;
         }
     }

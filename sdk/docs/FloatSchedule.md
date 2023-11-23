@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **Spread** | **decimal** | Spread over floating rate given as a fraction. | [optional] 
 **StubType** | **string** | StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]. | [optional] 
 **ExDividendConfiguration** | [**ExDividendConfiguration**](ExDividendConfiguration.md) |  | [optional] 
+**Compounding** | [**Compounding**](Compounding.md) |  | [optional] 
+**ResetConvention** | **string** | Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

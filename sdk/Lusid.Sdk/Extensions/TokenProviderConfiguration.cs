@@ -35,11 +35,17 @@ namespace Lusid.Sdk.Extensions
             get => _tokenProvider.GetAuthenticationTokenAsync().Result;
             set => throw new InvalidOperationException("AccessToken is not assignable");
         }
+    }
 
+    /// <summary>
+    /// Configuation methods extensions.
+    /// </summary>
+    public static class ConfigurationExtensionMethods
+    {
         /// <summary>
         /// Merge configuration with the global config.
         /// </summary>
-        public void MergeWithGlobalConfiguration()
+        public static void MergeWithGlobalConfiguration(this Client.Configuration config)
         {
             var global = GlobalConfiguration.Instance;
 
@@ -47,26 +53,26 @@ namespace Lusid.Sdk.Extensions
             Dictionary<string, string> apiKeyPrefix = global.ApiKeyPrefix.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             Dictionary<string, string> defaultHeaders = global.DefaultHeaders.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-            foreach (var kvp in ApiKey) apiKey[kvp.Key] = kvp.Value;
-            foreach (var kvp in ApiKeyPrefix) apiKeyPrefix[kvp.Key] = kvp.Value;
-            foreach (var kvp in DefaultHeaders) defaultHeaders[kvp.Key] = kvp.Value;
+            foreach (var kvp in config.ApiKey) apiKey[kvp.Key] = kvp.Value;
+            foreach (var kvp in config.ApiKeyPrefix) apiKeyPrefix[kvp.Key] = kvp.Value;
+            foreach (var kvp in config.DefaultHeaders) defaultHeaders[kvp.Key] = kvp.Value;
 
-            ApiKey = apiKey;
-            ApiKeyPrefix = apiKeyPrefix;
-            DefaultHeaders = defaultHeaders;
-            BasePath = BasePath ?? global.BasePath;
-            Timeout = Timeout;
-            Proxy = Proxy ?? global.Proxy;
-            UserAgent = UserAgent ?? global.UserAgent;
-            Username = Username ?? global.Username;
-            Password = Password ?? global.Password;
-            OAuthTokenUrl = OAuthTokenUrl ?? global.OAuthTokenUrl;
-            OAuthClientId = OAuthClientId ?? global.OAuthClientId;
-            OAuthClientSecret = OAuthClientSecret ?? global.OAuthClientSecret;
-            OAuthFlow = OAuthFlow ?? global.OAuthFlow;
-            TempFolderPath = TempFolderPath ?? global.TempFolderPath;
-            DateTimeFormat = DateTimeFormat ?? global.DateTimeFormat;
-            ClientCertificates = ClientCertificates ?? global.ClientCertificates;
+            config.ApiKey = apiKey;
+            config.ApiKeyPrefix = apiKeyPrefix;
+            config.DefaultHeaders = defaultHeaders;
+            config.BasePath = config.BasePath ?? global.BasePath;
+            config.Timeout = config.Timeout;
+            config.Proxy = config.Proxy ?? global.Proxy;
+            config.UserAgent = config.UserAgent ?? global.UserAgent;
+            config.Username = config.Username ?? global.Username;
+            config.Password = config.Password ?? global.Password;
+            config.OAuthTokenUrl = config.OAuthTokenUrl ?? global.OAuthTokenUrl;
+            config.OAuthClientId = config.OAuthClientId ?? global.OAuthClientId;
+            config.OAuthClientSecret = config.OAuthClientSecret ?? global.OAuthClientSecret;
+            config.OAuthFlow = config.OAuthFlow ?? global.OAuthFlow;
+            config.TempFolderPath = config.TempFolderPath ?? global.TempFolderPath;
+            config.DateTimeFormat = config.DateTimeFormat ?? global.DateTimeFormat;
+            config.ClientCertificates = config.ClientCertificates ?? global.ClientCertificates;
         }
     }
 }
