@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="startDate">The first date on which the instrument could close.</param>
         /// <param name="endDate">The last date on which the instrument could close.</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent (required) (default to &quot;CloseEvent&quot;).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent (required) (default to &quot;CloseEvent&quot;).</param>
         public CloseEvent(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.StartDate = startDate;

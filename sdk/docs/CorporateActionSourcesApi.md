@@ -646,8 +646,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CorporateActionSourcesApi(config);
-            var scope = "scope_example";  // string | The scope of the portfolio.
-            var code = "code_example";  // string | The code of the portfolio.
+            var scope = "scope_example";  // string | The scope of the corporate action source.
+            var code = "code_example";  // string | The code of the corporate action source.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The AsAt date of the data. (optional) 
             var limit = 1000;  // int? | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. (optional)  (default to 1000)
             var page = "page_example";  // string? | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. (optional) 
@@ -694,8 +694,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | The scope of the portfolio. |  |
-| **code** | **string** | The code of the portfolio. |  |
+| **scope** | **string** | The scope of the corporate action source. |  |
+| **code** | **string** | The code of the corporate action source. |  |
 | **asAt** | **DateTimeOffset?** | Optional. The AsAt date of the data. | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 1000 is used. | [optional] [default to 1000] |
 | **page** | **string?** | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, asAt, filter and limit must not  be modified. | [optional]  |

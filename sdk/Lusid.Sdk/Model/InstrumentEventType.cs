@@ -117,7 +117,13 @@ namespace Lusid.Sdk.Model
         /// Enum BondCouponEvent for value: BondCouponEvent
         /// </summary>
         [EnumMember(Value = "BondCouponEvent")]
-        BondCouponEvent = 15
+        BondCouponEvent = 15,
+
+        /// <summary>
+        /// Enum DividendReinvestmentEvent for value: DividendReinvestmentEvent
+        /// </summary>
+        [EnumMember(Value = "DividendReinvestmentEvent")]
+        DividendReinvestmentEvent = 16
 
     }
 

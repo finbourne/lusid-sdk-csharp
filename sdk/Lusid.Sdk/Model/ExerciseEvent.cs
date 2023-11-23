@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrument">instrument (required).</param>
         /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
         /// <param name="anchorDate">The date the exercise window starts, or point it takes effect on. (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent (required) (default to &quot;ExerciseEvent&quot;).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent (required) (default to &quot;ExerciseEvent&quot;).</param>
         public ExerciseEvent(LusidInstrument instrument = default(LusidInstrument), string eventStatus = default(string), DateTimeOffset anchorDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "instrument" is required (not null)
