@@ -99,7 +99,8 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to this derived portfolio..</param>
         /// <param name="amortisationMethod">The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;..</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
-        public CreateDerivedTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), ResourceId parentPortfolioId = default(ResourceId), DateTimeOffset? created = default(DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string))
+        /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>
+        public CreateDerivedTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), ResourceId parentPortfolioId = default(ResourceId), DateTimeOffset? created = default(DateTimeOffset?), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -127,6 +128,7 @@ namespace Lusid.Sdk.Model
             this.InstrumentScopes = instrumentScopes;
             this.AmortisationMethod = amortisationMethod;
             this.TransactionTypeScope = transactionTypeScope;
+            this.CashGainLossCalculationDate = cashGainLossCalculationDate;
         }
 
         /// <summary>
@@ -198,6 +200,13 @@ namespace Lusid.Sdk.Model
         public string TransactionTypeScope { get; set; }
 
         /// <summary>
+        /// The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.
+        /// </summary>
+        /// <value>The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate.</value>
+        [DataMember(Name = "cashGainLossCalculationDate", EmitDefaultValue = true)]
+        public string CashGainLossCalculationDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -216,6 +225,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentScopes: ").Append(InstrumentScopes).Append("\n");
             sb.Append("  AmortisationMethod: ").Append(AmortisationMethod).Append("\n");
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
+            sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -306,6 +316,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionTypeScope == input.TransactionTypeScope ||
                     (this.TransactionTypeScope != null &&
                     this.TransactionTypeScope.Equals(input.TransactionTypeScope))
+                ) && 
+                (
+                    this.CashGainLossCalculationDate == input.CashGainLossCalculationDate ||
+                    (this.CashGainLossCalculationDate != null &&
+                    this.CashGainLossCalculationDate.Equals(input.CashGainLossCalculationDate))
                 );
         }
 
@@ -358,6 +373,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionTypeScope != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionTypeScope.GetHashCode();
+                }
+                if (this.CashGainLossCalculationDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.CashGainLossCalculationDate.GetHashCode();
                 }
                 return hashCode;
             }
