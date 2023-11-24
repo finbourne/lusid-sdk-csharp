@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="suppliers">suppliers.</param>
         /// <param name="options">options.</param>
         /// <param name="specificRules">Extends market data key rules to be able to catch dependencies depending on where the dependency comes from, as opposed to what the dependency is asking for.  Using two specific rules, one could instruct rates curves requested by bonds to be retrieved from a different scope than rates curves requested by swaps.  WARNING: The use of specific rules impacts performance. Where possible, one should use MarketDataKeyRules only..</param>
-        public MarketContext(List<MarketDataKeyRule> marketRules = default(List<MarketDataKeyRule>), MarketContextSuppliers suppliers = default(MarketContextSuppliers), MarketOptions options = default(MarketOptions), List<MarketDataSpecificRule> specificRules = default(List<MarketDataSpecificRule>))
+        /// <param name="groupedMarketRules">The list of groups of rules that will be used in market data resolution.  Rules given within a group will, if the group is being used to resolve data,  all be applied with the results of those individual resolution attempts combined into a single result.  The method for combining results is determined by the operation detailed in the GroupOfMarketDataKeyRules.                Notes:  - When resolving MarketData, MarketRules will be applied first followed by GroupedMarketRules  if data could not be found using only the MarketRules provided.  - GroupedMarketRules can only be used for resolving data from the QuoteStore.                Caution: As every rule in a given group will be applied in resolution if the group is applied,  groups are computationally expensive for market data resolution.  Therefore, heuristically, rule groups should be kept as small as possible..</param>
+        public MarketContext(List<MarketDataKeyRule> marketRules = default(List<MarketDataKeyRule>), MarketContextSuppliers suppliers = default(MarketContextSuppliers), MarketOptions options = default(MarketOptions), List<MarketDataSpecificRule> specificRules = default(List<MarketDataSpecificRule>), List<GroupOfMarketDataKeyRules> groupedMarketRules = default(List<GroupOfMarketDataKeyRules>))
         {
             this.MarketRules = marketRules;
             this.Suppliers = suppliers;
             this.Options = options;
             this.SpecificRules = specificRules;
+            this.GroupedMarketRules = groupedMarketRules;
         }
 
         /// <summary>
@@ -70,6 +72,13 @@ namespace Lusid.Sdk.Model
         public List<MarketDataSpecificRule> SpecificRules { get; set; }
 
         /// <summary>
+        /// The list of groups of rules that will be used in market data resolution.  Rules given within a group will, if the group is being used to resolve data,  all be applied with the results of those individual resolution attempts combined into a single result.  The method for combining results is determined by the operation detailed in the GroupOfMarketDataKeyRules.                Notes:  - When resolving MarketData, MarketRules will be applied first followed by GroupedMarketRules  if data could not be found using only the MarketRules provided.  - GroupedMarketRules can only be used for resolving data from the QuoteStore.                Caution: As every rule in a given group will be applied in resolution if the group is applied,  groups are computationally expensive for market data resolution.  Therefore, heuristically, rule groups should be kept as small as possible.
+        /// </summary>
+        /// <value>The list of groups of rules that will be used in market data resolution.  Rules given within a group will, if the group is being used to resolve data,  all be applied with the results of those individual resolution attempts combined into a single result.  The method for combining results is determined by the operation detailed in the GroupOfMarketDataKeyRules.                Notes:  - When resolving MarketData, MarketRules will be applied first followed by GroupedMarketRules  if data could not be found using only the MarketRules provided.  - GroupedMarketRules can only be used for resolving data from the QuoteStore.                Caution: As every rule in a given group will be applied in resolution if the group is applied,  groups are computationally expensive for market data resolution.  Therefore, heuristically, rule groups should be kept as small as possible.</value>
+        [DataMember(Name = "groupedMarketRules", EmitDefaultValue = true)]
+        public List<GroupOfMarketDataKeyRules> GroupedMarketRules { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +90,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Suppliers: ").Append(Suppliers).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  SpecificRules: ").Append(SpecificRules).Append("\n");
+            sb.Append("  GroupedMarketRules: ").Append(GroupedMarketRules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +147,12 @@ namespace Lusid.Sdk.Model
                     this.SpecificRules != null &&
                     input.SpecificRules != null &&
                     this.SpecificRules.SequenceEqual(input.SpecificRules)
+                ) && 
+                (
+                    this.GroupedMarketRules == input.GroupedMarketRules ||
+                    this.GroupedMarketRules != null &&
+                    input.GroupedMarketRules != null &&
+                    this.GroupedMarketRules.SequenceEqual(input.GroupedMarketRules)
                 );
         }
 
@@ -164,6 +180,10 @@ namespace Lusid.Sdk.Model
                 if (this.SpecificRules != null)
                 {
                     hashCode = (hashCode * 59) + this.SpecificRules.GetHashCode();
+                }
+                if (this.GroupedMarketRules != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupedMarketRules.GetHashCode();
                 }
                 return hashCode;
             }
