@@ -6,7 +6,7 @@ This is the C# SDK for [LUSID by FINBOURNE](https://www.finbourne.com/lusid-tech
 
 ## Installation
 
-The NuGet package for the LUSID SDK can installed from https://www.nuget.org/packages/Lusid.Sdk using the following:
+The NuGet package for the LUSID SDK can be installed from https://www.nuget.org/packages/Lusid.Sdk using the following:
 
 ```
 $ dotnet add package Lusid.Sdk 
