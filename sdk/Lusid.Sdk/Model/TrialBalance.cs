@@ -44,8 +44,9 @@ namespace Lusid.Sdk.Model
         /// <param name="closing">The closing balance at the end of the period (required).</param>
         /// <param name="debit">All debits that occured in the period (required).</param>
         /// <param name="credit">All credits that occured in the period (required).</param>
+        /// <param name="properties">Properties found on the mapped &#39;Account&#39;, as specified in request.</param>
         /// <param name="links">links.</param>
-        public TrialBalance(string generalLedgerAccountCode = default(string), string description = default(string), List<string> levels = default(List<string>), string accountType = default(string), decimal opening = default(decimal), decimal closing = default(decimal), decimal debit = default(decimal), decimal credit = default(decimal), List<Link> links = default(List<Link>))
+        public TrialBalance(string generalLedgerAccountCode = default(string), string description = default(string), List<string> levels = default(List<string>), string accountType = default(string), decimal opening = default(decimal), decimal closing = default(decimal), decimal debit = default(decimal), decimal credit = default(decimal), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "generalLedgerAccountCode" is required (not null)
             if (generalLedgerAccountCode == null)
@@ -70,6 +71,7 @@ namespace Lusid.Sdk.Model
             this.Debit = debit;
             this.Credit = credit;
             this.Description = description;
+            this.Properties = properties;
             this.Links = links;
         }
 
@@ -130,6 +132,13 @@ namespace Lusid.Sdk.Model
         public decimal Credit { get; set; }
 
         /// <summary>
+        /// Properties found on the mapped &#39;Account&#39;, as specified in request
+        /// </summary>
+        /// <value>Properties found on the mapped &#39;Account&#39;, as specified in request</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, Property> Properties { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -151,6 +160,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Closing: ").Append(Closing).Append("\n");
             sb.Append("  Debit: ").Append(Debit).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -225,6 +235,12 @@ namespace Lusid.Sdk.Model
                     this.Credit.Equals(input.Credit)
                 ) && 
                 (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -261,6 +277,10 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.Closing.GetHashCode();
                 hashCode = (hashCode * 59) + this.Debit.GetHashCode();
                 hashCode = (hashCode * 59) + this.Credit.GetHashCode();
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
                 if (this.Links != null)
                 {
                     hashCode = (hashCode * 59) + this.Links.GetHashCode();

@@ -35,12 +35,14 @@ namespace Lusid.Sdk.Model
         /// <param name="end">end.</param>
         /// <param name="dateMode">The mode of calculation of the journal entry lines. The available values are: ActivityDate..</param>
         /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels..</param>
-        public TrialBalanceQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string))
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines..</param>
+        public TrialBalanceQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>))
         {
             this.Start = start;
             this.End = end;
             this.DateMode = dateMode;
             this.GeneralLedgerProfileCode = generalLedgerProfileCode;
+            this.PropertyKeys = propertyKeys;
         }
 
         /// <summary>
@@ -70,6 +72,13 @@ namespace Lusid.Sdk.Model
         public string GeneralLedgerProfileCode { get; set; }
 
         /// <summary>
+        /// A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines.
+        /// </summary>
+        /// <value>A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines.</value>
+        [DataMember(Name = "propertyKeys", EmitDefaultValue = true)]
+        public List<string> PropertyKeys { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +90,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  End: ").Append(End).Append("\n");
             sb.Append("  DateMode: ").Append(DateMode).Append("\n");
             sb.Append("  GeneralLedgerProfileCode: ").Append(GeneralLedgerProfileCode).Append("\n");
+            sb.Append("  PropertyKeys: ").Append(PropertyKeys).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +145,12 @@ namespace Lusid.Sdk.Model
                     this.GeneralLedgerProfileCode == input.GeneralLedgerProfileCode ||
                     (this.GeneralLedgerProfileCode != null &&
                     this.GeneralLedgerProfileCode.Equals(input.GeneralLedgerProfileCode))
+                ) && 
+                (
+                    this.PropertyKeys == input.PropertyKeys ||
+                    this.PropertyKeys != null &&
+                    input.PropertyKeys != null &&
+                    this.PropertyKeys.SequenceEqual(input.PropertyKeys)
                 );
         }
 
@@ -162,6 +178,10 @@ namespace Lusid.Sdk.Model
                 if (this.GeneralLedgerProfileCode != null)
                 {
                     hashCode = (hashCode * 59) + this.GeneralLedgerProfileCode.GetHashCode();
+                }
+                if (this.PropertyKeys != null)
+                {
+                    hashCode = (hashCode * 59) + this.PropertyKeys.GetHashCode();
                 }
                 return hashCode;
             }

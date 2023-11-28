@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of the instrument event..</param>
         /// <param name="instrumentEvent">instrumentEvent (required).</param>
         /// <param name="properties">The properties attached to this instrument event..</param>
-        public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>))
+        /// <param name="sequenceNumber">The order of the instrument event relative others on the same date (0 being processed first). Must be non negative..</param>
+        public UpsertInstrumentEventRequest(string instrumentEventId = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string description = default(string), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int))
         {
             // to ensure "instrumentEventId" is required (not null)
             if (instrumentEventId == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.InstrumentEvent = instrumentEvent;
             this.Description = description;
             this.Properties = properties;
+            this.SequenceNumber = sequenceNumber;
         }
 
         /// <summary>
@@ -100,6 +102,13 @@ namespace Lusid.Sdk.Model
         public List<PerpetualProperty> Properties { get; set; }
 
         /// <summary>
+        /// The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.
+        /// </summary>
+        /// <value>The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.</value>
+        [DataMember(Name = "sequenceNumber", EmitDefaultValue = false)]
+        public int SequenceNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  InstrumentEvent: ").Append(InstrumentEvent).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +183,10 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.SequenceNumber == input.SequenceNumber ||
+                    this.SequenceNumber.Equals(input.SequenceNumber)
                 );
         }
 
@@ -205,6 +219,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.SequenceNumber.GetHashCode();
                 return hashCode;
             }
         }
