@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **EconomicBucket** | **string** | Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. | 
 **Levels** | **List&lt;string&gt;** | Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body. | [optional] 
 **SourceLevels** | **List&lt;string&gt;** | Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body. | [optional] 
+**MovementSign** | **string** | Indicates if the Journal Entry Line corresponds to a Long or Short movement. | [optional] 
+**HoldingSign** | **string** | Indicates if the Journal Entry Line is operating against a Long or Short holding. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

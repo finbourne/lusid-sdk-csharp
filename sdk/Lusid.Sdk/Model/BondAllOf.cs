@@ -281,8 +281,9 @@ namespace Lusid.Sdk.Model
         /// <param name="calculationType">The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon]..</param>
         /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
+        /// <param name="originalIssuePrice">The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required).</param>
-        public BondAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), FlowConventions flowConventions = default(FlowConventions), decimal principal = default(decimal), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), int? exDividendDays = default(int?), DateTimeOffset? initialCouponDate = default(DateTimeOffset?), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), string calculationType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public BondAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), FlowConventions flowConventions = default(FlowConventions), decimal principal = default(decimal), decimal couponRate = default(decimal), Dictionary<string, string> identifiers = default(Dictionary<string, string>), int? exDividendDays = default(int?), DateTimeOffset? initialCouponDate = default(DateTimeOffset?), DateTimeOffset? firstCouponPayDate = default(DateTimeOffset?), string calculationType = default(string), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), decimal? originalIssuePrice = default(decimal?), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -308,6 +309,7 @@ namespace Lusid.Sdk.Model
             this.CalculationType = calculationType;
             this.RoundingConventions = roundingConventions;
             this.ExDividendConfiguration = exDividendConfiguration;
+            this.OriginalIssuePrice = originalIssuePrice;
         }
 
         /// <summary>
@@ -400,6 +402,13 @@ namespace Lusid.Sdk.Model
         public ExDividendConfiguration ExDividendConfiguration { get; set; }
 
         /// <summary>
+        /// The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.
+        /// </summary>
+        /// <value>The price the bond was issued at. This is to be entered as a percentage of par, for example a value of 98.5 would represent 98.5%.</value>
+        [DataMember(Name = "originalIssuePrice", EmitDefaultValue = true)]
+        public decimal? OriginalIssuePrice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -420,6 +429,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
             sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
             sb.Append("  ExDividendConfiguration: ").Append(ExDividendConfiguration).Append("\n");
+            sb.Append("  OriginalIssuePrice: ").Append(OriginalIssuePrice).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -522,6 +532,11 @@ namespace Lusid.Sdk.Model
                     this.ExDividendConfiguration.Equals(input.ExDividendConfiguration))
                 ) && 
                 (
+                    this.OriginalIssuePrice == input.OriginalIssuePrice ||
+                    (this.OriginalIssuePrice != null &&
+                    this.OriginalIssuePrice.Equals(input.OriginalIssuePrice))
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -581,6 +596,10 @@ namespace Lusid.Sdk.Model
                 if (this.ExDividendConfiguration != null)
                 {
                     hashCode = (hashCode * 59) + this.ExDividendConfiguration.GetHashCode();
+                }
+                if (this.OriginalIssuePrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginalIssuePrice.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
