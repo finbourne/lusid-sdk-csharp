@@ -205,7 +205,7 @@ catch (ApiException e)
 
 <a id="getvaluetypes"></a>
 # **GetValueTypes**
-> ResourceListOfValueType GetValueTypes (List<string>? sortBy = null, int? start = null, int? limit = null)
+> ResourceListOfValueType GetValueTypes (List<string>? sortBy = null, int? limit = null)
 
 [EARLY ACCESS] GetValueTypes: Get value types
 
@@ -232,13 +232,12 @@ namespace Example
 
             var apiInstance = new SchemasApi(config);
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
 
             try
             {
                 // [EARLY ACCESS] GetValueTypes: Get value types
-                ResourceListOfValueType result = apiInstance.GetValueTypes(sortBy, start, limit);
+                ResourceListOfValueType result = apiInstance.GetValueTypes(sortBy, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -259,7 +258,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetValueTypes: Get value types
-    ApiResponse<ResourceListOfValueType> response = apiInstance.GetValueTypesWithHttpInfo(sortBy, start, limit);
+    ApiResponse<ResourceListOfValueType> response = apiInstance.GetValueTypesWithHttpInfo(sortBy, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -277,7 +276,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
-| **start** | **int?** | Optional. When paginating, skip this number of results | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 
 ### Return type

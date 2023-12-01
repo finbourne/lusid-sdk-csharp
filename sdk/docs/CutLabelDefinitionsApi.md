@@ -302,7 +302,7 @@ catch (ApiException e)
 
 <a id="listcutlabeldefinitions"></a>
 # **ListCutLabelDefinitions**
-> PagedResourceListOfCutLabelDefinition ListCutLabelDefinitions (DateTimeOffset? asAt = null, List<string>? sortBy = null, int? start = null, int? limit = null, string? filter = null, string? page = null)
+> PagedResourceListOfCutLabelDefinition ListCutLabelDefinitions (DateTimeOffset? asAt = null, List<string>? sortBy = null, int? limit = null, string? filter = null, string? page = null)
 
 ListCutLabelDefinitions: List Existing Cut Labels
 
@@ -330,15 +330,14 @@ namespace Example
             var apiInstance = new CutLabelDefinitionsApi(config);
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Optional. The As At time at which listed Cut Labels are valid (optional) 
             var sortBy = new List<string>?(); // List<string>? | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var filter = "filter_example";  // string? | Optional. Expression to filter the result set.              For example, to filter on code, use \"code eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.  If a pagination token is provided the sortBy, filter, and asAt fields  must not have changed since the original request. Also, if set, a start value cannot be provided. (optional) 
+            var page = "page_example";  // string? | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.  If a pagination token is provided the sortBy, filter, and asAt fields  must not have changed since the original request. (optional) 
 
             try
             {
                 // ListCutLabelDefinitions: List Existing Cut Labels
-                PagedResourceListOfCutLabelDefinition result = apiInstance.ListCutLabelDefinitions(asAt, sortBy, start, limit, filter, page);
+                PagedResourceListOfCutLabelDefinition result = apiInstance.ListCutLabelDefinitions(asAt, sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -359,7 +358,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListCutLabelDefinitions: List Existing Cut Labels
-    ApiResponse<PagedResourceListOfCutLabelDefinition> response = apiInstance.ListCutLabelDefinitionsWithHttpInfo(asAt, sortBy, start, limit, filter, page);
+    ApiResponse<PagedResourceListOfCutLabelDefinition> response = apiInstance.ListCutLabelDefinitionsWithHttpInfo(asAt, sortBy, limit, filter, page);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -378,10 +377,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | Optional. The As At time at which listed Cut Labels are valid | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional]  |
-| **start** | **int?** | Optional. When paginating, skip this number of results | [optional]  |
 | **limit** | **int?** | Optional. When paginating, limit the number of returned results to this many. | [optional]  |
 | **filter** | **string?** | Optional. Expression to filter the result set.              For example, to filter on code, use \&quot;code eq &#39;string&#39;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.  If a pagination token is provided the sortBy, filter, and asAt fields  must not have changed since the original request. Also, if set, a start value cannot be provided. | [optional]  |
+| **page** | **string?** | The pagination token to use to continue listing cut labels from a previous call This value is returned from the previous call.  If a pagination token is provided the sortBy, filter, and asAt fields  must not have changed since the original request. | [optional]  |
 
 ### Return type
 
