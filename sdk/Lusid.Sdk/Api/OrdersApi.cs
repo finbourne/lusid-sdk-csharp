@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetOrder: Get Order
         /// </summary>
         /// <remarks>
-        /// Fetch an Order that matches the specified identifier
+        /// Fetch an Order that matches the specified identifier.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetOrder: Get Order
         /// </summary>
         /// <remarks>
-        /// Fetch an Order that matches the specified identifier
+        /// Fetch an Order that matches the specified identifier.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListOrders: List Orders
         /// </summary>
         /// <remarks>
-        /// Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -100,7 +100,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListOrders: List Orders
         /// </summary>
         /// <remarks>
-        /// Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -176,7 +176,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetOrder: Get Order
         /// </summary>
         /// <remarks>
-        /// Fetch an Order that matches the specified identifier
+        /// Fetch an Order that matches the specified identifier.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -192,7 +192,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] GetOrder: Get Order
         /// </summary>
         /// <remarks>
-        /// Fetch an Order that matches the specified identifier
+        /// Fetch an Order that matches the specified identifier.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -207,7 +207,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListOrders: List Orders
         /// </summary>
         /// <remarks>
-        /// Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -226,7 +226,7 @@ namespace Lusid.Sdk.Api
         /// [EARLY ACCESS] ListOrders: List Orders
         /// </summary>
         /// <remarks>
-        /// Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -581,7 +581,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier
+        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -597,7 +597,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier
+        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -690,7 +690,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier
+        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -707,7 +707,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier
+        /// [EARLY ACCESS] GetOrder: Get Order Fetch an Order that matches the specified identifier.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to which the order belongs.</param>
@@ -803,7 +803,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -822,7 +822,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -924,7 +924,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -944,7 +944,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order in scope (does not fetch the entire history).
+        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>

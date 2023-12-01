@@ -621,7 +621,7 @@ catch (ApiException e)
 
 <a id="upserttranslationdialect"></a>
 # **UpsertTranslationDialect**
-> Dialect UpsertTranslationDialect (Dialect dialect)
+> Dialect UpsertTranslationDialect (UpsertDialectRequest upsertDialectRequest)
 
 [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
 
@@ -647,12 +647,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ScriptedTranslationApi(config);
-            var dialect = new Dialect(); // Dialect | The dialect to upsert.
+            var upsertDialectRequest = new UpsertDialectRequest(); // UpsertDialectRequest | The dialect to upsert.
 
             try
             {
                 // [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
-                Dialect result = apiInstance.UpsertTranslationDialect(dialect);
+                Dialect result = apiInstance.UpsertTranslationDialect(upsertDialectRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -673,7 +673,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] UpsertTranslationDialect: Upsert a Dialect.
-    ApiResponse<Dialect> response = apiInstance.UpsertTranslationDialectWithHttpInfo(dialect);
+    ApiResponse<Dialect> response = apiInstance.UpsertTranslationDialectWithHttpInfo(upsertDialectRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -690,7 +690,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **dialect** | [**Dialect**](Dialect.md) | The dialect to upsert. |  |
+| **upsertDialectRequest** | [**UpsertDialectRequest**](UpsertDialectRequest.md) | The dialect to upsert. |  |
 
 ### Return type
 
@@ -717,7 +717,7 @@ catch (ApiException e)
 
 <a id="upserttranslationscript"></a>
 # **UpsertTranslationScript**
-> TranslationScript UpsertTranslationScript (TranslationScript translationScript)
+> TranslationScript UpsertTranslationScript (UpsertTranslationScriptRequest upsertTranslationScriptRequest)
 
 [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
 
@@ -743,12 +743,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ScriptedTranslationApi(config);
-            var translationScript = new TranslationScript(); // TranslationScript | The translation script to be upserted.
+            var upsertTranslationScriptRequest = new UpsertTranslationScriptRequest(); // UpsertTranslationScriptRequest | The translation script to be upserted.
 
             try
             {
                 // [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
-                TranslationScript result = apiInstance.UpsertTranslationScript(translationScript);
+                TranslationScript result = apiInstance.UpsertTranslationScript(upsertTranslationScriptRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -769,7 +769,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] UpsertTranslationScript: Upsert a translation script.
-    ApiResponse<TranslationScript> response = apiInstance.UpsertTranslationScriptWithHttpInfo(translationScript);
+    ApiResponse<TranslationScript> response = apiInstance.UpsertTranslationScriptWithHttpInfo(upsertTranslationScriptRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -786,7 +786,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **translationScript** | [**TranslationScript**](TranslationScript.md) | The translation script to be upserted. |  |
+| **upsertTranslationScriptRequest** | [**UpsertTranslationScriptRequest**](UpsertTranslationScriptRequest.md) | The translation script to be upserted. |  |
 
 ### Return type
 

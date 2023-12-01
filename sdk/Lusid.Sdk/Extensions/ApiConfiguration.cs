@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace Lusid.Sdk.Extensions
 {
@@ -42,6 +43,7 @@ namespace Lusid.Sdk.Extensions
         /// <summary>
         /// Lusid Api Url
         /// </summary>
+        [ConfigurationKeyName("lusidUrl")]
         public string BaseUrl { get; set; }
 
         /// <summary>

@@ -36,10 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplianceRuleBreakdown" /> class.
         /// </summary>
-        /// <param name="groupStatus">groupStatus (required).</param>
-        /// <param name="resultsUsed">resultsUsed (required).</param>
-        /// <param name="propertiesUsed">propertiesUsed (required).</param>
-        /// <param name="missingDataInformation">missingDataInformation (required).</param>
+        /// <param name="groupStatus">The status of this subset of results. (required).</param>
+        /// <param name="resultsUsed">Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. (required).</param>
+        /// <param name="propertiesUsed">Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule (required).</param>
+        /// <param name="missingDataInformation">List of string information detailing data that was missing from contributions processed in this rule (required).</param>
         public ComplianceRuleBreakdown(string groupStatus = default(string), Dictionary<string, decimal> resultsUsed = default(Dictionary<string, decimal>), Dictionary<string, List<Property>> propertiesUsed = default(Dictionary<string, List<Property>>), List<string> missingDataInformation = default(List<string>))
         {
             // to ensure "groupStatus" is required (not null)
@@ -69,26 +69,30 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets GroupStatus
+        /// The status of this subset of results.
         /// </summary>
+        /// <value>The status of this subset of results.</value>
         [DataMember(Name = "groupStatus", IsRequired = true, EmitDefaultValue = true)]
         public string GroupStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets ResultsUsed
+        /// Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule.
         /// </summary>
+        /// <value>Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule.</value>
         [DataMember(Name = "resultsUsed", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, decimal> ResultsUsed { get; set; }
 
         /// <summary>
-        /// Gets or Sets PropertiesUsed
+        /// Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule
         /// </summary>
+        /// <value>Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule</value>
         [DataMember(Name = "propertiesUsed", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, List<Property>> PropertiesUsed { get; set; }
 
         /// <summary>
-        /// Gets or Sets MissingDataInformation
+        /// List of string information detailing data that was missing from contributions processed in this rule
         /// </summary>
+        /// <value>List of string information detailing data that was missing from contributions processed in this rule</value>
         [DataMember(Name = "missingDataInformation", IsRequired = true, EmitDefaultValue = true)]
         public List<string> MissingDataInformation { get; set; }
 
