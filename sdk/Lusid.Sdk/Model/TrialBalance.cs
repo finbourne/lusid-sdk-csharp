@@ -40,13 +40,14 @@ namespace Lusid.Sdk.Model
         /// <param name="description">The description of the record.</param>
         /// <param name="levels">The levels that have been derived from the specified General Ledger Profile (required).</param>
         /// <param name="accountType">The account type attributed to the record (required).</param>
-        /// <param name="opening">The opening balance at the start of the period (required).</param>
-        /// <param name="closing">The closing balance at the end of the period (required).</param>
-        /// <param name="debit">All debits that occured in the period (required).</param>
-        /// <param name="credit">All credits that occured in the period (required).</param>
+        /// <param name="localCurrency">The account type attributed to the record (required).</param>
+        /// <param name="opening">opening (required).</param>
+        /// <param name="closing">closing (required).</param>
+        /// <param name="debit">debit (required).</param>
+        /// <param name="credit">credit (required).</param>
         /// <param name="properties">Properties found on the mapped &#39;Account&#39;, as specified in request.</param>
         /// <param name="links">links.</param>
-        public TrialBalance(string generalLedgerAccountCode = default(string), string description = default(string), List<string> levels = default(List<string>), string accountType = default(string), decimal opening = default(decimal), decimal closing = default(decimal), decimal debit = default(decimal), decimal credit = default(decimal), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
+        public TrialBalance(string generalLedgerAccountCode = default(string), string description = default(string), List<string> levels = default(List<string>), string accountType = default(string), string localCurrency = default(string), MultiCurrencyAmounts opening = default(MultiCurrencyAmounts), MultiCurrencyAmounts closing = default(MultiCurrencyAmounts), MultiCurrencyAmounts debit = default(MultiCurrencyAmounts), MultiCurrencyAmounts credit = default(MultiCurrencyAmounts), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Link> links = default(List<Link>))
         {
             // to ensure "generalLedgerAccountCode" is required (not null)
             if (generalLedgerAccountCode == null)
@@ -66,9 +67,35 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("accountType is a required property for TrialBalance and cannot be null");
             }
             this.AccountType = accountType;
+            // to ensure "localCurrency" is required (not null)
+            if (localCurrency == null)
+            {
+                throw new ArgumentNullException("localCurrency is a required property for TrialBalance and cannot be null");
+            }
+            this.LocalCurrency = localCurrency;
+            // to ensure "opening" is required (not null)
+            if (opening == null)
+            {
+                throw new ArgumentNullException("opening is a required property for TrialBalance and cannot be null");
+            }
             this.Opening = opening;
+            // to ensure "closing" is required (not null)
+            if (closing == null)
+            {
+                throw new ArgumentNullException("closing is a required property for TrialBalance and cannot be null");
+            }
             this.Closing = closing;
+            // to ensure "debit" is required (not null)
+            if (debit == null)
+            {
+                throw new ArgumentNullException("debit is a required property for TrialBalance and cannot be null");
+            }
             this.Debit = debit;
+            // to ensure "credit" is required (not null)
+            if (credit == null)
+            {
+                throw new ArgumentNullException("credit is a required property for TrialBalance and cannot be null");
+            }
             this.Credit = credit;
             this.Description = description;
             this.Properties = properties;
@@ -104,32 +131,35 @@ namespace Lusid.Sdk.Model
         public string AccountType { get; set; }
 
         /// <summary>
-        /// The opening balance at the start of the period
+        /// The account type attributed to the record
         /// </summary>
-        /// <value>The opening balance at the start of the period</value>
+        /// <value>The account type attributed to the record</value>
+        [DataMember(Name = "localCurrency", IsRequired = true, EmitDefaultValue = true)]
+        public string LocalCurrency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Opening
+        /// </summary>
         [DataMember(Name = "opening", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Opening { get; set; }
+        public MultiCurrencyAmounts Opening { get; set; }
 
         /// <summary>
-        /// The closing balance at the end of the period
+        /// Gets or Sets Closing
         /// </summary>
-        /// <value>The closing balance at the end of the period</value>
         [DataMember(Name = "closing", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Closing { get; set; }
+        public MultiCurrencyAmounts Closing { get; set; }
 
         /// <summary>
-        /// All debits that occured in the period
+        /// Gets or Sets Debit
         /// </summary>
-        /// <value>All debits that occured in the period</value>
         [DataMember(Name = "debit", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Debit { get; set; }
+        public MultiCurrencyAmounts Debit { get; set; }
 
         /// <summary>
-        /// All credits that occured in the period
+        /// Gets or Sets Credit
         /// </summary>
-        /// <value>All credits that occured in the period</value>
         [DataMember(Name = "credit", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Credit { get; set; }
+        public MultiCurrencyAmounts Credit { get; set; }
 
         /// <summary>
         /// Properties found on the mapped &#39;Account&#39;, as specified in request
@@ -156,6 +186,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Levels: ").Append(Levels).Append("\n");
             sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            sb.Append("  LocalCurrency: ").Append(LocalCurrency).Append("\n");
             sb.Append("  Opening: ").Append(Opening).Append("\n");
             sb.Append("  Closing: ").Append(Closing).Append("\n");
             sb.Append("  Debit: ").Append(Debit).Append("\n");
@@ -219,20 +250,29 @@ namespace Lusid.Sdk.Model
                     this.AccountType.Equals(input.AccountType))
                 ) && 
                 (
+                    this.LocalCurrency == input.LocalCurrency ||
+                    (this.LocalCurrency != null &&
+                    this.LocalCurrency.Equals(input.LocalCurrency))
+                ) && 
+                (
                     this.Opening == input.Opening ||
-                    this.Opening.Equals(input.Opening)
+                    (this.Opening != null &&
+                    this.Opening.Equals(input.Opening))
                 ) && 
                 (
                     this.Closing == input.Closing ||
-                    this.Closing.Equals(input.Closing)
+                    (this.Closing != null &&
+                    this.Closing.Equals(input.Closing))
                 ) && 
                 (
                     this.Debit == input.Debit ||
-                    this.Debit.Equals(input.Debit)
+                    (this.Debit != null &&
+                    this.Debit.Equals(input.Debit))
                 ) && 
                 (
                     this.Credit == input.Credit ||
-                    this.Credit.Equals(input.Credit)
+                    (this.Credit != null &&
+                    this.Credit.Equals(input.Credit))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -273,10 +313,26 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AccountType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Opening.GetHashCode();
-                hashCode = (hashCode * 59) + this.Closing.GetHashCode();
-                hashCode = (hashCode * 59) + this.Debit.GetHashCode();
-                hashCode = (hashCode * 59) + this.Credit.GetHashCode();
+                if (this.LocalCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.LocalCurrency.GetHashCode();
+                }
+                if (this.Opening != null)
+                {
+                    hashCode = (hashCode * 59) + this.Opening.GetHashCode();
+                }
+                if (this.Closing != null)
+                {
+                    hashCode = (hashCode * 59) + this.Closing.GetHashCode();
+                }
+                if (this.Debit != null)
+                {
+                    hashCode = (hashCode * 59) + this.Debit.GetHashCode();
+                }
+                if (this.Credit != null)
+                {
+                    hashCode = (hashCode * 59) + this.Credit.GetHashCode();
+                }
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
@@ -306,6 +362,12 @@ namespace Lusid.Sdk.Model
             if (this.AccountType != null && this.AccountType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountType, length must be greater than 1.", new [] { "AccountType" });
+            }
+
+            // LocalCurrency (string) minLength
+            if (this.LocalCurrency != null && this.LocalCurrency.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LocalCurrency, length must be greater than 1.", new [] { "LocalCurrency" });
             }
 
             yield break;
