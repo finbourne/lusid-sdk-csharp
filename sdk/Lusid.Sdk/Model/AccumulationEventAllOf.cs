@@ -17,35 +17,16 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// Base class for representing instrument events in LUSID, such as dividends, stock splits, and option exercises.  This base class should not be directly instantiated; each supported InstrumentEventType has a corresponding inherited class.
+    /// AccumulationEventAllOf
     /// </summary>
-    [DataContract(Name = "InstrumentEvent")]
-    [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    [JsonSubtypes.KnownSubType(typeof(AccumulationEvent), "AccumulationEvent")]
-    [JsonSubtypes.KnownSubType(typeof(AmortisationEvent), "AmortisationEvent")]
-    [JsonSubtypes.KnownSubType(typeof(BondCouponEvent), "BondCouponEvent")]
-    [JsonSubtypes.KnownSubType(typeof(BondDefaultEvent), "BondDefaultEvent")]
-    [JsonSubtypes.KnownSubType(typeof(CashDividendEvent), "CashDividendEvent")]
-    [JsonSubtypes.KnownSubType(typeof(CashFlowEvent), "CashFlowEvent")]
-    [JsonSubtypes.KnownSubType(typeof(CloseEvent), "CloseEvent")]
-    [JsonSubtypes.KnownSubType(typeof(DividendReinvestmentEvent), "DividendReinvestmentEvent")]
-    [JsonSubtypes.KnownSubType(typeof(ExerciseEvent), "ExerciseEvent")]
-    [JsonSubtypes.KnownSubType(typeof(InformationalErrorEvent), "InformationalErrorEvent")]
-    [JsonSubtypes.KnownSubType(typeof(InformationalEvent), "InformationalEvent")]
-    [JsonSubtypes.KnownSubType(typeof(OpenEvent), "OpenEvent")]
-    [JsonSubtypes.KnownSubType(typeof(RawVendorEvent), "RawVendorEvent")]
-    [JsonSubtypes.KnownSubType(typeof(ResetEvent), "ResetEvent")]
-    [JsonSubtypes.KnownSubType(typeof(StockSplitEvent), "StockSplitEvent")]
-    [JsonSubtypes.KnownSubType(typeof(TransitionEvent), "TransitionEvent")]
-    [JsonSubtypes.KnownSubType(typeof(TriggerEvent), "TriggerEvent")]
-    public partial class InstrumentEvent : IEquatable<InstrumentEvent>, IValidatableObject
+    [DataContract(Name = "AccumulationEvent_allOf")]
+    public partial class AccumulationEventAllOf : IEquatable<AccumulationEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent
@@ -166,18 +147,68 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstrumentEvent" /> class.
+        /// Initializes a new instance of the <see cref="AccumulationEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InstrumentEvent() { }
+        protected AccumulationEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InstrumentEvent" /> class.
+        /// Initializes a new instance of the <see cref="AccumulationEventAllOf" /> class.
         /// </summary>
+        /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
+        /// <param name="dividendCurrency">Payment currency (required).</param>
+        /// <param name="dividendRate">Dividend rate or payment rate as a percentage.  i.e. 5% is written as 0.05 (required).</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
+        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent (required).</param>
-        public InstrumentEvent(InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public AccumulationEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), string dividendCurrency = default(string), decimal dividendRate = default(decimal), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
+            // to ensure "dividendCurrency" is required (not null)
+            if (dividendCurrency == null)
+            {
+                throw new ArgumentNullException("dividendCurrency is a required property for AccumulationEventAllOf and cannot be null");
+            }
+            this.DividendCurrency = dividendCurrency;
+            this.DividendRate = dividendRate;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.InstrumentEventType = instrumentEventType;
+            this.AnnouncementDate = announcementDate;
         }
+
+        /// <summary>
+        /// Date on which the dividend was announced / declared.
+        /// </summary>
+        /// <value>Date on which the dividend was announced / declared.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
+
+        /// <summary>
+        /// Payment currency
+        /// </summary>
+        /// <value>Payment currency</value>
+        [DataMember(Name = "dividendCurrency", IsRequired = true, EmitDefaultValue = true)]
+        public string DividendCurrency { get; set; }
+
+        /// <summary>
+        /// Dividend rate or payment rate as a percentage.  i.e. 5% is written as 0.05
+        /// </summary>
+        /// <value>Dividend rate or payment rate as a percentage.  i.e. 5% is written as 0.05</value>
+        [DataMember(Name = "dividendRate", IsRequired = true, EmitDefaultValue = true)]
+        public decimal DividendRate { get; set; }
+
+        /// <summary>
+        /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
+        /// </summary>
+        /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
+
+        /// <summary>
+        /// The date the company pays out dividends to shareholders.
+        /// </summary>
+        /// <value>The date the company pays out dividends to shareholders.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -186,7 +217,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InstrumentEvent {\n");
+            sb.Append("class AccumulationEventAllOf {\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  DividendCurrency: ").Append(DividendCurrency).Append("\n");
+            sb.Append("  DividendRate: ").Append(DividendRate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -208,21 +244,45 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InstrumentEvent);
+            return this.Equals(input as AccumulationEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if InstrumentEvent instances are equal
+        /// Returns true if AccumulationEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of InstrumentEvent to be compared</param>
+        /// <param name="input">Instance of AccumulationEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InstrumentEvent input)
+        public bool Equals(AccumulationEventAllOf input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
+                ) && 
+                (
+                    this.DividendCurrency == input.DividendCurrency ||
+                    (this.DividendCurrency != null &&
+                    this.DividendCurrency.Equals(input.DividendCurrency))
+                ) && 
+                (
+                    this.DividendRate == input.DividendRate ||
+                    this.DividendRate.Equals(input.DividendRate)
+                ) && 
+                (
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
                     this.InstrumentEventType.Equals(input.InstrumentEventType)
@@ -238,6 +298,23 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AnnouncementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
+                }
+                if (this.DividendCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.DividendCurrency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DividendRate.GetHashCode();
+                if (this.ExDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }
@@ -249,16 +326,6 @@ namespace Lusid.Sdk.Model
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             yield break;
         }

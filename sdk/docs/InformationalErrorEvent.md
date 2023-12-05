@@ -5,7 +5,7 @@ Event holder containing error information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentEventType** | **string** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent | 
+**InstrumentEventType** | **string** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent | 
 **ErrorDetail** | **string** | The details of the error | 
 **ErrorReason** | **string** | The error reason | 
 **EffectiveAt** | **DateTimeOffset** | The effective date of the evaulation | 

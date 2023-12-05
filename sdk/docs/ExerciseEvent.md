@@ -5,7 +5,7 @@ Definition of an exercise event.  This is an event that occurs on transformation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentEventType** | **string** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent | 
+**InstrumentEventType** | **string** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent | 
 **Instrument** | [**LusidInstrument**](LusidInstrument.md) |  | 
 **EventStatus** | **string** | What is the event status, is it a known (ie historic) or unknown (ie projected) event? | 
 **AnchorDate** | **DateTimeOffset** | The date the exercise window starts, or point it takes effect on. | 

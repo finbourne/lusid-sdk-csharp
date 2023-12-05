@@ -5,7 +5,7 @@ Definition of a trigger event.  This is an event that occurs on transformation o
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstrumentEventType** | **string** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent | 
+**InstrumentEventType** | **string** | The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent | 
 **Level** | **decimal** | The underlying price level that triggers the event | 
 **TriggerType** | **string** | The type of the trigger; valid options are Knock-In, Knock-Out, Touch or No-Touch | 
 **TriggerDirection** | **string** | The direction of the trigger; valid options are Up and Down | 

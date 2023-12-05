@@ -123,7 +123,13 @@ namespace Lusid.Sdk.Model
         /// Enum DividendReinvestmentEvent for value: DividendReinvestmentEvent
         /// </summary>
         [EnumMember(Value = "DividendReinvestmentEvent")]
-        DividendReinvestmentEvent = 16
+        DividendReinvestmentEvent = 16,
+
+        /// <summary>
+        /// Enum AccumulationEvent for value: AccumulationEvent
+        /// </summary>
+        [EnumMember(Value = "AccumulationEvent")]
+        AccumulationEvent = 17
 
     }
 
