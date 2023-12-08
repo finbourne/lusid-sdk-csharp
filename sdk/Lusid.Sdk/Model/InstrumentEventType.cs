@@ -129,7 +129,13 @@ namespace Lusid.Sdk.Model
         /// Enum AccumulationEvent for value: AccumulationEvent
         /// </summary>
         [EnumMember(Value = "AccumulationEvent")]
-        AccumulationEvent = 17
+        AccumulationEvent = 17,
+
+        /// <summary>
+        /// Enum BondPrincipalEvent for value: BondPrincipalEvent
+        /// </summary>
+        [EnumMember(Value = "BondPrincipalEvent")]
+        BondPrincipalEvent = 18
 
     }
 

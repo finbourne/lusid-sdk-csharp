@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="equitySplitRatio">This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old. (required).</param>
         /// <param name="paymentDate">Date on which the stock-split takes effect. (required).</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender. (required).</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent (required) (default to &quot;StockSplitEvent&quot;).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent (required) (default to &quot;StockSplitEvent&quot;).</param>
         public StockSplitEvent(decimal equitySplitRatio = default(decimal), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.EquitySplitRatio = equitySplitRatio;

@@ -543,7 +543,7 @@ namespace Lusid.Sdk.Client
             string report = "C# SDK (Lusid.Sdk) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 0.11.6089\n";
+            report += "    Version of the API: 0.11.6092\n";
             report += "    SDK Package Version: 2.0.0\n";
 
             return report;

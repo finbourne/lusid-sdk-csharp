@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ExerciseEventAllOf
+    /// BondPrincipalEventAllOf
     /// </summary>
-    [DataContract(Name = "ExerciseEvent_allOf")]
-    public partial class ExerciseEventAllOf : IEquatable<ExerciseEventAllOf>, IValidatableObject
+    [DataContract(Name = "BondPrincipalEvent_allOf")]
+    public partial class BondPrincipalEventAllOf : IEquatable<BondPrincipalEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent
@@ -153,70 +153,60 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExerciseEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="BondPrincipalEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ExerciseEventAllOf() { }
+        protected BondPrincipalEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExerciseEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="BondPrincipalEventAllOf" /> class.
         /// </summary>
-        /// <param name="instrument">instrument (required).</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
-        /// <param name="anchorDate">The date the exercise window starts, or point it takes effect on. (required).</param>
+        /// <param name="currency">Currency of the principal payment (required).</param>
+        /// <param name="exDate">Ex-Dividend date of the principal payment (required).</param>
+        /// <param name="paymentDate">Payment date of the principal payment (required).</param>
+        /// <param name="principalPerUnit">Principal per unit (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent (required).</param>
-        public ExerciseEventAllOf(LusidInstrument instrument = default(LusidInstrument), string eventStatus = default(string), DateTimeOffset anchorDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public BondPrincipalEventAllOf(string currency = default(string), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), decimal principalPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "instrument" is required (not null)
-            if (instrument == null)
+            // to ensure "currency" is required (not null)
+            if (currency == null)
             {
-                throw new ArgumentNullException("instrument is a required property for ExerciseEventAllOf and cannot be null");
+                throw new ArgumentNullException("currency is a required property for BondPrincipalEventAllOf and cannot be null");
             }
-            this.Instrument = instrument;
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for ExerciseEventAllOf and cannot be null");
-            }
-            this.EventStatus = eventStatus;
-            this.AnchorDate = anchorDate;
+            this.Currency = currency;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
+            this.PrincipalPerUnit = principalPerUnit;
             this.InstrumentEventType = instrumentEventType;
         }
 
         /// <summary>
-        /// Gets or Sets Instrument
+        /// Currency of the principal payment
         /// </summary>
-        [DataMember(Name = "instrument", IsRequired = true, EmitDefaultValue = true)]
-        public LusidInstrument Instrument { get; set; }
+        /// <value>Currency of the principal payment</value>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
 
         /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
+        /// Ex-Dividend date of the principal payment
         /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
+        /// <value>Ex-Dividend date of the principal payment</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The date the exercise window starts, or point it takes effect on.
+        /// Payment date of the principal payment
         /// </summary>
-        /// <value>The date the exercise window starts, or point it takes effect on.</value>
-        [DataMember(Name = "anchorDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset AnchorDate { get; set; }
+        /// <value>Payment date of the principal payment</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The date the exercise window ends, or point it takes effect on.
+        /// Principal per unit
         /// </summary>
-        /// <value>The date the exercise window ends, or point it takes effect on.</value>
-        [DataMember(Name = "eventWindowEnd", EmitDefaultValue = false)]
-        public DateTimeOffset EventWindowEnd { get; private set; }
+        /// <value>Principal per unit</value>
+        [DataMember(Name = "principalPerUnit", IsRequired = true, EmitDefaultValue = true)]
+        public decimal PrincipalPerUnit { get; set; }
 
-        /// <summary>
-        /// Returns false as EventWindowEnd should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeEventWindowEnd()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -224,11 +214,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ExerciseEventAllOf {\n");
-            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
-            sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
-            sb.Append("  EventWindowEnd: ").Append(EventWindowEnd).Append("\n");
+            sb.Append("class BondPrincipalEventAllOf {\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  PrincipalPerUnit: ").Append(PrincipalPerUnit).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -250,15 +240,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExerciseEventAllOf);
+            return this.Equals(input as BondPrincipalEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if ExerciseEventAllOf instances are equal
+        /// Returns true if BondPrincipalEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExerciseEventAllOf to be compared</param>
+        /// <param name="input">Instance of BondPrincipalEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExerciseEventAllOf input)
+        public bool Equals(BondPrincipalEventAllOf input)
         {
             if (input == null)
             {
@@ -266,24 +256,23 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Instrument == input.Instrument ||
-                    (this.Instrument != null &&
-                    this.Instrument.Equals(input.Instrument))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
-                    this.AnchorDate == input.AnchorDate ||
-                    (this.AnchorDate != null &&
-                    this.AnchorDate.Equals(input.AnchorDate))
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 ) && 
                 (
-                    this.EventWindowEnd == input.EventWindowEnd ||
-                    (this.EventWindowEnd != null &&
-                    this.EventWindowEnd.Equals(input.EventWindowEnd))
+                    this.PrincipalPerUnit == input.PrincipalPerUnit ||
+                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit)
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -300,22 +289,19 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Instrument != null)
+                if (this.Currency != null)
                 {
-                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                if (this.EventStatus != null)
+                if (this.ExDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
-                if (this.AnchorDate != null)
+                if (this.PaymentDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.AnchorDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                if (this.EventWindowEnd != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventWindowEnd.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }
@@ -328,12 +314,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
-            }
-
             yield break;
         }
     }
