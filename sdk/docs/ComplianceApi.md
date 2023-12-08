@@ -6,7 +6,8 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**DeleteComplianceRule**](ComplianceApi.md#deletecompliancerule) | **DELETE** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule. |
 | [**GetComplianceRule**](ComplianceApi.md#getcompliancerule) | **GET** /api/compliance/rules/{scope}/{code} | [EARLY ACCESS] GetComplianceRule: Get compliance rule. |
-| [**GetComplianceRunSummary**](ComplianceApi.md#getcompliancerunsummary) | **GET** /api/compliance/runs/summary/{scope}/{code} | [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run. |
+| [**GetComplianceRuleResultDetails**](ComplianceApi.md#getcomplianceruleresultdetails) | **GET** /api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode} | [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run. |
+| [**GetComplianceRunSummary**](ComplianceApi.md#getcompliancerunsummary) | **GET** /api/compliance/runs/summary/{runScope}/{runCode} | [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run. |
 | [**GetComplianceTemplate**](ComplianceApi.md#getcompliancetemplate) | **GET** /api/compliance/templates/{scope}/{code} | [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template. |
 | [**GetDecoratedComplianceRunSummary**](ComplianceApi.md#getdecoratedcompliancerunsummary) | **GET** /api/compliance/runs/summary/{scope}/{code}/$decorate | [EARLY ACCESS] GetDecoratedComplianceRunSummary: Get decorated summary results for a specific compliance run. |
 | [**ListComplianceRules**](ComplianceApi.md#listcompliancerules) | **GET** /api/compliance/rules | [EARLY ACCESS] ListComplianceRules: List compliance rules. |
@@ -216,9 +217,111 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getcomplianceruleresultdetails"></a>
+# **GetComplianceRuleResultDetails**
+> ComplianceRunSummary GetComplianceRuleResultDetails (string runScope, string runCode, string ruleScope, string ruleCode)
+
+[EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+
+Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class GetComplianceRuleResultDetailsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ComplianceApi(config);
+            var runScope = "runScope_example";  // string | Required: Run Scope.
+            var runCode = "runCode_example";  // string | Required: Run Code.
+            var ruleScope = "ruleScope_example";  // string | Required: Rule Scope.
+            var ruleCode = "ruleCode_example";  // string | Required: Rule Code.
+
+            try
+            {
+                // [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+                ComplianceRunSummary result = apiInstance.GetComplianceRuleResultDetails(runScope, runCode, ruleScope, ruleCode);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ComplianceApi.GetComplianceRuleResultDetails: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetComplianceRuleResultDetailsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+    ApiResponse<ComplianceRunSummary> response = apiInstance.GetComplianceRuleResultDetailsWithHttpInfo(runScope, runCode, ruleScope, ruleCode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ComplianceApi.GetComplianceRuleResultDetailsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runScope** | **string** | Required: Run Scope. |  |
+| **runCode** | **string** | Required: Run Code. |  |
+| **ruleScope** | **string** | Required: Rule Scope. |  |
+| **ruleCode** | **string** | Required: Rule Code. |  |
+
+### Return type
+
+[**ComplianceRunSummary**](ComplianceRunSummary.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The requested compliance run summary details for a specific rule. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getcompliancerunsummary"></a>
 # **GetComplianceRunSummary**
-> ComplianceRunSummary GetComplianceRunSummary (string scope, string code)
+> ComplianceRunSummary GetComplianceRunSummary (string runScope, string runCode)
 
 [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
 
@@ -244,13 +347,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ComplianceApi(config);
-            var scope = "scope_example";  // string | Required: Run Scope.
-            var code = "code_example";  // string | Required: Run Code.
+            var runScope = "runScope_example";  // string | Required: Run Scope.
+            var runCode = "runCode_example";  // string | Required: Run Code.
 
             try
             {
                 // [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-                ComplianceRunSummary result = apiInstance.GetComplianceRunSummary(scope, code);
+                ComplianceRunSummary result = apiInstance.GetComplianceRunSummary(runScope, runCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -271,7 +374,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-    ApiResponse<ComplianceRunSummary> response = apiInstance.GetComplianceRunSummaryWithHttpInfo(scope, code);
+    ApiResponse<ComplianceRunSummary> response = apiInstance.GetComplianceRunSummaryWithHttpInfo(runScope, runCode);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -288,8 +391,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **scope** | **string** | Required: Run Scope. |  |
-| **code** | **string** | Required: Run Code. |  |
+| **runScope** | **string** | Required: Run Scope. |  |
+| **runCode** | **string** | Required: Run Code. |  |
 
 ### Return type
 
