@@ -135,7 +135,13 @@ namespace Lusid.Sdk.Model
         /// Enum BondPrincipalEvent for value: BondPrincipalEvent
         /// </summary>
         [EnumMember(Value = "BondPrincipalEvent")]
-        BondPrincipalEvent = 18
+        BondPrincipalEvent = 18,
+
+        /// <summary>
+        /// Enum DividendOptionEvent for value: DividendOptionEvent
+        /// </summary>
+        [EnumMember(Value = "DividendOptionEvent")]
+        DividendOptionEvent = 19
 
     }
 

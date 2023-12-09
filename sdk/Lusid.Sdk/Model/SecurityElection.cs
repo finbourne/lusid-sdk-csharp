@@ -39,8 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
         /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
-        /// <param name="price">Price per unit of the security. (required).</param>
-        public SecurityElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), decimal price = default(decimal))
+        /// <param name="price">Price per unit of the security. At least one of UnitsRatio or Price must be provided. (required).</param>
+        /// <param name="unitsRatio">unitsRatio.</param>
+        public SecurityElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), decimal price = default(decimal), UnitsRatio unitsRatio = default(UnitsRatio))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -51,6 +52,7 @@ namespace Lusid.Sdk.Model
             this.Price = price;
             this.IsChosen = isChosen;
             this.IsDefault = isDefault;
+            this.UnitsRatio = unitsRatio;
         }
 
         /// <summary>
@@ -75,11 +77,17 @@ namespace Lusid.Sdk.Model
         public bool IsDefault { get; set; }
 
         /// <summary>
-        /// Price per unit of the security.
+        /// Price per unit of the security. At least one of UnitsRatio or Price must be provided.
         /// </summary>
-        /// <value>Price per unit of the security.</value>
+        /// <value>Price per unit of the security. At least one of UnitsRatio or Price must be provided.</value>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnitsRatio
+        /// </summary>
+        [DataMember(Name = "unitsRatio", EmitDefaultValue = false)]
+        public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,6 +101,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsChosen: ").Append(IsChosen).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +153,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.Price == input.Price ||
                     this.Price.Equals(input.Price)
+                ) && 
+                (
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
                 );
         }
 
@@ -163,6 +177,10 @@ namespace Lusid.Sdk.Model
                 hashCode = (hashCode * 59) + this.IsChosen.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
                 hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                if (this.UnitsRatio != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
+                }
                 return hashCode;
             }
         }
