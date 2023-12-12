@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// IrVolCubeDataAllOf
+    /// ConstantVolatilitySurfaceAllOf
     /// </summary>
-    [DataContract(Name = "IrVolCubeData_allOf")]
-    public partial class IrVolCubeDataAllOf : IEquatable<IrVolCubeDataAllOf>, IValidatableObject
+    [DataContract(Name = "ConstantVolatilitySurface_allOf")]
+    public partial class ConstantVolatilitySurfaceAllOf : IEquatable<ConstantVolatilitySurfaceAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface
@@ -129,64 +129,58 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "marketDataType", IsRequired = true, EmitDefaultValue = true)]
         public MarketDataTypeEnum MarketDataType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="IrVolCubeDataAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ConstantVolatilitySurfaceAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected IrVolCubeDataAllOf() { }
+        protected ConstantVolatilitySurfaceAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="IrVolCubeDataAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ConstantVolatilitySurfaceAllOf" /> class.
         /// </summary>
-        /// <param name="baseDate">Base date of the cube - this is the start date of the swaptions on the cube. (required).</param>
-        /// <param name="instruments">Retrieve the set of instruments that define the cube. (required).</param>
-        /// <param name="quotes">Access the set of quotes that define the cube. (required).</param>
-        /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
+        /// <param name="baseDate">Base date of the engine - this is the reference date for resolution of tenors. (required).</param>
+        /// <param name="assetType">What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque]. (required).</param>
+        /// <param name="lineage">lineage.</param>
+        /// <param name="volatility">Volatility value. (required).</param>
         /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required).</param>
-        public IrVolCubeDataAllOf(DateTimeOffset baseDate = default(DateTimeOffset), List<LusidInstrument> instruments = default(List<LusidInstrument>), List<MarketQuote> quotes = default(List<MarketQuote>), string lineage = default(string), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum))
+        public ConstantVolatilitySurfaceAllOf(DateTimeOffset baseDate = default(DateTimeOffset), string assetType = default(string), string lineage = default(string), decimal volatility = default(decimal), MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum))
         {
             this.BaseDate = baseDate;
-            // to ensure "instruments" is required (not null)
-            if (instruments == null)
+            // to ensure "assetType" is required (not null)
+            if (assetType == null)
             {
-                throw new ArgumentNullException("instruments is a required property for IrVolCubeDataAllOf and cannot be null");
+                throw new ArgumentNullException("assetType is a required property for ConstantVolatilitySurfaceAllOf and cannot be null");
             }
-            this.Instruments = instruments;
-            // to ensure "quotes" is required (not null)
-            if (quotes == null)
-            {
-                throw new ArgumentNullException("quotes is a required property for IrVolCubeDataAllOf and cannot be null");
-            }
-            this.Quotes = quotes;
+            this.AssetType = assetType;
+            this.Volatility = volatility;
             this.MarketDataType = marketDataType;
             this.Lineage = lineage;
         }
 
         /// <summary>
-        /// Base date of the cube - this is the start date of the swaptions on the cube.
+        /// Base date of the engine - this is the reference date for resolution of tenors.
         /// </summary>
-        /// <value>Base date of the cube - this is the start date of the swaptions on the cube.</value>
+        /// <value>Base date of the engine - this is the reference date for resolution of tenors.</value>
         [DataMember(Name = "baseDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset BaseDate { get; set; }
 
         /// <summary>
-        /// Retrieve the set of instruments that define the cube.
+        /// What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque].
         /// </summary>
-        /// <value>Retrieve the set of instruments that define the cube.</value>
-        [DataMember(Name = "instruments", IsRequired = true, EmitDefaultValue = true)]
-        public List<LusidInstrument> Instruments { get; set; }
+        /// <value>What is the asset that the engine is for.  Supported string (enumeration) values are: [Cash, Commodity, Credit, Equity, Fx, Rates, FxVol, IrVol, EquityVol, HolidayCalendar, IndexConvention, FlowConvention, CdsFlowConvention, CorporateActions, FxForwards, Quote, Inflation, EquityCurve, All, VendorOpaque].</value>
+        [DataMember(Name = "assetType", IsRequired = true, EmitDefaultValue = true)]
+        public string AssetType { get; set; }
 
         /// <summary>
-        /// Access the set of quotes that define the cube.
+        /// Gets or Sets Lineage
         /// </summary>
-        /// <value>Access the set of quotes that define the cube.</value>
-        [DataMember(Name = "quotes", IsRequired = true, EmitDefaultValue = true)]
-        public List<MarketQuote> Quotes { get; set; }
-
-        /// <summary>
-        /// Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;.
-        /// </summary>
-        /// <value>Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;.</value>
         [DataMember(Name = "lineage", EmitDefaultValue = true)]
         public string Lineage { get; set; }
+
+        /// <summary>
+        /// Volatility value.
+        /// </summary>
+        /// <value>Volatility value.</value>
+        [DataMember(Name = "volatility", IsRequired = true, EmitDefaultValue = true)]
+        public decimal Volatility { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -195,11 +189,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IrVolCubeDataAllOf {\n");
+            sb.Append("class ConstantVolatilitySurfaceAllOf {\n");
             sb.Append("  BaseDate: ").Append(BaseDate).Append("\n");
-            sb.Append("  Instruments: ").Append(Instruments).Append("\n");
-            sb.Append("  Quotes: ").Append(Quotes).Append("\n");
+            sb.Append("  AssetType: ").Append(AssetType).Append("\n");
             sb.Append("  Lineage: ").Append(Lineage).Append("\n");
+            sb.Append("  Volatility: ").Append(Volatility).Append("\n");
             sb.Append("  MarketDataType: ").Append(MarketDataType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -221,15 +215,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IrVolCubeDataAllOf);
+            return this.Equals(input as ConstantVolatilitySurfaceAllOf);
         }
 
         /// <summary>
-        /// Returns true if IrVolCubeDataAllOf instances are equal
+        /// Returns true if ConstantVolatilitySurfaceAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of IrVolCubeDataAllOf to be compared</param>
+        /// <param name="input">Instance of ConstantVolatilitySurfaceAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IrVolCubeDataAllOf input)
+        public bool Equals(ConstantVolatilitySurfaceAllOf input)
         {
             if (input == null)
             {
@@ -242,21 +236,18 @@ namespace Lusid.Sdk.Model
                     this.BaseDate.Equals(input.BaseDate))
                 ) && 
                 (
-                    this.Instruments == input.Instruments ||
-                    this.Instruments != null &&
-                    input.Instruments != null &&
-                    this.Instruments.SequenceEqual(input.Instruments)
-                ) && 
-                (
-                    this.Quotes == input.Quotes ||
-                    this.Quotes != null &&
-                    input.Quotes != null &&
-                    this.Quotes.SequenceEqual(input.Quotes)
+                    this.AssetType == input.AssetType ||
+                    (this.AssetType != null &&
+                    this.AssetType.Equals(input.AssetType))
                 ) && 
                 (
                     this.Lineage == input.Lineage ||
                     (this.Lineage != null &&
                     this.Lineage.Equals(input.Lineage))
+                ) && 
+                (
+                    this.Volatility == input.Volatility ||
+                    this.Volatility.Equals(input.Volatility)
                 ) && 
                 (
                     this.MarketDataType == input.MarketDataType ||
@@ -277,18 +268,15 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.BaseDate.GetHashCode();
                 }
-                if (this.Instruments != null)
+                if (this.AssetType != null)
                 {
-                    hashCode = (hashCode * 59) + this.Instruments.GetHashCode();
-                }
-                if (this.Quotes != null)
-                {
-                    hashCode = (hashCode * 59) + this.Quotes.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AssetType.GetHashCode();
                 }
                 if (this.Lineage != null)
                 {
                     hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
                 hashCode = (hashCode * 59) + this.MarketDataType.GetHashCode();
                 return hashCode;
             }
@@ -301,6 +289,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AssetType (string) minLength
+            if (this.AssetType != null && this.AssetType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetType, length must be greater than 1.", new [] { "AssetType" });
+            }
+
             // Lineage (string) maxLength
             if (this.Lineage != null && this.Lineage.Length > 1024)
             {

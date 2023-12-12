@@ -28,6 +28,7 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ComplexMarketData")]
     [JsonConverter(typeof(JsonSubtypes), "MarketDataType")]
+    [JsonSubtypes.KnownSubType(typeof(ConstantVolatilitySurface), "ConstantVolatilitySurface")]
     [JsonSubtypes.KnownSubType(typeof(CreditSpreadCurveData), "CreditSpreadCurveData")]
     [JsonSubtypes.KnownSubType(typeof(DiscountFactorCurveData), "DiscountFactorCurveData")]
     [JsonSubtypes.KnownSubType(typeof(EquityCurveByPricesData), "EquityCurveByPricesData")]
@@ -44,9 +45,9 @@ namespace Lusid.Sdk.Model
     public partial class ComplexMarketData : IEquatable<ComplexMarketData>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData
+        /// The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface
         /// </summary>
-        /// <value>The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData</value>
+        /// <value>The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MarketDataTypeEnum
         {
@@ -126,15 +127,21 @@ namespace Lusid.Sdk.Model
             /// Enum EquityCurveByPricesData for value: EquityCurveByPricesData
             /// </summary>
             [EnumMember(Value = "EquityCurveByPricesData")]
-            EquityCurveByPricesData = 13
+            EquityCurveByPricesData = 13,
+
+            /// <summary>
+            /// Enum ConstantVolatilitySurface for value: ConstantVolatilitySurface
+            /// </summary>
+            [EnumMember(Value = "ConstantVolatilitySurface")]
+            ConstantVolatilitySurface = 14
 
         }
 
 
         /// <summary>
-        /// The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData
+        /// The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface
         /// </summary>
-        /// <value>The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData</value>
+        /// <value>The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface</value>
         [DataMember(Name = "marketDataType", IsRequired = true, EmitDefaultValue = true)]
         public MarketDataTypeEnum MarketDataType { get; set; }
         /// <summary>
@@ -145,7 +152,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplexMarketData" /> class.
         /// </summary>
-        /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData (required).</param>
+        /// <param name="marketDataType">The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface (required).</param>
         public ComplexMarketData(MarketDataTypeEnum marketDataType = default(MarketDataTypeEnum))
         {
             this.MarketDataType = marketDataType;

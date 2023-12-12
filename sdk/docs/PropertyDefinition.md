@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **PropertyDefinitionType** | **string** | The definition type (DerivedDefinition or Definition). The available values are: ValueProperty, DerivedDefinition | [optional] 
 **PropertyDescription** | **string** | A brief description of what a property of this property definition contains. | [optional] 
 **DerivationFormula** | **string** | The rule that defines how data is composed for a derived property. | [optional] 
+**CollectionType** | **string** | Describes whether a collection property should behave as a set or as an array. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | Set of unique property definition properties and associated values to store with the property definition. Each property must be from the &#39;PropertyDefinition&#39; domain. | [optional] 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

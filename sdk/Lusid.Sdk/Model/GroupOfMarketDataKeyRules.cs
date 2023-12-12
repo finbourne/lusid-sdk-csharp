@@ -36,7 +36,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupOfMarketDataKeyRules" /> class.
         /// </summary>
-        /// <param name="marketDataKeyRuleGroupOperation">The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used. (required).</param>
+        /// <param name="marketDataKeyRuleGroupOperation">The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used.  Supported values: [FirstLatest, AverageOfQuotesFound, AverageOfAllQuotes, FirstMinimum, FirstMaximum] (required).</param>
         /// <param name="marketRules">The rules that should be grouped together in market data resolution. (required).</param>
         public GroupOfMarketDataKeyRules(string marketDataKeyRuleGroupOperation = default(string), List<MarketDataKeyRule> marketRules = default(List<MarketDataKeyRule>))
         {
@@ -55,9 +55,9 @@ namespace Lusid.Sdk.Model
         }
 
         /// <summary>
-        /// The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used.
+        /// The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used.  Supported values: [FirstLatest, AverageOfQuotesFound, AverageOfAllQuotes, FirstMinimum, FirstMaximum]
         /// </summary>
-        /// <value>The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used.</value>
+        /// <value>The operation that will be used to process the collection of market data items and failures found on resolution  into a single market data item or failure to be used.  Supported values: [FirstLatest, AverageOfQuotesFound, AverageOfAllQuotes, FirstMinimum, FirstMaximum]</value>
         [DataMember(Name = "marketDataKeyRuleGroupOperation", IsRequired = true, EmitDefaultValue = true)]
         public string MarketDataKeyRuleGroupOperation { get; set; }
 

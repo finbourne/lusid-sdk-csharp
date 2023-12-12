@@ -311,7 +311,8 @@ namespace Lusid.Sdk.Model
         /// <param name="lifeTime">Describes how the property&#39;s values can change over time. The available values are: Perpetual, TimeVariant.</param>
         /// <param name="constraintStyle">Describes the uniqueness and cardinality of the property for entity objects under the property domain specified in Key. Defaults to \&quot;Property\&quot; if not specified. Valid values for this field are: Property, Collection or Identifier..</param>
         /// <param name="propertyDescription">Describes the property.</param>
-        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string))
+        /// <param name="collectionType">Describes whether a collection property should behave as a set or as an array..</param>
+        public CreatePropertyDefinitionRequest(DomainEnum domain = default(DomainEnum), string scope = default(string), string code = default(string), bool valueRequired = default(bool), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), LifeTimeEnum? lifeTime = default(LifeTimeEnum?), string constraintStyle = default(string), string propertyDescription = default(string), string collectionType = default(string))
         {
             this.Domain = domain;
             // to ensure "scope" is required (not null)
@@ -342,6 +343,7 @@ namespace Lusid.Sdk.Model
             this.LifeTime = lifeTime;
             this.ConstraintStyle = constraintStyle;
             this.PropertyDescription = propertyDescription;
+            this.CollectionType = collectionType;
         }
 
         /// <summary>
@@ -393,6 +395,13 @@ namespace Lusid.Sdk.Model
         public string PropertyDescription { get; set; }
 
         /// <summary>
+        /// Describes whether a collection property should behave as a set or as an array.
+        /// </summary>
+        /// <value>Describes whether a collection property should behave as a set or as an array.</value>
+        [DataMember(Name = "collectionType", EmitDefaultValue = true)]
+        public string CollectionType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -409,6 +418,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LifeTime: ").Append(LifeTime).Append("\n");
             sb.Append("  ConstraintStyle: ").Append(ConstraintStyle).Append("\n");
             sb.Append("  PropertyDescription: ").Append(PropertyDescription).Append("\n");
+            sb.Append("  CollectionType: ").Append(CollectionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -485,6 +495,11 @@ namespace Lusid.Sdk.Model
                     this.PropertyDescription == input.PropertyDescription ||
                     (this.PropertyDescription != null &&
                     this.PropertyDescription.Equals(input.PropertyDescription))
+                ) && 
+                (
+                    this.CollectionType == input.CollectionType ||
+                    (this.CollectionType != null &&
+                    this.CollectionType.Equals(input.CollectionType))
                 );
         }
 
@@ -523,6 +538,10 @@ namespace Lusid.Sdk.Model
                 if (this.PropertyDescription != null)
                 {
                     hashCode = (hashCode * 59) + this.PropertyDescription.GetHashCode();
+                }
+                if (this.CollectionType != null)
+                {
+                    hashCode = (hashCode * 59) + this.CollectionType.GetHashCode();
                 }
                 return hashCode;
             }

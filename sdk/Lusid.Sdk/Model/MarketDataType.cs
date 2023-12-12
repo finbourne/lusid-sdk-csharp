@@ -105,7 +105,13 @@ namespace Lusid.Sdk.Model
         /// Enum EquityCurveByPricesData for value: EquityCurveByPricesData
         /// </summary>
         [EnumMember(Value = "EquityCurveByPricesData")]
-        EquityCurveByPricesData = 13
+        EquityCurveByPricesData = 13,
+
+        /// <summary>
+        /// Enum ConstantVolatilitySurface for value: ConstantVolatilitySurface
+        /// </summary>
+        [EnumMember(Value = "ConstantVolatilitySurface")]
+        ConstantVolatilitySurface = 14
 
     }
 

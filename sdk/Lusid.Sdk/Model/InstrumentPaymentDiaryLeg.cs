@@ -31,18 +31,27 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InstrumentPaymentDiaryLeg" /> class.
         /// </summary>
-        /// <param name="legId">Identifier for the leg of a payment diary..</param>
+        /// <param name="legIndex">Index (integer) for the leg of a payment diary..</param>
+        /// <param name="legId">Identifier string for the leg of a payment diary..</param>
         /// <param name="rows">List of individual cashflows within the payment diary..</param>
-        public InstrumentPaymentDiaryLeg(string legId = default(string), List<InstrumentPaymentDiaryRow> rows = default(List<InstrumentPaymentDiaryRow>))
+        public InstrumentPaymentDiaryLeg(int legIndex = default(int), string legId = default(string), List<InstrumentPaymentDiaryRow> rows = default(List<InstrumentPaymentDiaryRow>))
         {
+            this.LegIndex = legIndex;
             this.LegId = legId;
             this.Rows = rows;
         }
 
         /// <summary>
-        /// Identifier for the leg of a payment diary.
+        /// Index (integer) for the leg of a payment diary.
         /// </summary>
-        /// <value>Identifier for the leg of a payment diary.</value>
+        /// <value>Index (integer) for the leg of a payment diary.</value>
+        [DataMember(Name = "legIndex", EmitDefaultValue = false)]
+        public int LegIndex { get; set; }
+
+        /// <summary>
+        /// Identifier string for the leg of a payment diary.
+        /// </summary>
+        /// <value>Identifier string for the leg of a payment diary.</value>
         [DataMember(Name = "legId", EmitDefaultValue = true)]
         public string LegId { get; set; }
 
@@ -61,6 +70,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InstrumentPaymentDiaryLeg {\n");
+            sb.Append("  LegIndex: ").Append(LegIndex).Append("\n");
             sb.Append("  LegId: ").Append(LegId).Append("\n");
             sb.Append("  Rows: ").Append(Rows).Append("\n");
             sb.Append("}\n");
@@ -99,6 +109,10 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.LegIndex == input.LegIndex ||
+                    this.LegIndex.Equals(input.LegIndex)
+                ) && 
+                (
                     this.LegId == input.LegId ||
                     (this.LegId != null &&
                     this.LegId.Equals(input.LegId))
@@ -120,6 +134,7 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.LegIndex.GetHashCode();
                 if (this.LegId != null)
                 {
                     hashCode = (hashCode * 59) + this.LegId.GetHashCode();
