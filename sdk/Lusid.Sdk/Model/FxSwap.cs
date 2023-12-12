@@ -24,7 +24,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// LUSID representation of an FX Swap. Composed of two FX Forwards.
+    /// LUSID representation of an FX Swap. Composed of two FX Forwards.                This instrument has multiple legs, to see how legs are used in LUSID see https://support.lusid.com/knowledgebase/article/KA-02252.                | Leg Index | Leg Identifier | Description |  | - -- -- -- -- | - -- -- -- -- -- -- - | - -- -- -- -- -- |  | 1 | NearDomesticLeg | Cash flows in the domestic currency for the near forward. |  | 2 | NearForeignLeg | Cash flows in the foreign currency for the near forward (not present for non-deliverable forwards). |  | 3 | FarDomesticLeg | Cash flows in the domestic currency for the far forward. |  | 4 | FarForeignLeg | Cash flows in the foreign currency for the far forward (not present for non-deliverable forwards). |
     /// </summary>
     [DataContract(Name = "FxSwap")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentType")]
