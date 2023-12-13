@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="quantity">The quantity of the instrument that is owned..</param>
         /// <param name="holdingIdentifier">Identifier for the instrument.  For a single, unique trade or transaction this can be thought of as equivalent to the transaction identifier, or  a composite of the sub-holding keys for a regular sub-holding. When there are multiple transactions sharing the same underlying instrument  such as purchase of shares on multiple dates where tax implications are different this would not be the case.    In an inlined aggregation request if this is wanted to identify a line item, it can be specified in the set of aggregation keys given on the aggregation  request that accompanies the set of weighted instruments..</param>
         /// <param name="instrument">instrument.</param>
-        public WeightedInstrument(decimal quantity = default(decimal), string holdingIdentifier = default(string), LusidInstrument instrument = default(LusidInstrument))
+        /// <param name="inLineLookupIdentifiers">inLineLookupIdentifiers.</param>
+        public WeightedInstrument(decimal quantity = default(decimal), string holdingIdentifier = default(string), LusidInstrument instrument = default(LusidInstrument), WeightedInstrumentInLineLookupIdentifiers inLineLookupIdentifiers = default(WeightedInstrumentInLineLookupIdentifiers))
         {
             this.Quantity = quantity;
             this.HoldingIdentifier = holdingIdentifier;
             this.Instrument = instrument;
+            this.InLineLookupIdentifiers = inLineLookupIdentifiers;
         }
 
         /// <summary>
@@ -62,6 +64,12 @@ namespace Lusid.Sdk.Model
         public LusidInstrument Instrument { get; set; }
 
         /// <summary>
+        /// Gets or Sets InLineLookupIdentifiers
+        /// </summary>
+        [DataMember(Name = "inLineLookupIdentifiers", EmitDefaultValue = true)]
+        public WeightedInstrumentInLineLookupIdentifiers InLineLookupIdentifiers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  HoldingIdentifier: ").Append(HoldingIdentifier).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  InLineLookupIdentifiers: ").Append(InLineLookupIdentifiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +129,11 @@ namespace Lusid.Sdk.Model
                     this.Instrument == input.Instrument ||
                     (this.Instrument != null &&
                     this.Instrument.Equals(input.Instrument))
+                ) && 
+                (
+                    this.InLineLookupIdentifiers == input.InLineLookupIdentifiers ||
+                    (this.InLineLookupIdentifiers != null &&
+                    this.InLineLookupIdentifiers.Equals(input.InLineLookupIdentifiers))
                 );
         }
 
@@ -140,6 +154,10 @@ namespace Lusid.Sdk.Model
                 if (this.Instrument != null)
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
+                if (this.InLineLookupIdentifiers != null)
+                {
+                    hashCode = (hashCode * 59) + this.InLineLookupIdentifiers.GetHashCode();
                 }
                 return hashCode;
             }

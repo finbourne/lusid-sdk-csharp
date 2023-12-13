@@ -134,7 +134,19 @@ namespace Lusid.Sdk.Model
         /// Enum VariationMargin for value: VariationMargin
         /// </summary>
         [EnumMember(Value = "VariationMargin")]
-        VariationMargin = 18
+        VariationMargin = 18,
+
+        /// <summary>
+        /// Enum Capital for value: Capital
+        /// </summary>
+        [EnumMember(Value = "Capital")]
+        Capital = 19,
+
+        /// <summary>
+        /// Enum Fee for value: Fee
+        /// </summary>
+        [EnumMember(Value = "Fee")]
+        Fee = 20
 
     }
 
