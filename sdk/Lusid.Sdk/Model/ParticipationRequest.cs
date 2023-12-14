@@ -39,8 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="placementId">placementId (required).</param>
         /// <param name="orderId">orderId (required).</param>
-        /// <param name="version">version.</param>
-        public ParticipationRequest(ResourceId id = default(ResourceId), ResourceId placementId = default(ResourceId), ResourceId orderId = default(ResourceId), ModelVersion version = default(ModelVersion))
+        public ParticipationRequest(ResourceId id = default(ResourceId), ResourceId placementId = default(ResourceId), ResourceId orderId = default(ResourceId))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -60,7 +59,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("orderId is a required property for ParticipationRequest and cannot be null");
             }
             this.OrderId = orderId;
-            this._Version = version;
         }
 
         /// <summary>
@@ -82,12 +80,6 @@ namespace Lusid.Sdk.Model
         public ResourceId OrderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
-        /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public ModelVersion _Version { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,7 +90,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  PlacementId: ").Append(PlacementId).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,11 +139,6 @@ namespace Lusid.Sdk.Model
                     this.OrderId == input.OrderId ||
                     (this.OrderId != null &&
                     this.OrderId.Equals(input.OrderId))
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -176,10 +162,6 @@ namespace Lusid.Sdk.Model
                 if (this.OrderId != null)
                 {
                     hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
-                }
-                if (this._Version != null)
-                {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 }
                 return hashCode;
             }
