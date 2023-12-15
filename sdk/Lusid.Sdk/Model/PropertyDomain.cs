@@ -249,7 +249,13 @@ namespace Lusid.Sdk.Model
         /// Enum DiaryEntry for value: DiaryEntry
         /// </summary>
         [EnumMember(Value = "DiaryEntry")]
-        DiaryEntry = 37
+        DiaryEntry = 37,
+
+        /// <summary>
+        /// Enum Leg for value: Leg
+        /// </summary>
+        [EnumMember(Value = "Leg")]
+        Leg = 38
 
     }
 
