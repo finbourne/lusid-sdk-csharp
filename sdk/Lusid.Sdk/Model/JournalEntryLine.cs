@@ -56,12 +56,13 @@ namespace Lusid.Sdk.Model
         /// <param name="movementName">The name of the movement. (required).</param>
         /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
         /// <param name="economicBucket">Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. (required).</param>
+        /// <param name="economicBucketComponent">Sub bucket of the economic bucket..</param>
         /// <param name="levels">Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="sourceLevels">Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="movementSign">Indicates if the Journal Entry Line corresponds to a Long or Short movement..</param>
         /// <param name="holdingSign">Indicates if the Journal Entry Line is operating against a Long or Short holding..</param>
         /// <param name="links">links.</param>
-        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), List<Link> links = default(List<Link>))
+        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -148,6 +149,7 @@ namespace Lusid.Sdk.Model
             this.PostingModuleCode = postingModuleCode;
             this.ActivitiesDescription = activitiesDescription;
             this.Properties = properties;
+            this.EconomicBucketComponent = economicBucketComponent;
             this.Levels = levels;
             this.SourceLevels = sourceLevels;
             this.MovementSign = movementSign;
@@ -293,6 +295,13 @@ namespace Lusid.Sdk.Model
         public string EconomicBucket { get; set; }
 
         /// <summary>
+        /// Sub bucket of the economic bucket.
+        /// </summary>
+        /// <value>Sub bucket of the economic bucket.</value>
+        [DataMember(Name = "economicBucketComponent", EmitDefaultValue = true)]
+        public string EconomicBucketComponent { get; set; }
+
+        /// <summary>
         /// Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.
         /// </summary>
         /// <value>Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body.</value>
@@ -354,6 +363,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  MovementName: ").Append(MovementName).Append("\n");
             sb.Append("  HoldingType: ").Append(HoldingType).Append("\n");
             sb.Append("  EconomicBucket: ").Append(EconomicBucket).Append("\n");
+            sb.Append("  EconomicBucketComponent: ").Append(EconomicBucketComponent).Append("\n");
             sb.Append("  Levels: ").Append(Levels).Append("\n");
             sb.Append("  SourceLevels: ").Append(SourceLevels).Append("\n");
             sb.Append("  MovementSign: ").Append(MovementSign).Append("\n");
@@ -497,6 +507,11 @@ namespace Lusid.Sdk.Model
                     this.EconomicBucket.Equals(input.EconomicBucket))
                 ) && 
                 (
+                    this.EconomicBucketComponent == input.EconomicBucketComponent ||
+                    (this.EconomicBucketComponent != null &&
+                    this.EconomicBucketComponent.Equals(input.EconomicBucketComponent))
+                ) && 
+                (
                     this.Levels == input.Levels ||
                     this.Levels != null &&
                     input.Levels != null &&
@@ -614,6 +629,10 @@ namespace Lusid.Sdk.Model
                 if (this.EconomicBucket != null)
                 {
                     hashCode = (hashCode * 59) + this.EconomicBucket.GetHashCode();
+                }
+                if (this.EconomicBucketComponent != null)
+                {
+                    hashCode = (hashCode * 59) + this.EconomicBucketComponent.GetHashCode();
                 }
                 if (this.Levels != null)
                 {

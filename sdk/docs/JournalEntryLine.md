@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **MovementName** | **string** | The name of the movement. | 
 **HoldingType** | **string** | Defines the broad category holding within the portfolio. | 
 **EconomicBucket** | **string** | Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. | 
+**EconomicBucketComponent** | **string** | Sub bucket of the economic bucket. | [optional] 
 **Levels** | **List&lt;string&gt;** | Resolved data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body. | [optional] 
 **SourceLevels** | **List&lt;string&gt;** | Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body. | [optional] 
 **MovementSign** | **string** | Indicates if the Journal Entry Line corresponds to a Long or Short movement. | [optional] 
