@@ -37,14 +37,14 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="CompositeDispersion" /> class.
         /// </summary>
         /// <param name="effectiveAt">The date for which dipsersion calculation has been done. This should be 31 Dec for each given year. (required).</param>
-        /// <param name="dispersionCalculation">The result for the dispersion calculation on the given effectiveAt. (required).</param>
-        /// <param name="variance">The variance on the given effectiveAt. (required).</param>
-        /// <param name="firstQuartile">First Quartile (Q1) &#x3D;  (lower quartile) &#x3D; the middle of the bottom half of the returns. (required).</param>
-        /// <param name="thirdQuartile">Third Quartile (Q3) &#x3D;  (higher quartile) &#x3D; the middle of the top half of the returns. (required).</param>
-        /// <param name="range">Highest return - Lowest return. (required).</param>
+        /// <param name="dispersionCalculation">The result for the dispersion calculation on the given effectiveAt..</param>
+        /// <param name="variance">The variance on the given effectiveAt..</param>
+        /// <param name="firstQuartile">First Quartile (Q1) &#x3D;  (lower quartile) &#x3D; the middle of the bottom half of the returns..</param>
+        /// <param name="thirdQuartile">Third Quartile (Q3) &#x3D;  (higher quartile) &#x3D; the middle of the top half of the returns..</param>
+        /// <param name="range">Highest return - Lowest return..</param>
         /// <param name="constituentsInScope">List containing Composite members which are part of the dispersion calcualtion..</param>
         /// <param name="constituentsExcluded">List containing the Composite members which are not part of the dispersion calculation.</param>
-        public CompositeDispersion(DateTimeOffset effectiveAt = default(DateTimeOffset), decimal dispersionCalculation = default(decimal), decimal variance = default(decimal), decimal firstQuartile = default(decimal), decimal thirdQuartile = default(decimal), decimal range = default(decimal), List<ResourceId> constituentsInScope = default(List<ResourceId>), List<ResourceId> constituentsExcluded = default(List<ResourceId>))
+        public CompositeDispersion(DateTimeOffset effectiveAt = default(DateTimeOffset), decimal? dispersionCalculation = default(decimal?), decimal? variance = default(decimal?), decimal? firstQuartile = default(decimal?), decimal? thirdQuartile = default(decimal?), decimal? range = default(decimal?), List<ResourceId> constituentsInScope = default(List<ResourceId>), List<ResourceId> constituentsExcluded = default(List<ResourceId>))
         {
             this.EffectiveAt = effectiveAt;
             this.DispersionCalculation = dispersionCalculation;
@@ -67,36 +67,36 @@ namespace Lusid.Sdk.Model
         /// The result for the dispersion calculation on the given effectiveAt.
         /// </summary>
         /// <value>The result for the dispersion calculation on the given effectiveAt.</value>
-        [DataMember(Name = "dispersionCalculation", IsRequired = true, EmitDefaultValue = true)]
-        public decimal DispersionCalculation { get; set; }
+        [DataMember(Name = "dispersionCalculation", EmitDefaultValue = true)]
+        public decimal? DispersionCalculation { get; set; }
 
         /// <summary>
         /// The variance on the given effectiveAt.
         /// </summary>
         /// <value>The variance on the given effectiveAt.</value>
-        [DataMember(Name = "variance", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Variance { get; set; }
+        [DataMember(Name = "variance", EmitDefaultValue = true)]
+        public decimal? Variance { get; set; }
 
         /// <summary>
         /// First Quartile (Q1) &#x3D;  (lower quartile) &#x3D; the middle of the bottom half of the returns.
         /// </summary>
         /// <value>First Quartile (Q1) &#x3D;  (lower quartile) &#x3D; the middle of the bottom half of the returns.</value>
-        [DataMember(Name = "firstQuartile", IsRequired = true, EmitDefaultValue = true)]
-        public decimal FirstQuartile { get; set; }
+        [DataMember(Name = "firstQuartile", EmitDefaultValue = true)]
+        public decimal? FirstQuartile { get; set; }
 
         /// <summary>
         /// Third Quartile (Q3) &#x3D;  (higher quartile) &#x3D; the middle of the top half of the returns.
         /// </summary>
         /// <value>Third Quartile (Q3) &#x3D;  (higher quartile) &#x3D; the middle of the top half of the returns.</value>
-        [DataMember(Name = "thirdQuartile", IsRequired = true, EmitDefaultValue = true)]
-        public decimal ThirdQuartile { get; set; }
+        [DataMember(Name = "thirdQuartile", EmitDefaultValue = true)]
+        public decimal? ThirdQuartile { get; set; }
 
         /// <summary>
         /// Highest return - Lowest return.
         /// </summary>
         /// <value>Highest return - Lowest return.</value>
-        [DataMember(Name = "range", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Range { get; set; }
+        [DataMember(Name = "range", EmitDefaultValue = true)]
+        public decimal? Range { get; set; }
 
         /// <summary>
         /// List containing Composite members which are part of the dispersion calcualtion.
@@ -170,23 +170,28 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.DispersionCalculation == input.DispersionCalculation ||
-                    this.DispersionCalculation.Equals(input.DispersionCalculation)
+                    (this.DispersionCalculation != null &&
+                    this.DispersionCalculation.Equals(input.DispersionCalculation))
                 ) && 
                 (
                     this.Variance == input.Variance ||
-                    this.Variance.Equals(input.Variance)
+                    (this.Variance != null &&
+                    this.Variance.Equals(input.Variance))
                 ) && 
                 (
                     this.FirstQuartile == input.FirstQuartile ||
-                    this.FirstQuartile.Equals(input.FirstQuartile)
+                    (this.FirstQuartile != null &&
+                    this.FirstQuartile.Equals(input.FirstQuartile))
                 ) && 
                 (
                     this.ThirdQuartile == input.ThirdQuartile ||
-                    this.ThirdQuartile.Equals(input.ThirdQuartile)
+                    (this.ThirdQuartile != null &&
+                    this.ThirdQuartile.Equals(input.ThirdQuartile))
                 ) && 
                 (
                     this.Range == input.Range ||
-                    this.Range.Equals(input.Range)
+                    (this.Range != null &&
+                    this.Range.Equals(input.Range))
                 ) && 
                 (
                     this.ConstituentsInScope == input.ConstituentsInScope ||
@@ -215,11 +220,26 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DispersionCalculation.GetHashCode();
-                hashCode = (hashCode * 59) + this.Variance.GetHashCode();
-                hashCode = (hashCode * 59) + this.FirstQuartile.GetHashCode();
-                hashCode = (hashCode * 59) + this.ThirdQuartile.GetHashCode();
-                hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                if (this.DispersionCalculation != null)
+                {
+                    hashCode = (hashCode * 59) + this.DispersionCalculation.GetHashCode();
+                }
+                if (this.Variance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Variance.GetHashCode();
+                }
+                if (this.FirstQuartile != null)
+                {
+                    hashCode = (hashCode * 59) + this.FirstQuartile.GetHashCode();
+                }
+                if (this.ThirdQuartile != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThirdQuartile.GetHashCode();
+                }
+                if (this.Range != null)
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
                 if (this.ConstituentsInScope != null)
                 {
                     hashCode = (hashCode * 59) + this.ConstituentsInScope.GetHashCode();
