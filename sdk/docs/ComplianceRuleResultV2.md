@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.ComplianceRunSummary
+# Lusid.Sdk.Model.ComplianceRuleResultV2
 
 ## Properties
 
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **InstigatedAt** | **DateTimeOffset** |  | 
 **CompletedAt** | **DateTimeOffset** |  | 
 **Schedule** | **string** |  | 
-**Results** | [**List&lt;ComplianceSummaryRuleResult&gt;**](ComplianceSummaryRuleResult.md) |  | 
+**RuleResult** | [**ComplianceSummaryRuleResult**](ComplianceSummaryRuleResult.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

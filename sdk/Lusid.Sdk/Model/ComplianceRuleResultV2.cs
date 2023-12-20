@@ -23,30 +23,30 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ComplianceRunSummary
+    /// ComplianceRuleResultV2
     /// </summary>
-    [DataContract(Name = "ComplianceRunSummary")]
-    public partial class ComplianceRunSummary : IEquatable<ComplianceRunSummary>, IValidatableObject
+    [DataContract(Name = "ComplianceRuleResultV2")]
+    public partial class ComplianceRuleResultV2 : IEquatable<ComplianceRuleResultV2>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComplianceRunSummary" /> class.
+        /// Initializes a new instance of the <see cref="ComplianceRuleResultV2" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ComplianceRunSummary() { }
+        protected ComplianceRuleResultV2() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComplianceRunSummary" /> class.
+        /// Initializes a new instance of the <see cref="ComplianceRuleResultV2" /> class.
         /// </summary>
         /// <param name="runId">runId (required).</param>
         /// <param name="instigatedAt">instigatedAt (required).</param>
         /// <param name="completedAt">completedAt (required).</param>
         /// <param name="schedule">schedule (required).</param>
-        /// <param name="results">results (required).</param>
-        public ComplianceRunSummary(ResourceId runId = default(ResourceId), DateTimeOffset instigatedAt = default(DateTimeOffset), DateTimeOffset completedAt = default(DateTimeOffset), string schedule = default(string), List<ComplianceSummaryRuleResult> results = default(List<ComplianceSummaryRuleResult>))
+        /// <param name="ruleResult">ruleResult (required).</param>
+        public ComplianceRuleResultV2(ResourceId runId = default(ResourceId), DateTimeOffset instigatedAt = default(DateTimeOffset), DateTimeOffset completedAt = default(DateTimeOffset), string schedule = default(string), ComplianceSummaryRuleResult ruleResult = default(ComplianceSummaryRuleResult))
         {
             // to ensure "runId" is required (not null)
             if (runId == null)
             {
-                throw new ArgumentNullException("runId is a required property for ComplianceRunSummary and cannot be null");
+                throw new ArgumentNullException("runId is a required property for ComplianceRuleResultV2 and cannot be null");
             }
             this.RunId = runId;
             this.InstigatedAt = instigatedAt;
@@ -54,15 +54,15 @@ namespace Lusid.Sdk.Model
             // to ensure "schedule" is required (not null)
             if (schedule == null)
             {
-                throw new ArgumentNullException("schedule is a required property for ComplianceRunSummary and cannot be null");
+                throw new ArgumentNullException("schedule is a required property for ComplianceRuleResultV2 and cannot be null");
             }
             this.Schedule = schedule;
-            // to ensure "results" is required (not null)
-            if (results == null)
+            // to ensure "ruleResult" is required (not null)
+            if (ruleResult == null)
             {
-                throw new ArgumentNullException("results is a required property for ComplianceRunSummary and cannot be null");
+                throw new ArgumentNullException("ruleResult is a required property for ComplianceRuleResultV2 and cannot be null");
             }
-            this.Results = results;
+            this.RuleResult = ruleResult;
         }
 
         /// <summary>
@@ -90,10 +90,10 @@ namespace Lusid.Sdk.Model
         public string Schedule { get; set; }
 
         /// <summary>
-        /// Gets or Sets Results
+        /// Gets or Sets RuleResult
         /// </summary>
-        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
-        public List<ComplianceSummaryRuleResult> Results { get; set; }
+        [DataMember(Name = "ruleResult", IsRequired = true, EmitDefaultValue = true)]
+        public ComplianceSummaryRuleResult RuleResult { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,12 +102,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ComplianceRunSummary {\n");
+            sb.Append("class ComplianceRuleResultV2 {\n");
             sb.Append("  RunId: ").Append(RunId).Append("\n");
             sb.Append("  InstigatedAt: ").Append(InstigatedAt).Append("\n");
             sb.Append("  CompletedAt: ").Append(CompletedAt).Append("\n");
             sb.Append("  Schedule: ").Append(Schedule).Append("\n");
-            sb.Append("  Results: ").Append(Results).Append("\n");
+            sb.Append("  RuleResult: ").Append(RuleResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,15 +128,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ComplianceRunSummary);
+            return this.Equals(input as ComplianceRuleResultV2);
         }
 
         /// <summary>
-        /// Returns true if ComplianceRunSummary instances are equal
+        /// Returns true if ComplianceRuleResultV2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of ComplianceRunSummary to be compared</param>
+        /// <param name="input">Instance of ComplianceRuleResultV2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ComplianceRunSummary input)
+        public bool Equals(ComplianceRuleResultV2 input)
         {
             if (input == null)
             {
@@ -164,10 +164,9 @@ namespace Lusid.Sdk.Model
                     this.Schedule.Equals(input.Schedule))
                 ) && 
                 (
-                    this.Results == input.Results ||
-                    this.Results != null &&
-                    input.Results != null &&
-                    this.Results.SequenceEqual(input.Results)
+                    this.RuleResult == input.RuleResult ||
+                    (this.RuleResult != null &&
+                    this.RuleResult.Equals(input.RuleResult))
                 );
         }
 
@@ -196,9 +195,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Schedule.GetHashCode();
                 }
-                if (this.Results != null)
+                if (this.RuleResult != null)
                 {
-                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
+                    hashCode = (hashCode * 59) + this.RuleResult.GetHashCode();
                 }
                 return hashCode;
             }

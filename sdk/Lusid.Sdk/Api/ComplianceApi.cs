@@ -79,7 +79,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRuleResponse</returns>
         ApiResponse<ComplianceRuleResponse> GetComplianceRuleWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
         /// <remarks>
         /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
@@ -90,11 +90,11 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ComplianceRunSummary</returns>
-        ComplianceRunSummary GetComplianceRuleResultDetails(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0);
+        /// <returns>ComplianceRuleResultV2</returns>
+        ComplianceRuleResultV2 GetComplianceRuleResult(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
         /// <remarks>
         /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
@@ -105,33 +105,8 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ComplianceRunSummary</returns>
-        ApiResponse<ComplianceRunSummary> GetComplianceRuleResultDetailsWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0);
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-        /// </summary>
-        /// <remarks>
-        /// Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ComplianceRunSummary</returns>
-        ComplianceRunSummary GetComplianceRunSummary(string runScope, string runCode, int operationIndex = 0);
-
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-        /// </summary>
-        /// <remarks>
-        /// Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ComplianceRunSummary</returns>
-        ApiResponse<ComplianceRunSummary> GetComplianceRunSummaryWithHttpInfo(string runScope, string runCode, int operationIndex = 0);
+        /// <returns>ApiResponse of ComplianceRuleResultV2</returns>
+        ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
         /// </summary>
@@ -338,8 +313,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ComplianceRunSummary</returns>
-        ComplianceRunSummary UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0);
+        /// <returns>UpsertComplianceRunSummaryResult</returns>
+        UpsertComplianceRunSummaryResult UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
@@ -350,8 +325,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ComplianceRunSummary</returns>
-        ApiResponse<ComplianceRunSummary> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of UpsertComplianceRunSummaryResult</returns>
+        ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -420,7 +395,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ComplianceRuleResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResponse>> GetComplianceRuleWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
         /// <remarks>
         /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
@@ -432,11 +407,11 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ComplianceRunSummary</returns>
-        System.Threading.Tasks.Task<ComplianceRunSummary> GetComplianceRuleResultDetailsAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ComplianceRuleResultV2</returns>
+        System.Threading.Tasks.Task<ComplianceRuleResultV2> GetComplianceRuleResultAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run.
         /// </summary>
         /// <remarks>
         /// Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
@@ -448,35 +423,8 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ComplianceRunSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRunSummary>> GetComplianceRuleResultDetailsWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-        /// </summary>
-        /// <remarks>
-        /// Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ComplianceRunSummary</returns>
-        System.Threading.Tasks.Task<ComplianceRunSummary> GetComplianceRunSummaryAsync(string runScope, string runCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run.
-        /// </summary>
-        /// <remarks>
-        /// Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </remarks>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ComplianceRunSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRunSummary>> GetComplianceRunSummaryWithHttpInfoAsync(string runScope, string runCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ComplianceRuleResultV2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] GetComplianceTemplate: Get the requested compliance template.
         /// </summary>
@@ -698,8 +646,8 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ComplianceRunSummary</returns>
-        System.Threading.Tasks.Task<ComplianceRunSummary> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of UpsertComplianceRunSummaryResult</returns>
+        System.Threading.Tasks.Task<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRunSummary: Upsert a compliance run summary.
@@ -711,8 +659,8 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ComplianceRunSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComplianceRunSummary>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UpsertComplianceRunSummaryResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1251,7 +1199,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runScope">Required: Run Scope.</param>
@@ -1259,15 +1207,15 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ComplianceRunSummary</returns>
-        public ComplianceRunSummary GetComplianceRuleResultDetails(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0)
+        /// <returns>ComplianceRuleResultV2</returns>
+        public ComplianceRuleResultV2 GetComplianceRuleResult(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> localVarResponse = GetComplianceRuleResultDetailsWithHttpInfo(runScope, runCode, ruleScope, ruleCode);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> localVarResponse = GetComplianceRuleResultWithHttpInfo(runScope, runCode, ruleScope, ruleCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runScope">Required: Run Scope.</param>
@@ -1275,31 +1223,31 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleScope">Required: Rule Scope.</param>
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ComplianceRunSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> GetComplianceRuleResultDetailsWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0)
+        /// <returns>ApiResponse of ComplianceRuleResultV2</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> GetComplianceRuleResultWithHttpInfo(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0)
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             // verify the required parameter 'runCode' is set
             if (runCode == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             // verify the required parameter 'ruleScope' is set
             if (ruleScope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             // verify the required parameter 'ruleCode' is set
             if (ruleCode == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleCode' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleCode' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -1331,7 +1279,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleScope)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleCode)); // path parameter
 
-            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleResultDetails";
+            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleResult";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1352,10 +1300,10 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ComplianceRunSummary>("/api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ComplianceRuleResultV2>("/api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetComplianceRuleResultDetails", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleResult", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1366,7 +1314,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runScope">Required: Run Scope.</param>
@@ -1375,15 +1323,15 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ComplianceRunSummary</returns>
-        public async System.Threading.Tasks.Task<ComplianceRunSummary> GetComplianceRuleResultDetailsAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ComplianceRuleResultV2</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleResultV2> GetComplianceRuleResultAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> localVarResponse = await GetComplianceRuleResultDetailsWithHttpInfoAsync(runScope, runCode, ruleScope, ruleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2> localVarResponse = await GetComplianceRuleResultWithHttpInfoAsync(runScope, runCode, ruleScope, ruleCode, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetComplianceRuleResultDetails: Get summary results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
+        /// [EARLY ACCESS] GetComplianceRuleResult: Get detailed results for a specific rule within a compliance run. Specify a run scope and code from a previously run compliance check, and the scope and code of a rule within that run, to get detailed results for that rule.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runScope">Required: Run Scope.</param>
@@ -1392,31 +1340,31 @@ namespace Lusid.Sdk.Api
         /// <param name="ruleCode">Required: Rule Code.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ComplianceRunSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary>> GetComplianceRuleResultDetailsWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ComplianceRuleResultV2)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleResultV2>> GetComplianceRuleResultWithHttpInfoAsync(string runScope, string runCode, string ruleScope, string ruleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'runScope' is set
             if (runScope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             // verify the required parameter 'runCode' is set
             if (runCode == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             // verify the required parameter 'ruleScope' is set
             if (ruleScope == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleScope' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
             // verify the required parameter 'ruleCode' is set
             if (ruleCode == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleCode' when calling ComplianceApi->GetComplianceRuleResultDetails");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'ruleCode' when calling ComplianceApi->GetComplianceRuleResult");
             }
 
 
@@ -1449,7 +1397,7 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleScope)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(ruleCode)); // path parameter
 
-            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleResultDetails";
+            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRuleResult";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1470,209 +1418,11 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRunSummary>("/api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRuleResultV2>("/api/compliance/runs/summary/{runScope}/{runCode}/{ruleScope}/{ruleCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetComplianceRuleResultDetails", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run. Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ComplianceRunSummary</returns>
-        public ComplianceRunSummary GetComplianceRunSummary(string runScope, string runCode, int operationIndex = 0)
-        {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> localVarResponse = GetComplianceRunSummaryWithHttpInfo(runScope, runCode);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run. Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ComplianceRunSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> GetComplianceRunSummaryWithHttpInfo(string runScope, string runCode, int operationIndex = 0)
-        {
-            // verify the required parameter 'runScope' is set
-            if (runScope == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRunSummary");
-            }
-
-            // verify the required parameter 'runCode' is set
-            if (runCode == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRunSummary");
-            }
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("runScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(runScope)); // path parameter
-            localVarRequestOptions.PathParameters.Add("runCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(runCode)); // path parameter
-
-            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRunSummary";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ComplianceRunSummary>("/api/compliance/runs/summary/{runScope}/{runCode}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetComplianceRunSummary", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run. Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ComplianceRunSummary</returns>
-        public async System.Threading.Tasks.Task<ComplianceRunSummary> GetComplianceRunSummaryAsync(string runScope, string runCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> localVarResponse = await GetComplianceRunSummaryWithHttpInfoAsync(runScope, runCode, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EARLY ACCESS] GetComplianceRunSummary: Get summary results for a specific compliance run. Specify a run scope and code from a previously run compliance check to get summarised results.
-        /// </summary>
-        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runScope">Required: Run Scope.</param>
-        /// <param name="runCode">Required: Run Code.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ComplianceRunSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary>> GetComplianceRunSummaryWithHttpInfoAsync(string runScope, string runCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'runScope' is set
-            if (runScope == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runScope' when calling ComplianceApi->GetComplianceRunSummary");
-            }
-
-            // verify the required parameter 'runCode' is set
-            if (runCode == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'runCode' when calling ComplianceApi->GetComplianceRunSummary");
-            }
-
-
-            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "text/plain",
-                "application/json",
-                "text/json"
-            };
-
-            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("runScope", Lusid.Sdk.Client.ClientUtils.ParameterToString(runScope)); // path parameter
-            localVarRequestOptions.PathParameters.Add("runCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(runCode)); // path parameter
-
-            localVarRequestOptions.Operation = "ComplianceApi.GetComplianceRunSummary";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ComplianceRunSummary>("/api/compliance/runs/summary/{runScope}/{runCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetComplianceRunSummary", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetComplianceRuleResult", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3166,10 +2916,10 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ComplianceRunSummary</returns>
-        public ComplianceRunSummary UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0)
+        /// <returns>UpsertComplianceRunSummaryResult</returns>
+        public UpsertComplianceRunSummaryResult UpsertComplianceRunSummary(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> localVarResponse = UpsertComplianceRunSummaryWithHttpInfo(upsertComplianceRunSummaryRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> localVarResponse = UpsertComplianceRunSummaryWithHttpInfo(upsertComplianceRunSummaryRequest);
             return localVarResponse.Data;
         }
 
@@ -3179,8 +2929,8 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ComplianceRunSummary</returns>
-        public Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of UpsertComplianceRunSummaryResult</returns>
+        public Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryWithHttpInfo(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -3233,7 +2983,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ComplianceRunSummary>("/api/compliance/runs/summary", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UpsertComplianceRunSummaryResult>("/api/compliance/runs/summary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpsertComplianceRunSummary", localVarResponse);
@@ -3253,10 +3003,10 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ComplianceRunSummary</returns>
-        public async System.Threading.Tasks.Task<ComplianceRunSummary> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of UpsertComplianceRunSummaryResult</returns>
+        public async System.Threading.Tasks.Task<UpsertComplianceRunSummaryResult> UpsertComplianceRunSummaryAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary> localVarResponse = await UpsertComplianceRunSummaryWithHttpInfoAsync(upsertComplianceRunSummaryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult> localVarResponse = await UpsertComplianceRunSummaryWithHttpInfoAsync(upsertComplianceRunSummaryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3267,8 +3017,8 @@ namespace Lusid.Sdk.Api
         /// <param name="upsertComplianceRunSummaryRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ComplianceRunSummary)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRunSummary>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UpsertComplianceRunSummaryResult)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertComplianceRunSummaryResult>> UpsertComplianceRunSummaryWithHttpInfoAsync(UpsertComplianceRunSummaryRequest? upsertComplianceRunSummaryRequest = default(UpsertComplianceRunSummaryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -3322,7 +3072,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ComplianceRunSummary>("/api/compliance/runs/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UpsertComplianceRunSummaryResult>("/api/compliance/runs/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
