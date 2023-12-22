@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Placement</returns>
         Placement GetPlacement(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Placement</returns>
         ApiResponse<Placement> GetPlacementWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
@@ -180,7 +180,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Placement</returns>
@@ -196,7 +196,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Placement)</returns>
@@ -583,7 +583,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Placement</returns>
         public Placement GetPlacement(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
@@ -599,7 +599,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Placement</returns>
         public Lusid.Sdk.Client.ApiResponse<Placement> GetPlacementWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
@@ -692,7 +692,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Placement</returns>
@@ -709,7 +709,7 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope to which the placement belongs.</param>
         /// <param name="code">The placement&#39;s unique identifier.</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional)</param>
-        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. (optional)</param>
+        /// <param name="propertyKeys">A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Placement)</returns>

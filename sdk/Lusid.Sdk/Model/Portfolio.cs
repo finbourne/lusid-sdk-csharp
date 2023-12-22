@@ -136,7 +136,7 @@ namespace Lusid.Sdk.Model
         /// <param name="relationships">A set of relationships associated to the portfolio..</param>
         /// <param name="instrumentScopes">The instrument scope resolution strategy of this portfolio..</param>
         /// <param name="accountingMethod">. The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst.</param>
-        /// <param name="amortisationMethod">The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;..</param>
+        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The scope of the transaction types..</param>
         /// <param name="links">links.</param>
@@ -254,9 +254,9 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentScopes { get; set; }
 
         /// <summary>
-        /// The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;.
+        /// The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate
         /// </summary>
-        /// <value>The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;.</value>
+        /// <value>The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate</value>
         [DataMember(Name = "amortisationMethod", EmitDefaultValue = true)]
         public string AmortisationMethod { get; set; }
 

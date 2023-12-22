@@ -138,7 +138,7 @@ namespace Example
             var scope = "scope_example";  // string | The scope to which the placement belongs.
             var code = "code_example";  // string | The placement's unique identifier.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Placement\" domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\". (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the \"Placement\" domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \"Placement/system/Name\". Property keys from the instrument domain can also be decorated              onto the placement, e.g. \"Instrument/default/Isin\". These are only decorated if requested. (optional) 
 
             try
             {
@@ -184,7 +184,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope to which the placement belongs. |  |
 | **code** | **string** | The placement&#39;s unique identifier. |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the placement. Defaults to return the latest version of the placement if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the \&quot;Placement\&quot; domain to decorate onto the placement.  If none are given, all applied properties are returned.              These take the format {domain}/{scope}/{code} e.g. \&quot;Placement/system/Name\&quot;. Property keys from the instrument domain can also be decorated              onto the placement, e.g. \&quot;Instrument/default/Isin\&quot;. These are only decorated if requested. | [optional]  |
 
 ### Return type
 

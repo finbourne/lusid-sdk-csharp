@@ -1,11 +1,11 @@
-# Lusid.Sdk.Model.UpsertRecipeRequest
-A recipe that is to be stored in the recipe structured data store.  Only one of these must be present.
+# Lusid.Sdk.Model.UpsertRecipeComposerRequest
+A recipe composer that is to be stored in the recipe composer data store or used for inline resolving.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConfigurationRecipe** | [**ConfigurationRecipe**](ConfigurationRecipe.md) |  | [optional] 
+**RecipeComposer** | [**RecipeComposer**](RecipeComposer.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

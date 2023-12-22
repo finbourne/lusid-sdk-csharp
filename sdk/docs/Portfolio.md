@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Relationships** | [**List&lt;Relationship&gt;**](Relationship.md) | A set of relationships associated to the portfolio. | [optional] 
 **InstrumentScopes** | **List&lt;string&gt;** | The instrument scope resolution strategy of this portfolio. | [optional] 
 **AccountingMethod** | **string** | . The available values are: Default, AverageCost, FirstInFirstOut, LastInFirstOut, HighestCostFirst, LowestCostFirst | [optional] 
-**AmortisationMethod** | **string** | The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;. | [optional] 
+**AmortisationMethod** | **string** | The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate | [optional] 
 **TransactionTypeScope** | **string** | The scope of the transaction types. | [optional] 
 **CashGainLossCalculationDate** | **string** | The scope of the transaction types. | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 

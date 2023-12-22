@@ -23,25 +23,25 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A recipe that is to be stored in the recipe structured data store.  Only one of these must be present.
+    /// A recipe composer that is to be stored in the recipe composer data store or used for inline resolving.
     /// </summary>
-    [DataContract(Name = "UpsertRecipeRequest")]
-    public partial class UpsertRecipeRequest : IEquatable<UpsertRecipeRequest>, IValidatableObject
+    [DataContract(Name = "UpsertRecipeComposerRequest")]
+    public partial class UpsertRecipeComposerRequest : IEquatable<UpsertRecipeComposerRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpsertRecipeRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpsertRecipeComposerRequest" /> class.
         /// </summary>
-        /// <param name="configurationRecipe">configurationRecipe.</param>
-        public UpsertRecipeRequest(ConfigurationRecipe configurationRecipe = default(ConfigurationRecipe))
+        /// <param name="recipeComposer">recipeComposer.</param>
+        public UpsertRecipeComposerRequest(RecipeComposer recipeComposer = default(RecipeComposer))
         {
-            this.ConfigurationRecipe = configurationRecipe;
+            this.RecipeComposer = recipeComposer;
         }
 
         /// <summary>
-        /// Gets or Sets ConfigurationRecipe
+        /// Gets or Sets RecipeComposer
         /// </summary>
-        [DataMember(Name = "configurationRecipe", EmitDefaultValue = false)]
-        public ConfigurationRecipe ConfigurationRecipe { get; set; }
+        [DataMember(Name = "recipeComposer", EmitDefaultValue = false)]
+        public RecipeComposer RecipeComposer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -50,8 +50,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpsertRecipeRequest {\n");
-            sb.Append("  ConfigurationRecipe: ").Append(ConfigurationRecipe).Append("\n");
+            sb.Append("class UpsertRecipeComposerRequest {\n");
+            sb.Append("  RecipeComposer: ").Append(RecipeComposer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -72,15 +72,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpsertRecipeRequest);
+            return this.Equals(input as UpsertRecipeComposerRequest);
         }
 
         /// <summary>
-        /// Returns true if UpsertRecipeRequest instances are equal
+        /// Returns true if UpsertRecipeComposerRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpsertRecipeRequest to be compared</param>
+        /// <param name="input">Instance of UpsertRecipeComposerRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpsertRecipeRequest input)
+        public bool Equals(UpsertRecipeComposerRequest input)
         {
             if (input == null)
             {
@@ -88,9 +88,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ConfigurationRecipe == input.ConfigurationRecipe ||
-                    (this.ConfigurationRecipe != null &&
-                    this.ConfigurationRecipe.Equals(input.ConfigurationRecipe))
+                    this.RecipeComposer == input.RecipeComposer ||
+                    (this.RecipeComposer != null &&
+                    this.RecipeComposer.Equals(input.RecipeComposer))
                 );
         }
 
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ConfigurationRecipe != null)
+                if (this.RecipeComposer != null)
                 {
-                    hashCode = (hashCode * 59) + this.ConfigurationRecipe.GetHashCode();
+                    hashCode = (hashCode * 59) + this.RecipeComposer.GetHashCode();
                 }
                 return hashCode;
             }

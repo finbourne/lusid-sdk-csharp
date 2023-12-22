@@ -98,7 +98,7 @@ namespace Lusid.Sdk.Model
         /// <param name="subHoldingKeys">A set of unique transaction properties to group the transaction portfolio&#39;s holdings by, perhaps for strategy tagging. Each property must be from the &#39;Transaction&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Transaction/strategies/quantsignal&#39;. See https://support.lusid.com/knowledgebase/article/KA-01879/en-us for more information..</param>
         /// <param name="properties">A set of unique portfolio properties to add custom data to the transaction portfolio. Each property must be from the &#39;Portfolio&#39; domain and identified by a key in the format {domain}/{scope}/{code}, for example &#39;Portfolio/Manager/Id&#39;. Note these properties must be pre-defined..</param>
         /// <param name="instrumentScopes">The resolution strategy used to resolve instruments of transactions/holdings upserted to this portfolio..</param>
-        /// <param name="amortisationMethod">The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;..</param>
+        /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>
         public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
@@ -196,9 +196,9 @@ namespace Lusid.Sdk.Model
         public List<string> InstrumentScopes { get; set; }
 
         /// <summary>
-        /// The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;.
+        /// The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate
         /// </summary>
-        /// <value>The amortisation method the portfolio is using in the calculation. This can be &#39;NoAmortisation&#39;, &#39;StraightLine&#39; or &#39;EffectiveYield&#39;.</value>
+        /// <value>The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate</value>
         [DataMember(Name = "amortisationMethod", EmitDefaultValue = true)]
         public string AmortisationMethod { get; set; }
 
