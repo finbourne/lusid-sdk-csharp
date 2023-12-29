@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="diaryEntryCode">The code of the diary entry..</param>
         /// <param name="type">The type of the diary entry. (required).</param>
         /// <param name="name">The name of the diary entry..</param>
-        /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39;. (required).</param>
+        /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods. (required).</param>
         /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="previousEntryTime">The entry time of the previous diary entry..</param>
@@ -109,9 +109,9 @@ namespace Lusid.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The status of the diary entry. Defaults to &#39;Undefined&#39;.
+        /// The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.
         /// </summary>
-        /// <value>The status of the diary entry. Defaults to &#39;Undefined&#39;.</value>
+        /// <value>The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

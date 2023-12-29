@@ -23,53 +23,50 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The request to add a diary entry
+    /// A definition for the period you wish to close
     /// </summary>
-    [DataContract(Name = "DiaryEntryRequest")]
-    public partial class DiaryEntryRequest : IEquatable<DiaryEntryRequest>, IValidatableObject
+    [DataContract(Name = "ClosePeriodDiaryEntryRequest")]
+    public partial class ClosePeriodDiaryEntryRequest : IEquatable<ClosePeriodDiaryEntryRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DiaryEntryRequest" /> class.
+        /// Initializes a new instance of the <see cref="ClosePeriodDiaryEntryRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DiaryEntryRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DiaryEntryRequest" /> class.
-        /// </summary>
-        /// <param name="name">The name of the diary entry..</param>
-        /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods..</param>
-        /// <param name="effectiveAt">The effective time of the diary entry. (required).</param>
+        /// <param name="diaryEntryCode">Unique code assigned to a period. When left blank a code will be created by the system in the format &#39;yyyyMMDD&#39;..</param>
+        /// <param name="name">Identifiable Name assigned to the period. Where left blank, the system will generate a name in the format &#39;yyyyMMDD&#39;..</param>
+        /// <param name="effectiveAt">The effective time of the diary entry..</param>
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
+        /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        public DiaryEntryRequest(string name = default(string), string status = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), DateTimeOffset? queryAsAt = default(DateTimeOffset?), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        public ClosePeriodDiaryEntryRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? queryAsAt = default(DateTimeOffset?), string status = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
-            this.EffectiveAt = effectiveAt;
+            this.DiaryEntryCode = diaryEntryCode;
             this.Name = name;
-            this.Status = status;
+            this.EffectiveAt = effectiveAt;
             this.QueryAsAt = queryAsAt;
+            this.Status = status;
             this.Properties = properties;
         }
 
         /// <summary>
-        /// The name of the diary entry.
+        /// Unique code assigned to a period. When left blank a code will be created by the system in the format &#39;yyyyMMDD&#39;.
         /// </summary>
-        /// <value>The name of the diary entry.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
+        /// <value>Unique code assigned to a period. When left blank a code will be created by the system in the format &#39;yyyyMMDD&#39;.</value>
+        [DataMember(Name = "diaryEntryCode", EmitDefaultValue = true)]
+        public string DiaryEntryCode { get; set; }
 
         /// <summary>
-        /// The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.
+        /// Identifiable Name assigned to the period. Where left blank, the system will generate a name in the format &#39;yyyyMMDD&#39;.
         /// </summary>
-        /// <value>The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.</value>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
-        public string Status { get; set; }
+        /// <value>Identifiable Name assigned to the period. Where left blank, the system will generate a name in the format &#39;yyyyMMDD&#39;.</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
         /// The effective time of the diary entry.
         /// </summary>
         /// <value>The effective time of the diary entry.</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset EffectiveAt { get; set; }
+        [DataMember(Name = "effectiveAt", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveAt { get; set; }
 
         /// <summary>
         /// The query time of the diary entry. Defaults to latest.
@@ -77,6 +74,13 @@ namespace Lusid.Sdk.Model
         /// <value>The query time of the diary entry. Defaults to latest.</value>
         [DataMember(Name = "queryAsAt", EmitDefaultValue = true)]
         public DateTimeOffset? QueryAsAt { get; set; }
+
+        /// <summary>
+        /// The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.
+        /// </summary>
+        /// <value>The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods.</value>
+        [DataMember(Name = "status", EmitDefaultValue = true)]
+        public string Status { get; set; }
 
         /// <summary>
         /// A set of properties for the diary entry.
@@ -92,11 +96,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DiaryEntryRequest {\n");
+            sb.Append("class ClosePeriodDiaryEntryRequest {\n");
+            sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,15 +123,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DiaryEntryRequest);
+            return this.Equals(input as ClosePeriodDiaryEntryRequest);
         }
 
         /// <summary>
-        /// Returns true if DiaryEntryRequest instances are equal
+        /// Returns true if ClosePeriodDiaryEntryRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of DiaryEntryRequest to be compared</param>
+        /// <param name="input">Instance of ClosePeriodDiaryEntryRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DiaryEntryRequest input)
+        public bool Equals(ClosePeriodDiaryEntryRequest input)
         {
             if (input == null)
             {
@@ -134,14 +139,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.DiaryEntryCode == input.DiaryEntryCode ||
+                    (this.DiaryEntryCode != null &&
+                    this.DiaryEntryCode.Equals(input.DiaryEntryCode))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.EffectiveAt == input.EffectiveAt ||
@@ -152,6 +157,11 @@ namespace Lusid.Sdk.Model
                     this.QueryAsAt == input.QueryAsAt ||
                     (this.QueryAsAt != null &&
                     this.QueryAsAt.Equals(input.QueryAsAt))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -170,13 +180,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.DiaryEntryCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 if (this.EffectiveAt != null)
                 {
@@ -185,6 +195,10 @@ namespace Lusid.Sdk.Model
                 if (this.QueryAsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.QueryAsAt.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 if (this.Properties != null)
                 {
@@ -201,6 +215,25 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DiaryEntryCode (string) maxLength
+            if (this.DiaryEntryCode != null && this.DiaryEntryCode.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, length must be less than 64.", new [] { "DiaryEntryCode" });
+            }
+
+            // DiaryEntryCode (string) minLength
+            if (this.DiaryEntryCode != null && this.DiaryEntryCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, length must be greater than 1.", new [] { "DiaryEntryCode" });
+            }
+
+            // DiaryEntryCode (string) pattern
+            Regex regexDiaryEntryCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexDiaryEntryCode.Match(this.DiaryEntryCode).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiaryEntryCode, must match a pattern of " + regexDiaryEntryCode, new [] { "DiaryEntryCode" });
+            }
+
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 512)
             {

@@ -6,7 +6,7 @@ The request to add a diary entry
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the diary entry. | [optional] 
-**Status** | **string** | The status of the diary entry. Defaults to &#39;Undefined&#39;. | [optional] 
+**Status** | **string** | The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods. | [optional] 
 **EffectiveAt** | **DateTimeOffset** | The effective time of the diary entry. | 
 **QueryAsAt** | **DateTimeOffset?** | The query time of the diary entry. Defaults to latest. | [optional] 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the diary entry. | [optional] 

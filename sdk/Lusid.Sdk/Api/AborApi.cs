@@ -54,6 +54,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DiaryEntry</returns>
         ApiResponse<DiaryEntry> AddDiaryEntryWithHttpInfo(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Closes or Locks the current open period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DiaryEntry</returns>
+        DiaryEntry ClosePeriod(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Closes or Locks the current open period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DiaryEntry</returns>
+        ApiResponse<DiaryEntry> ClosePeriodWithHttpInfo(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] CreateAbor: Create an Abor.
         /// </summary>
         /// <remarks>
@@ -308,6 +335,60 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfDiaryEntry</returns>
         ApiResponse<PagedResourceListOfDiaryEntry> ListDiaryEntriesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// </summary>
+        /// <remarks>
+        /// Locks the specified or last locked period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DiaryEntry</returns>
+        DiaryEntry LockPeriod(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// </summary>
+        /// <remarks>
+        /// Locks the specified or last locked period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DiaryEntry</returns>
+        ApiResponse<DiaryEntry> LockPeriodWithHttpInfo(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Reopens one or more periods.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PeriodDiaryEntriesReopenedResponse</returns>
+        PeriodDiaryEntriesReopenedResponse ReOpenPeriods(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Reopens one or more periods.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PeriodDiaryEntriesReopenedResponse</returns>
+        ApiResponse<PeriodDiaryEntriesReopenedResponse> ReOpenPeriodsWithHttpInfo(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
         /// </summary>
         /// <remarks>
@@ -374,6 +455,35 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DiaryEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<DiaryEntry>> AddDiaryEntryWithHttpInfoAsync(string scope, string code, string diaryEntryCode, DiaryEntryRequest diaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Closes or Locks the current open period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DiaryEntry</returns>
+        System.Threading.Tasks.Task<DiaryEntry> ClosePeriodAsync(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Closes or Locks the current open period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DiaryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DiaryEntry>> ClosePeriodWithHttpInfoAsync(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] CreateAbor: Create an Abor.
         /// </summary>
@@ -644,6 +754,64 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfDiaryEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfDiaryEntry>> ListDiaryEntriesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// </summary>
+        /// <remarks>
+        /// Locks the specified or last locked period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DiaryEntry</returns>
+        System.Threading.Tasks.Task<DiaryEntry> LockPeriodAsync(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+        /// </summary>
+        /// <remarks>
+        /// Locks the specified or last locked period for the given Abor.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DiaryEntry)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DiaryEntry>> LockPeriodWithHttpInfoAsync(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Reopens one or more periods.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PeriodDiaryEntriesReopenedResponse</returns>
+        System.Threading.Tasks.Task<PeriodDiaryEntriesReopenedResponse> ReOpenPeriodsAsync(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+        /// </summary>
+        /// <remarks>
+        /// Reopens one or more periods.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PeriodDiaryEntriesReopenedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PeriodDiaryEntriesReopenedResponse>> ReOpenPeriodsWithHttpInfoAsync(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties
         /// </summary>
@@ -1023,6 +1191,230 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddDiaryEntry", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DiaryEntry</returns>
+        public DiaryEntry ClosePeriod(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = ClosePeriodWithHttpInfo(scope, code, closePeriodDiaryEntryRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DiaryEntry</returns>
+        public Lusid.Sdk.Client.ApiResponse<DiaryEntry> ClosePeriodWithHttpInfo(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->ClosePeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->ClosePeriod");
+            }
+
+            // verify the required parameter 'closePeriodDiaryEntryRequest' is set
+            if (closePeriodDiaryEntryRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'closePeriodDiaryEntryRequest' when calling AborApi->ClosePeriod");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = closePeriodDiaryEntryRequest;
+
+            localVarRequestOptions.Operation = "AborApi.ClosePeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary/$closeperiod", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClosePeriod", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DiaryEntry</returns>
+        public async System.Threading.Tasks.Task<DiaryEntry> ClosePeriodAsync(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = await ClosePeriodWithHttpInfoAsync(scope, code, closePeriodDiaryEntryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. Closes or Locks the current open period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="closePeriodDiaryEntryRequest">The request body, containing details to apply to the closing/locking period.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DiaryEntry)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> ClosePeriodWithHttpInfoAsync(string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->ClosePeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->ClosePeriod");
+            }
+
+            // verify the required parameter 'closePeriodDiaryEntryRequest' is set
+            if (closePeriodDiaryEntryRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'closePeriodDiaryEntryRequest' when calling AborApi->ClosePeriod");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = closePeriodDiaryEntryRequest;
+
+            localVarRequestOptions.Operation = "AborApi.ClosePeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary/$closeperiod", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClosePeriod", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2969,6 +3361,430 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListDiaryEntries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DiaryEntry</returns>
+        public DiaryEntry LockPeriod(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = LockPeriodWithHttpInfo(scope, code, lockPeriodDiaryEntryRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DiaryEntry</returns>
+        public Lusid.Sdk.Client.ApiResponse<DiaryEntry> LockPeriodWithHttpInfo(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->LockPeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->LockPeriod");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = lockPeriodDiaryEntryRequest;
+
+            localVarRequestOptions.Operation = "AborApi.LockPeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary/$lockperiod", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LockPeriod", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DiaryEntry</returns>
+        public async System.Threading.Tasks.Task<DiaryEntry> LockPeriodAsync(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DiaryEntry> localVarResponse = await LockPeriodWithHttpInfoAsync(scope, code, lockPeriodDiaryEntryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. Locks the specified or last locked period for the given Abor.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor.</param>
+        /// <param name="code">The code of the Abor.</param>
+        /// <param name="lockPeriodDiaryEntryRequest">The request body, detailing lock details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DiaryEntry)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DiaryEntry>> LockPeriodWithHttpInfoAsync(string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = default(LockPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->LockPeriod");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->LockPeriod");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = lockPeriodDiaryEntryRequest;
+
+            localVarRequestOptions.Operation = "AborApi.LockPeriod";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<DiaryEntry>("/api/abor/{scope}/{code}/accountingdiary/$lockperiod", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LockPeriod", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>PeriodDiaryEntriesReopenedResponse</returns>
+        public PeriodDiaryEntriesReopenedResponse ReOpenPeriods(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<PeriodDiaryEntriesReopenedResponse> localVarResponse = ReOpenPeriodsWithHttpInfo(scope, code, reOpenPeriodDiaryEntryRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of PeriodDiaryEntriesReopenedResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<PeriodDiaryEntriesReopenedResponse> ReOpenPeriodsWithHttpInfo(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->ReOpenPeriods");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->ReOpenPeriods");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = reOpenPeriodDiaryEntryRequest;
+
+            localVarRequestOptions.Operation = "AborApi.ReOpenPeriods";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<PeriodDiaryEntriesReopenedResponse>("/api/abor/{scope}/{code}/accountingdiary/$reopenperiods", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReOpenPeriods", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PeriodDiaryEntriesReopenedResponse</returns>
+        public async System.Threading.Tasks.Task<PeriodDiaryEntriesReopenedResponse> ReOpenPeriodsAsync(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<PeriodDiaryEntriesReopenedResponse> localVarResponse = await ReOpenPeriodsWithHttpInfoAsync(scope, code, reOpenPeriodDiaryEntryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. Reopens one or more periods.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Abor to be deleted.</param>
+        /// <param name="code">The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.</param>
+        /// <param name="reOpenPeriodDiaryEntryRequest">The request body, detailing re open details (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PeriodDiaryEntriesReopenedResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PeriodDiaryEntriesReopenedResponse>> ReOpenPeriodsWithHttpInfoAsync(string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = default(ReOpenPeriodDiaryEntryRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AborApi->ReOpenPeriods");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AborApi->ReOpenPeriods");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = reOpenPeriodDiaryEntryRequest;
+
+            localVarRequestOptions.Operation = "AborApi.ReOpenPeriods";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<PeriodDiaryEntriesReopenedResponse>("/api/abor/{scope}/{code}/accountingdiary/$reopenperiods", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReOpenPeriods", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

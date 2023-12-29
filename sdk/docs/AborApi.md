@@ -5,6 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddDiaryEntry**](AborApi.md#adddiaryentry) | **POST** /api/abor/{scope}/{code}/accountingdiary/{diaryEntryCode} | [EXPERIMENTAL] AddDiaryEntry: Add a diary entry to the specified Abor. |
+| [**ClosePeriod**](AborApi.md#closeperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$closeperiod | [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor. |
 | [**CreateAbor**](AborApi.md#createabor) | **POST** /api/abor/{scope} | [EXPERIMENTAL] CreateAbor: Create an Abor. |
 | [**DeleteAbor**](AborApi.md#deleteabor) | **DELETE** /api/abor/{scope}/{code} | [EXPERIMENTAL] DeleteAbor: Delete an Abor. |
 | [**GetAbor**](AborApi.md#getabor) | **GET** /api/abor/{scope}/{code} | [EXPERIMENTAL] GetAbor: Get Abor. |
@@ -13,6 +14,8 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetTrialBalance**](AborApi.md#gettrialbalance) | **POST** /api/abor/{scope}/{code}/trialbalance/$query | [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor. |
 | [**ListAbors**](AborApi.md#listabors) | **GET** /api/abor | [EXPERIMENTAL] ListAbors: List Abors. |
 | [**ListDiaryEntries**](AborApi.md#listdiaryentries) | **GET** /api/abor/{scope}/{code}/accountingdiary | [EXPERIMENTAL] ListDiaryEntries: List diary entries. |
+| [**LockPeriod**](AborApi.md#lockperiod) | **POST** /api/abor/{scope}/{code}/accountingdiary/$lockperiod | [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period. |
+| [**ReOpenPeriods**](AborApi.md#reopenperiods) | **POST** /api/abor/{scope}/{code}/accountingdiary/$reopenperiods | [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor. |
 | [**UpsertAborProperties**](AborApi.md#upsertaborproperties) | **POST** /api/abor/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertAborProperties: Upsert Abor properties |
 
 <a id="adddiaryentry"></a>
@@ -112,6 +115,106 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | The newly added diary entry. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="closeperiod"></a>
+# **ClosePeriod**
+> DiaryEntry ClosePeriod (string scope, string code, ClosePeriodDiaryEntryRequest closePeriodDiaryEntryRequest)
+
+[EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+
+Closes or Locks the current open period for the given Abor.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class ClosePeriodExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AborApi(config);
+            var scope = "scope_example";  // string | The scope of the Abor.
+            var code = "code_example";  // string | The code of the Abor.
+            var closePeriodDiaryEntryRequest = new ClosePeriodDiaryEntryRequest(); // ClosePeriodDiaryEntryRequest | The request body, containing details to apply to the closing/locking period.
+
+            try
+            {
+                // [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+                DiaryEntry result = apiInstance.ClosePeriod(scope, code, closePeriodDiaryEntryRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AborApi.ClosePeriod: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ClosePeriodWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ClosePeriod: Closes or locks the current period for the given Abor.
+    ApiResponse<DiaryEntry> response = apiInstance.ClosePeriodWithHttpInfo(scope, code, closePeriodDiaryEntryRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AborApi.ClosePeriodWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Abor. |  |
+| **code** | **string** | The code of the Abor. |  |
+| **closePeriodDiaryEntryRequest** | [**ClosePeriodDiaryEntryRequest**](ClosePeriodDiaryEntryRequest.md) | The request body, containing details to apply to the closing/locking period. |  |
+
+### Return type
+
+[**DiaryEntry**](DiaryEntry.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The DiaryEntry created as a result of the closing of the Period. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -950,6 +1053,206 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested diary entries. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="lockperiod"></a>
+# **LockPeriod**
+> DiaryEntry LockPeriod (string scope, string code, LockPeriodDiaryEntryRequest? lockPeriodDiaryEntryRequest = null)
+
+[EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+
+Locks the specified or last locked period for the given Abor.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class LockPeriodExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AborApi(config);
+            var scope = "scope_example";  // string | The scope of the Abor.
+            var code = "code_example";  // string | The code of the Abor.
+            var lockPeriodDiaryEntryRequest = new LockPeriodDiaryEntryRequest?(); // LockPeriodDiaryEntryRequest? | The request body, detailing lock details (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+                DiaryEntry result = apiInstance.LockPeriod(scope, code, lockPeriodDiaryEntryRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AborApi.LockPeriod: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the LockPeriodWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] LockPeriod: Locks the last Closed or given Closed Period.
+    ApiResponse<DiaryEntry> response = apiInstance.LockPeriodWithHttpInfo(scope, code, lockPeriodDiaryEntryRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AborApi.LockPeriodWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Abor. |  |
+| **code** | **string** | The code of the Abor. |  |
+| **lockPeriodDiaryEntryRequest** | [**LockPeriodDiaryEntryRequest?**](LockPeriodDiaryEntryRequest?.md) | The request body, detailing lock details | [optional]  |
+
+### Return type
+
+[**DiaryEntry**](DiaryEntry.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The updated DiaryEntry as a result of the locking of the Period. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="reopenperiods"></a>
+# **ReOpenPeriods**
+> PeriodDiaryEntriesReopenedResponse ReOpenPeriods (string scope, string code, ReOpenPeriodDiaryEntryRequest? reOpenPeriodDiaryEntryRequest = null)
+
+[EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+
+Reopens one or more periods.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class ReOpenPeriodsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AborApi(config);
+            var scope = "scope_example";  // string | The scope of the Abor to be deleted.
+            var code = "code_example";  // string | The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor.
+            var reOpenPeriodDiaryEntryRequest = new ReOpenPeriodDiaryEntryRequest?(); // ReOpenPeriodDiaryEntryRequest? | The request body, detailing re open details (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+                PeriodDiaryEntriesReopenedResponse result = apiInstance.ReOpenPeriods(scope, code, reOpenPeriodDiaryEntryRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AborApi.ReOpenPeriods: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ReOpenPeriodsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ReOpenPeriods: Reopen periods from a seed Diary Entry Code or when not specified, the last Closed Period for the given Abor.
+    ApiResponse<PeriodDiaryEntriesReopenedResponse> response = apiInstance.ReOpenPeriodsWithHttpInfo(scope, code, reOpenPeriodDiaryEntryRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AborApi.ReOpenPeriodsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the Abor to be deleted. |  |
+| **code** | **string** | The code of the Abor to be deleted. Together with the scope this uniquely identifies the Abor. |  |
+| **reOpenPeriodDiaryEntryRequest** | [**ReOpenPeriodDiaryEntryRequest?**](ReOpenPeriodDiaryEntryRequest?.md) | The request body, detailing re open details | [optional]  |
+
+### Return type
+
+[**PeriodDiaryEntriesReopenedResponse**](PeriodDiaryEntriesReopenedResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The datetime that the DiaryEntryCodes were deleted |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
