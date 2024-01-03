@@ -164,13 +164,6 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, length must be greater than 1.", new [] { "Side" });
             }
 
-            // Side (string) pattern
-            Regex regexSide = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexSide.Match(this.Side).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Side, must match a pattern of " + regexSide, new [] { "Side" });
-            }
-
             yield break;
         }
     }
