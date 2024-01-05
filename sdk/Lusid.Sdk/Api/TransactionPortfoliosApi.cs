@@ -97,9 +97,10 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BatchUpsertPortfolioTransactionsResponse</returns>
-        BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0);
+        BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
@@ -112,9 +113,10 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BatchUpsertPortfolioTransactionsResponse</returns>
-        ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0);
+        ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0);
         /// <summary>
         /// BuildTransactions: Build transactions
         /// </summary>
@@ -1242,9 +1244,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpsertPortfolioTransactionsResponse</returns>
-        UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0);
+        UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// UpsertTransactions: Upsert transactions
@@ -1256,9 +1259,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpsertPortfolioTransactionsResponse</returns>
-        ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0);
+        ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -1345,10 +1349,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BatchUpsertPortfolioTransactionsResponse</returns>
-        System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
@@ -1361,10 +1366,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPortfolioTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// BuildTransactions: Build transactions
         /// </summary>
@@ -2558,10 +2564,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertPortfolioTransactionsResponse</returns>
-        System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// UpsertTransactions: Upsert transactions
@@ -2573,10 +2580,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertPortfolioTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -3210,11 +3218,12 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BatchUpsertPortfolioTransactionsResponse</returns>
-        public BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0)
+        public BatchUpsertPortfolioTransactionsResponse BatchUpsertTransactions(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = BatchUpsertTransactionsWithHttpInfo(scope, code, successMode, requestBody, preserveProperties);
             return localVarResponse.Data;
         }
 
@@ -3226,9 +3235,10 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BatchUpsertPortfolioTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3285,6 +3295,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            if (preserveProperties != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchUpsertTransactions";
@@ -3329,12 +3343,13 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BatchUpsertPortfolioTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BatchUpsertPortfolioTransactionsResponse> BatchUpsertTransactionsAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = await BatchUpsertTransactionsWithHttpInfoAsync(scope, code, successMode, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse> localVarResponse = await BatchUpsertTransactionsWithHttpInfoAsync(scope, code, successMode, requestBody, preserveProperties, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3346,10 +3361,11 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="successMode">Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial.</param>
         /// <param name="requestBody">The payload describing the transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BatchUpsertPortfolioTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BatchUpsertPortfolioTransactionsResponse>> BatchUpsertTransactionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, TransactionRequest> requestBody, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -3407,6 +3423,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            if (preserveProperties != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
             localVarRequestOptions.Data = requestBody;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchUpsertTransactions";
@@ -11983,11 +12003,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpsertPortfolioTransactionsResponse</returns>
-        public UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0)
+        public UpsertPortfolioTransactionsResponse UpsertTransactions(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = UpsertTransactionsWithHttpInfo(scope, code, transactionRequest);
+            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = UpsertTransactionsWithHttpInfo(scope, code, transactionRequest, preserveProperties);
             return localVarResponse.Data;
         }
 
@@ -11998,9 +12019,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpsertPortfolioTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> UpsertTransactionsWithHttpInfo(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12050,6 +12072,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (preserveProperties != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
             localVarRequestOptions.Data = transactionRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertTransactions";
@@ -12093,12 +12119,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UpsertPortfolioTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpsertPortfolioTransactionsResponse> UpsertTransactionsAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = await UpsertTransactionsWithHttpInfoAsync(scope, code, transactionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse> localVarResponse = await UpsertTransactionsWithHttpInfoAsync(scope, code, transactionRequest, preserveProperties, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -12109,10 +12136,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the transaction portfolio.</param>
         /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
         /// <param name="transactionRequest">A list of transactions to be created or updated.</param>
+        /// <param name="preserveProperties">If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UpsertPortfolioTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<UpsertPortfolioTransactionsResponse>> UpsertTransactionsWithHttpInfoAsync(string scope, string code, List<TransactionRequest> transactionRequest, bool? preserveProperties = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -12163,6 +12191,10 @@ namespace Lusid.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (preserveProperties != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "preserveProperties", preserveProperties));
+            }
             localVarRequestOptions.Data = transactionRequest;
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.UpsertTransactions";

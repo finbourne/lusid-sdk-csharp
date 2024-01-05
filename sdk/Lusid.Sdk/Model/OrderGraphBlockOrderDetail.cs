@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="approvalState">The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;. (required).</param>
         /// <param name="portfolioId">portfolioId.</param>
         /// <param name="portfolioName">The name of the order&#39;s referenced Portfolio..</param>
-        public OrderGraphBlockOrderDetail(ResourceId id = default(ResourceId), string complianceState = default(string), string approvalState = default(string), ResourceId portfolioId = default(ResourceId), string portfolioName = default(string))
+        /// <param name="orderApprovalTaskId">The task id associated with the approval state of the order..</param>
+        public OrderGraphBlockOrderDetail(ResourceId id = default(ResourceId), string complianceState = default(string), string approvalState = default(string), ResourceId portfolioId = default(ResourceId), string portfolioName = default(string), string orderApprovalTaskId = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -63,6 +64,7 @@ namespace Lusid.Sdk.Model
             this.ApprovalState = approvalState;
             this.PortfolioId = portfolioId;
             this.PortfolioName = portfolioName;
+            this.OrderApprovalTaskId = orderApprovalTaskId;
         }
 
         /// <summary>
@@ -99,6 +101,13 @@ namespace Lusid.Sdk.Model
         public string PortfolioName { get; set; }
 
         /// <summary>
+        /// The task id associated with the approval state of the order.
+        /// </summary>
+        /// <value>The task id associated with the approval state of the order.</value>
+        [DataMember(Name = "orderApprovalTaskId", EmitDefaultValue = true)]
+        public string OrderApprovalTaskId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +120,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ApprovalState: ").Append(ApprovalState).Append("\n");
             sb.Append("  PortfolioId: ").Append(PortfolioId).Append("\n");
             sb.Append("  PortfolioName: ").Append(PortfolioName).Append("\n");
+            sb.Append("  OrderApprovalTaskId: ").Append(OrderApprovalTaskId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +180,11 @@ namespace Lusid.Sdk.Model
                     this.PortfolioName == input.PortfolioName ||
                     (this.PortfolioName != null &&
                     this.PortfolioName.Equals(input.PortfolioName))
+                ) && 
+                (
+                    this.OrderApprovalTaskId == input.OrderApprovalTaskId ||
+                    (this.OrderApprovalTaskId != null &&
+                    this.OrderApprovalTaskId.Equals(input.OrderApprovalTaskId))
                 );
         }
 
@@ -201,6 +216,10 @@ namespace Lusid.Sdk.Model
                 if (this.PortfolioName != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioName.GetHashCode();
+                }
+                if (this.OrderApprovalTaskId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OrderApprovalTaskId.GetHashCode();
                 }
                 return hashCode;
             }

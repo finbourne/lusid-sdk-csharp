@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.TransactionTemplateResponse
+# Lusid.Sdk.Model.TransactionTemplate
 
 ## Properties
 

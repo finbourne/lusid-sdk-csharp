@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ApprovalState** | **string** | The approval state of this order. Possible values are &#39;Pending&#39;, &#39;Rejected&#39; and &#39;Approved&#39;. | 
 **PortfolioId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **PortfolioName** | **string** | The name of the order&#39;s referenced Portfolio. | [optional] 
+**OrderApprovalTaskId** | **string** | The task id associated with the approval state of the order. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

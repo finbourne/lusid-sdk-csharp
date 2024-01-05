@@ -40,7 +40,8 @@ namespace Lusid.Sdk.Model
         /// <param name="resultsUsed">Dictionary of AddressKey (as string) and their corresponding decimal values, that were used in this rule. (required).</param>
         /// <param name="propertiesUsed">Dictionary of PropertyKey (as string) and their corresponding Properties, that were used in this rule (required).</param>
         /// <param name="missingDataInformation">List of string information detailing data that was missing from contributions processed in this rule (required).</param>
-        public ComplianceRuleBreakdown(string groupStatus = default(string), Dictionary<string, decimal> resultsUsed = default(Dictionary<string, decimal>), Dictionary<string, List<Property>> propertiesUsed = default(Dictionary<string, List<Property>>), List<string> missingDataInformation = default(List<string>))
+        /// <param name="lineage">lineage (required).</param>
+        public ComplianceRuleBreakdown(string groupStatus = default(string), Dictionary<string, decimal> resultsUsed = default(Dictionary<string, decimal>), Dictionary<string, List<Property>> propertiesUsed = default(Dictionary<string, List<Property>>), List<string> missingDataInformation = default(List<string>), List<LineageMember> lineage = default(List<LineageMember>))
         {
             // to ensure "groupStatus" is required (not null)
             if (groupStatus == null)
@@ -66,6 +67,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("missingDataInformation is a required property for ComplianceRuleBreakdown and cannot be null");
             }
             this.MissingDataInformation = missingDataInformation;
+            // to ensure "lineage" is required (not null)
+            if (lineage == null)
+            {
+                throw new ArgumentNullException("lineage is a required property for ComplianceRuleBreakdown and cannot be null");
+            }
+            this.Lineage = lineage;
         }
 
         /// <summary>
@@ -97,6 +104,12 @@ namespace Lusid.Sdk.Model
         public List<string> MissingDataInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets Lineage
+        /// </summary>
+        [DataMember(Name = "lineage", IsRequired = true, EmitDefaultValue = true)]
+        public List<LineageMember> Lineage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +121,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ResultsUsed: ").Append(ResultsUsed).Append("\n");
             sb.Append("  PropertiesUsed: ").Append(PropertiesUsed).Append("\n");
             sb.Append("  MissingDataInformation: ").Append(MissingDataInformation).Append("\n");
+            sb.Append("  Lineage: ").Append(Lineage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,6 +179,12 @@ namespace Lusid.Sdk.Model
                     this.MissingDataInformation != null &&
                     input.MissingDataInformation != null &&
                     this.MissingDataInformation.SequenceEqual(input.MissingDataInformation)
+                ) && 
+                (
+                    this.Lineage == input.Lineage ||
+                    this.Lineage != null &&
+                    input.Lineage != null &&
+                    this.Lineage.SequenceEqual(input.Lineage)
                 );
         }
 
@@ -192,6 +212,10 @@ namespace Lusid.Sdk.Model
                 if (this.MissingDataInformation != null)
                 {
                     hashCode = (hashCode * 59) + this.MissingDataInformation.GetHashCode();
+                }
+                if (this.Lineage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
                 }
                 return hashCode;
             }

@@ -139,8 +139,9 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The scope of the transaction types..</param>
+        /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
         /// <param name="links">links.</param>
-        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), ModelVersion version = default(ModelVersion), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), List<Link> links = default(List<Link>))
+        public Portfolio(string href = default(string), ResourceId id = default(ResourceId), TypeEnum type = default(TypeEnum), string displayName = default(string), string description = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), ModelVersion version = default(ModelVersion), bool isDerived = default(bool), string baseCurrency = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<Relationship> relationships = default(List<Relationship>), List<string> instrumentScopes = default(List<string>), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -169,6 +170,7 @@ namespace Lusid.Sdk.Model
             this.AmortisationMethod = amortisationMethod;
             this.TransactionTypeScope = transactionTypeScope;
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
+            this.InstrumentEventConfiguration = instrumentEventConfiguration;
             this.Links = links;
         }
 
@@ -275,6 +277,12 @@ namespace Lusid.Sdk.Model
         public string CashGainLossCalculationDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets InstrumentEventConfiguration
+        /// </summary>
+        [DataMember(Name = "instrumentEventConfiguration", EmitDefaultValue = false)]
+        public InstrumentEventConfiguration InstrumentEventConfiguration { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -305,6 +313,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisationMethod: ").Append(AmortisationMethod).Append("\n");
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
+            sb.Append("  InstrumentEventConfiguration: ").Append(InstrumentEventConfiguration).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -427,6 +436,11 @@ namespace Lusid.Sdk.Model
                     this.CashGainLossCalculationDate.Equals(input.CashGainLossCalculationDate))
                 ) && 
                 (
+                    this.InstrumentEventConfiguration == input.InstrumentEventConfiguration ||
+                    (this.InstrumentEventConfiguration != null &&
+                    this.InstrumentEventConfiguration.Equals(input.InstrumentEventConfiguration))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -501,6 +515,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashGainLossCalculationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.CashGainLossCalculationDate.GetHashCode();
+                }
+                if (this.InstrumentEventConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentEventConfiguration.GetHashCode();
                 }
                 if (this.Links != null)
                 {

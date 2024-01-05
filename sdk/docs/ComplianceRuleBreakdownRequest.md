@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ResultsUsed** | **Dictionary&lt;string, decimal&gt;** |  | 
 **PropertiesUsed** | **Dictionary&lt;string, List&lt;Property&gt;&gt;** |  | 
 **MissingDataInformation** | **List&lt;string&gt;** |  | 
+**Lineage** | [**List&lt;LineageMember&gt;**](LineageMember.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

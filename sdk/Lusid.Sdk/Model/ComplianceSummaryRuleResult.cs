@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Model
         /// <param name="affectedOrders">affectedOrders (required).</param>
         /// <param name="parametersUsed">parametersUsed (required).</param>
         /// <param name="ruleBreakdown">ruleBreakdown (required).</param>
-        public ComplianceSummaryRuleResult(ResourceId ruleId = default(ResourceId), ResourceId templateId = default(ResourceId), string variation = default(string), string ruleStatus = default(string), List<ResourceId> affectedPortfolios = default(List<ResourceId>), List<ResourceId> affectedOrders = default(List<ResourceId>), Dictionary<string, string> parametersUsed = default(Dictionary<string, string>), Dictionary<string, ComplianceRuleBreakdown> ruleBreakdown = default(Dictionary<string, ComplianceRuleBreakdown>))
+        public ComplianceSummaryRuleResult(ResourceId ruleId = default(ResourceId), ResourceId templateId = default(ResourceId), string variation = default(string), string ruleStatus = default(string), List<ResourceId> affectedPortfolios = default(List<ResourceId>), List<ResourceId> affectedOrders = default(List<ResourceId>), Dictionary<string, string> parametersUsed = default(Dictionary<string, string>), List<ComplianceRuleBreakdown> ruleBreakdown = default(List<ComplianceRuleBreakdown>))
         {
             // to ensure "ruleId" is required (not null)
             if (ruleId == null)
@@ -142,7 +142,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets RuleBreakdown
         /// </summary>
         [DataMember(Name = "ruleBreakdown", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, ComplianceRuleBreakdown> RuleBreakdown { get; set; }
+        public List<ComplianceRuleBreakdown> RuleBreakdown { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

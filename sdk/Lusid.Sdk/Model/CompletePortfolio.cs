@@ -80,8 +80,9 @@ namespace Lusid.Sdk.Model
         /// <param name="version">version (required).</param>
         /// <param name="properties">The requested portfolio properties. These will be from the &#39;Portfolio&#39; domain..</param>
         /// <param name="baseCurrency">If the portfolio is a transaction portfolio or derived transaction portfolio, this is the base currency of the portfolio..</param>
+        /// <param name="subHoldingKeys">The sub holding key properties configured for the portfolio.</param>
         /// <param name="links">links.</param>
-        public CompletePortfolio(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), TypeEnum? type = default(TypeEnum?), ModelVersion version = default(ModelVersion), List<Property> properties = default(List<Property>), string baseCurrency = default(string), List<Link> links = default(List<Link>))
+        public CompletePortfolio(ResourceId id = default(ResourceId), string href = default(string), string description = default(string), string displayName = default(string), DateTimeOffset created = default(DateTimeOffset), ResourceId parentPortfolioId = default(ResourceId), TypeEnum? type = default(TypeEnum?), ModelVersion version = default(ModelVersion), List<Property> properties = default(List<Property>), string baseCurrency = default(string), List<string> subHoldingKeys = default(List<string>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -103,6 +104,7 @@ namespace Lusid.Sdk.Model
             this.Type = type;
             this.Properties = properties;
             this.BaseCurrency = baseCurrency;
+            this.SubHoldingKeys = subHoldingKeys;
             this.Links = links;
         }
 
@@ -182,6 +184,13 @@ namespace Lusid.Sdk.Model
         public string BaseCurrency { get; set; }
 
         /// <summary>
+        /// The sub holding key properties configured for the portfolio
+        /// </summary>
+        /// <value>The sub holding key properties configured for the portfolio</value>
+        [DataMember(Name = "subHoldingKeys", EmitDefaultValue = true)]
+        public List<string> SubHoldingKeys { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -206,6 +215,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
+            sb.Append("  SubHoldingKeys: ").Append(SubHoldingKeys).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -297,6 +307,12 @@ namespace Lusid.Sdk.Model
                     this.BaseCurrency.Equals(input.BaseCurrency))
                 ) && 
                 (
+                    this.SubHoldingKeys == input.SubHoldingKeys ||
+                    this.SubHoldingKeys != null &&
+                    input.SubHoldingKeys != null &&
+                    this.SubHoldingKeys.SequenceEqual(input.SubHoldingKeys)
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -350,6 +366,10 @@ namespace Lusid.Sdk.Model
                 if (this.BaseCurrency != null)
                 {
                     hashCode = (hashCode * 59) + this.BaseCurrency.GetHashCode();
+                }
+                if (this.SubHoldingKeys != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubHoldingKeys.GetHashCode();
                 }
                 if (this.Links != null)
                 {

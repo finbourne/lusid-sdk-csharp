@@ -23,48 +23,48 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// TransactionTemplateResponse
+    /// TransactionTemplate
     /// </summary>
-    [DataContract(Name = "TransactionTemplateResponse")]
-    public partial class TransactionTemplateResponse : IEquatable<TransactionTemplateResponse>, IValidatableObject
+    [DataContract(Name = "TransactionTemplate")]
+    public partial class TransactionTemplate : IEquatable<TransactionTemplate>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionTemplateResponse" /> class.
+        /// Initializes a new instance of the <see cref="TransactionTemplate" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TransactionTemplateResponse() { }
+        protected TransactionTemplate() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionTemplateResponse" /> class.
+        /// Initializes a new instance of the <see cref="TransactionTemplate" /> class.
         /// </summary>
         /// <param name="instrumentEventType">A value that represents the instrument event type. (required).</param>
         /// <param name="description">The description of the transaction template. (required).</param>
         /// <param name="scope">The scope in which the transaction template resides. (required).</param>
         /// <param name="componentTransactions">A set of component transactions that relate to the template to be created. (required).</param>
         /// <param name="links">links.</param>
-        public TransactionTemplateResponse(string instrumentEventType = default(string), string description = default(string), string scope = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), List<Link> links = default(List<Link>))
+        public TransactionTemplate(string instrumentEventType = default(string), string description = default(string), string scope = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), List<Link> links = default(List<Link>))
         {
             // to ensure "instrumentEventType" is required (not null)
             if (instrumentEventType == null)
             {
-                throw new ArgumentNullException("instrumentEventType is a required property for TransactionTemplateResponse and cannot be null");
+                throw new ArgumentNullException("instrumentEventType is a required property for TransactionTemplate and cannot be null");
             }
             this.InstrumentEventType = instrumentEventType;
             // to ensure "description" is required (not null)
             if (description == null)
             {
-                throw new ArgumentNullException("description is a required property for TransactionTemplateResponse and cannot be null");
+                throw new ArgumentNullException("description is a required property for TransactionTemplate and cannot be null");
             }
             this.Description = description;
             // to ensure "scope" is required (not null)
             if (scope == null)
             {
-                throw new ArgumentNullException("scope is a required property for TransactionTemplateResponse and cannot be null");
+                throw new ArgumentNullException("scope is a required property for TransactionTemplate and cannot be null");
             }
             this.Scope = scope;
             // to ensure "componentTransactions" is required (not null)
             if (componentTransactions == null)
             {
-                throw new ArgumentNullException("componentTransactions is a required property for TransactionTemplateResponse and cannot be null");
+                throw new ArgumentNullException("componentTransactions is a required property for TransactionTemplate and cannot be null");
             }
             this.ComponentTransactions = componentTransactions;
             this.Links = links;
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TransactionTemplateResponse {\n");
+            sb.Append("class TransactionTemplate {\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
@@ -137,15 +137,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionTemplateResponse);
+            return this.Equals(input as TransactionTemplate);
         }
 
         /// <summary>
-        /// Returns true if TransactionTemplateResponse instances are equal
+        /// Returns true if TransactionTemplate instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionTemplateResponse to be compared</param>
+        /// <param name="input">Instance of TransactionTemplate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionTemplateResponse input)
+        public bool Equals(TransactionTemplate input)
         {
             if (input == null)
             {

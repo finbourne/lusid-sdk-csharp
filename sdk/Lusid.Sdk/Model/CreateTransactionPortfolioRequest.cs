@@ -101,7 +101,8 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisationMethod">The amortisation method used by the portfolio for the calculation. The available values are: NoAmortisation, StraightLine, EffectiveYield, StraightLineSettlementDate, EffectiveYieldSettlementDate.</param>
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>
-        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string))
+        /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
+        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -131,6 +132,7 @@ namespace Lusid.Sdk.Model
             this.AmortisationMethod = amortisationMethod;
             this.TransactionTypeScope = transactionTypeScope;
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
+            this.InstrumentEventConfiguration = instrumentEventConfiguration;
         }
 
         /// <summary>
@@ -217,6 +219,12 @@ namespace Lusid.Sdk.Model
         public string CashGainLossCalculationDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets InstrumentEventConfiguration
+        /// </summary>
+        [DataMember(Name = "instrumentEventConfiguration", EmitDefaultValue = false)]
+        public InstrumentEventConfiguration InstrumentEventConfiguration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -237,6 +245,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisationMethod: ").Append(AmortisationMethod).Append("\n");
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
+            sb.Append("  InstrumentEventConfiguration: ").Append(InstrumentEventConfiguration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -338,6 +347,11 @@ namespace Lusid.Sdk.Model
                     this.CashGainLossCalculationDate == input.CashGainLossCalculationDate ||
                     (this.CashGainLossCalculationDate != null &&
                     this.CashGainLossCalculationDate.Equals(input.CashGainLossCalculationDate))
+                ) && 
+                (
+                    this.InstrumentEventConfiguration == input.InstrumentEventConfiguration ||
+                    (this.InstrumentEventConfiguration != null &&
+                    this.InstrumentEventConfiguration.Equals(input.InstrumentEventConfiguration))
                 );
         }
 
@@ -398,6 +412,10 @@ namespace Lusid.Sdk.Model
                 if (this.CashGainLossCalculationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.CashGainLossCalculationDate.GetHashCode();
+                }
+                if (this.InstrumentEventConfiguration != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentEventConfiguration.GetHashCode();
                 }
                 return hashCode;
             }

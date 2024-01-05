@@ -99,7 +99,7 @@ namespace Lusid.Sdk.Extensions
         /// <returns>The requestId that is associated with the exception</returns>
         public static string GetRequestId(this ApiException ex)
         {
-            // Extract requestId from Insights link contained in the Instance property
+            // Extract requestId from link contained in the Instance property
             var instanceParts = ex?.ProblemDetails()?.Instance?.Split("/".ToCharArray());
 
             if (instanceParts == null || instanceParts.Length < 7) return null;
