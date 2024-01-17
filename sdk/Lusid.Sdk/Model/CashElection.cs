@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Model
         /// The exchange rate if this is not the declared CashElection.  Defaults to 1 if Election is Declared.
         /// </summary>
         /// <value>The exchange rate if this is not the declared CashElection.  Defaults to 1 if Election is Declared.</value>
-        [DataMember(Name = "exchangeRate", EmitDefaultValue = false)]
+        [DataMember(Name = "exchangeRate", EmitDefaultValue = true)]
         public decimal ExchangeRate { get; set; }
 
         /// <summary>

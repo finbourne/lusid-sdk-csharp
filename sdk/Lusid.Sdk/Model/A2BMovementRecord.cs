@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Model
         /// The number of units of the instrument that are affected by the movement.
         /// </summary>
         /// <value>The number of units of the instrument that are affected by the movement.</value>
-        [DataMember(Name = "units", EmitDefaultValue = false)]
+        [DataMember(Name = "units", EmitDefaultValue = true)]
         public decimal Units { get; set; }
 
         /// <summary>

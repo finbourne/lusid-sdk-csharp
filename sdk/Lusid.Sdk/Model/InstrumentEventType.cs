@@ -141,7 +141,13 @@ namespace Lusid.Sdk.Model
         /// Enum DividendOptionEvent for value: DividendOptionEvent
         /// </summary>
         [EnumMember(Value = "DividendOptionEvent")]
-        DividendOptionEvent = 19
+        DividendOptionEvent = 19,
+
+        /// <summary>
+        /// Enum MaturityEvent for value: MaturityEvent
+        /// </summary>
+        [EnumMember(Value = "MaturityEvent")]
+        MaturityEvent = 20
 
     }
 

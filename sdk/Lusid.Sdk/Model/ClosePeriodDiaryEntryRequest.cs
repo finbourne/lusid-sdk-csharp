@@ -37,7 +37,8 @@ namespace Lusid.Sdk.Model
         /// <param name="queryAsAt">The query time of the diary entry. Defaults to latest..</param>
         /// <param name="status">The status of the diary entry. Defaults to &#39;Undefined&#39; for valuation points and &#39;Estimate&#39; for closing periods..</param>
         /// <param name="properties">A set of properties for the diary entry..</param>
-        public ClosePeriodDiaryEntryRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? queryAsAt = default(DateTimeOffset?), string status = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
+        /// <param name="closingOptions">The options which will be executed once a period is closed or locked..</param>
+        public ClosePeriodDiaryEntryRequest(string diaryEntryCode = default(string), string name = default(string), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? queryAsAt = default(DateTimeOffset?), string status = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> closingOptions = default(List<string>))
         {
             this.DiaryEntryCode = diaryEntryCode;
             this.Name = name;
@@ -45,6 +46,7 @@ namespace Lusid.Sdk.Model
             this.QueryAsAt = queryAsAt;
             this.Status = status;
             this.Properties = properties;
+            this.ClosingOptions = closingOptions;
         }
 
         /// <summary>
@@ -90,6 +92,13 @@ namespace Lusid.Sdk.Model
         public Dictionary<string, Property> Properties { get; set; }
 
         /// <summary>
+        /// The options which will be executed once a period is closed or locked.
+        /// </summary>
+        /// <value>The options which will be executed once a period is closed or locked.</value>
+        [DataMember(Name = "closingOptions", EmitDefaultValue = true)]
+        public List<string> ClosingOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  QueryAsAt: ").Append(QueryAsAt).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  ClosingOptions: ").Append(ClosingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,6 +178,12 @@ namespace Lusid.Sdk.Model
                     this.Properties != null &&
                     input.Properties != null &&
                     this.Properties.SequenceEqual(input.Properties)
+                ) && 
+                (
+                    this.ClosingOptions == input.ClosingOptions ||
+                    this.ClosingOptions != null &&
+                    input.ClosingOptions != null &&
+                    this.ClosingOptions.SequenceEqual(input.ClosingOptions)
                 );
         }
 
@@ -203,6 +219,10 @@ namespace Lusid.Sdk.Model
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
+                }
+                if (this.ClosingOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClosingOptions.GetHashCode();
                 }
                 return hashCode;
             }

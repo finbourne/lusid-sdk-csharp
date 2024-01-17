@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// The quantity of the instrument that is owned.
         /// </summary>
         /// <value>The quantity of the instrument that is owned.</value>
-        [DataMember(Name = "quantity", EmitDefaultValue = false)]
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public decimal Quantity { get; set; }
 
         /// <summary>

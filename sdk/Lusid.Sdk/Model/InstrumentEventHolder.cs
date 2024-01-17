@@ -159,7 +159,7 @@ namespace Lusid.Sdk.Model
         /// The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.
         /// </summary>
         /// <value>The order of the instrument event relative others on the same date (0 being processed first). Must be non negative.</value>
-        [DataMember(Name = "sequenceNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "sequenceNumber", EmitDefaultValue = true)]
         public int SequenceNumber { get; set; }
 
         /// <summary>

@@ -32,9 +32,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="LockPeriodDiaryEntryRequest" /> class.
         /// </summary>
         /// <param name="diaryEntryCode">Unique code assigned to a period. When left blank last closed period will be located..</param>
-        public LockPeriodDiaryEntryRequest(string diaryEntryCode = default(string))
+        /// <param name="closingOptions">The options which will be executed once a period is closed or locked..</param>
+        public LockPeriodDiaryEntryRequest(string diaryEntryCode = default(string), List<string> closingOptions = default(List<string>))
         {
             this.DiaryEntryCode = diaryEntryCode;
+            this.ClosingOptions = closingOptions;
         }
 
         /// <summary>
@@ -45,6 +47,13 @@ namespace Lusid.Sdk.Model
         public string DiaryEntryCode { get; set; }
 
         /// <summary>
+        /// The options which will be executed once a period is closed or locked.
+        /// </summary>
+        /// <value>The options which will be executed once a period is closed or locked.</value>
+        [DataMember(Name = "closingOptions", EmitDefaultValue = true)]
+        public List<string> ClosingOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +62,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class LockPeriodDiaryEntryRequest {\n");
             sb.Append("  DiaryEntryCode: ").Append(DiaryEntryCode).Append("\n");
+            sb.Append("  ClosingOptions: ").Append(ClosingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +102,12 @@ namespace Lusid.Sdk.Model
                     this.DiaryEntryCode == input.DiaryEntryCode ||
                     (this.DiaryEntryCode != null &&
                     this.DiaryEntryCode.Equals(input.DiaryEntryCode))
+                ) && 
+                (
+                    this.ClosingOptions == input.ClosingOptions ||
+                    this.ClosingOptions != null &&
+                    input.ClosingOptions != null &&
+                    this.ClosingOptions.SequenceEqual(input.ClosingOptions)
                 );
         }
 
@@ -107,6 +123,10 @@ namespace Lusid.Sdk.Model
                 if (this.DiaryEntryCode != null)
                 {
                     hashCode = (hashCode * 59) + this.DiaryEntryCode.GetHashCode();
+                }
+                if (this.ClosingOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClosingOptions.GetHashCode();
                 }
                 return hashCode;
             }

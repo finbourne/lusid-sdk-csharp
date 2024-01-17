@@ -81,7 +81,7 @@ namespace Lusid.Sdk.Model
         /// A factor used to influence the importance of this item.
         /// </summary>
         /// <value>A factor used to influence the importance of this item.</value>
-        [DataMember(Name = "weight", EmitDefaultValue = false)]
+        [DataMember(Name = "weight", EmitDefaultValue = true)]
         public decimal Weight { get; set; }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// Index (integer) for the leg of a payment diary.
         /// </summary>
         /// <value>Index (integer) for the leg of a payment diary.</value>
-        [DataMember(Name = "legIndex", EmitDefaultValue = false)]
+        [DataMember(Name = "legIndex", EmitDefaultValue = true)]
         public int LegIndex { get; set; }
 
         /// <summary>

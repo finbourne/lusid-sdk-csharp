@@ -208,7 +208,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets DisplayOrder
         /// </summary>
-        [DataMember(Name = "displayOrder", EmitDefaultValue = false)]
+        [DataMember(Name = "displayOrder", EmitDefaultValue = true)]
         public int DisplayOrder { get; set; }
 
         /// <summary>

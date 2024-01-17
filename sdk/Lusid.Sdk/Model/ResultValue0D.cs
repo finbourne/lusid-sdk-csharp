@@ -60,7 +60,7 @@ namespace Lusid.Sdk.Model
         /// The value of the result
         /// </summary>
         /// <value>The value of the result</value>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public decimal Value { get; set; }
 
         /// <summary>

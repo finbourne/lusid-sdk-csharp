@@ -120,13 +120,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets ReadTimeout
         /// </summary>
-        [DataMember(Name = "readTimeout", EmitDefaultValue = false)]
+        [DataMember(Name = "readTimeout", EmitDefaultValue = true)]
         public int ReadTimeout { get; set; }
 
         /// <summary>
         /// Gets or Sets WriteTimeout
         /// </summary>
-        [DataMember(Name = "writeTimeout", EmitDefaultValue = false)]
+        [DataMember(Name = "writeTimeout", EmitDefaultValue = true)]
         public int WriteTimeout { get; set; }
 
         /// <summary>

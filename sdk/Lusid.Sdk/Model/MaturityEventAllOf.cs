@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CashFlowEventAllOf
+    /// MaturityEventAllOf
     /// </summary>
-    [DataContract(Name = "CashFlowEvent_allOf")]
-    public partial class CashFlowEventAllOf : IEquatable<CashFlowEventAllOf>, IValidatableObject
+    [DataContract(Name = "MaturityEvent_allOf")]
+    public partial class MaturityEventAllOf : IEquatable<MaturityEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent
@@ -165,60 +165,27 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashFlowEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="MaturityEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CashFlowEventAllOf() { }
+        protected MaturityEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashFlowEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="MaturityEventAllOf" /> class.
         /// </summary>
-        /// <param name="cashFlowValue">cashFlowValue (required).</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
+        /// <param name="maturityDate">Maturity date of the instrument (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent (required).</param>
-        public CashFlowEventAllOf(CashFlowValue cashFlowValue = default(CashFlowValue), string eventStatus = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public MaturityEventAllOf(DateTimeOffset maturityDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "cashFlowValue" is required (not null)
-            if (cashFlowValue == null)
-            {
-                throw new ArgumentNullException("cashFlowValue is a required property for CashFlowEventAllOf and cannot be null");
-            }
-            this.CashFlowValue = cashFlowValue;
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for CashFlowEventAllOf and cannot be null");
-            }
-            this.EventStatus = eventStatus;
+            this.MaturityDate = maturityDate;
             this.InstrumentEventType = instrumentEventType;
         }
 
         /// <summary>
-        /// Gets or Sets CashFlowValue
+        /// Maturity date of the instrument
         /// </summary>
-        [DataMember(Name = "cashFlowValue", IsRequired = true, EmitDefaultValue = true)]
-        public CashFlowValue CashFlowValue { get; set; }
-
-        /// <summary>
-        /// What type of internal event does this represent; coupon, principal, premium etc.
-        /// </summary>
-        /// <value>What type of internal event does this represent; coupon, principal, premium etc.</value>
-        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
-        public string EventType { get; private set; }
-
-        /// <summary>
-        /// Returns false as EventType should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeEventType()
-        {
-            return false;
-        }
-        /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
-        /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
+        /// <value>Maturity date of the instrument</value>
+        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -227,10 +194,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CashFlowEventAllOf {\n");
-            sb.Append("  CashFlowValue: ").Append(CashFlowValue).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
+            sb.Append("class MaturityEventAllOf {\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -252,15 +217,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CashFlowEventAllOf);
+            return this.Equals(input as MaturityEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if CashFlowEventAllOf instances are equal
+        /// Returns true if MaturityEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of CashFlowEventAllOf to be compared</param>
+        /// <param name="input">Instance of MaturityEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CashFlowEventAllOf input)
+        public bool Equals(MaturityEventAllOf input)
         {
             if (input == null)
             {
@@ -268,19 +233,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.CashFlowValue == input.CashFlowValue ||
-                    (this.CashFlowValue != null &&
-                    this.CashFlowValue.Equals(input.CashFlowValue))
-                ) && 
-                (
-                    this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
-                ) && 
-                (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -297,17 +252,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CashFlowValue != null)
+                if (this.MaturityDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.CashFlowValue.GetHashCode();
-                }
-                if (this.EventType != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                }
-                if (this.EventStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
@@ -321,18 +268,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EventType (string) minLength
-            if (this.EventType != null && this.EventType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be greater than 1.", new [] { "EventType" });
-            }
-
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
-            }
-
             yield break;
         }
     }

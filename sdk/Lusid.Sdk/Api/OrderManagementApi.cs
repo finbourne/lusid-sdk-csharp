@@ -50,6 +50,29 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
         ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
+        /// </summary>
+        /// <remarks>
+        /// The referenced block&#39;s existence will be verified.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfPlacement</returns>
+        ResourceListOfPlacement PlaceBlocks(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
+        /// </summary>
+        /// <remarks>
+        /// The referenced block&#39;s existence will be verified.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfPlacement</returns>
+        ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
         /// </summary>
         /// <remarks>
@@ -110,6 +133,31 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
+        /// </summary>
+        /// <remarks>
+        /// The referenced block&#39;s existence will be verified.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfPlacement</returns>
+        System.Threading.Tasks.Task<ResourceListOfPlacement> PlaceBlocksAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
+        /// </summary>
+        /// <remarks>
+        /// The referenced block&#39;s existence will be verified.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPlacement)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service
         /// </summary>
@@ -445,6 +493,182 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BookTransactions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. The referenced block&#39;s existence will be verified.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfPlacement</returns>
+        public ResourceListOfPlacement PlaceBlocks(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> localVarResponse = PlaceBlocksWithHttpInfo(placeBlocksRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. The referenced block&#39;s existence will be verified.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfPlacement</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> PlaceBlocksWithHttpInfo(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = placeBlocksRequest;
+
+            localVarRequestOptions.Operation = "OrderManagementApi.PlaceBlocks";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ResourceListOfPlacement>("/api/ordermanagement/placeblocks", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PlaceBlocks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. The referenced block&#39;s existence will be verified.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfPlacement</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfPlacement> PlaceBlocksAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement> localVarResponse = await PlaceBlocksWithHttpInfoAsync(placeBlocksRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. The referenced block&#39;s existence will be verified.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="placeBlocksRequest">The request containing the blocks to the placed. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfPlacement)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfPlacement>> PlaceBlocksWithHttpInfoAsync(PlaceBlocksRequest? placeBlocksRequest = default(PlaceBlocksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = placeBlocksRequest;
+
+            localVarRequestOptions.Operation = "OrderManagementApi.PlaceBlocks";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ResourceListOfPlacement>("/api/ordermanagement/placeblocks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PlaceBlocks", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

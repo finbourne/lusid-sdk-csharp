@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Model
         /// The quantity (amount) that will be paid. Note that this can be empty if the payment is in the future and a model is used that cannot estimate it.
         /// </summary>
         /// <value>The quantity (amount) that will be paid. Note that this can be empty if the payment is in the future and a model is used that cannot estimate it.</value>
-        [DataMember(Name = "quantity", EmitDefaultValue = false)]
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public decimal Quantity { get; set; }
 
         /// <summary>
@@ -132,14 +132,14 @@ namespace Lusid.Sdk.Model
         /// Weighting factor to discount cashflow to the present value.
         /// </summary>
         /// <value>Weighting factor to discount cashflow to the present value.</value>
-        [DataMember(Name = "discountFactor", EmitDefaultValue = false)]
+        [DataMember(Name = "discountFactor", EmitDefaultValue = true)]
         public decimal DiscountFactor { get; set; }
 
         /// <summary>
         /// The expected cashflow amount taking into account the discount factor.
         /// </summary>
         /// <value>The expected cashflow amount taking into account the discount factor.</value>
-        [DataMember(Name = "discountedExpectedCashFlowAmount", EmitDefaultValue = false)]
+        [DataMember(Name = "discountedExpectedCashFlowAmount", EmitDefaultValue = true)]
         public decimal DiscountedExpectedCashFlowAmount { get; set; }
 
         /// <summary>

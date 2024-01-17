@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// The total value of all the components within this category.
         /// </summary>
         /// <value>The total value of all the components within this category.</value>
-        [DataMember(Name = "total", EmitDefaultValue = false)]
+        [DataMember(Name = "total", EmitDefaultValue = true)]
         public decimal Total { get; set; }
 
         /// <summary>

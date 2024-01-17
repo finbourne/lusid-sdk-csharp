@@ -177,7 +177,7 @@ namespace Lusid.Sdk.Model
         /// Scaling factor, the quantity outstanding on which the rate will be paid.
         /// </summary>
         /// <value>Scaling factor, the quantity outstanding on which the rate will be paid.</value>
-        [DataMember(Name = "notional", EmitDefaultValue = false)]
+        [DataMember(Name = "notional", EmitDefaultValue = true)]
         public decimal Notional { get; set; }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Lusid.Sdk.Model
         /// Spread over floating rate given as a fraction.
         /// </summary>
         /// <value>Spread over floating rate given as a fraction.</value>
-        [DataMember(Name = "spread", EmitDefaultValue = false)]
+        [DataMember(Name = "spread", EmitDefaultValue = true)]
         public decimal Spread { get; set; }
 
         /// <summary>

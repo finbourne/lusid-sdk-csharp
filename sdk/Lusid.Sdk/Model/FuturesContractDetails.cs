@@ -169,14 +169,14 @@ namespace Lusid.Sdk.Model
         /// Minimal step size change in ticker.
         /// </summary>
         /// <value>Minimal step size change in ticker.</value>
-        [DataMember(Name = "tickerStep", EmitDefaultValue = false)]
+        [DataMember(Name = "tickerStep", EmitDefaultValue = true)]
         public decimal TickerStep { get; set; }
 
         /// <summary>
         /// The value in the currency of a 1 unit change in the contract price.
         /// </summary>
         /// <value>The value in the currency of a 1 unit change in the contract price.</value>
-        [DataMember(Name = "unitValue", EmitDefaultValue = false)]
+        [DataMember(Name = "unitValue", EmitDefaultValue = true)]
         public decimal UnitValue { get; set; }
 
         /// <summary>

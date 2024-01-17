@@ -106,7 +106,7 @@ namespace Lusid.Sdk.Model
         /// Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).
         /// </summary>
         /// <value>Day of the month that inflation rolls from one month to the next. This is optional and defaults to 1, which is  the typically value for the majority of inflation bonds (exceptions include Japan which rolls on the 10th  and some LatAm bonds which roll on the 15th).</value>
-        [DataMember(Name = "inflationRollDay", EmitDefaultValue = false)]
+        [DataMember(Name = "inflationRollDay", EmitDefaultValue = true)]
         public int InflationRollDay { get; set; }
 
         /// <summary>

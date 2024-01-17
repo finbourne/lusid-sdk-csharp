@@ -356,7 +356,7 @@ namespace Lusid.Sdk.Model
         /// The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0.
         /// </summary>
         /// <value>The reference rate of the CFD, this can be set to 0 but not negative values.  This field is optional, if not set it will default to 0.</value>
-        [DataMember(Name = "referenceRate", EmitDefaultValue = false)]
+        [DataMember(Name = "referenceRate", EmitDefaultValue = true)]
         public decimal ReferenceRate { get; set; }
 
         /// <summary>

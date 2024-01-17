@@ -82,7 +82,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Price
         /// </summary>
-        [DataMember(Name = "price", EmitDefaultValue = false)]
+        [DataMember(Name = "price", EmitDefaultValue = true)]
         public decimal Price { get; set; }
 
         /// <summary>

@@ -94,7 +94,7 @@ namespace Lusid.Sdk.Model
         /// Defines the number of days to lockout or shift observation period by - should be a non-negative integer
         /// </summary>
         /// <value>Defines the number of days to lockout or shift observation period by - should be a non-negative integer</value>
-        [DataMember(Name = "shift", EmitDefaultValue = false)]
+        [DataMember(Name = "shift", EmitDefaultValue = true)]
         public int Shift { get; set; }
 
         /// <summary>

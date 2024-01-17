@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// How good a match this is considered to be.
         /// </summary>
         /// <value>How good a match this is considered to be.</value>
-        [DataMember(Name = "percentageMatch", EmitDefaultValue = false)]
+        [DataMember(Name = "percentageMatch", EmitDefaultValue = true)]
         public decimal PercentageMatch { get; set; }
 
         /// <summary>

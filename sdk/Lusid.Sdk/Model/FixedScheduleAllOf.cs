@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Model
         /// Coupon rate given as a fraction.
         /// </summary>
         /// <value>Coupon rate given as a fraction.</value>
-        [DataMember(Name = "couponRate", EmitDefaultValue = false)]
+        [DataMember(Name = "couponRate", EmitDefaultValue = true)]
         public decimal CouponRate { get; set; }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Lusid.Sdk.Model
         /// Scaling factor, the quantity outstanding on which the rate will be paid.
         /// </summary>
         /// <value>Scaling factor, the quantity outstanding on which the rate will be paid.</value>
-        [DataMember(Name = "notional", EmitDefaultValue = false)]
+        [DataMember(Name = "notional", EmitDefaultValue = true)]
         public decimal Notional { get; set; }
 
         /// <summary>

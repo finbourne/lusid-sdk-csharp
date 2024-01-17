@@ -119,7 +119,7 @@ namespace Lusid.Sdk.Model
         /// The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time).
         /// </summary>
         /// <value>The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time).</value>
-        [DataMember(Name = "refSpotRate", EmitDefaultValue = false)]
+        [DataMember(Name = "refSpotRate", EmitDefaultValue = true)]
         public decimal RefSpotRate { get; set; }
 
         /// <summary>

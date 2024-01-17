@@ -202,7 +202,7 @@ namespace Lusid.Sdk.Model
         /// The total value of the transaction in the transaction currency.
         /// </summary>
         /// <value>The total value of the transaction in the transaction currency.</value>
-        [DataMember(Name = "transactionAmount", EmitDefaultValue = false)]
+        [DataMember(Name = "transactionAmount", EmitDefaultValue = true)]
         public decimal TransactionAmount { get; set; }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace Lusid.Sdk.Model
         /// The exchange rate between the transaction and settlement currency (settlement currency being represented by the TotalConsideration.Currency). For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate.
         /// </summary>
         /// <value>The exchange rate between the transaction and settlement currency (settlement currency being represented by the TotalConsideration.Currency). For example if the transaction currency is in USD and the settlement currency is in GBP this this the USD/GBP rate.</value>
-        [DataMember(Name = "exchangeRate", EmitDefaultValue = false)]
+        [DataMember(Name = "exchangeRate", EmitDefaultValue = true)]
         public decimal ExchangeRate { get; set; }
 
         /// <summary>

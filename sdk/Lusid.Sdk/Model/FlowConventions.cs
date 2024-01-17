@@ -142,14 +142,14 @@ namespace Lusid.Sdk.Model
         /// DEPRECATED  Number of Good Business Days between the trade date and the effective or settlement date of the instrument.  This field is now deprecated and not picked up in schedule generation or adjustment to bond accrual start date. Defaulted to 0 if not set.
         /// </summary>
         /// <value>DEPRECATED  Number of Good Business Days between the trade date and the effective or settlement date of the instrument.  This field is now deprecated and not picked up in schedule generation or adjustment to bond accrual start date. Defaulted to 0 if not set.</value>
-        [DataMember(Name = "settleDays", EmitDefaultValue = false)]
+        [DataMember(Name = "settleDays", EmitDefaultValue = true)]
         public int SettleDays { get; set; }
 
         /// <summary>
         /// The number of Good Business Days between determination and payment of reset. Defaulted to 0 if not set.
         /// </summary>
         /// <value>The number of Good Business Days between determination and payment of reset. Defaulted to 0 if not set.</value>
-        [DataMember(Name = "resetDays", EmitDefaultValue = false)]
+        [DataMember(Name = "resetDays", EmitDefaultValue = true)]
         public int ResetDays { get; set; }
 
         /// <summary>

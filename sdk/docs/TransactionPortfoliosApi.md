@@ -282,7 +282,7 @@ namespace Example
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var successMode = "\"Partial\"";  // string | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. (default to "Partial")
             var requestBody = new Dictionary<string, TransactionRequest>(); // Dictionary<string, TransactionRequest> | The payload describing the transactions to be created or updated.
-            var preserveProperties = false;  // bool? | If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional)  (default to false)
+            var preserveProperties = true;  // bool? | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional)  (default to true)
 
             try
             {
@@ -329,7 +329,7 @@ catch (ApiException e)
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
 | **successMode** | **string** | Whether the batch request should fail Atomically or in a Partial fashion - Allowed Values: Atomic, Partial. | [default to &quot;Partial&quot;] |
 | **requestBody** | [**Dictionary&lt;string, TransactionRequest&gt;**](TransactionRequest.md) | The payload describing the transactions to be created or updated. |  |
-| **preserveProperties** | **bool?** | If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. | [optional] [default to false] |
+| **preserveProperties** | **bool?** | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. | [optional] [default to true] |
 
 ### Return type
 
@@ -3911,7 +3911,7 @@ namespace Example
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var transactionRequest = new List<TransactionRequest>(); // List<TransactionRequest> | A list of transactions to be created or updated.
-            var preserveProperties = false;  // bool? | If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. (optional)  (default to false)
+            var preserveProperties = true;  // bool? | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. (optional)  (default to true)
 
             try
             {
@@ -3957,7 +3957,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the transaction portfolio. |  |
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
 | **transactionRequest** | [**List&lt;TransactionRequest&gt;**](TransactionRequest.md) | A list of transactions to be created or updated. |  |
-| **preserveProperties** | **bool?** | If set to true, only the properties provided will be updated, if not specified or set to false, the entire property set will be overwritten by the provided properties. | [optional] [default to false] |
+| **preserveProperties** | **bool?** | If set to false, the entire property set will be overwritten by the provided properties. If not specified or set to true, only the properties provided will be updated. | [optional] [default to true] |
 
 ### Return type
 

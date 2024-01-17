@@ -386,7 +386,7 @@ namespace Lusid.Sdk.Model
         /// Number of decimal places used to round IndexRatio. This defaults to 5 if not set.
         /// </summary>
         /// <value>Number of decimal places used to round IndexRatio. This defaults to 5 if not set.</value>
-        [DataMember(Name = "indexPrecision", EmitDefaultValue = false)]
+        [DataMember(Name = "indexPrecision", EmitDefaultValue = true)]
         public int IndexPrecision { get; set; }
 
         /// <summary>

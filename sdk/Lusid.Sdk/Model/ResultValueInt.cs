@@ -51,7 +51,7 @@ namespace Lusid.Sdk.Model
         /// The value itself
         /// </summary>
         /// <value>The value itself</value>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public int Value { get; set; }
 
         /// <summary>

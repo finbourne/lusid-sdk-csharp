@@ -42,13 +42,13 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Gets or Sets Hours
         /// </summary>
-        [DataMember(Name = "hours", EmitDefaultValue = false)]
+        [DataMember(Name = "hours", EmitDefaultValue = true)]
         public int Hours { get; set; }
 
         /// <summary>
         /// Gets or Sets Minutes
         /// </summary>
-        [DataMember(Name = "minutes", EmitDefaultValue = false)]
+        [DataMember(Name = "minutes", EmitDefaultValue = true)]
         public int Minutes { get; set; }
 
         /// <summary>

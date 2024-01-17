@@ -68,7 +68,7 @@ namespace Lusid.Sdk.Model
         /// FxRate used to convert payments. Assumed to be in units of the ToCurrency so conversion is paymentAmount x fxRate
         /// </summary>
         /// <value>FxRate used to convert payments. Assumed to be in units of the ToCurrency so conversion is paymentAmount x fxRate</value>
-        [DataMember(Name = "rate", EmitDefaultValue = false)]
+        [DataMember(Name = "rate", EmitDefaultValue = true)]
         public decimal Rate { get; set; }
 
         /// <summary>

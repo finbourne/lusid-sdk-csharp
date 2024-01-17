@@ -81,7 +81,7 @@ namespace Lusid.Sdk.Model
         /// The return number.
         /// </summary>
         /// <value>The return number.</value>
-        [DataMember(Name = "rateOfReturn", EmitDefaultValue = false)]
+        [DataMember(Name = "rateOfReturn", EmitDefaultValue = true)]
         public decimal RateOfReturn { get; set; }
 
         /// <summary>
@@ -102,21 +102,21 @@ namespace Lusid.Sdk.Model
         /// The weight of the constituent into the composite.
         /// </summary>
         /// <value>The weight of the constituent into the composite.</value>
-        [DataMember(Name = "weight", EmitDefaultValue = false)]
+        [DataMember(Name = "weight", EmitDefaultValue = true)]
         public decimal Weight { get; set; }
 
         /// <summary>
         /// The number of members in the Composite on the given day.
         /// </summary>
         /// <value>The number of members in the Composite on the given day.</value>
-        [DataMember(Name = "constituentsInTheComposite", EmitDefaultValue = false)]
+        [DataMember(Name = "constituentsInTheComposite", EmitDefaultValue = true)]
         public int ConstituentsInTheComposite { get; set; }
 
         /// <summary>
         /// The number of the constituents which have a missing return on that day.
         /// </summary>
         /// <value>The number of the constituents which have a missing return on that day.</value>
-        [DataMember(Name = "constituentsMissing", EmitDefaultValue = false)]
+        [DataMember(Name = "constituentsMissing", EmitDefaultValue = true)]
         public int ConstituentsMissing { get; set; }
 
         /// <summary>
@@ -130,14 +130,14 @@ namespace Lusid.Sdk.Model
         /// The opening fxRate which is used in calculation.
         /// </summary>
         /// <value>The opening fxRate which is used in calculation.</value>
-        [DataMember(Name = "openFxRate", EmitDefaultValue = false)]
+        [DataMember(Name = "openFxRate", EmitDefaultValue = true)]
         public decimal OpenFxRate { get; set; }
 
         /// <summary>
         /// The closing fxRate which is used in calculation.
         /// </summary>
         /// <value>The closing fxRate which is used in calculation.</value>
-        [DataMember(Name = "closeFxRate", EmitDefaultValue = false)]
+        [DataMember(Name = "closeFxRate", EmitDefaultValue = true)]
         public decimal CloseFxRate { get; set; }
 
         /// <summary>

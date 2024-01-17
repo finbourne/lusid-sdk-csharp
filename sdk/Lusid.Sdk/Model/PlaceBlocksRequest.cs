@@ -23,33 +23,36 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// An amount of a specific currency, specifying a value and an associated unit
+    /// PlaceBlocksRequest
     /// </summary>
-    [DataContract(Name = "CurrencyAndAmount")]
-    public partial class CurrencyAndAmount : IEquatable<CurrencyAndAmount>, IValidatableObject
+    [DataContract(Name = "PlaceBlocksRequest")]
+    public partial class PlaceBlocksRequest : IEquatable<PlaceBlocksRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrencyAndAmount" /> class.
+        /// Initializes a new instance of the <see cref="PlaceBlocksRequest" /> class.
         /// </summary>
-        /// <param name="amount">amount.</param>
-        /// <param name="currency">currency.</param>
-        public CurrencyAndAmount(decimal amount = default(decimal), string currency = default(string))
+        [JsonConstructorAttribute]
+        protected PlaceBlocksRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaceBlocksRequest" /> class.
+        /// </summary>
+        /// <param name="requests">A collection of PlacementRequest. (required).</param>
+        public PlaceBlocksRequest(List<PlacementRequest> requests = default(List<PlacementRequest>))
         {
-            this.Amount = amount;
-            this.Currency = currency;
+            // to ensure "requests" is required (not null)
+            if (requests == null)
+            {
+                throw new ArgumentNullException("requests is a required property for PlaceBlocksRequest and cannot be null");
+            }
+            this.Requests = requests;
         }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// A collection of PlacementRequest.
         /// </summary>
-        [DataMember(Name = "amount", EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Currency
-        /// </summary>
-        [DataMember(Name = "currency", EmitDefaultValue = true)]
-        public string Currency { get; set; }
+        /// <value>A collection of PlacementRequest.</value>
+        [DataMember(Name = "requests", IsRequired = true, EmitDefaultValue = true)]
+        public List<PlacementRequest> Requests { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +61,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CurrencyAndAmount {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("class PlaceBlocksRequest {\n");
+            sb.Append("  Requests: ").Append(Requests).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,15 +83,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CurrencyAndAmount);
+            return this.Equals(input as PlaceBlocksRequest);
         }
 
         /// <summary>
-        /// Returns true if CurrencyAndAmount instances are equal
+        /// Returns true if PlaceBlocksRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CurrencyAndAmount to be compared</param>
+        /// <param name="input">Instance of PlaceBlocksRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrencyAndAmount input)
+        public bool Equals(PlaceBlocksRequest input)
         {
             if (input == null)
             {
@@ -97,13 +99,10 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && 
-                (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.Requests == input.Requests ||
+                    this.Requests != null &&
+                    input.Requests != null &&
+                    this.Requests.SequenceEqual(input.Requests)
                 );
         }
 
@@ -116,10 +115,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
-                if (this.Currency != null)
+                if (this.Requests != null)
                 {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Requests.GetHashCode();
                 }
                 return hashCode;
             }

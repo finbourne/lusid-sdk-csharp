@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// The numerical value of the property.
         /// </summary>
         /// <value>The numerical value of the property.</value>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public decimal Value { get; set; }
 
         /// <summary>

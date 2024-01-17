@@ -100,14 +100,14 @@ namespace Lusid.Sdk.Model
         /// The number of contracts held.
         /// </summary>
         /// <value>The number of contracts held.</value>
-        [DataMember(Name = "contracts", EmitDefaultValue = false)]
+        [DataMember(Name = "contracts", EmitDefaultValue = true)]
         public decimal Contracts { get; set; }
 
         /// <summary>
         /// The reference spot price for the future at which the contract was entered into.
         /// </summary>
         /// <value>The reference spot price for the future at which the contract was entered into.</value>
-        [DataMember(Name = "refSpotPrice", EmitDefaultValue = false)]
+        [DataMember(Name = "refSpotPrice", EmitDefaultValue = true)]
         public decimal RefSpotPrice { get; set; }
 
         /// <summary>

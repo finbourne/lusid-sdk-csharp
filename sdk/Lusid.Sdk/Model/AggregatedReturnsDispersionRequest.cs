@@ -58,7 +58,7 @@ namespace Lusid.Sdk.Model
         /// For how many years to calculate the dispersion. Default to 10.
         /// </summary>
         /// <value>For how many years to calculate the dispersion. Default to 10.</value>
-        [DataMember(Name = "yearsCount", EmitDefaultValue = false)]
+        [DataMember(Name = "yearsCount", EmitDefaultValue = true)]
         public int YearsCount { get; set; }
 
         /// <summary>
