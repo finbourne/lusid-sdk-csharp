@@ -36,13 +36,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionTemplate" /> class.
         /// </summary>
+        /// <param name="instrumentType">A value that represents the instrument type. (required).</param>
         /// <param name="instrumentEventType">A value that represents the instrument event type. (required).</param>
         /// <param name="description">The description of the transaction template. (required).</param>
         /// <param name="scope">The scope in which the transaction template resides. (required).</param>
         /// <param name="componentTransactions">A set of component transactions that relate to the template to be created. (required).</param>
         /// <param name="links">links.</param>
-        public TransactionTemplate(string instrumentEventType = default(string), string description = default(string), string scope = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), List<Link> links = default(List<Link>))
+        public TransactionTemplate(string instrumentType = default(string), string instrumentEventType = default(string), string description = default(string), string scope = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), List<Link> links = default(List<Link>))
         {
+            // to ensure "instrumentType" is required (not null)
+            if (instrumentType == null)
+            {
+                throw new ArgumentNullException("instrumentType is a required property for TransactionTemplate and cannot be null");
+            }
+            this.InstrumentType = instrumentType;
             // to ensure "instrumentEventType" is required (not null)
             if (instrumentEventType == null)
             {
@@ -69,6 +76,13 @@ namespace Lusid.Sdk.Model
             this.ComponentTransactions = componentTransactions;
             this.Links = links;
         }
+
+        /// <summary>
+        /// A value that represents the instrument type.
+        /// </summary>
+        /// <value>A value that represents the instrument type.</value>
+        [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = true)]
+        public string InstrumentType { get; set; }
 
         /// <summary>
         /// A value that represents the instrument event type.
@@ -112,6 +126,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionTemplate {\n");
+            sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
@@ -153,6 +168,11 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
+                    this.InstrumentType == input.InstrumentType ||
+                    (this.InstrumentType != null &&
+                    this.InstrumentType.Equals(input.InstrumentType))
+                ) && 
+                (
                     this.InstrumentEventType == input.InstrumentEventType ||
                     (this.InstrumentEventType != null &&
                     this.InstrumentEventType.Equals(input.InstrumentEventType))
@@ -190,6 +210,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.InstrumentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
+                }
                 if (this.InstrumentEventType != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
@@ -221,6 +245,12 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // InstrumentType (string) minLength
+            if (this.InstrumentType != null && this.InstrumentType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentType, length must be greater than 1.", new [] { "InstrumentType" });
+            }
+
             // InstrumentEventType (string) minLength
             if (this.InstrumentEventType != null && this.InstrumentEventType.Length < 1)
             {

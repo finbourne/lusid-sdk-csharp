@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code given for the Abor. (required).</param>
         /// <param name="displayName">The name of the Abor. (required).</param>
         /// <param name="description">The description for the Abor..</param>
-        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. (required).</param>
+        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency. (required).</param>
         /// <param name="aborConfigurationId">aborConfigurationId (required).</param>
         /// <param name="properties">A set of properties for the Abor..</param>
         public AborRequest(string code = default(string), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
@@ -94,9 +94,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The list with the portfolio ids which are part of the Abor.
+        /// The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency.
         /// </summary>
-        /// <value>The list with the portfolio ids which are part of the Abor.</value>
+        /// <value>The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency.</value>
         [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
         public List<PortfolioEntityId> PortfolioIds { get; set; }
 

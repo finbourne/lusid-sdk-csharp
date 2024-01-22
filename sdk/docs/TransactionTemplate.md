@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**InstrumentType** | **string** | A value that represents the instrument type. | 
 **InstrumentEventType** | **string** | A value that represents the instrument event type. | 
 **Description** | **string** | The description of the transaction template. | 
 **Scope** | **string** | The scope in which the transaction template resides. | 

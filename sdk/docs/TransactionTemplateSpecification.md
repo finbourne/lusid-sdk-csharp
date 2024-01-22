@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**InstrumentType** | **string** |  | 
 **InstrumentEventType** | **string** |  | 
 **SupportedParticipationTypes** | **List&lt;string&gt;** |  | 
 **SupportedElectionTypes** | [**List&lt;ElectionSpecification&gt;**](ElectionSpecification.md) |  | 

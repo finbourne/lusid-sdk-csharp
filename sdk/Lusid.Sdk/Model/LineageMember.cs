@@ -39,7 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="index">Index to demonstrate position of lineage member in overall lineage (required).</param>
         /// <param name="label">Label of the step corresponding to this lineage member (required).</param>
         /// <param name="subLabel">SubLabel of the step corresponding to this lineage member (required).</param>
-        public LineageMember(int index = default(int), string label = default(string), string subLabel = default(string))
+        /// <param name="infoType">Optional. Type of Information.</param>
+        /// <param name="information">Optional. Information for the step corresponding to this lineage member, of type InfoType.</param>
+        public LineageMember(int index = default(int), string label = default(string), string subLabel = default(string), string infoType = default(string), string information = default(string))
         {
             this.Index = index;
             // to ensure "label" is required (not null)
@@ -54,6 +56,8 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("subLabel is a required property for LineageMember and cannot be null");
             }
             this.SubLabel = subLabel;
+            this.InfoType = infoType;
+            this.Information = information;
         }
 
         /// <summary>
@@ -78,6 +82,20 @@ namespace Lusid.Sdk.Model
         public string SubLabel { get; set; }
 
         /// <summary>
+        /// Optional. Type of Information
+        /// </summary>
+        /// <value>Optional. Type of Information</value>
+        [DataMember(Name = "infoType", EmitDefaultValue = true)]
+        public string InfoType { get; set; }
+
+        /// <summary>
+        /// Optional. Information for the step corresponding to this lineage member, of type InfoType
+        /// </summary>
+        /// <value>Optional. Information for the step corresponding to this lineage member, of type InfoType</value>
+        [DataMember(Name = "information", EmitDefaultValue = true)]
+        public string Information { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +106,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  SubLabel: ").Append(SubLabel).Append("\n");
+            sb.Append("  InfoType: ").Append(InfoType).Append("\n");
+            sb.Append("  Information: ").Append(Information).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +156,16 @@ namespace Lusid.Sdk.Model
                     this.SubLabel == input.SubLabel ||
                     (this.SubLabel != null &&
                     this.SubLabel.Equals(input.SubLabel))
+                ) && 
+                (
+                    this.InfoType == input.InfoType ||
+                    (this.InfoType != null &&
+                    this.InfoType.Equals(input.InfoType))
+                ) && 
+                (
+                    this.Information == input.Information ||
+                    (this.Information != null &&
+                    this.Information.Equals(input.Information))
                 );
         }
 
@@ -156,6 +186,14 @@ namespace Lusid.Sdk.Model
                 if (this.SubLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.SubLabel.GetHashCode();
+                }
+                if (this.InfoType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InfoType.GetHashCode();
+                }
+                if (this.Information != null)
+                {
+                    hashCode = (hashCode * 59) + this.Information.GetHashCode();
                 }
                 return hashCode;
             }
@@ -190,6 +228,30 @@ namespace Lusid.Sdk.Model
             if (this.SubLabel != null && this.SubLabel.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubLabel, length must be greater than 0.", new [] { "SubLabel" });
+            }
+
+            // InfoType (string) maxLength
+            if (this.InfoType != null && this.InfoType.Length > 6000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InfoType, length must be less than 6000.", new [] { "InfoType" });
+            }
+
+            // InfoType (string) minLength
+            if (this.InfoType != null && this.InfoType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InfoType, length must be greater than 0.", new [] { "InfoType" });
+            }
+
+            // Information (string) maxLength
+            if (this.Information != null && this.Information.Length > 6000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Information, length must be less than 6000.", new [] { "Information" });
+            }
+
+            // Information (string) minLength
+            if (this.Information != null && this.Information.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Information, length must be greater than 0.", new [] { "Information" });
             }
 
             yield break;

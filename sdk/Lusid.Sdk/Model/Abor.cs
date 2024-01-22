@@ -40,12 +40,13 @@ namespace Lusid.Sdk.Model
         /// <param name="id">id (required).</param>
         /// <param name="displayName">The name of the Abor..</param>
         /// <param name="description">The description for the Abor..</param>
-        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. (required).</param>
+        /// <param name="portfolioIds">The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency. (required).</param>
         /// <param name="aborConfigurationId">aborConfigurationId.</param>
         /// <param name="properties">A set of properties for the Abor..</param>
         /// <param name="version">version.</param>
+        /// <param name="baseCurrency">The base currency of the abor based on contained portfolio base currencies..</param>
         /// <param name="links">links.</param>
-        public Abor(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public Abor(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), List<PortfolioEntityId> portfolioIds = default(List<PortfolioEntityId>), ResourceId aborConfigurationId = default(ResourceId), Dictionary<string, Property> properties = default(Dictionary<string, Property>), ModelVersion version = default(ModelVersion), string baseCurrency = default(string), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -65,6 +66,7 @@ namespace Lusid.Sdk.Model
             this.AborConfigurationId = aborConfigurationId;
             this.Properties = properties;
             this._Version = version;
+            this.BaseCurrency = baseCurrency;
             this.Links = links;
         }
 
@@ -96,9 +98,9 @@ namespace Lusid.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The list with the portfolio ids which are part of the Abor.
+        /// The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency.
         /// </summary>
-        /// <value>The list with the portfolio ids which are part of the Abor.</value>
+        /// <value>The list with the portfolio ids which are part of the Abor. Note: These must all have the same base currency.</value>
         [DataMember(Name = "portfolioIds", IsRequired = true, EmitDefaultValue = true)]
         public List<PortfolioEntityId> PortfolioIds { get; set; }
 
@@ -122,6 +124,13 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// The base currency of the abor based on contained portfolio base currencies.
+        /// </summary>
+        /// <value>The base currency of the abor based on contained portfolio base currencies.</value>
+        [DataMember(Name = "baseCurrency", EmitDefaultValue = true)]
+        public string BaseCurrency { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -143,6 +152,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AborConfigurationId: ").Append(AborConfigurationId).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  BaseCurrency: ").Append(BaseCurrency).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -222,6 +232,11 @@ namespace Lusid.Sdk.Model
                     this._Version.Equals(input._Version))
                 ) && 
                 (
+                    this.BaseCurrency == input.BaseCurrency ||
+                    (this.BaseCurrency != null &&
+                    this.BaseCurrency.Equals(input.BaseCurrency))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -269,6 +284,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.BaseCurrency != null)
+                {
+                    hashCode = (hashCode * 59) + this.BaseCurrency.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -38,12 +38,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="electionKey">Unique key used to identify this election. (required).</param>
         /// <param name="exchangeRate">The exchange rate if this is not the declared CashElection.  Defaults to 1 if Election is Declared..</param>
-        /// <param name="dividendRate">The payment rate for this CashElection. (required).</param>
+        /// <param name="dividendRate">The payment rate for this CashElection..</param>
         /// <param name="isChosen">Has this election been chosen.  Only one Election may be Chosen per Event..</param>
         /// <param name="isDeclared">Is this the declared CashElection.  Only one Election may be Declared per Event..</param>
         /// <param name="isDefault">Is this election the default.  Only one Election may be Default per Event.</param>
         /// <param name="dividendCurrency">The payment currency for this CashElection. (required).</param>
-        public CashElection(string electionKey = default(string), decimal exchangeRate = default(decimal), decimal dividendRate = default(decimal), bool isChosen = default(bool), bool isDeclared = default(bool), bool isDefault = default(bool), string dividendCurrency = default(string))
+        public CashElection(string electionKey = default(string), decimal exchangeRate = default(decimal), decimal? dividendRate = default(decimal?), bool isChosen = default(bool), bool isDeclared = default(bool), bool isDefault = default(bool), string dividendCurrency = default(string))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -51,7 +51,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("electionKey is a required property for CashElection and cannot be null");
             }
             this.ElectionKey = electionKey;
-            this.DividendRate = dividendRate;
             // to ensure "dividendCurrency" is required (not null)
             if (dividendCurrency == null)
             {
@@ -59,6 +58,7 @@ namespace Lusid.Sdk.Model
             }
             this.DividendCurrency = dividendCurrency;
             this.ExchangeRate = exchangeRate;
+            this.DividendRate = dividendRate;
             this.IsChosen = isChosen;
             this.IsDeclared = isDeclared;
             this.IsDefault = isDefault;
@@ -82,8 +82,8 @@ namespace Lusid.Sdk.Model
         /// The payment rate for this CashElection.
         /// </summary>
         /// <value>The payment rate for this CashElection.</value>
-        [DataMember(Name = "dividendRate", IsRequired = true, EmitDefaultValue = true)]
-        public decimal DividendRate { get; set; }
+        [DataMember(Name = "dividendRate", EmitDefaultValue = true)]
+        public decimal? DividendRate { get; set; }
 
         /// <summary>
         /// Has this election been chosen.  Only one Election may be Chosen per Event.
@@ -174,7 +174,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.DividendRate == input.DividendRate ||
-                    this.DividendRate.Equals(input.DividendRate)
+                    (this.DividendRate != null &&
+                    this.DividendRate.Equals(input.DividendRate))
                 ) && 
                 (
                     this.IsChosen == input.IsChosen ||
@@ -209,7 +210,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.ElectionKey.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ExchangeRate.GetHashCode();
-                hashCode = (hashCode * 59) + this.DividendRate.GetHashCode();
+                if (this.DividendRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DividendRate.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IsChosen.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsDeclared.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();

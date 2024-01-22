@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentEvent">instrumentEvent (required).</param>
         /// <param name="properties">The properties attached to this instrument event..</param>
         /// <param name="sequenceNumber">The order of the instrument event relative others on the same date (0 being processed first). Must be non negative..</param>
-        public InstrumentEventHolder(string instrumentEventId = default(string), ResourceId corporateActionSourceId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), string instrumentScope = default(string), string description = default(string), EventDateRange eventDateRange = default(EventDateRange), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int))
+        /// <param name="participationType">Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary. (default to &quot;Mandatory&quot;).</param>
+        public InstrumentEventHolder(string instrumentEventId = default(string), ResourceId corporateActionSourceId = default(ResourceId), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string lusidInstrumentId = default(string), string instrumentScope = default(string), string description = default(string), EventDateRange eventDateRange = default(EventDateRange), InstrumentEvent instrumentEvent = default(InstrumentEvent), List<PerpetualProperty> properties = default(List<PerpetualProperty>), int sequenceNumber = default(int), string participationType = @"Mandatory")
         {
             // to ensure "instrumentEventId" is required (not null)
             if (instrumentEventId == null)
@@ -93,6 +94,8 @@ namespace Lusid.Sdk.Model
             this.CorporateActionSourceId = corporateActionSourceId;
             this.Properties = properties;
             this.SequenceNumber = sequenceNumber;
+            // use default value if no "participationType" provided
+            this.ParticipationType = participationType ?? @"Mandatory";
         }
 
         /// <summary>
@@ -163,6 +166,13 @@ namespace Lusid.Sdk.Model
         public int SequenceNumber { get; set; }
 
         /// <summary>
+        /// Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.
+        /// </summary>
+        /// <value>Is participation in this event Mandatory, MandatoryWithChoices, or Voluntary.</value>
+        [DataMember(Name = "participationType", EmitDefaultValue = true)]
+        public string ParticipationType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +190,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentEvent: ").Append(InstrumentEvent).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
+            sb.Append("  ParticipationType: ").Append(ParticipationType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -265,6 +276,11 @@ namespace Lusid.Sdk.Model
                 (
                     this.SequenceNumber == input.SequenceNumber ||
                     this.SequenceNumber.Equals(input.SequenceNumber)
+                ) && 
+                (
+                    this.ParticipationType == input.ParticipationType ||
+                    (this.ParticipationType != null &&
+                    this.ParticipationType.Equals(input.ParticipationType))
                 );
         }
 
@@ -314,6 +330,10 @@ namespace Lusid.Sdk.Model
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SequenceNumber.GetHashCode();
+                if (this.ParticipationType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParticipationType.GetHashCode();
+                }
                 return hashCode;
             }
         }
