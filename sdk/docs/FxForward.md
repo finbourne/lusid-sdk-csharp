@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **IsNdf** | **bool** | Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used. | [optional] 
 **FixingDate** | **DateTimeOffset** | The fixing date. | [optional] 
 **SettlementCcy** | **string** | The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards. | [optional] 
+**BookedAsSpot** | **bool** | Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

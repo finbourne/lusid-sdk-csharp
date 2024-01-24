@@ -278,8 +278,9 @@ namespace Lusid.Sdk.Model
         /// <param name="isNdf">Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used..</param>
         /// <param name="fixingDate">The fixing date..</param>
         /// <param name="settlementCcy">The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards..</param>
+        /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required).</param>
-        public FxForwardAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public FxForwardAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -302,6 +303,7 @@ namespace Lusid.Sdk.Model
             this.IsNdf = isNdf;
             this.FixingDate = fixingDate;
             this.SettlementCcy = settlementCcy;
+            this.BookedAsSpot = bookedAsSpot;
         }
 
         /// <summary>
@@ -375,6 +377,13 @@ namespace Lusid.Sdk.Model
         public string SettlementCcy { get; set; }
 
         /// <summary>
+        /// Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events.
+        /// </summary>
+        /// <value>Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events.</value>
+        [DataMember(Name = "bookedAsSpot", EmitDefaultValue = true)]
+        public bool BookedAsSpot { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -392,6 +401,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  IsNdf: ").Append(IsNdf).Append("\n");
             sb.Append("  FixingDate: ").Append(FixingDate).Append("\n");
             sb.Append("  SettlementCcy: ").Append(SettlementCcy).Append("\n");
+            sb.Append("  BookedAsSpot: ").Append(BookedAsSpot).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -475,6 +485,10 @@ namespace Lusid.Sdk.Model
                     this.SettlementCcy.Equals(input.SettlementCcy))
                 ) && 
                 (
+                    this.BookedAsSpot == input.BookedAsSpot ||
+                    this.BookedAsSpot.Equals(input.BookedAsSpot)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -517,6 +531,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.SettlementCcy.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.BookedAsSpot.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
             }
