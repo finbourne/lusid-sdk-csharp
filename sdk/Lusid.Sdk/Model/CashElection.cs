@@ -43,7 +43,7 @@ namespace Lusid.Sdk.Model
         /// <param name="isDeclared">Is this the declared CashElection.  Only one Election may be Declared per Event..</param>
         /// <param name="isDefault">Is this election the default.  Only one Election may be Default per Event.</param>
         /// <param name="dividendCurrency">The payment currency for this CashElection. (required).</param>
-        public CashElection(string electionKey = default(string), decimal exchangeRate = default(decimal), decimal? dividendRate = default(decimal?), bool isChosen = default(bool), bool isDeclared = default(bool), bool isDefault = default(bool), string dividendCurrency = default(string))
+        public CashElection(string electionKey = default(string), decimal? exchangeRate = default(decimal?), decimal? dividendRate = default(decimal?), bool isChosen = default(bool), bool isDeclared = default(bool), bool isDefault = default(bool), string dividendCurrency = default(string))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -76,7 +76,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The exchange rate if this is not the declared CashElection.  Defaults to 1 if Election is Declared.</value>
         [DataMember(Name = "exchangeRate", EmitDefaultValue = true)]
-        public decimal ExchangeRate { get; set; }
+        public decimal? ExchangeRate { get; set; }
 
         /// <summary>
         /// The payment rate for this CashElection.
@@ -170,7 +170,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.ExchangeRate == input.ExchangeRate ||
-                    this.ExchangeRate.Equals(input.ExchangeRate)
+                    (this.ExchangeRate != null &&
+                    this.ExchangeRate.Equals(input.ExchangeRate))
                 ) && 
                 (
                     this.DividendRate == input.DividendRate ||
@@ -209,7 +210,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ElectionKey.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ExchangeRate.GetHashCode();
+                if (this.ExchangeRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExchangeRate.GetHashCode();
+                }
                 if (this.DividendRate != null)
                 {
                     hashCode = (hashCode * 59) + this.DividendRate.GetHashCode();

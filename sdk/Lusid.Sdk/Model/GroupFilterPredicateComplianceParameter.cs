@@ -24,28 +24,28 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PortfolioGroupIdComplianceParameter
+    /// GroupFilterPredicateComplianceParameter
     /// </summary>
-    [DataContract(Name = "PortfolioGroupIdComplianceParameter")]
+    [DataContract(Name = "GroupFilterPredicateComplianceParameter")]
     [JsonConverter(typeof(JsonSubtypes), "ComplianceParameterType")]
-    public partial class PortfolioGroupIdComplianceParameter : ComplianceParameter, IEquatable<PortfolioGroupIdComplianceParameter>, IValidatableObject
+    public partial class GroupFilterPredicateComplianceParameter : ComplianceParameter, IEquatable<GroupFilterPredicateComplianceParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="GroupFilterPredicateComplianceParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PortfolioGroupIdComplianceParameter() { }
+        protected GroupFilterPredicateComplianceParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioGroupIdComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="GroupFilterPredicateComplianceParameter" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter (required) (default to &quot;PortfolioGroupIdComplianceParameter&quot;).</param>
-        public PortfolioGroupIdComplianceParameter(ResourceId value = default(ResourceId), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
+        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter (required) (default to &quot;GroupFilterPredicateComplianceParameter&quot;).</param>
+        public GroupFilterPredicateComplianceParameter(string value = default(string), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
         {
             // to ensure "value" is required (not null)
             if (value == null)
             {
-                throw new ArgumentNullException("value is a required property for PortfolioGroupIdComplianceParameter and cannot be null");
+                throw new ArgumentNullException("value is a required property for GroupFilterPredicateComplianceParameter and cannot be null");
             }
             this.Value = value;
         }
@@ -54,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
-        public ResourceId Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PortfolioGroupIdComplianceParameter {\n");
+            sb.Append("class GroupFilterPredicateComplianceParameter {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PortfolioGroupIdComplianceParameter);
+            return this.Equals(input as GroupFilterPredicateComplianceParameter);
         }
 
         /// <summary>
-        /// Returns true if PortfolioGroupIdComplianceParameter instances are equal
+        /// Returns true if GroupFilterPredicateComplianceParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of PortfolioGroupIdComplianceParameter to be compared</param>
+        /// <param name="input">Instance of GroupFilterPredicateComplianceParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PortfolioGroupIdComplianceParameter input)
+        public bool Equals(GroupFilterPredicateComplianceParameter input)
         {
             if (input == null)
             {
@@ -146,6 +146,12 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // Value (string) minLength
+            if (this.Value != null && this.Value.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 1.", new [] { "Value" });
+            }
+
             yield break;
         }
     }
