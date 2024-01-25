@@ -44,7 +44,8 @@ namespace Lusid.Sdk.Model
         /// <param name="inheritedRecipes">A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options..</param>
         /// <param name="description">User can assign a description to understand more humanly the recipe..</param>
         /// <param name="holding">holding.</param>
-        public ConfigurationRecipe(string scope = default(string), string code = default(string), MarketContext market = default(MarketContext), PricingContext pricing = default(PricingContext), AggregationContext aggregation = default(AggregationContext), List<ResourceId> inheritedRecipes = default(List<ResourceId>), string description = default(string), HoldingContext holding = default(HoldingContext))
+        /// <param name="translation">translation.</param>
+        public ConfigurationRecipe(string scope = default(string), string code = default(string), MarketContext market = default(MarketContext), PricingContext pricing = default(PricingContext), AggregationContext aggregation = default(AggregationContext), List<ResourceId> inheritedRecipes = default(List<ResourceId>), string description = default(string), HoldingContext holding = default(HoldingContext), TranslationContext translation = default(TranslationContext))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -64,6 +65,7 @@ namespace Lusid.Sdk.Model
             this.InheritedRecipes = inheritedRecipes;
             this.Description = description;
             this.Holding = holding;
+            this.Translation = translation;
         }
 
         /// <summary>
@@ -119,6 +121,12 @@ namespace Lusid.Sdk.Model
         public HoldingContext Holding { get; set; }
 
         /// <summary>
+        /// Gets or Sets Translation
+        /// </summary>
+        [DataMember(Name = "translation", EmitDefaultValue = false)]
+        public TranslationContext Translation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,6 +142,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InheritedRecipes: ").Append(InheritedRecipes).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Holding: ").Append(Holding).Append("\n");
+            sb.Append("  Translation: ").Append(Translation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -209,6 +218,11 @@ namespace Lusid.Sdk.Model
                     this.Holding == input.Holding ||
                     (this.Holding != null &&
                     this.Holding.Equals(input.Holding))
+                ) && 
+                (
+                    this.Translation == input.Translation ||
+                    (this.Translation != null &&
+                    this.Translation.Equals(input.Translation))
                 );
         }
 
@@ -252,6 +266,10 @@ namespace Lusid.Sdk.Model
                 if (this.Holding != null)
                 {
                     hashCode = (hashCode * 59) + this.Holding.GetHashCode();
+                }
+                if (this.Translation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Translation.GetHashCode();
                 }
                 return hashCode;
             }
