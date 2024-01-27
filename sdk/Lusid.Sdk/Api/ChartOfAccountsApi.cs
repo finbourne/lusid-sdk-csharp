@@ -339,9 +339,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CleardownModuleResponse</returns>
-        CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, int operationIndex = 0);
+        CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
@@ -353,9 +354,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, int operationIndex = 0);
+        ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
         /// </summary>
@@ -366,9 +368,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
+        GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
@@ -380,9 +383,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0);
+        ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
         /// </summary>
@@ -393,9 +397,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostingModuleResponse</returns>
-        PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0);
+        PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
@@ -407,9 +412,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0);
+        ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
         /// </summary>
@@ -1223,10 +1229,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
@@ -1238,10 +1245,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
         /// </summary>
@@ -1252,10 +1260,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
@@ -1267,10 +1276,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
         /// </summary>
@@ -1281,10 +1291,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetPostingModule: Get a Posting Module
@@ -1296,10 +1307,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListAccounts: List Accounts
         /// </summary>
@@ -4367,11 +4379,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CleardownModuleResponse</returns>
-        public CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, int operationIndex = 0)
+        public CleardownModuleResponse GetCleardownModule(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, asAt);
             return localVarResponse.Data;
         }
 
@@ -4382,9 +4395,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> GetCleardownModuleWithHttpInfo(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4431,6 +4445,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("cleardownModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(cleardownModuleCode)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.GetCleardownModule";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4473,12 +4491,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CleardownModuleResponse> GetCleardownModuleAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await GetCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse> localVarResponse = await GetCleardownModuleWithHttpInfoAsync(scope, code, cleardownModuleCode, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4489,10 +4508,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="cleardownModuleCode">The code of the Cleardown Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CleardownModuleResponse>> GetCleardownModuleWithHttpInfoAsync(string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4540,6 +4560,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("cleardownModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(cleardownModuleCode)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.GetCleardownModule";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4583,11 +4607,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GeneralLedgerProfileResponse</returns>
-        public GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        public GeneralLedgerProfileResponse GetGeneralLedgerProfile(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode, asAt);
             return localVarResponse.Data;
         }
 
@@ -4598,9 +4623,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GeneralLedgerProfileResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> GetGeneralLedgerProfileWithHttpInfo(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4647,6 +4673,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.GetGeneralLedgerProfile";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4689,12 +4719,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GeneralLedgerProfileResponse</returns>
-        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GeneralLedgerProfileResponse> GetGeneralLedgerProfileAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await GetGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse> localVarResponse = await GetGeneralLedgerProfileWithHttpInfoAsync(scope, code, generalLedgerProfileCode, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4705,10 +4736,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="code">The code of the Chart of Accounts for the General Ledger Profile.</param>
         /// <param name="generalLedgerProfileCode">The General Ledger Profile Code of the General Ledger Profile.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GeneralLedgerProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<GeneralLedgerProfileResponse>> GetGeneralLedgerProfileWithHttpInfoAsync(string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4756,6 +4788,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("generalLedgerProfileCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(generalLedgerProfileCode)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.GetGeneralLedgerProfile";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4799,11 +4835,12 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PostingModuleResponse</returns>
-        public PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, int operationIndex = 0)
+        public PostingModuleResponse GetPostingModule(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = GetPostingModuleWithHttpInfo(scope, code, postingModuleCode);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = GetPostingModuleWithHttpInfo(scope, code, postingModuleCode, asAt);
             return localVarResponse.Data;
         }
 
@@ -4814,9 +4851,10 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> GetPostingModuleWithHttpInfo(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4863,6 +4901,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.GetPostingModule";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4905,12 +4947,13 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PostingModuleResponse> GetPostingModuleAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await GetPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PostingModuleResponse> localVarResponse = await GetPostingModuleWithHttpInfoAsync(scope, code, postingModuleCode, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4921,10 +4964,11 @@ namespace Lusid.Sdk.Api
         /// <param name="scope">The scope of the Chart of Accounts.</param>
         /// <param name="code">The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.</param>
         /// <param name="postingModuleCode">The code of the Posting Module.</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PostingModuleResponse>> GetPostingModuleWithHttpInfoAsync(string scope, string code, string postingModuleCode, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -4972,6 +5016,10 @@ namespace Lusid.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
             localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             localVarRequestOptions.PathParameters.Add("postingModuleCode", Lusid.Sdk.Client.ClientUtils.ParameterToString(postingModuleCode)); // path parameter
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.GetPostingModule";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -1144,7 +1144,7 @@ catch (ApiException e)
 
 <a id="getcleardownmodule"></a>
 # **GetCleardownModule**
-> CleardownModuleResponse GetCleardownModule (string scope, string code, string cleardownModuleCode)
+> CleardownModuleResponse GetCleardownModule (string scope, string code, string cleardownModuleCode, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
 
@@ -1173,11 +1173,12 @@ namespace Example
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
             var cleardownModuleCode = "cleardownModuleCode_example";  // string | The code of the Cleardown Module.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
-                CleardownModuleResponse result = apiInstance.GetCleardownModule(scope, code, cleardownModuleCode);
+                CleardownModuleResponse result = apiInstance.GetCleardownModule(scope, code, cleardownModuleCode, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1198,7 +1199,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetCleardownModule: Get a Cleardown Module
-    ApiResponse<CleardownModuleResponse> response = apiInstance.GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode);
+    ApiResponse<CleardownModuleResponse> response = apiInstance.GetCleardownModuleWithHttpInfo(scope, code, cleardownModuleCode, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1218,6 +1219,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Chart of Accounts. |  |
 | **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
 | **cleardownModuleCode** | **string** | The code of the Cleardown Module. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Cleardown Module. Defaults to return the latest version of the Cleardown Module if not specified. | [optional]  |
 
 ### Return type
 
@@ -1244,7 +1246,7 @@ catch (ApiException e)
 
 <a id="getgeneralledgerprofile"></a>
 # **GetGeneralLedgerProfile**
-> GeneralLedgerProfileResponse GetGeneralLedgerProfile (string scope, string code, string generalLedgerProfileCode)
+> GeneralLedgerProfileResponse GetGeneralLedgerProfile (string scope, string code, string generalLedgerProfileCode, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
 
@@ -1273,11 +1275,12 @@ namespace Example
             var scope = "scope_example";  // string | The scope of the Chart of Accounts for the General Ledger Profile.
             var code = "code_example";  // string | The code of the Chart of Accounts for the General Ledger Profile.
             var generalLedgerProfileCode = "generalLedgerProfileCode_example";  // string | The General Ledger Profile Code of the General Ledger Profile.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
-                GeneralLedgerProfileResponse result = apiInstance.GetGeneralLedgerProfile(scope, code, generalLedgerProfileCode);
+                GeneralLedgerProfileResponse result = apiInstance.GetGeneralLedgerProfile(scope, code, generalLedgerProfileCode, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1298,7 +1301,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetGeneralLedgerProfile: Get a General Ledger Profile.
-    ApiResponse<GeneralLedgerProfileResponse> response = apiInstance.GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode);
+    ApiResponse<GeneralLedgerProfileResponse> response = apiInstance.GetGeneralLedgerProfileWithHttpInfo(scope, code, generalLedgerProfileCode, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1318,6 +1321,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Chart of Accounts for the General Ledger Profile. |  |
 | **code** | **string** | The code of the Chart of Accounts for the General Ledger Profile. |  |
 | **generalLedgerProfileCode** | **string** | The General Ledger Profile Code of the General Ledger Profile. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the General Ledger Profile. Defaults to return the latest version of the General Ledger Profile if not specified. | [optional]  |
 
 ### Return type
 
@@ -1344,7 +1348,7 @@ catch (ApiException e)
 
 <a id="getpostingmodule"></a>
 # **GetPostingModule**
-> PostingModuleResponse GetPostingModule (string scope, string code, string postingModuleCode)
+> PostingModuleResponse GetPostingModule (string scope, string code, string postingModuleCode, DateTimeOffset? asAt = null)
 
 [EXPERIMENTAL] GetPostingModule: Get a Posting Module
 
@@ -1373,11 +1377,12 @@ namespace Example
             var scope = "scope_example";  // string | The scope of the Chart of Accounts.
             var code = "code_example";  // string | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts.
             var postingModuleCode = "postingModuleCode_example";  // string | The code of the Posting Module.
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] GetPostingModule: Get a Posting Module
-                PostingModuleResponse result = apiInstance.GetPostingModule(scope, code, postingModuleCode);
+                PostingModuleResponse result = apiInstance.GetPostingModule(scope, code, postingModuleCode, asAt);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1398,7 +1403,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetPostingModule: Get a Posting Module
-    ApiResponse<PostingModuleResponse> response = apiInstance.GetPostingModuleWithHttpInfo(scope, code, postingModuleCode);
+    ApiResponse<PostingModuleResponse> response = apiInstance.GetPostingModuleWithHttpInfo(scope, code, postingModuleCode, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1418,6 +1423,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the Chart of Accounts. |  |
 | **code** | **string** | The code of the Chart of Accounts. Together with the scope this uniquely identifies the Chart of Accounts. |  |
 | **postingModuleCode** | **string** | The code of the Posting Module. |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Posting Module. Defaults to return the latest version of the Posting Module if not specified. | [optional]  |
 
 ### Return type
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **RequiredParameters** | [**List&lt;ComplianceTemplateParameter&gt;**](ComplianceTemplateParameter.md) | A parameter required by a Compliance Template Variation | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | Properties associated with the Compliance Template Variation | 
 **AcceptedAddressKeys** | [**ResourceId**](ResourceId.md) |  | 
+**Steps** | [**List&lt;ComplianceStep&gt;**](ComplianceStep.md) | The steps expressed in this template, with their required parameters | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

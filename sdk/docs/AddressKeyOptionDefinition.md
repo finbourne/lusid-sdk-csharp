@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the option | 
 **Type** | **string** | The type of the option | 
+**Description** | **string** | The description of the option | 
 **Optional** | **bool** | Is this option required or optional? | 
 **AllowedValueSet** | **List&lt;string&gt;** | If the option is a string or enum, the allowed set of values it can take. | [optional] 
 **DefaultValue** | **string** | If the option is not required, what is the default value? | [optional] 

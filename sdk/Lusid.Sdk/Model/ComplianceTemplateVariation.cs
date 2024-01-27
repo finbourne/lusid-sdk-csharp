@@ -41,7 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="requiredParameters">A parameter required by a Compliance Template Variation (required).</param>
         /// <param name="properties">Properties associated with the Compliance Template Variation (required).</param>
         /// <param name="acceptedAddressKeys">acceptedAddressKeys (required).</param>
-        public ComplianceTemplateVariation(string label = default(string), string description = default(string), List<ComplianceTemplateParameter> requiredParameters = default(List<ComplianceTemplateParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId acceptedAddressKeys = default(ResourceId))
+        /// <param name="steps">The steps expressed in this template, with their required parameters (required).</param>
+        public ComplianceTemplateVariation(string label = default(string), string description = default(string), List<ComplianceTemplateParameter> requiredParameters = default(List<ComplianceTemplateParameter>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), ResourceId acceptedAddressKeys = default(ResourceId), List<ComplianceStep> steps = default(List<ComplianceStep>))
         {
             // to ensure "label" is required (not null)
             if (label == null)
@@ -73,6 +74,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("acceptedAddressKeys is a required property for ComplianceTemplateVariation and cannot be null");
             }
             this.AcceptedAddressKeys = acceptedAddressKeys;
+            // to ensure "steps" is required (not null)
+            if (steps == null)
+            {
+                throw new ArgumentNullException("steps is a required property for ComplianceTemplateVariation and cannot be null");
+            }
+            this.Steps = steps;
         }
 
         /// <summary>
@@ -110,6 +117,13 @@ namespace Lusid.Sdk.Model
         public ResourceId AcceptedAddressKeys { get; set; }
 
         /// <summary>
+        /// The steps expressed in this template, with their required parameters
+        /// </summary>
+        /// <value>The steps expressed in this template, with their required parameters</value>
+        [DataMember(Name = "steps", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceStep> Steps { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +136,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RequiredParameters: ").Append(RequiredParameters).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  AcceptedAddressKeys: ").Append(AcceptedAddressKeys).Append("\n");
+            sb.Append("  Steps: ").Append(Steps).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +198,12 @@ namespace Lusid.Sdk.Model
                     this.AcceptedAddressKeys == input.AcceptedAddressKeys ||
                     (this.AcceptedAddressKeys != null &&
                     this.AcceptedAddressKeys.Equals(input.AcceptedAddressKeys))
+                ) && 
+                (
+                    this.Steps == input.Steps ||
+                    this.Steps != null &&
+                    input.Steps != null &&
+                    this.Steps.SequenceEqual(input.Steps)
                 );
         }
 
@@ -214,6 +235,10 @@ namespace Lusid.Sdk.Model
                 if (this.AcceptedAddressKeys != null)
                 {
                     hashCode = (hashCode * 59) + this.AcceptedAddressKeys.GetHashCode();
+                }
+                if (this.Steps != null)
+                {
+                    hashCode = (hashCode * 59) + this.Steps.GetHashCode();
                 }
                 return hashCode;
             }

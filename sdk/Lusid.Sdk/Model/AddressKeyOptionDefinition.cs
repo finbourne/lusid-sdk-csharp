@@ -38,10 +38,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="name">The name of the option (required).</param>
         /// <param name="type">The type of the option (required).</param>
+        /// <param name="description">The description of the option (required).</param>
         /// <param name="optional">Is this option required or optional? (required).</param>
         /// <param name="allowedValueSet">If the option is a string or enum, the allowed set of values it can take..</param>
         /// <param name="defaultValue">If the option is not required, what is the default value?.</param>
-        public AddressKeyOptionDefinition(string name = default(string), string type = default(string), bool optional = default(bool), List<string> allowedValueSet = default(List<string>), string defaultValue = default(string))
+        public AddressKeyOptionDefinition(string name = default(string), string type = default(string), string description = default(string), bool optional = default(bool), List<string> allowedValueSet = default(List<string>), string defaultValue = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -55,6 +56,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("type is a required property for AddressKeyOptionDefinition and cannot be null");
             }
             this.Type = type;
+            // to ensure "description" is required (not null)
+            if (description == null)
+            {
+                throw new ArgumentNullException("description is a required property for AddressKeyOptionDefinition and cannot be null");
+            }
+            this.Description = description;
             this.Optional = optional;
             this.AllowedValueSet = allowedValueSet;
             this.DefaultValue = defaultValue;
@@ -73,6 +80,13 @@ namespace Lusid.Sdk.Model
         /// <value>The type of the option</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// The description of the option
+        /// </summary>
+        /// <value>The description of the option</value>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Is this option required or optional?
@@ -105,6 +119,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class AddressKeyOptionDefinition {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Optional: ").Append(Optional).Append("\n");
             sb.Append("  AllowedValueSet: ").Append(AllowedValueSet).Append("\n");
             sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
@@ -154,6 +169,11 @@ namespace Lusid.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
                     this.Optional == input.Optional ||
                     this.Optional.Equals(input.Optional)
                 ) && 
@@ -187,6 +207,10 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Optional.GetHashCode();
                 if (this.AllowedValueSet != null)
                 {
@@ -217,6 +241,12 @@ namespace Lusid.Sdk.Model
             if (this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             yield break;
