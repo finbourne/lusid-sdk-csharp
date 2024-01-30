@@ -9,7 +9,6 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**CreateAbor**](AborApi.md#createabor) | **POST** /api/abor/{scope} | [EXPERIMENTAL] CreateAbor: Create an Abor. |
 | [**DeleteAbor**](AborApi.md#deleteabor) | **DELETE** /api/abor/{scope}/{code} | [EXPERIMENTAL] DeleteAbor: Delete an Abor. |
 | [**GetAbor**](AborApi.md#getabor) | **GET** /api/abor/{scope}/{code} | [EXPERIMENTAL] GetAbor: Get Abor. |
-| [**GetJELines**](AborApi.md#getjelines) | **POST** /api/abor/{scope}/{code}/JELines/$query/$deprecated | [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor. |
 | [**GetJournalEntryLines**](AborApi.md#getjournalentrylines) | **POST** /api/abor/{scope}/{code}/journalentrylines/$query | [EXPERIMENTAL] GetJournalEntryLines: Get the Journal Entry lines for the given Abor. |
 | [**GetTrialBalance**](AborApi.md#gettrialbalance) | **POST** /api/abor/{scope}/{code}/trialbalance/$query | [EXPERIMENTAL] GetTrialBalance: Get the Trial balance for the given Abor. |
 | [**ListAbors**](AborApi.md#listabors) | **GET** /api/abor | [EXPERIMENTAL] ListAbors: List Abors. |
@@ -515,112 +514,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The requested Abor definition. |  -  |
-| **400** | The details of the input related failure |  -  |
-| **0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getjelines"></a>
-# **GetJELines**
-> VersionedResourceListOfJournalEntryLine GetJELines (string scope, string code, JELinesQueryParameters jELinesQueryParameters, DateTimeOffset? asAt = null, int? limit = null, string? page = null)
-
-[DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
-
-DEPRECATED: please use GetJournalEntryLines instead. Gets the JELines for the given Abor                The JE Lines have been generated from transactions and translated via posting rules
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Lusid.Sdk.Api;
-using Lusid.Sdk.Client;
-using Lusid.Sdk.Model;
-
-namespace Example
-{
-    public class GetJELinesExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://www.lusid.com/api";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AborApi(config);
-            var scope = "scope_example";  // string | The scope of the Abor.
-            var code = "code_example";  // string | The code of the Abor. Together with the scope is creating the unique identifier for the given Abor.
-            var jELinesQueryParameters = new JELinesQueryParameters(); // JELinesQueryParameters | The query parameters used in running the generation of the JELines.
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve JELines. Defaults to returning the latest version               of each transaction if not specified. (optional) 
-            var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
-            var page = "page_example";  // string? | The pagination token to use to continue listing JELines from a previous call to GetJELines. (optional) 
-
-            try
-            {
-                // [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
-                VersionedResourceListOfJournalEntryLine result = apiInstance.GetJELines(scope, code, jELinesQueryParameters, asAt, limit, page);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling AborApi.GetJELines: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetJELinesWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // [DEPRECATED] GetJELines: DEPRECATED: please use GetJournalEntryLines instead. Get the JELines for the given Abor.
-    ApiResponse<VersionedResourceListOfJournalEntryLine> response = apiInstance.GetJELinesWithHttpInfo(scope, code, jELinesQueryParameters, asAt, limit, page);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AborApi.GetJELinesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **scope** | **string** | The scope of the Abor. |  |
-| **code** | **string** | The code of the Abor. Together with the scope is creating the unique identifier for the given Abor. |  |
-| **jELinesQueryParameters** | [**JELinesQueryParameters**](JELinesQueryParameters.md) | The query parameters used in running the generation of the JELines. |  |
-| **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve JELines. Defaults to returning the latest version               of each transaction if not specified. | [optional]  |
-| **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |
-| **page** | **string?** | The pagination token to use to continue listing JELines from a previous call to GetJELines. | [optional]  |
-
-### Return type
-
-[**VersionedResourceListOfJournalEntryLine**](VersionedResourceListOfJournalEntryLine.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The requested JELines for the specified Abor. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
