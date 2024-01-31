@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="currency">Currency of the flow convention name. (required).</param>
         /// <param name="indexName">The index, if present, that is required. e.g. \&quot;IBOR\&quot;, \&quot;OIS\&quot; or \&quot;SONIA\&quot;..</param>
-        /// <param name="tenor">Tenor for the convention name. (required).</param>
+        /// <param name="tenor">Tenor for the convention name.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         public FlowConventionName(string currency = default(string), string indexName = default(string), string tenor = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -71,9 +71,9 @@ namespace Lusid.Sdk.Model
         public string IndexName { get; set; }
 
         /// <summary>
-        /// Tenor for the convention name.
+        /// Tenor for the convention name.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         /// </summary>
-        /// <value>Tenor for the convention name.</value>
+        /// <value>Tenor for the convention name.    For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
         [DataMember(Name = "tenor", IsRequired = true, EmitDefaultValue = true)]
         public string Tenor { get; set; }
 

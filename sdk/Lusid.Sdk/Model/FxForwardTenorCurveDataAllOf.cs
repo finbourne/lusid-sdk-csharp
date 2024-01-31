@@ -139,7 +139,7 @@ namespace Lusid.Sdk.Model
         /// <param name="baseDate">EffectiveAt date of the quoted rates (required).</param>
         /// <param name="domCcy">Domestic currency of the fx forward (required).</param>
         /// <param name="fgnCcy">Foreign currency of the fx forward (required).</param>
-        /// <param name="tenors">Tenors for which the forward rates apply (required).</param>
+        /// <param name="tenors">Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="rates">Rates provided for the fx forward (price in FgnCcy per unit of DomCcy) (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
@@ -202,9 +202,9 @@ namespace Lusid.Sdk.Model
         public string FgnCcy { get; set; }
 
         /// <summary>
-        /// Tenors for which the forward rates apply
+        /// Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         /// </summary>
-        /// <value>Tenors for which the forward rates apply</value>
+        /// <value>Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
         [DataMember(Name = "tenors", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tenors { get; set; }
 

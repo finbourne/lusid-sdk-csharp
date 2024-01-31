@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="domCcy">Domestic currency of the fx forward (required).</param>
         /// <param name="fgnCcy">Foreign currency of the fx forward (required).</param>
-        /// <param name="tenors">Tenors for which the forward rates apply (required).</param>
+        /// <param name="tenors">Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="quoteReferences">For each tenor, a collection of identifiers. These will be looked up in the LUSID Quote Store to resolve the actual rates.  Accepts an array of Dictionary&lt;string, string&gt;. The keys of each dictionary must be chosen from the following enumeration:  [LusidInstrumentId, Isin, Sedol, Cusip, ClientInternal, Figi, RIC, QuotePermId, REDCode, BBGId, ICECode].  For example: &lt;br /&gt;  \&quot;quoteReferences\&quot;: [{\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForFirstTenor\&quot;},{\&quot;ClientInternal\&quot;: \&quot;SomeIdentifierForSecondTenor\&quot;} (required).</param>
         /// <param name="lineage">Description of the complex market data&#39;s lineage e.g. &#39;FundAccountant_GreenQuality&#39;..</param>
         /// <param name="marketDataOptions">marketDataOptions.</param>
@@ -94,9 +94,9 @@ namespace Lusid.Sdk.Model
         public string FgnCcy { get; set; }
 
         /// <summary>
-        /// Tenors for which the forward rates apply
+        /// Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         /// </summary>
-        /// <value>Tenors for which the forward rates apply</value>
+        /// <value>Tenors for which the forward rates apply.  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
         [DataMember(Name = "tenors", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tenors { get; set; }
 

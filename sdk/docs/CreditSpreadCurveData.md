@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **MarketDataType** | **string** | The available values are: DiscountFactorCurveData, EquityVolSurfaceData, FxVolSurfaceData, IrVolCubeData, OpaqueMarketData, YieldCurveData, FxForwardCurveData, FxForwardPipsCurveData, FxForwardTenorCurveData, FxForwardTenorPipsCurveData, FxForwardCurveByQuoteReference, CreditSpreadCurveData, EquityCurveByPricesData, ConstantVolatilitySurface | 
 **BaseDate** | **DateTimeOffset** | EffectiveAt date of the quoted rates | 
 **DomCcy** | **string** | Domestic currency of the curve | 
-**Tenors** | **List&lt;string&gt;** | The tenors for which the rates apply | 
+**Tenors** | **List&lt;string&gt;** | The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) | 
 **Spreads** | **List&lt;decimal&gt;** | Par spread quotes corresponding to the tenors. | 
 **RecoveryRate** | **decimal** | The recovery rate in default. | 
 **ReferenceDate** | **DateTimeOffset?** | If tenors are provided, this is the date against which the tenors will be resolved.  This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date.  In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid.  If not provided, this defaults to the BaseDate of the curve. | [optional] 

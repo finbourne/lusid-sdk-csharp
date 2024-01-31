@@ -138,7 +138,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="baseDate">EffectiveAt date of the quoted rates (required).</param>
         /// <param name="domCcy">Domestic currency of the curve (required).</param>
-        /// <param name="tenors">The tenors for which the rates apply (required).</param>
+        /// <param name="tenors">The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097) (required).</param>
         /// <param name="spreads">Par spread quotes corresponding to the tenors. (required).</param>
         /// <param name="recoveryRate">The recovery rate in default. (required).</param>
         /// <param name="referenceDate">If tenors are provided, this is the date against which the tenors will be resolved.  This is of importance to CDX spread quotes, which are usually quoted in tenors relative to the CDX start date.  In this case, the ReferenceDate would be equal to the CDX start date, and the BaseDate would be the date for which the spreads are valid.  If not provided, this defaults to the BaseDate of the curve..</param>
@@ -190,9 +190,9 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
-        /// The tenors for which the rates apply
+        /// The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)
         /// </summary>
-        /// <value>The tenors for which the rates apply</value>
+        /// <value>The tenors for which the rates apply  For more information on tenors, see [knowledge base article KA-02097](https://support.lusid.com/knowledgebase/article/KA-02097)</value>
         [DataMember(Name = "tenors", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tenors { get; set; }
 
