@@ -28,7 +28,12 @@ namespace Lusid.Sdk.Model
     /// </summary>
     [DataContract(Name = "ComplianceStep")]
     [JsonConverter(typeof(JsonSubtypes), "ComplianceStepType")]
+    [JsonSubtypes.KnownSubType(typeof(BranchStep), "BranchStep")]
+    [JsonSubtypes.KnownSubType(typeof(FilterStep), "FilterStep")]
+    [JsonSubtypes.KnownSubType(typeof(GroupByStep), "GroupByStep")]
+    [JsonSubtypes.KnownSubType(typeof(GroupFilterStep), "GroupFilterStep")]
     [JsonSubtypes.KnownSubType(typeof(IntermediateComplianceStep), "IntermediateComplianceStep")]
+    [JsonSubtypes.KnownSubType(typeof(RecombineStep), "RecombineStep")]
     public partial class ComplianceStep : IEquatable<ComplianceStep>, IValidatableObject
     {
         /// <summary>

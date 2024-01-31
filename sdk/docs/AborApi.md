@@ -737,7 +737,7 @@ catch (ApiException e)
 
 <a id="listabors"></a>
 # **ListAbors**
-> PagedResourceListOfAbor ListAbors (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
+> PagedResourceListOfAbor ListAbors (DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
 [EXPERIMENTAL] ListAbors: List Abors.
 
@@ -768,12 +768,13 @@ namespace Example
             var page = "page_example";  // string? | The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the Abor type, specify \"id.Code eq 'Abor1'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'Abor' domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example 'Abor/Manager/Id'. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] ListAbors: List Abors.
-                PagedResourceListOfAbor result = apiInstance.ListAbors(effectiveAt, asAt, page, limit, filter, propertyKeys);
+                PagedResourceListOfAbor result = apiInstance.ListAbors(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -794,7 +795,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListAbors: List Abors.
-    ApiResponse<PagedResourceListOfAbor> response = apiInstance.ListAborsWithHttpInfo(effectiveAt, asAt, page, limit, filter, propertyKeys);
+    ApiResponse<PagedResourceListOfAbor> response = apiInstance.ListAborsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -816,6 +817,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing Abor; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results.              For example, to filter on the Abor type, specify \&quot;id.Code eq &#39;Abor1&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;Abor&#39; domain to decorate onto each Abor.              These must take the format {domain}/{scope}/{code}, for example &#39;Abor/Manager/Id&#39;. | [optional]  |
 
 ### Return type
@@ -843,7 +845,7 @@ catch (ApiException e)
 
 <a id="listdiaryentries"></a>
 # **ListDiaryEntries**
-> PagedResourceListOfDiaryEntry ListDiaryEntries (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? propertyKeys = null)
+> PagedResourceListOfDiaryEntry ListDiaryEntries (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? page = null, int? limit = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null)
 
 [EXPERIMENTAL] ListDiaryEntries: List diary entries.
 
@@ -876,12 +878,13 @@ namespace Example
             var page = "page_example";  // string? | The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional) 
             var limit = 56;  // int? | When paginating, limit the results to this number. Defaults to 100 if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \"type eq 'PeriodBoundary'\". For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var propertyKeys = new List<string>?(); // List<string>? | A list of property keys from the 'DiaryEntry' domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example 'DiaryEntry/Report/Id'. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] ListDiaryEntries: List diary entries.
-                PagedResourceListOfDiaryEntry result = apiInstance.ListDiaryEntries(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+                PagedResourceListOfDiaryEntry result = apiInstance.ListDiaryEntries(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -902,7 +905,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListDiaryEntries: List diary entries.
-    ApiResponse<PagedResourceListOfDiaryEntry> response = apiInstance.ListDiaryEntriesWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, propertyKeys);
+    ApiResponse<PagedResourceListOfDiaryEntry> response = apiInstance.ListDiaryEntriesWithHttpInfo(scope, code, effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -926,6 +929,7 @@ catch (ApiException e)
 | **page** | **string?** | The pagination token to use to continue listing diary entries; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. Defaults to 100 if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the results.              For example, to filter on the DiaryEntry type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | A list of property keys from the &#39;DiaryEntry&#39; domain to decorate onto each DiaryEntry.              These must take the format {domain}/{scope}/{code}, for example &#39;DiaryEntry/Report/Id&#39;. | [optional]  |
 
 ### Return type

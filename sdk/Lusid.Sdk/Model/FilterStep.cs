@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
@@ -26,54 +27,9 @@ namespace Lusid.Sdk.Model
     /// FilterStep
     /// </summary>
     [DataContract(Name = "FilterStep")]
-    public partial class FilterStep : IEquatable<FilterStep>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "ComplianceStepType")]
+    public partial class FilterStep : ComplianceStep, IEquatable<FilterStep>, IValidatableObject
     {
-        /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
-        /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ComplianceStepTypeEnum
-        {
-            /// <summary>
-            /// Enum FilterStep for value: FilterStep
-            /// </summary>
-            [EnumMember(Value = "FilterStep")]
-            FilterStep = 1,
-
-            /// <summary>
-            /// Enum GroupByStep for value: GroupByStep
-            /// </summary>
-            [EnumMember(Value = "GroupByStep")]
-            GroupByStep = 2,
-
-            /// <summary>
-            /// Enum GroupFilterStep for value: GroupFilterStep
-            /// </summary>
-            [EnumMember(Value = "GroupFilterStep")]
-            GroupFilterStep = 3,
-
-            /// <summary>
-            /// Enum BranchStep for value: BranchStep
-            /// </summary>
-            [EnumMember(Value = "BranchStep")]
-            BranchStep = 4,
-
-            /// <summary>
-            /// Enum RecombineStep for value: RecombineStep
-            /// </summary>
-            [EnumMember(Value = "RecombineStep")]
-            RecombineStep = 5
-
-        }
-
-
-        /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
-        /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep</value>
-        [DataMember(Name = "complianceStepType", IsRequired = true, EmitDefaultValue = true)]
-        public ComplianceStepTypeEnum ComplianceStepType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FilterStep" /> class.
         /// </summary>
@@ -83,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FilterStep" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="groupedParameters">Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required).</param>
-        public FilterStep(string label = default(string), Dictionary<string, List<ComplianceTemplateParameter>> groupedParameters = default(Dictionary<string, List<ComplianceTemplateParameter>>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
+        /// <param name="parameters">Parameters required for the step (required).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required) (default to &quot;FilterStep&quot;).</param>
+        public FilterStep(string label = default(string), List<ComplianceTemplateParameter> parameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
         {
             // to ensure "label" is required (not null)
             if (label == null)
@@ -93,13 +49,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("label is a required property for FilterStep and cannot be null");
             }
             this.Label = label;
-            // to ensure "groupedParameters" is required (not null)
-            if (groupedParameters == null)
+            // to ensure "parameters" is required (not null)
+            if (parameters == null)
             {
-                throw new ArgumentNullException("groupedParameters is a required property for FilterStep and cannot be null");
+                throw new ArgumentNullException("parameters is a required property for FilterStep and cannot be null");
             }
-            this.GroupedParameters = groupedParameters;
-            this.ComplianceStepType = complianceStepType;
+            this.Parameters = parameters;
         }
 
         /// <summary>
@@ -110,11 +65,11 @@ namespace Lusid.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
-        /// Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters
+        /// Parameters required for the step
         /// </summary>
-        /// <value>Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters</value>
-        [DataMember(Name = "groupedParameters", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, List<ComplianceTemplateParameter>> GroupedParameters { get; set; }
+        /// <value>Parameters required for the step</value>
+        [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> Parameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,9 +79,9 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FilterStep {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  GroupedParameters: ").Append(GroupedParameters).Append("\n");
-            sb.Append("  ComplianceStepType: ").Append(ComplianceStepType).Append("\n");
+            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,7 +90,7 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -161,21 +116,17 @@ namespace Lusid.Sdk.Model
             {
                 return false;
             }
-            return 
+            return base.Equals(input) && 
                 (
                     this.Label == input.Label ||
                     (this.Label != null &&
                     this.Label.Equals(input.Label))
-                ) && 
+                ) && base.Equals(input) && 
                 (
-                    this.GroupedParameters == input.GroupedParameters ||
-                    this.GroupedParameters != null &&
-                    input.GroupedParameters != null &&
-                    this.GroupedParameters.SequenceEqual(input.GroupedParameters)
-                ) && 
-                (
-                    this.ComplianceStepType == input.ComplianceStepType ||
-                    this.ComplianceStepType.Equals(input.ComplianceStepType)
+                    this.Parameters == input.Parameters ||
+                    this.Parameters != null &&
+                    input.Parameters != null &&
+                    this.Parameters.SequenceEqual(input.Parameters)
                 );
         }
 
@@ -187,16 +138,15 @@ namespace Lusid.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
-                if (this.GroupedParameters != null)
+                if (this.Parameters != null)
                 {
-                    hashCode = (hashCode * 59) + this.GroupedParameters.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ComplianceStepType.GetHashCode();
                 return hashCode;
             }
         }
@@ -208,6 +158,20 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in base.BaseValidate(validationContext))
+            {
+                yield return x;
+            }
             // Label (string) minLength
             if (this.Label != null && this.Label.Length < 1)
             {

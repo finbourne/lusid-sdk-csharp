@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// IntermediateComplianceStepAllOf
+    /// GroupFilterStepAllOf
     /// </summary>
-    [DataContract(Name = "IntermediateComplianceStep_allOf")]
-    public partial class IntermediateComplianceStepAllOf : IEquatable<IntermediateComplianceStepAllOf>, IValidatableObject
+    [DataContract(Name = "GroupFilterStep_allOf")]
+    public partial class GroupFilterStepAllOf : IEquatable<GroupFilterStepAllOf>, IValidatableObject
     {
         /// <summary>
         /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
@@ -75,30 +75,37 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "complianceStepType", IsRequired = true, EmitDefaultValue = true)]
         public ComplianceStepTypeEnum ComplianceStepType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntermediateComplianceStepAllOf" /> class.
+        /// Initializes a new instance of the <see cref="GroupFilterStepAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected IntermediateComplianceStepAllOf() { }
+        protected GroupFilterStepAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntermediateComplianceStepAllOf" /> class.
+        /// Initializes a new instance of the <see cref="GroupFilterStepAllOf" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="groupedParameters">Parameters required for the step (required).</param>
+        /// <param name="limitCheckParameters">Parameters required for an absolute limit check (required).</param>
+        /// <param name="warningCheckParameters">Parameters required for a warning limit check (required).</param>
         /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required).</param>
-        public IntermediateComplianceStepAllOf(string label = default(string), Dictionary<string, List<ComplianceTemplateParameter>> groupedParameters = default(Dictionary<string, List<ComplianceTemplateParameter>>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
+        public GroupFilterStepAllOf(string label = default(string), List<ComplianceTemplateParameter> limitCheckParameters = default(List<ComplianceTemplateParameter>), List<ComplianceTemplateParameter> warningCheckParameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
         {
             // to ensure "label" is required (not null)
             if (label == null)
             {
-                throw new ArgumentNullException("label is a required property for IntermediateComplianceStepAllOf and cannot be null");
+                throw new ArgumentNullException("label is a required property for GroupFilterStepAllOf and cannot be null");
             }
             this.Label = label;
-            // to ensure "groupedParameters" is required (not null)
-            if (groupedParameters == null)
+            // to ensure "limitCheckParameters" is required (not null)
+            if (limitCheckParameters == null)
             {
-                throw new ArgumentNullException("groupedParameters is a required property for IntermediateComplianceStepAllOf and cannot be null");
+                throw new ArgumentNullException("limitCheckParameters is a required property for GroupFilterStepAllOf and cannot be null");
             }
-            this.GroupedParameters = groupedParameters;
+            this.LimitCheckParameters = limitCheckParameters;
+            // to ensure "warningCheckParameters" is required (not null)
+            if (warningCheckParameters == null)
+            {
+                throw new ArgumentNullException("warningCheckParameters is a required property for GroupFilterStepAllOf and cannot be null");
+            }
+            this.WarningCheckParameters = warningCheckParameters;
             this.ComplianceStepType = complianceStepType;
         }
 
@@ -110,11 +117,18 @@ namespace Lusid.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
-        /// Parameters required for the step
+        /// Parameters required for an absolute limit check
         /// </summary>
-        /// <value>Parameters required for the step</value>
-        [DataMember(Name = "groupedParameters", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, List<ComplianceTemplateParameter>> GroupedParameters { get; set; }
+        /// <value>Parameters required for an absolute limit check</value>
+        [DataMember(Name = "limitCheckParameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> LimitCheckParameters { get; set; }
+
+        /// <summary>
+        /// Parameters required for a warning limit check
+        /// </summary>
+        /// <value>Parameters required for a warning limit check</value>
+        [DataMember(Name = "warningCheckParameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> WarningCheckParameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,9 +137,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IntermediateComplianceStepAllOf {\n");
+            sb.Append("class GroupFilterStepAllOf {\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  GroupedParameters: ").Append(GroupedParameters).Append("\n");
+            sb.Append("  LimitCheckParameters: ").Append(LimitCheckParameters).Append("\n");
+            sb.Append("  WarningCheckParameters: ").Append(WarningCheckParameters).Append("\n");
             sb.Append("  ComplianceStepType: ").Append(ComplianceStepType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -147,15 +162,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IntermediateComplianceStepAllOf);
+            return this.Equals(input as GroupFilterStepAllOf);
         }
 
         /// <summary>
-        /// Returns true if IntermediateComplianceStepAllOf instances are equal
+        /// Returns true if GroupFilterStepAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of IntermediateComplianceStepAllOf to be compared</param>
+        /// <param name="input">Instance of GroupFilterStepAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IntermediateComplianceStepAllOf input)
+        public bool Equals(GroupFilterStepAllOf input)
         {
             if (input == null)
             {
@@ -168,10 +183,16 @@ namespace Lusid.Sdk.Model
                     this.Label.Equals(input.Label))
                 ) && 
                 (
-                    this.GroupedParameters == input.GroupedParameters ||
-                    this.GroupedParameters != null &&
-                    input.GroupedParameters != null &&
-                    this.GroupedParameters.SequenceEqual(input.GroupedParameters)
+                    this.LimitCheckParameters == input.LimitCheckParameters ||
+                    this.LimitCheckParameters != null &&
+                    input.LimitCheckParameters != null &&
+                    this.LimitCheckParameters.SequenceEqual(input.LimitCheckParameters)
+                ) && 
+                (
+                    this.WarningCheckParameters == input.WarningCheckParameters ||
+                    this.WarningCheckParameters != null &&
+                    input.WarningCheckParameters != null &&
+                    this.WarningCheckParameters.SequenceEqual(input.WarningCheckParameters)
                 ) && 
                 (
                     this.ComplianceStepType == input.ComplianceStepType ||
@@ -192,9 +213,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
-                if (this.GroupedParameters != null)
+                if (this.LimitCheckParameters != null)
                 {
-                    hashCode = (hashCode * 59) + this.GroupedParameters.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LimitCheckParameters.GetHashCode();
+                }
+                if (this.WarningCheckParameters != null)
+                {
+                    hashCode = (hashCode * 59) + this.WarningCheckParameters.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ComplianceStepType.GetHashCode();
                 return hashCode;

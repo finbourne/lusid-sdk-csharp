@@ -465,10 +465,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfChartOfAccounts</returns>
-        PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
@@ -482,10 +483,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
-        ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
         /// </summary>
@@ -534,9 +536,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfCleardownModuleResponse</returns>
-        PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
@@ -551,9 +554,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleResponse</returns>
-        ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
         /// </summary>
@@ -567,9 +571,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
@@ -584,9 +589,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
         /// </summary>
@@ -635,9 +641,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfPostingModuleResponse</returns>
-        PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModules: List Posting Modules
@@ -652,9 +659,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
-        ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
         /// </summary>
@@ -1363,11 +1371,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfChartOfAccounts</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] ListChartsOfAccounts: List Charts of Accounts
@@ -1381,11 +1390,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfChartOfAccounts)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModuleRules: List Cleardown Module Rules
         /// </summary>
@@ -1436,10 +1446,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfCleardownModuleResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] ListCleardownModules: List Cleardown Modules
@@ -1454,10 +1465,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCleardownModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
         /// </summary>
@@ -1471,10 +1483,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] ListGeneralLedgerProfiles: List General Ledger Profiles.
@@ -1489,10 +1502,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGeneralLedgerProfileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModuleRules: List Posting Module Rules
         /// </summary>
@@ -1543,10 +1557,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] ListPostingModules: List Posting Modules
@@ -1561,10 +1576,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] SetCleardownModuleDetails: Set the details of a Cleardown Module
         /// </summary>
@@ -5335,12 +5351,13 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfChartOfAccounts</returns>
-        public PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public PagedResourceListOfChartOfAccounts ListChartsOfAccounts(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = ListChartsOfAccountsWithHttpInfo(effectiveAt, asAt, page, limit, filter, propertyKeys);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = ListChartsOfAccountsWithHttpInfo(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys);
             return localVarResponse.Data;
         }
 
@@ -5353,10 +5370,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfChartOfAccounts</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
 
@@ -5401,6 +5419,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (propertyKeys != null)
             {
@@ -5450,13 +5472,14 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfChartOfAccounts</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfChartOfAccounts> ListChartsOfAccountsAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = await ListChartsOfAccountsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts> localVarResponse = await ListChartsOfAccountsWithHttpInfoAsync(effectiveAt, asAt, page, limit, filter, sortBy, propertyKeys, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5469,11 +5492,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing charts of accounts; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Chart of Accounts type, specify \&quot;id.Code eq &#39;001&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the &#39;ChartOfAccounts&#39; domain to decorate onto each Chart of Accounts.              These must take the format {domain}/{scope}/{code}, for example &#39;ChartOfAccounts/Manager/Id&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfChartOfAccounts)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfChartOfAccounts>> ListChartsOfAccountsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -5519,6 +5543,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (propertyKeys != null)
             {
@@ -5834,11 +5862,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfCleardownModuleResponse</returns>
-        public PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfCleardownModuleResponse ListCleardownModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = ListCleardownModulesWithHttpInfo(scope, code, asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = ListCleardownModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
             return localVarResponse.Data;
         }
 
@@ -5852,9 +5881,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfCleardownModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -5909,6 +5939,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListCleardownModules";
@@ -5955,12 +5989,13 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfCleardownModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfCleardownModuleResponse> ListCleardownModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = await ListCleardownModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse> localVarResponse = await ListCleardownModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5974,10 +6009,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Cleardown Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Cleardown Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfCleardownModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfCleardownModuleResponse>> ListCleardownModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6033,6 +6069,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListCleardownModules";
@@ -6080,11 +6120,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        public PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfGeneralLedgerProfileResponse ListGeneralLedgerProfiles(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = ListGeneralLedgerProfilesWithHttpInfo(scope, code, asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = ListGeneralLedgerProfilesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
             return localVarResponse.Data;
         }
 
@@ -6098,9 +6139,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6155,6 +6197,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListGeneralLedgerProfiles";
@@ -6201,12 +6247,13 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfGeneralLedgerProfileResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfGeneralLedgerProfileResponse> ListGeneralLedgerProfilesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = await ListGeneralLedgerProfilesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse> localVarResponse = await ListGeneralLedgerProfilesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6220,10 +6267,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing General Ledger Profiles; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the General Ledger profiles type, specify \&quot;type eq &#39;PeriodBoundary&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfGeneralLedgerProfileResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfGeneralLedgerProfileResponse>> ListGeneralLedgerProfilesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6279,6 +6327,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListGeneralLedgerProfiles";
@@ -6590,11 +6642,12 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfPostingModuleResponse</returns>
-        public PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public PagedResourceListOfPostingModuleResponse ListPostingModules(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = ListPostingModulesWithHttpInfo(scope, code, asAt, page, limit, filter);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = ListPostingModulesWithHttpInfo(scope, code, asAt, page, limit, filter, sortBy);
             return localVarResponse.Data;
         }
 
@@ -6608,9 +6661,10 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfPostingModuleResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> ListPostingModulesWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6665,6 +6719,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListPostingModules";
@@ -6711,12 +6769,13 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfPostingModuleResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfPostingModuleResponse> ListPostingModulesAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = await ListPostingModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse> localVarResponse = await ListPostingModulesWithHttpInfoAsync(scope, code, asAt, page, limit, filter, sortBy, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6730,10 +6789,11 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing Posting Modules; this              value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt              and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. Defaults to 100 if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the results.              For example, to filter on the Posting Module status, specify \&quot;status eq &#39;Active&#39;\&quot;. For more information about filtering              results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfPostingModuleResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<PagedResourceListOfPostingModuleResponse>> ListPostingModulesWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6789,6 +6849,10 @@ namespace Lusid.Sdk.Api
             if (filter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
 
             localVarRequestOptions.Operation = "ChartOfAccountsApi.ListPostingModules";

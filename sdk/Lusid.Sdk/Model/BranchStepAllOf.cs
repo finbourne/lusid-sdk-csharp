@@ -17,44 +17,89 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// BranchStep
+    /// BranchStepAllOf
     /// </summary>
-    [DataContract(Name = "BranchStep")]
-    [JsonConverter(typeof(JsonSubtypes), "ComplianceStepType")]
-    public partial class BranchStep : ComplianceStep, IEquatable<BranchStep>, IValidatableObject
+    [DataContract(Name = "BranchStep_allOf")]
+    public partial class BranchStepAllOf : IEquatable<BranchStepAllOf>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BranchStep" /> class.
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
+        /// </summary>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ComplianceStepTypeEnum
+        {
+            /// <summary>
+            /// Enum FilterStep for value: FilterStep
+            /// </summary>
+            [EnumMember(Value = "FilterStep")]
+            FilterStep = 1,
+
+            /// <summary>
+            /// Enum GroupByStep for value: GroupByStep
+            /// </summary>
+            [EnumMember(Value = "GroupByStep")]
+            GroupByStep = 2,
+
+            /// <summary>
+            /// Enum GroupFilterStep for value: GroupFilterStep
+            /// </summary>
+            [EnumMember(Value = "GroupFilterStep")]
+            GroupFilterStep = 3,
+
+            /// <summary>
+            /// Enum BranchStep for value: BranchStep
+            /// </summary>
+            [EnumMember(Value = "BranchStep")]
+            BranchStep = 4,
+
+            /// <summary>
+            /// Enum RecombineStep for value: RecombineStep
+            /// </summary>
+            [EnumMember(Value = "RecombineStep")]
+            RecombineStep = 5
+
+        }
+
+
+        /// <summary>
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
+        /// </summary>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep</value>
+        [DataMember(Name = "complianceStepType", IsRequired = true, EmitDefaultValue = true)]
+        public ComplianceStepTypeEnum ComplianceStepType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BranchStepAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected BranchStep() { }
+        protected BranchStepAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BranchStep" /> class.
+        /// Initializes a new instance of the <see cref="BranchStepAllOf" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
         /// <param name="parameters">Parameters required for the step (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required) (default to &quot;BranchStep&quot;).</param>
-        public BranchStep(string label = default(string), List<ComplianceTemplateParameter> parameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required).</param>
+        public BranchStepAllOf(string label = default(string), List<ComplianceTemplateParameter> parameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
         {
             // to ensure "label" is required (not null)
             if (label == null)
             {
-                throw new ArgumentNullException("label is a required property for BranchStep and cannot be null");
+                throw new ArgumentNullException("label is a required property for BranchStepAllOf and cannot be null");
             }
             this.Label = label;
             // to ensure "parameters" is required (not null)
             if (parameters == null)
             {
-                throw new ArgumentNullException("parameters is a required property for BranchStep and cannot be null");
+                throw new ArgumentNullException("parameters is a required property for BranchStepAllOf and cannot be null");
             }
             this.Parameters = parameters;
+            this.ComplianceStepType = complianceStepType;
         }
 
         /// <summary>
@@ -78,10 +123,10 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class BranchStep {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("class BranchStepAllOf {\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
+            sb.Append("  ComplianceStepType: ").Append(ComplianceStepType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,7 +135,7 @@ namespace Lusid.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -102,31 +147,35 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BranchStep);
+            return this.Equals(input as BranchStepAllOf);
         }
 
         /// <summary>
-        /// Returns true if BranchStep instances are equal
+        /// Returns true if BranchStepAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of BranchStep to be compared</param>
+        /// <param name="input">Instance of BranchStepAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BranchStep input)
+        public bool Equals(BranchStepAllOf input)
         {
             if (input == null)
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return 
                 (
                     this.Label == input.Label ||
                     (this.Label != null &&
                     this.Label.Equals(input.Label))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Parameters == input.Parameters ||
                     this.Parameters != null &&
                     input.Parameters != null &&
                     this.Parameters.SequenceEqual(input.Parameters)
+                ) && 
+                (
+                    this.ComplianceStepType == input.ComplianceStepType ||
+                    this.ComplianceStepType.Equals(input.ComplianceStepType)
                 );
         }
 
@@ -138,7 +187,7 @@ namespace Lusid.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.Label != null)
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
@@ -147,6 +196,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ComplianceStepType.GetHashCode();
                 return hashCode;
             }
         }
@@ -158,20 +208,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in base.BaseValidate(validationContext))
-            {
-                yield return x;
-            }
             // Label (string) minLength
             if (this.Label != null && this.Label.Length < 1)
             {

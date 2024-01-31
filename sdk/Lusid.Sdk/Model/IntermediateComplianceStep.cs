@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IntermediateComplianceStep" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="groupedParameters">Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters (required).</param>
+        /// <param name="groupedParameters">Parameters required for the step (required).</param>
         /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required) (default to &quot;IntermediateComplianceStep&quot;).</param>
         public IntermediateComplianceStep(string label = default(string), Dictionary<string, List<ComplianceTemplateParameter>> groupedParameters = default(Dictionary<string, List<ComplianceTemplateParameter>>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
         {
@@ -65,9 +65,9 @@ namespace Lusid.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
-        /// Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters
+        /// Parameters required for the step
         /// </summary>
-        /// <value>Parameters required for the step. Some step types group parameters to differentiate between, for example, hard limit and warning threshold parameters</value>
+        /// <value>Parameters required for the step</value>
         [DataMember(Name = "groupedParameters", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, List<ComplianceTemplateParameter>> GroupedParameters { get; set; }
 

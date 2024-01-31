@@ -25,6 +25,29 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// ListEntityScopes: List Entity Scopes
+        /// </summary>
+        /// <remarks>
+        /// List all the scopes for a given entity type that contain data.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfScopeDefinition</returns>
+        ResourceListOfScopeDefinition ListEntityScopes(string entityType, int operationIndex = 0);
+
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes
+        /// </summary>
+        /// <remarks>
+        /// List all the scopes for a given entity type that contain data.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfScopeDefinition</returns>
+        ApiResponse<ResourceListOfScopeDefinition> ListEntityScopesWithHttpInfo(string entityType, int operationIndex = 0);
+        /// <summary>
         /// ListScopes: List Scopes
         /// </summary>
         /// <remarks>
@@ -56,6 +79,31 @@ namespace Lusid.Sdk.Api
     public interface IScopesApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes
+        /// </summary>
+        /// <remarks>
+        /// List all the scopes for a given entity type that contain data.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfScopeDefinition</returns>
+        System.Threading.Tasks.Task<ResourceListOfScopeDefinition> ListEntityScopesAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes
+        /// </summary>
+        /// <remarks>
+        /// List all the scopes for a given entity type that contain data.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfScopeDefinition)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfScopeDefinition>> ListEntityScopesWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// ListScopes: List Scopes
         /// </summary>
@@ -196,6 +244,186 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes List all the scopes for a given entity type that contain data.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfScopeDefinition</returns>
+        public ResourceListOfScopeDefinition ListEntityScopes(string entityType, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> localVarResponse = ListEntityScopesWithHttpInfo(entityType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes List all the scopes for a given entity type that contain data.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfScopeDefinition</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> ListEntityScopesWithHttpInfo(string entityType, int operationIndex = 0)
+        {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling ScopesApi->ListEntityScopes");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
+
+            localVarRequestOptions.Operation = "ScopesApi.ListEntityScopes";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ResourceListOfScopeDefinition>("/api/scopes/{entityType}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListEntityScopes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes List all the scopes for a given entity type that contain data.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfScopeDefinition</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfScopeDefinition> ListEntityScopesAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition> localVarResponse = await ListEntityScopesWithHttpInfoAsync(entityType, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// ListEntityScopes: List Entity Scopes List all the scopes for a given entity type that contain data.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityType">The entity type to list scopes for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfScopeDefinition)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfScopeDefinition>> ListEntityScopesWithHttpInfoAsync(string entityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'entityType' is set
+            if (entityType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'entityType' when calling ScopesApi->ListEntityScopes");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("entityType", Lusid.Sdk.Client.ClientUtils.ParameterToString(entityType)); // path parameter
+
+            localVarRequestOptions.Operation = "ScopesApi.ListEntityScopes";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ResourceListOfScopeDefinition>("/api/scopes/{entityType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListEntityScopes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
