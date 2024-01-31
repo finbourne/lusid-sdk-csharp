@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="levelType">The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]. (required).</param>
         /// <param name="stepScheduleType">The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread]. (required).</param>
         /// <param name="steps">The level steps which are applied. (required).</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required) (default to &quot;StepSchedule&quot;).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;StepSchedule&quot;).</param>
         public StepSchedule(string levelType = default(string), string stepScheduleType = default(string), List<LevelStep> steps = default(List<LevelStep>), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             // to ensure "levelType" is required (not null)

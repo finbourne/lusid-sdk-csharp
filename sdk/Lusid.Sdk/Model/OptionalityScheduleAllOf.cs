@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class OptionalityScheduleAllOf : IEquatable<OptionalityScheduleAllOf>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid
+        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid
         /// </summary>
-        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid</value>
+        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScheduleTypeEnum
         {
@@ -72,18 +72,24 @@ namespace Lusid.Sdk.Model
             FxRateSchedule = 6,
 
             /// <summary>
+            /// Enum FxLinkedNotionalSchedule for value: FxLinkedNotionalSchedule
+            /// </summary>
+            [EnumMember(Value = "FxLinkedNotionalSchedule")]
+            FxLinkedNotionalSchedule = 7,
+
+            /// <summary>
             /// Enum Invalid for value: Invalid
             /// </summary>
             [EnumMember(Value = "Invalid")]
-            Invalid = 7
+            Invalid = 8
 
         }
 
 
         /// <summary>
-        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid
+        /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid
         /// </summary>
-        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid</value>
+        /// <value>The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid</value>
         [DataMember(Name = "scheduleType", IsRequired = true, EmitDefaultValue = true)]
         public ScheduleTypeEnum ScheduleType { get; set; }
         /// <summary>
@@ -97,7 +103,7 @@ namespace Lusid.Sdk.Model
         /// <param name="exerciseType">The exercise type of the optionality schedule (American or European).  For American type, the bond is perpetually callable from a given exercise date until it matures, or the next date in the schedule.  For European type, the bond is only callable on a given exercise date.    Supported string (enumeration) values are: [European, American]..</param>
         /// <param name="optionEntries">The dates at which the bond call/put may be actioned, and associated strikes..</param>
         /// <param name="optionType">Type of optionality for the schedule.    Supported string (enumeration) values are: [Call, Put]..</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required).</param>
         public OptionalityScheduleAllOf(string exerciseType = default(string), List<OptionEntry> optionEntries = default(List<OptionEntry>), string optionType = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
             this.ScheduleType = scheduleType;

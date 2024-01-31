@@ -41,7 +41,7 @@ namespace Lusid.Sdk.Model
         /// <param name="exerciseType">The exercise type of the optionality schedule (American or European).  For American type, the bond is perpetually callable from a given exercise date until it matures, or the next date in the schedule.  For European type, the bond is only callable on a given exercise date.    Supported string (enumeration) values are: [European, American]..</param>
         /// <param name="optionEntries">The dates at which the bond call/put may be actioned, and associated strikes..</param>
         /// <param name="optionType">Type of optionality for the schedule.    Supported string (enumeration) values are: [Call, Put]..</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required) (default to &quot;OptionalitySchedule&quot;).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;OptionalitySchedule&quot;).</param>
         public OptionalitySchedule(string exerciseType = default(string), List<OptionEntry> optionEntries = default(List<OptionEntry>), string optionType = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.ExerciseType = exerciseType;

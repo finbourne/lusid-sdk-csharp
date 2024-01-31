@@ -52,7 +52,7 @@ namespace Lusid.Sdk.Model
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="compounding">compounding.</param>
         /// <param name="resetConvention">Control how resets are generated relative to payment convention(s).    Supported string (enumeration) values are: [InAdvance, InArrears]..</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required) (default to &quot;FloatSchedule&quot;).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;FloatSchedule&quot;).</param>
         public FloatSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;

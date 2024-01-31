@@ -65,10 +65,16 @@ namespace Lusid.Sdk.Model
         FxRateSchedule = 6,
 
         /// <summary>
+        /// Enum FxLinkedNotionalSchedule for value: FxLinkedNotionalSchedule
+        /// </summary>
+        [EnumMember(Value = "FxLinkedNotionalSchedule")]
+        FxLinkedNotionalSchedule = 7,
+
+        /// <summary>
         /// Enum Invalid for value: Invalid
         /// </summary>
         [EnumMember(Value = "Invalid")]
-        Invalid = 7
+        Invalid = 8
 
     }
 

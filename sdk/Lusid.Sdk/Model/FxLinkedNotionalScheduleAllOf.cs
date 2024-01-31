@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// StepScheduleAllOf
+    /// FxLinkedNotionalScheduleAllOf
     /// </summary>
-    [DataContract(Name = "StepSchedule_allOf")]
-    public partial class StepScheduleAllOf : IEquatable<StepScheduleAllOf>, IValidatableObject
+    [DataContract(Name = "FxLinkedNotionalSchedule_allOf")]
+    public partial class FxLinkedNotionalScheduleAllOf : IEquatable<FxLinkedNotionalScheduleAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid
@@ -93,60 +93,66 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "scheduleType", IsRequired = true, EmitDefaultValue = true)]
         public ScheduleTypeEnum ScheduleType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StepScheduleAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FxLinkedNotionalScheduleAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StepScheduleAllOf() { }
+        protected FxLinkedNotionalScheduleAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StepScheduleAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FxLinkedNotionalScheduleAllOf" /> class.
         /// </summary>
-        /// <param name="levelType">The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage]. (required).</param>
-        /// <param name="stepScheduleType">The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread]. (required).</param>
-        /// <param name="steps">The level steps which are applied. (required).</param>
+        /// <param name="fxConventions">fxConventions (required).</param>
+        /// <param name="varyingNotionalCurrency">The currency of the varying notional amount. (required).</param>
+        /// <param name="varyingNotionalFixingDates">varyingNotionalFixingDates (required).</param>
+        /// <param name="varyingNotionalInterimExchangePaymentDates">varyingNotionalInterimExchangePaymentDates.</param>
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required).</param>
-        public StepScheduleAllOf(string levelType = default(string), string stepScheduleType = default(string), List<LevelStep> steps = default(List<LevelStep>), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
+        public FxLinkedNotionalScheduleAllOf(FxConventions fxConventions = default(FxConventions), string varyingNotionalCurrency = default(string), RelativeDateOffset varyingNotionalFixingDates = default(RelativeDateOffset), RelativeDateOffset varyingNotionalInterimExchangePaymentDates = default(RelativeDateOffset), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
-            // to ensure "levelType" is required (not null)
-            if (levelType == null)
+            // to ensure "fxConventions" is required (not null)
+            if (fxConventions == null)
             {
-                throw new ArgumentNullException("levelType is a required property for StepScheduleAllOf and cannot be null");
+                throw new ArgumentNullException("fxConventions is a required property for FxLinkedNotionalScheduleAllOf and cannot be null");
             }
-            this.LevelType = levelType;
-            // to ensure "stepScheduleType" is required (not null)
-            if (stepScheduleType == null)
+            this.FxConventions = fxConventions;
+            // to ensure "varyingNotionalCurrency" is required (not null)
+            if (varyingNotionalCurrency == null)
             {
-                throw new ArgumentNullException("stepScheduleType is a required property for StepScheduleAllOf and cannot be null");
+                throw new ArgumentNullException("varyingNotionalCurrency is a required property for FxLinkedNotionalScheduleAllOf and cannot be null");
             }
-            this.StepScheduleType = stepScheduleType;
-            // to ensure "steps" is required (not null)
-            if (steps == null)
+            this.VaryingNotionalCurrency = varyingNotionalCurrency;
+            // to ensure "varyingNotionalFixingDates" is required (not null)
+            if (varyingNotionalFixingDates == null)
             {
-                throw new ArgumentNullException("steps is a required property for StepScheduleAllOf and cannot be null");
+                throw new ArgumentNullException("varyingNotionalFixingDates is a required property for FxLinkedNotionalScheduleAllOf and cannot be null");
             }
-            this.Steps = steps;
+            this.VaryingNotionalFixingDates = varyingNotionalFixingDates;
             this.ScheduleType = scheduleType;
+            this.VaryingNotionalInterimExchangePaymentDates = varyingNotionalInterimExchangePaymentDates;
         }
 
         /// <summary>
-        /// The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].
+        /// Gets or Sets FxConventions
         /// </summary>
-        /// <value>The type of shift or adjustment that the quantity represents.    Supported string (enumeration) values are: [Absolute, AbsoluteShift, Percentage, AbsolutePercentage].</value>
-        [DataMember(Name = "levelType", IsRequired = true, EmitDefaultValue = true)]
-        public string LevelType { get; set; }
+        [DataMember(Name = "fxConventions", IsRequired = true, EmitDefaultValue = true)]
+        public FxConventions FxConventions { get; set; }
 
         /// <summary>
-        /// The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread].
+        /// The currency of the varying notional amount.
         /// </summary>
-        /// <value>The type of step that this schedule is for.  Supported string (enumeration) values are: [Coupon, Notional, Spread].</value>
-        [DataMember(Name = "stepScheduleType", IsRequired = true, EmitDefaultValue = true)]
-        public string StepScheduleType { get; set; }
+        /// <value>The currency of the varying notional amount.</value>
+        [DataMember(Name = "varyingNotionalCurrency", IsRequired = true, EmitDefaultValue = true)]
+        public string VaryingNotionalCurrency { get; set; }
 
         /// <summary>
-        /// The level steps which are applied.
+        /// Gets or Sets VaryingNotionalFixingDates
         /// </summary>
-        /// <value>The level steps which are applied.</value>
-        [DataMember(Name = "steps", IsRequired = true, EmitDefaultValue = true)]
-        public List<LevelStep> Steps { get; set; }
+        [DataMember(Name = "varyingNotionalFixingDates", IsRequired = true, EmitDefaultValue = true)]
+        public RelativeDateOffset VaryingNotionalFixingDates { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VaryingNotionalInterimExchangePaymentDates
+        /// </summary>
+        [DataMember(Name = "varyingNotionalInterimExchangePaymentDates", EmitDefaultValue = false)]
+        public RelativeDateOffset VaryingNotionalInterimExchangePaymentDates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -155,10 +161,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class StepScheduleAllOf {\n");
-            sb.Append("  LevelType: ").Append(LevelType).Append("\n");
-            sb.Append("  StepScheduleType: ").Append(StepScheduleType).Append("\n");
-            sb.Append("  Steps: ").Append(Steps).Append("\n");
+            sb.Append("class FxLinkedNotionalScheduleAllOf {\n");
+            sb.Append("  FxConventions: ").Append(FxConventions).Append("\n");
+            sb.Append("  VaryingNotionalCurrency: ").Append(VaryingNotionalCurrency).Append("\n");
+            sb.Append("  VaryingNotionalFixingDates: ").Append(VaryingNotionalFixingDates).Append("\n");
+            sb.Append("  VaryingNotionalInterimExchangePaymentDates: ").Append(VaryingNotionalInterimExchangePaymentDates).Append("\n");
             sb.Append("  ScheduleType: ").Append(ScheduleType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -180,15 +187,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StepScheduleAllOf);
+            return this.Equals(input as FxLinkedNotionalScheduleAllOf);
         }
 
         /// <summary>
-        /// Returns true if StepScheduleAllOf instances are equal
+        /// Returns true if FxLinkedNotionalScheduleAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of StepScheduleAllOf to be compared</param>
+        /// <param name="input">Instance of FxLinkedNotionalScheduleAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StepScheduleAllOf input)
+        public bool Equals(FxLinkedNotionalScheduleAllOf input)
         {
             if (input == null)
             {
@@ -196,20 +203,24 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.LevelType == input.LevelType ||
-                    (this.LevelType != null &&
-                    this.LevelType.Equals(input.LevelType))
+                    this.FxConventions == input.FxConventions ||
+                    (this.FxConventions != null &&
+                    this.FxConventions.Equals(input.FxConventions))
                 ) && 
                 (
-                    this.StepScheduleType == input.StepScheduleType ||
-                    (this.StepScheduleType != null &&
-                    this.StepScheduleType.Equals(input.StepScheduleType))
+                    this.VaryingNotionalCurrency == input.VaryingNotionalCurrency ||
+                    (this.VaryingNotionalCurrency != null &&
+                    this.VaryingNotionalCurrency.Equals(input.VaryingNotionalCurrency))
                 ) && 
                 (
-                    this.Steps == input.Steps ||
-                    this.Steps != null &&
-                    input.Steps != null &&
-                    this.Steps.SequenceEqual(input.Steps)
+                    this.VaryingNotionalFixingDates == input.VaryingNotionalFixingDates ||
+                    (this.VaryingNotionalFixingDates != null &&
+                    this.VaryingNotionalFixingDates.Equals(input.VaryingNotionalFixingDates))
+                ) && 
+                (
+                    this.VaryingNotionalInterimExchangePaymentDates == input.VaryingNotionalInterimExchangePaymentDates ||
+                    (this.VaryingNotionalInterimExchangePaymentDates != null &&
+                    this.VaryingNotionalInterimExchangePaymentDates.Equals(input.VaryingNotionalInterimExchangePaymentDates))
                 ) && 
                 (
                     this.ScheduleType == input.ScheduleType ||
@@ -226,17 +237,21 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LevelType != null)
+                if (this.FxConventions != null)
                 {
-                    hashCode = (hashCode * 59) + this.LevelType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FxConventions.GetHashCode();
                 }
-                if (this.StepScheduleType != null)
+                if (this.VaryingNotionalCurrency != null)
                 {
-                    hashCode = (hashCode * 59) + this.StepScheduleType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VaryingNotionalCurrency.GetHashCode();
                 }
-                if (this.Steps != null)
+                if (this.VaryingNotionalFixingDates != null)
                 {
-                    hashCode = (hashCode * 59) + this.Steps.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VaryingNotionalFixingDates.GetHashCode();
+                }
+                if (this.VaryingNotionalInterimExchangePaymentDates != null)
+                {
+                    hashCode = (hashCode * 59) + this.VaryingNotionalInterimExchangePaymentDates.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ScheduleType.GetHashCode();
                 return hashCode;
@@ -250,18 +265,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // LevelType (string) minLength
-            if (this.LevelType != null && this.LevelType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LevelType, length must be greater than 1.", new [] { "LevelType" });
-            }
-
-            // StepScheduleType (string) minLength
-            if (this.StepScheduleType != null && this.StepScheduleType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StepScheduleType, length must be greater than 1.", new [] { "StepScheduleType" });
-            }
-
             yield break;
         }
     }

@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="fxConversionTypes">List of flags to indicate if coupon payments, principal payments or both are converted.</param>
         /// <param name="rate">FxRate used to convert payments. Assumed to be in units of the ToCurrency so conversion is paymentAmount x fxRate.</param>
         /// <param name="toCurrency">Currency that payments are converted to.</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required) (default to &quot;FxRateSchedule&quot;).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;FxRateSchedule&quot;).</param>
         public FxRateSchedule(FlowConventions flowConventions = default(FlowConventions), List<string> fxConversionTypes = default(List<string>), decimal rate = default(decimal), string toCurrency = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.FlowConventions = flowConventions;

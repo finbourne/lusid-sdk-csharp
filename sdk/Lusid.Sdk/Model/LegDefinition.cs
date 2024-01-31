@@ -51,7 +51,9 @@ namespace Lusid.Sdk.Model
         /// <param name="firstCouponType">Optional coupon type setting for the first coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full]..</param>
         /// <param name="lastRegularPaymentDate">Optional payment date of the last regular coupon.  Must be less than the Maturity date.  If set, the regular coupon schedule will be built up to this date and the final  coupon will be a stub between this date and the Maturity date..</param>
         /// <param name="lastCouponType">Optional coupon type setting for the last coupon, can be used with Stub coupons.  If set to \&quot;ProRata\&quot; (the default), the coupon year fraction is calculated as normal,  however if set to \&quot;Full\&quot; the year fraction is overwritten with the standard year fraction  for a regular ful\&quot; coupon. Note this does not use the day count convention but rather is defined  directly from the tenor (i.e. a quarterly leg will be set to 0.25).    Supported string (enumeration) values are: [ProRata, Full]..</param>
-        public LegDefinition(FlowConventionName conventionName = default(FlowConventionName), FlowConventions conventions = default(FlowConventions), IndexConvention indexConvention = default(IndexConvention), FlowConventionName indexConventionName = default(FlowConventionName), string notionalExchangeType = default(string), string payReceive = default(string), decimal rateOrSpread = default(decimal), string resetConvention = default(string), string stubType = default(string), Compounding compounding = default(Compounding), StepSchedule amortisation = default(StepSchedule), DateTimeOffset? firstRegularPaymentDate = default(DateTimeOffset?), string firstCouponType = default(string), DateTimeOffset? lastRegularPaymentDate = default(DateTimeOffset?), string lastCouponType = default(string))
+        /// <param name="fxLinkedNotionalSchedule">fxLinkedNotionalSchedule.</param>
+        /// <param name="intermediateNotionalExchange">Indicates whether there are intermediate notional exchanges..</param>
+        public LegDefinition(FlowConventionName conventionName = default(FlowConventionName), FlowConventions conventions = default(FlowConventions), IndexConvention indexConvention = default(IndexConvention), FlowConventionName indexConventionName = default(FlowConventionName), string notionalExchangeType = default(string), string payReceive = default(string), decimal rateOrSpread = default(decimal), string resetConvention = default(string), string stubType = default(string), Compounding compounding = default(Compounding), StepSchedule amortisation = default(StepSchedule), DateTimeOffset? firstRegularPaymentDate = default(DateTimeOffset?), string firstCouponType = default(string), DateTimeOffset? lastRegularPaymentDate = default(DateTimeOffset?), string lastCouponType = default(string), FxLinkedNotionalSchedule fxLinkedNotionalSchedule = default(FxLinkedNotionalSchedule), bool? intermediateNotionalExchange = default(bool?))
         {
             // to ensure "notionalExchangeType" is required (not null)
             if (notionalExchangeType == null)
@@ -83,6 +85,8 @@ namespace Lusid.Sdk.Model
             this.FirstCouponType = firstCouponType;
             this.LastRegularPaymentDate = lastRegularPaymentDate;
             this.LastCouponType = lastCouponType;
+            this.FxLinkedNotionalSchedule = fxLinkedNotionalSchedule;
+            this.IntermediateNotionalExchange = intermediateNotionalExchange;
         }
 
         /// <summary>
@@ -185,6 +189,19 @@ namespace Lusid.Sdk.Model
         public string LastCouponType { get; set; }
 
         /// <summary>
+        /// Gets or Sets FxLinkedNotionalSchedule
+        /// </summary>
+        [DataMember(Name = "fxLinkedNotionalSchedule", EmitDefaultValue = false)]
+        public FxLinkedNotionalSchedule FxLinkedNotionalSchedule { get; set; }
+
+        /// <summary>
+        /// Indicates whether there are intermediate notional exchanges.
+        /// </summary>
+        /// <value>Indicates whether there are intermediate notional exchanges.</value>
+        [DataMember(Name = "intermediateNotionalExchange", EmitDefaultValue = true)]
+        public bool? IntermediateNotionalExchange { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -207,6 +224,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  FirstCouponType: ").Append(FirstCouponType).Append("\n");
             sb.Append("  LastRegularPaymentDate: ").Append(LastRegularPaymentDate).Append("\n");
             sb.Append("  LastCouponType: ").Append(LastCouponType).Append("\n");
+            sb.Append("  FxLinkedNotionalSchedule: ").Append(FxLinkedNotionalSchedule).Append("\n");
+            sb.Append("  IntermediateNotionalExchange: ").Append(IntermediateNotionalExchange).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -315,6 +334,16 @@ namespace Lusid.Sdk.Model
                     this.LastCouponType == input.LastCouponType ||
                     (this.LastCouponType != null &&
                     this.LastCouponType.Equals(input.LastCouponType))
+                ) && 
+                (
+                    this.FxLinkedNotionalSchedule == input.FxLinkedNotionalSchedule ||
+                    (this.FxLinkedNotionalSchedule != null &&
+                    this.FxLinkedNotionalSchedule.Equals(input.FxLinkedNotionalSchedule))
+                ) && 
+                (
+                    this.IntermediateNotionalExchange == input.IntermediateNotionalExchange ||
+                    (this.IntermediateNotionalExchange != null &&
+                    this.IntermediateNotionalExchange.Equals(input.IntermediateNotionalExchange))
                 );
         }
 
@@ -383,6 +412,14 @@ namespace Lusid.Sdk.Model
                 if (this.LastCouponType != null)
                 {
                     hashCode = (hashCode * 59) + this.LastCouponType.GetHashCode();
+                }
+                if (this.FxLinkedNotionalSchedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.FxLinkedNotionalSchedule.GetHashCode();
+                }
+                if (this.IntermediateNotionalExchange != null)
+                {
+                    hashCode = (hashCode * 59) + this.IntermediateNotionalExchange.GetHashCode();
                 }
                 return hashCode;
             }

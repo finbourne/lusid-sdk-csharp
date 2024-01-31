@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency..</param>
         /// <param name="stubType">StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
-        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, Invalid (required) (default to &quot;FixedSchedule&quot;).</param>
+        /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;FixedSchedule&quot;).</param>
         public FixedSchedule(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), decimal couponRate = default(decimal), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), decimal notional = default(decimal), string paymentCurrency = default(string), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum)) : base(scheduleType)
         {
             this.StartDate = startDate;
