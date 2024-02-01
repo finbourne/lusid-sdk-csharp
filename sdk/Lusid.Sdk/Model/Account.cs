@@ -74,7 +74,7 @@ namespace Lusid.Sdk.Model
         /// <param name="description">A description for the Account..</param>
         /// <param name="type">The Account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue. (required).</param>
         /// <param name="status">The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted (required).</param>
-        /// <param name="control">This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”. (required).</param>
+        /// <param name="control">This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”..</param>
         /// <param name="properties">A set of properties for the Account..</param>
         public Account(string code = default(string), string description = default(string), string type = default(string), StatusEnum status = default(StatusEnum), string control = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
         {
@@ -91,13 +91,8 @@ namespace Lusid.Sdk.Model
             }
             this.Type = type;
             this.Status = status;
-            // to ensure "control" is required (not null)
-            if (control == null)
-            {
-                throw new ArgumentNullException("control is a required property for Account and cannot be null");
-            }
-            this.Control = control;
             this.Description = description;
+            this.Control = control;
             this.Properties = properties;
         }
 
@@ -126,7 +121,7 @@ namespace Lusid.Sdk.Model
         /// This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.
         /// </summary>
         /// <value>This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”.</value>
-        [DataMember(Name = "control", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "control", EmitDefaultValue = true)]
         public string Control { get; set; }
 
         /// <summary>
@@ -300,12 +295,6 @@ namespace Lusid.Sdk.Model
             if (this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
-            }
-
-            // Control (string) minLength
-            if (this.Control != null && this.Control.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Control, length must be greater than 1.", new [] { "Control" });
             }
 
             yield break;
