@@ -41,11 +41,10 @@ namespace Lusid.Sdk.Model
         /// <param name="market">market.</param>
         /// <param name="pricing">pricing.</param>
         /// <param name="aggregation">aggregation.</param>
-        /// <param name="inheritedRecipes">A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options..</param>
         /// <param name="description">User can assign a description to understand more humanly the recipe..</param>
         /// <param name="holding">holding.</param>
         /// <param name="translation">translation.</param>
-        public ConfigurationRecipe(string scope = default(string), string code = default(string), MarketContext market = default(MarketContext), PricingContext pricing = default(PricingContext), AggregationContext aggregation = default(AggregationContext), List<ResourceId> inheritedRecipes = default(List<ResourceId>), string description = default(string), HoldingContext holding = default(HoldingContext), TranslationContext translation = default(TranslationContext))
+        public ConfigurationRecipe(string scope = default(string), string code = default(string), MarketContext market = default(MarketContext), PricingContext pricing = default(PricingContext), AggregationContext aggregation = default(AggregationContext), string description = default(string), HoldingContext holding = default(HoldingContext), TranslationContext translation = default(TranslationContext))
         {
             // to ensure "scope" is required (not null)
             if (scope == null)
@@ -62,7 +61,6 @@ namespace Lusid.Sdk.Model
             this.Market = market;
             this.Pricing = pricing;
             this.Aggregation = aggregation;
-            this.InheritedRecipes = inheritedRecipes;
             this.Description = description;
             this.Holding = holding;
             this.Translation = translation;
@@ -101,13 +99,6 @@ namespace Lusid.Sdk.Model
         public AggregationContext Aggregation { get; set; }
 
         /// <summary>
-        /// A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options.
-        /// </summary>
-        /// <value>A list of parent recipes (scope,code) that can be used to share functionality between recipes. For instance one might use common recipes to set up  pricing for individual asset classes, e.g. rates or credit, and then combine them into a single recipe to be used by an exotics desk in conjunction with  some overrides that it requires for models or other pricing options.</value>
-        [DataMember(Name = "inheritedRecipes", EmitDefaultValue = true)]
-        public List<ResourceId> InheritedRecipes { get; set; }
-
-        /// <summary>
         /// User can assign a description to understand more humanly the recipe.
         /// </summary>
         /// <value>User can assign a description to understand more humanly the recipe.</value>
@@ -139,7 +130,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  Pricing: ").Append(Pricing).Append("\n");
             sb.Append("  Aggregation: ").Append(Aggregation).Append("\n");
-            sb.Append("  InheritedRecipes: ").Append(InheritedRecipes).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Holding: ").Append(Holding).Append("\n");
             sb.Append("  Translation: ").Append(Translation).Append("\n");
@@ -204,12 +194,6 @@ namespace Lusid.Sdk.Model
                     this.Aggregation.Equals(input.Aggregation))
                 ) && 
                 (
-                    this.InheritedRecipes == input.InheritedRecipes ||
-                    this.InheritedRecipes != null &&
-                    input.InheritedRecipes != null &&
-                    this.InheritedRecipes.SequenceEqual(input.InheritedRecipes)
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
@@ -254,10 +238,6 @@ namespace Lusid.Sdk.Model
                 if (this.Aggregation != null)
                 {
                     hashCode = (hashCode * 59) + this.Aggregation.GetHashCode();
-                }
-                if (this.InheritedRecipes != null)
-                {
-                    hashCode = (hashCode * 59) + this.InheritedRecipes.GetHashCode();
                 }
                 if (this.Description != null)
                 {
