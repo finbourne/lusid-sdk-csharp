@@ -39,10 +39,11 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveFrom">If present, the EffectiveFrom and EffectiveAt dates are interpreted as a range of dates for which to perform a valuation.  In this case, valuation is calculated for the portfolio(s) for each business day in the given range..</param>
         /// <param name="effectiveAt">The market data time, i.e. the time to run the valuation request effective of. (required).</param>
         /// <param name="tenor">Tenor, e.g \&quot;1D\&quot;, \&quot;1M\&quot; to be used in generating the date schedule when effectiveFrom and effectiveAt are both given and are not the same..</param>
-        /// <param name="rollConvention">When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the RollConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD..</param>
+        /// <param name="rollConvention">When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.    For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month..</param>
         /// <param name="holidayCalendars">The holiday calendar(s) that should be used in determining the date schedule.  Holiday calendar(s) are supplied by their names, for example, \&quot;CoppClark\&quot;.   Note that when the calendars are not available (e.g. when the user has insufficient permissions),   a recipe setting will be used to determine whether the whole batch should then fail or whether the calendar not being available should simply be ignored..</param>
         /// <param name="valuationDateTimes">If given, this is the exact set of dates on which to perform a valuation. This will replace/override all other specified values if given..</param>
-        public ValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>))
+        /// <param name="businessDayConvention">When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD..</param>
+        public ValuationSchedule(DateTimeOrCutLabel effectiveFrom = default(DateTimeOrCutLabel), DateTimeOrCutLabel effectiveAt = default(DateTimeOrCutLabel), string tenor = default(string), string rollConvention = default(string), List<string> holidayCalendars = default(List<string>), List<string> valuationDateTimes = default(List<string>), string businessDayConvention = default(string))
         {
             // to ensure "effectiveAt" is required (not null)
             if (effectiveAt == null)
@@ -55,6 +56,7 @@ namespace Lusid.Sdk.Model
             this.RollConvention = rollConvention;
             this.HolidayCalendars = holidayCalendars;
             this.ValuationDateTimes = valuationDateTimes;
+            this.BusinessDayConvention = businessDayConvention;
         }
 
         /// <summary>
@@ -79,9 +81,9 @@ namespace Lusid.Sdk.Model
         public string Tenor { get; set; }
 
         /// <summary>
-        /// When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the RollConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.
+        /// When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.    For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month.
         /// </summary>
-        /// <value>When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the RollConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.</value>
+        /// <value>When Tenor is given and is \&quot;1M\&quot; or longer, this specifies the rule which should be used to generate the date schedule.    For example, \&quot;EndOfMonth\&quot; to generate end of month dates, or \&quot;1\&quot; to specify the first day of the applicable month.</value>
         [DataMember(Name = "rollConvention", EmitDefaultValue = true)]
         public string RollConvention { get; set; }
 
@@ -100,6 +102,13 @@ namespace Lusid.Sdk.Model
         public List<string> ValuationDateTimes { get; set; }
 
         /// <summary>
+        /// When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.
+        /// </summary>
+        /// <value>When Tenor is given and is not equal to \&quot;1D\&quot;, there may be cases where \&quot;date + tenor\&quot; land on non-business days around month end.  In that case, the BusinessDayConvention, e.g. modified following \&quot;MF\&quot; would be applied to determine the next GBD.</value>
+        [DataMember(Name = "businessDayConvention", EmitDefaultValue = true)]
+        public string BusinessDayConvention { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RollConvention: ").Append(RollConvention).Append("\n");
             sb.Append("  HolidayCalendars: ").Append(HolidayCalendars).Append("\n");
             sb.Append("  ValuationDateTimes: ").Append(ValuationDateTimes).Append("\n");
+            sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,6 +189,11 @@ namespace Lusid.Sdk.Model
                     this.ValuationDateTimes != null &&
                     input.ValuationDateTimes != null &&
                     this.ValuationDateTimes.SequenceEqual(input.ValuationDateTimes)
+                ) && 
+                (
+                    this.BusinessDayConvention == input.BusinessDayConvention ||
+                    (this.BusinessDayConvention != null &&
+                    this.BusinessDayConvention.Equals(input.BusinessDayConvention))
                 );
         }
 
@@ -214,6 +229,10 @@ namespace Lusid.Sdk.Model
                 if (this.ValuationDateTimes != null)
                 {
                     hashCode = (hashCode * 59) + this.ValuationDateTimes.GetHashCode();
+                }
+                if (this.BusinessDayConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.BusinessDayConvention.GetHashCode();
                 }
                 return hashCode;
             }
@@ -254,6 +273,18 @@ namespace Lusid.Sdk.Model
             if (this.RollConvention != null && this.RollConvention.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RollConvention, length must be greater than 0.", new [] { "RollConvention" });
+            }
+
+            // BusinessDayConvention (string) maxLength
+            if (this.BusinessDayConvention != null && this.BusinessDayConvention.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessDayConvention, length must be less than 50.", new [] { "BusinessDayConvention" });
+            }
+
+            // BusinessDayConvention (string) minLength
+            if (this.BusinessDayConvention != null && this.BusinessDayConvention.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BusinessDayConvention, length must be greater than 0.", new [] { "BusinessDayConvention" });
             }
 
             yield break;
