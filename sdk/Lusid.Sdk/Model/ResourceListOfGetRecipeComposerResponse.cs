@@ -23,30 +23,30 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfBlockAndOrder
+    /// ResourceListOfGetRecipeComposerResponse
     /// </summary>
-    [DataContract(Name = "ResourceListOfBlockAndOrder")]
-    public partial class ResourceListOfBlockAndOrder : IEquatable<ResourceListOfBlockAndOrder>, IValidatableObject
+    [DataContract(Name = "ResourceListOfGetRecipeComposerResponse")]
+    public partial class ResourceListOfGetRecipeComposerResponse : IEquatable<ResourceListOfGetRecipeComposerResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfBlockAndOrder" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfGetRecipeComposerResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfBlockAndOrder() { }
+        protected ResourceListOfGetRecipeComposerResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfBlockAndOrder" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfGetRecipeComposerResponse" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfBlockAndOrder(List<BlockAndOrder> values = default(List<BlockAndOrder>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public ResourceListOfGetRecipeComposerResponse(List<GetRecipeComposerResponse> values = default(List<GetRecipeComposerResponse>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for ResourceListOfBlockAndOrder and cannot be null");
+                throw new ArgumentNullException("values is a required property for ResourceListOfGetRecipeComposerResponse and cannot be null");
             }
             this.Values = values;
             this.Href = href;
@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<BlockAndOrder> Values { get; set; }
+        public List<GetRecipeComposerResponse> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -92,7 +92,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ResourceListOfBlockAndOrder {\n");
+            sb.Append("class ResourceListOfGetRecipeComposerResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -118,15 +118,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfBlockAndOrder);
+            return this.Equals(input as ResourceListOfGetRecipeComposerResponse);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfBlockAndOrder instances are equal
+        /// Returns true if ResourceListOfGetRecipeComposerResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfBlockAndOrder to be compared</param>
+        /// <param name="input">Instance of ResourceListOfGetRecipeComposerResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfBlockAndOrder input)
+        public bool Equals(ResourceListOfGetRecipeComposerResponse input)
         {
             if (input == null)
             {

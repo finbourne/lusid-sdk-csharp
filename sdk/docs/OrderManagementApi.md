@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**BookTransactions**](OrderManagementApi.md#booktransactions) | **POST** /api/ordermanagement/booktransactions | [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. |
-| [**CreateOrders**](OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Create Block and Order pairs |
+| [**CreateOrders**](OrderManagementApi.md#createorders) | **POST** /api/ordermanagement/createorders | [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders |
 | [**PlaceBlocks**](OrderManagementApi.md#placeblocks) | **POST** /api/ordermanagement/placeblocks | [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests. |
 | [**RunAllocationService**](OrderManagementApi.md#runallocationservice) | **POST** /api/ordermanagement/allocate | [EXPERIMENTAL] RunAllocationService: Runs the Allocation Service |
 
@@ -109,11 +109,11 @@ catch (ApiException e)
 
 <a id="createorders"></a>
 # **CreateOrders**
-> ResourceListOfBlockAndOrder CreateOrders (BlockAndOrderCreateRequest blockAndOrderCreateRequest)
+> ResourceListOfBlockAndOrders CreateOrders (BlockAndOrdersCreateRequest blockAndOrdersCreateRequest)
 
-[EARLY ACCESS] CreateOrders: Create Block and Order pairs
+[EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
 
-Create new block and order pairs.
+Upsert a Block and create associated orders.  This will fail if the block exists and already references orders with differing fields to the upsert request.
 
 ### Example
 ```csharp
@@ -135,12 +135,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrderManagementApi(config);
-            var blockAndOrderCreateRequest = new BlockAndOrderCreateRequest(); // BlockAndOrderCreateRequest | The collection of block and order requests.
+            var blockAndOrdersCreateRequest = new BlockAndOrdersCreateRequest(); // BlockAndOrdersCreateRequest | The collection of block and orders requests.
 
             try
             {
-                // [EARLY ACCESS] CreateOrders: Create Block and Order pairs
-                ResourceListOfBlockAndOrder result = apiInstance.CreateOrders(blockAndOrderCreateRequest);
+                // [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+                ResourceListOfBlockAndOrders result = apiInstance.CreateOrders(blockAndOrdersCreateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -160,8 +160,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] CreateOrders: Create Block and Order pairs
-    ApiResponse<ResourceListOfBlockAndOrder> response = apiInstance.CreateOrdersWithHttpInfo(blockAndOrderCreateRequest);
+    // [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
+    ApiResponse<ResourceListOfBlockAndOrders> response = apiInstance.CreateOrdersWithHttpInfo(blockAndOrdersCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -178,11 +178,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **blockAndOrderCreateRequest** | [**BlockAndOrderCreateRequest**](BlockAndOrderCreateRequest.md) | The collection of block and order requests. |  |
+| **blockAndOrdersCreateRequest** | [**BlockAndOrdersCreateRequest**](BlockAndOrdersCreateRequest.md) | The collection of block and orders requests. |  |
 
 ### Return type
 
-[**ResourceListOfBlockAndOrder**](ResourceListOfBlockAndOrder.md)
+[**ResourceListOfBlockAndOrders**](ResourceListOfBlockAndOrders.md)
 
 ### Authorization
 
@@ -197,7 +197,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | A collection of block and order pairs. |  -  |
+| **201** | A collection of block and associated orders. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

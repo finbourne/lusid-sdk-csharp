@@ -36,32 +36,25 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipeComposer" /> class.
         /// </summary>
-        /// <param name="code">User given string name (code) to identify the recipe. (required).</param>
         /// <param name="scope">The scope used when updating or inserting the Recipe Composer. (required).</param>
+        /// <param name="code">User given string name (code) to identify the recipe. (required).</param>
         /// <param name="operations">Atomic operations used to compose a Configuration Recipe..</param>
-        public RecipeComposer(string code = default(string), string scope = default(string), List<RecipeBlock> operations = default(List<RecipeBlock>))
+        public RecipeComposer(string scope = default(string), string code = default(string), List<RecipeBlock> operations = default(List<RecipeBlock>))
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for RecipeComposer and cannot be null");
-            }
-            this.Code = code;
             // to ensure "scope" is required (not null)
             if (scope == null)
             {
                 throw new ArgumentNullException("scope is a required property for RecipeComposer and cannot be null");
             }
             this.Scope = scope;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for RecipeComposer and cannot be null");
+            }
+            this.Code = code;
             this.Operations = operations;
         }
-
-        /// <summary>
-        /// User given string name (code) to identify the recipe.
-        /// </summary>
-        /// <value>User given string name (code) to identify the recipe.</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
 
         /// <summary>
         /// The scope used when updating or inserting the Recipe Composer.
@@ -69,6 +62,13 @@ namespace Lusid.Sdk.Model
         /// <value>The scope used when updating or inserting the Recipe Composer.</value>
         [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
         public string Scope { get; set; }
+
+        /// <summary>
+        /// User given string name (code) to identify the recipe.
+        /// </summary>
+        /// <value>User given string name (code) to identify the recipe.</value>
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
 
         /// <summary>
         /// Atomic operations used to compose a Configuration Recipe.
@@ -85,8 +85,8 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecipeComposer {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Operations: ").Append(Operations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -124,14 +124,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
-                (
                     this.Scope == input.Scope ||
                     (this.Scope != null &&
                     this.Scope.Equals(input.Scope))
+                ) && 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
                     this.Operations == input.Operations ||
@@ -150,13 +150,13 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
                 if (this.Scope != null)
                 {
                     hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
                 if (this.Operations != null)
                 {
@@ -173,25 +173,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Code (string) maxLength
-            if (this.Code != null && this.Code.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
-            }
-
-            // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
-            }
-
-            // Code (string) pattern
-            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexCode.Match(this.Code).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
-            }
-
             // Scope (string) maxLength
             if (this.Scope != null && this.Scope.Length > 64)
             {
@@ -209,6 +190,25 @@ namespace Lusid.Sdk.Model
             if (false == regexScope.Match(this.Scope).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Scope, must match a pattern of " + regexScope, new [] { "Scope" });
+            }
+
+            // Code (string) maxLength
+            if (this.Code != null && this.Code.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
+            }
+
+            // Code (string) minLength
+            if (this.Code != null && this.Code.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
+            }
+
+            // Code (string) pattern
+            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexCode.Match(this.Code).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
             }
 
             yield break;

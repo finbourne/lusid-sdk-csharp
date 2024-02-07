@@ -23,48 +23,36 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// BlockAndOrder
+    /// BlockAndOrdersCreateRequest
     /// </summary>
-    [DataContract(Name = "BlockAndOrder")]
-    public partial class BlockAndOrder : IEquatable<BlockAndOrder>, IValidatableObject
+    [DataContract(Name = "BlockAndOrdersCreateRequest")]
+    public partial class BlockAndOrdersCreateRequest : IEquatable<BlockAndOrdersCreateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BlockAndOrder" /> class.
+        /// Initializes a new instance of the <see cref="BlockAndOrdersCreateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected BlockAndOrder() { }
+        protected BlockAndOrdersCreateRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BlockAndOrder" /> class.
+        /// Initializes a new instance of the <see cref="BlockAndOrdersCreateRequest" /> class.
         /// </summary>
-        /// <param name="block">block (required).</param>
-        /// <param name="order">order (required).</param>
-        public BlockAndOrder(Block block = default(Block), Order order = default(Order))
+        /// <param name="requests">A collection of BlockAndOrdersRequest. (required).</param>
+        public BlockAndOrdersCreateRequest(List<BlockAndOrdersRequest> requests = default(List<BlockAndOrdersRequest>))
         {
-            // to ensure "block" is required (not null)
-            if (block == null)
+            // to ensure "requests" is required (not null)
+            if (requests == null)
             {
-                throw new ArgumentNullException("block is a required property for BlockAndOrder and cannot be null");
+                throw new ArgumentNullException("requests is a required property for BlockAndOrdersCreateRequest and cannot be null");
             }
-            this.Block = block;
-            // to ensure "order" is required (not null)
-            if (order == null)
-            {
-                throw new ArgumentNullException("order is a required property for BlockAndOrder and cannot be null");
-            }
-            this.Order = order;
+            this.Requests = requests;
         }
 
         /// <summary>
-        /// Gets or Sets Block
+        /// A collection of BlockAndOrdersRequest.
         /// </summary>
-        [DataMember(Name = "block", IsRequired = true, EmitDefaultValue = true)]
-        public Block Block { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Order
-        /// </summary>
-        [DataMember(Name = "order", IsRequired = true, EmitDefaultValue = true)]
-        public Order Order { get; set; }
+        /// <value>A collection of BlockAndOrdersRequest.</value>
+        [DataMember(Name = "requests", IsRequired = true, EmitDefaultValue = true)]
+        public List<BlockAndOrdersRequest> Requests { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +61,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class BlockAndOrder {\n");
-            sb.Append("  Block: ").Append(Block).Append("\n");
-            sb.Append("  Order: ").Append(Order).Append("\n");
+            sb.Append("class BlockAndOrdersCreateRequest {\n");
+            sb.Append("  Requests: ").Append(Requests).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,15 +83,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BlockAndOrder);
+            return this.Equals(input as BlockAndOrdersCreateRequest);
         }
 
         /// <summary>
-        /// Returns true if BlockAndOrder instances are equal
+        /// Returns true if BlockAndOrdersCreateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of BlockAndOrder to be compared</param>
+        /// <param name="input">Instance of BlockAndOrdersCreateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BlockAndOrder input)
+        public bool Equals(BlockAndOrdersCreateRequest input)
         {
             if (input == null)
             {
@@ -112,14 +99,10 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Block == input.Block ||
-                    (this.Block != null &&
-                    this.Block.Equals(input.Block))
-                ) && 
-                (
-                    this.Order == input.Order ||
-                    (this.Order != null &&
-                    this.Order.Equals(input.Order))
+                    this.Requests == input.Requests ||
+                    this.Requests != null &&
+                    input.Requests != null &&
+                    this.Requests.SequenceEqual(input.Requests)
                 );
         }
 
@@ -132,13 +115,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Block != null)
+                if (this.Requests != null)
                 {
-                    hashCode = (hashCode * 59) + this.Block.GetHashCode();
-                }
-                if (this.Order != null)
-                {
-                    hashCode = (hashCode * 59) + this.Order.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Requests.GetHashCode();
                 }
                 return hashCode;
             }
