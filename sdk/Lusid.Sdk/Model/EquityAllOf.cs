@@ -270,8 +270,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="identifiers">identifiers.</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="lotSize">Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required).</param>
-        public EquityAllOf(EquityAllOfIdentifiers identifiers = default(EquityAllOfIdentifiers), string domCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public EquityAllOf(EquityAllOfIdentifiers identifiers = default(EquityAllOfIdentifiers), string domCcy = default(string), int lotSize = default(int), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -281,6 +282,7 @@ namespace Lusid.Sdk.Model
             this.DomCcy = domCcy;
             this.InstrumentType = instrumentType;
             this.Identifiers = identifiers;
+            this.LotSize = lotSize;
         }
 
         /// <summary>
@@ -297,6 +299,13 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
+        /// Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.
+        /// </summary>
+        /// <value>Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.</value>
+        [DataMember(Name = "lotSize", EmitDefaultValue = true)]
+        public int LotSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -306,6 +315,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class EquityAllOf {\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  LotSize: ").Append(LotSize).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -353,6 +363,10 @@ namespace Lusid.Sdk.Model
                     this.DomCcy.Equals(input.DomCcy))
                 ) && 
                 (
+                    this.LotSize == input.LotSize ||
+                    this.LotSize.Equals(input.LotSize)
+                ) && 
+                (
                     this.InstrumentType == input.InstrumentType ||
                     this.InstrumentType.Equals(input.InstrumentType)
                 );
@@ -375,6 +389,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.LotSize.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
             }

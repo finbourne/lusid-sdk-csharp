@@ -40,8 +40,9 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="identifiers">identifiers.</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="lotSize">Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg (required) (default to &quot;Equity&quot;).</param>
-        public Equity(EquityAllOfIdentifiers identifiers = default(EquityAllOfIdentifiers), string domCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
+        public Equity(EquityAllOfIdentifiers identifiers = default(EquityAllOfIdentifiers), string domCcy = default(string), int lotSize = default(int), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
             // to ensure "domCcy" is required (not null)
             if (domCcy == null)
@@ -50,6 +51,7 @@ namespace Lusid.Sdk.Model
             }
             this.DomCcy = domCcy;
             this.Identifiers = identifiers;
+            this.LotSize = lotSize;
         }
 
         /// <summary>
@@ -66,6 +68,13 @@ namespace Lusid.Sdk.Model
         public string DomCcy { get; set; }
 
         /// <summary>
+        /// Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.
+        /// </summary>
+        /// <value>Equity LotSize, the minimum number of shares that can be bought at once.  Optional, if set must be non-negative, if not set defaults to 1.    Note this property does not impact valuation. From a LUSID analytics perspective, it is purely informational.</value>
+        [DataMember(Name = "lotSize", EmitDefaultValue = true)]
+        public int LotSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
+            sb.Append("  LotSize: ").Append(LotSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +130,10 @@ namespace Lusid.Sdk.Model
                     this.DomCcy == input.DomCcy ||
                     (this.DomCcy != null &&
                     this.DomCcy.Equals(input.DomCcy))
+                ) && base.Equals(input) && 
+                (
+                    this.LotSize == input.LotSize ||
+                    this.LotSize.Equals(input.LotSize)
                 );
         }
 
@@ -140,6 +154,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.LotSize.GetHashCode();
                 return hashCode;
             }
         }
