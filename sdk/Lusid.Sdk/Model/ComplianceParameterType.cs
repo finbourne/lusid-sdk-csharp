@@ -140,7 +140,13 @@ namespace Lusid.Sdk.Model
         /// Enum GroupFilterPredicateComplianceParameter for value: GroupFilterPredicateComplianceParameter
         /// </summary>
         [EnumMember(Value = "GroupFilterPredicateComplianceParameter")]
-        GroupFilterPredicateComplianceParameter = 19
+        GroupFilterPredicateComplianceParameter = 19,
+
+        /// <summary>
+        /// Enum GroupBySelectorComplianceParameter for value: GroupBySelectorComplianceParameter
+        /// </summary>
+        [EnumMember(Value = "GroupBySelectorComplianceParameter")]
+        GroupBySelectorComplianceParameter = 20
 
     }
 

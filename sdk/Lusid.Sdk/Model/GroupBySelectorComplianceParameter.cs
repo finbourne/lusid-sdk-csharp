@@ -24,24 +24,29 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// BoolComplianceParameter
+    /// GroupBySelectorComplianceParameter
     /// </summary>
-    [DataContract(Name = "BoolComplianceParameter")]
+    [DataContract(Name = "GroupBySelectorComplianceParameter")]
     [JsonConverter(typeof(JsonSubtypes), "ComplianceParameterType")]
-    public partial class BoolComplianceParameter : ComplianceParameter, IEquatable<BoolComplianceParameter>, IValidatableObject
+    public partial class GroupBySelectorComplianceParameter : ComplianceParameter, IEquatable<GroupBySelectorComplianceParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BoolComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="GroupBySelectorComplianceParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected BoolComplianceParameter() { }
+        protected GroupBySelectorComplianceParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BoolComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="GroupBySelectorComplianceParameter" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter (required) (default to &quot;BoolComplianceParameter&quot;).</param>
-        public BoolComplianceParameter(bool value = default(bool), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
+        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter (required) (default to &quot;GroupBySelectorComplianceParameter&quot;).</param>
+        public GroupBySelectorComplianceParameter(string value = default(string), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
         {
+            // to ensure "value" is required (not null)
+            if (value == null)
+            {
+                throw new ArgumentNullException("value is a required property for GroupBySelectorComplianceParameter and cannot be null");
+            }
             this.Value = value;
         }
 
@@ -49,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
-        public bool Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,7 +63,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class BoolComplianceParameter {\n");
+            sb.Append("class GroupBySelectorComplianceParameter {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -81,15 +86,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BoolComplianceParameter);
+            return this.Equals(input as GroupBySelectorComplianceParameter);
         }
 
         /// <summary>
-        /// Returns true if BoolComplianceParameter instances are equal
+        /// Returns true if GroupBySelectorComplianceParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of BoolComplianceParameter to be compared</param>
+        /// <param name="input">Instance of GroupBySelectorComplianceParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BoolComplianceParameter input)
+        public bool Equals(GroupBySelectorComplianceParameter input)
         {
             if (input == null)
             {
@@ -98,7 +103,8 @@ namespace Lusid.Sdk.Model
             return base.Equals(input) && 
                 (
                     this.Value == input.Value ||
-                    this.Value.Equals(input.Value)
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -111,7 +117,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                if (this.Value != null)
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -137,6 +146,12 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
+            // Value (string) minLength
+            if (this.Value != null && this.Value.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 1.", new [] { "Value" });
+            }
+
             yield break;
         }
     }
