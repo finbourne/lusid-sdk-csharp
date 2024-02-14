@@ -6,7 +6,7 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**CreateTransactionTemplate**](InstrumentEventTypesApi.md#createtransactiontemplate) | **POST** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] CreateTransactionTemplate: Create Transaction Template |
 | [**GetTransactionTemplate**](InstrumentEventTypesApi.md#gettransactiontemplate) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope} | [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template |
-| [**GetTransactionTemplateSpecification**](InstrumentEventTypesApi.md#gettransactiontemplatespecification) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification/{instrumentType} | [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. |
+| [**GetTransactionTemplateSpecification**](InstrumentEventTypesApi.md#gettransactiontemplatespecification) | **GET** /api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification | [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. |
 
 <a id="createtransactiontemplate"></a>
 # **CreateTransactionTemplate**
@@ -214,7 +214,7 @@ catch (ApiException e)
 
 <a id="gettransactiontemplatespecification"></a>
 # **GetTransactionTemplateSpecification**
-> TransactionTemplateSpecification GetTransactionTemplateSpecification (string instrumentType, string instrumentEventType)
+> TransactionTemplateSpecification GetTransactionTemplateSpecification (string instrumentEventType)
 
 [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
 
@@ -240,13 +240,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InstrumentEventTypesApi(config);
-            var instrumentType = "instrumentType_example";  // string | The requested instrument type.
             var instrumentEventType = "instrumentEventType_example";  // string | The requested instrument event type.
 
             try
             {
                 // [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
-                TransactionTemplateSpecification result = apiInstance.GetTransactionTemplateSpecification(instrumentType, instrumentEventType);
+                TransactionTemplateSpecification result = apiInstance.GetTransactionTemplateSpecification(instrumentEventType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -267,7 +266,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
-    ApiResponse<TransactionTemplateSpecification> response = apiInstance.GetTransactionTemplateSpecificationWithHttpInfo(instrumentType, instrumentEventType);
+    ApiResponse<TransactionTemplateSpecification> response = apiInstance.GetTransactionTemplateSpecificationWithHttpInfo(instrumentEventType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -284,7 +283,6 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **instrumentType** | **string** | The requested instrument type. |  |
 | **instrumentEventType** | **string** | The requested instrument event type. |  |
 
 ### Return type

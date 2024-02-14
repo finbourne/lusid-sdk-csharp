@@ -89,11 +89,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the transaction template specification for a particular event type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TransactionTemplateSpecification</returns>
-        TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentType, string instrumentEventType, int operationIndex = 0);
+        TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
@@ -102,11 +101,10 @@ namespace Lusid.Sdk.Api
         /// Retrieve the transaction template specification for a particular event type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionTemplateSpecification</returns>
-        ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentType, string instrumentEventType, int operationIndex = 0);
+        ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -185,12 +183,11 @@ namespace Lusid.Sdk.Api
         /// Retrieve the transaction template specification for a particular event type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionTemplateSpecification</returns>
-        System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentType, string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification.
@@ -199,12 +196,11 @@ namespace Lusid.Sdk.Api
         /// Retrieve the transaction template specification for a particular event type.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplateSpecification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentType, string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -796,13 +792,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TransactionTemplateSpecification</returns>
-        public TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentType, string instrumentEventType, int operationIndex = 0)
+        public TransactionTemplateSpecification GetTransactionTemplateSpecification(string instrumentEventType, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = GetTransactionTemplateSpecificationWithHttpInfo(instrumentType, instrumentEventType);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = GetTransactionTemplateSpecificationWithHttpInfo(instrumentEventType);
             return localVarResponse.Data;
         }
 
@@ -810,18 +805,11 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionTemplateSpecification</returns>
-        public Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentType, string instrumentEventType, int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> GetTransactionTemplateSpecificationWithHttpInfo(string instrumentEventType, int operationIndex = 0)
         {
-            // verify the required parameter 'instrumentType' is set
-            if (instrumentType == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentType' when calling InstrumentEventTypesApi->GetTransactionTemplateSpecification");
-            }
-
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
             {
@@ -852,7 +840,6 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("instrumentType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentType)); // path parameter
             localVarRequestOptions.PathParameters.Add("instrumentEventType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventType)); // path parameter
 
             localVarRequestOptions.Operation = "InstrumentEventTypesApi.GetTransactionTemplateSpecification";
@@ -876,7 +863,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TransactionTemplateSpecification>("/api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification/{instrumentType}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TransactionTemplateSpecification>("/api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransactionTemplateSpecification", localVarResponse);
@@ -893,14 +880,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionTemplateSpecification</returns>
-        public async System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentType, string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionTemplateSpecification> GetTransactionTemplateSpecificationAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = await GetTransactionTemplateSpecificationWithHttpInfoAsync(instrumentType, instrumentEventType, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification> localVarResponse = await GetTransactionTemplateSpecificationWithHttpInfoAsync(instrumentEventType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -908,19 +894,12 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] GetTransactionTemplateSpecification: Get Transaction Template Specification. Retrieve the transaction template specification for a particular event type.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instrumentType">The requested instrument type.</param>
         /// <param name="instrumentEventType">The requested instrument event type.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplateSpecification)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentType, string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<TransactionTemplateSpecification>> GetTransactionTemplateSpecificationWithHttpInfoAsync(string instrumentEventType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'instrumentType' is set
-            if (instrumentType == null)
-            {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentType' when calling InstrumentEventTypesApi->GetTransactionTemplateSpecification");
-            }
-
             // verify the required parameter 'instrumentEventType' is set
             if (instrumentEventType == null)
             {
@@ -952,7 +931,6 @@ namespace Lusid.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("instrumentType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentType)); // path parameter
             localVarRequestOptions.PathParameters.Add("instrumentEventType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventType)); // path parameter
 
             localVarRequestOptions.Operation = "InstrumentEventTypesApi.GetTransactionTemplateSpecification";
@@ -976,7 +954,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionTemplateSpecification>("/api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification/{instrumentType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionTemplateSpecification>("/api/instrumenteventtypes/{instrumentEventType}/transactiontemplatespecification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

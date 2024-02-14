@@ -39,17 +39,15 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionId">transactionId (required).</param>
         /// <param name="type">type (required).</param>
         /// <param name="source">source (required).</param>
-        /// <param name="lusidInstrumentId">lusidInstrumentId (required).</param>
-        /// <param name="instrumentScope">instrumentScope (required).</param>
-        /// <param name="tradeDate">tradeDate (required).</param>
+        /// <param name="instrument">instrument (required).</param>
+        /// <param name="transactionDate">transactionDate (required).</param>
         /// <param name="settlementDate">settlementDate (required).</param>
         /// <param name="units">units (required).</param>
         /// <param name="transactionPrice">transactionPrice (required).</param>
         /// <param name="transactionCurrency">transactionCurrency (required).</param>
         /// <param name="exchangeRate">exchangeRate (required).</param>
         /// <param name="totalConsideration">totalConsideration (required).</param>
-        /// <param name="settlementCurrency">settlementCurrency (required).</param>
-        public TransactionFieldMap(string transactionId = default(string), string type = default(string), string source = default(string), string lusidInstrumentId = default(string), string instrumentScope = default(string), string tradeDate = default(string), string settlementDate = default(string), string units = default(string), TransactionPriceAndType transactionPrice = default(TransactionPriceAndType), string transactionCurrency = default(string), string exchangeRate = default(string), TransactionCurrencyAndAmount totalConsideration = default(TransactionCurrencyAndAmount), string settlementCurrency = default(string))
+        public TransactionFieldMap(string transactionId = default(string), string type = default(string), string source = default(string), string instrument = default(string), string transactionDate = default(string), string settlementDate = default(string), string units = default(string), TransactionPriceAndType transactionPrice = default(TransactionPriceAndType), string transactionCurrency = default(string), string exchangeRate = default(string), TransactionCurrencyAndAmount totalConsideration = default(TransactionCurrencyAndAmount))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -69,24 +67,18 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("source is a required property for TransactionFieldMap and cannot be null");
             }
             this.Source = source;
-            // to ensure "lusidInstrumentId" is required (not null)
-            if (lusidInstrumentId == null)
+            // to ensure "instrument" is required (not null)
+            if (instrument == null)
             {
-                throw new ArgumentNullException("lusidInstrumentId is a required property for TransactionFieldMap and cannot be null");
+                throw new ArgumentNullException("instrument is a required property for TransactionFieldMap and cannot be null");
             }
-            this.LusidInstrumentId = lusidInstrumentId;
-            // to ensure "instrumentScope" is required (not null)
-            if (instrumentScope == null)
+            this.Instrument = instrument;
+            // to ensure "transactionDate" is required (not null)
+            if (transactionDate == null)
             {
-                throw new ArgumentNullException("instrumentScope is a required property for TransactionFieldMap and cannot be null");
+                throw new ArgumentNullException("transactionDate is a required property for TransactionFieldMap and cannot be null");
             }
-            this.InstrumentScope = instrumentScope;
-            // to ensure "tradeDate" is required (not null)
-            if (tradeDate == null)
-            {
-                throw new ArgumentNullException("tradeDate is a required property for TransactionFieldMap and cannot be null");
-            }
-            this.TradeDate = tradeDate;
+            this.TransactionDate = transactionDate;
             // to ensure "settlementDate" is required (not null)
             if (settlementDate == null)
             {
@@ -123,12 +115,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("totalConsideration is a required property for TransactionFieldMap and cannot be null");
             }
             this.TotalConsideration = totalConsideration;
-            // to ensure "settlementCurrency" is required (not null)
-            if (settlementCurrency == null)
-            {
-                throw new ArgumentNullException("settlementCurrency is a required property for TransactionFieldMap and cannot be null");
-            }
-            this.SettlementCurrency = settlementCurrency;
         }
 
         /// <summary>
@@ -150,22 +136,16 @@ namespace Lusid.Sdk.Model
         public string Source { get; set; }
 
         /// <summary>
-        /// Gets or Sets LusidInstrumentId
+        /// Gets or Sets Instrument
         /// </summary>
-        [DataMember(Name = "lusidInstrumentId", IsRequired = true, EmitDefaultValue = true)]
-        public string LusidInstrumentId { get; set; }
+        [DataMember(Name = "instrument", IsRequired = true, EmitDefaultValue = true)]
+        public string Instrument { get; set; }
 
         /// <summary>
-        /// Gets or Sets InstrumentScope
+        /// Gets or Sets TransactionDate
         /// </summary>
-        [DataMember(Name = "instrumentScope", IsRequired = true, EmitDefaultValue = true)]
-        public string InstrumentScope { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TradeDate
-        /// </summary>
-        [DataMember(Name = "tradeDate", IsRequired = true, EmitDefaultValue = true)]
-        public string TradeDate { get; set; }
+        [DataMember(Name = "transactionDate", IsRequired = true, EmitDefaultValue = true)]
+        public string TransactionDate { get; set; }
 
         /// <summary>
         /// Gets or Sets SettlementDate
@@ -204,12 +184,6 @@ namespace Lusid.Sdk.Model
         public TransactionCurrencyAndAmount TotalConsideration { get; set; }
 
         /// <summary>
-        /// Gets or Sets SettlementCurrency
-        /// </summary>
-        [DataMember(Name = "settlementCurrency", IsRequired = true, EmitDefaultValue = true)]
-        public string SettlementCurrency { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -220,16 +194,14 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  LusidInstrumentId: ").Append(LusidInstrumentId).Append("\n");
-            sb.Append("  InstrumentScope: ").Append(InstrumentScope).Append("\n");
-            sb.Append("  TradeDate: ").Append(TradeDate).Append("\n");
+            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  TransactionDate: ").Append(TransactionDate).Append("\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  TransactionPrice: ").Append(TransactionPrice).Append("\n");
             sb.Append("  TransactionCurrency: ").Append(TransactionCurrency).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             sb.Append("  TotalConsideration: ").Append(TotalConsideration).Append("\n");
-            sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -281,19 +253,14 @@ namespace Lusid.Sdk.Model
                     this.Source.Equals(input.Source))
                 ) && 
                 (
-                    this.LusidInstrumentId == input.LusidInstrumentId ||
-                    (this.LusidInstrumentId != null &&
-                    this.LusidInstrumentId.Equals(input.LusidInstrumentId))
+                    this.Instrument == input.Instrument ||
+                    (this.Instrument != null &&
+                    this.Instrument.Equals(input.Instrument))
                 ) && 
                 (
-                    this.InstrumentScope == input.InstrumentScope ||
-                    (this.InstrumentScope != null &&
-                    this.InstrumentScope.Equals(input.InstrumentScope))
-                ) && 
-                (
-                    this.TradeDate == input.TradeDate ||
-                    (this.TradeDate != null &&
-                    this.TradeDate.Equals(input.TradeDate))
+                    this.TransactionDate == input.TransactionDate ||
+                    (this.TransactionDate != null &&
+                    this.TransactionDate.Equals(input.TransactionDate))
                 ) && 
                 (
                     this.SettlementDate == input.SettlementDate ||
@@ -324,11 +291,6 @@ namespace Lusid.Sdk.Model
                     this.TotalConsideration == input.TotalConsideration ||
                     (this.TotalConsideration != null &&
                     this.TotalConsideration.Equals(input.TotalConsideration))
-                ) && 
-                (
-                    this.SettlementCurrency == input.SettlementCurrency ||
-                    (this.SettlementCurrency != null &&
-                    this.SettlementCurrency.Equals(input.SettlementCurrency))
                 );
         }
 
@@ -353,17 +315,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 }
-                if (this.LusidInstrumentId != null)
+                if (this.Instrument != null)
                 {
-                    hashCode = (hashCode * 59) + this.LusidInstrumentId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
                 }
-                if (this.InstrumentScope != null)
+                if (this.TransactionDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.InstrumentScope.GetHashCode();
-                }
-                if (this.TradeDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.TradeDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.TransactionDate.GetHashCode();
                 }
                 if (this.SettlementDate != null)
                 {
@@ -388,10 +346,6 @@ namespace Lusid.Sdk.Model
                 if (this.TotalConsideration != null)
                 {
                     hashCode = (hashCode * 59) + this.TotalConsideration.GetHashCode();
-                }
-                if (this.SettlementCurrency != null)
-                {
-                    hashCode = (hashCode * 59) + this.SettlementCurrency.GetHashCode();
                 }
                 return hashCode;
             }
@@ -440,40 +394,28 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Source, length must be greater than 0.", new [] { "Source" });
             }
 
-            // LusidInstrumentId (string) maxLength
-            if (this.LusidInstrumentId != null && this.LusidInstrumentId.Length > 1024)
+            // Instrument (string) maxLength
+            if (this.Instrument != null && this.Instrument.Length > 1024)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LusidInstrumentId, length must be less than 1024.", new [] { "LusidInstrumentId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Instrument, length must be less than 1024.", new [] { "Instrument" });
             }
 
-            // LusidInstrumentId (string) minLength
-            if (this.LusidInstrumentId != null && this.LusidInstrumentId.Length < 0)
+            // Instrument (string) minLength
+            if (this.Instrument != null && this.Instrument.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LusidInstrumentId, length must be greater than 0.", new [] { "LusidInstrumentId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Instrument, length must be greater than 0.", new [] { "Instrument" });
             }
 
-            // InstrumentScope (string) maxLength
-            if (this.InstrumentScope != null && this.InstrumentScope.Length > 1024)
+            // TransactionDate (string) maxLength
+            if (this.TransactionDate != null && this.TransactionDate.Length > 1024)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be less than 1024.", new [] { "InstrumentScope" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionDate, length must be less than 1024.", new [] { "TransactionDate" });
             }
 
-            // InstrumentScope (string) minLength
-            if (this.InstrumentScope != null && this.InstrumentScope.Length < 0)
+            // TransactionDate (string) minLength
+            if (this.TransactionDate != null && this.TransactionDate.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be greater than 0.", new [] { "InstrumentScope" });
-            }
-
-            // TradeDate (string) maxLength
-            if (this.TradeDate != null && this.TradeDate.Length > 1024)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TradeDate, length must be less than 1024.", new [] { "TradeDate" });
-            }
-
-            // TradeDate (string) minLength
-            if (this.TradeDate != null && this.TradeDate.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TradeDate, length must be greater than 0.", new [] { "TradeDate" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransactionDate, length must be greater than 0.", new [] { "TransactionDate" });
             }
 
             // SettlementDate (string) maxLength
@@ -522,18 +464,6 @@ namespace Lusid.Sdk.Model
             if (this.ExchangeRate != null && this.ExchangeRate.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeRate, length must be greater than 0.", new [] { "ExchangeRate" });
-            }
-
-            // SettlementCurrency (string) maxLength
-            if (this.SettlementCurrency != null && this.SettlementCurrency.Length > 1024)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementCurrency, length must be less than 1024.", new [] { "SettlementCurrency" });
-            }
-
-            // SettlementCurrency (string) minLength
-            if (this.SettlementCurrency != null && this.SettlementCurrency.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SettlementCurrency, length must be greater than 0.", new [] { "SettlementCurrency" });
             }
 
             yield break;

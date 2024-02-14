@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="type">The type of the metric. Default to Return.</param>
         /// <param name="window">The given metric for the calculation i.e. 1Y, 1D..</param>
-        /// <param name="allowPartial">Bool if the metric is allowed partial results. Deafult to false..</param>
+        /// <param name="allowPartial">Bool if the metric is allowed partial results. Default to false..</param>
         /// <param name="annualised">Bool if the metric is annualized. Default to false..</param>
         /// <param name="withFee">Bool if the metric should consider the fees when is calculated. Default to false..</param>
         /// <param name="seedAmount">The given seed amount for the calculation of the indicative amount metrics..</param>
@@ -64,9 +64,9 @@ namespace Lusid.Sdk.Model
         public string Window { get; set; }
 
         /// <summary>
-        /// Bool if the metric is allowed partial results. Deafult to false.
+        /// Bool if the metric is allowed partial results. Default to false.
         /// </summary>
-        /// <value>Bool if the metric is allowed partial results. Deafult to false.</value>
+        /// <value>Bool if the metric is allowed partial results. Default to false.</value>
         [DataMember(Name = "allowPartial", EmitDefaultValue = true)]
         public bool AllowPartial { get; set; }
 
