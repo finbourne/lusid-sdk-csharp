@@ -242,7 +242,13 @@ namespace Lusid.Sdk.Model
         /// Enum InflationLeg for value: InflationLeg
         /// </summary>
         [EnumMember(Value = "InflationLeg")]
-        InflationLeg = 36
+        InflationLeg = 36,
+
+        /// <summary>
+        /// Enum FundShareClass for value: FundShareClass
+        /// </summary>
+        [EnumMember(Value = "FundShareClass")]
+        FundShareClass = 37
 
     }
 

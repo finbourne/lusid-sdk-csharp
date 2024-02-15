@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// FixedLegAllOf
+    /// FundShareClassAllOf
     /// </summary>
-    [DataContract(Name = "FixedLeg_allOf")]
-    public partial class FixedLegAllOf : IEquatable<FixedLegAllOf>, IValidatableObject
+    [DataContract(Name = "FundShareClass_allOf")]
+    public partial class FundShareClassAllOf : IEquatable<FundShareClassAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass
@@ -267,65 +267,88 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentTypeEnum InstrumentType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedLegAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FundShareClassAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FixedLegAllOf() { }
+        protected FundShareClassAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FixedLegAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FundShareClassAllOf" /> class.
         /// </summary>
-        /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
-        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
-        /// <param name="legDefinition">legDefinition (required).</param>
-        /// <param name="notional">notional (required).</param>
-        /// <param name="overrides">overrides.</param>
+        /// <param name="shortCode">A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \&quot;A Accumulation Euro Hedged Class\&quot; could become \&quot;A Acc H EUR\&quot;. (required).</param>
+        /// <param name="fundShareClassType">The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income.    Supported string (enumeration) values are: [Income, Accumulation]. (required).</param>
+        /// <param name="distributionPaymentType">The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax).    Supported string (enumeration) values are: [Gross, Net]. (required).</param>
+        /// <param name="hedging">A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of it&#39;s investment strategy.    Supported string (enumeration) values are: [Invalid, None, ApplyHedging]. (required).</param>
+        /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass (required).</param>
-        public FixedLegAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), LegDefinition legDefinition = default(LegDefinition), decimal notional = default(decimal), FixedLegAllOfOverrides overrides = default(FixedLegAllOfOverrides), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public FundShareClassAllOf(string shortCode = default(string), string fundShareClassType = default(string), string distributionPaymentType = default(string), string hedging = default(string), string domCcy = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
-            this.StartDate = startDate;
-            this.MaturityDate = maturityDate;
-            // to ensure "legDefinition" is required (not null)
-            if (legDefinition == null)
+            // to ensure "shortCode" is required (not null)
+            if (shortCode == null)
             {
-                throw new ArgumentNullException("legDefinition is a required property for FixedLegAllOf and cannot be null");
+                throw new ArgumentNullException("shortCode is a required property for FundShareClassAllOf and cannot be null");
             }
-            this.LegDefinition = legDefinition;
-            this.Notional = notional;
+            this.ShortCode = shortCode;
+            // to ensure "fundShareClassType" is required (not null)
+            if (fundShareClassType == null)
+            {
+                throw new ArgumentNullException("fundShareClassType is a required property for FundShareClassAllOf and cannot be null");
+            }
+            this.FundShareClassType = fundShareClassType;
+            // to ensure "distributionPaymentType" is required (not null)
+            if (distributionPaymentType == null)
+            {
+                throw new ArgumentNullException("distributionPaymentType is a required property for FundShareClassAllOf and cannot be null");
+            }
+            this.DistributionPaymentType = distributionPaymentType;
+            // to ensure "hedging" is required (not null)
+            if (hedging == null)
+            {
+                throw new ArgumentNullException("hedging is a required property for FundShareClassAllOf and cannot be null");
+            }
+            this.Hedging = hedging;
+            // to ensure "domCcy" is required (not null)
+            if (domCcy == null)
+            {
+                throw new ArgumentNullException("domCcy is a required property for FundShareClassAllOf and cannot be null");
+            }
+            this.DomCcy = domCcy;
             this.InstrumentType = instrumentType;
-            this.Overrides = overrides;
         }
 
         /// <summary>
-        /// The start date of the instrument. This is normally synonymous with the trade-date.
+        /// A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \&quot;A Accumulation Euro Hedged Class\&quot; could become \&quot;A Acc H EUR\&quot;.
         /// </summary>
-        /// <value>The start date of the instrument. This is normally synonymous with the trade-date.</value>
-        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset StartDate { get; set; }
+        /// <value>A short identifier, unique across a single fund, usually made up of the ShareClass components. Eg \&quot;A Accumulation Euro Hedged Class\&quot; could become \&quot;A Acc H EUR\&quot;.</value>
+        [DataMember(Name = "shortCode", IsRequired = true, EmitDefaultValue = true)]
+        public string ShortCode { get; set; }
 
         /// <summary>
-        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
+        /// The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income.    Supported string (enumeration) values are: [Income, Accumulation].
         /// </summary>
-        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
-        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset MaturityDate { get; set; }
+        /// <value>The type of distribution that the ShareClass will calculate. Can be either &#39;Income&#39; or &#39;Accumulation&#39; - Income classes will pay out and Accumulation classes will retain their ShareClass attributable income.    Supported string (enumeration) values are: [Income, Accumulation].</value>
+        [DataMember(Name = "fundShareClassType", IsRequired = true, EmitDefaultValue = true)]
+        public string FundShareClassType { get; set; }
 
         /// <summary>
-        /// Gets or Sets LegDefinition
+        /// The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax).    Supported string (enumeration) values are: [Gross, Net].
         /// </summary>
-        [DataMember(Name = "legDefinition", IsRequired = true, EmitDefaultValue = true)]
-        public LegDefinition LegDefinition { get; set; }
+        /// <value>The tax treatment applied to any distributions calculated within the ShareClass. Can be either &#39;Net&#39; (Distribution Calculated net of tax) or &#39;Gross&#39; (Distribution calculated gross of tax).    Supported string (enumeration) values are: [Gross, Net].</value>
+        [DataMember(Name = "distributionPaymentType", IsRequired = true, EmitDefaultValue = true)]
+        public string DistributionPaymentType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Notional
+        /// A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of it&#39;s investment strategy.    Supported string (enumeration) values are: [Invalid, None, ApplyHedging].
         /// </summary>
-        [DataMember(Name = "notional", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Notional { get; set; }
+        /// <value>A flag to indicate the ShareClass is operating currency hedging as a means to limit currency risk as part of it&#39;s investment strategy.    Supported string (enumeration) values are: [Invalid, None, ApplyHedging].</value>
+        [DataMember(Name = "hedging", IsRequired = true, EmitDefaultValue = true)]
+        public string Hedging { get; set; }
 
         /// <summary>
-        /// Gets or Sets Overrides
+        /// The domestic currency of the instrument.
         /// </summary>
-        [DataMember(Name = "overrides", EmitDefaultValue = true)]
-        public FixedLegAllOfOverrides Overrides { get; set; }
+        /// <value>The domestic currency of the instrument.</value>
+        [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
+        public string DomCcy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -334,12 +357,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class FixedLegAllOf {\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
-            sb.Append("  LegDefinition: ").Append(LegDefinition).Append("\n");
-            sb.Append("  Notional: ").Append(Notional).Append("\n");
-            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("class FundShareClassAllOf {\n");
+            sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
+            sb.Append("  FundShareClassType: ").Append(FundShareClassType).Append("\n");
+            sb.Append("  DistributionPaymentType: ").Append(DistributionPaymentType).Append("\n");
+            sb.Append("  Hedging: ").Append(Hedging).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -361,15 +384,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FixedLegAllOf);
+            return this.Equals(input as FundShareClassAllOf);
         }
 
         /// <summary>
-        /// Returns true if FixedLegAllOf instances are equal
+        /// Returns true if FundShareClassAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of FixedLegAllOf to be compared</param>
+        /// <param name="input">Instance of FundShareClassAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FixedLegAllOf input)
+        public bool Equals(FundShareClassAllOf input)
         {
             if (input == null)
             {
@@ -377,28 +400,29 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
                 ) && 
                 (
-                    this.MaturityDate == input.MaturityDate ||
-                    (this.MaturityDate != null &&
-                    this.MaturityDate.Equals(input.MaturityDate))
+                    this.FundShareClassType == input.FundShareClassType ||
+                    (this.FundShareClassType != null &&
+                    this.FundShareClassType.Equals(input.FundShareClassType))
                 ) && 
                 (
-                    this.LegDefinition == input.LegDefinition ||
-                    (this.LegDefinition != null &&
-                    this.LegDefinition.Equals(input.LegDefinition))
+                    this.DistributionPaymentType == input.DistributionPaymentType ||
+                    (this.DistributionPaymentType != null &&
+                    this.DistributionPaymentType.Equals(input.DistributionPaymentType))
                 ) && 
                 (
-                    this.Notional == input.Notional ||
-                    this.Notional.Equals(input.Notional)
+                    this.Hedging == input.Hedging ||
+                    (this.Hedging != null &&
+                    this.Hedging.Equals(input.Hedging))
                 ) && 
                 (
-                    this.Overrides == input.Overrides ||
-                    (this.Overrides != null &&
-                    this.Overrides.Equals(input.Overrides))
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -415,22 +439,25 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.StartDate != null)
+                if (this.ShortCode != null)
                 {
-                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
                 }
-                if (this.MaturityDate != null)
+                if (this.FundShareClassType != null)
                 {
-                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FundShareClassType.GetHashCode();
                 }
-                if (this.LegDefinition != null)
+                if (this.DistributionPaymentType != null)
                 {
-                    hashCode = (hashCode * 59) + this.LegDefinition.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DistributionPaymentType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Notional.GetHashCode();
-                if (this.Overrides != null)
+                if (this.Hedging != null)
                 {
-                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Hedging.GetHashCode();
+                }
+                if (this.DomCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
@@ -444,6 +471,30 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ShortCode (string) minLength
+            if (this.ShortCode != null && this.ShortCode.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 1.", new [] { "ShortCode" });
+            }
+
+            // FundShareClassType (string) minLength
+            if (this.FundShareClassType != null && this.FundShareClassType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FundShareClassType, length must be greater than 1.", new [] { "FundShareClassType" });
+            }
+
+            // DistributionPaymentType (string) minLength
+            if (this.DistributionPaymentType != null && this.DistributionPaymentType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DistributionPaymentType, length must be greater than 1.", new [] { "DistributionPaymentType" });
+            }
+
+            // Hedging (string) minLength
+            if (this.Hedging != null && this.Hedging.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hedging, length must be greater than 1.", new [] { "Hedging" });
+            }
+
             yield break;
         }
     }
