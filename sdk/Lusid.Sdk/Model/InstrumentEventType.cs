@@ -147,7 +147,13 @@ namespace Lusid.Sdk.Model
         /// Enum MaturityEvent for value: MaturityEvent
         /// </summary>
         [EnumMember(Value = "MaturityEvent")]
-        MaturityEvent = 20
+        MaturityEvent = 20,
+
+        /// <summary>
+        /// Enum FxForwardSettlementEvent for value: FxForwardSettlementEvent
+        /// </summary>
+        [EnumMember(Value = "FxForwardSettlementEvent")]
+        FxForwardSettlementEvent = 21
 
     }
 
