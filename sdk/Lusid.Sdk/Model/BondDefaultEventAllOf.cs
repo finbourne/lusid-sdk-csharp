@@ -178,75 +178,20 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BondDefaultEventAllOf" /> class.
         /// </summary>
-        /// <param name="amount">Percentage or amount of each share held to be given to shareholders. (required).</param>
-        /// <param name="couponPaidDate">Date that the missed coupon is paid if payment is made within grace period. (required).</param>
-        /// <param name="defaultStatus">The status of the bond default (i.e., technical or default)    Supported string (enumeration) values are: [Technical, Default]. (required).</param>
-        /// <param name="defaultType">The type of the default. (coupon payment, principal payment, covenant ...)    Supported string (enumeration) values are: [CouponPayment, CouponAndPrincipalPayment, PrincipalPayment, Covenant, Bankruptcy, BuyBackOption]. (required).</param>
-        /// <param name="graceEndDate">Date the grace period for making coupon payment ends. (required).</param>
-        /// <param name="paymentDate">The date the coupon payment was missed. (required).</param>
+        /// <param name="effectiveDate">The date the bond default occurred. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required).</param>
-        public BondDefaultEventAllOf(decimal amount = default(decimal), DateTimeOffset couponPaidDate = default(DateTimeOffset), string defaultStatus = default(string), string defaultType = default(string), DateTimeOffset graceEndDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public BondDefaultEventAllOf(DateTimeOffset effectiveDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.Amount = amount;
-            this.CouponPaidDate = couponPaidDate;
-            // to ensure "defaultStatus" is required (not null)
-            if (defaultStatus == null)
-            {
-                throw new ArgumentNullException("defaultStatus is a required property for BondDefaultEventAllOf and cannot be null");
-            }
-            this.DefaultStatus = defaultStatus;
-            // to ensure "defaultType" is required (not null)
-            if (defaultType == null)
-            {
-                throw new ArgumentNullException("defaultType is a required property for BondDefaultEventAllOf and cannot be null");
-            }
-            this.DefaultType = defaultType;
-            this.GraceEndDate = graceEndDate;
-            this.PaymentDate = paymentDate;
+            this.EffectiveDate = effectiveDate;
             this.InstrumentEventType = instrumentEventType;
         }
 
         /// <summary>
-        /// Percentage or amount of each share held to be given to shareholders.
+        /// The date the bond default occurred.
         /// </summary>
-        /// <value>Percentage or amount of each share held to be given to shareholders.</value>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Amount { get; set; }
-
-        /// <summary>
-        /// Date that the missed coupon is paid if payment is made within grace period.
-        /// </summary>
-        /// <value>Date that the missed coupon is paid if payment is made within grace period.</value>
-        [DataMember(Name = "couponPaidDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset CouponPaidDate { get; set; }
-
-        /// <summary>
-        /// The status of the bond default (i.e., technical or default)    Supported string (enumeration) values are: [Technical, Default].
-        /// </summary>
-        /// <value>The status of the bond default (i.e., technical or default)    Supported string (enumeration) values are: [Technical, Default].</value>
-        [DataMember(Name = "defaultStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string DefaultStatus { get; set; }
-
-        /// <summary>
-        /// The type of the default. (coupon payment, principal payment, covenant ...)    Supported string (enumeration) values are: [CouponPayment, CouponAndPrincipalPayment, PrincipalPayment, Covenant, Bankruptcy, BuyBackOption].
-        /// </summary>
-        /// <value>The type of the default. (coupon payment, principal payment, covenant ...)    Supported string (enumeration) values are: [CouponPayment, CouponAndPrincipalPayment, PrincipalPayment, Covenant, Bankruptcy, BuyBackOption].</value>
-        [DataMember(Name = "defaultType", IsRequired = true, EmitDefaultValue = true)]
-        public string DefaultType { get; set; }
-
-        /// <summary>
-        /// Date the grace period for making coupon payment ends.
-        /// </summary>
-        /// <value>Date the grace period for making coupon payment ends.</value>
-        [DataMember(Name = "graceEndDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset GraceEndDate { get; set; }
-
-        /// <summary>
-        /// The date the coupon payment was missed.
-        /// </summary>
-        /// <value>The date the coupon payment was missed.</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset PaymentDate { get; set; }
+        /// <value>The date the bond default occurred.</value>
+        [DataMember(Name = "effectiveDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset EffectiveDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -256,12 +201,7 @@ namespace Lusid.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BondDefaultEventAllOf {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  CouponPaidDate: ").Append(CouponPaidDate).Append("\n");
-            sb.Append("  DefaultStatus: ").Append(DefaultStatus).Append("\n");
-            sb.Append("  DefaultType: ").Append(DefaultType).Append("\n");
-            sb.Append("  GraceEndDate: ").Append(GraceEndDate).Append("\n");
-            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -299,33 +239,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && 
-                (
-                    this.CouponPaidDate == input.CouponPaidDate ||
-                    (this.CouponPaidDate != null &&
-                    this.CouponPaidDate.Equals(input.CouponPaidDate))
-                ) && 
-                (
-                    this.DefaultStatus == input.DefaultStatus ||
-                    (this.DefaultStatus != null &&
-                    this.DefaultStatus.Equals(input.DefaultStatus))
-                ) && 
-                (
-                    this.DefaultType == input.DefaultType ||
-                    (this.DefaultType != null &&
-                    this.DefaultType.Equals(input.DefaultType))
-                ) && 
-                (
-                    this.GraceEndDate == input.GraceEndDate ||
-                    (this.GraceEndDate != null &&
-                    this.GraceEndDate.Equals(input.GraceEndDate))
-                ) && 
-                (
-                    this.PaymentDate == input.PaymentDate ||
-                    (this.PaymentDate != null &&
-                    this.PaymentDate.Equals(input.PaymentDate))
+                    this.EffectiveDate == input.EffectiveDate ||
+                    (this.EffectiveDate != null &&
+                    this.EffectiveDate.Equals(input.EffectiveDate))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -342,26 +258,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
-                if (this.CouponPaidDate != null)
+                if (this.EffectiveDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.CouponPaidDate.GetHashCode();
-                }
-                if (this.DefaultStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultStatus.GetHashCode();
-                }
-                if (this.DefaultType != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultType.GetHashCode();
-                }
-                if (this.GraceEndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.GraceEndDate.GetHashCode();
-                }
-                if (this.PaymentDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.EffectiveDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
@@ -375,18 +274,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DefaultStatus (string) minLength
-            if (this.DefaultStatus != null && this.DefaultStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultStatus, length must be greater than 1.", new [] { "DefaultStatus" });
-            }
-
-            // DefaultType (string) minLength
-            if (this.DefaultType != null && this.DefaultType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DefaultType, length must be greater than 1.", new [] { "DefaultType" });
-            }
-
             yield break;
         }
     }
