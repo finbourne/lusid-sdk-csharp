@@ -42,7 +42,7 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentId">To indicate the instrument of the transaction that the Journal Entry Line posted for, if applicable. (required).</param>
         /// <param name="instrumentScope">The scope in which the Journal Entry Line instrument is in. (required).</param>
         /// <param name="subHoldingKeys">The sub-holding properties which are part of the AccountingKey..</param>
-        /// <param name="taxLotId">The tax lot Id that the Journal Entry Line is impacting. (required).</param>
+        /// <param name="taxLotId">The tax lot Id that the Journal Entry Line is impacting..</param>
         /// <param name="generalLedgerAccountCode">The code of the account in the general ledger the Journal Entry was posted to. (required).</param>
         /// <param name="local">local (required).</param>
         /// <param name="_base">_base (required).</param>
@@ -53,7 +53,7 @@ namespace Lusid.Sdk.Model
         /// <param name="sourceType">So far are 4 types: LusidTxn, LusidValuation, Manual and External. (required).</param>
         /// <param name="sourceId">For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. (required).</param>
         /// <param name="properties">A set of properties for the Abor..</param>
-        /// <param name="movementName">The name of the movement. (required).</param>
+        /// <param name="movementName">The name of the movement..</param>
         /// <param name="holdingType">Defines the broad category holding within the portfolio. (required).</param>
         /// <param name="economicBucket">Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. (required).</param>
         /// <param name="economicBucketComponent">Sub bucket of the economic bucket..</param>
@@ -84,12 +84,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentScope is a required property for JournalEntryLine and cannot be null");
             }
             this.InstrumentScope = instrumentScope;
-            // to ensure "taxLotId" is required (not null)
-            if (taxLotId == null)
-            {
-                throw new ArgumentNullException("taxLotId is a required property for JournalEntryLine and cannot be null");
-            }
-            this.TaxLotId = taxLotId;
             // to ensure "generalLedgerAccountCode" is required (not null)
             if (generalLedgerAccountCode == null)
             {
@@ -127,12 +121,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("sourceId is a required property for JournalEntryLine and cannot be null");
             }
             this.SourceId = sourceId;
-            // to ensure "movementName" is required (not null)
-            if (movementName == null)
-            {
-                throw new ArgumentNullException("movementName is a required property for JournalEntryLine and cannot be null");
-            }
-            this.MovementName = movementName;
             // to ensure "holdingType" is required (not null)
             if (holdingType == null)
             {
@@ -146,9 +134,11 @@ namespace Lusid.Sdk.Model
             }
             this.EconomicBucket = economicBucket;
             this.SubHoldingKeys = subHoldingKeys;
+            this.TaxLotId = taxLotId;
             this.PostingModuleCode = postingModuleCode;
             this.ActivitiesDescription = activitiesDescription;
             this.Properties = properties;
+            this.MovementName = movementName;
             this.EconomicBucketComponent = economicBucketComponent;
             this.Levels = levels;
             this.SourceLevels = sourceLevels;
@@ -202,7 +192,7 @@ namespace Lusid.Sdk.Model
         /// The tax lot Id that the Journal Entry Line is impacting.
         /// </summary>
         /// <value>The tax lot Id that the Journal Entry Line is impacting.</value>
-        [DataMember(Name = "taxLotId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "taxLotId", EmitDefaultValue = true)]
         public string TaxLotId { get; set; }
 
         /// <summary>
@@ -277,7 +267,7 @@ namespace Lusid.Sdk.Model
         /// The name of the movement.
         /// </summary>
         /// <value>The name of the movement.</value>
-        [DataMember(Name = "movementName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "movementName", EmitDefaultValue = true)]
         public string MovementName { get; set; }
 
         /// <summary>
@@ -677,12 +667,6 @@ namespace Lusid.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentScope, length must be greater than 1.", new [] { "InstrumentScope" });
             }
 
-            // TaxLotId (string) minLength
-            if (this.TaxLotId != null && this.TaxLotId.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TaxLotId, length must be greater than 1.", new [] { "TaxLotId" });
-            }
-
             // GeneralLedgerAccountCode (string) minLength
             if (this.GeneralLedgerAccountCode != null && this.GeneralLedgerAccountCode.Length < 1)
             {
@@ -717,12 +701,6 @@ namespace Lusid.Sdk.Model
             if (this.SourceId != null && this.SourceId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceId, length must be greater than 1.", new [] { "SourceId" });
-            }
-
-            // MovementName (string) minLength
-            if (this.MovementName != null && this.MovementName.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MovementName, length must be greater than 1.", new [] { "MovementName" });
             }
 
             // HoldingType (string) minLength

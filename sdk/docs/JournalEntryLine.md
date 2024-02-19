@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **InstrumentId** | **string** | To indicate the instrument of the transaction that the Journal Entry Line posted for, if applicable. | 
 **InstrumentScope** | **string** | The scope in which the Journal Entry Line instrument is in. | 
 **SubHoldingKeys** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The sub-holding properties which are part of the AccountingKey. | [optional] 
-**TaxLotId** | **string** | The tax lot Id that the Journal Entry Line is impacting. | 
+**TaxLotId** | **string** | The tax lot Id that the Journal Entry Line is impacting. | [optional] 
 **GeneralLedgerAccountCode** | **string** | The code of the account in the general ledger the Journal Entry was posted to. | 
 **Local** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
 **Base** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **SourceType** | **string** | So far are 4 types: LusidTxn, LusidValuation, Manual and External. | 
 **SourceId** | **string** | For the Lusid Source Type this will be the txn Id. For the rest will be what the user populates. | 
 **Properties** | [**Dictionary&lt;string, Property&gt;**](Property.md) | A set of properties for the Abor. | [optional] 
-**MovementName** | **string** | The name of the movement. | 
+**MovementName** | **string** | The name of the movement. | [optional] 
 **HoldingType** | **string** | Defines the broad category holding within the portfolio. | 
 **EconomicBucket** | **string** | Raw Journal Entry Line details of the economic bucket for the Journal Entry Line. | 
 **EconomicBucketComponent** | **string** | Sub bucket of the economic bucket. | [optional] 
