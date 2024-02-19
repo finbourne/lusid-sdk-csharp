@@ -56,7 +56,13 @@ namespace Lusid.Sdk.Model
         /// Enum RecombineStep for value: RecombineStep
         /// </summary>
         [EnumMember(Value = "RecombineStep")]
-        RecombineStep = 5
+        RecombineStep = 5,
+
+        /// <summary>
+        /// Enum CheckStep for value: CheckStep
+        /// </summary>
+        [EnumMember(Value = "CheckStep")]
+        CheckStep = 6
 
     }
 

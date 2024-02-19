@@ -24,37 +24,44 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// RecombineStep
+    /// CheckStep
     /// </summary>
-    [DataContract(Name = "RecombineStep")]
+    [DataContract(Name = "CheckStep")]
     [JsonConverter(typeof(JsonSubtypes), "ComplianceStepType")]
-    public partial class RecombineStep : ComplianceStep, IEquatable<RecombineStep>, IValidatableObject
+    public partial class CheckStep : ComplianceStep, IEquatable<CheckStep>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RecombineStep" /> class.
+        /// Initializes a new instance of the <see cref="CheckStep" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RecombineStep() { }
+        protected CheckStep() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RecombineStep" /> class.
+        /// Initializes a new instance of the <see cref="CheckStep" /> class.
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
-        /// <param name="parameters">Parameters required for the step (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required) (default to &quot;RecombineStep&quot;).</param>
-        public RecombineStep(string label = default(string), List<ComplianceTemplateParameter> parameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
+        /// <param name="limitCheckParameters">Parameters required for an absolute limit check (required).</param>
+        /// <param name="warningCheckParameters">Parameters required for a warning limit check (required).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required) (default to &quot;CheckStep&quot;).</param>
+        public CheckStep(string label = default(string), List<ComplianceTemplateParameter> limitCheckParameters = default(List<ComplianceTemplateParameter>), List<ComplianceTemplateParameter> warningCheckParameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum)) : base(complianceStepType)
         {
             // to ensure "label" is required (not null)
             if (label == null)
             {
-                throw new ArgumentNullException("label is a required property for RecombineStep and cannot be null");
+                throw new ArgumentNullException("label is a required property for CheckStep and cannot be null");
             }
             this.Label = label;
-            // to ensure "parameters" is required (not null)
-            if (parameters == null)
+            // to ensure "limitCheckParameters" is required (not null)
+            if (limitCheckParameters == null)
             {
-                throw new ArgumentNullException("parameters is a required property for RecombineStep and cannot be null");
+                throw new ArgumentNullException("limitCheckParameters is a required property for CheckStep and cannot be null");
             }
-            this.Parameters = parameters;
+            this.LimitCheckParameters = limitCheckParameters;
+            // to ensure "warningCheckParameters" is required (not null)
+            if (warningCheckParameters == null)
+            {
+                throw new ArgumentNullException("warningCheckParameters is a required property for CheckStep and cannot be null");
+            }
+            this.WarningCheckParameters = warningCheckParameters;
         }
 
         /// <summary>
@@ -65,11 +72,18 @@ namespace Lusid.Sdk.Model
         public string Label { get; set; }
 
         /// <summary>
-        /// Parameters required for the step
+        /// Parameters required for an absolute limit check
         /// </summary>
-        /// <value>Parameters required for the step</value>
-        [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
-        public List<ComplianceTemplateParameter> Parameters { get; set; }
+        /// <value>Parameters required for an absolute limit check</value>
+        [DataMember(Name = "limitCheckParameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> LimitCheckParameters { get; set; }
+
+        /// <summary>
+        /// Parameters required for a warning limit check
+        /// </summary>
+        /// <value>Parameters required for a warning limit check</value>
+        [DataMember(Name = "warningCheckParameters", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComplianceTemplateParameter> WarningCheckParameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,10 +92,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class RecombineStep {\n");
+            sb.Append("class CheckStep {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
+            sb.Append("  LimitCheckParameters: ").Append(LimitCheckParameters).Append("\n");
+            sb.Append("  WarningCheckParameters: ").Append(WarningCheckParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,15 +117,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RecombineStep);
+            return this.Equals(input as CheckStep);
         }
 
         /// <summary>
-        /// Returns true if RecombineStep instances are equal
+        /// Returns true if CheckStep instances are equal
         /// </summary>
-        /// <param name="input">Instance of RecombineStep to be compared</param>
+        /// <param name="input">Instance of CheckStep to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RecombineStep input)
+        public bool Equals(CheckStep input)
         {
             if (input == null)
             {
@@ -123,10 +138,16 @@ namespace Lusid.Sdk.Model
                     this.Label.Equals(input.Label))
                 ) && base.Equals(input) && 
                 (
-                    this.Parameters == input.Parameters ||
-                    this.Parameters != null &&
-                    input.Parameters != null &&
-                    this.Parameters.SequenceEqual(input.Parameters)
+                    this.LimitCheckParameters == input.LimitCheckParameters ||
+                    this.LimitCheckParameters != null &&
+                    input.LimitCheckParameters != null &&
+                    this.LimitCheckParameters.SequenceEqual(input.LimitCheckParameters)
+                ) && base.Equals(input) && 
+                (
+                    this.WarningCheckParameters == input.WarningCheckParameters ||
+                    this.WarningCheckParameters != null &&
+                    input.WarningCheckParameters != null &&
+                    this.WarningCheckParameters.SequenceEqual(input.WarningCheckParameters)
                 );
         }
 
@@ -143,9 +164,13 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Label.GetHashCode();
                 }
-                if (this.Parameters != null)
+                if (this.LimitCheckParameters != null)
                 {
-                    hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LimitCheckParameters.GetHashCode();
+                }
+                if (this.WarningCheckParameters != null)
+                {
+                    hashCode = (hashCode * 59) + this.WarningCheckParameters.GetHashCode();
                 }
                 return hashCode;
             }

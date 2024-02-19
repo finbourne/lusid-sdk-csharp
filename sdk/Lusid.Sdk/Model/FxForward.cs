@@ -48,7 +48,7 @@ namespace Lusid.Sdk.Model
         /// <param name="isNdf">Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used..</param>
         /// <param name="fixingDate">The fixing date..</param>
         /// <param name="settlementCcy">The settlement currency.  If provided, present value will be calculated in settlement currency, otherwise the domestic currency. Applies only to non-deliverable FX Forwards..</param>
-        /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events..</param>
+        /// <param name="bookedAsSpot">Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors..</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass (required) (default to &quot;FxForward&quot;).</param>
         public FxForward(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), decimal domAmount = default(decimal), string domCcy = default(string), decimal fgnAmount = default(decimal), string fgnCcy = default(string), decimal refSpotRate = default(decimal), bool isNdf = default(bool), DateTimeOffset fixingDate = default(DateTimeOffset), string settlementCcy = default(string), bool bookedAsSpot = default(bool), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum)) : base(instrumentType)
         {
@@ -146,9 +146,9 @@ namespace Lusid.Sdk.Model
         public string SettlementCcy { get; set; }
 
         /// <summary>
-        /// Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events.
+        /// Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors.
         /// </summary>
-        /// <value>Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this is not used by LUSID and does not impact any valuation, analytics, cashflows or events.</value>
+        /// <value>Boolean flag for FX Forward transactions booked with Spot settlement. This will default to False if not provided.  For information purposes only, this does not impact LUSID valuation, analytics, cashflows or events, but may be used by third party vendors.</value>
         [DataMember(Name = "bookedAsSpot", EmitDefaultValue = true)]
         public bool BookedAsSpot { get; set; }
 

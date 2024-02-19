@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class BranchStepAllOf : IEquatable<BranchStepAllOf>, IValidatableObject
     {
         /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep
         /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep</value>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ComplianceStepTypeEnum
         {
@@ -63,15 +63,21 @@ namespace Lusid.Sdk.Model
             /// Enum RecombineStep for value: RecombineStep
             /// </summary>
             [EnumMember(Value = "RecombineStep")]
-            RecombineStep = 5
+            RecombineStep = 5,
+
+            /// <summary>
+            /// Enum CheckStep for value: CheckStep
+            /// </summary>
+            [EnumMember(Value = "CheckStep")]
+            CheckStep = 6
 
         }
 
 
         /// <summary>
-        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep
+        /// . The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep
         /// </summary>
-        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep</value>
+        /// <value>. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep</value>
         [DataMember(Name = "complianceStepType", IsRequired = true, EmitDefaultValue = true)]
         public ComplianceStepTypeEnum ComplianceStepType { get; set; }
         /// <summary>
@@ -84,7 +90,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="label">The label of the compliance step (required).</param>
         /// <param name="parameters">Parameters required for the step (required).</param>
-        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep (required).</param>
+        /// <param name="complianceStepType">. The available values are: FilterStep, GroupByStep, GroupFilterStep, BranchStep, RecombineStep, CheckStep (required).</param>
         public BranchStepAllOf(string label = default(string), List<ComplianceTemplateParameter> parameters = default(List<ComplianceTemplateParameter>), ComplianceStepTypeEnum complianceStepType = default(ComplianceStepTypeEnum))
         {
             // to ensure "label" is required (not null)
