@@ -54,6 +54,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of TransactionTemplate</returns>
         ApiResponse<TransactionTemplate> CreateTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// </summary>
+        /// <remarks>
+        /// Delete a transaction template for a particular instrument event type in a scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DateTimeOffset</returns>
+        DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// </summary>
+        /// <remarks>
+        /// Delete a transaction template for a particular instrument event type in a scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DateTimeOffset</returns>
+        ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
         /// </summary>
         /// <remarks>
@@ -145,6 +172,35 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionTemplate)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionTemplate>> CreateTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, TransactionTemplateRequest transactionTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// </summary>
+        /// <remarks>
+        /// Delete a transaction template for a particular instrument event type in a scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DateTimeOffset</returns>
+        System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template
+        /// </summary>
+        /// <remarks>
+        /// Delete a transaction template for a particular instrument event type in a scope.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] GetTransactionTemplate: Get Transaction Template
         /// </summary>
@@ -551,6 +607,222 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateTransactionTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DateTimeOffset</returns>
+        public DateTimeOffset DeleteTransactionTemplate(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = DeleteTransactionTemplateWithHttpInfo(instrumentEventType, instrumentType, scope);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DateTimeOffset</returns>
+        public Lusid.Sdk.Client.ApiResponse<DateTimeOffset> DeleteTransactionTemplateWithHttpInfo(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0)
+        {
+            // verify the required parameter 'instrumentEventType' is set
+            if (instrumentEventType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventType' when calling InstrumentEventTypesApi->DeleteTransactionTemplate");
+            }
+
+            // verify the required parameter 'instrumentType' is set
+            if (instrumentType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentType' when calling InstrumentEventTypesApi->DeleteTransactionTemplate");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InstrumentEventTypesApi->DeleteTransactionTemplate");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instrumentEventType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instrumentType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+
+            localVarRequestOptions.Operation = "InstrumentEventTypesApi.DeleteTransactionTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DateTimeOffset>("/api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteTransactionTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DateTimeOffset</returns>
+        public async System.Threading.Tasks.Task<DateTimeOffset> DeleteTransactionTemplateAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DateTimeOffset> localVarResponse = await DeleteTransactionTemplateWithHttpInfoAsync(instrumentEventType, instrumentType, scope, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DeleteTransactionTemplate: Delete Transaction Template Delete a transaction template for a particular instrument event type in a scope.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentEventType">The type of instrument events that the template is applied to.</param>
+        /// <param name="instrumentType">The instrument type of the transaction template. The combination of the instrument              event type, instrument type and scope uniquely identifies a transaction template</param>
+        /// <param name="scope">The scope of the template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DateTimeOffset)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DateTimeOffset>> DeleteTransactionTemplateWithHttpInfoAsync(string instrumentEventType, string instrumentType, string scope, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'instrumentEventType' is set
+            if (instrumentEventType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventType' when calling InstrumentEventTypesApi->DeleteTransactionTemplate");
+            }
+
+            // verify the required parameter 'instrumentType' is set
+            if (instrumentType == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentType' when calling InstrumentEventTypesApi->DeleteTransactionTemplate");
+            }
+
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling InstrumentEventTypesApi->DeleteTransactionTemplate");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instrumentEventType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instrumentType", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+
+            localVarRequestOptions.Operation = "InstrumentEventTypesApi.DeleteTransactionTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DateTimeOffset>("/api/instrumenteventtypes/{instrumentEventType}/transactiontemplates/{instrumentType}/{scope}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteTransactionTemplate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

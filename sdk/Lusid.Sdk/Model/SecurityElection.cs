@@ -39,9 +39,9 @@ namespace Lusid.Sdk.Model
         /// <param name="electionKey">Unique key associated to this election. (required).</param>
         /// <param name="isChosen">Is this the election that has been explicitly chosen from multiple options..</param>
         /// <param name="isDefault">Is this election automatically applied in the absence of an election having been made.  May only be true for one election if multiple are provided..</param>
-        /// <param name="price">Price per unit of the security. At least one of UnitsRatio or Price must be provided. (required).</param>
+        /// <param name="price">Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero..</param>
         /// <param name="unitsRatio">unitsRatio.</param>
-        public SecurityElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), decimal price = default(decimal), UnitsRatio unitsRatio = default(UnitsRatio))
+        public SecurityElection(string electionKey = default(string), bool isChosen = default(bool), bool isDefault = default(bool), decimal? price = default(decimal?), UnitsRatio unitsRatio = default(UnitsRatio))
         {
             // to ensure "electionKey" is required (not null)
             if (electionKey == null)
@@ -49,9 +49,9 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("electionKey is a required property for SecurityElection and cannot be null");
             }
             this.ElectionKey = electionKey;
-            this.Price = price;
             this.IsChosen = isChosen;
             this.IsDefault = isDefault;
+            this.Price = price;
             this.UnitsRatio = unitsRatio;
         }
 
@@ -77,11 +77,11 @@ namespace Lusid.Sdk.Model
         public bool IsDefault { get; set; }
 
         /// <summary>
-        /// Price per unit of the security. At least one of UnitsRatio or Price must be provided.
+        /// Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero.
         /// </summary>
-        /// <value>Price per unit of the security. At least one of UnitsRatio or Price must be provided.</value>
-        [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Price { get; set; }
+        /// <value>Price per unit of the security. At least one of UnitsRatio or Price must be provided.  Price must non-zero.</value>
+        [DataMember(Name = "price", EmitDefaultValue = true)]
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Gets or Sets UnitsRatio
@@ -152,7 +152,8 @@ namespace Lusid.Sdk.Model
                 ) && 
                 (
                     this.Price == input.Price ||
-                    this.Price.Equals(input.Price)
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
                     this.UnitsRatio == input.UnitsRatio ||
@@ -176,7 +177,10 @@ namespace Lusid.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.IsChosen.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
-                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                if (this.Price != null)
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                }
                 if (this.UnitsRatio != null)
                 {
                     hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();

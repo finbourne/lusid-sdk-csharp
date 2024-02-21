@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// todo: what even is this
+    /// The number of units you have after the event (output) for a given number of units you have prior to the event (input).
     /// </summary>
     [DataContract(Name = "UnitsRatio")]
     public partial class UnitsRatio : IEquatable<UnitsRatio>, IValidatableObject
