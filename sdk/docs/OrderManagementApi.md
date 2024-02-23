@@ -11,7 +11,7 @@ All URIs are relative to *https://www.lusid.com/api*
 
 <a id="booktransactions"></a>
 # **BookTransactions**
-> BookTransactionsResponse BookTransactions (List<ResourceId> resourceId, bool? applyFeesAndCommission = null)
+> BookTransactionsResponse BookTransactions (BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = null)
 
 [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
 
@@ -37,13 +37,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrderManagementApi(config);
-            var resourceId = new List<ResourceId>(); // List<ResourceId> | The allocations to create transactions for
+            var bookTransactionsRequest = new BookTransactionsRequest(); // BookTransactionsRequest | The allocations to create transactions for
             var applyFeesAndCommission = true;  // bool? | Whether to apply fees and commissions to transactions (default: true) (optional)  (default to true)
 
             try
             {
                 // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-                BookTransactionsResponse result = apiInstance.BookTransactions(resourceId, applyFeesAndCommission);
+                BookTransactionsResponse result = apiInstance.BookTransactions(bookTransactionsRequest, applyFeesAndCommission);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
-    ApiResponse<BookTransactionsResponse> response = apiInstance.BookTransactionsWithHttpInfo(resourceId, applyFeesAndCommission);
+    ApiResponse<BookTransactionsResponse> response = apiInstance.BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -81,7 +81,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **resourceId** | [**List&lt;ResourceId&gt;**](ResourceId.md) | The allocations to create transactions for |  |
+| **bookTransactionsRequest** | [**BookTransactionsRequest**](BookTransactionsRequest.md) | The allocations to create transactions for |  |
 | **applyFeesAndCommission** | **bool?** | Whether to apply fees and commissions to transactions (default: true) | [optional] [default to true] |
 
 ### Return type

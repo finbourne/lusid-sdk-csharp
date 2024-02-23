@@ -31,11 +31,11 @@ namespace Lusid.Sdk.Api
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BookTransactionsResponse</returns>
-        BookTransactionsResponse BookTransactions(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
+        BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
@@ -44,11 +44,11 @@ namespace Lusid.Sdk.Api
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
+        ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -136,12 +136,12 @@ namespace Lusid.Sdk.Api
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BookTransactionsResponse</returns>
-        System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source.
@@ -150,12 +150,12 @@ namespace Lusid.Sdk.Api
         /// Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </remarks>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] CreateOrders: Upsert a Block and associated orders
         /// </summary>
@@ -354,13 +354,13 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BookTransactionsResponse</returns>
-        public BookTransactionsResponse BookTransactions(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0)
+        public BookTransactionsResponse BookTransactions(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = BookTransactionsWithHttpInfo(resourceId, applyFeesAndCommission);
+            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = BookTransactionsWithHttpInfo(bookTransactionsRequest, applyFeesAndCommission);
             return localVarResponse.Data;
         }
 
@@ -368,16 +368,16 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BookTransactionsResponse</returns>
-        public Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> BookTransactionsWithHttpInfo(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0)
         {
-            // verify the required parameter 'resourceId' is set
-            if (resourceId == null)
+            // verify the required parameter 'bookTransactionsRequest' is set
+            if (bookTransactionsRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'resourceId' when calling OrderManagementApi->BookTransactions");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'bookTransactionsRequest' when calling OrderManagementApi->BookTransactions");
             }
 
             Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
@@ -412,7 +412,7 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "applyFeesAndCommission", applyFeesAndCommission));
             }
-            localVarRequestOptions.Data = resourceId;
+            localVarRequestOptions.Data = bookTransactionsRequest;
 
             localVarRequestOptions.Operation = "OrderManagementApi.BookTransactions";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -452,14 +452,14 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BookTransactionsResponse</returns>
-        public async System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BookTransactionsResponse> BookTransactionsAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = await BookTransactionsWithHttpInfoAsync(resourceId, applyFeesAndCommission, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse> localVarResponse = await BookTransactionsWithHttpInfoAsync(bookTransactionsRequest, applyFeesAndCommission, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -467,17 +467,17 @@ namespace Lusid.Sdk.Api
         /// [EXPERIMENTAL] BookTransactions: Books transactions using specific allocations as a source. Takes a collection of allocation IDs, and maps fields from those allocations and related orders onto new transactions.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resourceId">The allocations to create transactions for</param>
+        /// <param name="bookTransactionsRequest">The allocations to create transactions for</param>
         /// <param name="applyFeesAndCommission">Whether to apply fees and commissions to transactions (default: true) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BookTransactionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(List<ResourceId> resourceId, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<BookTransactionsResponse>> BookTransactionsWithHttpInfoAsync(BookTransactionsRequest bookTransactionsRequest, bool? applyFeesAndCommission = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'resourceId' is set
-            if (resourceId == null)
+            // verify the required parameter 'bookTransactionsRequest' is set
+            if (bookTransactionsRequest == null)
             {
-                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'resourceId' when calling OrderManagementApi->BookTransactions");
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'bookTransactionsRequest' when calling OrderManagementApi->BookTransactions");
             }
 
 
@@ -513,7 +513,7 @@ namespace Lusid.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "applyFeesAndCommission", applyFeesAndCommission));
             }
-            localVarRequestOptions.Data = resourceId;
+            localVarRequestOptions.Data = bookTransactionsRequest;
 
             localVarRequestOptions.Operation = "OrderManagementApi.BookTransactions";
             localVarRequestOptions.OperationIndex = operationIndex;
