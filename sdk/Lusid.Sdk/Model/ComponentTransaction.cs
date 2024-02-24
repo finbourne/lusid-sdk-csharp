@@ -39,7 +39,8 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">displayName (required).</param>
         /// <param name="condition">condition.</param>
         /// <param name="transactionFieldMap">transactionFieldMap (required).</param>
-        public ComponentTransaction(string displayName = default(string), string condition = default(string), TransactionFieldMap transactionFieldMap = default(TransactionFieldMap))
+        /// <param name="transactionPropertyMap">transactionPropertyMap (required).</param>
+        public ComponentTransaction(string displayName = default(string), string condition = default(string), TransactionFieldMap transactionFieldMap = default(TransactionFieldMap), List<TransactionPropertyMap> transactionPropertyMap = default(List<TransactionPropertyMap>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -53,6 +54,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("transactionFieldMap is a required property for ComponentTransaction and cannot be null");
             }
             this.TransactionFieldMap = transactionFieldMap;
+            // to ensure "transactionPropertyMap" is required (not null)
+            if (transactionPropertyMap == null)
+            {
+                throw new ArgumentNullException("transactionPropertyMap is a required property for ComponentTransaction and cannot be null");
+            }
+            this.TransactionPropertyMap = transactionPropertyMap;
             this.Condition = condition;
         }
 
@@ -75,6 +82,12 @@ namespace Lusid.Sdk.Model
         public TransactionFieldMap TransactionFieldMap { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransactionPropertyMap
+        /// </summary>
+        [DataMember(Name = "transactionPropertyMap", IsRequired = true, EmitDefaultValue = true)]
+        public List<TransactionPropertyMap> TransactionPropertyMap { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +98,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  TransactionFieldMap: ").Append(TransactionFieldMap).Append("\n");
+            sb.Append("  TransactionPropertyMap: ").Append(TransactionPropertyMap).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +148,12 @@ namespace Lusid.Sdk.Model
                     this.TransactionFieldMap == input.TransactionFieldMap ||
                     (this.TransactionFieldMap != null &&
                     this.TransactionFieldMap.Equals(input.TransactionFieldMap))
+                ) && 
+                (
+                    this.TransactionPropertyMap == input.TransactionPropertyMap ||
+                    this.TransactionPropertyMap != null &&
+                    input.TransactionPropertyMap != null &&
+                    this.TransactionPropertyMap.SequenceEqual(input.TransactionPropertyMap)
                 );
         }
 
@@ -157,6 +177,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionFieldMap != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionFieldMap.GetHashCode();
+                }
+                if (this.TransactionPropertyMap != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionPropertyMap.GetHashCode();
                 }
                 return hashCode;
             }
