@@ -73,6 +73,29 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfBlockAndOrders</returns>
         ApiResponse<ResourceListOfBlockAndOrders> CreateOrdersWithHttpInfo(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
+        /// </summary>
+        /// <remarks>
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfMovedOrderToDifferentBlockResponse</returns>
+        ResourceListOfMovedOrderToDifferentBlockResponse MoveOrders(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
+        /// </summary>
+        /// <remarks>
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
+        ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
         /// </summary>
         /// <remarks>
@@ -181,6 +204,31 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfBlockAndOrders)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfBlockAndOrders>> CreateOrdersWithHttpInfoAsync(BlockAndOrdersCreateRequest blockAndOrdersCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
+        /// </summary>
+        /// <remarks>
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
+        System.Threading.Tasks.Task<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block
+        /// </summary>
+        /// <remarks>
+        /// Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfMovedOrderToDifferentBlockResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] PlaceBlocks: Places blocks for a given list of placement requests.
         /// </summary>
@@ -729,6 +777,194 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateOrders", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ResourceListOfMovedOrderToDifferentBlockResponse</returns>
+        public ResourceListOfMovedOrderToDifferentBlockResponse MoveOrders(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> localVarResponse = MoveOrdersWithHttpInfo(moveOrdersToDifferentBlocksRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersWithHttpInfo(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'moveOrdersToDifferentBlocksRequest' is set
+            if (moveOrdersToDifferentBlocksRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'moveOrdersToDifferentBlocksRequest' when calling OrderManagementApi->MoveOrders");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = moveOrdersToDifferentBlocksRequest;
+
+            localVarRequestOptions.Operation = "OrderManagementApi.MoveOrders";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ResourceListOfMovedOrderToDifferentBlockResponse>("/api/ordermanagement/moveorders", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MoveOrders", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ResourceListOfMovedOrderToDifferentBlockResponse</returns>
+        public async System.Threading.Tasks.Task<ResourceListOfMovedOrderToDifferentBlockResponse> MoveOrdersAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse> localVarResponse = await MoveOrdersWithHttpInfoAsync(moveOrdersToDifferentBlocksRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] MoveOrders: Move orders to new or existing block Move an order to a block, creating the block if it does not already exist.   This will fail if the block exists and already references orders with differing fields to the upsert request.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="moveOrdersToDifferentBlocksRequest">The collection of order and destination block ids.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ResourceListOfMovedOrderToDifferentBlockResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ResourceListOfMovedOrderToDifferentBlockResponse>> MoveOrdersWithHttpInfoAsync(MoveOrdersToDifferentBlocksRequest moveOrdersToDifferentBlocksRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'moveOrdersToDifferentBlocksRequest' is set
+            if (moveOrdersToDifferentBlocksRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'moveOrdersToDifferentBlocksRequest' when calling OrderManagementApi->MoveOrders");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = moveOrdersToDifferentBlocksRequest;
+
+            localVarRequestOptions.Operation = "OrderManagementApi.MoveOrders";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ResourceListOfMovedOrderToDifferentBlockResponse>("/api/ordermanagement/moveorders", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MoveOrders", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
