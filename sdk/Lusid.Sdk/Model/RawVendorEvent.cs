@@ -41,9 +41,8 @@ namespace Lusid.Sdk.Model
         /// <param name="effectiveAt">The effective date of the event (required).</param>
         /// <param name="eventValue">eventValue (required).</param>
         /// <param name="eventType">What type of internal event does this represent; reset, exercise, amortisation etc. (required).</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required) (default to &quot;RawVendorEvent&quot;).</param>
-        public RawVendorEvent(DateTimeOffset effectiveAt = default(DateTimeOffset), LifeCycleEventValue eventValue = default(LifeCycleEventValue), string eventType = default(string), string eventStatus = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public RawVendorEvent(DateTimeOffset effectiveAt = default(DateTimeOffset), LifeCycleEventValue eventValue = default(LifeCycleEventValue), string eventType = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.EffectiveAt = effectiveAt;
             // to ensure "eventValue" is required (not null)
@@ -58,12 +57,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("eventType is a required property for RawVendorEvent and cannot be null");
             }
             this.EventType = eventType;
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for RawVendorEvent and cannot be null");
-            }
-            this.EventStatus = eventStatus;
         }
 
         /// <summary>
@@ -87,13 +80,6 @@ namespace Lusid.Sdk.Model
         public string EventType { get; set; }
 
         /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
-        /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,7 +91,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
             sb.Append("  EventValue: ").Append(EventValue).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,11 +140,6 @@ namespace Lusid.Sdk.Model
                     this.EventType == input.EventType ||
                     (this.EventType != null &&
                     this.EventType.Equals(input.EventType))
-                ) && base.Equals(input) && 
-                (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
                 );
         }
 
@@ -183,10 +163,6 @@ namespace Lusid.Sdk.Model
                 if (this.EventType != null)
                 {
                     hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                }
-                if (this.EventStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
                 }
                 return hashCode;
             }
@@ -217,12 +193,6 @@ namespace Lusid.Sdk.Model
             if (this.EventType != null && this.EventType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be greater than 1.", new [] { "EventType" });
-            }
-
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
             }
 
             yield break;

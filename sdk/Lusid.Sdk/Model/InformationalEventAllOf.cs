@@ -178,18 +178,11 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InformationalEventAllOf" /> class.
         /// </summary>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
         /// <param name="anchorDate">In the case of a point event, the single date on which the event occurs. In the case of an event which is  spread over a window, e.g. a barrier or American option, the start of that window. (required).</param>
         /// <param name="diagnostics">diagnostics.</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required).</param>
-        public InformationalEventAllOf(string eventStatus = default(string), DateTimeOffset anchorDate = default(DateTimeOffset), ResultValueDictionary diagnostics = default(ResultValueDictionary), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public InformationalEventAllOf(DateTimeOffset anchorDate = default(DateTimeOffset), ResultValueDictionary diagnostics = default(ResultValueDictionary), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for InformationalEventAllOf and cannot be null");
-            }
-            this.EventStatus = eventStatus;
             this.AnchorDate = anchorDate;
             this.InstrumentEventType = instrumentEventType;
             this.Diagnostics = diagnostics;
@@ -210,13 +203,6 @@ namespace Lusid.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
-        /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
-
         /// <summary>
         /// In the case of a point event, the single date on which the event occurs. In the case of an event which is  spread over a window, e.g. a barrier or American option, the start of that window.
         /// </summary>
@@ -254,7 +240,6 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InformationalEventAllOf {\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
             sb.Append("  EventWindowEnd: ").Append(EventWindowEnd).Append("\n");
             sb.Append("  Diagnostics: ").Append(Diagnostics).Append("\n");
@@ -300,11 +285,6 @@ namespace Lusid.Sdk.Model
                     this.EventType.Equals(input.EventType))
                 ) && 
                 (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
-                ) && 
-                (
                     this.AnchorDate == input.AnchorDate ||
                     (this.AnchorDate != null &&
                     this.AnchorDate.Equals(input.AnchorDate))
@@ -338,10 +318,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EventType.GetHashCode();
                 }
-                if (this.EventStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
-                }
                 if (this.AnchorDate != null)
                 {
                     hashCode = (hashCode * 59) + this.AnchorDate.GetHashCode();
@@ -370,12 +346,6 @@ namespace Lusid.Sdk.Model
             if (this.EventType != null && this.EventType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be greater than 1.", new [] { "EventType" });
-            }
-
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
             }
 
             yield break;

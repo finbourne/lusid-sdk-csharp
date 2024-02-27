@@ -41,10 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="amountReduced">The amount reduced in this amortisation event.  That is, the difference between the previous notional amount and the current notional amount as set in this event. (required).</param>
         /// <param name="domCcy">Domestic currency of the originating instrument (required).</param>
         /// <param name="payReceive">Is this event in relation to the Pay or Receive leg (required).</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
         /// <param name="paymentDate">The date the principal payment is to be made. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required) (default to &quot;AmortisationEvent&quot;).</param>
-        public AmortisationEvent(decimal amountReduced = default(decimal), string domCcy = default(string), string payReceive = default(string), string eventStatus = default(string), DateTimeOffset paymentDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public AmortisationEvent(decimal amountReduced = default(decimal), string domCcy = default(string), string payReceive = default(string), DateTimeOffset paymentDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.AmountReduced = amountReduced;
             // to ensure "domCcy" is required (not null)
@@ -59,12 +58,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("payReceive is a required property for AmortisationEvent and cannot be null");
             }
             this.PayReceive = payReceive;
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for AmortisationEvent and cannot be null");
-            }
-            this.EventStatus = eventStatus;
             this.PaymentDate = paymentDate;
         }
 
@@ -90,13 +83,6 @@ namespace Lusid.Sdk.Model
         public string PayReceive { get; set; }
 
         /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
-        /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
-
-        /// <summary>
         /// The date the principal payment is to be made.
         /// </summary>
         /// <value>The date the principal payment is to be made.</value>
@@ -115,7 +101,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmountReduced: ").Append(AmountReduced).Append("\n");
             sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  PayReceive: ").Append(PayReceive).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -167,11 +152,6 @@ namespace Lusid.Sdk.Model
                     this.PayReceive.Equals(input.PayReceive))
                 ) && base.Equals(input) && 
                 (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
-                ) && base.Equals(input) && 
-                (
                     this.PaymentDate == input.PaymentDate ||
                     (this.PaymentDate != null &&
                     this.PaymentDate.Equals(input.PaymentDate))
@@ -195,10 +175,6 @@ namespace Lusid.Sdk.Model
                 if (this.PayReceive != null)
                 {
                     hashCode = (hashCode * 59) + this.PayReceive.GetHashCode();
-                }
-                if (this.EventStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
                 }
                 if (this.PaymentDate != null)
                 {
@@ -233,12 +209,6 @@ namespace Lusid.Sdk.Model
             if (this.PayReceive != null && this.PayReceive.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PayReceive, length must be greater than 1.", new [] { "PayReceive" });
-            }
-
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
             }
 
             yield break;

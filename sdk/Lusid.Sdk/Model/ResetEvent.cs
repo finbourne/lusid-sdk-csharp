@@ -41,10 +41,9 @@ namespace Lusid.Sdk.Model
         /// <param name="value">The quantity associated with the reset. This will only be populated if the information is known..</param>
         /// <param name="resetType">The type of the reset; e.g. RIC, Currency-pair (required).</param>
         /// <param name="fixingSource">Fixing identification source, if available..</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
         /// <param name="fixingDate">The date the reset fixes, or is observed upon. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required) (default to &quot;ResetEvent&quot;).</param>
-        public ResetEvent(decimal? value = default(decimal?), string resetType = default(string), string fixingSource = default(string), string eventStatus = default(string), DateTimeOffset fixingDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public ResetEvent(decimal? value = default(decimal?), string resetType = default(string), string fixingSource = default(string), DateTimeOffset fixingDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "resetType" is required (not null)
             if (resetType == null)
@@ -52,12 +51,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("resetType is a required property for ResetEvent and cannot be null");
             }
             this.ResetType = resetType;
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for ResetEvent and cannot be null");
-            }
-            this.EventStatus = eventStatus;
             this.FixingDate = fixingDate;
             this.Value = value;
             this.FixingSource = fixingSource;
@@ -85,13 +78,6 @@ namespace Lusid.Sdk.Model
         public string FixingSource { get; set; }
 
         /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
-        /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
-
-        /// <summary>
         /// The date the reset fixes, or is observed upon.
         /// </summary>
         /// <value>The date the reset fixes, or is observed upon.</value>
@@ -110,7 +96,6 @@ namespace Lusid.Sdk.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  ResetType: ").Append(ResetType).Append("\n");
             sb.Append("  FixingSource: ").Append(FixingSource).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             sb.Append("  FixingDate: ").Append(FixingDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -163,11 +148,6 @@ namespace Lusid.Sdk.Model
                     this.FixingSource.Equals(input.FixingSource))
                 ) && base.Equals(input) && 
                 (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
-                ) && base.Equals(input) && 
-                (
                     this.FixingDate == input.FixingDate ||
                     (this.FixingDate != null &&
                     this.FixingDate.Equals(input.FixingDate))
@@ -194,10 +174,6 @@ namespace Lusid.Sdk.Model
                 if (this.FixingSource != null)
                 {
                     hashCode = (hashCode * 59) + this.FixingSource.GetHashCode();
-                }
-                if (this.EventStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
                 }
                 if (this.FixingDate != null)
                 {
@@ -232,12 +208,6 @@ namespace Lusid.Sdk.Model
             if (this.ResetType != null && this.ResetType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResetType, length must be greater than 1.", new [] { "ResetType" });
-            }
-
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
             }
 
             yield break;

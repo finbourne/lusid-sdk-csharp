@@ -39,10 +39,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ExerciseEvent" /> class.
         /// </summary>
         /// <param name="instrument">instrument (required).</param>
-        /// <param name="eventStatus">What is the event status, is it a known (ie historic) or unknown (ie projected) event? (required).</param>
         /// <param name="anchorDate">The date the exercise window starts, or point it takes effect on. (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required) (default to &quot;ExerciseEvent&quot;).</param>
-        public ExerciseEvent(LusidInstrument instrument = default(LusidInstrument), string eventStatus = default(string), DateTimeOffset anchorDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        public ExerciseEvent(LusidInstrument instrument = default(LusidInstrument), DateTimeOffset anchorDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             // to ensure "instrument" is required (not null)
             if (instrument == null)
@@ -50,12 +49,6 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrument is a required property for ExerciseEvent and cannot be null");
             }
             this.Instrument = instrument;
-            // to ensure "eventStatus" is required (not null)
-            if (eventStatus == null)
-            {
-                throw new ArgumentNullException("eventStatus is a required property for ExerciseEvent and cannot be null");
-            }
-            this.EventStatus = eventStatus;
             this.AnchorDate = anchorDate;
         }
 
@@ -64,13 +57,6 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "instrument", IsRequired = true, EmitDefaultValue = true)]
         public LusidInstrument Instrument { get; set; }
-
-        /// <summary>
-        /// What is the event status, is it a known (ie historic) or unknown (ie projected) event?
-        /// </summary>
-        /// <value>What is the event status, is it a known (ie historic) or unknown (ie projected) event?</value>
-        [DataMember(Name = "eventStatus", IsRequired = true, EmitDefaultValue = true)]
-        public string EventStatus { get; set; }
 
         /// <summary>
         /// The date the exercise window starts, or point it takes effect on.
@@ -104,7 +90,6 @@ namespace Lusid.Sdk.Model
             sb.Append("class ExerciseEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
-            sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             sb.Append("  AnchorDate: ").Append(AnchorDate).Append("\n");
             sb.Append("  EventWindowEnd: ").Append(EventWindowEnd).Append("\n");
             sb.Append("}\n");
@@ -148,11 +133,6 @@ namespace Lusid.Sdk.Model
                     this.Instrument.Equals(input.Instrument))
                 ) && base.Equals(input) && 
                 (
-                    this.EventStatus == input.EventStatus ||
-                    (this.EventStatus != null &&
-                    this.EventStatus.Equals(input.EventStatus))
-                ) && base.Equals(input) && 
-                (
                     this.AnchorDate == input.AnchorDate ||
                     (this.AnchorDate != null &&
                     this.AnchorDate.Equals(input.AnchorDate))
@@ -176,10 +156,6 @@ namespace Lusid.Sdk.Model
                 if (this.Instrument != null)
                 {
                     hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
-                }
-                if (this.EventStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventStatus.GetHashCode();
                 }
                 if (this.AnchorDate != null)
                 {
@@ -214,12 +190,6 @@ namespace Lusid.Sdk.Model
             {
                 yield return x;
             }
-            // EventStatus (string) minLength
-            if (this.EventStatus != null && this.EventStatus.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventStatus, length must be greater than 1.", new [] { "EventStatus" });
-            }
-
             yield break;
         }
     }
