@@ -6,12 +6,13 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**AdjustHoldings**](TransactionPortfoliosApi.md#adjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings | AdjustHoldings: Adjust holdings |
 | [**BatchAdjustHoldings**](TransactionPortfoliosApi.md#batchadjustholdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings/$batchAdjust | [EARLY ACCESS] BatchAdjustHoldings: Batch adjust holdings |
+| [**BatchCreateTradeTickets**](TransactionPortfoliosApi.md#batchcreatetradetickets) | **POST** /api/transactionportfolios/{scope}/{code}/$batchtradetickets | [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets |
 | [**BatchUpsertTransactions**](TransactionPortfoliosApi.md#batchupserttransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$batchUpsert | [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions |
 | [**BuildTransactions**](TransactionPortfoliosApi.md#buildtransactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions |
 | [**CancelAdjustHoldings**](TransactionPortfoliosApi.md#canceladjustholdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings |
 | [**CancelTransactions**](TransactionPortfoliosApi.md#canceltransactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | CancelTransactions: Cancel transactions |
 | [**CreatePortfolio**](TransactionPortfoliosApi.md#createportfolio) | **POST** /api/transactionportfolios/{scope} | CreatePortfolio: Create portfolio |
-| [**CreateTradeTicket**](TransactionPortfoliosApi.md#createtradeticket) | **POST** /api/transactionportfolios/{scope}/{code}/$tradeticket | [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket |
+| [**CreateTradeTicket**](TransactionPortfoliosApi.md#createtradeticket) | **POST** /api/transactionportfolios/{scope}/{code}/$tradeticket | [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket |
 | [**DeleteCustodianAccounts**](TransactionPortfoliosApi.md#deletecustodianaccounts) | **POST** /api/transactionportfolios/{scope}/{code}/custodianaccounts/$delete | [EXPERIMENTAL] DeleteCustodianAccounts: Soft or hard delete multiple custodian accounts |
 | [**DeletePropertiesFromTransaction**](TransactionPortfoliosApi.md#deletepropertiesfromtransaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | DeletePropertiesFromTransaction: Delete properties from transaction |
 | [**GetA2BData**](TransactionPortfoliosApi.md#geta2bdata) | **GET** /api/transactionportfolios/{scope}/{code}/a2b | GetA2BData: Get A2B data |
@@ -243,6 +244,106 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The successful AdjustHolding requests along with any failures |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="batchcreatetradetickets"></a>
+# **BatchCreateTradeTickets**
+> CreateTradeTicketsResponse BatchCreateTradeTickets (string scope, string code, List<LusidTradeTicket> lusidTradeTicket)
+
+[EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+
+Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class BatchCreateTradeTicketsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TransactionPortfoliosApi(config);
+            var scope = "scope_example";  // string | The scope of the transaction portfolio.
+            var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
+            var lusidTradeTicket = new List<LusidTradeTicket>(); // List<LusidTradeTicket> | the trade tickets to create
+
+            try
+            {
+                // [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+                CreateTradeTicketsResponse result = apiInstance.BatchCreateTradeTickets(scope, code, lusidTradeTicket);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TransactionPortfoliosApi.BatchCreateTradeTickets: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchCreateTradeTicketsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+    ApiResponse<CreateTradeTicketsResponse> response = apiInstance.BatchCreateTradeTicketsWithHttpInfo(scope, code, lusidTradeTicket);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TransactionPortfoliosApi.BatchCreateTradeTicketsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope of the transaction portfolio. |  |
+| **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
+| **lusidTradeTicket** | [**List&lt;LusidTradeTicket&gt;**](LusidTradeTicket.md) | the trade tickets to create |  |
+
+### Return type
+
+[**CreateTradeTicketsResponse**](CreateTradeTicketsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The successfully created trade ticket requests along with any failures |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 
@@ -764,7 +865,7 @@ catch (ApiException e)
 # **CreateTradeTicket**
 > LusidTradeTicket CreateTradeTicket (string scope, string code, LusidTradeTicket? lusidTradeTicket = null)
 
-[EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+[EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
 
 Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
 
@@ -794,7 +895,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+                // [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
                 LusidTradeTicket result = apiInstance.CreateTradeTicket(scope, code, lusidTradeTicket);
                 Debug.WriteLine(result);
             }
@@ -815,7 +916,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+    // [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
     ApiResponse<LusidTradeTicket> response = apiInstance.CreateTradeTicketWithHttpInfo(scope, code, lusidTradeTicket);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

@@ -87,6 +87,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchAdjustHoldingsResponse</returns>
         ApiResponse<BatchAdjustHoldingsResponse> BatchAdjustHoldingsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// </summary>
+        /// <remarks>
+        /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CreateTradeTicketsResponse</returns>
+        CreateTradeTicketsResponse BatchCreateTradeTickets(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// </summary>
+        /// <remarks>
+        /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CreateTradeTicketsResponse</returns>
+        ApiResponse<CreateTradeTicketsResponse> BatchCreateTradeTicketsWithHttpInfo(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
         /// <remarks>
@@ -234,7 +261,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Portfolio</returns>
         ApiResponse<Portfolio> CreatePortfolioWithHttpInfo(string scope, CreateTransactionPortfolioRequest createTransactionPortfolioRequest, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -248,7 +275,7 @@ namespace Lusid.Sdk.Api
         LusidTradeTicket CreateTradeTicket(string scope, string code, LusidTradeTicket? lusidTradeTicket = default(LusidTradeTicket?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -1251,6 +1278,35 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchAdjustHoldingsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchAdjustHoldingsResponse>> BatchAdjustHoldingsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, AdjustHoldingForDateRequest> requestBody, List<string>? reconciliationMethods = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// </summary>
+        /// <remarks>
+        /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateTradeTicketsResponse</returns>
+        System.Threading.Tasks.Task<CreateTradeTicketsResponse> BatchCreateTradeTicketsAsync(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets
+        /// </summary>
+        /// <remarks>
+        /// Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateTradeTicketsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateTradeTicketsResponse>> BatchCreateTradeTicketsWithHttpInfoAsync(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions
         /// </summary>
         /// <remarks>
@@ -1408,7 +1464,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Portfolio)</returns>
         System.Threading.Tasks.Task<ApiResponse<Portfolio>> CreatePortfolioWithHttpInfoAsync(string scope, CreateTransactionPortfolioRequest createTransactionPortfolioRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -1423,7 +1479,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<LusidTradeTicket> CreateTradeTicketAsync(string scope, string code, LusidTradeTicket? lusidTradeTicket = default(LusidTradeTicket?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket
         /// </summary>
         /// <remarks>
         /// Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
@@ -3031,6 +3087,230 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CreateTradeTicketsResponse</returns>
+        public CreateTradeTicketsResponse BatchCreateTradeTickets(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<CreateTradeTicketsResponse> localVarResponse = BatchCreateTradeTicketsWithHttpInfo(scope, code, lusidTradeTicket);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CreateTradeTicketsResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<CreateTradeTicketsResponse> BatchCreateTradeTicketsWithHttpInfo(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->BatchCreateTradeTickets");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->BatchCreateTradeTickets");
+            }
+
+            // verify the required parameter 'lusidTradeTicket' is set
+            if (lusidTradeTicket == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'lusidTradeTicket' when calling TransactionPortfoliosApi->BatchCreateTradeTickets");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = lusidTradeTicket;
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchCreateTradeTickets";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CreateTradeTicketsResponse>("/api/transactionportfolios/{scope}/{code}/$batchtradetickets", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchCreateTradeTickets", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateTradeTicketsResponse</returns>
+        public async System.Threading.Tasks.Task<CreateTradeTicketsResponse> BatchCreateTradeTicketsAsync(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<CreateTradeTicketsResponse> localVarResponse = await BatchCreateTradeTicketsWithHttpInfoAsync(scope, code, lusidTradeTicket, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] BatchCreateTradeTickets: Batch Create Trade Tickets Batch create trade tickets. Each ticket is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the transaction portfolio.</param>
+        /// <param name="code">The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.</param>
+        /// <param name="lusidTradeTicket">the trade tickets to create</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateTradeTicketsResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<CreateTradeTicketsResponse>> BatchCreateTradeTicketsWithHttpInfoAsync(string scope, string code, List<LusidTradeTicket> lusidTradeTicket, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling TransactionPortfoliosApi->BatchCreateTradeTickets");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling TransactionPortfoliosApi->BatchCreateTradeTickets");
+            }
+
+            // verify the required parameter 'lusidTradeTicket' is set
+            if (lusidTradeTicket == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'lusidTradeTicket' when calling TransactionPortfoliosApi->BatchCreateTradeTickets");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = lusidTradeTicket;
+
+            localVarRequestOptions.Operation = "TransactionPortfoliosApi.BatchCreateTradeTickets";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateTradeTicketsResponse>("/api/transactionportfolios/{scope}/{code}/$batchtradetickets", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchCreateTradeTickets", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EARLY ACCESS] BatchUpsertTransactions: Batch upsert transactions Create or update transactions in the transaction portfolio. A transaction will be updated  if it already exists and created if it does not.    Each request must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each transaction in the response.    Note: If using partial failure modes, then it is important to check the response body for failures as any failures will still return a 200 status code
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4207,7 +4487,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4222,7 +4502,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4311,7 +4591,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -4327,7 +4607,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
+        /// [EARLY ACCESS] CreateTradeTicket: Create Trade Ticket Upsert a trade ticket. This is broadly equivalent to a singular call to upsert an instrument, then a counterparty and finally  a transaction that makes use of the two. It can be viewed as a utility function or part of a workflow more familiar to users  with OTC systems than flow and equity trading ones.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
