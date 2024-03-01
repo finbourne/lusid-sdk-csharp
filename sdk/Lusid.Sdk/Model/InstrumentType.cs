@@ -248,7 +248,13 @@ namespace Lusid.Sdk.Model
         /// Enum FundShareClass for value: FundShareClass
         /// </summary>
         [EnumMember(Value = "FundShareClass")]
-        FundShareClass = 37
+        FundShareClass = 37,
+
+        /// <summary>
+        /// Enum FlexibleLoan for value: FlexibleLoan
+        /// </summary>
+        [EnumMember(Value = "FlexibleLoan")]
+        FlexibleLoan = 38
 
     }
 

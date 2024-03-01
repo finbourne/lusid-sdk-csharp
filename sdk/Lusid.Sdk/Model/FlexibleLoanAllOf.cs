@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ComplexBondAllOf
+    /// FlexibleLoanAllOf
     /// </summary>
-    [DataContract(Name = "ComplexBond_allOf")]
-    public partial class ComplexBondAllOf : IEquatable<ComplexBondAllOf>, IValidatableObject
+    [DataContract(Name = "FlexibleLoan_allOf")]
+    public partial class FlexibleLoanAllOf : IEquatable<FlexibleLoanAllOf>, IValidatableObject
     {
         /// <summary>
         /// The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan
@@ -273,72 +273,64 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentTypeEnum InstrumentType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComplexBondAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FlexibleLoanAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ComplexBondAllOf() { }
+        protected FlexibleLoanAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComplexBondAllOf" /> class.
+        /// Initializes a new instance of the <see cref="FlexibleLoanAllOf" /> class.
         /// </summary>
-        /// <param name="identifiers">External market codes and identifiers for the bond, e.g. ISIN..</param>
-        /// <param name="calculationType">The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon]..</param>
-        /// <param name="schedules">schedules..</param>
-        /// <param name="roundingConventions">Rounding conventions for analytics, if any..</param>
-        /// <param name="assetBacked">If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment..</param>
-        /// <param name="assetPoolIdentifier">Identifier used to retrieve pool factor information about this bond from the quote store. This is expected to  be the bond&#39;s ISIN as the pricer for asset backed securities will specifically look for an identifier of  ISIN identifier type when searching for pool factor reset values in the quote store..</param>
+        /// <param name="startDate">The start date of the instrument. This is normally synonymous with the trade-date. (required).</param>
+        /// <param name="maturityDate">The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it. (required).</param>
+        /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
+        /// <param name="schedules">Repayment schedules for the loan. (required).</param>
         /// <param name="instrumentType">The available values are: QuotedSecurity, InterestRateSwap, FxForward, Future, ExoticInstrument, FxOption, CreditDefaultSwap, InterestRateSwaption, Bond, EquityOption, FixedLeg, FloatingLeg, BespokeCashFlowsLeg, Unknown, TermDeposit, ContractForDifference, EquitySwap, CashPerpetual, CapFloor, CashSettled, CdsIndex, Basket, FundingLeg, FxSwap, ForwardRateAgreement, SimpleInstrument, Repo, Equity, ExchangeTradedOption, ReferenceInstrument, ComplexBond, InflationLinkedBond, InflationSwap, SimpleCashFlowLoan, TotalReturnSwap, InflationLeg, FundShareClass, FlexibleLoan (required).</param>
-        public ComplexBondAllOf(Dictionary<string, string> identifiers = default(Dictionary<string, string>), string calculationType = default(string), List<Schedule> schedules = default(List<Schedule>), List<RoundingConvention> roundingConventions = default(List<RoundingConvention>), bool? assetBacked = default(bool?), string assetPoolIdentifier = default(string), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
+        public FlexibleLoanAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), string domCcy = default(string), List<Schedule> schedules = default(List<Schedule>), InstrumentTypeEnum instrumentType = default(InstrumentTypeEnum))
         {
-            this.InstrumentType = instrumentType;
-            this.Identifiers = identifiers;
-            this.CalculationType = calculationType;
+            this.StartDate = startDate;
+            this.MaturityDate = maturityDate;
+            // to ensure "domCcy" is required (not null)
+            if (domCcy == null)
+            {
+                throw new ArgumentNullException("domCcy is a required property for FlexibleLoanAllOf and cannot be null");
+            }
+            this.DomCcy = domCcy;
+            // to ensure "schedules" is required (not null)
+            if (schedules == null)
+            {
+                throw new ArgumentNullException("schedules is a required property for FlexibleLoanAllOf and cannot be null");
+            }
             this.Schedules = schedules;
-            this.RoundingConventions = roundingConventions;
-            this.AssetBacked = assetBacked;
-            this.AssetPoolIdentifier = assetPoolIdentifier;
+            this.InstrumentType = instrumentType;
         }
 
         /// <summary>
-        /// External market codes and identifiers for the bond, e.g. ISIN.
+        /// The start date of the instrument. This is normally synonymous with the trade-date.
         /// </summary>
-        /// <value>External market codes and identifiers for the bond, e.g. ISIN.</value>
-        [DataMember(Name = "identifiers", EmitDefaultValue = true)]
-        public Dictionary<string, string> Identifiers { get; set; }
+        /// <value>The start date of the instrument. This is normally synonymous with the trade-date.</value>
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset StartDate { get; set; }
 
         /// <summary>
-        /// The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon].
+        /// The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.
         /// </summary>
-        /// <value>The calculation type applied to the bond coupon amount. This is required for bonds that have a particular type of computing the period coupon, such as simple compounding,  irregular coupons etc.  The default CalculationType is &#x60;Standard&#x60;, which returns a coupon amount equal to Principal * Coupon Rate / Coupon Frequency. Coupon Frequency is 12M / Payment Frequency.  Payment Frequency can be 1M, 3M, 6M, 12M etc. So Coupon Frequency can be 12, 4, 2, 1 respectively.    Supported string (enumeration) values are: [Standard, DayCountCoupon, NoCalculationFloater, BrazilFixedCoupon].</value>
-        [DataMember(Name = "calculationType", EmitDefaultValue = true)]
-        public string CalculationType { get; set; }
+        /// <value>The final maturity date of the instrument. This means the last date on which the instruments makes a payment of any amount.  For the avoidance of doubt, that is not necessarily prior to its last sensitivity date for the purposes of risk; e.g. instruments such as  Constant Maturity Swaps (CMS) often have sensitivities to rates that may well be observed or set prior to the maturity date, but refer to a termination date beyond it.</value>
+        [DataMember(Name = "maturityDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset MaturityDate { get; set; }
 
         /// <summary>
-        /// schedules.
+        /// The domestic currency of the instrument.
         /// </summary>
-        /// <value>schedules.</value>
-        [DataMember(Name = "schedules", EmitDefaultValue = true)]
+        /// <value>The domestic currency of the instrument.</value>
+        [DataMember(Name = "domCcy", IsRequired = true, EmitDefaultValue = true)]
+        public string DomCcy { get; set; }
+
+        /// <summary>
+        /// Repayment schedules for the loan.
+        /// </summary>
+        /// <value>Repayment schedules for the loan.</value>
+        [DataMember(Name = "schedules", IsRequired = true, EmitDefaultValue = true)]
         public List<Schedule> Schedules { get; set; }
-
-        /// <summary>
-        /// Rounding conventions for analytics, if any.
-        /// </summary>
-        /// <value>Rounding conventions for analytics, if any.</value>
-        [DataMember(Name = "roundingConventions", EmitDefaultValue = true)]
-        public List<RoundingConvention> RoundingConventions { get; set; }
-
-        /// <summary>
-        /// If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment.
-        /// </summary>
-        /// <value>If this flag is set to true, then the outstanding notional and principal repayments will be calculated based  on pool factors in the quote store. Usually AssetBacked bonds also require a RollConvention setting of   within the FlowConventions any given rates schedule (to ensure payment dates always happen on the same day  of the month) and US Agency MBSs with Pay Delay features also require their rates schedules to include an  ExDividendConfiguration to drive the lag between interest accrual and payment.</value>
-        [DataMember(Name = "assetBacked", EmitDefaultValue = true)]
-        public bool? AssetBacked { get; set; }
-
-        /// <summary>
-        /// Identifier used to retrieve pool factor information about this bond from the quote store. This is expected to  be the bond&#39;s ISIN as the pricer for asset backed securities will specifically look for an identifier of  ISIN identifier type when searching for pool factor reset values in the quote store.
-        /// </summary>
-        /// <value>Identifier used to retrieve pool factor information about this bond from the quote store. This is expected to  be the bond&#39;s ISIN as the pricer for asset backed securities will specifically look for an identifier of  ISIN identifier type when searching for pool factor reset values in the quote store.</value>
-        [DataMember(Name = "assetPoolIdentifier", EmitDefaultValue = true)]
-        public string AssetPoolIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -347,13 +339,11 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ComplexBondAllOf {\n");
-            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
-            sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
+            sb.Append("class FlexibleLoanAllOf {\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
+            sb.Append("  DomCcy: ").Append(DomCcy).Append("\n");
             sb.Append("  Schedules: ").Append(Schedules).Append("\n");
-            sb.Append("  RoundingConventions: ").Append(RoundingConventions).Append("\n");
-            sb.Append("  AssetBacked: ").Append(AssetBacked).Append("\n");
-            sb.Append("  AssetPoolIdentifier: ").Append(AssetPoolIdentifier).Append("\n");
             sb.Append("  InstrumentType: ").Append(InstrumentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -375,15 +365,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ComplexBondAllOf);
+            return this.Equals(input as FlexibleLoanAllOf);
         }
 
         /// <summary>
-        /// Returns true if ComplexBondAllOf instances are equal
+        /// Returns true if FlexibleLoanAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of ComplexBondAllOf to be compared</param>
+        /// <param name="input">Instance of FlexibleLoanAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ComplexBondAllOf input)
+        public bool Equals(FlexibleLoanAllOf input)
         {
             if (input == null)
             {
@@ -391,37 +381,25 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Identifiers == input.Identifiers ||
-                    this.Identifiers != null &&
-                    input.Identifiers != null &&
-                    this.Identifiers.SequenceEqual(input.Identifiers)
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
                 ) && 
                 (
-                    this.CalculationType == input.CalculationType ||
-                    (this.CalculationType != null &&
-                    this.CalculationType.Equals(input.CalculationType))
+                    this.MaturityDate == input.MaturityDate ||
+                    (this.MaturityDate != null &&
+                    this.MaturityDate.Equals(input.MaturityDate))
+                ) && 
+                (
+                    this.DomCcy == input.DomCcy ||
+                    (this.DomCcy != null &&
+                    this.DomCcy.Equals(input.DomCcy))
                 ) && 
                 (
                     this.Schedules == input.Schedules ||
                     this.Schedules != null &&
                     input.Schedules != null &&
                     this.Schedules.SequenceEqual(input.Schedules)
-                ) && 
-                (
-                    this.RoundingConventions == input.RoundingConventions ||
-                    this.RoundingConventions != null &&
-                    input.RoundingConventions != null &&
-                    this.RoundingConventions.SequenceEqual(input.RoundingConventions)
-                ) && 
-                (
-                    this.AssetBacked == input.AssetBacked ||
-                    (this.AssetBacked != null &&
-                    this.AssetBacked.Equals(input.AssetBacked))
-                ) && 
-                (
-                    this.AssetPoolIdentifier == input.AssetPoolIdentifier ||
-                    (this.AssetPoolIdentifier != null &&
-                    this.AssetPoolIdentifier.Equals(input.AssetPoolIdentifier))
                 ) && 
                 (
                     this.InstrumentType == input.InstrumentType ||
@@ -438,29 +416,21 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Identifiers != null)
+                if (this.StartDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
                 }
-                if (this.CalculationType != null)
+                if (this.MaturityDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.CalculationType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                }
+                if (this.DomCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.DomCcy.GetHashCode();
                 }
                 if (this.Schedules != null)
                 {
                     hashCode = (hashCode * 59) + this.Schedules.GetHashCode();
-                }
-                if (this.RoundingConventions != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoundingConventions.GetHashCode();
-                }
-                if (this.AssetBacked != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetBacked.GetHashCode();
-                }
-                if (this.AssetPoolIdentifier != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetPoolIdentifier.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentType.GetHashCode();
                 return hashCode;
@@ -474,18 +444,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AssetPoolIdentifier (string) maxLength
-            if (this.AssetPoolIdentifier != null && this.AssetPoolIdentifier.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetPoolIdentifier, length must be less than 50.", new [] { "AssetPoolIdentifier" });
-            }
-
-            // AssetPoolIdentifier (string) minLength
-            if (this.AssetPoolIdentifier != null && this.AssetPoolIdentifier.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetPoolIdentifier, length must be greater than 0.", new [] { "AssetPoolIdentifier" });
-            }
-
             yield break;
         }
     }
