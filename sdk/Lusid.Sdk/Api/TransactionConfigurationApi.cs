@@ -25,7 +25,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition
+        /// DeleteSideDefinition: Delete the given side definition
         /// </summary>
         /// <remarks>
         /// Delete the side which user specify in the request.
@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteSideDefinition(string side, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition
+        /// DeleteSideDefinition: Delete the given side definition
         /// </summary>
         /// <remarks>
         /// Delete the side which user specify in the request.
@@ -50,7 +50,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteSideDefinitionWithHttpInfo(string side, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type
+        /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
         /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteTransactionType(string source, string type, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type
+        /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
         /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -77,7 +77,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteTransactionTypeWithHttpInfo(string source, string type, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// Delete all the types for the given source and scope.
@@ -90,7 +90,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteTransactionTypeSource(string source, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// Delete all the types for the given source and scope.
@@ -102,7 +102,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteTransactionTypeSourceWithHttpInfo(string source, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label)
+        /// GetSideDefinition: Get the side definition for a given side name( or label)
         /// </summary>
         /// <remarks>
         /// Get the side definition user requested.
@@ -116,7 +116,7 @@ namespace Lusid.Sdk.Api
         SideDefinition GetSideDefinition(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label)
+        /// GetSideDefinition: Get the side definition for a given side name( or label)
         /// </summary>
         /// <remarks>
         /// Get the side definition user requested.
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of SideDefinition</returns>
         ApiResponse<SideDefinition> GetSideDefinitionWithHttpInfo(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
+        /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
         /// <remarks>
         /// Get a single transaction type. Returns failure if not found
@@ -144,7 +144,7 @@ namespace Lusid.Sdk.Api
         TransactionType GetTransactionType(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
+        /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
         /// <remarks>
         /// Get a single transaction type. Returns failure if not found
@@ -158,7 +158,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of TransactionType</returns>
         ApiResponse<TransactionType> GetTransactionTypeWithHttpInfo(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions
+        /// ListSideDefinitions: List the side definitions
         /// </summary>
         /// <remarks>
         /// List all the side definitions in the given scope
@@ -171,7 +171,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfSideDefinition ListSideDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions
+        /// ListSideDefinitions: List the side definitions
         /// </summary>
         /// <remarks>
         /// List all the side definitions in the given scope
@@ -183,7 +183,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
         ApiResponse<ResourceListOfSideDefinition> ListSideDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types
+        /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
         /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
@@ -196,7 +196,7 @@ namespace Lusid.Sdk.Api
         Dictionary<string, List<TransactionType>> ListTransactionTypes(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types
+        /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
         /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
@@ -208,7 +208,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;TransactionType&gt;&gt;</returns>
         ApiResponse<Dictionary<string, List<TransactionType>>> ListTransactionTypesWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition
+        /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -222,7 +222,7 @@ namespace Lusid.Sdk.Api
         SideDefinition SetSideDefinition(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition
+        /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -235,7 +235,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of SideDefinition</returns>
         ApiResponse<SideDefinition> SetSideDefinitionWithHttpInfo(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions
+        /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -248,7 +248,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfSideDefinition SetSideDefinitions(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions
+        /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -260,7 +260,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfSideDefinition</returns>
         ApiResponse<ResourceListOfSideDefinition> SetSideDefinitionsWithHttpInfo(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type
+        /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
         /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -275,7 +275,7 @@ namespace Lusid.Sdk.Api
         TransactionType SetTransactionType(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type
+        /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
         /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -289,7 +289,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of TransactionType</returns>
         ApiResponse<TransactionType> SetTransactionTypeWithHttpInfo(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// The complete set of transaction types for the source.
@@ -303,7 +303,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfTransactionType SetTransactionTypeSource(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// The complete set of transaction types for the source.
@@ -325,7 +325,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition
+        /// DeleteSideDefinition: Delete the given side definition
         /// </summary>
         /// <remarks>
         /// Delete the side which user specify in the request.
@@ -339,7 +339,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteSideDefinitionAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition
+        /// DeleteSideDefinition: Delete the given side definition
         /// </summary>
         /// <remarks>
         /// Delete the side which user specify in the request.
@@ -352,7 +352,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type
+        /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
         /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -367,7 +367,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type
+        /// DeleteTransactionType: Delete a transaction type
         /// </summary>
         /// <remarks>
         /// /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -381,7 +381,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeWithHttpInfoAsync(string source, string type, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// Delete all the types for the given source and scope.
@@ -395,7 +395,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTransactionTypeSourceAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// Delete all the types for the given source and scope.
@@ -408,7 +408,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTransactionTypeSourceWithHttpInfoAsync(string source, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label)
+        /// GetSideDefinition: Get the side definition for a given side name( or label)
         /// </summary>
         /// <remarks>
         /// Get the side definition user requested.
@@ -423,7 +423,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<SideDefinition> GetSideDefinitionAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label)
+        /// GetSideDefinition: Get the side definition for a given side name( or label)
         /// </summary>
         /// <remarks>
         /// Get the side definition user requested.
@@ -437,7 +437,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
         System.Threading.Tasks.Task<ApiResponse<SideDefinition>> GetSideDefinitionWithHttpInfoAsync(string side, string? scope = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
+        /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
         /// <remarks>
         /// Get a single transaction type. Returns failure if not found
@@ -453,7 +453,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<TransactionType> GetTransactionTypeAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type
+        /// GetTransactionType: Get a single transaction configuration type
         /// </summary>
         /// <remarks>
         /// Get a single transaction type. Returns failure if not found
@@ -468,7 +468,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (TransactionType)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionType>> GetTransactionTypeWithHttpInfoAsync(string source, string type, DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions
+        /// ListSideDefinitions: List the side definitions
         /// </summary>
         /// <remarks>
         /// List all the side definitions in the given scope
@@ -482,7 +482,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfSideDefinition> ListSideDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions
+        /// ListSideDefinitions: List the side definitions
         /// </summary>
         /// <remarks>
         /// List all the side definitions in the given scope
@@ -495,7 +495,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfSideDefinition>> ListSideDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types
+        /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
         /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
@@ -509,7 +509,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Dictionary<string, List<TransactionType>>> ListTransactionTypesAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types
+        /// ListTransactionTypes: List transaction types
         /// </summary>
         /// <remarks>
         /// Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
@@ -522,7 +522,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;TransactionType&gt;&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<Dictionary<string, List<TransactionType>>>> ListTransactionTypesWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition
+        /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -537,7 +537,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<SideDefinition> SetSideDefinitionAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition
+        /// SetSideDefinition: Set a side definition
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -551,7 +551,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (SideDefinition)</returns>
         System.Threading.Tasks.Task<ApiResponse<SideDefinition>> SetSideDefinitionWithHttpInfoAsync(string side, SideDefinitionRequest sideDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions
+        /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -565,7 +565,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfSideDefinition> SetSideDefinitionsAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions
+        /// SetSideDefinitions: Set the given side definitions
         /// </summary>
         /// <remarks>
         /// Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
@@ -578,7 +578,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfSideDefinition)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfSideDefinition>> SetSideDefinitionsWithHttpInfoAsync(List<SidesDefinitionRequest> sidesDefinitionRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type
+        /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
         /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -594,7 +594,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<TransactionType> SetTransactionTypeAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type
+        /// SetTransactionType: Set a specific transaction type
         /// </summary>
         /// <remarks>
         /// Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
@@ -609,7 +609,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (TransactionType)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionType>> SetTransactionTypeWithHttpInfoAsync(string source, string type, TransactionTypeRequest transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// The complete set of transaction types for the source.
@@ -624,7 +624,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfTransactionType> SetTransactionTypeSourceAsync(string source, List<TransactionTypeRequest> transactionTypeRequest, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope
         /// </summary>
         /// <remarks>
         /// The complete set of transaction types for the source.
@@ -755,7 +755,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
+        /// DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -769,7 +769,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
+        /// DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -849,7 +849,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
+        /// DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -864,7 +864,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
+        /// DeleteSideDefinition: Delete the given side definition Delete the side which user specify in the request.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -947,7 +947,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -962,7 +962,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1050,7 +1050,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1066,7 +1066,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// DeleteTransactionType: Delete a transaction type /// WARNING! Changing existing transaction types has a material impact on how data, new and old,  is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1157,7 +1157,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -1171,7 +1171,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -1251,7 +1251,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -1266,7 +1266,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
+        /// DeleteTransactionTypeSource: Delete all transaction types for the given source and scope Delete all the types for the given source and scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -1349,7 +1349,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
+        /// GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -1364,7 +1364,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
+        /// GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -1449,7 +1449,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
+        /// GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -1465,7 +1465,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
+        /// GetSideDefinition: Get the side definition for a given side name( or label) Get the side definition user requested.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -1553,7 +1553,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
+        /// GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1569,7 +1569,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
+        /// GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1662,7 +1662,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
+        /// GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1679,7 +1679,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
+        /// GetTransactionType: Get a single transaction configuration type Get a single transaction type. Returns failure if not found
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source that the type is in</param>
@@ -1775,7 +1775,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions List all the side definitions in the given scope
+        /// ListSideDefinitions: List the side definitions List all the side definitions in the given scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
@@ -1789,7 +1789,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions List all the side definitions in the given scope
+        /// ListSideDefinitions: List the side definitions List all the side definitions in the given scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
@@ -1866,7 +1866,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions List all the side definitions in the given scope
+        /// ListSideDefinitions: List the side definitions List all the side definitions in the given scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
@@ -1881,7 +1881,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListSideDefinitions: List the side definitions List all the side definitions in the given scope
+        /// ListSideDefinitions: List the side definitions List all the side definitions in the given scope
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults to returning the latest versions if not specified. (optional)</param>
@@ -1961,7 +1961,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -1975,7 +1975,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2052,7 +2052,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2067,7 +2067,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
+        /// ListTransactionTypes: List transaction types Get the list of current transaction types. For information on the default transaction types provided with  LUSID, see https://support.lusid.com/knowledgebase/article/KA-01873/.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the transaction types. Defaults              to returning the latest versions if not specified. (optional)</param>
@@ -2147,7 +2147,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2162,7 +2162,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2254,7 +2254,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2270,7 +2270,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinition: Set a side definition Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="side">The label to uniquely identify the side.</param>
@@ -2365,7 +2365,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2379,7 +2379,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2463,7 +2463,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2478,7 +2478,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
+        /// SetSideDefinitions: Set the given side definitions Set a new side definition for use in a transaction type. For more information, see https://support.lusid.com/knowledgebase/article/KA-01875.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sidesDefinitionRequest">The list of side definitions to create, or replace.</param>
@@ -2565,7 +2565,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2581,7 +2581,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2681,7 +2681,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2698,7 +2698,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
+        /// SetTransactionType: Set a specific transaction type Set a transaction type for the given source and type. If the requested transaction type does not exist, it will be created    WARNING! Changing existing transaction types has a material impact on how data, new and old, is processed and aggregated by LUSID, and will affect your whole organisation. Only call this API if you are fully aware of the implications of the change.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction configuration for</param>
@@ -2801,7 +2801,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -2816,7 +2816,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -2908,7 +2908,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
@@ -2924,7 +2924,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
+        /// SetTransactionTypeSource: Set the transaction types for the given source and scope The complete set of transaction types for the source.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="source">The source to set the transaction types for.</param>
