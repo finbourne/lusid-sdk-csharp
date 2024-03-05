@@ -33,16 +33,18 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
-        /// <param name="dateMode">The mode of calculation of the journal entry lines. The available values are: ActivityDate..</param>
-        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate journal entry lines with levels..</param>
-        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines..</param>
-        public TrialBalanceQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>))
+        /// <param name="dateMode">The mode of calculation of the trial balance. The available values are: ActivityDate..</param>
+        /// <param name="generalLedgerProfileCode">The optional code of a general ledger profile used to decorate trial balance with levels..</param>
+        /// <param name="propertyKeys">A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance..</param>
+        /// <param name="excludeCleardownModule">By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance..</param>
+        public TrialBalanceQueryParameters(DateOrDiaryEntry start = default(DateOrDiaryEntry), DateOrDiaryEntry end = default(DateOrDiaryEntry), string dateMode = default(string), string generalLedgerProfileCode = default(string), List<string> propertyKeys = default(List<string>), bool excludeCleardownModule = default(bool))
         {
             this.Start = start;
             this.End = end;
             this.DateMode = dateMode;
             this.GeneralLedgerProfileCode = generalLedgerProfileCode;
             this.PropertyKeys = propertyKeys;
+            this.ExcludeCleardownModule = excludeCleardownModule;
         }
 
         /// <summary>
@@ -58,25 +60,32 @@ namespace Lusid.Sdk.Model
         public DateOrDiaryEntry End { get; set; }
 
         /// <summary>
-        /// The mode of calculation of the journal entry lines. The available values are: ActivityDate.
+        /// The mode of calculation of the trial balance. The available values are: ActivityDate.
         /// </summary>
-        /// <value>The mode of calculation of the journal entry lines. The available values are: ActivityDate.</value>
+        /// <value>The mode of calculation of the trial balance. The available values are: ActivityDate.</value>
         [DataMember(Name = "dateMode", EmitDefaultValue = true)]
         public string DateMode { get; set; }
 
         /// <summary>
-        /// The optional code of a general ledger profile used to decorate journal entry lines with levels.
+        /// The optional code of a general ledger profile used to decorate trial balance with levels.
         /// </summary>
-        /// <value>The optional code of a general ledger profile used to decorate journal entry lines with levels.</value>
+        /// <value>The optional code of a general ledger profile used to decorate trial balance with levels.</value>
         [DataMember(Name = "generalLedgerProfileCode", EmitDefaultValue = true)]
         public string GeneralLedgerProfileCode { get; set; }
 
         /// <summary>
-        /// A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines.
+        /// A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance.
         /// </summary>
-        /// <value>A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the journal entry lines.</value>
+        /// <value>A list of property keys from the &#39;Instrument&#39;, &#39;Transaction&#39;, &#39;Portfolio&#39;, &#39;Account&#39;, &#39;LegalEntity&#39; or &#39;CustodianAccount&#39; domain to decorate onto the trial balance.</value>
         [DataMember(Name = "propertyKeys", EmitDefaultValue = true)]
         public List<string> PropertyKeys { get; set; }
+
+        /// <summary>
+        /// By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance.
+        /// </summary>
+        /// <value>By deafult this flag is set to false, if this is set to true, no cleardown module will be applied to the trial balance.</value>
+        [DataMember(Name = "excludeCleardownModule", EmitDefaultValue = true)]
+        public bool ExcludeCleardownModule { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,6 +100,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  DateMode: ").Append(DateMode).Append("\n");
             sb.Append("  GeneralLedgerProfileCode: ").Append(GeneralLedgerProfileCode).Append("\n");
             sb.Append("  PropertyKeys: ").Append(PropertyKeys).Append("\n");
+            sb.Append("  ExcludeCleardownModule: ").Append(ExcludeCleardownModule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +161,10 @@ namespace Lusid.Sdk.Model
                     this.PropertyKeys != null &&
                     input.PropertyKeys != null &&
                     this.PropertyKeys.SequenceEqual(input.PropertyKeys)
+                ) && 
+                (
+                    this.ExcludeCleardownModule == input.ExcludeCleardownModule ||
+                    this.ExcludeCleardownModule.Equals(input.ExcludeCleardownModule)
                 );
         }
 
@@ -183,6 +197,7 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PropertyKeys.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ExcludeCleardownModule.GetHashCode();
                 return hashCode;
             }
         }
