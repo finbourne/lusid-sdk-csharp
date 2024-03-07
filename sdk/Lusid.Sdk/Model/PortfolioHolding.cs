@@ -49,7 +49,10 @@ namespace Lusid.Sdk.Model
         /// <param name="currency">The holding currency..</param>
         /// <param name="holdingTypeName">The decoded type of the holding e.g. Position, Balance, CashCommitment, Receivable, ForwardFX etc..</param>
         /// <param name="holdingId">A single identifier for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio..</param>
-        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?))
+        /// <param name="notionalCost">notionalCost.</param>
+        /// <param name="amortisedCost">amortisedCost.</param>
+        /// <param name="amortisedCostPortfolioCcy">amortisedCostPortfolioCcy.</param>
+        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -84,6 +87,9 @@ namespace Lusid.Sdk.Model
             this.Currency = currency;
             this.HoldingTypeName = holdingTypeName;
             this.HoldingId = holdingId;
+            this.NotionalCost = notionalCost;
+            this.AmortisedCost = amortisedCost;
+            this.AmortisedCostPortfolioCcy = amortisedCostPortfolioCcy;
         }
 
         /// <summary>
@@ -175,6 +181,24 @@ namespace Lusid.Sdk.Model
         public long? HoldingId { get; set; }
 
         /// <summary>
+        /// Gets or Sets NotionalCost
+        /// </summary>
+        [DataMember(Name = "notionalCost", EmitDefaultValue = false)]
+        public CurrencyAndAmount NotionalCost { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmortisedCost
+        /// </summary>
+        [DataMember(Name = "amortisedCost", EmitDefaultValue = false)]
+        public CurrencyAndAmount AmortisedCost { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmortisedCostPortfolioCcy
+        /// </summary>
+        [DataMember(Name = "amortisedCostPortfolioCcy", EmitDefaultValue = false)]
+        public CurrencyAndAmount AmortisedCostPortfolioCcy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -195,6 +219,9 @@ namespace Lusid.Sdk.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  HoldingTypeName: ").Append(HoldingTypeName).Append("\n");
             sb.Append("  HoldingId: ").Append(HoldingId).Append("\n");
+            sb.Append("  NotionalCost: ").Append(NotionalCost).Append("\n");
+            sb.Append("  AmortisedCost: ").Append(AmortisedCost).Append("\n");
+            sb.Append("  AmortisedCostPortfolioCcy: ").Append(AmortisedCostPortfolioCcy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -294,6 +321,21 @@ namespace Lusid.Sdk.Model
                     this.HoldingId == input.HoldingId ||
                     (this.HoldingId != null &&
                     this.HoldingId.Equals(input.HoldingId))
+                ) && 
+                (
+                    this.NotionalCost == input.NotionalCost ||
+                    (this.NotionalCost != null &&
+                    this.NotionalCost.Equals(input.NotionalCost))
+                ) && 
+                (
+                    this.AmortisedCost == input.AmortisedCost ||
+                    (this.AmortisedCost != null &&
+                    this.AmortisedCost.Equals(input.AmortisedCost))
+                ) && 
+                (
+                    this.AmortisedCostPortfolioCcy == input.AmortisedCostPortfolioCcy ||
+                    (this.AmortisedCostPortfolioCcy != null &&
+                    this.AmortisedCostPortfolioCcy.Equals(input.AmortisedCostPortfolioCcy))
                 );
         }
 
@@ -351,6 +393,18 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingId != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingId.GetHashCode();
+                }
+                if (this.NotionalCost != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotionalCost.GetHashCode();
+                }
+                if (this.AmortisedCost != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisedCost.GetHashCode();
+                }
+                if (this.AmortisedCostPortfolioCcy != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisedCostPortfolioCcy.GetHashCode();
                 }
                 return hashCode;
             }
