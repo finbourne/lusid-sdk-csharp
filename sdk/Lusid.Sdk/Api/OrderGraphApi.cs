@@ -33,7 +33,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -51,7 +51,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -103,7 +103,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -120,7 +120,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -145,7 +145,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -164,7 +164,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -219,7 +219,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -237,7 +237,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -368,7 +368,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -387,7 +387,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -489,7 +489,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -509,7 +509,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -872,7 +872,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -890,7 +890,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -987,7 +987,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>
@@ -1006,7 +1006,7 @@ namespace Lusid.Sdk.Api
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional)</param>
         /// <param name="paginationToken">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
-        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional)</param>
         /// <param name="filter">See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional, default to &quot;&quot;)</param>
         /// <param name="propertyKeys">Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional)</param>

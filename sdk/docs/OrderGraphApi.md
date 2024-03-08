@@ -38,7 +38,7 @@ namespace Example
             var apiInstance = new OrderGraphApi(config);
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
             var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
-            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 56;  // int? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
             var filter = "\"\"";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional)  (default to "")
             var propertyKeys = new List<string>?(); // List<string>? | Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional) 
@@ -87,7 +87,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | See https://support.lusid.com/knowledgebase/article/KA-01832/ | [optional]  |
 | **paginationToken** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
-| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
 | **filter** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01914/ | [optional] [default to &quot;&quot;] |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be block-level properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ | [optional]  |
@@ -254,7 +254,7 @@ namespace Example
             var apiInstance = new OrderGraphApi(config);
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | See https://support.lusid.com/knowledgebase/article/KA-01832/ (optional) 
             var paginationToken = "paginationToken_example";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
-            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
+            var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 56;  // int? | See https://support.lusid.com/knowledgebase/article/KA-01915/ (optional) 
             var filter = "\"\"";  // string? | See https://support.lusid.com/knowledgebase/article/KA-01914/ (optional)  (default to "")
             var propertyKeys = new List<string>?(); // List<string>? | Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ (optional) 
@@ -302,7 +302,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asAt** | **DateTimeOffset?** | See https://support.lusid.com/knowledgebase/article/KA-01832/ | [optional]  |
 | **paginationToken** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
-| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | See https://support.lusid.com/knowledgebase/article/KA-01915/ | [optional]  |
 | **filter** | **string?** | See https://support.lusid.com/knowledgebase/article/KA-01914/ | [optional] [default to &quot;&quot;] |
 | **propertyKeys** | [**List&lt;string&gt;?**](string.md) | Must be placement properties. See https://support.lusid.com/knowledgebase/article/KA-01855/ | [optional]  |

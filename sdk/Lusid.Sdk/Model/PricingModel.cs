@@ -140,7 +140,13 @@ namespace Lusid.Sdk.Model
         /// Enum BondLookupPricer for value: BondLookupPricer
         /// </summary>
         [EnumMember(Value = "BondLookupPricer")]
-        BondLookupPricer = 19
+        BondLookupPricer = 19,
+
+        /// <summary>
+        /// Enum FlexibleLoanPricer for value: FlexibleLoanPricer
+        /// </summary>
+        [EnumMember(Value = "FlexibleLoanPricer")]
+        FlexibleLoanPricer = 20
 
     }
 
