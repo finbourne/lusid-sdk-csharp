@@ -228,34 +228,40 @@ namespace Lusid.Sdk.Model
         AborConfiguration = 33,
 
         /// <summary>
+        /// Enum Fund for value: Fund
+        /// </summary>
+        [EnumMember(Value = "Fund")]
+        Fund = 34,
+
+        /// <summary>
         /// Enum Reconciliation for value: Reconciliation
         /// </summary>
         [EnumMember(Value = "Reconciliation")]
-        Reconciliation = 34,
+        Reconciliation = 35,
 
         /// <summary>
         /// Enum PropertyDefinition for value: PropertyDefinition
         /// </summary>
         [EnumMember(Value = "PropertyDefinition")]
-        PropertyDefinition = 35,
+        PropertyDefinition = 36,
 
         /// <summary>
         /// Enum Compliance for value: Compliance
         /// </summary>
         [EnumMember(Value = "Compliance")]
-        Compliance = 36,
+        Compliance = 37,
 
         /// <summary>
         /// Enum DiaryEntry for value: DiaryEntry
         /// </summary>
         [EnumMember(Value = "DiaryEntry")]
-        DiaryEntry = 37,
+        DiaryEntry = 38,
 
         /// <summary>
         /// Enum Leg for value: Leg
         /// </summary>
         [EnumMember(Value = "Leg")]
-        Leg = 38
+        Leg = 39
 
     }
 
