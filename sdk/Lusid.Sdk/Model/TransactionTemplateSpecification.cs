@@ -37,10 +37,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionTemplateSpecification" /> class.
         /// </summary>
         /// <param name="instrumentEventType">instrumentEventType (required).</param>
+        /// <param name="supportedInstrumentTypes">supportedInstrumentTypes (required).</param>
         /// <param name="supportedParticipationTypes">supportedParticipationTypes (required).</param>
         /// <param name="supportedElectionTypes">supportedElectionTypes (required).</param>
         /// <param name="supportedTemplateFields">supportedTemplateFields (required).</param>
-        public TransactionTemplateSpecification(string instrumentEventType = default(string), List<string> supportedParticipationTypes = default(List<string>), List<ElectionSpecification> supportedElectionTypes = default(List<ElectionSpecification>), List<TemplateField> supportedTemplateFields = default(List<TemplateField>))
+        public TransactionTemplateSpecification(string instrumentEventType = default(string), List<string> supportedInstrumentTypes = default(List<string>), List<string> supportedParticipationTypes = default(List<string>), List<ElectionSpecification> supportedElectionTypes = default(List<ElectionSpecification>), List<TemplateField> supportedTemplateFields = default(List<TemplateField>))
         {
             // to ensure "instrumentEventType" is required (not null)
             if (instrumentEventType == null)
@@ -48,6 +49,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("instrumentEventType is a required property for TransactionTemplateSpecification and cannot be null");
             }
             this.InstrumentEventType = instrumentEventType;
+            // to ensure "supportedInstrumentTypes" is required (not null)
+            if (supportedInstrumentTypes == null)
+            {
+                throw new ArgumentNullException("supportedInstrumentTypes is a required property for TransactionTemplateSpecification and cannot be null");
+            }
+            this.SupportedInstrumentTypes = supportedInstrumentTypes;
             // to ensure "supportedParticipationTypes" is required (not null)
             if (supportedParticipationTypes == null)
             {
@@ -73,6 +80,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public string InstrumentEventType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SupportedInstrumentTypes
+        /// </summary>
+        [DataMember(Name = "supportedInstrumentTypes", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> SupportedInstrumentTypes { get; set; }
 
         /// <summary>
         /// Gets or Sets SupportedParticipationTypes
@@ -101,6 +114,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionTemplateSpecification {\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
+            sb.Append("  SupportedInstrumentTypes: ").Append(SupportedInstrumentTypes).Append("\n");
             sb.Append("  SupportedParticipationTypes: ").Append(SupportedParticipationTypes).Append("\n");
             sb.Append("  SupportedElectionTypes: ").Append(SupportedElectionTypes).Append("\n");
             sb.Append("  SupportedTemplateFields: ").Append(SupportedTemplateFields).Append("\n");
@@ -145,6 +159,12 @@ namespace Lusid.Sdk.Model
                     this.InstrumentEventType.Equals(input.InstrumentEventType))
                 ) && 
                 (
+                    this.SupportedInstrumentTypes == input.SupportedInstrumentTypes ||
+                    this.SupportedInstrumentTypes != null &&
+                    input.SupportedInstrumentTypes != null &&
+                    this.SupportedInstrumentTypes.SequenceEqual(input.SupportedInstrumentTypes)
+                ) && 
+                (
                     this.SupportedParticipationTypes == input.SupportedParticipationTypes ||
                     this.SupportedParticipationTypes != null &&
                     input.SupportedParticipationTypes != null &&
@@ -176,6 +196,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentEventType != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
+                }
+                if (this.SupportedInstrumentTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.SupportedInstrumentTypes.GetHashCode();
                 }
                 if (this.SupportedParticipationTypes != null)
                 {

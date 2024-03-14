@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="failures">failures (required).</param>
-        public CreateTradeTicketsResponse(List<LusidTradeTicket> values = default(List<LusidTradeTicket>), List<string> failures = default(List<string>))
+        public CreateTradeTicketsResponse(List<LusidTradeTicket> values = default(List<LusidTradeTicket>), List<ErrorDetail> failures = default(List<ErrorDetail>))
         {
             // to ensure "values" is required (not null)
             if (values == null)
@@ -64,7 +64,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Failures
         /// </summary>
         [DataMember(Name = "failures", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Failures { get; set; }
+        public List<ErrorDetail> Failures { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

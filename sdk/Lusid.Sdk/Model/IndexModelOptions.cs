@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IndexModelOptions" /> class.
         /// </summary>
         /// <param name="portfolioScaling">The available values are: Sum, AbsoluteSum, Unity (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions (required) (default to &quot;IndexModelOptions&quot;).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required) (default to &quot;IndexModelOptions&quot;).</param>
         public IndexModelOptions(PortfolioScalingEnum portfolioScaling = default(PortfolioScalingEnum), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             this.PortfolioScaling = portfolioScaling;

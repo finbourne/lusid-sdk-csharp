@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **InstrumentName** | **string** | Name of instrument | [optional] 
 **InstrumentDefinition** | [**LusidInstrument**](LusidInstrument.md) |  | [optional] 
 **CounterpartyAgreementId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**Counterparty** | **string** | Counterparty | [optional] 
 **InstrumentProperties** | [**List&lt;Property&gt;**](Property.md) | Set of instrument properties (as defined by client/user). | [optional] 
 **TransactionProperties** | [**List&lt;Property&gt;**](Property.md) | Set of transaction properties (as defined by client/user). | [optional] 
 **TradeTicketType** | **string** | The available values are: LusidTradeTicket, ExternalTradeTicket | 

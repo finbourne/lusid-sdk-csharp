@@ -33,14 +33,13 @@ namespace Lusid.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(FundingLegOptions), "FundingLegOptions")]
     [JsonSubtypes.KnownSubType(typeof(FxForwardModelOptions), "FxForwardModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(IndexModelOptions), "IndexModelOptions")]
-    [JsonSubtypes.KnownSubType(typeof(LookUpPricingModelOptions), "LookUpPricingModelOptions")]
     [JsonSubtypes.KnownSubType(typeof(OpaqueModelOptions), "OpaqueModelOptions")]
     public partial class ModelOptions : IEquatable<ModelOptions>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions
+        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions
         /// </summary>
-        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions</value>
+        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModelOptionsTypeEnum
         {
@@ -84,21 +83,15 @@ namespace Lusid.Sdk.Model
             /// Enum EquityModelOptions for value: EquityModelOptions
             /// </summary>
             [EnumMember(Value = "EquityModelOptions")]
-            EquityModelOptions = 7,
-
-            /// <summary>
-            /// Enum LookUpPricingModelOptions for value: LookUpPricingModelOptions
-            /// </summary>
-            [EnumMember(Value = "LookUpPricingModelOptions")]
-            LookUpPricingModelOptions = 8
+            EquityModelOptions = 7
 
         }
 
 
         /// <summary>
-        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions
+        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions
         /// </summary>
-        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions</value>
+        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions</value>
         [DataMember(Name = "modelOptionsType", IsRequired = true, EmitDefaultValue = true)]
         public ModelOptionsTypeEnum ModelOptionsType { get; set; }
         /// <summary>
@@ -109,7 +102,7 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelOptions" /> class.
         /// </summary>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions (required).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required).</param>
         public ModelOptions(ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum))
         {
             this.ModelOptionsType = modelOptionsType;

@@ -109,9 +109,9 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "discountingMethod", IsRequired = true, EmitDefaultValue = true)]
         public DiscountingMethodEnum DiscountingMethod { get; set; }
         /// <summary>
-        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions
+        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions
         /// </summary>
-        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions</value>
+        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModelOptionsTypeEnum
         {
@@ -155,21 +155,15 @@ namespace Lusid.Sdk.Model
             /// Enum EquityModelOptions for value: EquityModelOptions
             /// </summary>
             [EnumMember(Value = "EquityModelOptions")]
-            EquityModelOptions = 7,
-
-            /// <summary>
-            /// Enum LookUpPricingModelOptions for value: LookUpPricingModelOptions
-            /// </summary>
-            [EnumMember(Value = "LookUpPricingModelOptions")]
-            LookUpPricingModelOptions = 8
+            EquityModelOptions = 7
 
         }
 
 
         /// <summary>
-        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions
+        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions
         /// </summary>
-        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions</value>
+        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions</value>
         [DataMember(Name = "modelOptionsType", IsRequired = true, EmitDefaultValue = true)]
         public ModelOptionsTypeEnum ModelOptionsType { get; set; }
         /// <summary>
@@ -183,7 +177,7 @@ namespace Lusid.Sdk.Model
         /// <param name="forwardRateObservableType">The available values are: ForwardPoints, ForwardRate, RatesCurve, FxForwardCurve, Invalid (required).</param>
         /// <param name="discountingMethod">The available values are: Standard, ConstantTimeValueOfMoney, Invalid (required).</param>
         /// <param name="convertToReportCcy">Convert all FX flows to the report currency  By setting this all FX forwards will be priced using Forward Curves that have Report Currency as the base. (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions (required).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required).</param>
         public FxForwardModelOptionsAllOf(ForwardRateObservableTypeEnum forwardRateObservableType = default(ForwardRateObservableTypeEnum), DiscountingMethodEnum discountingMethod = default(DiscountingMethodEnum), bool convertToReportCcy = default(bool), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum))
         {
             this.ForwardRateObservableType = forwardRateObservableType;

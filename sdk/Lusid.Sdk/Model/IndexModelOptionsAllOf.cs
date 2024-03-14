@@ -63,9 +63,9 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "portfolioScaling", IsRequired = true, EmitDefaultValue = true)]
         public PortfolioScalingEnum PortfolioScaling { get; set; }
         /// <summary>
-        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions
+        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions
         /// </summary>
-        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions</value>
+        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModelOptionsTypeEnum
         {
@@ -109,21 +109,15 @@ namespace Lusid.Sdk.Model
             /// Enum EquityModelOptions for value: EquityModelOptions
             /// </summary>
             [EnumMember(Value = "EquityModelOptions")]
-            EquityModelOptions = 7,
-
-            /// <summary>
-            /// Enum LookUpPricingModelOptions for value: LookUpPricingModelOptions
-            /// </summary>
-            [EnumMember(Value = "LookUpPricingModelOptions")]
-            LookUpPricingModelOptions = 8
+            EquityModelOptions = 7
 
         }
 
 
         /// <summary>
-        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions
+        /// The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions
         /// </summary>
-        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions</value>
+        /// <value>The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions</value>
         [DataMember(Name = "modelOptionsType", IsRequired = true, EmitDefaultValue = true)]
         public ModelOptionsTypeEnum ModelOptionsType { get; set; }
         /// <summary>
@@ -135,7 +129,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="IndexModelOptionsAllOf" /> class.
         /// </summary>
         /// <param name="portfolioScaling">The available values are: Sum, AbsoluteSum, Unity (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions (required).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required).</param>
         public IndexModelOptionsAllOf(PortfolioScalingEnum portfolioScaling = default(PortfolioScalingEnum), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum))
         {
             this.PortfolioScaling = portfolioScaling;

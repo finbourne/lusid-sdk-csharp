@@ -68,13 +68,7 @@ namespace Lusid.Sdk.Model
         /// Enum EquityModelOptions for value: EquityModelOptions
         /// </summary>
         [EnumMember(Value = "EquityModelOptions")]
-        EquityModelOptions = 7,
-
-        /// <summary>
-        /// Enum LookUpPricingModelOptions for value: LookUpPricingModelOptions
-        /// </summary>
-        [EnumMember(Value = "LookUpPricingModelOptions")]
-        LookUpPricingModelOptions = 8
+        EquityModelOptions = 7
 
     }
 

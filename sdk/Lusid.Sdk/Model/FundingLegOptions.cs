@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="FundingLegOptions" /> class.
         /// </summary>
         /// <param name="expectedFundingLegNotional">Assumption made on future expected notional of the funding leg. (required).</param>
-        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions, LookUpPricingModelOptions (required) (default to &quot;FundingLegOptions&quot;).</param>
+        /// <param name="modelOptionsType">The available values are: Invalid, OpaqueModelOptions, EmptyModelOptions, IndexModelOptions, FxForwardModelOptions, FundingLegModelOptions, EquityModelOptions (required) (default to &quot;FundingLegOptions&quot;).</param>
         public FundingLegOptions(string expectedFundingLegNotional = default(string), ModelOptionsTypeEnum modelOptionsType = default(ModelOptionsTypeEnum)) : base(modelOptionsType)
         {
             // to ensure "expectedFundingLegNotional" is required (not null)

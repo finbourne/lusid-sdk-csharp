@@ -87,9 +87,9 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "library", IsRequired = true, EmitDefaultValue = true)]
         public LibraryEnum Library { get; set; }
         /// <summary>
-        /// The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, LookUpPricing, BondLookupPricer, FlexibleLoanPricer
+        /// The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer
         /// </summary>
-        /// <value>The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, LookUpPricing, BondLookupPricer, FlexibleLoanPricer</value>
+        /// <value>The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModelEnum
         {
@@ -196,30 +196,24 @@ namespace Lusid.Sdk.Model
             BjerksundStensland1993 = 17,
 
             /// <summary>
-            /// Enum LookUpPricing for value: LookUpPricing
-            /// </summary>
-            [EnumMember(Value = "LookUpPricing")]
-            LookUpPricing = 18,
-
-            /// <summary>
             /// Enum BondLookupPricer for value: BondLookupPricer
             /// </summary>
             [EnumMember(Value = "BondLookupPricer")]
-            BondLookupPricer = 19,
+            BondLookupPricer = 18,
 
             /// <summary>
             /// Enum FlexibleLoanPricer for value: FlexibleLoanPricer
             /// </summary>
             [EnumMember(Value = "FlexibleLoanPricer")]
-            FlexibleLoanPricer = 20
+            FlexibleLoanPricer = 19
 
         }
 
 
         /// <summary>
-        /// The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, LookUpPricing, BondLookupPricer, FlexibleLoanPricer
+        /// The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer
         /// </summary>
-        /// <value>The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, LookUpPricing, BondLookupPricer, FlexibleLoanPricer</value>
+        /// <value>The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer</value>
         [DataMember(Name = "model", IsRequired = true, EmitDefaultValue = true)]
         public ModelEnum Model { get; set; }
         /// <summary>
@@ -231,7 +225,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="ModelSelection" /> class.
         /// </summary>
         /// <param name="library">The available values are: Lusid, RefinitivQps, RefinitivTracsWeb, VolMaster, IsdaCds, YieldBook, LusidCalc (required).</param>
-        /// <param name="model">The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, LookUpPricing, BondLookupPricer, FlexibleLoanPricer (required).</param>
+        /// <param name="model">The available values are: SimpleStatic, Discounting, VendorDefault, BlackScholes, ConstantTimeValueOfMoney, Bachelier, ForwardWithPoints, ForwardWithPointsUndiscounted, ForwardSpecifiedRate, ForwardSpecifiedRateUndiscounted, IndexNav, IndexPrice, InlinedIndex, ForwardFromCurve, ForwardFromCurveUndiscounted, BlackScholesDigital, BjerksundStensland1993, BondLookupPricer, FlexibleLoanPricer (required).</param>
         public ModelSelection(LibraryEnum library = default(LibraryEnum), ModelEnum model = default(ModelEnum))
         {
             this.Library = library;

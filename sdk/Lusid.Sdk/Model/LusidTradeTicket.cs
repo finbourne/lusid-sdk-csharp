@@ -76,10 +76,11 @@ namespace Lusid.Sdk.Model
         /// <param name="instrumentName">Name of instrument.</param>
         /// <param name="instrumentDefinition">instrumentDefinition.</param>
         /// <param name="counterpartyAgreementId">counterpartyAgreementId.</param>
+        /// <param name="counterparty">Counterparty.</param>
         /// <param name="instrumentProperties">Set of instrument properties (as defined by client/user)..</param>
         /// <param name="transactionProperties">Set of transaction properties (as defined by client/user)..</param>
         /// <param name="tradeTicketType">The available values are: LusidTradeTicket, ExternalTradeTicket (required).</param>
-        public LusidTradeTicket(string transactionId = default(string), string transactionType = default(string), string source = default(string), string transactionDate = default(string), string settlementDate = default(string), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal units = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentName = default(string), LusidInstrument instrumentDefinition = default(LusidInstrument), ResourceId counterpartyAgreementId = default(ResourceId), List<Property> instrumentProperties = default(List<Property>), List<Property> transactionProperties = default(List<Property>), TradeTicketTypeEnum tradeTicketType = default(TradeTicketTypeEnum))
+        public LusidTradeTicket(string transactionId = default(string), string transactionType = default(string), string source = default(string), string transactionDate = default(string), string settlementDate = default(string), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal units = default(decimal), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentName = default(string), LusidInstrument instrumentDefinition = default(LusidInstrument), ResourceId counterpartyAgreementId = default(ResourceId), string counterparty = default(string), List<Property> instrumentProperties = default(List<Property>), List<Property> transactionProperties = default(List<Property>), TradeTicketTypeEnum tradeTicketType = default(TradeTicketTypeEnum))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -124,6 +125,7 @@ namespace Lusid.Sdk.Model
             this.InstrumentName = instrumentName;
             this.InstrumentDefinition = instrumentDefinition;
             this.CounterpartyAgreementId = counterpartyAgreementId;
+            this.Counterparty = counterparty;
             this.InstrumentProperties = instrumentProperties;
             this.TransactionProperties = transactionProperties;
         }
@@ -210,6 +212,13 @@ namespace Lusid.Sdk.Model
         public ResourceId CounterpartyAgreementId { get; set; }
 
         /// <summary>
+        /// Counterparty
+        /// </summary>
+        /// <value>Counterparty</value>
+        [DataMember(Name = "counterparty", EmitDefaultValue = true)]
+        public string Counterparty { get; set; }
+
+        /// <summary>
         /// Set of instrument properties (as defined by client/user).
         /// </summary>
         /// <value>Set of instrument properties (as defined by client/user).</value>
@@ -243,6 +252,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  InstrumentName: ").Append(InstrumentName).Append("\n");
             sb.Append("  InstrumentDefinition: ").Append(InstrumentDefinition).Append("\n");
             sb.Append("  CounterpartyAgreementId: ").Append(CounterpartyAgreementId).Append("\n");
+            sb.Append("  Counterparty: ").Append(Counterparty).Append("\n");
             sb.Append("  InstrumentProperties: ").Append(InstrumentProperties).Append("\n");
             sb.Append("  TransactionProperties: ").Append(TransactionProperties).Append("\n");
             sb.Append("  TradeTicketType: ").Append(TradeTicketType).Append("\n");
@@ -342,6 +352,11 @@ namespace Lusid.Sdk.Model
                     this.CounterpartyAgreementId.Equals(input.CounterpartyAgreementId))
                 ) && 
                 (
+                    this.Counterparty == input.Counterparty ||
+                    (this.Counterparty != null &&
+                    this.Counterparty.Equals(input.Counterparty))
+                ) && 
+                (
                     this.InstrumentProperties == input.InstrumentProperties ||
                     this.InstrumentProperties != null &&
                     input.InstrumentProperties != null &&
@@ -412,6 +427,10 @@ namespace Lusid.Sdk.Model
                 if (this.CounterpartyAgreementId != null)
                 {
                     hashCode = (hashCode * 59) + this.CounterpartyAgreementId.GetHashCode();
+                }
+                if (this.Counterparty != null)
+                {
+                    hashCode = (hashCode * 59) + this.Counterparty.GetHashCode();
                 }
                 if (this.InstrumentProperties != null)
                 {
@@ -510,6 +529,18 @@ namespace Lusid.Sdk.Model
             if (this.InstrumentName != null && this.InstrumentName.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstrumentName, length must be greater than 0.", new [] { "InstrumentName" });
+            }
+
+            // Counterparty (string) maxLength
+            if (this.Counterparty != null && this.Counterparty.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Counterparty, length must be less than 256.", new [] { "Counterparty" });
+            }
+
+            // Counterparty (string) minLength
+            if (this.Counterparty != null && this.Counterparty.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Counterparty, length must be greater than 0.", new [] { "Counterparty" });
             }
 
             yield break;

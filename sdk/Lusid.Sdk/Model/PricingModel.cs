@@ -131,22 +131,16 @@ namespace Lusid.Sdk.Model
         BjerksundStensland1993 = 17,
 
         /// <summary>
-        /// Enum LookUpPricing for value: LookUpPricing
-        /// </summary>
-        [EnumMember(Value = "LookUpPricing")]
-        LookUpPricing = 18,
-
-        /// <summary>
         /// Enum BondLookupPricer for value: BondLookupPricer
         /// </summary>
         [EnumMember(Value = "BondLookupPricer")]
-        BondLookupPricer = 19,
+        BondLookupPricer = 18,
 
         /// <summary>
         /// Enum FlexibleLoanPricer for value: FlexibleLoanPricer
         /// </summary>
         [EnumMember(Value = "FlexibleLoanPricer")]
-        FlexibleLoanPricer = 20
+        FlexibleLoanPricer = 19
 
     }
 
