@@ -45,7 +45,7 @@ namespace Lusid.Sdk.Model
         /// <param name="conventionName">conventionName.</param>
         /// <param name="exDividendDays">Optional. Number of calendar days in the ex-dividend period.  If the settlement date falls in the ex-dividend period then the coupon paid is zero and the accrued interest is negative.  If set, this must be a non-negative number.  If not set, or set to 0, then there is no ex-dividend period.                NOTE: This field is deprecated.  If you wish to set the ExDividendDays on a bond, please use the ExDividendConfiguration..</param>
         /// <param name="notional">Scaling factor, the quantity outstanding on which the rate will be paid..</param>
-        /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency..</param>
+        /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. (required).</param>
         /// <param name="stubType">StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required) (default to &quot;FixedSchedule&quot;).</param>
@@ -53,12 +53,17 @@ namespace Lusid.Sdk.Model
         {
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
+            // to ensure "paymentCurrency" is required (not null)
+            if (paymentCurrency == null)
+            {
+                throw new ArgumentNullException("paymentCurrency is a required property for FixedSchedule and cannot be null");
+            }
+            this.PaymentCurrency = paymentCurrency;
             this.FlowConventions = flowConventions;
             this.CouponRate = couponRate;
             this.ConventionName = conventionName;
             this.ExDividendDays = exDividendDays;
             this.Notional = notional;
-            this.PaymentCurrency = paymentCurrency;
             this.StubType = stubType;
             this.ExDividendConfiguration = exDividendConfiguration;
         }
@@ -114,7 +119,7 @@ namespace Lusid.Sdk.Model
         /// Payment currency. This does not have to be the same as the nominal bond or observation/reset currency.
         /// </summary>
         /// <value>Payment currency. This does not have to be the same as the nominal bond or observation/reset currency.</value>
-        [DataMember(Name = "paymentCurrency", EmitDefaultValue = true)]
+        [DataMember(Name = "paymentCurrency", IsRequired = true, EmitDefaultValue = true)]
         public string PaymentCurrency { get; set; }
 
         /// <summary>

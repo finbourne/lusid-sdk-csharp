@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **NotionalCost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **AmortisedCost** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **AmortisedCostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**VariationMargin** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**VariationMarginPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

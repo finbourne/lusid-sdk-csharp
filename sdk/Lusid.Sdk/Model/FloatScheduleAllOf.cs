@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Model
         /// <param name="indexConventionName">indexConventionName.</param>
         /// <param name="indexConventions">indexConventions.</param>
         /// <param name="notional">Scaling factor, the quantity outstanding on which the rate will be paid..</param>
-        /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency..</param>
+        /// <param name="paymentCurrency">Payment currency. This does not have to be the same as the nominal bond or observation/reset currency. (required).</param>
         /// <param name="spread">Spread over floating rate given as a fraction..</param>
         /// <param name="stubType">StubType required of the schedule    Supported string (enumeration) values are: [ShortFront, ShortBack, LongBack, LongFront, Both]..</param>
         /// <param name="exDividendConfiguration">exDividendConfiguration.</param>
@@ -117,6 +117,12 @@ namespace Lusid.Sdk.Model
         /// <param name="scheduleType">The available values are: FixedSchedule, FloatSchedule, OptionalitySchedule, StepSchedule, Exercise, FxRateSchedule, FxLinkedNotionalSchedule, Invalid (required).</param>
         public FloatScheduleAllOf(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset maturityDate = default(DateTimeOffset), FlowConventions flowConventions = default(FlowConventions), FlowConventionName conventionName = default(FlowConventionName), int? exDividendDays = default(int?), FlowConventionName indexConventionName = default(FlowConventionName), IndexConvention indexConventions = default(IndexConvention), decimal notional = default(decimal), string paymentCurrency = default(string), decimal spread = default(decimal), string stubType = default(string), ExDividendConfiguration exDividendConfiguration = default(ExDividendConfiguration), Compounding compounding = default(Compounding), string resetConvention = default(string), ScheduleTypeEnum scheduleType = default(ScheduleTypeEnum))
         {
+            // to ensure "paymentCurrency" is required (not null)
+            if (paymentCurrency == null)
+            {
+                throw new ArgumentNullException("paymentCurrency is a required property for FloatScheduleAllOf and cannot be null");
+            }
+            this.PaymentCurrency = paymentCurrency;
             this.ScheduleType = scheduleType;
             this.StartDate = startDate;
             this.MaturityDate = maturityDate;
@@ -126,7 +132,6 @@ namespace Lusid.Sdk.Model
             this.IndexConventionName = indexConventionName;
             this.IndexConventions = indexConventions;
             this.Notional = notional;
-            this.PaymentCurrency = paymentCurrency;
             this.Spread = spread;
             this.StubType = stubType;
             this.ExDividendConfiguration = exDividendConfiguration;
@@ -190,7 +195,7 @@ namespace Lusid.Sdk.Model
         /// Payment currency. This does not have to be the same as the nominal bond or observation/reset currency.
         /// </summary>
         /// <value>Payment currency. This does not have to be the same as the nominal bond or observation/reset currency.</value>
-        [DataMember(Name = "paymentCurrency", EmitDefaultValue = true)]
+        [DataMember(Name = "paymentCurrency", IsRequired = true, EmitDefaultValue = true)]
         public string PaymentCurrency { get; set; }
 
         /// <summary>
