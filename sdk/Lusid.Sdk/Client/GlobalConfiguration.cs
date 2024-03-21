@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Lusid.Sdk.Extensions;
 
 namespace Lusid.Sdk.Client
 {

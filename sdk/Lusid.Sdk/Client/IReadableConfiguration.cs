@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using Lusid.Sdk.Extensions;
 using Lusid.Sdk.Client.Auth;
 
 namespace Lusid.Sdk.Client

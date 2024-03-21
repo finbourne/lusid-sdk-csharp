@@ -32,6 +32,8 @@ using RestSharp.Serializers;
 using RestSharpMethod = RestSharp.Method;
 using Polly;
 using Lusid.Sdk.Client.Auth;
+using Lusid.Sdk.Extensions;
+
 
 namespace Lusid.Sdk.Client
 {
@@ -210,6 +212,8 @@ namespace Lusid.Sdk.Client
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
+        private readonly Func<RestClientOptions, HttpMessageHandler> _createHttpMessageHandler;
+        private readonly bool _disposeHandler;
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -245,22 +249,23 @@ namespace Lusid.Sdk.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
-        public ApiClient()
+        public ApiClient():this(Lusid.Sdk.Client.GlobalConfiguration.Instance.BasePath)
         {
-            _baseUrl = Lusid.Sdk.Client.GlobalConfiguration.Instance.BasePath;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />
         /// </summary>
         /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="CreateHttpMessageHandler">A function to create a HttpMessageHandler for each REST request</param>
+        /// <param name="disposeHandler">Should the HttpMessageHandler be disposed of after each request</param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string basePath)
-        {
+        public ApiClient(string basePath, Func<RestClientOptions, HttpMessageHandler>? CreateHttpMessageHandler = null, bool disposeHandler = true){
             if (string.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
-
             _baseUrl = basePath;
+            _createHttpMessageHandler = CreateHttpMessageHandler ?? TcpKeepAlive.CreateTcpKeepAliveMessageHandler;
+            _disposeHandler = disposeHandler;
         }
 
         /// <summary>
@@ -504,8 +509,7 @@ namespace Lusid.Sdk.Client
                 CookieContainer = cookies,
                 MaxTimeout = configuration.Timeout,
                 Proxy = configuration.Proxy,
-                UserAgent = configuration.UserAgent,
-                ConfigureMessageHandler = ConfigureMessageHandler
+                UserAgent = configuration.UserAgent
             };
 
             if (!string.IsNullOrEmpty(configuration.OAuthTokenUrl) &&
@@ -522,7 +526,10 @@ namespace Lusid.Sdk.Client
                     configuration);
             }
 
-            RestClient client = new RestClient(clientOptions,
+            var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
+
+            var client = new RestClient(httpClient,
+                options: clientOptions,
                 configureSerialization: s =>
                     s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
 
@@ -614,8 +621,7 @@ namespace Lusid.Sdk.Client
                 ClientCertificates = configuration.ClientCertificates,
                 MaxTimeout = configuration.Timeout,
                 Proxy = configuration.Proxy,
-                UserAgent = configuration.UserAgent,
-                ConfigureMessageHandler = ConfigureMessageHandler
+                UserAgent = configuration.UserAgent
             };
 
             if (!string.IsNullOrEmpty(configuration.OAuthTokenUrl) &&
@@ -632,7 +638,10 @@ namespace Lusid.Sdk.Client
                     configuration);
             }
 
-            RestClient client = new RestClient(clientOptions,
+           var httpClient = new HttpClient(_createHttpMessageHandler(clientOptions), _disposeHandler);
+
+            var client = new RestClient(httpClient,
+                options: clientOptions,
                 configureSerialization: s =>
                     s.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
 
@@ -702,144 +711,6 @@ namespace Lusid.Sdk.Client
                 }
             }
             return result;
-        }
-
-        private HttpMessageHandler ConfigureMessageHandler(HttpMessageHandler h)
-        {
-            // a fair chunk of this certificate stuff came directly from the HttpClientHandler class.
-            // unfortunately, had to be a copy paste thing as the socket handler for that class was not made public, so 
-            // couldn't modify it to set the TCP keepalive without some truely horrific reflection. So here we are
-            // with a configuration method that does enough to set the keepalive and knowingly doesn't break under non-certificate use.
-            // further testing will be needed if client-side certificates are used anywhere.
-            if (h is HttpClientHandler clientHandler)
-            {
-                var hch = h as HttpClientHandler;
-                var handler = new SocketsHttpHandler();
-                handler.Credentials = clientHandler.Credentials;
-                handler.CookieContainer = hch.CookieContainer;
-                handler.AutomaticDecompression = hch.AutomaticDecompression;
-                handler.PreAuthenticate = hch.PreAuthenticate;
-                handler.AllowAutoRedirect = hch.AllowAutoRedirect;
-                handler.SslOptions = new SslClientAuthenticationOptions();
-                handler.SslOptions!.ClientCertificates = hch.ClientCertificates;
-                handler.SslOptions.LocalCertificateSelectionCallback = (sender, targetHost, localCertificates,
-                    remoteCertificate, acceptableIssuers) =>
-                {
-                    bool IsValidForClientAuthenticationEKU(X509EnhancedKeyUsageExtension eku)
-                    {
-                        foreach (Oid oid in eku.EnhancedKeyUsages)
-                        {
-                            if (oid.Value == "1.3.6.1.5.5.7.3.2")
-                            {
-                                return true;
-                            }
-                        }
-
-                        return false;
-                    }
-
-                    bool IsValidForDigitalSignatureUsage(X509KeyUsageExtension ku)
-                    {
-                        const X509KeyUsageFlags RequiredUsages = X509KeyUsageFlags.DigitalSignature;
-                        return (ku.KeyUsages & RequiredUsages) == RequiredUsages;
-                    }
-
-                    bool IsValidClientCertificate(X509Certificate2 cert)
-                    {
-                        foreach (X509Extension extension in cert.Extensions)
-                        {
-                            if ((extension is X509EnhancedKeyUsageExtension eku) &&
-                                !IsValidForClientAuthenticationEKU(eku))
-                            {
-                                return false;
-                            }
-                            else if ((extension is X509KeyUsageExtension ku) && !IsValidForDigitalSignatureUsage(ku))
-                            {
-                                return false;
-                            }
-                        }
-
-                        return true;
-                    }
-
-                    if (localCertificates.Count == 0)
-                    {
-                        return null;
-                    }
-
-                    foreach (X509Certificate2 cert in localCertificates)
-                    {
-                        if (!cert.HasPrivateKey)
-                        {
-                            continue;
-                        }
-
-                        if (IsValidClientCertificate(cert))
-                        {
-                            return cert;
-                        }
-                    }
-
-                    return null;
-                };
-
-                if (hch.SupportsProxy) handler.Proxy = hch.Proxy;
-
-                foreach (var keyValuePair in hch.Properties)
-                {
-                    handler.Properties.Add(keyValuePair.Key, keyValuePair.Value);
-                }
-
-                handler.UseCookies = hch.UseCookies;
-                handler.UseProxy = hch.UseProxy;
-                handler.DefaultProxyCredentials = hch.DefaultProxyCredentials;
-                handler.MaxAutomaticRedirections = hch.MaxAutomaticRedirections;
-                handler.MaxConnectionsPerServer = hch.MaxConnectionsPerServer;
-                handler.MaxResponseHeadersLength = hch.MaxResponseHeadersLength;
-
-                handler.ConnectCallback = async (ctx, ct) =>
-                {
-                    var s = new Socket(SocketType.Stream, ProtocolType.Tcp) { NoDelay = true };
-                    try
-                    {
-                        s.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.KeepAlive, true);
-                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-
-                        // we did have the interval and keepalivetime set at 30 a piece and the following line to 
-                        // set the number of retries, giving us a total of 50m.
-                        // s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveRetryCount, 100);
-                        // However as stated originally, that line doesn't work on some windows versions, and
-                        // as it turns out, specifically doesn't work on Windows versions of Azure Functions, so 
-                        // isn't appropriate here. Instead, increasing both 30s keepalives to 300s achieves the same
-                        // 50m threshold without blowing up Azure Functions, so I think we're good.
-                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveTime, 300);
-                        s.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.TcpKeepAliveInterval, 300);
-
-                        var addresses = await Dns.GetHostAddressesAsync(ctx.DnsEndPoint.Host);
-                        var endpoint = new IPEndPoint(addresses[0], ctx.DnsEndPoint.Port);
-                        await s.ConnectAsync(endpoint, ct);
-                        return new NetworkStream(s, ownsSocket: true);
-                    }
-                    catch (Exception e)
-                    {
-                        // if we make it in here, there's a pretty good chance we've hit a DNS lookup error.  Not much to be done
-                        // other than rethrow.
-                        s.Dispose();
-
-                        if (Environment.GetEnvironmentVariable("SDK_LOGGING") != null)
-                        {
-                            Console.WriteLine($"Socket Callback error - rethrowing: {e}");
-                        }
-
-                        throw;
-                    }
-                };
-                return handler;
-            }
-            else
-            {
-                return h;
-            }
         }
 
 
