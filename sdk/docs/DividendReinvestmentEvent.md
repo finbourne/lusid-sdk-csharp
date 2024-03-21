@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **PaymentDate** | **DateTimeOffset** | The date the company pays out dividends to shareholders. | 
 **RecordDate** | **DateTimeOffset** | Date you have to be the holder of record in order to participate in the tender. | 
 **SecurityElections** | [**List&lt;SecurityElection&gt;**](SecurityElection.md) | SecurityElection for this DividendReinvestmentEvent | 
+**SecuritySettlementDate** | **DateTimeOffset** | The settlement date of the additional units.  Equal to the PaymentDate if not provided. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

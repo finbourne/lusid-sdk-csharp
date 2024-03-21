@@ -184,8 +184,9 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender. (required).</param>
         /// <param name="securityElections">SecurityElection for this DividendReinvestmentEvent (required).</param>
+        /// <param name="securitySettlementDate">The settlement date of the additional units.  Equal to the PaymentDate if not provided..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required).</param>
-        public DividendReinvestmentEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), List<SecurityElection> securityElections = default(List<SecurityElection>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public DividendReinvestmentEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset securitySettlementDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
             // to ensure "cashElections" is required (not null)
             if (cashElections == null)
@@ -204,6 +205,7 @@ namespace Lusid.Sdk.Model
             this.SecurityElections = securityElections;
             this.InstrumentEventType = instrumentEventType;
             this.AnnouncementDate = announcementDate;
+            this.SecuritySettlementDate = securitySettlementDate;
         }
 
         /// <summary>
@@ -249,6 +251,13 @@ namespace Lusid.Sdk.Model
         public List<SecurityElection> SecurityElections { get; set; }
 
         /// <summary>
+        /// The settlement date of the additional units.  Equal to the PaymentDate if not provided.
+        /// </summary>
+        /// <value>The settlement date of the additional units.  Equal to the PaymentDate if not provided.</value>
+        [DataMember(Name = "securitySettlementDate", EmitDefaultValue = false)]
+        public DateTimeOffset SecuritySettlementDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -262,6 +271,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
             sb.Append("  SecurityElections: ").Append(SecurityElections).Append("\n");
+            sb.Append("  SecuritySettlementDate: ").Append(SecuritySettlementDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -331,6 +341,11 @@ namespace Lusid.Sdk.Model
                     this.SecurityElections.SequenceEqual(input.SecurityElections)
                 ) && 
                 (
+                    this.SecuritySettlementDate == input.SecuritySettlementDate ||
+                    (this.SecuritySettlementDate != null &&
+                    this.SecuritySettlementDate.Equals(input.SecuritySettlementDate))
+                ) && 
+                (
                     this.InstrumentEventType == input.InstrumentEventType ||
                     this.InstrumentEventType.Equals(input.InstrumentEventType)
                 );
@@ -368,6 +383,10 @@ namespace Lusid.Sdk.Model
                 if (this.SecurityElections != null)
                 {
                     hashCode = (hashCode * 59) + this.SecurityElections.GetHashCode();
+                }
+                if (this.SecuritySettlementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecuritySettlementDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;

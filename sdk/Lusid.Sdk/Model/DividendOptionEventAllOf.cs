@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Model
         /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="securityElections">SecurityElection for this DividendReinvestmentEvent (required).</param>
-        /// <param name="securitySettlementDate">Date on which the dividend was the security settles.  Equal to the PaymentDate if not provided..</param>
+        /// <param name="securitySettlementDate">The settlement date of the additional units.  Equal to the PaymentDate if not provided..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent (required).</param>
         public DividendOptionEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset securitySettlementDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
@@ -251,9 +251,9 @@ namespace Lusid.Sdk.Model
         public List<SecurityElection> SecurityElections { get; set; }
 
         /// <summary>
-        /// Date on which the dividend was the security settles.  Equal to the PaymentDate if not provided.
+        /// The settlement date of the additional units.  Equal to the PaymentDate if not provided.
         /// </summary>
-        /// <value>Date on which the dividend was the security settles.  Equal to the PaymentDate if not provided.</value>
+        /// <value>The settlement date of the additional units.  Equal to the PaymentDate if not provided.</value>
         [DataMember(Name = "securitySettlementDate", EmitDefaultValue = false)]
         public DateTimeOffset SecuritySettlementDate { get; set; }
 
