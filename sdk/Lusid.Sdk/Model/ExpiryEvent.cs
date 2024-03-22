@@ -24,42 +24,33 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// The termination of an instrument.  In some cases termination can happen over a range of dates e.g. american option exercise.  In most cases the startDate &#x3D;&#x3D; endDate
+    /// Definition of an Expiry Event  This is an event that describes the expiry of the instrument.
     /// </summary>
-    [DataContract(Name = "CloseEvent")]
+    [DataContract(Name = "ExpiryEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class CloseEvent : InstrumentEvent, IEquatable<CloseEvent>, IValidatableObject
+    public partial class ExpiryEvent : InstrumentEvent, IEquatable<ExpiryEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CloseEvent" /> class.
+        /// Initializes a new instance of the <see cref="ExpiryEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CloseEvent() { }
+        protected ExpiryEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CloseEvent" /> class.
+        /// Initializes a new instance of the <see cref="ExpiryEvent" /> class.
         /// </summary>
-        /// <param name="startDate">The first date on which the instrument could close.</param>
-        /// <param name="endDate">The last date on which the instrument could close.</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent (required) (default to &quot;CloseEvent&quot;).</param>
-        public CloseEvent(DateTimeOffset startDate = default(DateTimeOffset), DateTimeOffset endDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="expiryDate">Expiry date of the instrument (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent (required) (default to &quot;ExpiryEvent&quot;).</param>
+        public ExpiryEvent(DateTimeOffset expiryDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.StartDate = startDate;
-            this.EndDate = endDate;
+            this.ExpiryDate = expiryDate;
         }
 
         /// <summary>
-        /// The first date on which the instrument could close
+        /// Expiry date of the instrument
         /// </summary>
-        /// <value>The first date on which the instrument could close</value>
-        [DataMember(Name = "startDate", EmitDefaultValue = false)]
-        public DateTimeOffset StartDate { get; set; }
-
-        /// <summary>
-        /// The last date on which the instrument could close
-        /// </summary>
-        /// <value>The last date on which the instrument could close</value>
-        [DataMember(Name = "endDate", EmitDefaultValue = false)]
-        public DateTimeOffset EndDate { get; set; }
+        /// <value>Expiry date of the instrument</value>
+        [DataMember(Name = "expiryDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExpiryDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,10 +59,9 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CloseEvent {\n");
+            sb.Append("class ExpiryEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +82,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CloseEvent);
+            return this.Equals(input as ExpiryEvent);
         }
 
         /// <summary>
-        /// Returns true if CloseEvent instances are equal
+        /// Returns true if ExpiryEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of CloseEvent to be compared</param>
+        /// <param name="input">Instance of ExpiryEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CloseEvent input)
+        public bool Equals(ExpiryEvent input)
         {
             if (input == null)
             {
@@ -108,14 +98,9 @@ namespace Lusid.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
-                ) && base.Equals(input) && 
-                (
-                    this.EndDate == input.EndDate ||
-                    (this.EndDate != null &&
-                    this.EndDate.Equals(input.EndDate))
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
                 );
         }
 
@@ -128,13 +113,9 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.StartDate != null)
+                if (this.ExpiryDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
-                }
-                if (this.EndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExpiryDate.GetHashCode();
                 }
                 return hashCode;
             }

@@ -153,7 +153,13 @@ namespace Lusid.Sdk.Model
         /// Enum FxForwardSettlementEvent for value: FxForwardSettlementEvent
         /// </summary>
         [EnumMember(Value = "FxForwardSettlementEvent")]
-        FxForwardSettlementEvent = 21
+        FxForwardSettlementEvent = 21,
+
+        /// <summary>
+        /// Enum ExpiryEvent for value: ExpiryEvent
+        /// </summary>
+        [EnumMember(Value = "ExpiryEvent")]
+        ExpiryEvent = 22
 
     }
 

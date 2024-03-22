@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// BondPrincipalEventAllOf
+    /// ExpiryEventAllOf
     /// </summary>
-    [DataContract(Name = "BondPrincipalEvent_allOf")]
-    public partial class BondPrincipalEventAllOf : IEquatable<BondPrincipalEventAllOf>, IValidatableObject
+    [DataContract(Name = "ExpiryEvent_allOf")]
+    public partial class ExpiryEventAllOf : IEquatable<ExpiryEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent
@@ -177,59 +177,27 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BondPrincipalEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ExpiryEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected BondPrincipalEventAllOf() { }
+        protected ExpiryEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BondPrincipalEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ExpiryEventAllOf" /> class.
         /// </summary>
-        /// <param name="currency">Currency of the principal payment (required).</param>
-        /// <param name="exDate">Ex-Dividend date of the principal payment (required).</param>
-        /// <param name="paymentDate">Payment date of the principal payment (required).</param>
-        /// <param name="principalPerUnit">Principal per unit (required).</param>
+        /// <param name="expiryDate">Expiry date of the instrument (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent (required).</param>
-        public BondPrincipalEventAllOf(string currency = default(string), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), decimal principalPerUnit = default(decimal), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public ExpiryEventAllOf(DateTimeOffset expiryDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for BondPrincipalEventAllOf and cannot be null");
-            }
-            this.Currency = currency;
-            this.ExDate = exDate;
-            this.PaymentDate = paymentDate;
-            this.PrincipalPerUnit = principalPerUnit;
+            this.ExpiryDate = expiryDate;
             this.InstrumentEventType = instrumentEventType;
         }
 
         /// <summary>
-        /// Currency of the principal payment
+        /// Expiry date of the instrument
         /// </summary>
-        /// <value>Currency of the principal payment</value>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// Ex-Dividend date of the principal payment
-        /// </summary>
-        /// <value>Ex-Dividend date of the principal payment</value>
-        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset ExDate { get; set; }
-
-        /// <summary>
-        /// Payment date of the principal payment
-        /// </summary>
-        /// <value>Payment date of the principal payment</value>
-        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset PaymentDate { get; set; }
-
-        /// <summary>
-        /// Principal per unit
-        /// </summary>
-        /// <value>Principal per unit</value>
-        [DataMember(Name = "principalPerUnit", IsRequired = true, EmitDefaultValue = true)]
-        public decimal PrincipalPerUnit { get; set; }
+        /// <value>Expiry date of the instrument</value>
+        [DataMember(Name = "expiryDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExpiryDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -238,11 +206,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class BondPrincipalEventAllOf {\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
-            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
-            sb.Append("  PrincipalPerUnit: ").Append(PrincipalPerUnit).Append("\n");
+            sb.Append("class ExpiryEventAllOf {\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -264,15 +229,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as BondPrincipalEventAllOf);
+            return this.Equals(input as ExpiryEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if BondPrincipalEventAllOf instances are equal
+        /// Returns true if ExpiryEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of BondPrincipalEventAllOf to be compared</param>
+        /// <param name="input">Instance of ExpiryEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(BondPrincipalEventAllOf input)
+        public bool Equals(ExpiryEventAllOf input)
         {
             if (input == null)
             {
@@ -280,23 +245,9 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
-                ) && 
-                (
-                    this.ExDate == input.ExDate ||
-                    (this.ExDate != null &&
-                    this.ExDate.Equals(input.ExDate))
-                ) && 
-                (
-                    this.PaymentDate == input.PaymentDate ||
-                    (this.PaymentDate != null &&
-                    this.PaymentDate.Equals(input.PaymentDate))
-                ) && 
-                (
-                    this.PrincipalPerUnit == input.PrincipalPerUnit ||
-                    this.PrincipalPerUnit.Equals(input.PrincipalPerUnit)
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -313,19 +264,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Currency != null)
+                if (this.ExpiryDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExpiryDate.GetHashCode();
                 }
-                if (this.ExDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
-                }
-                if (this.PaymentDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.PrincipalPerUnit.GetHashCode();
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
             }
