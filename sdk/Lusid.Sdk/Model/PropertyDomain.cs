@@ -261,7 +261,13 @@ namespace Lusid.Sdk.Model
         /// Enum Leg for value: Leg
         /// </summary>
         [EnumMember(Value = "Leg")]
-        Leg = 39
+        Leg = 39,
+
+        /// <summary>
+        /// Enum DerivedValuation for value: DerivedValuation
+        /// </summary>
+        [EnumMember(Value = "DerivedValuation")]
+        DerivedValuation = 40
 
     }
 
