@@ -40,7 +40,7 @@ namespace Lusid.Sdk.Model
         /// <param name="displayName">The name of the Fund..</param>
         /// <param name="description">A description for the Fund..</param>
         /// <param name="aborId">aborId (required).</param>
-        /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie..</param>
+        /// <param name="shareClassInstrumentScopes">The scopes in which the instruments lie, currently limited to one..</param>
         /// <param name="shareClassInstruments">Details the user-provided instrument identifiers and the instrument resolved from them..</param>
         /// <param name="type">The type of fund; &#39;Standalone&#39;, &#39;Master&#39; or &#39;Feeder&#39; (required).</param>
         /// <param name="inceptionDate">Inception date of the Fund (required).</param>
@@ -110,9 +110,9 @@ namespace Lusid.Sdk.Model
         public ResourceId AborId { get; set; }
 
         /// <summary>
-        /// The scopes in which the instruments lie.
+        /// The scopes in which the instruments lie, currently limited to one.
         /// </summary>
-        /// <value>The scopes in which the instruments lie.</value>
+        /// <value>The scopes in which the instruments lie, currently limited to one.</value>
         [DataMember(Name = "shareClassInstrumentScopes", EmitDefaultValue = true)]
         public List<string> ShareClassInstrumentScopes { get; set; }
 
