@@ -32,9 +32,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InstrumentEventConfiguration" /> class.
         /// </summary>
         /// <param name="transactionTemplateScopes">transactionTemplateScopes.</param>
-        public InstrumentEventConfiguration(List<string> transactionTemplateScopes = default(List<string>))
+        /// <param name="recipeId">recipeId.</param>
+        public InstrumentEventConfiguration(List<string> transactionTemplateScopes = default(List<string>), ResourceId recipeId = default(ResourceId))
         {
             this.TransactionTemplateScopes = transactionTemplateScopes;
+            this.RecipeId = recipeId;
         }
 
         /// <summary>
@@ -42,6 +44,12 @@ namespace Lusid.Sdk.Model
         /// </summary>
         [DataMember(Name = "transactionTemplateScopes", EmitDefaultValue = true)]
         public List<string> TransactionTemplateScopes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecipeId
+        /// </summary>
+        [DataMember(Name = "recipeId", EmitDefaultValue = false)]
+        public ResourceId RecipeId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,6 +60,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InstrumentEventConfiguration {\n");
             sb.Append("  TransactionTemplateScopes: ").Append(TransactionTemplateScopes).Append("\n");
+            sb.Append("  RecipeId: ").Append(RecipeId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +101,11 @@ namespace Lusid.Sdk.Model
                     this.TransactionTemplateScopes != null &&
                     input.TransactionTemplateScopes != null &&
                     this.TransactionTemplateScopes.SequenceEqual(input.TransactionTemplateScopes)
+                ) && 
+                (
+                    this.RecipeId == input.RecipeId ||
+                    (this.RecipeId != null &&
+                    this.RecipeId.Equals(input.RecipeId))
                 );
         }
 
@@ -107,6 +121,10 @@ namespace Lusid.Sdk.Model
                 if (this.TransactionTemplateScopes != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionTemplateScopes.GetHashCode();
+                }
+                if (this.RecipeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecipeId.GetHashCode();
                 }
                 return hashCode;
             }
