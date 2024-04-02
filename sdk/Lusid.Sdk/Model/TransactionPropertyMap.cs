@@ -32,11 +32,11 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="TransactionPropertyMap" /> class.
         /// </summary>
         /// <param name="propertyKey">The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}..</param>
-        /// <param name="propertyValue">propertyValue.</param>
-        public TransactionPropertyMap(string propertyKey = default(string), PropertyValue propertyValue = default(PropertyValue))
+        /// <param name="value">value.</param>
+        public TransactionPropertyMap(string propertyKey = default(string), string value = default(string))
         {
             this.PropertyKey = propertyKey;
-            this.PropertyValue = propertyValue;
+            this.Value = value;
         }
 
         /// <summary>
@@ -47,10 +47,10 @@ namespace Lusid.Sdk.Model
         public string PropertyKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets PropertyValue
+        /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "propertyValue", EmitDefaultValue = false)]
-        public PropertyValue PropertyValue { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,7 +61,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionPropertyMap {\n");
             sb.Append("  PropertyKey: ").Append(PropertyKey).Append("\n");
-            sb.Append("  PropertyValue: ").Append(PropertyValue).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,9 +103,9 @@ namespace Lusid.Sdk.Model
                     this.PropertyKey.Equals(input.PropertyKey))
                 ) && 
                 (
-                    this.PropertyValue == input.PropertyValue ||
-                    (this.PropertyValue != null &&
-                    this.PropertyValue.Equals(input.PropertyValue))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -122,9 +122,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PropertyKey.GetHashCode();
                 }
-                if (this.PropertyValue != null)
+                if (this.Value != null)
                 {
-                    hashCode = (hashCode * 59) + this.PropertyValue.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
                 return hashCode;
             }
@@ -137,6 +137,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Value (string) maxLength
+            if (this.Value != null && this.Value.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 1024.", new [] { "Value" });
+            }
+
+            // Value (string) minLength
+            if (this.Value != null && this.Value.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 0.", new [] { "Value" });
+            }
+
             yield break;
         }
     }
