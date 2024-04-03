@@ -37,8 +37,9 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="OrderGraphBlockOrderSynopsis" /> class.
         /// </summary>
         /// <param name="quantity">Total number of units ordered. (required).</param>
+        /// <param name="quantityByState">Total number of units placed..</param>
         /// <param name="details">Identifiers and other info for each order in this block. (required).</param>
-        public OrderGraphBlockOrderSynopsis(decimal quantity = default(decimal), List<OrderGraphBlockOrderDetail> details = default(List<OrderGraphBlockOrderDetail>))
+        public OrderGraphBlockOrderSynopsis(decimal quantity = default(decimal), Dictionary<string, decimal> quantityByState = default(Dictionary<string, decimal>), List<OrderGraphBlockOrderDetail> details = default(List<OrderGraphBlockOrderDetail>))
         {
             this.Quantity = quantity;
             // to ensure "details" is required (not null)
@@ -47,6 +48,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("details is a required property for OrderGraphBlockOrderSynopsis and cannot be null");
             }
             this.Details = details;
+            this.QuantityByState = quantityByState;
         }
 
         /// <summary>
@@ -55,6 +57,13 @@ namespace Lusid.Sdk.Model
         /// <value>Total number of units ordered.</value>
         [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public decimal Quantity { get; set; }
+
+        /// <summary>
+        /// Total number of units placed.
+        /// </summary>
+        /// <value>Total number of units placed.</value>
+        [DataMember(Name = "quantityByState", EmitDefaultValue = true)]
+        public Dictionary<string, decimal> QuantityByState { get; set; }
 
         /// <summary>
         /// Identifiers and other info for each order in this block.
@@ -72,6 +81,7 @@ namespace Lusid.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class OrderGraphBlockOrderSynopsis {\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  QuantityByState: ").Append(QuantityByState).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -113,6 +123,12 @@ namespace Lusid.Sdk.Model
                     this.Quantity.Equals(input.Quantity)
                 ) && 
                 (
+                    this.QuantityByState == input.QuantityByState ||
+                    this.QuantityByState != null &&
+                    input.QuantityByState != null &&
+                    this.QuantityByState.SequenceEqual(input.QuantityByState)
+                ) && 
+                (
                     this.Details == input.Details ||
                     this.Details != null &&
                     input.Details != null &&
@@ -130,6 +146,10 @@ namespace Lusid.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.QuantityByState != null)
+                {
+                    hashCode = (hashCode * 59) + this.QuantityByState.GetHashCode();
+                }
                 if (this.Details != null)
                 {
                     hashCode = (hashCode * 59) + this.Details.GetHashCode();
