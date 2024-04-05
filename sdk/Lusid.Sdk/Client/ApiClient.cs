@@ -249,7 +249,7 @@ namespace Lusid.Sdk.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
         /// </summary>
-        public ApiClient():this(Lusid.Sdk.Client.GlobalConfiguration.Instance.BasePath)
+        public ApiClient():this(Client.GlobalConfiguration.Instance.BasePath)
         {
         }
 
