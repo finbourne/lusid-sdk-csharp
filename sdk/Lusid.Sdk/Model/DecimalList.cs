@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="DecimalList" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList (required) (default to &quot;DecimalList&quot;).</param>
+        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required) (default to &quot;DecimalList&quot;).</param>
         public DecimalList(List<decimal> values = default(List<decimal>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
         {
             // to ensure "values" is required (not null)

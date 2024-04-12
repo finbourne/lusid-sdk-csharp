@@ -39,7 +39,7 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="InstrumentList" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList (required) (default to &quot;InstrumentList&quot;).</param>
+        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required) (default to &quot;InstrumentList&quot;).</param>
         public InstrumentList(List<string> values = default(List<string>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
         {
             // to ensure "values" is required (not null)

@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AddressKeyListAllOf
+    /// PropertyListAllOf
     /// </summary>
-    [DataContract(Name = "AddressKeyList_allOf")]
-    public partial class AddressKeyListAllOf : IEquatable<AddressKeyListAllOf>, IValidatableObject
+    [DataContract(Name = "PropertyList_allOf")]
+    public partial class PropertyListAllOf : IEquatable<PropertyListAllOf>, IValidatableObject
     {
         /// <summary>
         /// The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList
@@ -87,21 +87,21 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "referenceListType", IsRequired = true, EmitDefaultValue = true)]
         public ReferenceListTypeEnum ReferenceListType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressKeyListAllOf" /> class.
+        /// Initializes a new instance of the <see cref="PropertyListAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AddressKeyListAllOf() { }
+        protected PropertyListAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressKeyListAllOf" /> class.
+        /// Initializes a new instance of the <see cref="PropertyListAllOf" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required).</param>
-        public AddressKeyListAllOf(List<string> values = default(List<string>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum))
+        public PropertyListAllOf(List<Property> values = default(List<Property>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum))
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for AddressKeyListAllOf and cannot be null");
+                throw new ArgumentNullException("values is a required property for PropertyListAllOf and cannot be null");
             }
             this.Values = values;
             this.ReferenceListType = referenceListType;
@@ -111,7 +111,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Values { get; set; }
+        public List<Property> Values { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,7 +120,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AddressKeyListAllOf {\n");
+            sb.Append("class PropertyListAllOf {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  ReferenceListType: ").Append(ReferenceListType).Append("\n");
             sb.Append("}\n");
@@ -143,15 +143,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddressKeyListAllOf);
+            return this.Equals(input as PropertyListAllOf);
         }
 
         /// <summary>
-        /// Returns true if AddressKeyListAllOf instances are equal
+        /// Returns true if PropertyListAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddressKeyListAllOf to be compared</param>
+        /// <param name="input">Instance of PropertyListAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddressKeyListAllOf input)
+        public bool Equals(PropertyListAllOf input)
         {
             if (input == null)
             {

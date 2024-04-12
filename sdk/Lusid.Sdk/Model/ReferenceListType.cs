@@ -62,7 +62,13 @@ namespace Lusid.Sdk.Model
         /// Enum DecimalList for value: DecimalList
         /// </summary>
         [EnumMember(Value = "DecimalList")]
-        DecimalList = 6
+        DecimalList = 6,
+
+        /// <summary>
+        /// Enum PropertyList for value: PropertyList
+        /// </summary>
+        [EnumMember(Value = "PropertyList")]
+        PropertyList = 7
 
     }
 

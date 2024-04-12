@@ -24,28 +24,28 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AddressKeyList
+    /// PropertyList
     /// </summary>
-    [DataContract(Name = "AddressKeyList")]
+    [DataContract(Name = "PropertyList")]
     [JsonConverter(typeof(JsonSubtypes), "ReferenceListType")]
-    public partial class AddressKeyList : ReferenceList, IEquatable<AddressKeyList>, IValidatableObject
+    public partial class PropertyList : ReferenceList, IEquatable<PropertyList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressKeyList" /> class.
+        /// Initializes a new instance of the <see cref="PropertyList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AddressKeyList() { }
+        protected PropertyList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressKeyList" /> class.
+        /// Initializes a new instance of the <see cref="PropertyList" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
-        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required) (default to &quot;AddressKeyList&quot;).</param>
-        public AddressKeyList(List<string> values = default(List<string>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
+        /// <param name="referenceListType">The reference list values. The available values are: PortfolioGroupIdList, PortfolioIdList, AddressKeyList, StringList, InstrumentList, DecimalList, PropertyList (required) (default to &quot;PropertyList&quot;).</param>
+        public PropertyList(List<Property> values = default(List<Property>), ReferenceListTypeEnum referenceListType = default(ReferenceListTypeEnum)) : base(referenceListType)
         {
             // to ensure "values" is required (not null)
             if (values == null)
             {
-                throw new ArgumentNullException("values is a required property for AddressKeyList and cannot be null");
+                throw new ArgumentNullException("values is a required property for PropertyList and cannot be null");
             }
             this.Values = values;
         }
@@ -54,7 +54,7 @@ namespace Lusid.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Values { get; set; }
+        public List<Property> Values { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,7 +63,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AddressKeyList {\n");
+            sb.Append("class PropertyList {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddressKeyList);
+            return this.Equals(input as PropertyList);
         }
 
         /// <summary>
-        /// Returns true if AddressKeyList instances are equal
+        /// Returns true if PropertyList instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddressKeyList to be compared</param>
+        /// <param name="input">Instance of PropertyList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddressKeyList input)
+        public bool Equals(PropertyList input)
         {
             if (input == null)
             {
