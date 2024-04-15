@@ -61,8 +61,10 @@ namespace Lusid.Sdk.Model
         /// <param name="sourceLevels">Source data from the general ledger profile where the GeneralLedgerProfileCode is specified in the GetJournalEntryLines request body..</param>
         /// <param name="movementSign">Indicates if the Journal Entry Line corresponds to a Long or Short movement..</param>
         /// <param name="holdingSign">Indicates if the Journal Entry Line is operating against a Long or Short holding..</param>
+        /// <param name="ledgerColumn">Indicates if the Journal Entry Line is credit or debit..</param>
+        /// <param name="journalEntryLineType">Indicates the Journal Entry Line type.</param>
         /// <param name="links">links.</param>
-        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), List<Link> links = default(List<Link>))
+        public JournalEntryLine(DateTimeOffset accountingDate = default(DateTimeOffset), DateTimeOffset activityDate = default(DateTimeOffset), ResourceId portfolioId = default(ResourceId), string instrumentId = default(string), string instrumentScope = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), string taxLotId = default(string), string generalLedgerAccountCode = default(string), CurrencyAndAmount local = default(CurrencyAndAmount), CurrencyAndAmount _base = default(CurrencyAndAmount), string postingModuleCode = default(string), string postingRule = default(string), DateTimeOffset asAtDate = default(DateTimeOffset), string activitiesDescription = default(string), string sourceType = default(string), string sourceId = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string movementName = default(string), string holdingType = default(string), string economicBucket = default(string), string economicBucketComponent = default(string), List<string> levels = default(List<string>), List<string> sourceLevels = default(List<string>), string movementSign = default(string), string holdingSign = default(string), string ledgerColumn = default(string), string journalEntryLineType = default(string), List<Link> links = default(List<Link>))
         {
             this.AccountingDate = accountingDate;
             this.ActivityDate = activityDate;
@@ -144,6 +146,8 @@ namespace Lusid.Sdk.Model
             this.SourceLevels = sourceLevels;
             this.MovementSign = movementSign;
             this.HoldingSign = holdingSign;
+            this.LedgerColumn = ledgerColumn;
+            this.JournalEntryLineType = journalEntryLineType;
             this.Links = links;
         }
 
@@ -320,6 +324,20 @@ namespace Lusid.Sdk.Model
         public string HoldingSign { get; set; }
 
         /// <summary>
+        /// Indicates if the Journal Entry Line is credit or debit.
+        /// </summary>
+        /// <value>Indicates if the Journal Entry Line is credit or debit.</value>
+        [DataMember(Name = "ledgerColumn", EmitDefaultValue = true)]
+        public string LedgerColumn { get; set; }
+
+        /// <summary>
+        /// Indicates the Journal Entry Line type
+        /// </summary>
+        /// <value>Indicates the Journal Entry Line type</value>
+        [DataMember(Name = "journalEntryLineType", EmitDefaultValue = true)]
+        public string JournalEntryLineType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -358,6 +376,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  SourceLevels: ").Append(SourceLevels).Append("\n");
             sb.Append("  MovementSign: ").Append(MovementSign).Append("\n");
             sb.Append("  HoldingSign: ").Append(HoldingSign).Append("\n");
+            sb.Append("  LedgerColumn: ").Append(LedgerColumn).Append("\n");
+            sb.Append("  JournalEntryLineType: ").Append(JournalEntryLineType).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -524,6 +544,16 @@ namespace Lusid.Sdk.Model
                     this.HoldingSign.Equals(input.HoldingSign))
                 ) && 
                 (
+                    this.LedgerColumn == input.LedgerColumn ||
+                    (this.LedgerColumn != null &&
+                    this.LedgerColumn.Equals(input.LedgerColumn))
+                ) && 
+                (
+                    this.JournalEntryLineType == input.JournalEntryLineType ||
+                    (this.JournalEntryLineType != null &&
+                    this.JournalEntryLineType.Equals(input.JournalEntryLineType))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -639,6 +669,14 @@ namespace Lusid.Sdk.Model
                 if (this.HoldingSign != null)
                 {
                     hashCode = (hashCode * 59) + this.HoldingSign.GetHashCode();
+                }
+                if (this.LedgerColumn != null)
+                {
+                    hashCode = (hashCode * 59) + this.LedgerColumn.GetHashCode();
+                }
+                if (this.JournalEntryLineType != null)
+                {
+                    hashCode = (hashCode * 59) + this.JournalEntryLineType.GetHashCode();
                 }
                 if (this.Links != null)
                 {
