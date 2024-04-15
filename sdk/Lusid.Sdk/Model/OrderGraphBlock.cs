@@ -41,10 +41,11 @@ namespace Lusid.Sdk.Model
         /// <param name="placed">placed (required).</param>
         /// <param name="executed">executed (required).</param>
         /// <param name="allocated">allocated (required).</param>
+        /// <param name="booked">booked (required).</param>
         /// <param name="derivedState">A simple description of the overall state of a block. (required).</param>
         /// <param name="derivedComplianceState">The overall compliance state of a block, derived from the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Failed&#39;, &#39;Manually approved&#39; and &#39;Passed&#39;. (required).</param>
         /// <param name="derivedApprovalState">The overall approval state of a block, derived from approval of the block&#39;s orders. Possible values are &#39;Pending&#39;, &#39;Approved&#39; and &#39;Rejected&#39;. (required).</param>
-        public OrderGraphBlock(Block block = default(Block), OrderGraphBlockOrderSynopsis ordered = default(OrderGraphBlockOrderSynopsis), OrderGraphBlockPlacementSynopsis placed = default(OrderGraphBlockPlacementSynopsis), OrderGraphBlockExecutionSynopsis executed = default(OrderGraphBlockExecutionSynopsis), OrderGraphBlockAllocationSynopsis allocated = default(OrderGraphBlockAllocationSynopsis), string derivedState = default(string), string derivedComplianceState = default(string), string derivedApprovalState = default(string))
+        public OrderGraphBlock(Block block = default(Block), OrderGraphBlockOrderSynopsis ordered = default(OrderGraphBlockOrderSynopsis), OrderGraphBlockPlacementSynopsis placed = default(OrderGraphBlockPlacementSynopsis), OrderGraphBlockExecutionSynopsis executed = default(OrderGraphBlockExecutionSynopsis), OrderGraphBlockAllocationSynopsis allocated = default(OrderGraphBlockAllocationSynopsis), OrderGraphBlockTransactionSynopsis booked = default(OrderGraphBlockTransactionSynopsis), string derivedState = default(string), string derivedComplianceState = default(string), string derivedApprovalState = default(string))
         {
             // to ensure "block" is required (not null)
             if (block == null)
@@ -76,6 +77,12 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("allocated is a required property for OrderGraphBlock and cannot be null");
             }
             this.Allocated = allocated;
+            // to ensure "booked" is required (not null)
+            if (booked == null)
+            {
+                throw new ArgumentNullException("booked is a required property for OrderGraphBlock and cannot be null");
+            }
+            this.Booked = booked;
             // to ensure "derivedState" is required (not null)
             if (derivedState == null)
             {
@@ -127,6 +134,12 @@ namespace Lusid.Sdk.Model
         public OrderGraphBlockAllocationSynopsis Allocated { get; set; }
 
         /// <summary>
+        /// Gets or Sets Booked
+        /// </summary>
+        [DataMember(Name = "booked", IsRequired = true, EmitDefaultValue = true)]
+        public OrderGraphBlockTransactionSynopsis Booked { get; set; }
+
+        /// <summary>
         /// A simple description of the overall state of a block.
         /// </summary>
         /// <value>A simple description of the overall state of a block.</value>
@@ -160,6 +173,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Placed: ").Append(Placed).Append("\n");
             sb.Append("  Executed: ").Append(Executed).Append("\n");
             sb.Append("  Allocated: ").Append(Allocated).Append("\n");
+            sb.Append("  Booked: ").Append(Booked).Append("\n");
             sb.Append("  DerivedState: ").Append(DerivedState).Append("\n");
             sb.Append("  DerivedComplianceState: ").Append(DerivedComplianceState).Append("\n");
             sb.Append("  DerivedApprovalState: ").Append(DerivedApprovalState).Append("\n");
@@ -224,6 +238,11 @@ namespace Lusid.Sdk.Model
                     this.Allocated.Equals(input.Allocated))
                 ) && 
                 (
+                    this.Booked == input.Booked ||
+                    (this.Booked != null &&
+                    this.Booked.Equals(input.Booked))
+                ) && 
+                (
                     this.DerivedState == input.DerivedState ||
                     (this.DerivedState != null &&
                     this.DerivedState.Equals(input.DerivedState))
@@ -268,6 +287,10 @@ namespace Lusid.Sdk.Model
                 if (this.Allocated != null)
                 {
                     hashCode = (hashCode * 59) + this.Allocated.GetHashCode();
+                }
+                if (this.Booked != null)
+                {
+                    hashCode = (hashCode * 59) + this.Booked.GetHashCode();
                 }
                 if (this.DerivedState != null)
                 {
