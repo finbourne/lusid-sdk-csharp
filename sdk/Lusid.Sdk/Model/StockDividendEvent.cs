@@ -24,47 +24,38 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// DVOP
+    /// A payment to shareholders that consists of additional shares rather than cash.
     /// </summary>
-    [DataContract(Name = "DividendOptionEvent")]
+    [DataContract(Name = "StockDividendEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class DividendOptionEvent : InstrumentEvent, IEquatable<DividendOptionEvent>, IValidatableObject
+    public partial class StockDividendEvent : InstrumentEvent, IEquatable<StockDividendEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DividendOptionEvent" /> class.
+        /// Initializes a new instance of the <see cref="StockDividendEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DividendOptionEvent() { }
+        protected StockDividendEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DividendOptionEvent" /> class.
+        /// Initializes a new instance of the <see cref="StockDividendEvent" /> class.
         /// </summary>
         /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
-        /// <param name="cashElections">CashElection for this DividendReinvestmentEvent (required).</param>
         /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
         /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
         /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
-        /// <param name="securityElections">SecurityElection for this DividendReinvestmentEvent (required).</param>
-        /// <param name="securitySettlementDate">The settlement date of the additional units.  Equal to the PaymentDate if not provided..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent (required) (default to &quot;DividendOptionEvent&quot;).</param>
-        public DividendOptionEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), List<SecurityElection> securityElections = default(List<SecurityElection>), DateTimeOffset securitySettlementDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="unitsRatio">unitsRatio (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent (required) (default to &quot;StockDividendEvent&quot;).</param>
+        public StockDividendEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            // to ensure "cashElections" is required (not null)
-            if (cashElections == null)
-            {
-                throw new ArgumentNullException("cashElections is a required property for DividendOptionEvent and cannot be null");
-            }
-            this.CashElections = cashElections;
             this.ExDate = exDate;
             this.PaymentDate = paymentDate;
-            // to ensure "securityElections" is required (not null)
-            if (securityElections == null)
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
             {
-                throw new ArgumentNullException("securityElections is a required property for DividendOptionEvent and cannot be null");
+                throw new ArgumentNullException("unitsRatio is a required property for StockDividendEvent and cannot be null");
             }
-            this.SecurityElections = securityElections;
+            this.UnitsRatio = unitsRatio;
             this.AnnouncementDate = announcementDate;
             this.RecordDate = recordDate;
-            this.SecuritySettlementDate = securitySettlementDate;
         }
 
         /// <summary>
@@ -73,13 +64,6 @@ namespace Lusid.Sdk.Model
         /// <value>Date on which the dividend was announced / declared.</value>
         [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
         public DateTimeOffset? AnnouncementDate { get; set; }
-
-        /// <summary>
-        /// CashElection for this DividendReinvestmentEvent
-        /// </summary>
-        /// <value>CashElection for this DividendReinvestmentEvent</value>
-        [DataMember(Name = "cashElections", IsRequired = true, EmitDefaultValue = true)]
-        public List<CashElection> CashElections { get; set; }
 
         /// <summary>
         /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
@@ -103,18 +87,10 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset? RecordDate { get; set; }
 
         /// <summary>
-        /// SecurityElection for this DividendReinvestmentEvent
+        /// Gets or Sets UnitsRatio
         /// </summary>
-        /// <value>SecurityElection for this DividendReinvestmentEvent</value>
-        [DataMember(Name = "securityElections", IsRequired = true, EmitDefaultValue = true)]
-        public List<SecurityElection> SecurityElections { get; set; }
-
-        /// <summary>
-        /// The settlement date of the additional units.  Equal to the PaymentDate if not provided.
-        /// </summary>
-        /// <value>The settlement date of the additional units.  Equal to the PaymentDate if not provided.</value>
-        [DataMember(Name = "securitySettlementDate", EmitDefaultValue = false)]
-        public DateTimeOffset SecuritySettlementDate { get; set; }
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,15 +99,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DividendOptionEvent {\n");
+            sb.Append("class StockDividendEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
-            sb.Append("  CashElections: ").Append(CashElections).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
-            sb.Append("  SecurityElections: ").Append(SecurityElections).Append("\n");
-            sb.Append("  SecuritySettlementDate: ").Append(SecuritySettlementDate).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,15 +126,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DividendOptionEvent);
+            return this.Equals(input as StockDividendEvent);
         }
 
         /// <summary>
-        /// Returns true if DividendOptionEvent instances are equal
+        /// Returns true if StockDividendEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of DividendOptionEvent to be compared</param>
+        /// <param name="input">Instance of StockDividendEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DividendOptionEvent input)
+        public bool Equals(StockDividendEvent input)
         {
             if (input == null)
             {
@@ -171,12 +145,6 @@ namespace Lusid.Sdk.Model
                     this.AnnouncementDate == input.AnnouncementDate ||
                     (this.AnnouncementDate != null &&
                     this.AnnouncementDate.Equals(input.AnnouncementDate))
-                ) && base.Equals(input) && 
-                (
-                    this.CashElections == input.CashElections ||
-                    this.CashElections != null &&
-                    input.CashElections != null &&
-                    this.CashElections.SequenceEqual(input.CashElections)
                 ) && base.Equals(input) && 
                 (
                     this.ExDate == input.ExDate ||
@@ -194,15 +162,9 @@ namespace Lusid.Sdk.Model
                     this.RecordDate.Equals(input.RecordDate))
                 ) && base.Equals(input) && 
                 (
-                    this.SecurityElections == input.SecurityElections ||
-                    this.SecurityElections != null &&
-                    input.SecurityElections != null &&
-                    this.SecurityElections.SequenceEqual(input.SecurityElections)
-                ) && base.Equals(input) && 
-                (
-                    this.SecuritySettlementDate == input.SecuritySettlementDate ||
-                    (this.SecuritySettlementDate != null &&
-                    this.SecuritySettlementDate.Equals(input.SecuritySettlementDate))
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
                 );
         }
 
@@ -219,10 +181,6 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
                 }
-                if (this.CashElections != null)
-                {
-                    hashCode = (hashCode * 59) + this.CashElections.GetHashCode();
-                }
                 if (this.ExDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
@@ -235,13 +193,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
                 }
-                if (this.SecurityElections != null)
+                if (this.UnitsRatio != null)
                 {
-                    hashCode = (hashCode * 59) + this.SecurityElections.GetHashCode();
-                }
-                if (this.SecuritySettlementDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.SecuritySettlementDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
                 }
                 return hashCode;
             }

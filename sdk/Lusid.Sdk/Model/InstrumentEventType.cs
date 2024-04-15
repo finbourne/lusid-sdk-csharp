@@ -165,7 +165,13 @@ namespace Lusid.Sdk.Model
         /// Enum ScripDividendEvent for value: ScripDividendEvent
         /// </summary>
         [EnumMember(Value = "ScripDividendEvent")]
-        ScripDividendEvent = 23
+        ScripDividendEvent = 23,
+
+        /// <summary>
+        /// Enum StockDividendEvent for value: StockDividendEvent
+        /// </summary>
+        [EnumMember(Value = "StockDividendEvent")]
+        StockDividendEvent = 24
 
     }
 

@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// StockSplitEventAllOf
+    /// StockDividendEventAllOf
     /// </summary>
-    [DataContract(Name = "StockSplitEvent_allOf")]
-    public partial class StockSplitEventAllOf : IEquatable<StockSplitEventAllOf>, IValidatableObject
+    [DataContract(Name = "StockDividendEvent_allOf")]
+    public partial class StockDividendEventAllOf : IEquatable<StockDividendEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent
@@ -189,36 +189,52 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StockSplitEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="StockDividendEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StockSplitEventAllOf() { }
+        protected StockDividendEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StockSplitEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="StockDividendEventAllOf" /> class.
         /// </summary>
-        /// <param name="equitySplitRatio">This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old. (required).</param>
-        /// <param name="paymentDate">Date on which the stock-split takes effect. (required).</param>
-        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender. (required).</param>
+        /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
+        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
+        /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent (required).</param>
-        public StockSplitEventAllOf(decimal equitySplitRatio = default(decimal), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public StockDividendEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.EquitySplitRatio = equitySplitRatio;
+            this.ExDate = exDate;
             this.PaymentDate = paymentDate;
-            this.RecordDate = recordDate;
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
+            {
+                throw new ArgumentNullException("unitsRatio is a required property for StockDividendEventAllOf and cannot be null");
+            }
+            this.UnitsRatio = unitsRatio;
             this.InstrumentEventType = instrumentEventType;
+            this.AnnouncementDate = announcementDate;
+            this.RecordDate = recordDate;
         }
 
         /// <summary>
-        /// This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old.
+        /// Date on which the dividend was announced / declared.
         /// </summary>
-        /// <value>This number describes the rate at which the company will be dividing their current shares outstanding. It is displayed as new shares per old.</value>
-        [DataMember(Name = "equitySplitRatio", IsRequired = true, EmitDefaultValue = true)]
-        public decimal EquitySplitRatio { get; set; }
+        /// <value>Date on which the dividend was announced / declared.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// Date on which the stock-split takes effect.
+        /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
         /// </summary>
-        /// <value>Date on which the stock-split takes effect.</value>
+        /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
+
+        /// <summary>
+        /// The date the company pays out dividends to shareholders.
+        /// </summary>
+        /// <value>The date the company pays out dividends to shareholders.</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
@@ -226,8 +242,14 @@ namespace Lusid.Sdk.Model
         /// Date you have to be the holder of record in order to participate in the tender.
         /// </summary>
         /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
-        [DataMember(Name = "recordDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset RecordDate { get; set; }
+        [DataMember(Name = "recordDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnitsRatio
+        /// </summary>
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -236,10 +258,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class StockSplitEventAllOf {\n");
-            sb.Append("  EquitySplitRatio: ").Append(EquitySplitRatio).Append("\n");
+            sb.Append("class StockDividendEventAllOf {\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -261,15 +285,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StockSplitEventAllOf);
+            return this.Equals(input as StockDividendEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if StockSplitEventAllOf instances are equal
+        /// Returns true if StockDividendEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of StockSplitEventAllOf to be compared</param>
+        /// <param name="input">Instance of StockDividendEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StockSplitEventAllOf input)
+        public bool Equals(StockDividendEventAllOf input)
         {
             if (input == null)
             {
@@ -277,8 +301,14 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.EquitySplitRatio == input.EquitySplitRatio ||
-                    this.EquitySplitRatio.Equals(input.EquitySplitRatio)
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
+                ) && 
+                (
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
                     this.PaymentDate == input.PaymentDate ||
@@ -289,6 +319,11 @@ namespace Lusid.Sdk.Model
                     this.RecordDate == input.RecordDate ||
                     (this.RecordDate != null &&
                     this.RecordDate.Equals(input.RecordDate))
+                ) && 
+                (
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -305,7 +340,14 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.EquitySplitRatio.GetHashCode();
+                if (this.AnnouncementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
+                }
+                if (this.ExDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                }
                 if (this.PaymentDate != null)
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
@@ -313,6 +355,10 @@ namespace Lusid.Sdk.Model
                 if (this.RecordDate != null)
                 {
                     hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                }
+                if (this.UnitsRatio != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
