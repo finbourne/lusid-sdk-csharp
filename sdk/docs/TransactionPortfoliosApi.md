@@ -1701,7 +1701,7 @@ catch (ApiException e)
 
 <a id="getholdingcontributors"></a>
 # **GetHoldingContributors**
-> VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOffset? effectiveDate = null, DateTimeOffset? fromTradeDate = null, DateTimeOffset? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
+> VersionedResourceListOfHoldingContributor GetHoldingContributors (string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = null, DateTimeOrCutLabel? fromTradeDate = null, DateTimeOrCutLabel? toTradeDate = null, bool? includeHistoric = null, string? taxLotId = null, int? limit = null, DateTimeOffset? asAt = null, string? page = null)
 
 [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
 
@@ -1730,9 +1730,9 @@ namespace Example
             var scope = "scope_example";  // string | The scope of the transaction portfolio.
             var code = "code_example";  // string | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
             var holdingId = 789L;  // long | The unique holding identifier
-            var effectiveDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Effective date (optional) 
-            var fromTradeDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional) 
-            var toTradeDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional) 
+            var effectiveDate = "effectiveDate_example";  // DateTimeOrCutLabel? | Effective date (optional) 
+            var fromTradeDate = "fromTradeDate_example";  // DateTimeOrCutLabel? | The from trade date, defaults to first time this holding is opened, lower bound for transactions (optional) 
+            var toTradeDate = "toTradeDate_example";  // DateTimeOrCutLabel? | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions (optional) 
             var includeHistoric = false;  // bool? | If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. (optional)  (default to false)
             var taxLotId = "taxLotId_example";  // string? | Constrains the Holding Contributors to those which contributed to the specified tax lot. (optional) 
             var limit = 56;  // int? | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. (optional) 
@@ -1783,9 +1783,9 @@ catch (ApiException e)
 | **scope** | **string** | The scope of the transaction portfolio. |  |
 | **code** | **string** | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. |  |
 | **holdingId** | **long** | The unique holding identifier |  |
-| **effectiveDate** | **DateTimeOffset?** | Effective date | [optional]  |
-| **fromTradeDate** | **DateTimeOffset?** | The from trade date, defaults to first time this holding is opened, lower bound for transactions | [optional]  |
-| **toTradeDate** | **DateTimeOffset?** | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions | [optional]  |
+| **effectiveDate** | **DateTimeOrCutLabel?** | Effective date | [optional]  |
+| **fromTradeDate** | **DateTimeOrCutLabel?** | The from trade date, defaults to first time this holding is opened, lower bound for transactions | [optional]  |
+| **toTradeDate** | **DateTimeOrCutLabel?** | The to trade date upper bound date, defaults to effectiveDate. upper bound for transactions | [optional]  |
 | **includeHistoric** | **bool?** | If true, transactions from previously closed holdings are returned.              If false, only transactions from last time position is opened. | [optional] [default to false] |
 | **taxLotId** | **string?** | Constrains the Holding Contributors to those which contributed to the specified tax lot. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | [optional]  |

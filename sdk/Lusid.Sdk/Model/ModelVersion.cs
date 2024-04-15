@@ -164,6 +164,21 @@ namespace Lusid.Sdk.Model
             return false;
         }
         /// <summary>
+        /// The unique id of the entity
+        /// </summary>
+        /// <value>The unique id of the entity</value>
+        [DataMember(Name = "entityUniqueId", EmitDefaultValue = true)]
+        public string EntityUniqueId { get; private set; }
+
+        /// <summary>
+        /// Returns false as EntityUniqueId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeEntityUniqueId()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +195,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  UserIdModified: ").Append(UserIdModified).Append("\n");
             sb.Append("  RequestIdModified: ").Append(RequestIdModified).Append("\n");
             sb.Append("  AsAtVersionNumber: ").Append(AsAtVersionNumber).Append("\n");
+            sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -259,6 +275,11 @@ namespace Lusid.Sdk.Model
                     this.AsAtVersionNumber == input.AsAtVersionNumber ||
                     (this.AsAtVersionNumber != null &&
                     this.AsAtVersionNumber.Equals(input.AsAtVersionNumber))
+                ) && 
+                (
+                    this.EntityUniqueId == input.EntityUniqueId ||
+                    (this.EntityUniqueId != null &&
+                    this.EntityUniqueId.Equals(input.EntityUniqueId))
                 );
         }
 
@@ -306,6 +327,10 @@ namespace Lusid.Sdk.Model
                 if (this.AsAtVersionNumber != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAtVersionNumber.GetHashCode();
+                }
+                if (this.EntityUniqueId != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityUniqueId.GetHashCode();
                 }
                 return hashCode;
             }

@@ -534,7 +534,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
-        VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0);
+        VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
@@ -556,7 +556,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
-        ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0);
         /// <summary>
         /// GetHoldings: Get holdings
         /// </summary>
@@ -1754,7 +1754,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] GetHoldingContributors: Get Holdings Contributors
@@ -1777,7 +1777,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetHoldings: Get holdings
         /// </summary>
@@ -6477,7 +6477,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VersionedResourceListOfHoldingContributor</returns>
-        public VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0)
+        public VersionedResourceListOfHoldingContributor GetHoldingContributors(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0)
         {
             Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = GetHoldingContributorsWithHttpInfo(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page);
             return localVarResponse.Data;
@@ -6500,7 +6500,7 @@ namespace Lusid.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing transactions from a previous call to GetHoldingContributors. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VersionedResourceListOfHoldingContributor</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> GetHoldingContributorsWithHttpInfo(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6626,7 +6626,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VersionedResourceListOfHoldingContributor</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VersionedResourceListOfHoldingContributor> GetHoldingContributorsAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor> localVarResponse = await GetHoldingContributorsWithHttpInfoAsync(scope, code, holdingId, effectiveDate, fromTradeDate, toTradeDate, includeHistoric, taxLotId, limit, asAt, page, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6650,7 +6650,7 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfHoldingContributor)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOffset? effectiveDate = default(DateTimeOffset?), DateTimeOffset? fromTradeDate = default(DateTimeOffset?), DateTimeOffset? toTradeDate = default(DateTimeOffset?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfHoldingContributor>> GetHoldingContributorsWithHttpInfoAsync(string scope, string code, long holdingId, DateTimeOrCutLabel? effectiveDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? fromTradeDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTradeDate = default(DateTimeOrCutLabel?), bool? includeHistoric = default(bool?), string? taxLotId = default(string?), int? limit = default(int?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
