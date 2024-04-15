@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// CashFlowEventAllOf
+    /// ScripDividendEventAllOf
     /// </summary>
-    [DataContract(Name = "CashFlowEvent_allOf")]
-    public partial class CashFlowEventAllOf : IEquatable<CashFlowEventAllOf>, IValidatableObject
+    [DataContract(Name = "ScripDividendEvent_allOf")]
+    public partial class ScripDividendEventAllOf : IEquatable<ScripDividendEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent
@@ -183,47 +183,68 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashFlowEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ScripDividendEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CashFlowEventAllOf() { }
+        protected ScripDividendEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashFlowEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ScripDividendEventAllOf" /> class.
         /// </summary>
-        /// <param name="cashFlowValue">cashFlowValue (required).</param>
+        /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
+        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
+        /// <param name="unitsRatio">unitsRatio (required).</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent (required).</param>
-        public CashFlowEventAllOf(CashFlowValue cashFlowValue = default(CashFlowValue), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public ScripDividendEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "cashFlowValue" is required (not null)
-            if (cashFlowValue == null)
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
             {
-                throw new ArgumentNullException("cashFlowValue is a required property for CashFlowEventAllOf and cannot be null");
+                throw new ArgumentNullException("unitsRatio is a required property for ScripDividendEventAllOf and cannot be null");
             }
-            this.CashFlowValue = cashFlowValue;
+            this.UnitsRatio = unitsRatio;
             this.InstrumentEventType = instrumentEventType;
+            this.AnnouncementDate = announcementDate;
+            this.RecordDate = recordDate;
         }
 
         /// <summary>
-        /// Gets or Sets CashFlowValue
+        /// Date on which the dividend was announced / declared.
         /// </summary>
-        [DataMember(Name = "cashFlowValue", IsRequired = true, EmitDefaultValue = true)]
-        public CashFlowValue CashFlowValue { get; set; }
+        /// <value>Date on which the dividend was announced / declared.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// What type of internal event does this represent; coupon, principal, premium etc.
+        /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
         /// </summary>
-        /// <value>What type of internal event does this represent; coupon, principal, premium etc.</value>
-        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
-        public string EventType { get; private set; }
+        /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// Returns false as EventType should not be serialized given that it's read-only.
+        /// Date you have to be the holder of record in order to participate in the tender.
         /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeEventType()
-        {
-            return false;
-        }
+        /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
+        [DataMember(Name = "recordDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// The date the company pays out dividends to shareholders.
+        /// </summary>
+        /// <value>The date the company pays out dividends to shareholders.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnitsRatio
+        /// </summary>
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -231,9 +252,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CashFlowEventAllOf {\n");
-            sb.Append("  CashFlowValue: ").Append(CashFlowValue).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
+            sb.Append("class ScripDividendEventAllOf {\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -255,15 +279,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CashFlowEventAllOf);
+            return this.Equals(input as ScripDividendEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if CashFlowEventAllOf instances are equal
+        /// Returns true if ScripDividendEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of CashFlowEventAllOf to be compared</param>
+        /// <param name="input">Instance of ScripDividendEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CashFlowEventAllOf input)
+        public bool Equals(ScripDividendEventAllOf input)
         {
             if (input == null)
             {
@@ -271,14 +295,29 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.CashFlowValue == input.CashFlowValue ||
-                    (this.CashFlowValue != null &&
-                    this.CashFlowValue.Equals(input.CashFlowValue))
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
                 ) && 
                 (
-                    this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
+                ) && 
+                (
+                    this.RecordDate == input.RecordDate ||
+                    (this.RecordDate != null &&
+                    this.RecordDate.Equals(input.RecordDate))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -295,13 +334,25 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CashFlowValue != null)
+                if (this.AnnouncementDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.CashFlowValue.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
                 }
-                if (this.EventType != null)
+                if (this.ExDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                }
+                if (this.RecordDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.UnitsRatio != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
@@ -315,12 +366,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EventType (string) minLength
-            if (this.EventType != null && this.EventType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be greater than 1.", new [] { "EventType" });
-            }
-
             yield break;
         }
     }

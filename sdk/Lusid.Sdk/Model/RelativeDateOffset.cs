@@ -36,9 +36,10 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RelativeDateOffset" /> class.
         /// </summary>
-        /// <param name="days">The number of business days to add to the anchor date. (required).</param>
+        /// <param name="days">The number of days to add to the anchor date. (required).</param>
         /// <param name="businessDayConvention">The adjustment type to apply to dates that fall upon a non-business day, e.g. modified following or following.    Supported string (enumeration) values are: [NoAdjustment, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]. (required).</param>
-        public RelativeDateOffset(int days = default(int), string businessDayConvention = default(string))
+        /// <param name="dayType">Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar]..</param>
+        public RelativeDateOffset(int days = default(int), string businessDayConvention = default(string), string dayType = default(string))
         {
             this.Days = days;
             // to ensure "businessDayConvention" is required (not null)
@@ -47,12 +48,13 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("businessDayConvention is a required property for RelativeDateOffset and cannot be null");
             }
             this.BusinessDayConvention = businessDayConvention;
+            this.DayType = dayType;
         }
 
         /// <summary>
-        /// The number of business days to add to the anchor date.
+        /// The number of days to add to the anchor date.
         /// </summary>
-        /// <value>The number of business days to add to the anchor date.</value>
+        /// <value>The number of days to add to the anchor date.</value>
         [DataMember(Name = "days", IsRequired = true, EmitDefaultValue = true)]
         public int Days { get; set; }
 
@@ -64,6 +66,13 @@ namespace Lusid.Sdk.Model
         public string BusinessDayConvention { get; set; }
 
         /// <summary>
+        /// Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].
+        /// </summary>
+        /// <value>Indicates if consideration is given to whether a day is a good business day or not when calculating the offset date.    Supported string (enumeration) values are: [Business, Calendar].</value>
+        [DataMember(Name = "dayType", EmitDefaultValue = true)]
+        public string DayType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Lusid.Sdk.Model
             sb.Append("class RelativeDateOffset {\n");
             sb.Append("  Days: ").Append(Days).Append("\n");
             sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
+            sb.Append("  DayType: ").Append(DayType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +126,11 @@ namespace Lusid.Sdk.Model
                     this.BusinessDayConvention == input.BusinessDayConvention ||
                     (this.BusinessDayConvention != null &&
                     this.BusinessDayConvention.Equals(input.BusinessDayConvention))
+                ) && 
+                (
+                    this.DayType == input.DayType ||
+                    (this.DayType != null &&
+                    this.DayType.Equals(input.DayType))
                 );
         }
 
@@ -132,6 +147,10 @@ namespace Lusid.Sdk.Model
                 if (this.BusinessDayConvention != null)
                 {
                     hashCode = (hashCode * 59) + this.BusinessDayConvention.GetHashCode();
+                }
+                if (this.DayType != null)
+                {
+                    hashCode = (hashCode * 59) + this.DayType.GetHashCode();
                 }
                 return hashCode;
             }

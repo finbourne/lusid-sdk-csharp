@@ -159,7 +159,13 @@ namespace Lusid.Sdk.Model
         /// Enum ExpiryEvent for value: ExpiryEvent
         /// </summary>
         [EnumMember(Value = "ExpiryEvent")]
-        ExpiryEvent = 22
+        ExpiryEvent = 22,
+
+        /// <summary>
+        /// Enum ScripDividendEvent for value: ScripDividendEvent
+        /// </summary>
+        [EnumMember(Value = "ScripDividendEvent")]
+        ScripDividendEvent = 23
 
     }
 

@@ -24,77 +24,73 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A &#39;transition&#39; within a corporate action, representing a set of output movements paired to a single input position
+    /// A scrip dividend issued to shareholders.
     /// </summary>
-    [DataContract(Name = "TransitionEvent")]
+    [DataContract(Name = "ScripDividendEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class TransitionEvent : InstrumentEvent, IEquatable<TransitionEvent>, IValidatableObject
+    public partial class ScripDividendEvent : InstrumentEvent, IEquatable<ScripDividendEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransitionEvent" /> class.
+        /// Initializes a new instance of the <see cref="ScripDividendEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TransitionEvent() { }
+        protected ScripDividendEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransitionEvent" /> class.
+        /// Initializes a new instance of the <see cref="ScripDividendEvent" /> class.
         /// </summary>
-        /// <param name="announcementDate">The announcement date of the corporate action.</param>
-        /// <param name="exDate">The ex date of the corporate action.</param>
-        /// <param name="recordDate">The record date of the corporate action.</param>
-        /// <param name="paymentDate">The payment date of the corporate action.</param>
-        /// <param name="inputTransition">inputTransition.</param>
-        /// <param name="outputTransitions">The resulting transitions from this event.</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent (required) (default to &quot;TransitionEvent&quot;).</param>
-        public TransitionEvent(DateTimeOffset announcementDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset recordDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), InputTransition inputTransition = default(InputTransition), List<OutputTransition> outputTransitions = default(List<OutputTransition>), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate. (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
+        /// <param name="paymentDate">The date the company pays out dividends to shareholders. (required).</param>
+        /// <param name="unitsRatio">unitsRatio (required).</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent (required) (default to &quot;ScripDividendEvent&quot;).</param>
+        public ScripDividendEvent(DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset paymentDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
-            this.AnnouncementDate = announcementDate;
             this.ExDate = exDate;
-            this.RecordDate = recordDate;
             this.PaymentDate = paymentDate;
-            this.InputTransition = inputTransition;
-            this.OutputTransitions = outputTransitions;
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
+            {
+                throw new ArgumentNullException("unitsRatio is a required property for ScripDividendEvent and cannot be null");
+            }
+            this.UnitsRatio = unitsRatio;
+            this.AnnouncementDate = announcementDate;
+            this.RecordDate = recordDate;
         }
 
         /// <summary>
-        /// The announcement date of the corporate action
+        /// Date on which the dividend was announced / declared.
         /// </summary>
-        /// <value>The announcement date of the corporate action</value>
-        [DataMember(Name = "announcementDate", EmitDefaultValue = false)]
-        public DateTimeOffset AnnouncementDate { get; set; }
+        /// <value>Date on which the dividend was announced / declared.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// The ex date of the corporate action
+        /// The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.
         /// </summary>
-        /// <value>The ex date of the corporate action</value>
-        [DataMember(Name = "exDate", EmitDefaultValue = false)]
+        /// <value>The first business day on which the dividend is not owed to the buying party.  Typically this is T-1 from the RecordDate.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// The record date of the corporate action
+        /// Date you have to be the holder of record in order to participate in the tender.
         /// </summary>
-        /// <value>The record date of the corporate action</value>
-        [DataMember(Name = "recordDate", EmitDefaultValue = false)]
-        public DateTimeOffset RecordDate { get; set; }
+        /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
+        [DataMember(Name = "recordDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RecordDate { get; set; }
 
         /// <summary>
-        /// The payment date of the corporate action
+        /// The date the company pays out dividends to shareholders.
         /// </summary>
-        /// <value>The payment date of the corporate action</value>
-        [DataMember(Name = "paymentDate", EmitDefaultValue = false)]
+        /// <value>The date the company pays out dividends to shareholders.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets InputTransition
+        /// Gets or Sets UnitsRatio
         /// </summary>
-        [DataMember(Name = "inputTransition", EmitDefaultValue = false)]
-        public InputTransition InputTransition { get; set; }
-
-        /// <summary>
-        /// The resulting transitions from this event
-        /// </summary>
-        /// <value>The resulting transitions from this event</value>
-        [DataMember(Name = "outputTransitions", EmitDefaultValue = true)]
-        public List<OutputTransition> OutputTransitions { get; set; }
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -103,14 +99,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TransitionEvent {\n");
+            sb.Append("class ScripDividendEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
-            sb.Append("  InputTransition: ").Append(InputTransition).Append("\n");
-            sb.Append("  OutputTransitions: ").Append(OutputTransitions).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,15 +126,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransitionEvent);
+            return this.Equals(input as ScripDividendEvent);
         }
 
         /// <summary>
-        /// Returns true if TransitionEvent instances are equal
+        /// Returns true if ScripDividendEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransitionEvent to be compared</param>
+        /// <param name="input">Instance of ScripDividendEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransitionEvent input)
+        public bool Equals(ScripDividendEvent input)
         {
             if (input == null)
             {
@@ -167,15 +162,9 @@ namespace Lusid.Sdk.Model
                     this.PaymentDate.Equals(input.PaymentDate))
                 ) && base.Equals(input) && 
                 (
-                    this.InputTransition == input.InputTransition ||
-                    (this.InputTransition != null &&
-                    this.InputTransition.Equals(input.InputTransition))
-                ) && base.Equals(input) && 
-                (
-                    this.OutputTransitions == input.OutputTransitions ||
-                    this.OutputTransitions != null &&
-                    input.OutputTransitions != null &&
-                    this.OutputTransitions.SequenceEqual(input.OutputTransitions)
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
                 );
         }
 
@@ -204,13 +193,9 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                if (this.InputTransition != null)
+                if (this.UnitsRatio != null)
                 {
-                    hashCode = (hashCode * 59) + this.InputTransition.GetHashCode();
-                }
-                if (this.OutputTransitions != null)
-                {
-                    hashCode = (hashCode * 59) + this.OutputTransitions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
                 }
                 return hashCode;
             }
