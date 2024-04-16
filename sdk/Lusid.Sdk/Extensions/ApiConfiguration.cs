@@ -48,6 +48,13 @@ namespace Lusid.Sdk.Extensions
         [ConfigurationKeyName("lusidUrl")]
         public string BaseUrl { get; set; }
 
+
+        /// <summary>
+        /// lusid Api Url
+        /// </summary>
+        [ConfigurationKeyName("lusidUrl")]
+        public string BackUpBaseUrl { get; set; }
+
         /// <summary>
         /// Client Application name
         /// </summary>
@@ -61,7 +68,7 @@ namespace Lusid.Sdk.Extensions
 
         internal bool MissingPersonalAccessTokenVariables =>
             string.IsNullOrWhiteSpace(PersonalAccessToken) ||
-            string.IsNullOrWhiteSpace(BaseUrl);
+            (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(BackUpBaseUrl));
 
         internal bool MissingSecretVariables =>
             string.IsNullOrWhiteSpace(TokenUrl) ||
@@ -69,7 +76,7 @@ namespace Lusid.Sdk.Extensions
             string.IsNullOrWhiteSpace(Password) ||
             string.IsNullOrWhiteSpace(ClientId) ||
             string.IsNullOrWhiteSpace(ClientSecret) ||
-            string.IsNullOrWhiteSpace(BaseUrl);
+            (string.IsNullOrWhiteSpace(BaseUrl) && string.IsNullOrWhiteSpace(BackUpBaseUrl)) ;
 
         /// <summary>
         /// Checks if any of the required configuration values are missing
@@ -122,14 +129,14 @@ namespace Lusid.Sdk.Extensions
                 missingConfig.Add(nameof(ClientSecret));
             }
 
-            if (string.IsNullOrWhiteSpace(BaseUrl))
+            if(string.IsNullOrWhiteSpace(BackUpBaseUrl) && string.IsNullOrWhiteSpace(BaseUrl))
             {
-                PropertyInfo propertyInfo = typeof(ApiConfiguration).GetProperty(nameof(BaseUrl));
+                PropertyInfo propertyInfo = typeof(ApiConfiguration).GetProperty(nameof(BackUpBaseUrl));
                 var attribute = (ConfigurationKeyNameAttribute)Attribute.GetCustomAttribute(propertyInfo!, typeof(ConfigurationKeyNameAttribute));
 
                 missingConfig.Add(attribute!.Name);
             }
-
+            
             return missingConfig;
         }  
     }
