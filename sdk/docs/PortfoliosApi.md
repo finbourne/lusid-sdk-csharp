@@ -2165,7 +2165,7 @@ catch (ApiException e)
 
 <a id="patchportfolio"></a>
 # **PatchPortfolio**
-> ActionResultOfPortfolio PatchPortfolio (string scope, string code, List<Operation> operation)
+> Portfolio PatchPortfolio (string scope, string code, List<Operation> operation)
 
 [EARLY ACCESS] PatchPortfolio: Patch portfolio.
 
@@ -2198,7 +2198,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] PatchPortfolio: Patch portfolio.
-                ActionResultOfPortfolio result = apiInstance.PatchPortfolio(scope, code, operation);
+                Portfolio result = apiInstance.PatchPortfolio(scope, code, operation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2219,7 +2219,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] PatchPortfolio: Patch portfolio.
-    ApiResponse<ActionResultOfPortfolio> response = apiInstance.PatchPortfolioWithHttpInfo(scope, code, operation);
+    ApiResponse<Portfolio> response = apiInstance.PatchPortfolioWithHttpInfo(scope, code, operation);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2242,7 +2242,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ActionResultOfPortfolio**](ActionResultOfPortfolio.md)
+[**Portfolio**](Portfolio.md)
 
 ### Authorization
 

@@ -2667,7 +2667,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Fund>("/api/funds/{scope}/{code}/shareclasses", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Fund>("/api/funds/{scope}/{code}/shareclasses", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetShareClassInstruments", localVarResponse);
@@ -2780,7 +2780,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Fund>("/api/funds/{scope}/{code}/shareclasses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Fund>("/api/funds/{scope}/{code}/shareclasses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

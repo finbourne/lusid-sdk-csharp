@@ -707,8 +707,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ActionResultOfPortfolio</returns>
-        ActionResultOfPortfolio PatchPortfolio(string scope, string code, List<Operation> operation, int operationIndex = 0);
+        /// <returns>Portfolio</returns>
+        Portfolio PatchPortfolio(string scope, string code, List<Operation> operation, int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] PatchPortfolio: Patch portfolio.
@@ -721,8 +721,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ActionResultOfPortfolio</returns>
-        ApiResponse<ActionResultOfPortfolio> PatchPortfolioWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0);
+        /// <returns>ApiResponse of Portfolio</returns>
+        ApiResponse<Portfolio> PatchPortfolioWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
         /// </summary>
@@ -1607,8 +1607,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ActionResultOfPortfolio</returns>
-        System.Threading.Tasks.Task<ActionResultOfPortfolio> PatchPortfolioAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Portfolio</returns>
+        System.Threading.Tasks.Task<Portfolio> PatchPortfolioAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] PatchPortfolio: Patch portfolio.
@@ -1622,8 +1622,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ActionResultOfPortfolio)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ActionResultOfPortfolio>> PatchPortfolioWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Portfolio)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Portfolio>> PatchPortfolioWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio.
         /// </summary>
@@ -6998,10 +6998,10 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ActionResultOfPortfolio</returns>
-        public ActionResultOfPortfolio PatchPortfolio(string scope, string code, List<Operation> operation, int operationIndex = 0)
+        /// <returns>Portfolio</returns>
+        public Portfolio PatchPortfolio(string scope, string code, List<Operation> operation, int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<ActionResultOfPortfolio> localVarResponse = PatchPortfolioWithHttpInfo(scope, code, operation);
+            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = PatchPortfolioWithHttpInfo(scope, code, operation);
             return localVarResponse.Data;
         }
 
@@ -7013,8 +7013,8 @@ namespace Lusid.Sdk.Api
         /// <param name="code">The code of the portfolio. Together with the               scope this uniquely identifies the portfolio.</param>
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of ActionResultOfPortfolio</returns>
-        public Lusid.Sdk.Client.ApiResponse<ActionResultOfPortfolio> PatchPortfolioWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0)
+        /// <returns>ApiResponse of Portfolio</returns>
+        public Lusid.Sdk.Client.ApiResponse<Portfolio> PatchPortfolioWithHttpInfo(string scope, string code, List<Operation> operation, int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7087,7 +7087,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<ActionResultOfPortfolio>("/api/portfolios/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<Portfolio>("/api/portfolios/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PatchPortfolio", localVarResponse);
@@ -7109,10 +7109,10 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ActionResultOfPortfolio</returns>
-        public async System.Threading.Tasks.Task<ActionResultOfPortfolio> PatchPortfolioAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Portfolio</returns>
+        public async System.Threading.Tasks.Task<Portfolio> PatchPortfolioAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<ActionResultOfPortfolio> localVarResponse = await PatchPortfolioWithHttpInfoAsync(scope, code, operation, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<Portfolio> localVarResponse = await PatchPortfolioWithHttpInfoAsync(scope, code, operation, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7125,8 +7125,8 @@ namespace Lusid.Sdk.Api
         /// <param name="operation">The json patch document. For more check: https://datatracker.ietf.org/doc/html/rfc6902.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ActionResultOfPortfolio)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ActionResultOfPortfolio>> PatchPortfolioWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Portfolio)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<Portfolio>> PatchPortfolioWithHttpInfoAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7200,7 +7200,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<ActionResultOfPortfolio>("/api/portfolios/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Portfolio>("/api/portfolios/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -102,7 +102,8 @@ namespace Lusid.Sdk.Model
         /// <param name="transactionTypeScope">The scope of the transaction types..</param>
         /// <param name="cashGainLossCalculationDate">The option when the Cash Gain Loss to be calulated, TransactionDate/SettlementDate. Defaults to SettlementDate..</param>
         /// <param name="instrumentEventConfiguration">instrumentEventConfiguration.</param>
-        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration))
+        /// <param name="amortisationRuleSetId">amortisationRuleSetId.</param>
+        public CreateTransactionPortfolioRequest(string displayName = default(string), string description = default(string), string code = default(string), DateTimeOffset? created = default(DateTimeOffset?), string baseCurrency = default(string), ResourceId corporateActionSourceId = default(ResourceId), AccountingMethodEnum? accountingMethod = default(AccountingMethodEnum?), List<string> subHoldingKeys = default(List<string>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), List<string> instrumentScopes = default(List<string>), string amortisationMethod = default(string), string transactionTypeScope = default(string), string cashGainLossCalculationDate = default(string), InstrumentEventConfiguration instrumentEventConfiguration = default(InstrumentEventConfiguration), ResourceId amortisationRuleSetId = default(ResourceId))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -133,6 +134,7 @@ namespace Lusid.Sdk.Model
             this.TransactionTypeScope = transactionTypeScope;
             this.CashGainLossCalculationDate = cashGainLossCalculationDate;
             this.InstrumentEventConfiguration = instrumentEventConfiguration;
+            this.AmortisationRuleSetId = amortisationRuleSetId;
         }
 
         /// <summary>
@@ -225,6 +227,12 @@ namespace Lusid.Sdk.Model
         public InstrumentEventConfiguration InstrumentEventConfiguration { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmortisationRuleSetId
+        /// </summary>
+        [DataMember(Name = "amortisationRuleSetId", EmitDefaultValue = false)]
+        public ResourceId AmortisationRuleSetId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -246,6 +254,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  TransactionTypeScope: ").Append(TransactionTypeScope).Append("\n");
             sb.Append("  CashGainLossCalculationDate: ").Append(CashGainLossCalculationDate).Append("\n");
             sb.Append("  InstrumentEventConfiguration: ").Append(InstrumentEventConfiguration).Append("\n");
+            sb.Append("  AmortisationRuleSetId: ").Append(AmortisationRuleSetId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -352,6 +361,11 @@ namespace Lusid.Sdk.Model
                     this.InstrumentEventConfiguration == input.InstrumentEventConfiguration ||
                     (this.InstrumentEventConfiguration != null &&
                     this.InstrumentEventConfiguration.Equals(input.InstrumentEventConfiguration))
+                ) && 
+                (
+                    this.AmortisationRuleSetId == input.AmortisationRuleSetId ||
+                    (this.AmortisationRuleSetId != null &&
+                    this.AmortisationRuleSetId.Equals(input.AmortisationRuleSetId))
                 );
         }
 
@@ -416,6 +430,10 @@ namespace Lusid.Sdk.Model
                 if (this.InstrumentEventConfiguration != null)
                 {
                     hashCode = (hashCode * 59) + this.InstrumentEventConfiguration.GetHashCode();
+                }
+                if (this.AmortisationRuleSetId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AmortisationRuleSetId.GetHashCode();
                 }
                 return hashCode;
             }
