@@ -335,7 +335,10 @@ namespace Lusid.Sdk.Client
             {
                 foreach (var pathParam in options.PathParameters)
                 {
-                    request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment);
+                    var segmentParameter = new UrlSegmentParameter(pathParam.Key, pathParam.Value);
+                    // %2F's are replaced in UrlSegmentParameter constructor
+                    // we don't want this
+                    request.AddParameter(segmentParameter with {Value = pathParam.Value});
                 }
             }
 
