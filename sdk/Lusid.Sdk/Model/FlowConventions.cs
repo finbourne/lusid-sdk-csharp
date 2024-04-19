@@ -47,9 +47,10 @@ namespace Lusid.Sdk.Model
         /// <param name="leapDaysIncluded">If this flag is set to true, the 29th of February is included in the date schedule when the business roll convention is applied.  If this flag is set to false, the business roll convention ignores February 29 for date schedules, cash flow payments etc.  This flag defaults to true if not specified, i.e., leap days are included in a date schedule generation..</param>
         /// <param name="accrualDateAdjustment">Indicates if the accrual dates are adjusted to the payment dates. The default value is &#39;Adjusted&#39;.    Supported string (enumeration) values are: [Adjusted, Unadjusted]..</param>
         /// <param name="businessDayConvention">When generating a set of dates, what convention should be used for adjusting dates that coincide with a non-business day.    Supported string (enumeration) values are: [NoAdjustment, None, Previous, P, Following, F, ModifiedPrevious, MP, ModifiedFollowing, MF, HalfMonthModifiedFollowing, Nearest]..</param>
+        /// <param name="accrualDayCountConvention">Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation..</param>
         /// <param name="scope">The scope used when updating or inserting the convention..</param>
         /// <param name="code">The code of the convention..</param>
-        public FlowConventions(string currency = default(string), string paymentFrequency = default(string), string dayCountConvention = default(string), string rollConvention = default(string), List<string> paymentCalendars = default(List<string>), List<string> resetCalendars = default(List<string>), int settleDays = default(int), int resetDays = default(int), bool? leapDaysIncluded = default(bool?), string accrualDateAdjustment = default(string), string businessDayConvention = default(string), string scope = default(string), string code = default(string))
+        public FlowConventions(string currency = default(string), string paymentFrequency = default(string), string dayCountConvention = default(string), string rollConvention = default(string), List<string> paymentCalendars = default(List<string>), List<string> resetCalendars = default(List<string>), int settleDays = default(int), int resetDays = default(int), bool? leapDaysIncluded = default(bool?), string accrualDateAdjustment = default(string), string businessDayConvention = default(string), string accrualDayCountConvention = default(string), string scope = default(string), string code = default(string))
         {
             // to ensure "currency" is required (not null)
             if (currency == null)
@@ -92,6 +93,7 @@ namespace Lusid.Sdk.Model
             this.LeapDaysIncluded = leapDaysIncluded;
             this.AccrualDateAdjustment = accrualDateAdjustment;
             this.BusinessDayConvention = businessDayConvention;
+            this.AccrualDayCountConvention = accrualDayCountConvention;
             this.Scope = scope;
             this.Code = code;
         }
@@ -174,6 +176,13 @@ namespace Lusid.Sdk.Model
         public string BusinessDayConvention { get; set; }
 
         /// <summary>
+        /// Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation.
+        /// </summary>
+        /// <value>Optional, if not set the main DayCountConvention is used for all accrual calculations.  This only needs to be set when accrual uses a different day count to the coupon calculation.</value>
+        [DataMember(Name = "accrualDayCountConvention", EmitDefaultValue = true)]
+        public string AccrualDayCountConvention { get; set; }
+
+        /// <summary>
         /// The scope used when updating or inserting the convention.
         /// </summary>
         /// <value>The scope used when updating or inserting the convention.</value>
@@ -206,6 +215,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  LeapDaysIncluded: ").Append(LeapDaysIncluded).Append("\n");
             sb.Append("  AccrualDateAdjustment: ").Append(AccrualDateAdjustment).Append("\n");
             sb.Append("  BusinessDayConvention: ").Append(BusinessDayConvention).Append("\n");
+            sb.Append("  AccrualDayCountConvention: ").Append(AccrualDayCountConvention).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
@@ -299,6 +309,11 @@ namespace Lusid.Sdk.Model
                     this.BusinessDayConvention.Equals(input.BusinessDayConvention))
                 ) && 
                 (
+                    this.AccrualDayCountConvention == input.AccrualDayCountConvention ||
+                    (this.AccrualDayCountConvention != null &&
+                    this.AccrualDayCountConvention.Equals(input.AccrualDayCountConvention))
+                ) && 
+                (
                     this.Scope == input.Scope ||
                     (this.Scope != null &&
                     this.Scope.Equals(input.Scope))
@@ -356,6 +371,10 @@ namespace Lusid.Sdk.Model
                 if (this.BusinessDayConvention != null)
                 {
                     hashCode = (hashCode * 59) + this.BusinessDayConvention.GetHashCode();
+                }
+                if (this.AccrualDayCountConvention != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccrualDayCountConvention.GetHashCode();
                 }
                 if (this.Scope != null)
                 {
@@ -422,6 +441,18 @@ namespace Lusid.Sdk.Model
             if (this.AccrualDateAdjustment != null && this.AccrualDateAdjustment.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualDateAdjustment, length must be greater than 0.", new [] { "AccrualDateAdjustment" });
+            }
+
+            // AccrualDayCountConvention (string) maxLength
+            if (this.AccrualDayCountConvention != null && this.AccrualDayCountConvention.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualDayCountConvention, length must be less than 50.", new [] { "AccrualDayCountConvention" });
+            }
+
+            // AccrualDayCountConvention (string) minLength
+            if (this.AccrualDayCountConvention != null && this.AccrualDayCountConvention.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccrualDayCountConvention, length must be greater than 0.", new [] { "AccrualDayCountConvention" });
             }
 
             // Scope (string) maxLength
