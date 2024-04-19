@@ -24,38 +24,37 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// PropertyKeyComplianceParameter
+    /// PropertyListComplianceParameter
     /// </summary>
-    [DataContract(Name = "PropertyKeyComplianceParameter")]
+    [DataContract(Name = "PropertyListComplianceParameter")]
     [JsonConverter(typeof(JsonSubtypes), "ComplianceParameterType")]
-    public partial class PropertyKeyComplianceParameter : ComplianceParameter, IEquatable<PropertyKeyComplianceParameter>, IValidatableObject
+    public partial class PropertyListComplianceParameter : ComplianceParameter, IEquatable<PropertyListComplianceParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyKeyComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="PropertyListComplianceParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PropertyKeyComplianceParameter() { }
+        protected PropertyListComplianceParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyKeyComplianceParameter" /> class.
+        /// Initializes a new instance of the <see cref="PropertyListComplianceParameter" /> class.
         /// </summary>
-        /// <param name="value">The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. (required).</param>
-        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter (required) (default to &quot;PropertyKeyComplianceParameter&quot;).</param>
-        public PropertyKeyComplianceParameter(string value = default(string), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
+        /// <param name="value">value (required).</param>
+        /// <param name="complianceParameterType">The parameter type. The available values are: BoolComplianceParameter, StringComplianceParameter, DecimalComplianceParameter, DateTimeComplianceParameter, PropertyKeyComplianceParameter, AddressKeyComplianceParameter, PortfolioIdComplianceParameter, PortfolioGroupIdComplianceParameter, StringListComplianceParameter, BoolListComplianceParameter, DateTimeListComplianceParameter, DecimalListComplianceParameter, PropertyKeyListComplianceParameter, AddressKeyListComplianceParameter, PortfolioIdListComplianceParameter, PortfolioGroupIdListComplianceParameter, InstrumentListComplianceParameter, FilterPredicateComplianceParameter, GroupFilterPredicateComplianceParameter, GroupBySelectorComplianceParameter, PropertyListComplianceParameter (required) (default to &quot;PropertyListComplianceParameter&quot;).</param>
+        public PropertyListComplianceParameter(ResourceId value = default(ResourceId), ComplianceParameterTypeEnum complianceParameterType = default(ComplianceParameterTypeEnum)) : base(complianceParameterType)
         {
             // to ensure "value" is required (not null)
             if (value == null)
             {
-                throw new ArgumentNullException("value is a required property for PropertyKeyComplianceParameter and cannot be null");
+                throw new ArgumentNullException("value is a required property for PropertyListComplianceParameter and cannot be null");
             }
             this.Value = value;
         }
 
         /// <summary>
-        /// The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
-        public string Value { get; set; }
+        public ResourceId Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +63,7 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PropertyKeyComplianceParameter {\n");
+            sb.Append("class PropertyListComplianceParameter {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -87,15 +86,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PropertyKeyComplianceParameter);
+            return this.Equals(input as PropertyListComplianceParameter);
         }
 
         /// <summary>
-        /// Returns true if PropertyKeyComplianceParameter instances are equal
+        /// Returns true if PropertyListComplianceParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of PropertyKeyComplianceParameter to be compared</param>
+        /// <param name="input">Instance of PropertyListComplianceParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PropertyKeyComplianceParameter input)
+        public bool Equals(PropertyListComplianceParameter input)
         {
             if (input == null)
             {

@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.StringListComplianceParameter
+# Lusid.Sdk.Model.PropertyListComplianceParameter
 
 ## Properties
 

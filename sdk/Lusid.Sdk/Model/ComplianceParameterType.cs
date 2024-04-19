@@ -146,7 +146,13 @@ namespace Lusid.Sdk.Model
         /// Enum GroupBySelectorComplianceParameter for value: GroupBySelectorComplianceParameter
         /// </summary>
         [EnumMember(Value = "GroupBySelectorComplianceParameter")]
-        GroupBySelectorComplianceParameter = 20
+        GroupBySelectorComplianceParameter = 20,
+
+        /// <summary>
+        /// Enum PropertyListComplianceParameter for value: PropertyListComplianceParameter
+        /// </summary>
+        [EnumMember(Value = "PropertyListComplianceParameter")]
+        PropertyListComplianceParameter = 21
 
     }
 
