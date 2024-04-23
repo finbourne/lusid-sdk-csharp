@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// RawVendorEventAllOf
+    /// ReverseStockSplitEventAllOf
     /// </summary>
-    [DataContract(Name = "RawVendorEvent_allOf")]
-    public partial class RawVendorEventAllOf : IEquatable<RawVendorEventAllOf>, IValidatableObject
+    [DataContract(Name = "ReverseStockSplitEvent_allOf")]
+    public partial class ReverseStockSplitEventAllOf : IEquatable<ReverseStockSplitEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent
@@ -195,54 +195,67 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RawVendorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ReverseStockSplitEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RawVendorEventAllOf() { }
+        protected ReverseStockSplitEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RawVendorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="ReverseStockSplitEventAllOf" /> class.
         /// </summary>
-        /// <param name="effectiveAt">The effective date of the event (required).</param>
-        /// <param name="eventValue">eventValue (required).</param>
-        /// <param name="eventType">What type of internal event does this represent; reset, exercise, amortisation etc. (required).</param>
+        /// <param name="paymentDate">Date on which the stock split takes effect. (required).</param>
+        /// <param name="exDate">The first date on which the shares will trade at the post-split price. (required).</param>
+        /// <param name="unitsRatio">unitsRatio (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to have their shares merged..</param>
+        /// <param name="announcementDate">Date the reverse stock split was announced..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent (required).</param>
-        public RawVendorEventAllOf(DateTimeOffset effectiveAt = default(DateTimeOffset), LifeCycleEventValue eventValue = default(LifeCycleEventValue), string eventType = default(string), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public ReverseStockSplitEventAllOf(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            this.EffectiveAt = effectiveAt;
-            // to ensure "eventValue" is required (not null)
-            if (eventValue == null)
+            this.PaymentDate = paymentDate;
+            this.ExDate = exDate;
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
             {
-                throw new ArgumentNullException("eventValue is a required property for RawVendorEventAllOf and cannot be null");
+                throw new ArgumentNullException("unitsRatio is a required property for ReverseStockSplitEventAllOf and cannot be null");
             }
-            this.EventValue = eventValue;
-            // to ensure "eventType" is required (not null)
-            if (eventType == null)
-            {
-                throw new ArgumentNullException("eventType is a required property for RawVendorEventAllOf and cannot be null");
-            }
-            this.EventType = eventType;
+            this.UnitsRatio = unitsRatio;
             this.InstrumentEventType = instrumentEventType;
+            this.RecordDate = recordDate;
+            this.AnnouncementDate = announcementDate;
         }
 
         /// <summary>
-        /// The effective date of the event
+        /// Date on which the stock split takes effect.
         /// </summary>
-        /// <value>The effective date of the event</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset EffectiveAt { get; set; }
+        /// <value>Date on which the stock split takes effect.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventValue
+        /// The first date on which the shares will trade at the post-split price.
         /// </summary>
-        [DataMember(Name = "eventValue", IsRequired = true, EmitDefaultValue = true)]
-        public LifeCycleEventValue EventValue { get; set; }
+        /// <value>The first date on which the shares will trade at the post-split price.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// What type of internal event does this represent; reset, exercise, amortisation etc.
+        /// Gets or Sets UnitsRatio
         /// </summary>
-        /// <value>What type of internal event does this represent; reset, exercise, amortisation etc.</value>
-        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
-        public string EventType { get; set; }
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
+
+        /// <summary>
+        /// Date you have to be the holder of record in order to have their shares merged.
+        /// </summary>
+        /// <value>Date you have to be the holder of record in order to have their shares merged.</value>
+        [DataMember(Name = "recordDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// Date the reverse stock split was announced.
+        /// </summary>
+        /// <value>Date the reverse stock split was announced.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -251,10 +264,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class RawVendorEventAllOf {\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
-            sb.Append("  EventValue: ").Append(EventValue).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
+            sb.Append("class ReverseStockSplitEventAllOf {\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
+            sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -276,15 +291,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RawVendorEventAllOf);
+            return this.Equals(input as ReverseStockSplitEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if RawVendorEventAllOf instances are equal
+        /// Returns true if ReverseStockSplitEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of RawVendorEventAllOf to be compared</param>
+        /// <param name="input">Instance of ReverseStockSplitEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RawVendorEventAllOf input)
+        public bool Equals(ReverseStockSplitEventAllOf input)
         {
             if (input == null)
             {
@@ -292,19 +307,29 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
                 ) && 
                 (
-                    this.EventValue == input.EventValue ||
-                    (this.EventValue != null &&
-                    this.EventValue.Equals(input.EventValue))
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
                 ) && 
                 (
-                    this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
+                ) && 
+                (
+                    this.RecordDate == input.RecordDate ||
+                    (this.RecordDate != null &&
+                    this.RecordDate.Equals(input.RecordDate))
+                ) && 
+                (
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -321,17 +346,25 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EffectiveAt != null)
+                if (this.PaymentDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
                 }
-                if (this.EventValue != null)
+                if (this.ExDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.EventValue.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
-                if (this.EventType != null)
+                if (this.UnitsRatio != null)
                 {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
+                }
+                if (this.RecordDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                }
+                if (this.AnnouncementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
@@ -345,12 +378,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EventType (string) minLength
-            if (this.EventType != null && this.EventType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EventType, length must be greater than 1.", new [] { "EventType" });
-            }
-
             yield break;
         }
     }

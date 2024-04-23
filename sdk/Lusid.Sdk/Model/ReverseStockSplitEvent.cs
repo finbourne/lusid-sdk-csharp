@@ -24,74 +24,73 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// A cash distribution paid out to shareholders.
+    /// A reverse split in the company&#39;s shares. Shareholders have their number of shares reduced based on the terms of the stock split.
     /// </summary>
-    [DataContract(Name = "CashDividendEvent")]
+    [DataContract(Name = "ReverseStockSplitEvent")]
     [JsonConverter(typeof(JsonSubtypes), "InstrumentEventType")]
-    public partial class CashDividendEvent : InstrumentEvent, IEquatable<CashDividendEvent>, IValidatableObject
+    public partial class ReverseStockSplitEvent : InstrumentEvent, IEquatable<ReverseStockSplitEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashDividendEvent" /> class.
+        /// Initializes a new instance of the <see cref="ReverseStockSplitEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CashDividendEvent() { }
+        protected ReverseStockSplitEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CashDividendEvent" /> class.
+        /// Initializes a new instance of the <see cref="ReverseStockSplitEvent" /> class.
         /// </summary>
-        /// <param name="paymentDate">The date the company begins distributing the dividend. (required).</param>
-        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party. (required).</param>
-        /// <param name="cashElections">Possible elections for this event, each keyed with a unique identifier. (required).</param>
-        /// <param name="announcementDate">Date on which the dividend is announced by the company..</param>
-        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
-        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent (required) (default to &quot;CashDividendEvent&quot;).</param>
-        public CashDividendEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset? announcementDate = default(DateTimeOffset?), DateTimeOffset? recordDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
+        /// <param name="paymentDate">Date on which the stock split takes effect. (required).</param>
+        /// <param name="exDate">The first date on which the shares will trade at the post-split price. (required).</param>
+        /// <param name="unitsRatio">unitsRatio (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to have their shares merged..</param>
+        /// <param name="announcementDate">Date the reverse stock split was announced..</param>
+        /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent (required) (default to &quot;ReverseStockSplitEvent&quot;).</param>
+        public ReverseStockSplitEvent(DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset exDate = default(DateTimeOffset), UnitsRatio unitsRatio = default(UnitsRatio), DateTimeOffset? recordDate = default(DateTimeOffset?), DateTimeOffset? announcementDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum)) : base(instrumentEventType)
         {
             this.PaymentDate = paymentDate;
             this.ExDate = exDate;
-            // to ensure "cashElections" is required (not null)
-            if (cashElections == null)
+            // to ensure "unitsRatio" is required (not null)
+            if (unitsRatio == null)
             {
-                throw new ArgumentNullException("cashElections is a required property for CashDividendEvent and cannot be null");
+                throw new ArgumentNullException("unitsRatio is a required property for ReverseStockSplitEvent and cannot be null");
             }
-            this.CashElections = cashElections;
-            this.AnnouncementDate = announcementDate;
+            this.UnitsRatio = unitsRatio;
             this.RecordDate = recordDate;
+            this.AnnouncementDate = announcementDate;
         }
 
         /// <summary>
-        /// The date the company begins distributing the dividend.
+        /// Date on which the stock split takes effect.
         /// </summary>
-        /// <value>The date the company begins distributing the dividend.</value>
+        /// <value>Date on which the stock split takes effect.</value>
         [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset PaymentDate { get; set; }
 
         /// <summary>
-        /// The first business day on which the dividend is not owed to the buying party.
+        /// The first date on which the shares will trade at the post-split price.
         /// </summary>
-        /// <value>The first business day on which the dividend is not owed to the buying party.</value>
+        /// <value>The first date on which the shares will trade at the post-split price.</value>
         [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset ExDate { get; set; }
 
         /// <summary>
-        /// Possible elections for this event, each keyed with a unique identifier.
+        /// Gets or Sets UnitsRatio
         /// </summary>
-        /// <value>Possible elections for this event, each keyed with a unique identifier.</value>
-        [DataMember(Name = "cashElections", IsRequired = true, EmitDefaultValue = true)]
-        public List<CashElection> CashElections { get; set; }
+        [DataMember(Name = "unitsRatio", IsRequired = true, EmitDefaultValue = true)]
+        public UnitsRatio UnitsRatio { get; set; }
 
         /// <summary>
-        /// Date on which the dividend is announced by the company.
+        /// Date you have to be the holder of record in order to have their shares merged.
         /// </summary>
-        /// <value>Date on which the dividend is announced by the company.</value>
-        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
-        public DateTimeOffset? AnnouncementDate { get; set; }
-
-        /// <summary>
-        /// Date you have to be the holder of record in order to participate in the tender.
-        /// </summary>
-        /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
+        /// <value>Date you have to be the holder of record in order to have their shares merged.</value>
         [DataMember(Name = "recordDate", EmitDefaultValue = true)]
         public DateTimeOffset? RecordDate { get; set; }
+
+        /// <summary>
+        /// Date the reverse stock split was announced.
+        /// </summary>
+        /// <value>Date the reverse stock split was announced.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,13 +99,13 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CashDividendEvent {\n");
+            sb.Append("class ReverseStockSplitEvent {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
             sb.Append("  ExDate: ").Append(ExDate).Append("\n");
-            sb.Append("  CashElections: ").Append(CashElections).Append("\n");
-            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  UnitsRatio: ").Append(UnitsRatio).Append("\n");
             sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,15 +126,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CashDividendEvent);
+            return this.Equals(input as ReverseStockSplitEvent);
         }
 
         /// <summary>
-        /// Returns true if CashDividendEvent instances are equal
+        /// Returns true if ReverseStockSplitEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of CashDividendEvent to be compared</param>
+        /// <param name="input">Instance of ReverseStockSplitEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CashDividendEvent input)
+        public bool Equals(ReverseStockSplitEvent input)
         {
             if (input == null)
             {
@@ -153,20 +152,19 @@ namespace Lusid.Sdk.Model
                     this.ExDate.Equals(input.ExDate))
                 ) && base.Equals(input) && 
                 (
-                    this.CashElections == input.CashElections ||
-                    this.CashElections != null &&
-                    input.CashElections != null &&
-                    this.CashElections.SequenceEqual(input.CashElections)
-                ) && base.Equals(input) && 
-                (
-                    this.AnnouncementDate == input.AnnouncementDate ||
-                    (this.AnnouncementDate != null &&
-                    this.AnnouncementDate.Equals(input.AnnouncementDate))
+                    this.UnitsRatio == input.UnitsRatio ||
+                    (this.UnitsRatio != null &&
+                    this.UnitsRatio.Equals(input.UnitsRatio))
                 ) && base.Equals(input) && 
                 (
                     this.RecordDate == input.RecordDate ||
                     (this.RecordDate != null &&
                     this.RecordDate.Equals(input.RecordDate))
+                ) && base.Equals(input) && 
+                (
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
                 );
         }
 
@@ -187,17 +185,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
                 }
-                if (this.CashElections != null)
+                if (this.UnitsRatio != null)
                 {
-                    hashCode = (hashCode * 59) + this.CashElections.GetHashCode();
-                }
-                if (this.AnnouncementDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
+                    hashCode = (hashCode * 59) + this.UnitsRatio.GetHashCode();
                 }
                 if (this.RecordDate != null)
                 {
                     hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
+                }
+                if (this.AnnouncementDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
                 }
                 return hashCode;
             }
