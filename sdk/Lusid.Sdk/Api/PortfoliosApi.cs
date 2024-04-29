@@ -240,7 +240,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Portfolio</returns>
         ApiResponse<Portfolio> GetPortfolioWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -265,7 +265,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfAggregatedReturn GetPortfolioAggregateReturns(string scope, string code, string returnScope, string returnCode, string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), string? compositeMethod = default(string?), string? period = default(string?), string? outputFrequency = default(string?), List<string>? metrics = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? alternativeIncDate = default(DateTimeOrCutLabel?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -1113,7 +1113,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Portfolio)</returns>
         System.Threading.Tasks.Task<ApiResponse<Portfolio>> GetPortfolioWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -1139,7 +1139,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfAggregatedReturn> GetPortfolioAggregateReturnsAsync(string scope, string code, string returnScope, string returnCode, string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), string? compositeMethod = default(string?), string? period = default(string?), string? outputFrequency = default(string?), List<string>? metrics = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? alternativeIncDate = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -3593,7 +3593,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -3619,7 +3619,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -3768,7 +3768,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -3795,7 +3795,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
+        /// [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
