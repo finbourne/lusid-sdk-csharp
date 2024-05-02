@@ -38,10 +38,26 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="effectiveFrom">The effective datetime at which this version became valid. Only applies when a single entity is being interacted with. (required).</param>
         /// <param name="asAtDate">The asAt datetime at which the data was committed to LUSID. (required).</param>
-        public ModelVersion(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset))
+        /// <param name="asAtCreated">The asAt datetime at which the entity was first created in LUSID..</param>
+        /// <param name="userIdCreated">The unique id of the user who created the entity..</param>
+        /// <param name="requestIdCreated">The unique request id of the command that created the entity..</param>
+        /// <param name="asAtModified">The asAt datetime at which the entity (including its properties) was last updated in LUSID..</param>
+        /// <param name="userIdModified">The unique id of the user who last updated the entity (including its properties) in LUSID..</param>
+        /// <param name="requestIdModified">The unique request id of the command that last updated the entity (including its properties) in LUSID..</param>
+        /// <param name="asAtVersionNumber">The integer version number for the entity (the entity was created at version 1).</param>
+        /// <param name="entityUniqueId">The unique id of the entity.</param>
+        public ModelVersion(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset), DateTimeOffset? asAtCreated = default(DateTimeOffset?), string userIdCreated = default(string), string requestIdCreated = default(string), DateTimeOffset? asAtModified = default(DateTimeOffset?), string userIdModified = default(string), string requestIdModified = default(string), int? asAtVersionNumber = default(int?), string entityUniqueId = default(string))
         {
             this.EffectiveFrom = effectiveFrom;
             this.AsAtDate = asAtDate;
+            this.AsAtCreated = asAtCreated;
+            this.UserIdCreated = userIdCreated;
+            this.RequestIdCreated = requestIdCreated;
+            this.AsAtModified = asAtModified;
+            this.UserIdModified = userIdModified;
+            this.RequestIdModified = requestIdModified;
+            this.AsAtVersionNumber = asAtVersionNumber;
+            this.EntityUniqueId = entityUniqueId;
         }
 
         /// <summary>
@@ -63,121 +79,57 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The asAt datetime at which the entity was first created in LUSID.</value>
         [DataMember(Name = "asAtCreated", EmitDefaultValue = true)]
-        public DateTimeOffset? AsAtCreated { get; private set; }
+        public DateTimeOffset? AsAtCreated { get; set; }
 
-        /// <summary>
-        /// Returns false as AsAtCreated should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAsAtCreated()
-        {
-            return false;
-        }
         /// <summary>
         /// The unique id of the user who created the entity.
         /// </summary>
         /// <value>The unique id of the user who created the entity.</value>
         [DataMember(Name = "userIdCreated", EmitDefaultValue = true)]
-        public string UserIdCreated { get; private set; }
+        public string UserIdCreated { get; set; }
 
-        /// <summary>
-        /// Returns false as UserIdCreated should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUserIdCreated()
-        {
-            return false;
-        }
         /// <summary>
         /// The unique request id of the command that created the entity.
         /// </summary>
         /// <value>The unique request id of the command that created the entity.</value>
         [DataMember(Name = "requestIdCreated", EmitDefaultValue = true)]
-        public string RequestIdCreated { get; private set; }
+        public string RequestIdCreated { get; set; }
 
-        /// <summary>
-        /// Returns false as RequestIdCreated should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeRequestIdCreated()
-        {
-            return false;
-        }
         /// <summary>
         /// The asAt datetime at which the entity (including its properties) was last updated in LUSID.
         /// </summary>
         /// <value>The asAt datetime at which the entity (including its properties) was last updated in LUSID.</value>
         [DataMember(Name = "asAtModified", EmitDefaultValue = true)]
-        public DateTimeOffset? AsAtModified { get; private set; }
+        public DateTimeOffset? AsAtModified { get; set; }
 
-        /// <summary>
-        /// Returns false as AsAtModified should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAsAtModified()
-        {
-            return false;
-        }
         /// <summary>
         /// The unique id of the user who last updated the entity (including its properties) in LUSID.
         /// </summary>
         /// <value>The unique id of the user who last updated the entity (including its properties) in LUSID.</value>
         [DataMember(Name = "userIdModified", EmitDefaultValue = true)]
-        public string UserIdModified { get; private set; }
+        public string UserIdModified { get; set; }
 
-        /// <summary>
-        /// Returns false as UserIdModified should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUserIdModified()
-        {
-            return false;
-        }
         /// <summary>
         /// The unique request id of the command that last updated the entity (including its properties) in LUSID.
         /// </summary>
         /// <value>The unique request id of the command that last updated the entity (including its properties) in LUSID.</value>
         [DataMember(Name = "requestIdModified", EmitDefaultValue = true)]
-        public string RequestIdModified { get; private set; }
+        public string RequestIdModified { get; set; }
 
-        /// <summary>
-        /// Returns false as RequestIdModified should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeRequestIdModified()
-        {
-            return false;
-        }
         /// <summary>
         /// The integer version number for the entity (the entity was created at version 1)
         /// </summary>
         /// <value>The integer version number for the entity (the entity was created at version 1)</value>
         [DataMember(Name = "asAtVersionNumber", EmitDefaultValue = true)]
-        public int? AsAtVersionNumber { get; private set; }
+        public int? AsAtVersionNumber { get; set; }
 
-        /// <summary>
-        /// Returns false as AsAtVersionNumber should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeAsAtVersionNumber()
-        {
-            return false;
-        }
         /// <summary>
         /// The unique id of the entity
         /// </summary>
         /// <value>The unique id of the entity</value>
         [DataMember(Name = "entityUniqueId", EmitDefaultValue = true)]
-        public string EntityUniqueId { get; private set; }
+        public string EntityUniqueId { get; set; }
 
-        /// <summary>
-        /// Returns false as EntityUniqueId should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeEntityUniqueId()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

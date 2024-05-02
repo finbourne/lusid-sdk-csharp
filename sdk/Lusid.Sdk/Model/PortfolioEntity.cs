@@ -39,10 +39,11 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. (required).</param>
         /// <param name="entityUniqueId">The unique id of the entity (required).</param>
         /// <param name="status">The status of the entity at the current time (required).</param>
+        /// <param name="effectiveAtCreated">The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.</param>
         /// <param name="prevailingPortfolio">prevailingPortfolio.</param>
         /// <param name="deletedPortfolio">deletedPortfolio.</param>
         /// <param name="links">links.</param>
-        public PortfolioEntity(string href = default(string), string entityUniqueId = default(string), string status = default(string), PortfolioWithoutHref prevailingPortfolio = default(PortfolioWithoutHref), PortfolioWithoutHref deletedPortfolio = default(PortfolioWithoutHref), List<Link> links = default(List<Link>))
+        public PortfolioEntity(string href = default(string), string entityUniqueId = default(string), string status = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), PortfolioWithoutHref prevailingPortfolio = default(PortfolioWithoutHref), PortfolioWithoutHref deletedPortfolio = default(PortfolioWithoutHref), List<Link> links = default(List<Link>))
         {
             // to ensure "href" is required (not null)
             if (href == null)
@@ -62,6 +63,7 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("status is a required property for PortfolioEntity and cannot be null");
             }
             this.Status = status;
+            this.EffectiveAtCreated = effectiveAtCreated;
             this.PrevailingPortfolio = prevailingPortfolio;
             this.DeletedPortfolio = deletedPortfolio;
             this.Links = links;
@@ -87,6 +89,13 @@ namespace Lusid.Sdk.Model
         /// <value>The status of the entity at the current time</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt
+        /// </summary>
+        /// <value>The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt</value>
+        [DataMember(Name = "effectiveAtCreated", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveAtCreated { get; set; }
 
         /// <summary>
         /// Gets or Sets PrevailingPortfolio
@@ -117,6 +126,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  EffectiveAtCreated: ").Append(EffectiveAtCreated).Append("\n");
             sb.Append("  PrevailingPortfolio: ").Append(PrevailingPortfolio).Append("\n");
             sb.Append("  DeletedPortfolio: ").Append(DeletedPortfolio).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -171,6 +181,11 @@ namespace Lusid.Sdk.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.EffectiveAtCreated == input.EffectiveAtCreated ||
+                    (this.EffectiveAtCreated != null &&
+                    this.EffectiveAtCreated.Equals(input.EffectiveAtCreated))
+                ) && 
+                (
                     this.PrevailingPortfolio == input.PrevailingPortfolio ||
                     (this.PrevailingPortfolio != null &&
                     this.PrevailingPortfolio.Equals(input.PrevailingPortfolio))
@@ -208,6 +223,10 @@ namespace Lusid.Sdk.Model
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.EffectiveAtCreated != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveAtCreated.GetHashCode();
                 }
                 if (this.PrevailingPortfolio != null)
                 {

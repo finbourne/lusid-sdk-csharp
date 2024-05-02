@@ -94,7 +94,8 @@ namespace Lusid.Sdk.Model
         /// <param name="realisedGainLoss">The collection of realised gains or losses resulting from relevant transactions e.g. a sale transaction. The cost used in calculating the realised gain or loss is determined by the accounting method defined when the transaction portfolio is created..</param>
         /// <param name="holdingIds">The collection of single identifiers for the holding within the portfolio. The holdingId is constructed from the LusidInstrumentId, sub-holding keys and currrency and is unique within the portfolio..</param>
         /// <param name="sourceType">The type of source that the transaction originated from, eg: InputTransaction, InstrumentEvent, HoldingAdjustment.</param>
-        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string))
+        /// <param name="sourceInstrumentEventId">The unique ID of the instrument event that the transaction is related to..</param>
+        public OutputTransaction(string transactionId = default(string), string type = default(string), string description = default(string), Dictionary<string, string> instrumentIdentifiers = default(Dictionary<string, string>), string instrumentScope = default(string), string instrumentUid = default(string), DateTimeOffset transactionDate = default(DateTimeOffset), DateTimeOffset settlementDate = default(DateTimeOffset), decimal units = default(decimal), decimal transactionAmount = default(decimal), TransactionPrice transactionPrice = default(TransactionPrice), CurrencyAndAmount totalConsideration = default(CurrencyAndAmount), decimal exchangeRate = default(decimal), decimal? transactionToPortfolioRate = default(decimal?), string transactionCurrency = default(string), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>), string counterpartyId = default(string), string source = default(string), TransactionStatusEnum? transactionStatus = default(TransactionStatusEnum?), DateTimeOffset entryDateTime = default(DateTimeOffset), DateTimeOffset? cancelDateTime = default(DateTimeOffset?), List<RealisedGainLoss> realisedGainLoss = default(List<RealisedGainLoss>), List<long> holdingIds = default(List<long>), string sourceType = default(string), string sourceInstrumentEventId = default(string))
         {
             // to ensure "transactionId" is required (not null)
             if (transactionId == null)
@@ -135,6 +136,7 @@ namespace Lusid.Sdk.Model
             this.RealisedGainLoss = realisedGainLoss;
             this.HoldingIds = holdingIds;
             this.SourceType = sourceType;
+            this.SourceInstrumentEventId = sourceInstrumentEventId;
         }
 
         /// <summary>
@@ -297,6 +299,13 @@ namespace Lusid.Sdk.Model
         public string SourceType { get; set; }
 
         /// <summary>
+        /// The unique ID of the instrument event that the transaction is related to.
+        /// </summary>
+        /// <value>The unique ID of the instrument event that the transaction is related to.</value>
+        [DataMember(Name = "sourceInstrumentEventId", EmitDefaultValue = true)]
+        public string SourceInstrumentEventId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -328,6 +337,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RealisedGainLoss: ").Append(RealisedGainLoss).Append("\n");
             sb.Append("  HoldingIds: ").Append(HoldingIds).Append("\n");
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
+            sb.Append("  SourceInstrumentEventId: ").Append(SourceInstrumentEventId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -482,6 +492,11 @@ namespace Lusid.Sdk.Model
                     this.SourceType == input.SourceType ||
                     (this.SourceType != null &&
                     this.SourceType.Equals(input.SourceType))
+                ) && 
+                (
+                    this.SourceInstrumentEventId == input.SourceInstrumentEventId ||
+                    (this.SourceInstrumentEventId != null &&
+                    this.SourceInstrumentEventId.Equals(input.SourceInstrumentEventId))
                 );
         }
 
@@ -577,6 +592,10 @@ namespace Lusid.Sdk.Model
                 if (this.SourceType != null)
                 {
                     hashCode = (hashCode * 59) + this.SourceType.GetHashCode();
+                }
+                if (this.SourceInstrumentEventId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceInstrumentEventId.GetHashCode();
                 }
                 return hashCode;
             }
