@@ -131,6 +131,21 @@ namespace Lusid.Sdk.Model
         public string EntityUniqueId { get; set; }
 
         /// <summary>
+        /// The ID of the staged change that resulted in the most recent modification.
+        /// </summary>
+        /// <value>The ID of the staged change that resulted in the most recent modification.</value>
+        [DataMember(Name = "stagedModificationIdModified", EmitDefaultValue = true)]
+        public string StagedModificationIdModified { get; private set; }
+
+        /// <summary>
+        /// Returns false as StagedModificationIdModified should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStagedModificationIdModified()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +163,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  RequestIdModified: ").Append(RequestIdModified).Append("\n");
             sb.Append("  AsAtVersionNumber: ").Append(AsAtVersionNumber).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
+            sb.Append("  StagedModificationIdModified: ").Append(StagedModificationIdModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -232,6 +248,11 @@ namespace Lusid.Sdk.Model
                     this.EntityUniqueId == input.EntityUniqueId ||
                     (this.EntityUniqueId != null &&
                     this.EntityUniqueId.Equals(input.EntityUniqueId))
+                ) && 
+                (
+                    this.StagedModificationIdModified == input.StagedModificationIdModified ||
+                    (this.StagedModificationIdModified != null &&
+                    this.StagedModificationIdModified.Equals(input.StagedModificationIdModified))
                 );
         }
 
@@ -283,6 +304,10 @@ namespace Lusid.Sdk.Model
                 if (this.EntityUniqueId != null)
                 {
                     hashCode = (hashCode * 59) + this.EntityUniqueId.GetHashCode();
+                }
+                if (this.StagedModificationIdModified != null)
+                {
+                    hashCode = (hashCode * 59) + this.StagedModificationIdModified.GetHashCode();
                 }
                 return hashCode;
             }

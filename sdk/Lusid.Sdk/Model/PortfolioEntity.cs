@@ -37,13 +37,17 @@ namespace Lusid.Sdk.Model
         /// Initializes a new instance of the <see cref="PortfolioEntity" /> class.
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. (required).</param>
-        /// <param name="entityUniqueId">The unique id of the entity (required).</param>
-        /// <param name="status">The status of the entity at the current time (required).</param>
-        /// <param name="effectiveAtCreated">The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.</param>
+        /// <param name="entityUniqueId">The unique id of the entity. (required).</param>
+        /// <param name="asAtVersionNumber">The integer version number for the entity (the entity was created at version 1).</param>
+        /// <param name="status">The status of the entity at the current time. (required).</param>
+        /// <param name="asAtDeleted">The asAt datetime at which the entity was deleted..</param>
+        /// <param name="userIdDeleted">The unique id of the user who deleted the entity..</param>
+        /// <param name="requestIdDeleted">The unique request id of the command that deleted the entity..</param>
+        /// <param name="effectiveAtCreated">The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt..</param>
         /// <param name="prevailingPortfolio">prevailingPortfolio.</param>
         /// <param name="deletedPortfolio">deletedPortfolio.</param>
         /// <param name="links">links.</param>
-        public PortfolioEntity(string href = default(string), string entityUniqueId = default(string), string status = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), PortfolioWithoutHref prevailingPortfolio = default(PortfolioWithoutHref), PortfolioWithoutHref deletedPortfolio = default(PortfolioWithoutHref), List<Link> links = default(List<Link>))
+        public PortfolioEntity(string href = default(string), string entityUniqueId = default(string), int? asAtVersionNumber = default(int?), string status = default(string), DateTimeOffset? asAtDeleted = default(DateTimeOffset?), string userIdDeleted = default(string), string requestIdDeleted = default(string), DateTimeOffset? effectiveAtCreated = default(DateTimeOffset?), PortfolioWithoutHref prevailingPortfolio = default(PortfolioWithoutHref), PortfolioWithoutHref deletedPortfolio = default(PortfolioWithoutHref), List<Link> links = default(List<Link>))
         {
             // to ensure "href" is required (not null)
             if (href == null)
@@ -63,6 +67,10 @@ namespace Lusid.Sdk.Model
                 throw new ArgumentNullException("status is a required property for PortfolioEntity and cannot be null");
             }
             this.Status = status;
+            this.AsAtVersionNumber = asAtVersionNumber;
+            this.AsAtDeleted = asAtDeleted;
+            this.UserIdDeleted = userIdDeleted;
+            this.RequestIdDeleted = requestIdDeleted;
             this.EffectiveAtCreated = effectiveAtCreated;
             this.PrevailingPortfolio = prevailingPortfolio;
             this.DeletedPortfolio = deletedPortfolio;
@@ -77,23 +85,51 @@ namespace Lusid.Sdk.Model
         public string Href { get; set; }
 
         /// <summary>
-        /// The unique id of the entity
+        /// The unique id of the entity.
         /// </summary>
-        /// <value>The unique id of the entity</value>
+        /// <value>The unique id of the entity.</value>
         [DataMember(Name = "entityUniqueId", IsRequired = true, EmitDefaultValue = true)]
         public string EntityUniqueId { get; set; }
 
         /// <summary>
-        /// The status of the entity at the current time
+        /// The integer version number for the entity (the entity was created at version 1)
         /// </summary>
-        /// <value>The status of the entity at the current time</value>
+        /// <value>The integer version number for the entity (the entity was created at version 1)</value>
+        [DataMember(Name = "asAtVersionNumber", EmitDefaultValue = true)]
+        public int? AsAtVersionNumber { get; set; }
+
+        /// <summary>
+        /// The status of the entity at the current time.
+        /// </summary>
+        /// <value>The status of the entity at the current time.</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt
+        /// The asAt datetime at which the entity was deleted.
         /// </summary>
-        /// <value>The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt</value>
+        /// <value>The asAt datetime at which the entity was deleted.</value>
+        [DataMember(Name = "asAtDeleted", EmitDefaultValue = true)]
+        public DateTimeOffset? AsAtDeleted { get; set; }
+
+        /// <summary>
+        /// The unique id of the user who deleted the entity.
+        /// </summary>
+        /// <value>The unique id of the user who deleted the entity.</value>
+        [DataMember(Name = "userIdDeleted", EmitDefaultValue = true)]
+        public string UserIdDeleted { get; set; }
+
+        /// <summary>
+        /// The unique request id of the command that deleted the entity.
+        /// </summary>
+        /// <value>The unique request id of the command that deleted the entity.</value>
+        [DataMember(Name = "requestIdDeleted", EmitDefaultValue = true)]
+        public string RequestIdDeleted { get; set; }
+
+        /// <summary>
+        /// The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.
+        /// </summary>
+        /// <value>The EffectiveAt this Entity is created, if entity does not currently exist in EffectiveAt.</value>
         [DataMember(Name = "effectiveAtCreated", EmitDefaultValue = true)]
         public DateTimeOffset? EffectiveAtCreated { get; set; }
 
@@ -125,7 +161,11 @@ namespace Lusid.Sdk.Model
             sb.Append("class PortfolioEntity {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
+            sb.Append("  AsAtVersionNumber: ").Append(AsAtVersionNumber).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  AsAtDeleted: ").Append(AsAtDeleted).Append("\n");
+            sb.Append("  UserIdDeleted: ").Append(UserIdDeleted).Append("\n");
+            sb.Append("  RequestIdDeleted: ").Append(RequestIdDeleted).Append("\n");
             sb.Append("  EffectiveAtCreated: ").Append(EffectiveAtCreated).Append("\n");
             sb.Append("  PrevailingPortfolio: ").Append(PrevailingPortfolio).Append("\n");
             sb.Append("  DeletedPortfolio: ").Append(DeletedPortfolio).Append("\n");
@@ -176,9 +216,29 @@ namespace Lusid.Sdk.Model
                     this.EntityUniqueId.Equals(input.EntityUniqueId))
                 ) && 
                 (
+                    this.AsAtVersionNumber == input.AsAtVersionNumber ||
+                    (this.AsAtVersionNumber != null &&
+                    this.AsAtVersionNumber.Equals(input.AsAtVersionNumber))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.AsAtDeleted == input.AsAtDeleted ||
+                    (this.AsAtDeleted != null &&
+                    this.AsAtDeleted.Equals(input.AsAtDeleted))
+                ) && 
+                (
+                    this.UserIdDeleted == input.UserIdDeleted ||
+                    (this.UserIdDeleted != null &&
+                    this.UserIdDeleted.Equals(input.UserIdDeleted))
+                ) && 
+                (
+                    this.RequestIdDeleted == input.RequestIdDeleted ||
+                    (this.RequestIdDeleted != null &&
+                    this.RequestIdDeleted.Equals(input.RequestIdDeleted))
                 ) && 
                 (
                     this.EffectiveAtCreated == input.EffectiveAtCreated ||
@@ -220,9 +280,25 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EntityUniqueId.GetHashCode();
                 }
+                if (this.AsAtVersionNumber != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAtVersionNumber.GetHashCode();
+                }
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.AsAtDeleted != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsAtDeleted.GetHashCode();
+                }
+                if (this.UserIdDeleted != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserIdDeleted.GetHashCode();
+                }
+                if (this.RequestIdDeleted != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequestIdDeleted.GetHashCode();
                 }
                 if (this.EffectiveAtCreated != null)
                 {
