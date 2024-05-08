@@ -25,6 +25,35 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteInstrumentEventInstruction(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        ApiResponse<DeletedEntityResponse> DeleteInstrumentEventInstructionWithHttpInfo(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
         /// </summary>
         /// <remarks>
@@ -206,6 +235,37 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CompositeBreakdownResponse</returns>
         ApiResponse<CompositeBreakdownResponse> GetCompositeBreakdownWithHttpInfo(string scope, string code, CompositeBreakdownRequest compositeBreakdownRequest, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Get a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentEventInstruction</returns>
+        InstrumentEventInstruction GetInstrumentEventInstruction(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Get a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentEventInstruction</returns>
+        ApiResponse<InstrumentEventInstruction> GetInstrumentEventInstructionWithHttpInfo(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
         /// GetPortfolio: Get portfolio
         /// </summary>
@@ -784,6 +844,37 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Portfolio</returns>
         ApiResponse<Portfolio> UpdatePortfolioWithHttpInfo(string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
+        /// </summary>
+        /// <remarks>
+        /// Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentEventInstructionsResponse</returns>
+        InstrumentEventInstructionsResponse UpsertInstrumentEventInstructions(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
+        /// </summary>
+        /// <remarks>
+        /// Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentEventInstructionsResponse</returns>
+        ApiResponse<InstrumentEventInstructionsResponse> UpsertInstrumentEventInstructionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
@@ -883,6 +974,37 @@ namespace Lusid.Sdk.Api
     public interface IPortfoliosApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventInstructionAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Delete a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventInstructionWithHttpInfoAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
         /// </summary>
@@ -1077,6 +1199,39 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompositeBreakdownResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CompositeBreakdownResponse>> GetCompositeBreakdownWithHttpInfoAsync(string scope, string code, CompositeBreakdownRequest compositeBreakdownRequest, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Get a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentEventInstruction</returns>
+        System.Threading.Tasks.Task<InstrumentEventInstruction> GetInstrumentEventInstructionAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction
+        /// </summary>
+        /// <remarks>
+        /// Get a particular instruction for a particular portfolio
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentEventInstruction)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstrumentEventInstruction>> GetInstrumentEventInstructionWithHttpInfoAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetPortfolio: Get portfolio
         /// </summary>
@@ -1689,6 +1844,39 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Portfolio)</returns>
         System.Threading.Tasks.Task<ApiResponse<Portfolio>> UpdatePortfolioWithHttpInfoAsync(string scope, string code, UpdatePortfolioRequest updatePortfolioRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
+        /// </summary>
+        /// <remarks>
+        /// Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentEventInstructionsResponse</returns>
+        System.Threading.Tasks.Task<InstrumentEventInstructionsResponse> UpsertInstrumentEventInstructionsAsync(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions
+        /// </summary>
+        /// <remarks>
+        /// Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentEventInstructionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstrumentEventInstructionsResponse>> UpsertInstrumentEventInstructionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
@@ -1900,6 +2088,234 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction Delete a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteInstrumentEventInstruction(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteInstrumentEventInstructionWithHttpInfo(scope, code, instrumentEventInstructionId, portfolioEffectiveAt);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction Delete a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteInstrumentEventInstructionWithHttpInfo(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->DeleteInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->DeleteInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'instrumentEventInstructionId' is set
+            if (instrumentEventInstructionId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventInstructionId' when calling PortfoliosApi->DeleteInstrumentEventInstruction");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instrumentEventInstructionId", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventInstructionId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.DeleteInstrumentEventInstruction";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInstrumentEventInstruction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction Delete a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteInstrumentEventInstructionAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteInstrumentEventInstructionWithHttpInfoAsync(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction Delete a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be deleted.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventInstructionWithHttpInfoAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->DeleteInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->DeleteInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'instrumentEventInstructionId' is set
+            if (instrumentEventInstructionId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventInstructionId' when calling PortfoliosApi->DeleteInstrumentEventInstruction");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instrumentEventInstructionId", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventInstructionId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.DeleteInstrumentEventInstruction";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteInstrumentEventInstruction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -3337,6 +3753,246 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompositeBreakdown", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction Get a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentEventInstruction</returns>
+        public InstrumentEventInstruction GetInstrumentEventInstruction(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentEventInstruction> localVarResponse = GetInstrumentEventInstructionWithHttpInfo(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction Get a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentEventInstruction</returns>
+        public Lusid.Sdk.Client.ApiResponse<InstrumentEventInstruction> GetInstrumentEventInstructionWithHttpInfo(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->GetInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->GetInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'instrumentEventInstructionId' is set
+            if (instrumentEventInstructionId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventInstructionId' when calling PortfoliosApi->GetInstrumentEventInstruction");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instrumentEventInstructionId", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventInstructionId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.GetInstrumentEventInstruction";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<InstrumentEventInstruction>("/api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstrumentEventInstruction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction Get a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentEventInstruction</returns>
+        public async System.Threading.Tasks.Task<InstrumentEventInstruction> GetInstrumentEventInstructionAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentEventInstruction> localVarResponse = await GetInstrumentEventInstructionWithHttpInfoAsync(scope, code, instrumentEventInstructionId, portfolioEffectiveAt, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction Get a particular instruction for a particular portfolio
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="instrumentEventInstructionId">The id of the instruction to be retrieved.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the instruction. Defaults to return the latest version of the instruction if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentEventInstruction)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentEventInstruction>> GetInstrumentEventInstructionWithHttpInfoAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->GetInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->GetInstrumentEventInstruction");
+            }
+
+            // verify the required parameter 'instrumentEventInstructionId' is set
+            if (instrumentEventInstructionId == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'instrumentEventInstructionId' when calling PortfoliosApi->GetInstrumentEventInstruction");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instrumentEventInstructionId", Lusid.Sdk.Client.ClientUtils.ParameterToString(instrumentEventInstructionId)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+
+            localVarRequestOptions.Operation = "PortfoliosApi.GetInstrumentEventInstruction";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InstrumentEventInstruction>("/api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstrumentEventInstruction", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -7689,6 +8345,260 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePortfolio", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InstrumentEventInstructionsResponse</returns>
+        public InstrumentEventInstructionsResponse UpsertInstrumentEventInstructions(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentEventInstructionsResponse> localVarResponse = UpsertInstrumentEventInstructionsWithHttpInfo(scope, code, successMode, requestBody, portfolioEffectiveAt);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InstrumentEventInstructionsResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<InstrumentEventInstructionsResponse> UpsertInstrumentEventInstructionsWithHttpInfo(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "PortfoliosApi.UpsertInstrumentEventInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<InstrumentEventInstructionsResponse>("/api/portfolios/{scope}/{code}/instrumenteventinstructions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertInstrumentEventInstructions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstrumentEventInstructionsResponse</returns>
+        public async System.Threading.Tasks.Task<InstrumentEventInstructionsResponse> UpsertInstrumentEventInstructionsAsync(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<InstrumentEventInstructionsResponse> localVarResponse = await UpsertInstrumentEventInstructionsWithHttpInfoAsync(scope, code, successMode, requestBody, portfolioEffectiveAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions Batch upsert for instrument event instructions, for the portfolio or individual holdings
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the portfolio.</param>
+        /// <param name="code">The code of the portfolio. Together with the scope this uniquely identifies the portfolio.</param>
+        /// <param name="successMode">Whether the batch request should fail atomically or in a partial fashion - allowed values: Atomic, Partial (default)</param>
+        /// <param name="requestBody">The instructions to be upserted to the portfolio.</param>
+        /// <param name="portfolioEffectiveAt">The effective date at which the portfolio will be resolved. Defaults to current time if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstrumentEventInstructionsResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<InstrumentEventInstructionsResponse>> UpsertInstrumentEventInstructionsWithHttpInfoAsync(string scope, string code, string successMode, Dictionary<string, InstrumentEventInstructionRequest> requestBody, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            // verify the required parameter 'successMode' is set
+            if (successMode == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'successMode' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling PortfoliosApi->UpsertInstrumentEventInstructions");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            if (portfolioEffectiveAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "portfolioEffectiveAt", portfolioEffectiveAt));
+            }
+            localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "successMode", successMode));
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "PortfoliosApi.UpsertInstrumentEventInstructions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InstrumentEventInstructionsResponse>("/api/portfolios/{scope}/{code}/instrumenteventinstructions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpsertInstrumentEventInstructions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

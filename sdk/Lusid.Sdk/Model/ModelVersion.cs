@@ -46,7 +46,8 @@ namespace Lusid.Sdk.Model
         /// <param name="requestIdModified">The unique request id of the command that last updated the entity (including its properties) in LUSID..</param>
         /// <param name="asAtVersionNumber">The integer version number for the entity (the entity was created at version 1).</param>
         /// <param name="entityUniqueId">The unique id of the entity.</param>
-        public ModelVersion(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset), DateTimeOffset? asAtCreated = default(DateTimeOffset?), string userIdCreated = default(string), string requestIdCreated = default(string), DateTimeOffset? asAtModified = default(DateTimeOffset?), string userIdModified = default(string), string requestIdModified = default(string), int? asAtVersionNumber = default(int?), string entityUniqueId = default(string))
+        /// <param name="stagedModificationIdModified">The ID of the staged change that resulted in the most recent modification..</param>
+        public ModelVersion(DateTimeOffset effectiveFrom = default(DateTimeOffset), DateTimeOffset asAtDate = default(DateTimeOffset), DateTimeOffset? asAtCreated = default(DateTimeOffset?), string userIdCreated = default(string), string requestIdCreated = default(string), DateTimeOffset? asAtModified = default(DateTimeOffset?), string userIdModified = default(string), string requestIdModified = default(string), int? asAtVersionNumber = default(int?), string entityUniqueId = default(string), string stagedModificationIdModified = default(string))
         {
             this.EffectiveFrom = effectiveFrom;
             this.AsAtDate = asAtDate;
@@ -58,6 +59,7 @@ namespace Lusid.Sdk.Model
             this.RequestIdModified = requestIdModified;
             this.AsAtVersionNumber = asAtVersionNumber;
             this.EntityUniqueId = entityUniqueId;
+            this.StagedModificationIdModified = stagedModificationIdModified;
         }
 
         /// <summary>
@@ -135,16 +137,8 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>The ID of the staged change that resulted in the most recent modification.</value>
         [DataMember(Name = "stagedModificationIdModified", EmitDefaultValue = true)]
-        public string StagedModificationIdModified { get; private set; }
+        public string StagedModificationIdModified { get; set; }
 
-        /// <summary>
-        /// Returns false as StagedModificationIdModified should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeStagedModificationIdModified()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

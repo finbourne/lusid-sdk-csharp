@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **RequestIdModified** | **string** | The unique request id of the command that last updated the entity (including its properties) in LUSID. | [optional] 
 **AsAtVersionNumber** | **int?** | The integer version number for the entity (the entity was created at version 1) | [optional] 
 **EntityUniqueId** | **string** | The unique id of the entity | [optional] 
-**StagedModificationIdModified** | **string** | The ID of the staged change that resulted in the most recent modification. | [optional] [readonly] 
+**StagedModificationIdModified** | **string** | The ID of the staged change that resulted in the most recent modification. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
