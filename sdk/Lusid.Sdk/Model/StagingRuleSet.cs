@@ -43,7 +43,8 @@ namespace Lusid.Sdk.Model
         /// <param name="rules">The list of staging rules that apply to a specific entity type. (required).</param>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="version">version.</param>
-        public StagingRuleSet(string entityType = default(string), string stagingRuleSetId = default(string), string displayName = default(string), string description = default(string), List<StagingRule> rules = default(List<StagingRule>), string href = default(string), ModelVersion version = default(ModelVersion))
+        /// <param name="links">links.</param>
+        public StagingRuleSet(string entityType = default(string), string stagingRuleSetId = default(string), string displayName = default(string), string description = default(string), List<StagingRule> rules = default(List<StagingRule>), string href = default(string), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -72,6 +73,7 @@ namespace Lusid.Sdk.Model
             this.Description = description;
             this.Href = href;
             this._Version = version;
+            this.Links = links;
         }
 
         /// <summary>
@@ -123,6 +125,12 @@ namespace Lusid.Sdk.Model
         public ModelVersion _Version { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +145,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -207,6 +216,12 @@ namespace Lusid.Sdk.Model
                     this._Version == input._Version ||
                     (this._Version != null &&
                     this._Version.Equals(input._Version))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -246,6 +261,10 @@ namespace Lusid.Sdk.Model
                 if (this._Version != null)
                 {
                     hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

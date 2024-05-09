@@ -45,7 +45,8 @@ namespace Lusid.Sdk.Model
         /// <param name="entityUniqueId">The unique Id of the entity the staged modification applies to..</param>
         /// <param name="requestedChanges">requestedChanges.</param>
         /// <param name="entityHrefs">entityHrefs.</param>
-        public StagedModification(string id = default(string), DateTimeOffset asAtStaged = default(DateTimeOffset), string userIdStaged = default(string), string requestedIdStaged = default(string), string action = default(string), StagedModificationStagingRule stagingRule = default(StagedModificationStagingRule), List<StagedModificationDecision> decisions = default(List<StagedModificationDecision>), int decisionsCount = default(int), string status = default(string), string entityType = default(string), string scope = default(string), string entityUniqueId = default(string), RequestedChanges requestedChanges = default(RequestedChanges), StagedModificationsEntityHrefs entityHrefs = default(StagedModificationsEntityHrefs))
+        /// <param name="links">links.</param>
+        public StagedModification(string id = default(string), DateTimeOffset asAtStaged = default(DateTimeOffset), string userIdStaged = default(string), string requestedIdStaged = default(string), string action = default(string), StagedModificationStagingRule stagingRule = default(StagedModificationStagingRule), List<StagedModificationDecision> decisions = default(List<StagedModificationDecision>), int decisionsCount = default(int), string status = default(string), string entityType = default(string), string scope = default(string), string entityUniqueId = default(string), RequestedChanges requestedChanges = default(RequestedChanges), StagedModificationsEntityHrefs entityHrefs = default(StagedModificationsEntityHrefs), List<Link> links = default(List<Link>))
         {
             this.Id = id;
             this.AsAtStaged = asAtStaged;
@@ -61,6 +62,7 @@ namespace Lusid.Sdk.Model
             this.EntityUniqueId = entityUniqueId;
             this.RequestedChanges = requestedChanges;
             this.EntityHrefs = entityHrefs;
+            this.Links = links;
         }
 
         /// <summary>
@@ -159,6 +161,12 @@ namespace Lusid.Sdk.Model
         public StagedModificationsEntityHrefs EntityHrefs { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,6 +188,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  RequestedChanges: ").Append(RequestedChanges).Append("\n");
             sb.Append("  EntityHrefs: ").Append(EntityHrefs).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -284,6 +293,12 @@ namespace Lusid.Sdk.Model
                     this.EntityHrefs == input.EntityHrefs ||
                     (this.EntityHrefs != null &&
                     this.EntityHrefs.Equals(input.EntityHrefs))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -348,6 +363,10 @@ namespace Lusid.Sdk.Model
                 if (this.EntityHrefs != null)
                 {
                     hashCode = (hashCode * 59) + this.EntityHrefs.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

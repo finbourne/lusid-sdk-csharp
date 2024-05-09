@@ -36,13 +36,15 @@ namespace Lusid.Sdk.Model
         /// <param name="previousValue">The previous value of the attribute before the requested change is applied..</param>
         /// <param name="newValue">The value of the attribute once the requested change is applied..</param>
         /// <param name="asAtBasis">Whether the change represents the modification when the request was made or the modification as it would be at the latest time..</param>
-        public StagedModificationsRequestedChangeInterval(string attributeName = default(string), StagedModificationEffectiveRange effectiveRange = default(StagedModificationEffectiveRange), Object previousValue = default(Object), Object newValue = default(Object), string asAtBasis = default(string))
+        /// <param name="links">links.</param>
+        public StagedModificationsRequestedChangeInterval(string attributeName = default(string), StagedModificationEffectiveRange effectiveRange = default(StagedModificationEffectiveRange), Object previousValue = default(Object), Object newValue = default(Object), string asAtBasis = default(string), List<Link> links = default(List<Link>))
         {
             this.AttributeName = attributeName;
             this.EffectiveRange = effectiveRange;
             this.PreviousValue = previousValue;
             this.NewValue = newValue;
             this.AsAtBasis = asAtBasis;
+            this.Links = links;
         }
 
         /// <summary>
@@ -80,6 +82,12 @@ namespace Lusid.Sdk.Model
         public string AsAtBasis { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +100,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  PreviousValue: ").Append(PreviousValue).Append("\n");
             sb.Append("  NewValue: ").Append(NewValue).Append("\n");
             sb.Append("  AsAtBasis: ").Append(AsAtBasis).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +160,12 @@ namespace Lusid.Sdk.Model
                     this.AsAtBasis == input.AsAtBasis ||
                     (this.AsAtBasis != null &&
                     this.AsAtBasis.Equals(input.AsAtBasis))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -182,6 +197,10 @@ namespace Lusid.Sdk.Model
                 if (this.AsAtBasis != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAtBasis.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }

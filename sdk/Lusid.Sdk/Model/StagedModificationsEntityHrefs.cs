@@ -34,11 +34,13 @@ namespace Lusid.Sdk.Model
         /// <param name="whenStaged">The specific Uniform Resource Identifier (URI) for the staged modification change at the time when the change was requested..</param>
         /// <param name="preview">The specific Uniform Resource Identifier (URI) for the preview of staged modification change once applied..</param>
         /// <param name="latest">The specific Uniform Resource Identifier (URI) for the staged modification at latest time..</param>
-        public StagedModificationsEntityHrefs(string whenStaged = default(string), string preview = default(string), string latest = default(string))
+        /// <param name="links">links.</param>
+        public StagedModificationsEntityHrefs(string whenStaged = default(string), string preview = default(string), string latest = default(string), List<Link> links = default(List<Link>))
         {
             this.WhenStaged = whenStaged;
             this.Preview = preview;
             this.Latest = latest;
+            this.Links = links;
         }
 
         /// <summary>
@@ -63,6 +65,12 @@ namespace Lusid.Sdk.Model
         public string Latest { get; set; }
 
         /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  WhenStaged: ").Append(WhenStaged).Append("\n");
             sb.Append("  Preview: ").Append(Preview).Append("\n");
             sb.Append("  Latest: ").Append(Latest).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,12 @@ namespace Lusid.Sdk.Model
                     this.Latest == input.Latest ||
                     (this.Latest != null &&
                     this.Latest.Equals(input.Latest))
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
                 );
         }
 
@@ -145,6 +160,10 @@ namespace Lusid.Sdk.Model
                 if (this.Latest != null)
                 {
                     hashCode = (hashCode * 59) + this.Latest.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
                 }
                 return hashCode;
             }
