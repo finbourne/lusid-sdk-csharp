@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **DomAmount** | **decimal** | The amount that is to be paid in the domestic currency on the maturity date. | 
 **DomCcy** | **string** | The domestic currency of the instrument. | 
 **FgnAmount** | **decimal** | The amount that is to be paid in the foreign currency on the maturity date. | 
-**FgnCcy** | **string** | The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. By domestic is then that of the portfolio. | 
+**FgnCcy** | **string** | The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. | 
 **RefSpotRate** | **decimal** | The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time). | [optional] 
 **IsNdf** | **bool** | Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used. | [optional] 
 **FixingDate** | **DateTimeOffset** | The fixing date. | [optional] 

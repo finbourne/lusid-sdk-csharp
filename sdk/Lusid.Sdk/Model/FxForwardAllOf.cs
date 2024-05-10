@@ -285,7 +285,7 @@ namespace Lusid.Sdk.Model
         /// <param name="domAmount">The amount that is to be paid in the domestic currency on the maturity date. (required).</param>
         /// <param name="domCcy">The domestic currency of the instrument. (required).</param>
         /// <param name="fgnAmount">The amount that is to be paid in the foreign currency on the maturity date. (required).</param>
-        /// <param name="fgnCcy">The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. By domestic is then that of the portfolio. (required).</param>
+        /// <param name="fgnCcy">The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. (required).</param>
         /// <param name="refSpotRate">The reference Fx Spot rate for currency pair Foreign-Domestic that was seen on the trade start date (time)..</param>
         /// <param name="isNdf">Is the contract an Fx-Forward of \&quot;Non-Deliverable\&quot; type, meaning a single payment in the domestic currency based on the change in fx-rate vs  a reference rate is used..</param>
         /// <param name="fixingDate">The fixing date..</param>
@@ -354,9 +354,9 @@ namespace Lusid.Sdk.Model
         public decimal FgnAmount { get; set; }
 
         /// <summary>
-        /// The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. By domestic is then that of the portfolio.
+        /// The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged.
         /// </summary>
-        /// <value>The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged. By domestic is then that of the portfolio.</value>
+        /// <value>The foreign (other) currency of the instrument. In the NDF case, only payments are made in the domestic currency.  For the outright forward, currencies are exchanged.</value>
         [DataMember(Name = "fgnCcy", IsRequired = true, EmitDefaultValue = true)]
         public string FgnCcy { get; set; }
 
