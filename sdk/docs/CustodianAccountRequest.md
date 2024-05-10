@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Scope** | **string** | The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used | [optional] 
 **Code** | **string** | Unique Code representing the Custodian Account | 
-**Status** | **string** | The Account status. Can be Active, Inactive or Deleted. Defaults to Active. | [optional] 
+**Status** | **string** | The Account status. Can be Active, Inactive or Deleted. | [optional] 
 **AccountNumber** | **string** | The Custodian Account Number | 
 **AccountName** | **string** | The identifiable name given to the Custodian Account | 
 **AccountingMethod** | **string** | The Accounting method to be used | 

@@ -38,7 +38,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="scope">The Scope assigned to the Custodian Account, where left blank the parent Portfolio Scope will be used.</param>
         /// <param name="code">Unique Code representing the Custodian Account (required).</param>
-        /// <param name="status">The Account status. Can be Active, Inactive or Deleted. Defaults to Active..</param>
+        /// <param name="status">The Account status. Can be Active, Inactive or Deleted..</param>
         /// <param name="accountNumber">The Custodian Account Number (required).</param>
         /// <param name="accountName">The identifiable name given to the Custodian Account (required).</param>
         /// <param name="accountingMethod">The Accounting method to be used (required).</param>
@@ -105,9 +105,9 @@ namespace Lusid.Sdk.Model
         public string Code { get; set; }
 
         /// <summary>
-        /// The Account status. Can be Active, Inactive or Deleted. Defaults to Active.
+        /// The Account status. Can be Active, Inactive or Deleted.
         /// </summary>
-        /// <value>The Account status. Can be Active, Inactive or Deleted. Defaults to Active.</value>
+        /// <value>The Account status. Can be Active, Inactive or Deleted.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 

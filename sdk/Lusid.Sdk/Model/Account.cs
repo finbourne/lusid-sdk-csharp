@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class Account : IEquatable<Account>, IValidatableObject
     {
         /// <summary>
-        /// The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted
+        /// The Account status. Can be Active, Inactive or Deleted. The available values are: Active, Inactive, Deleted
         /// </summary>
-        /// <value>The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted</value>
+        /// <value>The Account status. Can be Active, Inactive or Deleted. The available values are: Active, Inactive, Deleted</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -57,9 +57,9 @@ namespace Lusid.Sdk.Model
 
 
         /// <summary>
-        /// The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted
+        /// The Account status. Can be Active, Inactive or Deleted. The available values are: Active, Inactive, Deleted
         /// </summary>
-        /// <value>The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted</value>
+        /// <value>The Account status. Can be Active, Inactive or Deleted. The available values are: Active, Inactive, Deleted</value>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public StatusEnum Status { get; set; }
         /// <summary>
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Model
         /// <param name="code">The code given for the Account. (required).</param>
         /// <param name="description">A description for the Account..</param>
         /// <param name="type">The Account type. Can have the values: Asset/Liabilities/Income/Expense/Capital/Revenue. (required).</param>
-        /// <param name="status">The Account status. Can be Active, Inactive or Deleted. Defaults to Active. The available values are: Active, Inactive, Deleted (required).</param>
+        /// <param name="status">The Account status. Can be Active, Inactive or Deleted. The available values are: Active, Inactive, Deleted (required).</param>
         /// <param name="control">This allows users to specify whether this a protected Account that prevents direct manual journal adjustment. Can have the values: System/ManualIt will default to “Manual”..</param>
         /// <param name="properties">A set of properties for the Account..</param>
         public Account(string code = default(string), string description = default(string), string type = default(string), StatusEnum status = default(StatusEnum), string control = default(string), Dictionary<string, Property> properties = default(Dictionary<string, Property>))
