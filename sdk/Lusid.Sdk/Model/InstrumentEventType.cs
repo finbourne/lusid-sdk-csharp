@@ -177,7 +177,13 @@ namespace Lusid.Sdk.Model
         /// Enum ReverseStockSplitEvent for value: ReverseStockSplitEvent
         /// </summary>
         [EnumMember(Value = "ReverseStockSplitEvent")]
-        ReverseStockSplitEvent = 25
+        ReverseStockSplitEvent = 25,
+
+        /// <summary>
+        /// Enum CapitalDistributionEvent for value: CapitalDistributionEvent
+        /// </summary>
+        [EnumMember(Value = "CapitalDistributionEvent")]
+        CapitalDistributionEvent = 26
 
     }
 

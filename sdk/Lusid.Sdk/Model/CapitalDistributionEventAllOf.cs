@@ -23,10 +23,10 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// InformationalErrorEventAllOf
+    /// CapitalDistributionEventAllOf
     /// </summary>
-    [DataContract(Name = "InformationalErrorEvent_allOf")]
-    public partial class InformationalErrorEventAllOf : IEquatable<InformationalErrorEventAllOf>, IValidatableObject
+    [DataContract(Name = "CapitalDistributionEvent_allOf")]
+    public partial class CapitalDistributionEventAllOf : IEquatable<CapitalDistributionEventAllOf>, IValidatableObject
     {
         /// <summary>
         /// The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent
@@ -201,55 +201,68 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "instrumentEventType", IsRequired = true, EmitDefaultValue = true)]
         public InstrumentEventTypeEnum InstrumentEventType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationalErrorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="CapitalDistributionEventAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InformationalErrorEventAllOf() { }
+        protected CapitalDistributionEventAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InformationalErrorEventAllOf" /> class.
+        /// Initializes a new instance of the <see cref="CapitalDistributionEventAllOf" /> class.
         /// </summary>
-        /// <param name="errorDetail">The details of the error (required).</param>
-        /// <param name="errorReason">The error reason (required).</param>
-        /// <param name="effectiveAt">The effective date of the evaulation (required).</param>
+        /// <param name="announcementDate">Date on which the dividend was announced / declared..</param>
+        /// <param name="cashElections">Possible elections for this event, each keyed with a unique identifier. (required).</param>
+        /// <param name="exDate">The first business day on which the dividend is not owed to the buying party. (required).</param>
+        /// <param name="paymentDate">The date the company begins distributing the dividend. (required).</param>
+        /// <param name="recordDate">Date you have to be the holder of record in order to participate in the tender..</param>
         /// <param name="instrumentEventType">The Type of Event. The available values are: TransitionEvent, InformationalEvent, OpenEvent, CloseEvent, StockSplitEvent, BondDefaultEvent, CashDividendEvent, AmortisationEvent, CashFlowEvent, ExerciseEvent, ResetEvent, TriggerEvent, RawVendorEvent, InformationalErrorEvent, BondCouponEvent, DividendReinvestmentEvent, AccumulationEvent, BondPrincipalEvent, DividendOptionEvent, MaturityEvent, FxForwardSettlementEvent, ExpiryEvent, ScripDividendEvent, StockDividendEvent, ReverseStockSplitEvent, CapitalDistributionEvent (required).</param>
-        public InformationalErrorEventAllOf(string errorDetail = default(string), string errorReason = default(string), DateTimeOffset effectiveAt = default(DateTimeOffset), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
+        public CapitalDistributionEventAllOf(DateTimeOffset? announcementDate = default(DateTimeOffset?), List<CashElection> cashElections = default(List<CashElection>), DateTimeOffset exDate = default(DateTimeOffset), DateTimeOffset paymentDate = default(DateTimeOffset), DateTimeOffset? recordDate = default(DateTimeOffset?), InstrumentEventTypeEnum instrumentEventType = default(InstrumentEventTypeEnum))
         {
-            // to ensure "errorDetail" is required (not null)
-            if (errorDetail == null)
+            // to ensure "cashElections" is required (not null)
+            if (cashElections == null)
             {
-                throw new ArgumentNullException("errorDetail is a required property for InformationalErrorEventAllOf and cannot be null");
+                throw new ArgumentNullException("cashElections is a required property for CapitalDistributionEventAllOf and cannot be null");
             }
-            this.ErrorDetail = errorDetail;
-            // to ensure "errorReason" is required (not null)
-            if (errorReason == null)
-            {
-                throw new ArgumentNullException("errorReason is a required property for InformationalErrorEventAllOf and cannot be null");
-            }
-            this.ErrorReason = errorReason;
-            this.EffectiveAt = effectiveAt;
+            this.CashElections = cashElections;
+            this.ExDate = exDate;
+            this.PaymentDate = paymentDate;
             this.InstrumentEventType = instrumentEventType;
+            this.AnnouncementDate = announcementDate;
+            this.RecordDate = recordDate;
         }
 
         /// <summary>
-        /// The details of the error
+        /// Date on which the dividend was announced / declared.
         /// </summary>
-        /// <value>The details of the error</value>
-        [DataMember(Name = "errorDetail", IsRequired = true, EmitDefaultValue = true)]
-        public string ErrorDetail { get; set; }
+        /// <value>Date on which the dividend was announced / declared.</value>
+        [DataMember(Name = "announcementDate", EmitDefaultValue = true)]
+        public DateTimeOffset? AnnouncementDate { get; set; }
 
         /// <summary>
-        /// The error reason
+        /// Possible elections for this event, each keyed with a unique identifier.
         /// </summary>
-        /// <value>The error reason</value>
-        [DataMember(Name = "errorReason", IsRequired = true, EmitDefaultValue = true)]
-        public string ErrorReason { get; set; }
+        /// <value>Possible elections for this event, each keyed with a unique identifier.</value>
+        [DataMember(Name = "cashElections", IsRequired = true, EmitDefaultValue = true)]
+        public List<CashElection> CashElections { get; set; }
 
         /// <summary>
-        /// The effective date of the evaulation
+        /// The first business day on which the dividend is not owed to the buying party.
         /// </summary>
-        /// <value>The effective date of the evaulation</value>
-        [DataMember(Name = "effectiveAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTimeOffset EffectiveAt { get; set; }
+        /// <value>The first business day on which the dividend is not owed to the buying party.</value>
+        [DataMember(Name = "exDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset ExDate { get; set; }
+
+        /// <summary>
+        /// The date the company begins distributing the dividend.
+        /// </summary>
+        /// <value>The date the company begins distributing the dividend.</value>
+        [DataMember(Name = "paymentDate", IsRequired = true, EmitDefaultValue = true)]
+        public DateTimeOffset PaymentDate { get; set; }
+
+        /// <summary>
+        /// Date you have to be the holder of record in order to participate in the tender.
+        /// </summary>
+        /// <value>Date you have to be the holder of record in order to participate in the tender.</value>
+        [DataMember(Name = "recordDate", EmitDefaultValue = true)]
+        public DateTimeOffset? RecordDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -258,10 +271,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InformationalErrorEventAllOf {\n");
-            sb.Append("  ErrorDetail: ").Append(ErrorDetail).Append("\n");
-            sb.Append("  ErrorReason: ").Append(ErrorReason).Append("\n");
-            sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("class CapitalDistributionEventAllOf {\n");
+            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
+            sb.Append("  CashElections: ").Append(CashElections).Append("\n");
+            sb.Append("  ExDate: ").Append(ExDate).Append("\n");
+            sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
+            sb.Append("  RecordDate: ").Append(RecordDate).Append("\n");
             sb.Append("  InstrumentEventType: ").Append(InstrumentEventType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -283,15 +298,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InformationalErrorEventAllOf);
+            return this.Equals(input as CapitalDistributionEventAllOf);
         }
 
         /// <summary>
-        /// Returns true if InformationalErrorEventAllOf instances are equal
+        /// Returns true if CapitalDistributionEventAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of InformationalErrorEventAllOf to be compared</param>
+        /// <param name="input">Instance of CapitalDistributionEventAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InformationalErrorEventAllOf input)
+        public bool Equals(CapitalDistributionEventAllOf input)
         {
             if (input == null)
             {
@@ -299,19 +314,30 @@ namespace Lusid.Sdk.Model
             }
             return 
                 (
-                    this.ErrorDetail == input.ErrorDetail ||
-                    (this.ErrorDetail != null &&
-                    this.ErrorDetail.Equals(input.ErrorDetail))
+                    this.AnnouncementDate == input.AnnouncementDate ||
+                    (this.AnnouncementDate != null &&
+                    this.AnnouncementDate.Equals(input.AnnouncementDate))
                 ) && 
                 (
-                    this.ErrorReason == input.ErrorReason ||
-                    (this.ErrorReason != null &&
-                    this.ErrorReason.Equals(input.ErrorReason))
+                    this.CashElections == input.CashElections ||
+                    this.CashElections != null &&
+                    input.CashElections != null &&
+                    this.CashElections.SequenceEqual(input.CashElections)
                 ) && 
                 (
-                    this.EffectiveAt == input.EffectiveAt ||
-                    (this.EffectiveAt != null &&
-                    this.EffectiveAt.Equals(input.EffectiveAt))
+                    this.ExDate == input.ExDate ||
+                    (this.ExDate != null &&
+                    this.ExDate.Equals(input.ExDate))
+                ) && 
+                (
+                    this.PaymentDate == input.PaymentDate ||
+                    (this.PaymentDate != null &&
+                    this.PaymentDate.Equals(input.PaymentDate))
+                ) && 
+                (
+                    this.RecordDate == input.RecordDate ||
+                    (this.RecordDate != null &&
+                    this.RecordDate.Equals(input.RecordDate))
                 ) && 
                 (
                     this.InstrumentEventType == input.InstrumentEventType ||
@@ -328,17 +354,25 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ErrorDetail != null)
+                if (this.AnnouncementDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.ErrorDetail.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AnnouncementDate.GetHashCode();
                 }
-                if (this.ErrorReason != null)
+                if (this.CashElections != null)
                 {
-                    hashCode = (hashCode * 59) + this.ErrorReason.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CashElections.GetHashCode();
                 }
-                if (this.EffectiveAt != null)
+                if (this.ExDate != null)
                 {
-                    hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExDate.GetHashCode();
+                }
+                if (this.PaymentDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
+                if (this.RecordDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.RecordDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InstrumentEventType.GetHashCode();
                 return hashCode;
@@ -352,18 +386,6 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ErrorDetail (string) minLength
-            if (this.ErrorDetail != null && this.ErrorDetail.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ErrorDetail, length must be greater than 1.", new [] { "ErrorDetail" });
-            }
-
-            // ErrorReason (string) minLength
-            if (this.ErrorReason != null && this.ErrorReason.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ErrorReason, length must be greater than 1.", new [] { "ErrorReason" });
-            }
-
             yield break;
         }
     }
