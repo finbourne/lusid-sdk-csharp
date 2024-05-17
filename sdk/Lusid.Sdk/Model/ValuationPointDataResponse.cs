@@ -47,7 +47,7 @@ namespace Lusid.Sdk.Model
         /// <param name="nav">The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period. (required).</param>
         /// <param name="previousNav">The Net Asset Value of the Fund at the End of the last Period. (required).</param>
         /// <param name="links">links.</param>
-        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, decimal> fees = default(Dictionary<string, decimal>), decimal nav = default(decimal), decimal previousNav = default(decimal), List<Link> links = default(List<Link>))
+        public ValuationPointDataResponse(string href = default(string), string type = default(string), string status = default(string), Dictionary<string, decimal> backout = default(Dictionary<string, decimal>), Dictionary<string, decimal> dealing = default(Dictionary<string, decimal>), Dictionary<string, decimal> pnL = default(Dictionary<string, decimal>), decimal gav = default(decimal), Dictionary<string, FeeAccrual> fees = default(Dictionary<string, FeeAccrual>), decimal nav = default(decimal), decimal previousNav = default(decimal), List<Link> links = default(List<Link>))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -146,7 +146,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <value>Bucket of detail for any &#39;Fees&#39; that have been charged in the selected period.</value>
         [DataMember(Name = "fees", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, decimal> Fees { get; set; }
+        public Dictionary<string, FeeAccrual> Fees { get; set; }
 
         /// <summary>
         /// The Net Asset Value of the Fund at the Period end. This represents the GAV with any fees applied in the period.
