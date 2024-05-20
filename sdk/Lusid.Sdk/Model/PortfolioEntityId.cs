@@ -31,12 +31,27 @@ namespace Lusid.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PortfolioEntityId" /> class.
         /// </summary>
-        /// <param name="scope">The scope within which the portfolio or portfolio group lives..</param>
-        /// <param name="code">Portfolio name or code..</param>
+        [JsonConstructorAttribute]
+        protected PortfolioEntityId() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PortfolioEntityId" /> class.
+        /// </summary>
+        /// <param name="scope">The scope within which the portfolio or portfolio group lives. (required).</param>
+        /// <param name="code">Portfolio name or code. (required).</param>
         /// <param name="portfolioEntityType">String identifier for portfolio e.g. \&quot;SinglePortfolio\&quot; and \&quot;GroupPortfolio\&quot;. If not specified, it is assumed to be a single portfolio..</param>
         public PortfolioEntityId(string scope = default(string), string code = default(string), string portfolioEntityType = default(string))
         {
+            // to ensure "scope" is required (not null)
+            if (scope == null)
+            {
+                throw new ArgumentNullException("scope is a required property for PortfolioEntityId and cannot be null");
+            }
             this.Scope = scope;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for PortfolioEntityId and cannot be null");
+            }
             this.Code = code;
             this.PortfolioEntityType = portfolioEntityType;
         }
@@ -45,14 +60,14 @@ namespace Lusid.Sdk.Model
         /// The scope within which the portfolio or portfolio group lives.
         /// </summary>
         /// <value>The scope within which the portfolio or portfolio group lives.</value>
-        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>
         /// Portfolio name or code.
         /// </summary>
         /// <value>Portfolio name or code.</value>
-        [DataMember(Name = "code", EmitDefaultValue = true)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>

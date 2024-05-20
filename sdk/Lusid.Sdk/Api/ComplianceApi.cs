@@ -30,6 +30,31 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create a compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ComplianceRuleTemplate</returns>
+        ComplianceRuleTemplate CreateComplianceTemplate(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create a compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
+        ApiResponse<ComplianceRuleTemplate> CreateComplianceTemplateWithHttpInfo(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
         /// <remarks>
@@ -54,6 +79,31 @@ namespace Lusid.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteComplianceRuleWithHttpInfo(string scope, string code, int operationIndex = 0);
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Delete the compliance rule template uniquely defined by the scope and code.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        DeletedEntityResponse DeleteComplianceTemplate(string scope, string code, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Delete the compliance rule template uniquely defined by the scope and code.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
         /// </summary>
@@ -287,6 +337,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ComplianceRunInfoV2</returns>
         ApiResponse<ComplianceRunInfoV2> RunComplianceWithHttpInfo(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to update a specified compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ComplianceRuleTemplate</returns>
+        ComplianceRuleTemplate UpdateComplianceTemplate(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to update a specified compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
+        ApiResponse<ComplianceRuleTemplate> UpdateComplianceTemplateWithHttpInfo(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
         /// <remarks>
@@ -342,6 +419,33 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create a compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ComplianceRuleTemplate</returns>
+        System.Threading.Tasks.Task<ComplianceRuleTemplate> CreateComplianceTemplateAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to create a compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleTemplate>> CreateComplianceTemplateWithHttpInfoAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EARLY ACCESS] DeleteComplianceRule: Delete compliance rule.
         /// </summary>
         /// <remarks>
@@ -368,6 +472,33 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComplianceRuleWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Delete the compliance rule template uniquely defined by the scope and code.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceTemplateAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Delete the compliance rule template uniquely defined by the scope and code.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] GetComplianceRule: Get compliance rule.
         /// </summary>
@@ -617,6 +748,35 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ComplianceRunInfoV2)</returns>
         System.Threading.Tasks.Task<ApiResponse<ComplianceRunInfoV2>> RunComplianceWithHttpInfoAsync(string runScope, string ruleScope, bool isPreTrade, string recipeIdScope, string recipeIdCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to update a specified compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ComplianceRuleTemplate</returns>
+        System.Threading.Tasks.Task<ComplianceRuleTemplate> UpdateComplianceTemplateAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate
+        /// </summary>
+        /// <remarks>
+        /// Use this endpoint to update a specified compliance template.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ComplianceRuleTemplate>> UpdateComplianceTemplateWithHttpInfoAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EARLY ACCESS] UpsertComplianceRule: Upsert a compliance rule.
         /// </summary>
         /// <remarks>
@@ -781,6 +941,212 @@ namespace Lusid.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template Use this endpoint to create a compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ComplianceRuleTemplate</returns>
+        public ComplianceRuleTemplate CreateComplianceTemplate(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = CreateComplianceTemplateWithHttpInfo(scope, createComplianceTemplateRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template Use this endpoint to create a compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> CreateComplianceTemplateWithHttpInfo(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->CreateComplianceTemplate");
+            }
+
+            // verify the required parameter 'createComplianceTemplateRequest' is set
+            if (createComplianceTemplateRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'createComplianceTemplateRequest' when calling ComplianceApi->CreateComplianceTemplate");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.Data = createComplianceTemplateRequest;
+
+            localVarRequestOptions.Operation = "ComplianceApi.CreateComplianceTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ComplianceRuleTemplate>("/api/compliance/templates/{scope}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateComplianceTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template Use this endpoint to create a compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ComplianceRuleTemplate</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleTemplate> CreateComplianceTemplateAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = await CreateComplianceTemplateWithHttpInfoAsync(scope, createComplianceTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] CreateComplianceTemplate: Create a Compliance Rule Template Use this endpoint to create a compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="createComplianceTemplateRequest">Request to create a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate>> CreateComplianceTemplateWithHttpInfoAsync(string scope, CreateComplianceTemplateRequest createComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->CreateComplianceTemplate");
+            }
+
+            // verify the required parameter 'createComplianceTemplateRequest' is set
+            if (createComplianceTemplateRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'createComplianceTemplateRequest' when calling ComplianceApi->CreateComplianceTemplate");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.Data = createComplianceTemplateRequest;
+
+            localVarRequestOptions.Operation = "ComplianceApi.CreateComplianceTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ComplianceRuleTemplate>("/api/compliance/templates/{scope}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateComplianceTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -972,6 +1338,204 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteComplianceRule", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate Delete the compliance rule template uniquely defined by the scope and code.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>DeletedEntityResponse</returns>
+        public DeletedEntityResponse DeleteComplianceTemplate(string scope, string code, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteComplianceTemplateWithHttpInfo(scope, code);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate Delete the compliance rule template uniquely defined by the scope and code.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of DeletedEntityResponse</returns>
+        public Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteComplianceTemplateWithHttpInfo(string scope, string code, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->DeleteComplianceTemplate");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->DeleteComplianceTemplate");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "ComplianceApi.DeleteComplianceTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/compliance/templates/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteComplianceTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate Delete the compliance rule template uniquely defined by the scope and code.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeletedEntityResponse</returns>
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteComplianceTemplateAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteComplianceTemplateWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] DeleteComplianceTemplate: Delete a ComplianceRuleTemplate Delete the compliance rule template uniquely defined by the scope and code.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the template to be deleted.</param>
+        /// <param name="code">The code of the template to be deleted.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteComplianceTemplateWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->DeleteComplianceTemplate");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->DeleteComplianceTemplate");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+
+            localVarRequestOptions.Operation = "ComplianceApi.DeleteComplianceTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/compliance/templates/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteComplianceTemplate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2730,6 +3294,230 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunCompliance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate Use this endpoint to update a specified compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ComplianceRuleTemplate</returns>
+        public ComplianceRuleTemplate UpdateComplianceTemplate(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = UpdateComplianceTemplateWithHttpInfo(scope, code, updateComplianceTemplateRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate Use this endpoint to update a specified compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ComplianceRuleTemplate</returns>
+        public Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> UpdateComplianceTemplateWithHttpInfo(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->UpdateComplianceTemplate");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->UpdateComplianceTemplate");
+            }
+
+            // verify the required parameter 'updateComplianceTemplateRequest' is set
+            if (updateComplianceTemplateRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateComplianceTemplateRequest' when calling ComplianceApi->UpdateComplianceTemplate");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateComplianceTemplateRequest;
+
+            localVarRequestOptions.Operation = "ComplianceApi.UpdateComplianceTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<ComplianceRuleTemplate>("/api/compliance/templates/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateComplianceTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate Use this endpoint to update a specified compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ComplianceRuleTemplate</returns>
+        public async System.Threading.Tasks.Task<ComplianceRuleTemplate> UpdateComplianceTemplateAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate> localVarResponse = await UpdateComplianceTemplateWithHttpInfoAsync(scope, code, updateComplianceTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] UpdateComplianceTemplate: Update a ComplianceRuleTemplate Use this endpoint to update a specified compliance template.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope of the Compliance Rule Template.</param>
+        /// <param name="code">The code of the Compliance Rule Template.</param>
+        /// <param name="updateComplianceTemplateRequest">Request to update a compliance rule template.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ComplianceRuleTemplate)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<ComplianceRuleTemplate>> UpdateComplianceTemplateWithHttpInfoAsync(string scope, string code, UpdateComplianceTemplateRequest updateComplianceTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling ComplianceApi->UpdateComplianceTemplate");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling ComplianceApi->UpdateComplianceTemplate");
+            }
+
+            // verify the required parameter 'updateComplianceTemplateRequest' is set
+            if (updateComplianceTemplateRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'updateComplianceTemplateRequest' when calling ComplianceApi->UpdateComplianceTemplate");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateComplianceTemplateRequest;
+
+            localVarRequestOptions.Operation = "ComplianceApi.UpdateComplianceTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<ComplianceRuleTemplate>("/api/compliance/templates/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateComplianceTemplate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
