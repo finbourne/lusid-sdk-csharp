@@ -8,6 +8,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**DeleteAmortisationRuleset**](AmortisationRuleSetsApi.md#deleteamortisationruleset) | **DELETE** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] DeleteAmortisationRuleset: Delete an amortisation rule set. |
 | [**GetAmortisationRuleSet**](AmortisationRuleSetsApi.md#getamortisationruleset) | **GET** /api/amortisation/rulesets/{scope}/{code} | [EXPERIMENTAL] GetAmortisationRuleSet: Retrieve the definition of a single amortisation rule set |
 | [**ListAmortisationRuleSets**](AmortisationRuleSetsApi.md#listamortisationrulesets) | **GET** /api/amortisation/rulesets | [EXPERIMENTAL] ListAmortisationRuleSets: List amortisation rule sets. |
+| [**SetAmortisationRules**](AmortisationRuleSetsApi.md#setamortisationrules) | **PUT** /api/amortisation/rulesets/{scope}/{code}/rules | [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set. |
 | [**UpdateAmortisationRuleSetDetails**](AmortisationRuleSetsApi.md#updateamortisationrulesetdetails) | **PUT** /api/amortisation/rulesets/{scope}/{code}/details | [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set. |
 
 <a id="createamortisationruleset"></a>
@@ -409,6 +410,106 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of rule sets available. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="setamortisationrules"></a>
+# **SetAmortisationRules**
+> AmortisationRuleSet SetAmortisationRules (string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest)
+
+[EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+
+Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Lusid.Sdk.Api;
+using Lusid.Sdk.Client;
+using Lusid.Sdk.Model;
+
+namespace Example
+{
+    public class SetAmortisationRulesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://www.lusid.com/api";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new AmortisationRuleSetsApi(config);
+            var scope = "scope_example";  // string | The rule set scope.
+            var code = "code_example";  // string | The rule set code.
+            var setAmortisationRulesRequest = new SetAmortisationRulesRequest(); // SetAmortisationRulesRequest | The contents of the rules.
+
+            try
+            {
+                // [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+                AmortisationRuleSet result = apiInstance.SetAmortisationRules(scope, code, setAmortisationRulesRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AmortisationRuleSetsApi.SetAmortisationRules: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SetAmortisationRulesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+    ApiResponse<AmortisationRuleSet> response = apiInstance.SetAmortisationRulesWithHttpInfo(scope, code, setAmortisationRulesRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AmortisationRuleSetsApi.SetAmortisationRulesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The rule set scope. |  |
+| **code** | **string** | The rule set code. |  |
+| **setAmortisationRulesRequest** | [**SetAmortisationRulesRequest**](SetAmortisationRulesRequest.md) | The contents of the rules. |  |
+
+### Return type
+
+[**AmortisationRuleSet**](AmortisationRuleSet.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Update the rules for an amortisation rule set. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **0** | Error response |  -  |
 

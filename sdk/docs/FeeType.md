@@ -1,4 +1,4 @@
-# Lusid.Sdk.Model.AmortisationRuleSet
+# Lusid.Sdk.Model.FeeType
 
 ## Properties
 
@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Href** | **string** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**DisplayName** | **string** | A user-friendly name. | 
-**Description** | **string** | A description of what this rule set is for. | [optional] 
-**RulesInterval** | [**RulesInterval**](RulesInterval.md) |  | 
+**Name** | **string** | The name of the fee type. | 
+**Description** | **string** | The description of the fee type. | 
+**ComponentTransactions** | [**List&lt;ComponentTransaction&gt;**](ComponentTransaction.md) | A set of component transactions that relate to the fee type. | 
 **_Version** | [**ModelVersion**](ModelVersion.md) |  | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 

@@ -142,6 +142,33 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfAmortisationRuleSet</returns>
         ApiResponse<PagedResourceListOfAmortisationRuleSet> ListAmortisationRuleSetsWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+        /// </summary>
+        /// <remarks>
+        /// Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>AmortisationRuleSet</returns>
+        AmortisationRuleSet SetAmortisationRules(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+        /// </summary>
+        /// <remarks>
+        /// Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of AmortisationRuleSet</returns>
+        ApiResponse<AmortisationRuleSet> SetAmortisationRulesWithHttpInfo(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
         /// </summary>
         /// <remarks>
@@ -297,6 +324,35 @@ namespace Lusid.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfAmortisationRuleSet)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAmortisationRuleSet>> ListAmortisationRuleSetsWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+        /// </summary>
+        /// <remarks>
+        /// Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AmortisationRuleSet</returns>
+        System.Threading.Tasks.Task<AmortisationRuleSet> SetAmortisationRulesAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set.
+        /// </summary>
+        /// <remarks>
+        /// Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </remarks>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AmortisationRuleSet>> SetAmortisationRulesWithHttpInfoAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] UpdateAmortisationRuleSetDetails: Update an amortisation rule set.
         /// </summary>
@@ -1294,6 +1350,230 @@ namespace Lusid.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListAmortisationRuleSets", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set. Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>AmortisationRuleSet</returns>
+        public AmortisationRuleSet SetAmortisationRules(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0)
+        {
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = SetAmortisationRulesWithHttpInfo(scope, code, setAmortisationRulesRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set. Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of AmortisationRuleSet</returns>
+        public Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> SetAmortisationRulesWithHttpInfo(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AmortisationRuleSetsApi->SetAmortisationRules");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AmortisationRuleSetsApi->SetAmortisationRules");
+            }
+
+            // verify the required parameter 'setAmortisationRulesRequest' is set
+            if (setAmortisationRulesRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'setAmortisationRulesRequest' when calling AmortisationRuleSetsApi->SetAmortisationRules");
+            }
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = setAmortisationRulesRequest;
+
+            localVarRequestOptions.Operation = "AmortisationRuleSetsApi.SetAmortisationRules";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<AmortisationRuleSet>("/api/amortisation/rulesets/{scope}/{code}/rules", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetAmortisationRules", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set. Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AmortisationRuleSet</returns>
+        public async System.Threading.Tasks.Task<AmortisationRuleSet> SetAmortisationRulesAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet> localVarResponse = await SetAmortisationRulesWithHttpInfoAsync(scope, code, setAmortisationRulesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetAmortisationRules: Set Amortisation Rules on an existing Amortisation Rule Set. Sets the rules on the Amortisation Rule Set, replacing the existing rules with the set provided.
+        /// </summary>
+        /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The rule set scope.</param>
+        /// <param name="code">The rule set code.</param>
+        /// <param name="setAmortisationRulesRequest">The contents of the rules.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AmortisationRuleSet)</returns>
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<AmortisationRuleSet>> SetAmortisationRulesWithHttpInfoAsync(string scope, string code, SetAmortisationRulesRequest setAmortisationRulesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling AmortisationRuleSetsApi->SetAmortisationRules");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling AmortisationRuleSetsApi->SetAmortisationRules");
+            }
+
+            // verify the required parameter 'setAmortisationRulesRequest' is set
+            if (setAmortisationRulesRequest == null)
+            {
+                throw new Lusid.Sdk.Client.ApiException(400, "Missing required parameter 'setAmortisationRulesRequest' when calling AmortisationRuleSetsApi->SetAmortisationRules");
+            }
+
+
+            Lusid.Sdk.Client.RequestOptions localVarRequestOptions = new Lusid.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Lusid.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Lusid.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Lusid.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Lusid.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = setAmortisationRulesRequest;
+
+            localVarRequestOptions.Operation = "AmortisationRuleSetsApi.SetAmortisationRules";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<AmortisationRuleSet>("/api/amortisation/rulesets/{scope}/{code}/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetAmortisationRules", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

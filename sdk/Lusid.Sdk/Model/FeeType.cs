@@ -23,48 +23,53 @@ using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// AmortisationRuleSet
+    /// FeeType
     /// </summary>
-    [DataContract(Name = "AmortisationRuleSet")]
-    public partial class AmortisationRuleSet : IEquatable<AmortisationRuleSet>, IValidatableObject
+    [DataContract(Name = "FeeType")]
+    public partial class FeeType : IEquatable<FeeType>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmortisationRuleSet" /> class.
+        /// Initializes a new instance of the <see cref="FeeType" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AmortisationRuleSet() { }
+        protected FeeType() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmortisationRuleSet" /> class.
+        /// Initializes a new instance of the <see cref="FeeType" /> class.
         /// </summary>
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="id">id (required).</param>
-        /// <param name="displayName">A user-friendly name. (required).</param>
-        /// <param name="description">A description of what this rule set is for..</param>
-        /// <param name="rulesInterval">rulesInterval (required).</param>
+        /// <param name="name">The name of the fee type. (required).</param>
+        /// <param name="description">The description of the fee type. (required).</param>
+        /// <param name="componentTransactions">A set of component transactions that relate to the fee type. (required).</param>
         /// <param name="version">version.</param>
         /// <param name="links">links.</param>
-        public AmortisationRuleSet(string href = default(string), ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), RulesInterval rulesInterval = default(RulesInterval), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
+        public FeeType(string href = default(string), ResourceId id = default(ResourceId), string name = default(string), string description = default(string), List<ComponentTransaction> componentTransactions = default(List<ComponentTransaction>), ModelVersion version = default(ModelVersion), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for AmortisationRuleSet and cannot be null");
+                throw new ArgumentNullException("id is a required property for FeeType and cannot be null");
             }
             this.Id = id;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
+            // to ensure "name" is required (not null)
+            if (name == null)
             {
-                throw new ArgumentNullException("displayName is a required property for AmortisationRuleSet and cannot be null");
+                throw new ArgumentNullException("name is a required property for FeeType and cannot be null");
             }
-            this.DisplayName = displayName;
-            // to ensure "rulesInterval" is required (not null)
-            if (rulesInterval == null)
+            this.Name = name;
+            // to ensure "description" is required (not null)
+            if (description == null)
             {
-                throw new ArgumentNullException("rulesInterval is a required property for AmortisationRuleSet and cannot be null");
+                throw new ArgumentNullException("description is a required property for FeeType and cannot be null");
             }
-            this.RulesInterval = rulesInterval;
-            this.Href = href;
             this.Description = description;
+            // to ensure "componentTransactions" is required (not null)
+            if (componentTransactions == null)
+            {
+                throw new ArgumentNullException("componentTransactions is a required property for FeeType and cannot be null");
+            }
+            this.ComponentTransactions = componentTransactions;
+            this.Href = href;
             this._Version = version;
             this.Links = links;
         }
@@ -83,24 +88,25 @@ namespace Lusid.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// A user-friendly name.
+        /// The name of the fee type.
         /// </summary>
-        /// <value>A user-friendly name.</value>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
+        /// <value>The name of the fee type.</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// A description of what this rule set is for.
+        /// The description of the fee type.
         /// </summary>
-        /// <value>A description of what this rule set is for.</value>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        /// <value>The description of the fee type.</value>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets RulesInterval
+        /// A set of component transactions that relate to the fee type.
         /// </summary>
-        [DataMember(Name = "rulesInterval", IsRequired = true, EmitDefaultValue = true)]
-        public RulesInterval RulesInterval { get; set; }
+        /// <value>A set of component transactions that relate to the fee type.</value>
+        [DataMember(Name = "componentTransactions", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComponentTransaction> ComponentTransactions { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
@@ -121,12 +127,12 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AmortisationRuleSet {\n");
+            sb.Append("class FeeType {\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  RulesInterval: ").Append(RulesInterval).Append("\n");
+            sb.Append("  ComponentTransactions: ").Append(ComponentTransactions).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -149,15 +155,15 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AmortisationRuleSet);
+            return this.Equals(input as FeeType);
         }
 
         /// <summary>
-        /// Returns true if AmortisationRuleSet instances are equal
+        /// Returns true if FeeType instances are equal
         /// </summary>
-        /// <param name="input">Instance of AmortisationRuleSet to be compared</param>
+        /// <param name="input">Instance of FeeType to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AmortisationRuleSet input)
+        public bool Equals(FeeType input)
         {
             if (input == null)
             {
@@ -175,9 +181,9 @@ namespace Lusid.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -185,9 +191,10 @@ namespace Lusid.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.RulesInterval == input.RulesInterval ||
-                    (this.RulesInterval != null &&
-                    this.RulesInterval.Equals(input.RulesInterval))
+                    this.ComponentTransactions == input.ComponentTransactions ||
+                    this.ComponentTransactions != null &&
+                    input.ComponentTransactions != null &&
+                    this.ComponentTransactions.SequenceEqual(input.ComponentTransactions)
                 ) && 
                 (
                     this._Version == input._Version ||
@@ -219,17 +226,17 @@ namespace Lusid.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.DisplayName != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.RulesInterval != null)
+                if (this.ComponentTransactions != null)
                 {
-                    hashCode = (hashCode * 59) + this.RulesInterval.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ComponentTransactions.GetHashCode();
                 }
                 if (this._Version != null)
                 {
@@ -250,42 +257,16 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DisplayName (string) maxLength
-            if (this.DisplayName != null && this.DisplayName.Length > 256)
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 256.", new [] { "DisplayName" });
-            }
-
-            // DisplayName (string) minLength
-            if (this.DisplayName != null && this.DisplayName.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
-            }
-
-            // DisplayName (string) pattern
-            Regex regexDisplayName = new Regex(@"^[^\\<>&\""]+$", RegexOptions.CultureInvariant);
-            if (false == regexDisplayName.Match(this.DisplayName).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, must match a pattern of " + regexDisplayName, new [] { "DisplayName" });
-            }
-
-            // Description (string) maxLength
-            if (this.Description != null && this.Description.Length > 1024)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 0)
+            if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
-            }
-
-            // Description (string) pattern
-            Regex regexDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
-            if (false == regexDescription.Match(this.Description).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             yield break;
