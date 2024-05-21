@@ -576,9 +576,10 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VersionedResourceListOfPortfolioHolding</returns>
-        VersionedResourceListOfPortfolioHolding GetHoldings(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0);
+        VersionedResourceListOfPortfolioHolding GetHoldings(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// GetHoldings: Get holdings
@@ -594,9 +595,10 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
-        ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0);
+        ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0);
         /// <summary>
         /// GetHoldingsAdjustment: Get holdings adjustment
         /// </summary>
@@ -644,9 +646,10 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VersionedResourceListWithWarningsOfPortfolioHolding</returns>
-        VersionedResourceListWithWarningsOfPortfolioHolding GetHoldingsWithOrders(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0);
+        VersionedResourceListWithWarningsOfPortfolioHolding GetHoldingsWithOrders(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
@@ -664,9 +667,10 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfPortfolioHolding</returns>
-        ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0);
+        ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0);
         /// <summary>
         /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
@@ -1797,10 +1801,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VersionedResourceListOfPortfolioHolding</returns>
-        System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetHoldings: Get holdings
@@ -1816,10 +1821,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetHoldingsAdjustment: Get holdings adjustment
         /// </summary>
@@ -1869,10 +1875,11 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VersionedResourceListWithWarningsOfPortfolioHolding</returns>
-        System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
@@ -1890,10 +1897,11 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfPortfolioHolding)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding>> GetHoldingsWithOrdersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding>> GetHoldingsWithOrdersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
@@ -6776,11 +6784,12 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VersionedResourceListOfPortfolioHolding</returns>
-        public VersionedResourceListOfPortfolioHolding GetHoldings(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0)
+        public VersionedResourceListOfPortfolioHolding GetHoldings(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> localVarResponse = GetHoldingsWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> localVarResponse = GetHoldingsWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays);
             return localVarResponse.Data;
         }
 
@@ -6795,9 +6804,10 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VersionedResourceListOfPortfolioHolding</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> GetHoldingsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6856,6 +6866,10 @@ namespace Lusid.Sdk.Api
             if (byTaxlots != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "byTaxlots", byTaxlots));
+            }
+            if (includeSettlementEventsAfterDays != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSettlementEventsAfterDays", includeSettlementEventsAfterDays));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetHoldings";
@@ -6903,12 +6917,13 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VersionedResourceListOfPortfolioHolding</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VersionedResourceListOfPortfolioHolding> GetHoldingsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> localVarResponse = await GetHoldingsWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding> localVarResponse = await GetHoldingsWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, includeSettlementEventsAfterDays, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6923,10 +6938,11 @@ namespace Lusid.Sdk.Api
         /// <param name="filter">Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#39;p&#39;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. (optional)</param>
         /// <param name="propertyKeys">A list of property keys from the \&quot;Instrument\&quot;, \&quot;Holding\&quot;, \&quot;Custodian Account\&quot; or \&quot;Portfolio\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. (optional)</param>
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListOfPortfolioHolding)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListOfPortfolioHolding>> GetHoldingsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -6986,6 +7002,10 @@ namespace Lusid.Sdk.Api
             if (byTaxlots != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "byTaxlots", byTaxlots));
+            }
+            if (includeSettlementEventsAfterDays != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSettlementEventsAfterDays", includeSettlementEventsAfterDays));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetHoldings";
@@ -7276,11 +7296,12 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VersionedResourceListWithWarningsOfPortfolioHolding</returns>
-        public VersionedResourceListWithWarningsOfPortfolioHolding GetHoldingsWithOrders(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0)
+        public VersionedResourceListWithWarningsOfPortfolioHolding GetHoldingsWithOrders(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0)
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> localVarResponse = GetHoldingsWithOrdersWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> localVarResponse = GetHoldingsWithOrdersWithHttpInfo(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays);
             return localVarResponse.Data;
         }
 
@@ -7297,9 +7318,10 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfPortfolioHolding</returns>
-        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0)
+        public Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7366,6 +7388,10 @@ namespace Lusid.Sdk.Api
             if (recipeIdCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeIdCode", recipeIdCode));
+            }
+            if (includeSettlementEventsAfterDays != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSettlementEventsAfterDays", includeSettlementEventsAfterDays));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetHoldingsWithOrders";
@@ -7415,12 +7441,13 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VersionedResourceListWithWarningsOfPortfolioHolding</returns>
-        public async System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> localVarResponse = await GetHoldingsWithOrdersWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> localVarResponse = await GetHoldingsWithOrdersWithHttpInfoAsync(scope, code, effectiveAt, asAt, filter, propertyKeys, byTaxlots, recipeIdScope, recipeIdCode, includeSettlementEventsAfterDays, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7437,10 +7464,11 @@ namespace Lusid.Sdk.Api
         /// <param name="byTaxlots">Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. (optional)</param>
         /// <param name="recipeIdScope">The scope of the given recipeId (optional)</param>
         /// <param name="recipeIdCode">The code of the given recipeId (optional)</param>
+        /// <param name="includeSettlementEventsAfterDays">Number of days ahead to bring back settlements from, in relation to the specified effectiveAt (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfPortfolioHolding)</returns>
-        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding>> GetHoldingsWithOrdersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Lusid.Sdk.Client.ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding>> GetHoldingsWithOrdersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -7508,6 +7536,10 @@ namespace Lusid.Sdk.Api
             if (recipeIdCode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "recipeIdCode", recipeIdCode));
+            }
+            if (includeSettlementEventsAfterDays != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Lusid.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeSettlementEventsAfterDays", includeSettlementEventsAfterDays));
             }
 
             localVarRequestOptions.Operation = "TransactionPortfoliosApi.GetHoldingsWithOrders";

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **AmortisedCostPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **VariationMargin** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
 **VariationMarginPortfolioCcy** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**SettlementSchedule** | [**List&lt;SettlementSchedule&gt;**](SettlementSchedule.md) | Where no. of days ahead has been specified, future dated settlements will be captured here. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

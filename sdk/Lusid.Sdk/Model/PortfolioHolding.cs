@@ -54,7 +54,8 @@ namespace Lusid.Sdk.Model
         /// <param name="amortisedCostPortfolioCcy">amortisedCostPortfolioCcy.</param>
         /// <param name="variationMargin">variationMargin.</param>
         /// <param name="variationMarginPortfolioCcy">variationMarginPortfolioCcy.</param>
-        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount variationMargin = default(CurrencyAndAmount), CurrencyAndAmount variationMarginPortfolioCcy = default(CurrencyAndAmount))
+        /// <param name="settlementSchedule">Where no. of days ahead has been specified, future dated settlements will be captured here..</param>
+        public PortfolioHolding(string instrumentScope = default(string), string instrumentUid = default(string), Dictionary<string, PerpetualProperty> subHoldingKeys = default(Dictionary<string, PerpetualProperty>), Dictionary<string, Property> properties = default(Dictionary<string, Property>), string holdingType = default(string), decimal units = default(decimal), decimal settledUnits = default(decimal), CurrencyAndAmount cost = default(CurrencyAndAmount), CurrencyAndAmount costPortfolioCcy = default(CurrencyAndAmount), Transaction transaction = default(Transaction), string currency = default(string), string holdingTypeName = default(string), long? holdingId = default(long?), CurrencyAndAmount notionalCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCost = default(CurrencyAndAmount), CurrencyAndAmount amortisedCostPortfolioCcy = default(CurrencyAndAmount), CurrencyAndAmount variationMargin = default(CurrencyAndAmount), CurrencyAndAmount variationMarginPortfolioCcy = default(CurrencyAndAmount), List<SettlementSchedule> settlementSchedule = default(List<SettlementSchedule>))
         {
             // to ensure "instrumentUid" is required (not null)
             if (instrumentUid == null)
@@ -94,6 +95,7 @@ namespace Lusid.Sdk.Model
             this.AmortisedCostPortfolioCcy = amortisedCostPortfolioCcy;
             this.VariationMargin = variationMargin;
             this.VariationMarginPortfolioCcy = variationMarginPortfolioCcy;
+            this.SettlementSchedule = settlementSchedule;
         }
 
         /// <summary>
@@ -215,6 +217,13 @@ namespace Lusid.Sdk.Model
         public CurrencyAndAmount VariationMarginPortfolioCcy { get; set; }
 
         /// <summary>
+        /// Where no. of days ahead has been specified, future dated settlements will be captured here.
+        /// </summary>
+        /// <value>Where no. of days ahead has been specified, future dated settlements will be captured here.</value>
+        [DataMember(Name = "settlementSchedule", EmitDefaultValue = true)]
+        public List<SettlementSchedule> SettlementSchedule { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -240,6 +249,7 @@ namespace Lusid.Sdk.Model
             sb.Append("  AmortisedCostPortfolioCcy: ").Append(AmortisedCostPortfolioCcy).Append("\n");
             sb.Append("  VariationMargin: ").Append(VariationMargin).Append("\n");
             sb.Append("  VariationMarginPortfolioCcy: ").Append(VariationMarginPortfolioCcy).Append("\n");
+            sb.Append("  SettlementSchedule: ").Append(SettlementSchedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -364,6 +374,12 @@ namespace Lusid.Sdk.Model
                     this.VariationMarginPortfolioCcy == input.VariationMarginPortfolioCcy ||
                     (this.VariationMarginPortfolioCcy != null &&
                     this.VariationMarginPortfolioCcy.Equals(input.VariationMarginPortfolioCcy))
+                ) && 
+                (
+                    this.SettlementSchedule == input.SettlementSchedule ||
+                    this.SettlementSchedule != null &&
+                    input.SettlementSchedule != null &&
+                    this.SettlementSchedule.SequenceEqual(input.SettlementSchedule)
                 );
         }
 
@@ -441,6 +457,10 @@ namespace Lusid.Sdk.Model
                 if (this.VariationMarginPortfolioCcy != null)
                 {
                     hashCode = (hashCode * 59) + this.VariationMarginPortfolioCcy.GetHashCode();
+                }
+                if (this.SettlementSchedule != null)
+                {
+                    hashCode = (hashCode * 59) + this.SettlementSchedule.GetHashCode();
                 }
                 return hashCode;
             }
