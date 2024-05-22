@@ -53,16 +53,10 @@ namespace Lusid.Sdk.Model
         BranchStepRequest = 4,
 
         /// <summary>
-        /// Enum RecombineStepRequest for value: RecombineStepRequest
-        /// </summary>
-        [EnumMember(Value = "RecombineStepRequest")]
-        RecombineStepRequest = 5,
-
-        /// <summary>
         /// Enum CheckStepRequest for value: CheckStepRequest
         /// </summary>
         [EnumMember(Value = "CheckStepRequest")]
-        CheckStepRequest = 6
+        CheckStepRequest = 5
 
     }
 

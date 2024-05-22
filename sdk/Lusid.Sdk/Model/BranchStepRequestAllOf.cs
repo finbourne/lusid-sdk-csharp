@@ -17,24 +17,16 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Lusid.Sdk.Client.OpenAPIDateConverter;
 
 namespace Lusid.Sdk.Model
 {
     /// <summary>
-    /// ComplianceStepRequest
+    /// BranchStepRequestAllOf
     /// </summary>
-    [DataContract(Name = "ComplianceStepRequest")]
-    [JsonConverter(typeof(JsonSubtypes), "ComplianceStepTypeRequest")]
-    [JsonSubtypes.KnownSubType(typeof(BranchStepRequest), "BranchStepRequest")]
-    [JsonSubtypes.KnownSubType(typeof(CheckStepRequest), "CheckStepRequest")]
-    [JsonSubtypes.KnownSubType(typeof(FilterStepRequest), "FilterStepRequest")]
-    [JsonSubtypes.KnownSubType(typeof(GroupByStepRequest), "GroupByStepRequest")]
-    [JsonSubtypes.KnownSubType(typeof(GroupFilterStepRequest), "GroupFilterStepRequest")]
-    [JsonSubtypes.KnownSubType(typeof(IntermediateComplianceStepRequest), "IntermediateComplianceStepRequest")]
-    public partial class ComplianceStepRequest : IEquatable<ComplianceStepRequest>, IValidatableObject
+    [DataContract(Name = "BranchStepRequest_allOf")]
+    public partial class BranchStepRequestAllOf : IEquatable<BranchStepRequestAllOf>, IValidatableObject
     {
         /// <summary>
         /// . The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest
@@ -83,18 +75,32 @@ namespace Lusid.Sdk.Model
         [DataMember(Name = "complianceStepTypeRequest", IsRequired = true, EmitDefaultValue = true)]
         public ComplianceStepTypeRequestEnum ComplianceStepTypeRequest { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComplianceStepRequest" /> class.
+        /// Initializes a new instance of the <see cref="BranchStepRequestAllOf" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ComplianceStepRequest() { }
+        protected BranchStepRequestAllOf() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComplianceStepRequest" /> class.
+        /// Initializes a new instance of the <see cref="BranchStepRequestAllOf" /> class.
         /// </summary>
+        /// <param name="label">The label of the compliance step (required).</param>
         /// <param name="complianceStepTypeRequest">. The available values are: FilterStepRequest, GroupByStepRequest, GroupFilterStepRequest, BranchStepRequest, CheckStepRequest (required).</param>
-        public ComplianceStepRequest(ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum))
+        public BranchStepRequestAllOf(string label = default(string), ComplianceStepTypeRequestEnum complianceStepTypeRequest = default(ComplianceStepTypeRequestEnum))
         {
+            // to ensure "label" is required (not null)
+            if (label == null)
+            {
+                throw new ArgumentNullException("label is a required property for BranchStepRequestAllOf and cannot be null");
+            }
+            this.Label = label;
             this.ComplianceStepTypeRequest = complianceStepTypeRequest;
         }
+
+        /// <summary>
+        /// The label of the compliance step
+        /// </summary>
+        /// <value>The label of the compliance step</value>
+        [DataMember(Name = "label", IsRequired = true, EmitDefaultValue = true)]
+        public string Label { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -103,7 +109,8 @@ namespace Lusid.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ComplianceStepRequest {\n");
+            sb.Append("class BranchStepRequestAllOf {\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  ComplianceStepTypeRequest: ").Append(ComplianceStepTypeRequest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -125,21 +132,26 @@ namespace Lusid.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ComplianceStepRequest);
+            return this.Equals(input as BranchStepRequestAllOf);
         }
 
         /// <summary>
-        /// Returns true if ComplianceStepRequest instances are equal
+        /// Returns true if BranchStepRequestAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of ComplianceStepRequest to be compared</param>
+        /// <param name="input">Instance of BranchStepRequestAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ComplianceStepRequest input)
+        public bool Equals(BranchStepRequestAllOf input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.Label == input.Label ||
+                    (this.Label != null &&
+                    this.Label.Equals(input.Label))
+                ) && 
                 (
                     this.ComplianceStepTypeRequest == input.ComplianceStepTypeRequest ||
                     this.ComplianceStepTypeRequest.Equals(input.ComplianceStepTypeRequest)
@@ -155,6 +167,10 @@ namespace Lusid.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Label != null)
+                {
+                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ComplianceStepTypeRequest.GetHashCode();
                 return hashCode;
             }
@@ -167,16 +183,18 @@ namespace Lusid.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            return this.BaseValidate(validationContext);
-        }
+            // Label (string) maxLength
+            if (this.Label != null && this.Label.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be less than 64.", new [] { "Label" });
+            }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
+            // Label (string) minLength
+            if (this.Label != null && this.Label.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Label, length must be greater than 1.", new [] { "Label" });
+            }
+
             yield break;
         }
     }
