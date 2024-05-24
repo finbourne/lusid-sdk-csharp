@@ -33,11 +33,11 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="attributeName">Name of the property the change applies to..</param>
         /// <param name="effectiveRange">effectiveRange.</param>
-        /// <param name="previousValue">The previous value of the attribute before the requested change is applied..</param>
-        /// <param name="newValue">The value of the attribute once the requested change is applied..</param>
+        /// <param name="previousValue">previousValue.</param>
+        /// <param name="newValue">newValue.</param>
         /// <param name="asAtBasis">Whether the change represents the modification when the request was made or the modification as it would be at the latest time..</param>
         /// <param name="links">links.</param>
-        public StagedModificationsRequestedChangeInterval(string attributeName = default(string), StagedModificationEffectiveRange effectiveRange = default(StagedModificationEffectiveRange), Object previousValue = default(Object), Object newValue = default(Object), string asAtBasis = default(string), List<Link> links = default(List<Link>))
+        public StagedModificationsRequestedChangeInterval(string attributeName = default(string), StagedModificationEffectiveRange effectiveRange = default(StagedModificationEffectiveRange), PropertyValue previousValue = default(PropertyValue), PropertyValue newValue = default(PropertyValue), string asAtBasis = default(string), List<Link> links = default(List<Link>))
         {
             this.AttributeName = attributeName;
             this.EffectiveRange = effectiveRange;
@@ -61,18 +61,16 @@ namespace Lusid.Sdk.Model
         public StagedModificationEffectiveRange EffectiveRange { get; set; }
 
         /// <summary>
-        /// The previous value of the attribute before the requested change is applied.
+        /// Gets or Sets PreviousValue
         /// </summary>
-        /// <value>The previous value of the attribute before the requested change is applied.</value>
-        [DataMember(Name = "previousValue", EmitDefaultValue = true)]
-        public Object PreviousValue { get; set; }
+        [DataMember(Name = "previousValue", EmitDefaultValue = false)]
+        public PropertyValue PreviousValue { get; set; }
 
         /// <summary>
-        /// The value of the attribute once the requested change is applied.
+        /// Gets or Sets NewValue
         /// </summary>
-        /// <value>The value of the attribute once the requested change is applied.</value>
-        [DataMember(Name = "newValue", EmitDefaultValue = true)]
-        public Object NewValue { get; set; }
+        [DataMember(Name = "newValue", EmitDefaultValue = false)]
+        public PropertyValue NewValue { get; set; }
 
         /// <summary>
         /// Whether the change represents the modification when the request was made or the modification as it would be at the latest time.
