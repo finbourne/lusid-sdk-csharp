@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> GetOrderWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders
+        /// ListOrders: List Orders
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
@@ -101,7 +101,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfOrder ListOrders(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders
+        /// ListOrders: List Orders
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfOrder</returns>
         ApiResponse<PagedResourceListOfOrder> ListOrdersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order
+        /// UpsertOrders: Upsert Order
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfOrder UpsertOrders(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order
+        /// UpsertOrders: Upsert Order
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
@@ -207,7 +207,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Order)</returns>
         System.Threading.Tasks.Task<ApiResponse<Order>> GetOrderWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders
+        /// ListOrders: List Orders
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
@@ -225,7 +225,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfOrder> ListOrdersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders
+        /// ListOrders: List Orders
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
@@ -242,7 +242,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfOrder)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfOrder>> ListOrdersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order
+        /// UpsertOrders: Upsert Order
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
@@ -255,7 +255,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfOrder> UpsertOrdersAsync(OrderSetRequest? orderSetRequest = default(OrderSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order
+        /// UpsertOrders: Upsert Order
         /// </summary>
         /// <remarks>
         /// Upsert; update existing orders with given ids, or create new orders otherwise.
@@ -804,7 +804,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
+        /// ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -822,7 +822,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
+        /// ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -919,7 +919,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
+        /// ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -938,7 +938,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
+        /// ListOrders: List Orders Fetch the last pre-AsAt date version of each order with optional filtering (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the order. Defaults to return the latest version of the order if not specified. (optional)</param>
@@ -1038,7 +1038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
+        /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
@@ -1051,7 +1051,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
+        /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
@@ -1124,7 +1124,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
+        /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderSetRequest">The collection of order requests. (optional)</param>
@@ -1138,7 +1138,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
+        /// UpsertOrders: Upsert Order Upsert; update existing orders with given ids, or create new orders otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderSetRequest">The collection of order requests. (optional)</param>

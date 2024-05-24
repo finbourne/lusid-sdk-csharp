@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfAllocation</returns>
         ApiResponse<PagedResourceListOfAllocation> ListAllocationsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+        /// UpsertAllocations: Upsert Allocations
         /// </summary>
         /// <remarks>
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfAllocation UpsertAllocations(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+        /// UpsertAllocations: Upsert Allocations
         /// </summary>
         /// <remarks>
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
@@ -242,7 +242,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfAllocation)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfAllocation>> ListAllocationsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+        /// UpsertAllocations: Upsert Allocations
         /// </summary>
         /// <remarks>
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
@@ -255,7 +255,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfAllocation> UpsertAllocationsAsync(AllocationSetRequest? allocationSetRequest = default(AllocationSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+        /// UpsertAllocations: Upsert Allocations
         /// </summary>
         /// <remarks>
         /// Upsert; update existing allocations with given ids, or create new allocations otherwise.
@@ -1038,7 +1038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
+        /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
@@ -1051,7 +1051,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
+        /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
@@ -1124,7 +1124,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
+        /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>
@@ -1138,7 +1138,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
+        /// UpsertAllocations: Upsert Allocations Upsert; update existing allocations with given ids, or create new allocations otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="allocationSetRequest">The collection of allocation requests. (optional)</param>

@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteInstrumentEventInstructionWithHttpInfo(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
@@ -75,7 +75,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteKeyFromPortfolioAccessMetadata(string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
@@ -354,7 +354,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfAggregatedReturn</returns>
         ApiResponse<ResourceListOfAggregatedReturn> GetPortfolioAggregateReturnsWithHttpInfo(string scope, string code, string returnScope, string returnCode, string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), string? compositeMethod = default(string?), string? period = default(string?), string? outputFrequency = default(string?), List<string>? metrics = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? alternativeIncDate = default(DateTimeOrCutLabel?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+        /// GetPortfolioAggregatedReturns: Aggregated Returns
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -371,7 +371,7 @@ namespace Lusid.Sdk.Api
         AggregatedReturnsResponse GetPortfolioAggregatedReturns(string scope, string code, AggregatedReturnsRequest aggregatedReturnsRequest, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+        /// GetPortfolioAggregatedReturns: Aggregated Returns
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -422,7 +422,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfProcessedCommand</returns>
         ApiResponse<ResourceListOfProcessedCommand> GetPortfolioCommandsWithHttpInfo(string scope, string code, DateTimeOffset? fromAsAt = default(DateTimeOffset?), DateTimeOffset? toAsAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio
         /// </summary>
         /// <remarks>
         /// Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
@@ -437,7 +437,7 @@ namespace Lusid.Sdk.Api
         Dictionary<string, List<AccessMetadataValue>> GetPortfolioMetadata(string scope, string code, string? effectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio
         /// </summary>
         /// <remarks>
         /// Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
@@ -480,7 +480,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioProperties</returns>
         ApiResponse<PortfolioProperties> GetPortfolioPropertiesWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for a particular portfolio property.
@@ -499,7 +499,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfPropertyInterval GetPortfolioPropertyTimeSeries(string scope, string code, string propertyKey, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for a particular portfolio property.
@@ -550,7 +550,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfRelation</returns>
         ApiResponse<ResourceListOfRelation> GetPortfolioRelationsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+        /// GetPortfolioRelationships: Get portfolio relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular portfolio.
@@ -567,7 +567,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfRelationship GetPortfolioRelationships(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+        /// GetPortfolioRelationships: Get portfolio relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular portfolio.
@@ -583,7 +583,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
         ApiResponse<ResourceListOfRelationship> GetPortfolioRelationshipsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns
+        /// GetPortfolioReturns: Get Returns
         /// </summary>
         /// <remarks>
         /// Get Returns which are on the specified portfolio.
@@ -602,7 +602,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfPerformanceReturn GetPortfolioReturns(string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), string? period = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns
+        /// GetPortfolioReturns: Get Returns
         /// </summary>
         /// <remarks>
         /// Get Returns which are on the specified portfolio.
@@ -799,7 +799,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfPortfolio</returns>
         ApiResponse<ResourceListOfPortfolio> ListPortfoliosForScopeWithHttpInfo(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+        /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
@@ -813,7 +813,7 @@ namespace Lusid.Sdk.Api
         Portfolio PatchPortfolio(string scope, string code, List<Operation> operation, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+        /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
@@ -977,7 +977,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioProperties</returns>
         ApiResponse<PortfolioProperties> UpsertPortfolioPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property> requestBody, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+        /// UpsertPortfolioReturns: Upsert Returns
         /// </summary>
         /// <remarks>
         /// Update or insert returns into the specified portfolio.
@@ -993,7 +993,7 @@ namespace Lusid.Sdk.Api
         UpsertReturnsResponse UpsertPortfolioReturns(string scope, string code, string returnScope, string returnCode, List<PerformanceReturn> performanceReturn, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+        /// UpsertPortfolioReturns: Upsert Returns
         /// </summary>
         /// <remarks>
         /// Update or insert returns into the specified portfolio.
@@ -1048,7 +1048,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteInstrumentEventInstructionWithHttpInfoAsync(string scope, string code, string instrumentEventInstructionId, DateTimeOrCutLabel? portfolioEffectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
@@ -1065,7 +1065,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteKeyFromPortfolioAccessMetadataAsync(string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
         /// </summary>
         /// <remarks>
         /// Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
@@ -1361,7 +1361,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfAggregatedReturn)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfAggregatedReturn>> GetPortfolioAggregateReturnsWithHttpInfoAsync(string scope, string code, string returnScope, string returnCode, string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), string? compositeMethod = default(string?), string? period = default(string?), string? outputFrequency = default(string?), List<string>? metrics = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? alternativeIncDate = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+        /// GetPortfolioAggregatedReturns: Aggregated Returns
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -1379,7 +1379,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<AggregatedReturnsResponse> GetPortfolioAggregatedReturnsAsync(string scope, string code, AggregatedReturnsRequest aggregatedReturnsRequest, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+        /// GetPortfolioAggregatedReturns: Aggregated Returns
         /// </summary>
         /// <remarks>
         /// Aggregate Returns which are on the specified portfolio.
@@ -1433,7 +1433,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfProcessedCommand)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfProcessedCommand>> GetPortfolioCommandsWithHttpInfoAsync(string scope, string code, DateTimeOffset? fromAsAt = default(DateTimeOffset?), DateTimeOffset? toAsAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio
         /// </summary>
         /// <remarks>
         /// Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
@@ -1449,7 +1449,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Dictionary<string, List<AccessMetadataValue>>> GetPortfolioMetadataAsync(string scope, string code, string? effectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio
         /// </summary>
         /// <remarks>
         /// Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
@@ -1495,7 +1495,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioProperties)</returns>
         System.Threading.Tasks.Task<ApiResponse<PortfolioProperties>> GetPortfolioPropertiesWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for a particular portfolio property.
@@ -1515,7 +1515,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetPortfolioPropertyTimeSeriesAsync(string scope, string code, string propertyKey, string? portfolioEffectiveAt = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series
         /// </summary>
         /// <remarks>
         /// Show the complete time series (history) for a particular portfolio property.
@@ -1569,7 +1569,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfRelation)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelation>> GetPortfolioRelationsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+        /// GetPortfolioRelationships: Get portfolio relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular portfolio.
@@ -1587,7 +1587,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfRelationship> GetPortfolioRelationshipsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+        /// GetPortfolioRelationships: Get portfolio relationships
         /// </summary>
         /// <remarks>
         /// Get relationships for a particular portfolio.
@@ -1604,7 +1604,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfRelationship)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelationship>> GetPortfolioRelationshipsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns
+        /// GetPortfolioReturns: Get Returns
         /// </summary>
         /// <remarks>
         /// Get Returns which are on the specified portfolio.
@@ -1624,7 +1624,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfPerformanceReturn> GetPortfolioReturnsAsync(string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), string? period = default(string?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns
+        /// GetPortfolioReturns: Get Returns
         /// </summary>
         /// <remarks>
         /// Get Returns which are on the specified portfolio.
@@ -1832,7 +1832,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfPortfolio)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfPortfolio>> ListPortfoliosForScopeWithHttpInfoAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+        /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
@@ -1847,7 +1847,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Portfolio> PatchPortfolioAsync(string scope, string code, List<Operation> operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+        /// PatchPortfolio: Patch portfolio.
         /// </summary>
         /// <remarks>
         /// Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
@@ -2022,7 +2022,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioProperties)</returns>
         System.Threading.Tasks.Task<ApiResponse<PortfolioProperties>> UpsertPortfolioPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+        /// UpsertPortfolioReturns: Upsert Returns
         /// </summary>
         /// <remarks>
         /// Update or insert returns into the specified portfolio.
@@ -2039,7 +2039,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<UpsertReturnsResponse> UpsertPortfolioReturnsAsync(string scope, string code, string returnScope, string returnCode, List<PerformanceReturn> performanceReturn, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+        /// UpsertPortfolioReturns: Upsert Returns
         /// </summary>
         /// <remarks>
         /// Update or insert returns into the specified portfolio.
@@ -2400,7 +2400,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2417,7 +2417,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2518,7 +2518,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -2536,7 +2536,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
+        /// DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Quote Access Metadata Rule to retrieve.</param>
@@ -4684,7 +4684,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
+        /// GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -4702,7 +4702,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
+        /// GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -4812,7 +4812,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
+        /// GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -4831,7 +4831,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
+        /// GetPortfolioAggregatedReturns: Aggregated Returns Aggregate Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -5202,7 +5202,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -5218,7 +5218,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -5311,7 +5311,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -5328,7 +5328,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
+        /// GetPortfolioMetadata: Get access metadata rules for a portfolio Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Access Metadata Rule to retrieve.</param>
@@ -5646,7 +5646,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -5666,7 +5666,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -5782,7 +5782,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -5803,7 +5803,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
+        /// GetPortfolioPropertyTimeSeries: Get portfolio property time series Show the complete time series (history) for a particular portfolio property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6168,7 +6168,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
+        /// GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6186,7 +6186,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
+        /// GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6289,7 +6289,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
+        /// GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6308,7 +6308,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
+        /// GetPortfolioRelationships: Get portfolio relationships Get relationships for a particular portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -6414,7 +6414,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
+        /// GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -6434,7 +6434,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
+        /// GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -6553,7 +6553,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
+        /// GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -6574,7 +6574,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
+        /// GetPortfolioReturns: Get Returns Get Returns which are on the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -7998,7 +7998,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -8013,7 +8013,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -8108,7 +8108,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -8124,7 +8124,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
+        /// PatchPortfolio: Patch portfolio. Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the portfolio.</param>
@@ -9450,7 +9450,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
+        /// UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -9467,7 +9467,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
+        /// UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -9578,7 +9578,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
+        /// UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>
@@ -9596,7 +9596,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
+        /// UpsertPortfolioReturns: Upsert Returns Update or insert returns into the specified portfolio.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio.</param>

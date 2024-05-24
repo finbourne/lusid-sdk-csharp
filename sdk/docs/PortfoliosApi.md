@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**DeleteInstrumentEventInstruction**](PortfoliosApi.md#deleteinstrumenteventinstruction) | **DELETE** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] DeleteInstrumentEventInstruction: Delete Instrument Event Instruction |
-| [**DeleteKeyFromPortfolioAccessMetadata**](PortfoliosApi.md#deletekeyfromportfolioaccessmetadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule |
+| [**DeleteKeyFromPortfolioAccessMetadata**](PortfoliosApi.md#deletekeyfromportfolioaccessmetadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule |
 | [**DeletePortfolio**](PortfoliosApi.md#deleteportfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio |
 | [**DeletePortfolioProperties**](PortfoliosApi.md#deleteportfolioproperties) | **DELETE** /api/portfolios/{scope}/{code}/properties | DeletePortfolioProperties: Delete portfolio properties |
 | [**DeletePortfolioReturns**](PortfoliosApi.md#deleteportfolioreturns) | **DELETE** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete | [EARLY ACCESS] DeletePortfolioReturns: Delete Returns |
@@ -14,26 +14,26 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**GetInstrumentEventInstruction**](PortfoliosApi.md#getinstrumenteventinstruction) | **GET** /api/portfolios/{scope}/{code}/instrumenteventinstructions/{instrumentEventInstructionId} | [EARLY ACCESS] GetInstrumentEventInstruction: Get Instrument Event Instruction |
 | [**GetPortfolio**](PortfoliosApi.md#getportfolio) | **GET** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio |
 | [**GetPortfolioAggregateReturns**](PortfoliosApi.md#getportfolioaggregatereturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated | [DEPRECATED] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint). |
-| [**GetPortfolioAggregatedReturns**](PortfoliosApi.md#getportfolioaggregatedreturns) | **POST** /api/portfolios/{scope}/{code}/returns/$aggregated | [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns |
+| [**GetPortfolioAggregatedReturns**](PortfoliosApi.md#getportfolioaggregatedreturns) | **POST** /api/portfolios/{scope}/{code}/returns/$aggregated | GetPortfolioAggregatedReturns: Aggregated Returns |
 | [**GetPortfolioCommands**](PortfoliosApi.md#getportfoliocommands) | **GET** /api/portfolios/{scope}/{code}/commands | GetPortfolioCommands: Get portfolio commands |
-| [**GetPortfolioMetadata**](PortfoliosApi.md#getportfoliometadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio |
+| [**GetPortfolioMetadata**](PortfoliosApi.md#getportfoliometadata) | **GET** /api/portfolios/{scope}/{code}/metadata | GetPortfolioMetadata: Get access metadata rules for a portfolio |
 | [**GetPortfolioProperties**](PortfoliosApi.md#getportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties |
-| [**GetPortfolioPropertyTimeSeries**](PortfoliosApi.md#getportfoliopropertytimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series |
+| [**GetPortfolioPropertyTimeSeries**](PortfoliosApi.md#getportfoliopropertytimeseries) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | GetPortfolioPropertyTimeSeries: Get portfolio property time series |
 | [**GetPortfolioRelations**](PortfoliosApi.md#getportfoliorelations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations |
-| [**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships |
-| [**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns |
+| [**GetPortfolioRelationships**](PortfoliosApi.md#getportfoliorelationships) | **GET** /api/portfolios/{scope}/{code}/relationships | GetPortfolioRelationships: Get portfolio relationships |
+| [**GetPortfolioReturns**](PortfoliosApi.md#getportfolioreturns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | GetPortfolioReturns: Get Returns |
 | [**GetPortfoliosAccessMetadataByKey**](PortfoliosApi.md#getportfoliosaccessmetadatabykey) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object |
 | [**ListInstrumentEventInstructions**](PortfoliosApi.md#listinstrumenteventinstructions) | **GET** /api/portfolios/{scope}/{code}/instrumenteventinstructions | [EARLY ACCESS] ListInstrumentEventInstructions: List Instrument Event Instructions |
 | [**ListPortfolioProperties**](PortfoliosApi.md#listportfolioproperties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EARLY ACCESS] ListPortfolioProperties: Get portfolio properties |
 | [**ListPortfolios**](PortfoliosApi.md#listportfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios |
 | [**ListPortfoliosForScope**](PortfoliosApi.md#listportfoliosforscope) | **GET** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope |
-| [**PatchPortfolio**](PortfoliosApi.md#patchportfolio) | **PATCH** /api/portfolios/{scope}/{code} | [EARLY ACCESS] PatchPortfolio: Patch portfolio. |
+| [**PatchPortfolio**](PortfoliosApi.md#patchportfolio) | **PATCH** /api/portfolios/{scope}/{code} | PatchPortfolio: Patch portfolio. |
 | [**PatchPortfolioAccessMetadata**](PortfoliosApi.md#patchportfolioaccessmetadata) | **PATCH** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] PatchPortfolioAccessMetadata: Patch Access Metadata rules for a Portfolio. |
 | [**UpdatePortfolio**](PortfoliosApi.md#updateportfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio |
 | [**UpsertInstrumentEventInstructions**](PortfoliosApi.md#upsertinstrumenteventinstructions) | **POST** /api/portfolios/{scope}/{code}/instrumenteventinstructions | [EARLY ACCESS] UpsertInstrumentEventInstructions: Upsert Instrument Event Instructions |
 | [**UpsertPortfolioAccessMetadata**](PortfoliosApi.md#upsertportfolioaccessmetadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID. |
 | [**UpsertPortfolioProperties**](PortfoliosApi.md#upsertportfolioproperties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties |
-| [**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns |
+| [**UpsertPortfolioReturns**](PortfoliosApi.md#upsertportfolioreturns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | UpsertPortfolioReturns: Upsert Returns |
 
 <a id="deleteinstrumenteventinstruction"></a>
 # **DeleteInstrumentEventInstruction**
@@ -141,7 +141,7 @@ catch (ApiException e)
 # **DeleteKeyFromPortfolioAccessMetadata**
 > DeletedEntityResponse DeleteKeyFromPortfolioAccessMetadata (string scope, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? effectiveUntil = null)
 
-[EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
 
 Delete the Portfolio Access Metadata Rule that exactly matches the provided identifier parts
 
@@ -173,7 +173,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+                // DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
                 DeletedEntityResponse result = apiInstance.DeleteKeyFromPortfolioAccessMetadata(scope, code, metadataKey, effectiveAt, effectiveUntil);
                 Debug.WriteLine(result);
             }
@@ -194,7 +194,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+    // DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteKeyFromPortfolioAccessMetadataWithHttpInfo(scope, code, metadataKey, effectiveAt, effectiveUntil);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1093,7 +1093,7 @@ catch (ApiException e)
 # **GetPortfolioAggregatedReturns**
 > AggregatedReturnsResponse GetPortfolioAggregatedReturns (string scope, string code, AggregatedReturnsRequest aggregatedReturnsRequest, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+GetPortfolioAggregatedReturns: Aggregated Returns
 
 Aggregate Returns which are on the specified portfolio.
 
@@ -1126,7 +1126,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+                // GetPortfolioAggregatedReturns: Aggregated Returns
                 AggregatedReturnsResponse result = apiInstance.GetPortfolioAggregatedReturns(scope, code, aggregatedReturnsRequest, fromEffectiveAt, toEffectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -1147,7 +1147,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+    // GetPortfolioAggregatedReturns: Aggregated Returns
     ApiResponse<AggregatedReturnsResponse> response = apiInstance.GetPortfolioAggregatedReturnsWithHttpInfo(scope, code, aggregatedReturnsRequest, fromEffectiveAt, toEffectiveAt, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1307,7 +1307,7 @@ catch (ApiException e)
 # **GetPortfolioMetadata**
 > Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt; GetPortfolioMetadata (string scope, string code, string? effectiveAt = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+GetPortfolioMetadata: Get access metadata rules for a portfolio
 
 Pass the scope and portfolio code parameters to retrieve the AccessMetadata associated with a portfolio
 
@@ -1338,7 +1338,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+                // GetPortfolioMetadata: Get access metadata rules for a portfolio
                 Dictionary<string, List<AccessMetadataValue>> result = apiInstance.GetPortfolioMetadata(scope, code, effectiveAt, asAt);
                 Debug.WriteLine(result);
             }
@@ -1359,7 +1359,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+    // GetPortfolioMetadata: Get access metadata rules for a portfolio
     ApiResponse<Dictionary<string, List<AccessMetadataValue>>> response = apiInstance.GetPortfolioMetadataWithHttpInfo(scope, code, effectiveAt, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1511,7 +1511,7 @@ catch (ApiException e)
 # **GetPortfolioPropertyTimeSeries**
 > ResourceListOfPropertyInterval GetPortfolioPropertyTimeSeries (string scope, string code, string propertyKey, string? portfolioEffectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, string? page = null, int? limit = null)
 
-[EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+GetPortfolioPropertyTimeSeries: Get portfolio property time series
 
 Show the complete time series (history) for a particular portfolio property.
 
@@ -1546,7 +1546,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+                // GetPortfolioPropertyTimeSeries: Get portfolio property time series
                 ResourceListOfPropertyInterval result = apiInstance.GetPortfolioPropertyTimeSeries(scope, code, propertyKey, portfolioEffectiveAt, asAt, filter, page, limit);
                 Debug.WriteLine(result);
             }
@@ -1567,7 +1567,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+    // GetPortfolioPropertyTimeSeries: Get portfolio property time series
     ApiResponse<ResourceListOfPropertyInterval> response = apiInstance.GetPortfolioPropertyTimeSeriesWithHttpInfo(scope, code, propertyKey, portfolioEffectiveAt, asAt, filter, page, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1727,7 +1727,7 @@ catch (ApiException e)
 # **GetPortfolioRelationships**
 > ResourceListOfRelationship GetPortfolioRelationships (string scope, string code, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? filter = null, List<string>? identifierTypes = null)
 
-[EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+GetPortfolioRelationships: Get portfolio relationships
 
 Get relationships for a particular portfolio.
 
@@ -1760,7 +1760,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+                // GetPortfolioRelationships: Get portfolio relationships
                 ResourceListOfRelationship result = apiInstance.GetPortfolioRelationships(scope, code, effectiveAt, asAt, filter, identifierTypes);
                 Debug.WriteLine(result);
             }
@@ -1781,7 +1781,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPortfolioRelationships: Get portfolio relationships
+    // GetPortfolioRelationships: Get portfolio relationships
     ApiResponse<ResourceListOfRelationship> response = apiInstance.GetPortfolioRelationshipsWithHttpInfo(scope, code, effectiveAt, asAt, filter, identifierTypes);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1833,7 +1833,7 @@ catch (ApiException e)
 # **GetPortfolioReturns**
 > ResourceListOfPerformanceReturn GetPortfolioReturns (string scope, string code, string returnScope, string returnCode, DateTimeOrCutLabel? fromEffectiveAt = null, DateTimeOrCutLabel? toEffectiveAt = null, string? period = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetPortfolioReturns: Get Returns
+GetPortfolioReturns: Get Returns
 
 Get Returns which are on the specified portfolio.
 
@@ -1868,7 +1868,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetPortfolioReturns: Get Returns
+                // GetPortfolioReturns: Get Returns
                 ResourceListOfPerformanceReturn result = apiInstance.GetPortfolioReturns(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt);
                 Debug.WriteLine(result);
             }
@@ -1889,7 +1889,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetPortfolioReturns: Get Returns
+    // GetPortfolioReturns: Get Returns
     ApiResponse<ResourceListOfPerformanceReturn> response = apiInstance.GetPortfolioReturnsWithHttpInfo(scope, code, returnScope, returnCode, fromEffectiveAt, toEffectiveAt, period, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2487,7 +2487,7 @@ catch (ApiException e)
 # **PatchPortfolio**
 > Portfolio PatchPortfolio (string scope, string code, List<Operation> operation)
 
-[EARLY ACCESS] PatchPortfolio: Patch portfolio.
+PatchPortfolio: Patch portfolio.
 
 Create or update certain fields for a particular  portfolio.  The behaviour is defined by the JSON Patch specification.                Currently supported are: CreationDate, InstrumentScopes.
 
@@ -2517,7 +2517,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+                // PatchPortfolio: Patch portfolio.
                 Portfolio result = apiInstance.PatchPortfolio(scope, code, operation);
                 Debug.WriteLine(result);
             }
@@ -2538,7 +2538,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] PatchPortfolio: Patch portfolio.
+    // PatchPortfolio: Patch portfolio.
     ApiResponse<Portfolio> response = apiInstance.PatchPortfolioWithHttpInfo(scope, code, operation);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -3103,7 +3103,7 @@ catch (ApiException e)
 # **UpsertPortfolioReturns**
 > UpsertReturnsResponse UpsertPortfolioReturns (string scope, string code, string returnScope, string returnCode, List<PerformanceReturn> performanceReturn)
 
-[EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+UpsertPortfolioReturns: Upsert Returns
 
 Update or insert returns into the specified portfolio.
 
@@ -3135,7 +3135,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+                // UpsertPortfolioReturns: Upsert Returns
                 UpsertReturnsResponse result = apiInstance.UpsertPortfolioReturns(scope, code, returnScope, returnCode, performanceReturn);
                 Debug.WriteLine(result);
             }
@@ -3156,7 +3156,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+    // UpsertPortfolioReturns: Upsert Returns
     ApiResponse<UpsertReturnsResponse> response = apiInstance.UpsertPortfolioReturnsWithHttpInfo(scope, code, returnScope, returnCode, performanceReturn);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

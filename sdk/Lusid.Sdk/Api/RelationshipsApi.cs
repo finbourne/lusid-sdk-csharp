@@ -30,7 +30,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship
+        /// CreateRelationship: Create Relationship
         /// </summary>
         /// <remarks>
         /// Create a relationship between two entity objects by their identifiers
@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Api
         CompleteRelationship CreateRelationship(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship
+        /// CreateRelationship: Create Relationship
         /// </summary>
         /// <remarks>
         /// Create a relationship between two entity objects by their identifiers
@@ -93,7 +93,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship
+        /// CreateRelationship: Create Relationship
         /// </summary>
         /// <remarks>
         /// Create a relationship between two entity objects by their identifiers
@@ -108,7 +108,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CompleteRelationship> CreateRelationshipAsync(string scope, string code, CreateRelationshipRequest createRelationshipRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship
+        /// CreateRelationship: Create Relationship
         /// </summary>
         /// <remarks>
         /// Create a relationship between two entity objects by their identifiers
@@ -268,7 +268,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
+        /// CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship</param>
@@ -283,7 +283,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
+        /// CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship</param>
@@ -378,7 +378,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
+        /// CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship</param>
@@ -394,7 +394,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
+        /// CreateRelationship: Create Relationship Create a relationship between two entity objects by their identifiers
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the relationship</param>

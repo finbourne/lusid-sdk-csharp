@@ -55,7 +55,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of AddBusinessDaysToDateResponse</returns>
         ApiResponse<AddBusinessDaysToDateResponse> AddBusinessDaysToDateWithHttpInfo(string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+        /// AddDateToCalendar: Add a date to a calendar
         /// </summary>
         /// <remarks>
         /// Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
@@ -69,7 +69,7 @@ namespace Lusid.Sdk.Api
         CalendarDate AddDateToCalendar(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+        /// AddDateToCalendar: Add a date to a calendar
         /// </summary>
         /// <remarks>
         /// Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
@@ -184,7 +184,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of List&lt;DateTimeOffset&gt;</returns>
         ApiResponse<List<DateTimeOffset>> GenerateScheduleWithHttpInfo(string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+        /// GetCalendar: Get a calendar in its generic form
         /// </summary>
         /// <remarks>
         /// Retrieve a generic calendar by a specific ID at a point in AsAt time
@@ -199,7 +199,7 @@ namespace Lusid.Sdk.Api
         Calendar GetCalendar(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+        /// GetCalendar: Get a calendar in its generic form
         /// </summary>
         /// <remarks>
         /// Retrieve a generic calendar by a specific ID at a point in AsAt time
@@ -306,7 +306,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfCalendar</returns>
         ApiResponse<PagedResourceListOfCalendar> ListCalendarsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+        /// ListCalendarsInScope: List all calenders in a specified scope
         /// </summary>
         /// <remarks>
         /// List calendars in a Scope at a point in AsAt time.
@@ -323,7 +323,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfCalendar ListCalendarsInScope(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+        /// ListCalendarsInScope: List all calenders in a specified scope
         /// </summary>
         /// <remarks>
         /// List calendars in a Scope at a point in AsAt time.
@@ -402,7 +402,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (AddBusinessDaysToDateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AddBusinessDaysToDateResponse>> AddBusinessDaysToDateWithHttpInfoAsync(string scope, AddBusinessDaysToDateRequest addBusinessDaysToDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+        /// AddDateToCalendar: Add a date to a calendar
         /// </summary>
         /// <remarks>
         /// Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
@@ -417,7 +417,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CalendarDate> AddDateToCalendarAsync(string scope, string code, CreateDateRequest createDateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+        /// AddDateToCalendar: Add a date to a calendar
         /// </summary>
         /// <remarks>
         /// Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
@@ -541,7 +541,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;DateTimeOffset&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<DateTimeOffset>>> GenerateScheduleWithHttpInfoAsync(string scope, ValuationSchedule valuationSchedule, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+        /// GetCalendar: Get a calendar in its generic form
         /// </summary>
         /// <remarks>
         /// Retrieve a generic calendar by a specific ID at a point in AsAt time
@@ -557,7 +557,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Calendar> GetCalendarAsync(string scope, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+        /// GetCalendar: Get a calendar in its generic form
         /// </summary>
         /// <remarks>
         /// Retrieve a generic calendar by a specific ID at a point in AsAt time
@@ -671,7 +671,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfCalendar)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfCalendar>> ListCalendarsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+        /// ListCalendarsInScope: List all calenders in a specified scope
         /// </summary>
         /// <remarks>
         /// List calendars in a Scope at a point in AsAt time.
@@ -689,7 +689,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfCalendar> ListCalendarsInScopeAsync(string scope, DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), List<string>? propertyKeys = default(List<string>?), string? filter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+        /// ListCalendarsInScope: List all calenders in a specified scope
         /// </summary>
         /// <remarks>
         /// List calendars in a Scope at a point in AsAt time.
@@ -1058,7 +1058,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -1073,7 +1073,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -1168,7 +1168,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -1184,7 +1184,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
+        /// AddDateToCalendar: Add a date to a calendar Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar</param>
@@ -2102,7 +2102,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
+        /// GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar identifier</param>
@@ -2118,7 +2118,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
+        /// GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar identifier</param>
@@ -2211,7 +2211,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
+        /// GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar identifier</param>
@@ -2228,7 +2228,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
+        /// GetCalendar: Get a calendar in its generic form Retrieve a generic calendar by a specific ID at a point in AsAt time
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendar identifier</param>
@@ -3008,7 +3008,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
+        /// ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendars</param>
@@ -3026,7 +3026,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
+        /// ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendars</param>
@@ -3126,7 +3126,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
+        /// ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendars</param>
@@ -3145,7 +3145,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
+        /// ListCalendarsInScope: List all calenders in a specified scope List calendars in a Scope at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the calendars</param>

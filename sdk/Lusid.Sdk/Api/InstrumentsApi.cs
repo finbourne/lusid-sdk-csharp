@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of BatchUpsertInstrumentPropertiesResponse</returns>
         ApiResponse<BatchUpsertInstrumentPropertiesResponse> BatchUpsertInstrumentPropertiesWithHttpInfo(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
+        /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
         /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
@@ -73,7 +73,7 @@ namespace Lusid.Sdk.Api
         DeleteInstrumentResponse DeleteInstrument(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
+        /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
         /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeleteInstrumentPropertiesResponse</returns>
         ApiResponse<DeleteInstrumentPropertiesResponse> DeleteInstrumentPropertiesWithHttpInfo(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+        /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
         /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
@@ -131,7 +131,7 @@ namespace Lusid.Sdk.Api
         DeleteInstrumentsResponse DeleteInstruments(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+        /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
         /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
@@ -684,7 +684,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (BatchUpsertInstrumentPropertiesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchUpsertInstrumentPropertiesResponse>> BatchUpsertInstrumentPropertiesWithHttpInfoAsync(Dictionary<string, UpsertInstrumentPropertyRequest> requestBody, string? scope = default(string?), DateTimeOrCutLabel? identifierEffectiveAt = default(DateTimeOrCutLabel?), string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
+        /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
         /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
@@ -699,7 +699,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeleteInstrumentResponse> DeleteInstrumentAsync(string identifierType, string identifier, string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument
+        /// DeleteInstrument: Soft delete a single instrument
         /// </summary>
         /// <remarks>
         /// Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
@@ -746,7 +746,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeleteInstrumentPropertiesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeleteInstrumentPropertiesResponse>> DeleteInstrumentPropertiesWithHttpInfoAsync(string identifierType, string identifier, List<string> requestBody, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+        /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
         /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
@@ -761,7 +761,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeleteInstrumentsResponse> DeleteInstrumentsAsync(List<string> requestBody, string? deleteMode = default(string?), string? scope = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments
+        /// DeleteInstruments: Soft or hard delete multiple instruments
         /// </summary>
         /// <remarks>
         /// Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
@@ -1648,7 +1648,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -1663,7 +1663,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -1751,7 +1751,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -1767,7 +1767,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
+        /// DeleteInstrument: Soft delete a single instrument Soft delete a particular instrument, as identified by a particular instrument identifier.                Once deleted, an instrument is marked as inactive and can no longer be referenced when creating or updating  transactions or holdings. You can still query existing transactions and holdings related to the  deleted instrument.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifierType">The unique identifier type to search, for example &#39;Figi&#39;.</param>
@@ -2106,7 +2106,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -2121,7 +2121,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -2210,7 +2210,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>
@@ -2226,7 +2226,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
+        /// DeleteInstruments: Soft or hard delete multiple instruments Deletes a number of instruments identified by LusidInstrumentId.                Soft deletion marks the instrument as inactive so it can no longer be referenced when creating or updating transactions or holdings. You can still query existing transactions and holdings related to the inactive instrument.                In addition to the above behaviour, hard deletion: (i) completely removes all external identifiers from the instrument; (ii) marks the instrument as &#39;Deleted&#39;; (iii) prepends the instrument&#39;s name with &#39;DELETED &#39;; (iv) prevents the instrument from being returned in list instruments queries.                Following hard deletion, an instrument may only be retrieved by making a direct get instrument request for the LusidInstrumentId. Instrument deletion cannot be undone. Please note that currency instruments cannot currently be deleted.  The maximum number of instruments that this method can delete per request is 2,000.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The list of lusidInstrumentId&#39;s to delete.</param>

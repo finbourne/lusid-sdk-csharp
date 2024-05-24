@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GenerateConfigurationRecipe**](AggregationApi.md#generateconfigurationrecipe) | **POST** /api/aggregation/{scope}/{code}/$generateconfigurationrecipe | [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio. |
-| [**GetQueryableKeys**](AggregationApi.md#getqueryablekeys) | **GET** /api/results/queryable/keys | [EARLY ACCESS] GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint. |
+| [**GetQueryableKeys**](AggregationApi.md#getqueryablekeys) | **GET** /api/results/queryable/keys | GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint. |
 | [**GetValuation**](AggregationApi.md#getvaluation) | **POST** /api/aggregation/$valuation | GetValuation: Perform valuation for a list of portfolios and/or portfolio groups |
 | [**GetValuationOfWeightedInstruments**](AggregationApi.md#getvaluationofweightedinstruments) | **POST** /api/aggregation/$valuationinlined | GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio |
 
@@ -113,7 +113,7 @@ catch (ApiException e)
 # **GetQueryableKeys**
 > ResourceListOfAggregationQuery GetQueryableKeys (string? page = null, int? limit = null, string? filter = null)
 
-[EARLY ACCESS] GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
+GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
 
 When a request is made for aggregation, the user needs to know what keys can be passed to it for queryable data. This endpoint allows to queries to provide the set of keys,  what they are and what they return.
 
@@ -143,7 +143,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
+                // GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
                 ResourceListOfAggregationQuery result = apiInstance.GetQueryableKeys(page, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -164,7 +164,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
+    // GetQueryableKeys: Query the set of supported \"addresses\" that can be queried from the aggregation endpoint.
     ApiResponse<ResourceListOfAggregationQuery> response = apiInstance.GetQueryableKeysWithHttpInfo(page, limit, filter);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

@@ -84,7 +84,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Execution</returns>
         ApiResponse<Execution> GetExecutionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions
+        /// ListExecutions: List Executions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
@@ -101,7 +101,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfExecution ListExecutions(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions
+        /// ListExecutions: List Executions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
@@ -117,7 +117,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfExecution</returns>
         ApiResponse<PagedResourceListOfExecution> ListExecutionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution
+        /// UpsertExecutions: Upsert Execution
         /// </summary>
         /// <remarks>
         /// Upsert; update existing executions with given ids, or create new executions otherwise.
@@ -129,7 +129,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfExecution UpsertExecutions(ExecutionSetRequest? executionSetRequest = default(ExecutionSetRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution
+        /// UpsertExecutions: Upsert Execution
         /// </summary>
         /// <remarks>
         /// Upsert; update existing executions with given ids, or create new executions otherwise.
@@ -207,7 +207,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Execution)</returns>
         System.Threading.Tasks.Task<ApiResponse<Execution>> GetExecutionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions
+        /// ListExecutions: List Executions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
@@ -225,7 +225,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfExecution> ListExecutionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions
+        /// ListExecutions: List Executions
         /// </summary>
         /// <remarks>
         /// Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
@@ -242,7 +242,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfExecution)</returns>
         System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfExecution>> ListExecutionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution
+        /// UpsertExecutions: Upsert Execution
         /// </summary>
         /// <remarks>
         /// Upsert; update existing executions with given ids, or create new executions otherwise.
@@ -255,7 +255,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfExecution> UpsertExecutionsAsync(ExecutionSetRequest? executionSetRequest = default(ExecutionSetRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution
+        /// UpsertExecutions: Upsert Execution
         /// </summary>
         /// <remarks>
         /// Upsert; update existing executions with given ids, or create new executions otherwise.
@@ -804,7 +804,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
+        /// ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)</param>
@@ -822,7 +822,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
+        /// ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)</param>
@@ -919,7 +919,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
+        /// ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)</param>
@@ -938,7 +938,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
+        /// ListExecutions: List Executions Fetch the last pre-AsAt date version of each execution in scope (does not fetch the entire history).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to retrieve the execution. Defaults to return the latest version of the execution if not specified. (optional)</param>
@@ -1038,7 +1038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
+        /// UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionSetRequest">The collection of execution requests. (optional)</param>
@@ -1051,7 +1051,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
+        /// UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionSetRequest">The collection of execution requests. (optional)</param>
@@ -1124,7 +1124,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
+        /// UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionSetRequest">The collection of execution requests. (optional)</param>
@@ -1138,7 +1138,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
+        /// UpsertExecutions: Upsert Execution Upsert; update existing executions with given ids, or create new executions otherwise.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionSetRequest">The collection of execution requests. (optional)</param>

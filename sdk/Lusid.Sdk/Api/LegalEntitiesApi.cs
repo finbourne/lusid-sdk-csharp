@@ -30,7 +30,7 @@ namespace Lusid.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+        /// DeleteLegalEntity: Delete Legal Entity
         /// </summary>
         /// <remarks>
         /// Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -44,7 +44,7 @@ namespace Lusid.Sdk.Api
         DeletedEntityResponse DeleteLegalEntity(string idTypeScope, string idTypeCode, string code, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+        /// DeleteLegalEntity: Delete Legal Entity
         /// </summary>
         /// <remarks>
         /// Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -152,7 +152,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         ApiResponse<DeletedEntityResponse> DeleteLegalEntityPropertiesWithHttpInfo(string idTypeScope, string idTypeCode, string code, List<string> propertyKeys, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
         /// </summary>
         /// <remarks>
         /// Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
@@ -168,7 +168,7 @@ namespace Lusid.Sdk.Api
         Dictionary<string, List<AccessMetadataValue>> GetAllLegalEntityAccessMetadata(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
         /// </summary>
         /// <remarks>
         /// Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
@@ -183,7 +183,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
         ApiResponse<Dictionary<string, List<AccessMetadataValue>>> GetAllLegalEntityAccessMetadataWithHttpInfo(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity
+        /// GetLegalEntity: Get Legal Entity
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a legal entity.
@@ -201,7 +201,7 @@ namespace Lusid.Sdk.Api
         LegalEntity GetLegalEntity(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity
+        /// GetLegalEntity: Get Legal Entity
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a legal entity.
@@ -251,7 +251,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of List&lt;AccessMetadataValue&gt;</returns>
         ApiResponse<List<AccessMetadataValue>> GetLegalEntityAccessMetadataByKeyWithHttpInfo(string idTypeScope, string idTypeCode, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
         /// </summary>
         /// <remarks>
         /// List the complete time series of a legal entity property.
@@ -270,7 +270,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfPropertyInterval GetLegalEntityPropertyTimeSeries(string idTypeScope, string idTypeCode, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
         /// </summary>
         /// <remarks>
         /// List the complete time series of a legal entity property.
@@ -288,7 +288,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfPropertyInterval</returns>
         ApiResponse<ResourceListOfPropertyInterval> GetLegalEntityPropertyTimeSeriesWithHttpInfo(string idTypeScope, string idTypeCode, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get relations for the specified Legal Entity
@@ -306,7 +306,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfRelation GetLegalEntityRelations(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get relations for the specified Legal Entity
@@ -323,7 +323,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfRelation</returns>
         ApiResponse<ResourceListOfRelation> GetLegalEntityRelationsWithHttpInfo(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get Relationships for the specified Legal Entity
@@ -341,7 +341,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfRelationship GetLegalEntityRelationships(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get Relationships for the specified Legal Entity
@@ -358,7 +358,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
         ApiResponse<ResourceListOfRelationship> GetLegalEntityRelationshipsWithHttpInfo(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities
+        /// ListAllLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List all legal entities which the user is entitled to see.
@@ -377,7 +377,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfLegalEntity ListAllLegalEntities(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities
+        /// ListAllLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List all legal entities which the user is entitled to see.
@@ -395,7 +395,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfLegalEntity</returns>
         ApiResponse<ResourceListOfLegalEntity> ListAllLegalEntitiesWithHttpInfo(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities
+        /// ListLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
@@ -416,7 +416,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfLegalEntity ListLegalEntities(string idTypeScope, string idTypeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities
+        /// ListLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
@@ -498,7 +498,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of LegalEntity</returns>
         ApiResponse<LegalEntity> SetLegalEntityIdentifiersWithHttpInfo(string idTypeScope, string idTypeCode, string code, SetLegalEntityIdentifiersRequest setLegalEntityIdentifiersRequest, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
+        /// SetLegalEntityProperties: Set Legal Entity Properties
         /// </summary>
         /// <remarks>
         /// Set properties of the legal entity.
@@ -513,7 +513,7 @@ namespace Lusid.Sdk.Api
         LegalEntity SetLegalEntityProperties(string idTypeScope, string idTypeCode, string code, SetLegalEntityPropertiesRequest setLegalEntityPropertiesRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
+        /// SetLegalEntityProperties: Set Legal Entity Properties
         /// </summary>
         /// <remarks>
         /// Set properties of the legal entity.
@@ -552,7 +552,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of UpsertLegalEntitiesResponse</returns>
         ApiResponse<UpsertLegalEntitiesResponse> UpsertLegalEntitiesWithHttpInfo(string successMode, Dictionary<string, UpsertLegalEntityRequest> requestBody, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+        /// UpsertLegalEntity: Upsert Legal Entity
         /// </summary>
         /// <remarks>
         /// Create or update a legal entity
@@ -564,7 +564,7 @@ namespace Lusid.Sdk.Api
         LegalEntity UpsertLegalEntity(UpsertLegalEntityRequest upsertLegalEntityRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+        /// UpsertLegalEntity: Upsert Legal Entity
         /// </summary>
         /// <remarks>
         /// Create or update a legal entity
@@ -619,7 +619,7 @@ namespace Lusid.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+        /// DeleteLegalEntity: Delete Legal Entity
         /// </summary>
         /// <remarks>
         /// Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -634,7 +634,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteLegalEntityAsync(string idTypeScope, string idTypeCode, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+        /// DeleteLegalEntity: Delete Legal Entity
         /// </summary>
         /// <remarks>
         /// Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
@@ -749,7 +749,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteLegalEntityPropertiesWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, List<string> propertyKeys, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
         /// </summary>
         /// <remarks>
         /// Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
@@ -766,7 +766,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<Dictionary<string, List<AccessMetadataValue>>> GetAllLegalEntityAccessMetadataAsync(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
         /// </summary>
         /// <remarks>
         /// Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
@@ -782,7 +782,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<Dictionary<string, List<AccessMetadataValue>>>> GetAllLegalEntityAccessMetadataWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity
+        /// GetLegalEntity: Get Legal Entity
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a legal entity.
@@ -801,7 +801,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<LegalEntity> GetLegalEntityAsync(string idTypeScope, string idTypeCode, string code, List<string>? propertyKeys = default(List<string>?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity
+        /// GetLegalEntity: Get Legal Entity
         /// </summary>
         /// <remarks>
         /// Retrieve the definition of a legal entity.
@@ -854,7 +854,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AccessMetadataValue&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AccessMetadataValue>>> GetLegalEntityAccessMetadataByKeyWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, string metadataKey, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
         /// </summary>
         /// <remarks>
         /// List the complete time series of a legal entity property.
@@ -874,7 +874,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfPropertyInterval> GetLegalEntityPropertyTimeSeriesAsync(string idTypeScope, string idTypeCode, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
         /// </summary>
         /// <remarks>
         /// List the complete time series of a legal entity property.
@@ -893,7 +893,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfPropertyInterval)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfPropertyInterval>> GetLegalEntityPropertyTimeSeriesWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, string propertyKey, DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? page = default(string?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get relations for the specified Legal Entity
@@ -912,7 +912,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfRelation> GetLegalEntityRelationsAsync(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get relations for the specified Legal Entity
@@ -930,7 +930,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfRelation)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelation>> GetLegalEntityRelationsWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get Relationships for the specified Legal Entity
@@ -949,7 +949,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfRelationship> GetLegalEntityRelationshipsAsync(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity
         /// </summary>
         /// <remarks>
         /// Get Relationships for the specified Legal Entity
@@ -967,7 +967,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfRelationship)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelationship>> GetLegalEntityRelationshipsWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities
+        /// ListAllLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List all legal entities which the user is entitled to see.
@@ -987,7 +987,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfLegalEntity> ListAllLegalEntitiesAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities
+        /// ListAllLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List all legal entities which the user is entitled to see.
@@ -1006,7 +1006,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfLegalEntity)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfLegalEntity>> ListAllLegalEntitiesWithHttpInfoAsync(DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities
+        /// ListLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
@@ -1028,7 +1028,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfLegalEntity> ListLegalEntitiesAsync(string idTypeScope, string idTypeCode, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities
+        /// ListLegalEntities: List Legal Entities
         /// </summary>
         /// <remarks>
         /// List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
@@ -1115,7 +1115,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (LegalEntity)</returns>
         System.Threading.Tasks.Task<ApiResponse<LegalEntity>> SetLegalEntityIdentifiersWithHttpInfoAsync(string idTypeScope, string idTypeCode, string code, SetLegalEntityIdentifiersRequest setLegalEntityIdentifiersRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
+        /// SetLegalEntityProperties: Set Legal Entity Properties
         /// </summary>
         /// <remarks>
         /// Set properties of the legal entity.
@@ -1131,7 +1131,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<LegalEntity> SetLegalEntityPropertiesAsync(string idTypeScope, string idTypeCode, string code, SetLegalEntityPropertiesRequest setLegalEntityPropertiesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties
+        /// SetLegalEntityProperties: Set Legal Entity Properties
         /// </summary>
         /// <remarks>
         /// Set properties of the legal entity.
@@ -1173,7 +1173,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (UpsertLegalEntitiesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<UpsertLegalEntitiesResponse>> UpsertLegalEntitiesWithHttpInfoAsync(string successMode, Dictionary<string, UpsertLegalEntityRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+        /// UpsertLegalEntity: Upsert Legal Entity
         /// </summary>
         /// <remarks>
         /// Create or update a legal entity
@@ -1186,7 +1186,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<LegalEntity> UpsertLegalEntityAsync(UpsertLegalEntityRequest upsertLegalEntityRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+        /// UpsertLegalEntity: Upsert Legal Entity
         /// </summary>
         /// <remarks>
         /// Create or update a legal entity
@@ -1352,7 +1352,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the legal entity identifier type.</param>
@@ -1367,7 +1367,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the legal entity identifier type.</param>
@@ -1458,7 +1458,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the legal entity identifier type.</param>
@@ -1474,7 +1474,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
+        /// DeleteLegalEntity: Delete Legal Entity Delete a legal entity. Deletion will be valid from the legal entity&#39;s creation datetime.  This means that the legal entity will no longer exist at any effective datetime from the asAt datetime of deletion.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">The scope of the legal entity identifier type.</param>
@@ -2318,7 +2318,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the Legal Entity identifier.</param>
@@ -2335,7 +2335,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the Legal Entity identifier.</param>
@@ -2436,7 +2436,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the Legal Entity identifier.</param>
@@ -2454,7 +2454,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
+        /// GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity Pass the Scope and Code of the Legal Entity identifier along with the Legal Entity code parameter to retrieve the associated Access Metadata
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the Legal Entity identifier.</param>
@@ -2558,7 +2558,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
+        /// GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -2577,7 +2577,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
+        /// GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -2688,7 +2688,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
+        /// GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -2708,7 +2708,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
+        /// GetLegalEntity: Get Legal Entity Retrieve the definition of a legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3080,7 +3080,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3100,7 +3100,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3219,7 +3219,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3240,7 +3240,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
+        /// GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series List the complete time series of a legal entity property.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3362,7 +3362,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3381,7 +3381,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3492,7 +3492,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3512,7 +3512,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
+        /// GetLegalEntityRelations: Get Relations for Legal Entity Get relations for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -3626,7 +3626,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity&#39;s identifier type.</param>
@@ -3645,7 +3645,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity&#39;s identifier type.</param>
@@ -3756,7 +3756,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity&#39;s identifier type.</param>
@@ -3776,7 +3776,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
+        /// GetLegalEntityRelationships: Get Relationships for Legal Entity Get Relationships for the specified Legal Entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity&#39;s identifier type.</param>
@@ -3890,7 +3890,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
+        /// ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the legal entities. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -3910,7 +3910,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
+        /// ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the legal entities. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -4017,7 +4017,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
+        /// ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the legal entities. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -4038,7 +4038,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
+        /// ListAllLegalEntities: List Legal Entities List all legal entities which the user is entitled to see.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="effectiveAt">The effective datetime or cut label at which to list the legal entities. Defaults to the current LUSID              system datetime if not specified. (optional)</param>
@@ -4148,7 +4148,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
+        /// ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -4170,7 +4170,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
+        /// ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -4293,7 +4293,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
+        /// ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -4316,7 +4316,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
+        /// ListLegalEntities: List Legal Entities List legal entities which has identifier of specific identifier type&#39;s scope and code, and satisfies filter criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -4950,7 +4950,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
+        /// SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -4966,7 +4966,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
+        /// SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -5069,7 +5069,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
+        /// SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -5086,7 +5086,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
+        /// SetLegalEntityProperties: Set Legal Entity Properties Set properties of the legal entity.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idTypeScope">Scope of the legal entity identifier type.</param>
@@ -5398,7 +5398,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
+        /// UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertLegalEntityRequest">Request to create or update a legal entity.</param>
@@ -5411,7 +5411,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
+        /// UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertLegalEntityRequest">Request to create or update a legal entity.</param>
@@ -5490,7 +5490,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
+        /// UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertLegalEntityRequest">Request to create or update a legal entity.</param>
@@ -5504,7 +5504,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
+        /// UpsertLegalEntity: Upsert Legal Entity Create or update a legal entity
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="upsertLegalEntityRequest">Request to create or update a legal entity.</param>

@@ -59,7 +59,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfApplicableInstrumentEvent</returns>
         ApiResponse<ResourceListOfApplicableInstrumentEvent> QueryApplicableInstrumentEventsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -71,7 +71,7 @@ namespace Lusid.Sdk.Api
         BucketedCashFlowResponse QueryBucketedCashFlows(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -203,7 +203,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfApplicableInstrumentEvent)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfApplicableInstrumentEvent>> QueryApplicableInstrumentEventsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), QueryApplicableInstrumentEventsRequest? queryApplicableInstrumentEventsRequest = default(QueryApplicableInstrumentEventsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -216,7 +216,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BucketedCashFlowResponse> QueryBucketedCashFlowsAsync(QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = default(QueryBucketedCashFlowsRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <remarks>
         /// Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
@@ -644,7 +644,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
@@ -657,7 +657,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
@@ -730,7 +730,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>
@@ -744,7 +744,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+        /// QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryBucketedCashFlowsRequest">The Query Information. (optional)</param>

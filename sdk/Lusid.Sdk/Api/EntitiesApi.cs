@@ -57,7 +57,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioEntity</returns>
         ApiResponse<PortfolioEntity> GetPortfolioByEntityUniqueIdWithHttpInfo(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
         /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
@@ -71,7 +71,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfChange GetPortfolioChanges(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
         /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
@@ -122,7 +122,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioEntity)</returns>
         System.Threading.Tasks.Task<ApiResponse<PortfolioEntity>> GetPortfolioByEntityUniqueIdWithHttpInfoAsync(string entityUniqueId, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
         /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
@@ -137,7 +137,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfChange> GetPortfolioChangesAsync(string scope, DateTimeOrCutLabel effectiveAt, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope.
         /// </summary>
         /// <remarks>
         /// Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
@@ -472,7 +472,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -487,7 +487,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -575,7 +575,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>
@@ -591,7 +591,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
+        /// GetPortfolioChanges: Get the next change to each portfolio in a scope. Gets the time of the next (earliest effective at) modification (correction and/or amendment) to each portfolio in a scope relative to a point in bitemporal time.  Includes changes from parent portfolios in different scopes.  Excludes changes from subscriptions (e.g corporate actions).
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope</param>

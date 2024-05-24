@@ -7,7 +7,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | [**DeleteAllocation**](AllocationsApi.md#deleteallocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation |
 | [**GetAllocation**](AllocationsApi.md#getallocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation |
 | [**ListAllocations**](AllocationsApi.md#listallocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations |
-| [**UpsertAllocations**](AllocationsApi.md#upsertallocations) | **POST** /api/allocations | [EARLY ACCESS] UpsertAllocations: Upsert Allocations |
+| [**UpsertAllocations**](AllocationsApi.md#upsertallocations) | **POST** /api/allocations | UpsertAllocations: Upsert Allocations |
 
 <a id="deleteallocation"></a>
 # **DeleteAllocation**
@@ -319,7 +319,7 @@ catch (ApiException e)
 # **UpsertAllocations**
 > ResourceListOfAllocation UpsertAllocations (AllocationSetRequest? allocationSetRequest = null)
 
-[EARLY ACCESS] UpsertAllocations: Upsert Allocations
+UpsertAllocations: Upsert Allocations
 
 Upsert; update existing allocations with given ids, or create new allocations otherwise.
 
@@ -347,7 +347,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+                // UpsertAllocations: Upsert Allocations
                 ResourceListOfAllocation result = apiInstance.UpsertAllocations(allocationSetRequest);
                 Debug.WriteLine(result);
             }
@@ -368,7 +368,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+    // UpsertAllocations: Upsert Allocations
     ApiResponse<ResourceListOfAllocation> response = apiInstance.UpsertAllocationsWithHttpInfo(allocationSetRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

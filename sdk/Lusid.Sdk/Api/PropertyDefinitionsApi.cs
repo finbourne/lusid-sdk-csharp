@@ -324,7 +324,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PropertyDefinition</returns>
         ApiResponse<PropertyDefinition> UpdatePropertyDefinitionWithHttpInfo(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
         /// </summary>
         /// <remarks>
         /// Create or update properties for a particular property definition
@@ -340,7 +340,7 @@ namespace Lusid.Sdk.Api
         BatchUpsertPropertyDefinitionPropertiesResponse UpsertPropertyDefinitionProperties(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
         /// </summary>
         /// <remarks>
         /// Create or update properties for a particular property definition
@@ -678,7 +678,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PropertyDefinition)</returns>
         System.Threading.Tasks.Task<ApiResponse<PropertyDefinition>> UpdatePropertyDefinitionWithHttpInfoAsync(string domain, string scope, string code, UpdatePropertyDefinitionRequest updatePropertyDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
         /// </summary>
         /// <remarks>
         /// Create or update properties for a particular property definition
@@ -695,7 +695,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<BatchUpsertPropertyDefinitionPropertiesResponse> UpsertPropertyDefinitionPropertiesAsync(string domain, string scope, string code, Dictionary<string, Property> requestBody, string? successMode = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition
         /// </summary>
         /// <remarks>
         /// Create or update properties for a particular property definition
@@ -3142,7 +3142,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
@@ -3159,7 +3159,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
@@ -3267,7 +3267,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>
@@ -3285,7 +3285,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
+        /// UpsertPropertyDefinitionProperties: Upsert properties to a property definition Create or update properties for a particular property definition
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">The domain of the specified property.</param>

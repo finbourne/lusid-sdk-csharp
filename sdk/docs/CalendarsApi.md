@@ -5,16 +5,16 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddBusinessDaysToDate**](CalendarsApi.md#addbusinessdaystodate) | **POST** /api/calendars/businessday/{scope}/add | [EARLY ACCESS] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date. |
-| [**AddDateToCalendar**](CalendarsApi.md#adddatetocalendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar |
+| [**AddDateToCalendar**](CalendarsApi.md#adddatetocalendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | AddDateToCalendar: Add a date to a calendar |
 | [**CreateCalendar**](CalendarsApi.md#createcalendar) | **POST** /api/calendars/generic | [EARLY ACCESS] CreateCalendar: Create a calendar in its generic form |
 | [**DeleteCalendar**](CalendarsApi.md#deletecalendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] DeleteCalendar: Delete a calendar |
 | [**DeleteDateFromCalendar**](CalendarsApi.md#deletedatefromcalendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [EARLY ACCESS] DeleteDateFromCalendar: Remove a date from a calendar |
 | [**GenerateSchedule**](CalendarsApi.md#generateschedule) | **POST** /api/calendars/schedule/{scope} | [EARLY ACCESS] GenerateSchedule: Generate an ordered schedule of dates. |
-| [**GetCalendar**](CalendarsApi.md#getcalendar) | **GET** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] GetCalendar: Get a calendar in its generic form |
+| [**GetCalendar**](CalendarsApi.md#getcalendar) | **GET** /api/calendars/generic/{scope}/{code} | GetCalendar: Get a calendar in its generic form |
 | [**GetDates**](CalendarsApi.md#getdates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [EARLY ACCESS] GetDates: Get dates for a specific calendar |
 | [**IsBusinessDateTime**](CalendarsApi.md#isbusinessdatetime) | **GET** /api/calendars/businessday/{scope}/{code} | [EARLY ACCESS] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot; |
 | [**ListCalendars**](CalendarsApi.md#listcalendars) | **GET** /api/calendars/generic | [EARLY ACCESS] ListCalendars: List Calendars |
-| [**ListCalendarsInScope**](CalendarsApi.md#listcalendarsinscope) | **GET** /api/calendars/generic/{scope} | [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope |
+| [**ListCalendarsInScope**](CalendarsApi.md#listcalendarsinscope) | **GET** /api/calendars/generic/{scope} | ListCalendarsInScope: List all calenders in a specified scope |
 | [**UpdateCalendar**](CalendarsApi.md#updatecalendar) | **POST** /api/calendars/generic/{scope}/{code} | [EARLY ACCESS] UpdateCalendar: Update a calendar |
 
 <a id="addbusinessdaystodate"></a>
@@ -119,7 +119,7 @@ catch (ApiException e)
 # **AddDateToCalendar**
 > CalendarDate AddDateToCalendar (string scope, string code, CreateDateRequest createDateRequest)
 
-[EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+AddDateToCalendar: Add a date to a calendar
 
 Add an event to the calendar. These Events can be a maximum of 24 hours and must be specified in UTC.  A local date will be calculated by the system and applied to the calendar before processing.
 
@@ -149,7 +149,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+                // AddDateToCalendar: Add a date to a calendar
                 CalendarDate result = apiInstance.AddDateToCalendar(scope, code, createDateRequest);
                 Debug.WriteLine(result);
             }
@@ -170,7 +170,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] AddDateToCalendar: Add a date to a calendar
+    // AddDateToCalendar: Add a date to a calendar
     ApiResponse<CalendarDate> response = apiInstance.AddDateToCalendarWithHttpInfo(scope, code, createDateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -613,7 +613,7 @@ catch (ApiException e)
 # **GetCalendar**
 > Calendar GetCalendar (string scope, string code, List<string>? propertyKeys = null, DateTimeOffset? asAt = null)
 
-[EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+GetCalendar: Get a calendar in its generic form
 
 Retrieve a generic calendar by a specific ID at a point in AsAt time
 
@@ -644,7 +644,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+                // GetCalendar: Get a calendar in its generic form
                 Calendar result = apiInstance.GetCalendar(scope, code, propertyKeys, asAt);
                 Debug.WriteLine(result);
             }
@@ -665,7 +665,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetCalendar: Get a calendar in its generic form
+    // GetCalendar: Get a calendar in its generic form
     ApiResponse<Calendar> response = apiInstance.GetCalendarWithHttpInfo(scope, code, propertyKeys, asAt);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1027,7 +1027,7 @@ catch (ApiException e)
 # **ListCalendarsInScope**
 > PagedResourceListOfCalendar ListCalendarsInScope (string scope, DateTimeOffset? asAt = null, string? page = null, int? limit = null, List<string>? propertyKeys = null, string? filter = null)
 
-[EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+ListCalendarsInScope: List all calenders in a specified scope
 
 List calendars in a Scope at a point in AsAt time.
 
@@ -1060,7 +1060,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+                // ListCalendarsInScope: List all calenders in a specified scope
                 PagedResourceListOfCalendar result = apiInstance.ListCalendarsInScope(scope, asAt, page, limit, propertyKeys, filter);
                 Debug.WriteLine(result);
             }
@@ -1081,7 +1081,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] ListCalendarsInScope: List all calenders in a specified scope
+    // ListCalendarsInScope: List all calenders in a specified scope
     ApiResponse<PagedResourceListOfCalendar> response = apiInstance.ListCalendarsInScopeWithHttpInfo(scope, asAt, page, limit, propertyKeys, filter);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

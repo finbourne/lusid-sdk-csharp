@@ -703,7 +703,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
         ApiResponse<VersionedResourceListOfTransaction> GetTransactionsForPortfolioGroupWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+        /// ListPortfolioGroups: List portfolio groups
         /// </summary>
         /// <remarks>
         /// List all the portfolio groups in a single scope.
@@ -723,7 +723,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfPortfolioGroup ListPortfolioGroups(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+        /// ListPortfolioGroups: List portfolio groups
         /// </summary>
         /// <remarks>
         /// List all the portfolio groups in a single scope.
@@ -829,7 +829,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of PortfolioGroupProperties</returns>
         ApiResponse<PortfolioGroupProperties> UpsertGroupPropertiesWithHttpInfo(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
@@ -846,7 +846,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfAccessMetadataValueOf UpsertPortfolioGroupAccessMetadata(string scope, string code, string metadataKey, UpsertPortfolioGroupAccessMetadataRequest upsertPortfolioGroupAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
@@ -1586,7 +1586,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
         System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsForPortfolioGroupWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+        /// ListPortfolioGroups: List portfolio groups
         /// </summary>
         /// <remarks>
         /// List all the portfolio groups in a single scope.
@@ -1607,7 +1607,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfPortfolioGroup> ListPortfolioGroupsAsync(string scope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? page = default(string?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+        /// ListPortfolioGroups: List portfolio groups
         /// </summary>
         /// <remarks>
         /// List all the portfolio groups in a single scope.
@@ -1720,7 +1720,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (PortfolioGroupProperties)</returns>
         System.Threading.Tasks.Task<ApiResponse<PortfolioGroupProperties>> UpsertGroupPropertiesWithHttpInfoAsync(string scope, string code, Dictionary<string, Property>? requestBody = default(Dictionary<string, Property>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
@@ -1738,7 +1738,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfAccessMetadataValueOf> UpsertPortfolioGroupAccessMetadataAsync(string scope, string code, string metadataKey, UpsertPortfolioGroupAccessMetadataRequest upsertPortfolioGroupAccessMetadataRequest, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? effectiveUntil = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
         /// </summary>
         /// <remarks>
         /// Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
@@ -7000,7 +7000,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
+        /// ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to list the portfolio groups in.</param>
@@ -7021,7 +7021,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
+        /// ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to list the portfolio groups in.</param>
@@ -7136,7 +7136,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
+        /// ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to list the portfolio groups in.</param>
@@ -7158,7 +7158,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
+        /// ListPortfolioGroups: List portfolio groups List all the portfolio groups in a single scope.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope to list the portfolio groups in.</param>
@@ -7960,7 +7960,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Group</param>
@@ -7978,7 +7978,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Group</param>
@@ -8091,7 +8091,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Group</param>
@@ -8110,7 +8110,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
+        /// UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID. Update or insert one Portfolio Group Access Metadata Entry in a single scope. An item will be updated if it already exists  and inserted if it does not.                The response will return the successfully updated or inserted Portfolio Group Access Metadata rule or failure message if unsuccessful.                It is important to always check to verify success (or failure).                Multiple rules for a metadataKey can exist with different effective at dates, when resources are accessed the rule that is active for the current time will be fetched.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the Portfolio Group</param>

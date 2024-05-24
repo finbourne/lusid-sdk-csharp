@@ -6,7 +6,7 @@ All URIs are relative to *https://www.lusid.com/api*
 |--------|--------------|-------------|
 | [**DeleteQuoteAccessMetadataRule**](QuotesApi.md#deletequoteaccessmetadatarule) | **DELETE** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule |
 | [**DeleteQuotes**](QuotesApi.md#deletequotes) | **POST** /api/quotes/{scope}/$delete | DeleteQuotes: Delete quotes |
-| [**GetQuotes**](QuotesApi.md#getquotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] GetQuotes: Get quotes |
+| [**GetQuotes**](QuotesApi.md#getquotes) | **POST** /api/quotes/{scope}/$get | GetQuotes: Get quotes |
 | [**GetQuotesAccessMetadataRule**](QuotesApi.md#getquotesaccessmetadatarule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule |
 | [**ListQuotes**](QuotesApi.md#listquotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] ListQuotes: List quotes |
 | [**ListQuotesAccessMetadataRules**](QuotesApi.md#listquotesaccessmetadatarules) | **GET** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope |
@@ -226,7 +226,7 @@ catch (ApiException e)
 # **GetQuotes**
 > GetQuotesResponse GetQuotes (string scope, DateTimeOrCutLabel? effectiveAt = null, DateTimeOffset? asAt = null, string? maxAge = null, Dictionary<string, QuoteSeriesId>? requestBody = null)
 
-[EARLY ACCESS] GetQuotes: Get quotes
+GetQuotes: Get quotes
 
 Get one or more quotes from a single scope.                Each quote can be identified by its time invariant quote series id.                For each quote series id LUSID will return the most recent quote with respect to the provided (or default) effective datetime.                 An optional maximum age range window can be specified which defines how far back to look back for a quote from the specified effective datetime.  LUSID will return the most recent quote within this window.                In the request each quote series id must be keyed by a unique correlation id. This id is ephemeral and is not stored by LUSID.  It serves only as a way to easily identify each quote in the response.                The response will return three collections. One, the successfully retrieved quotes. Two, those that had a  valid quote series id but could not be found. Three, those that failed because LUSID could not construct a valid quote series id from the request.    For the quotes that failed or could not be found a reason will be provided explaining why the quote could not be retrieved.                It is important to always check the failed and not found sets for any unsuccessful results.  The maximum number of quotes that this method can get per request is 2,000.
 
@@ -258,7 +258,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetQuotes: Get quotes
+                // GetQuotes: Get quotes
                 GetQuotesResponse result = apiInstance.GetQuotes(scope, effectiveAt, asAt, maxAge, requestBody);
                 Debug.WriteLine(result);
             }
@@ -279,7 +279,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EARLY ACCESS] GetQuotes: Get quotes
+    // GetQuotes: Get quotes
     ApiResponse<GetQuotesResponse> response = apiInstance.GetQuotesWithHttpInfo(scope, effectiveAt, asAt, maxAge, requestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

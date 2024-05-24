@@ -672,7 +672,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListWithWarningsOfPortfolioHolding</returns>
         ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding> GetHoldingsWithOrdersWithHttpInfo(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0);
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows
+        /// GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
@@ -693,7 +693,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfInstrumentCashFlow GetPortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0);
 
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows
+        /// GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
@@ -863,7 +863,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of VersionedResourceListOfTransaction</returns>
         ApiResponse<VersionedResourceListOfTransaction> GetTransactionsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
@@ -884,7 +884,7 @@ namespace Lusid.Sdk.Api
         ResourceListOfTransaction GetUpsertablePortfolioCashFlows(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0);
 
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
@@ -972,7 +972,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfHoldingsAdjustmentHeader</returns>
         ApiResponse<ResourceListOfHoldingsAdjustmentHeader> ListHoldingsAdjustmentsWithHttpInfo(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details
+        /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
         /// <remarks>
         /// Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
@@ -987,7 +987,7 @@ namespace Lusid.Sdk.Api
         PortfolioDetails PatchPortfolioDetails(string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details
+        /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
         /// <remarks>
         /// Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
@@ -1903,7 +1903,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListWithWarningsOfPortfolioHolding)</returns>
         System.Threading.Tasks.Task<ApiResponse<VersionedResourceListWithWarningsOfPortfolioHolding>> GetHoldingsWithOrdersWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), bool? byTaxlots = default(bool?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), int? includeSettlementEventsAfterDays = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows
+        /// GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
@@ -1925,7 +1925,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfInstrumentCashFlow> GetPortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows
+        /// GetPortfolioCashFlows: Get portfolio cash flows
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
@@ -2104,7 +2104,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (VersionedResourceListOfTransaction)</returns>
         System.Threading.Tasks.Task<ApiResponse<VersionedResourceListOfTransaction>> GetTransactionsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromTransactionDate = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toTransactionDate = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? propertyKeys = default(List<string>?), string? page = default(string?), int? limit = default(int?), bool? showCancelledTransactions = default(bool?), List<string>? sortBy = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
@@ -2126,7 +2126,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfTransaction> GetUpsertablePortfolioCashFlowsAsync(string scope, string code, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowStart = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? windowEnd = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), string? recipeIdScope = default(string?), string? recipeIdCode = default(string?), bool? excludeUnsettledTrades = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
         /// </summary>
         /// <remarks>
         /// Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
@@ -2219,7 +2219,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfHoldingsAdjustmentHeader)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfHoldingsAdjustmentHeader>> ListHoldingsAdjustmentsWithHttpInfoAsync(string scope, string code, DateTimeOrCutLabel? fromEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOrCutLabel? toEffectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details
+        /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
         /// <remarks>
         /// Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
@@ -2235,7 +2235,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PortfolioDetails> PatchPortfolioDetailsAsync(string scope, string code, List<Operation> operation, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details
+        /// PatchPortfolioDetails: Patch portfolio details
         /// </summary>
         /// <remarks>
         /// Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
@@ -7578,7 +7578,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
+        /// GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7600,7 +7600,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
+        /// GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7723,7 +7723,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
+        /// GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -7746,7 +7746,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
+        /// GetPortfolioCashFlows: Get portfolio cash flows Get the set of cash flows that occur in a window for the transaction portfolio&#39;s instruments.                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9000,7 +9000,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9022,7 +9022,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9145,7 +9145,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9168,7 +9168,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
+        /// GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows. Get the set of cash flows that occur in a window for the given portfolio instruments as a set of upsertable transactions (DTOs).                Note that grouping can affect the quantity of information returned; where a holding is an amalgamation of one or more (e.g. cash) instruments, a unique  transaction identifier will not be available. The same may go for diagnostic information (e.g. multiple sources of an aggregate cash amount on a date that is  not split out. Grouping at the transaction and instrument level is recommended for those seeking to attribute individual flows.                In essence this is identical to the &#39;GetCashFlows&#39; endpoint but returns the cash flows as a set of transactions suitable for directly putting back into LUSID.  There are a couple of important points:  (1) Internally it can not be fully known where the user wishes to insert these transactions, e.g. portfolio and movement type.      These are therefore defaulted to a sensible option; the user will likely need to change these.  (2) Similarly, knowledge of any properties the user might wish to add to a transaction are unknown and consequently left empty.  (3) The transaction id that is added is simply a concatenation of the original transaction id, instrument id and payment date and direction. The user can happily override this.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9798,7 +9798,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
+        /// PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9814,7 +9814,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
+        /// PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9914,7 +9914,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
+        /// PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>
@@ -9931,7 +9931,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
+        /// PatchPortfolioDetails: Patch portfolio details Create or update certain details for a particular transaction portfolio.  The behaviour is defined by the JSON Patch specification.                Note that not all elements of a transaction portfolio definition are  modifiable once it has been created due to the potential implications for data already stored.  Currently supported properties are: SubHoldingKeys, BaseCurrency, AmortisationMethod
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope of the transaction portfolio.</param>

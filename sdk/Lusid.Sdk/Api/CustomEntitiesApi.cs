@@ -127,7 +127,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;</returns>
         ApiResponse<Dictionary<string, List<AccessMetadataValue>>> GetAllCustomEntityAccessMetadataWithHttpInfo(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
+        /// GetCustomEntity: Get a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
@@ -146,7 +146,7 @@ namespace Lusid.Sdk.Api
         CustomEntityResponse GetCustomEntity(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
+        /// GetCustomEntity: Get a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
@@ -236,7 +236,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfRelationship</returns>
         ApiResponse<ResourceListOfRelationship> GetCustomEntityRelationshipsWithHttpInfo(string entityType, string identifierScope, string identifierType, string identifierValue, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
+        /// ListCustomEntities: List Custom Entities of the specified entityType.
         /// </summary>
         /// <remarks>
         /// List all the Custom Entities matching particular criteria.
@@ -256,7 +256,7 @@ namespace Lusid.Sdk.Api
         PagedResourceListOfCustomEntityResponse ListCustomEntities(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
+        /// ListCustomEntities: List Custom Entities of the specified entityType.
         /// </summary>
         /// <remarks>
         /// List all the Custom Entities matching particular criteria.
@@ -337,7 +337,7 @@ namespace Lusid.Sdk.Api
         /// <returns>ApiResponse of UpsertCustomEntitiesResponse</returns>
         ApiResponse<UpsertCustomEntitiesResponse> UpsertCustomEntitiesWithHttpInfo(string entityType, string successMode, Dictionary<string, CustomEntityRequest> requestBody, int operationIndex = 0);
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
+        /// UpsertCustomEntity: Upsert a Custom Entity instance
         /// </summary>
         /// <remarks>
         /// Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
@@ -350,7 +350,7 @@ namespace Lusid.Sdk.Api
         CustomEntityResponse UpsertCustomEntity(string entityType, CustomEntityRequest customEntityRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
+        /// UpsertCustomEntity: Upsert a Custom Entity instance
         /// </summary>
         /// <remarks>
         /// Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
@@ -511,7 +511,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AccessMetadataValue&gt;&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<Dictionary<string, List<AccessMetadataValue>>>> GetAllCustomEntityAccessMetadataWithHttpInfoAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
+        /// GetCustomEntity: Get a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
@@ -531,7 +531,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CustomEntityResponse> GetCustomEntityAsync(string entityType, string identifierType, string identifierValue, string identifierScope, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance.
+        /// GetCustomEntity: Get a Custom Entity instance.
         /// </summary>
         /// <remarks>
         /// Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
@@ -626,7 +626,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfRelationship)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceListOfRelationship>> GetCustomEntityRelationshipsWithHttpInfoAsync(string entityType, string identifierScope, string identifierType, string identifierValue, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? identifierTypes = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
+        /// ListCustomEntities: List Custom Entities of the specified entityType.
         /// </summary>
         /// <remarks>
         /// List all the Custom Entities matching particular criteria.
@@ -647,7 +647,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfCustomEntityResponse> ListCustomEntitiesAsync(string entityType, DateTimeOrCutLabel? effectiveAt = default(DateTimeOrCutLabel?), DateTimeOffset? asAt = default(DateTimeOffset?), int? limit = default(int?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), string? page = default(string?), List<string>? relatedEntityPropertyKeys = default(List<string>?), List<string>? relationshipDefinitionIds = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType.
+        /// ListCustomEntities: List Custom Entities of the specified entityType.
         /// </summary>
         /// <remarks>
         /// List all the Custom Entities matching particular criteria.
@@ -733,7 +733,7 @@ namespace Lusid.Sdk.Api
         /// <returns>Task of ApiResponse (UpsertCustomEntitiesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<UpsertCustomEntitiesResponse>> UpsertCustomEntitiesWithHttpInfoAsync(string entityType, string successMode, Dictionary<string, CustomEntityRequest> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
+        /// UpsertCustomEntity: Upsert a Custom Entity instance
         /// </summary>
         /// <remarks>
         /// Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
@@ -747,7 +747,7 @@ namespace Lusid.Sdk.Api
         System.Threading.Tasks.Task<CustomEntityResponse> UpsertCustomEntityAsync(string entityType, CustomEntityRequest customEntityRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance
+        /// UpsertCustomEntity: Upsert a Custom Entity instance
         /// </summary>
         /// <remarks>
         /// Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
@@ -1684,7 +1684,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
+        /// GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -1704,7 +1704,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
+        /// GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -1823,7 +1823,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
+        /// GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -1844,7 +1844,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
+        /// GetCustomEntity: Get a Custom Entity instance. Retrieve a Custom Entity instance by a specific entity type at a point in AsAt time.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to retrieve. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -2524,7 +2524,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
+        /// ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to list.</param>
@@ -2545,7 +2545,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
+        /// ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to list.</param>
@@ -2660,7 +2660,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
+        /// ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to list.</param>
@@ -2682,7 +2682,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
+        /// ListCustomEntities: List Custom Entities of the specified entityType. List all the Custom Entities matching particular criteria.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of Custom Entity to list.</param>
@@ -3308,7 +3308,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
+        /// UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the Custom Entity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -3322,7 +3322,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
+        /// UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the Custom Entity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -3409,7 +3409,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
+        /// UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the Custom Entity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>
@@ -3424,7 +3424,7 @@ namespace Lusid.Sdk.Api
         }
 
         /// <summary>
-        /// [EARLY ACCESS] UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
+        /// UpsertCustomEntity: Upsert a Custom Entity instance Insert the Custom Entity if it does not exist or update the Custom Entity with the supplied state if it does exist.
         /// </summary>
         /// <exception cref="Lusid.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityType">The type of the Custom Entity to be created. An entityType can be created using the \&quot;CreateCustomEntityDefinition\&quot; endpoint for CustomEntityDefinitions.</param>

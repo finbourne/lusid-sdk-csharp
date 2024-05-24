@@ -5,7 +5,7 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**QueryApplicableInstrumentEvents**](InstrumentEventsApi.md#queryapplicableinstrumentevents) | **POST** /api/instrumentevents/$queryApplicableInstrumentEvents | [EXPERIMENTAL] QueryApplicableInstrumentEvents: Returns a list of applicable instrument events based on the holdings of the portfolios and date range specified in the query. |
-| [**QueryBucketedCashFlows**](InstrumentEventsApi.md#querybucketedcashflows) | **POST** /api/instrumentevents/$queryBucketedCashFlows | [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. |
+| [**QueryBucketedCashFlows**](InstrumentEventsApi.md#querybucketedcashflows) | **POST** /api/instrumentevents/$queryBucketedCashFlows | QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query. |
 | [**QueryCashFlows**](InstrumentEventsApi.md#querycashflows) | **POST** /api/instrumentevents/$queryCashFlows | [EXPERIMENTAL] QueryCashFlows: Returns a list of cashflows based on the holdings of the portfolios and date range specified in the query. |
 | [**QueryInstrumentEvents**](InstrumentEventsApi.md#queryinstrumentevents) | **POST** /api/instrumentevents/$query | [EXPERIMENTAL] QueryInstrumentEvents: Returns a list of instrument events based on the holdings of the portfolios and date range specified in the query. |
 | [**QueryTradeTickets**](InstrumentEventsApi.md#querytradetickets) | **POST** /api/instrumentevents/$queryTradeTickets | [EXPERIMENTAL] QueryTradeTickets: Returns a list of trade tickets based on the holdings of the portfolios and date range specified in the query. |
@@ -116,7 +116,7 @@ catch (ApiException e)
 # **QueryBucketedCashFlows**
 > BucketedCashFlowResponse QueryBucketedCashFlows (QueryBucketedCashFlowsRequest? queryBucketedCashFlowsRequest = null)
 
-[EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
 
 Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
 
@@ -144,7 +144,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+                // QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
                 BucketedCashFlowResponse result = apiInstance.QueryBucketedCashFlows(queryBucketedCashFlowsRequest);
                 Debug.WriteLine(result);
             }
@@ -165,7 +165,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
+    // QueryBucketedCashFlows: Returns bucketed cashflows based on the holdings of the portfolios and date range specified in the query.
     ApiResponse<BucketedCashFlowResponse> response = apiInstance.QueryBucketedCashFlowsWithHttpInfo(queryBucketedCashFlowsRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
