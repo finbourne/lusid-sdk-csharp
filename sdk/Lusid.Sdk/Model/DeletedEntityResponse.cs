@@ -39,12 +39,16 @@ namespace Lusid.Sdk.Model
         /// <param name="href">The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime..</param>
         /// <param name="effectiveFrom">The effective datetime at which the deletion became valid. May be null in the case where multiple date times are applicable..</param>
         /// <param name="asAt">The asAt datetime at which the deletion was committed to LUSID. (required).</param>
+        /// <param name="entityType">The type of the entity that the deleted response applies to..</param>
+        /// <param name="entityUniqueId">The unique Id of the entity that the deleted response applies to..</param>
         /// <param name="links">links.</param>
-        public DeletedEntityResponse(string href = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), DateTimeOffset asAt = default(DateTimeOffset), List<Link> links = default(List<Link>))
+        public DeletedEntityResponse(string href = default(string), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), DateTimeOffset asAt = default(DateTimeOffset), string entityType = default(string), string entityUniqueId = default(string), List<Link> links = default(List<Link>))
         {
             this.AsAt = asAt;
             this.Href = href;
             this.EffectiveFrom = effectiveFrom;
+            this.EntityType = entityType;
+            this.EntityUniqueId = entityUniqueId;
             this.Links = links;
         }
 
@@ -70,6 +74,20 @@ namespace Lusid.Sdk.Model
         public DateTimeOffset AsAt { get; set; }
 
         /// <summary>
+        /// The type of the entity that the deleted response applies to.
+        /// </summary>
+        /// <value>The type of the entity that the deleted response applies to.</value>
+        [DataMember(Name = "entityType", EmitDefaultValue = true)]
+        public string EntityType { get; set; }
+
+        /// <summary>
+        /// The unique Id of the entity that the deleted response applies to.
+        /// </summary>
+        /// <value>The unique Id of the entity that the deleted response applies to.</value>
+        [DataMember(Name = "entityUniqueId", EmitDefaultValue = true)]
+        public string EntityUniqueId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name = "links", EmitDefaultValue = true)]
@@ -86,6 +104,8 @@ namespace Lusid.Sdk.Model
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
+            sb.Append("  EntityType: ").Append(EntityType).Append("\n");
+            sb.Append("  EntityUniqueId: ").Append(EntityUniqueId).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -138,6 +158,16 @@ namespace Lusid.Sdk.Model
                     this.AsAt.Equals(input.AsAt))
                 ) && 
                 (
+                    this.EntityType == input.EntityType ||
+                    (this.EntityType != null &&
+                    this.EntityType.Equals(input.EntityType))
+                ) && 
+                (
+                    this.EntityUniqueId == input.EntityUniqueId ||
+                    (this.EntityUniqueId != null &&
+                    this.EntityUniqueId.Equals(input.EntityUniqueId))
+                ) && 
+                (
                     this.Links == input.Links ||
                     this.Links != null &&
                     input.Links != null &&
@@ -165,6 +195,14 @@ namespace Lusid.Sdk.Model
                 if (this.AsAt != null)
                 {
                     hashCode = (hashCode * 59) + this.AsAt.GetHashCode();
+                }
+                if (this.EntityType != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityType.GetHashCode();
+                }
+                if (this.EntityUniqueId != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityUniqueId.GetHashCode();
                 }
                 if (this.Links != null)
                 {

@@ -5,18 +5,18 @@ All URIs are relative to *https://www.lusid.com/api*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AcceptEstimatePoint**](FundsApi.md#acceptestimatepoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$acceptestimate | [EXPERIMENTAL] AcceptEstimatePoint: Accepts an Estimate Valuation Point. |
-| [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fee/{feeCode} | [EXPERIMENTAL] CreateFee: Create a Fee. |
+| [**CreateFee**](FundsApi.md#createfee) | **POST** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] CreateFee: Create a Fee. |
 | [**CreateFund**](FundsApi.md#createfund) | **POST** /api/funds/{scope} | [EXPERIMENTAL] CreateFund: Create a Fund. |
-| [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fee/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
+| [**DeleteFee**](FundsApi.md#deletefee) | **DELETE** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] DeleteFee: Delete a Fee. |
 | [**DeleteFund**](FundsApi.md#deletefund) | **DELETE** /api/funds/{scope}/{code} | [EXPERIMENTAL] DeleteFund: Delete a Fund. |
 | [**DeleteValuationPoint**](FundsApi.md#deletevaluationpoint) | **DELETE** /api/funds/{scope}/{code}/valuationpoints/{diaryEntryCode} | [EXPERIMENTAL] DeleteValuationPoint: Delete a Valuation Point. |
 | [**FinaliseCandidateValuation**](FundsApi.md#finalisecandidatevaluation) | **POST** /api/funds/{scope}/{code}/valuationpoints/$finalisecandidate | [EXPERIMENTAL] FinaliseCandidateValuation: Finalise Candidate. |
-| [**GetFee**](FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fee/{feeCode} | [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. |
+| [**GetFee**](FundsApi.md#getfee) | **GET** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] GetFee: Get a Fee for a specified Fund. |
 | [**GetFund**](FundsApi.md#getfund) | **GET** /api/funds/{scope}/{code} | [EXPERIMENTAL] GetFund: Get a Fund. |
 | [**GetValuationPointData**](FundsApi.md#getvaluationpointdata) | **POST** /api/funds/{scope}/{code}/valuationpoints | [EXPERIMENTAL] GetValuationPointData: Get Valuation Point Data for a Fund. |
-| [**ListFees**](FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fee | [EXPERIMENTAL] ListFees: List Fees for a specified Fund. |
+| [**ListFees**](FundsApi.md#listfees) | **GET** /api/funds/{scope}/{code}/fees | [EXPERIMENTAL] ListFees: List Fees for a specified Fund. |
 | [**ListFunds**](FundsApi.md#listfunds) | **GET** /api/funds | [EXPERIMENTAL] ListFunds: List Funds. |
-| [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fee/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
+| [**PatchFee**](FundsApi.md#patchfee) | **PATCH** /api/funds/{scope}/{code}/fees/{feeCode} | [EXPERIMENTAL] PatchFee: Patch Fee. |
 | [**SetShareClassInstruments**](FundsApi.md#setshareclassinstruments) | **PUT** /api/funds/{scope}/{code}/shareclasses | [EXPERIMENTAL] SetShareClassInstruments: Set the ShareClass Instruments on a fund. |
 | [**UpsertFundProperties**](FundsApi.md#upsertfundproperties) | **POST** /api/funds/{scope}/{code}/properties/$upsert | [EXPERIMENTAL] UpsertFundProperties: Upsert Fund properties. |
 | [**UpsertValuationPoint**](FundsApi.md#upsertvaluationpoint) | **POST** /api/funds/{scope}/{code}/valuationpoints/$upsert | [EXPERIMENTAL] UpsertValuationPoint: Upsert Valuation Point. |

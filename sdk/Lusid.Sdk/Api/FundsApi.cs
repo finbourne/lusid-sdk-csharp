@@ -1445,7 +1445,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Fee>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFee", localVarResponse);
@@ -1567,7 +1567,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Fee>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1880,7 +1880,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFee", localVarResponse);
@@ -1989,7 +1989,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2752,7 +2752,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Fee>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFee", localVarResponse);
@@ -2879,7 +2879,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Fee>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3489,7 +3489,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfFee>("/api/funds/{scope}/{code}/fee", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfFee>("/api/funds/{scope}/{code}/fees", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFees", localVarResponse);
@@ -3631,7 +3631,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfFee>("/api/funds/{scope}/{code}/fee", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfFee>("/api/funds/{scope}/{code}/fees", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3997,7 +3997,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<Fee>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PatchFee", localVarResponse);
@@ -4119,7 +4119,7 @@ namespace Lusid.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<Fee>("/api/funds/{scope}/{code}/fee/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Fee>("/api/funds/{scope}/{code}/fees/{feeCode}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
