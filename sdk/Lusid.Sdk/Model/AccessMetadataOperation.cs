@@ -29,9 +29,9 @@ namespace Lusid.Sdk.Model
     public partial class AccessMetadataOperation : IEquatable<AccessMetadataOperation>, IValidatableObject
     {
         /// <summary>
-        /// The available values are: add
+        /// The available values are: add, remove
         /// </summary>
-        /// <value>The available values are: add</value>
+        /// <value>The available values are: add, remove</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OpEnum
         {
@@ -39,15 +39,21 @@ namespace Lusid.Sdk.Model
             /// Enum Add for value: add
             /// </summary>
             [EnumMember(Value = "add")]
-            Add = 1
+            Add = 1,
+
+            /// <summary>
+            /// Enum Remove for value: remove
+            /// </summary>
+            [EnumMember(Value = "remove")]
+            Remove = 2
 
         }
 
 
         /// <summary>
-        /// The available values are: add
+        /// The available values are: add, remove
         /// </summary>
-        /// <value>The available values are: add</value>
+        /// <value>The available values are: add, remove</value>
         [DataMember(Name = "op", IsRequired = true, EmitDefaultValue = true)]
         public OpEnum Op { get; set; }
         /// <summary>
@@ -60,7 +66,7 @@ namespace Lusid.Sdk.Model
         /// </summary>
         /// <param name="value">value (required).</param>
         /// <param name="path">path (required).</param>
-        /// <param name="op">The available values are: add (required).</param>
+        /// <param name="op">The available values are: add, remove (required).</param>
         /// <param name="from">from.</param>
         public AccessMetadataOperation(List<AccessMetadataValue> value = default(List<AccessMetadataValue>), string path = default(string), OpEnum op = default(OpEnum), string from = default(string))
         {

@@ -32,7 +32,13 @@ namespace Lusid.Sdk.Model
         /// Enum Add for value: add
         /// </summary>
         [EnumMember(Value = "add")]
-        Add = 1
+        Add = 1,
+
+        /// <summary>
+        /// Enum Remove for value: remove
+        /// </summary>
+        [EnumMember(Value = "remove")]
+        Remove = 2
 
     }
 
